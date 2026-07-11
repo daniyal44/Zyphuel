@@ -1,0 +1,665 @@
+About us 
+
+// import { useNavigate } from 'react-router-dom';
+// import { useScrollReveal } from '../hooks/useScrollReveal';
+
+// export default function AboutPage() {
+//   const pageRef = useScrollReveal();
+//   const navigate = useNavigate();
+
+//   return (
+//     <div ref={pageRef}>
+//       <main style={{ paddingTop: 'var(--nav-height)' }}>
+
+//         {/* Story Section */}
+//         <section id="about" className="about section-padding">
+//           <div className="container" style={{ maxWidth: '900px' }}>
+//             <div className="fade-in-up">
+              
+
+//               <div className="about-header-logo-row">
+//                 <img src="/images/Zyphuel-logo.png" alt="Zyphuel Company Logo" className="about-company-logo" />
+//                 <h1 className="section-title">Fuel Delivery & Mobile Refueling Solutions</h1>
+//               </div>
+
+//               <div className="story-desktop-copy">
+//                 <p className="about-story" style={{ marginBottom: '16px' }}>
+//                   Zyphuel is a Lahore-based fuel services agency revolutionizing how Pakistan keeps running. Instead of making customers idle in long lines or managing hazardous jerrycans, Zyphuel delivers high-quality fuel directly to vehicles and equipment, wherever they are. Our fleet of professional tanker trucks comes to you on schedule, ensuring you save time, cut costs, and avoid downtime. This on-demand fuel delivery model boosts productivity for fleets, farms, and businesses: by refueling during downtime, clients free their teams to focus on core work, not fueling logistics.
+//                 </p>
+//                 <p className="about-story" style={{ marginBottom: '24px' }}>
+//                   Every Zyphuel delivery is handled with certified safety standards and digital tracking, so you always know your fuel quality and delivery status. We use advanced logistics and scheduling software (and a mobile app) to optimize routes, meaning faster response times and fewer miles on the road. Beyond convenience, our service helps the environment by reducing extra trips to gas stations – lowering emissions and fuel waste. In short, Zyphuel brings fuel on demand: reliable, safe, and right where you need it.
+//                 </p>
+//               </div>
+
+//               <div className="story-mobile-copy">
+//                 <p className="about-story" style={{ fontWeight: '700', marginBottom: '14px' }}>
+//                   Zyphuel brings fuel to you on demand – no lines, no hassle.
+//                 </p>
+//                 <ul className="story-mobile-bullets" style={{ paddingLeft: '20px', marginBottom: '24px', listStyleType: 'disc' }}>
+//                   <li style={{ marginBottom: '8px', color: 'var(--text-secondary)' }}>Our tanker trucks come to your location with certified, top-grade fuel.</li>
+//                   <li style={{ marginBottom: '8px', color: 'var(--text-secondary)' }}>Enjoy more uptime: fuel arrives during your downtime, so your vehicles and equipment stay on schedule.</li>
+//                   <li style={{ marginBottom: '8px', color: 'var(--text-secondary)' }}>Get a quick quote or schedule delivery easily through our app or website.</li>
+//                   <li style={{ color: 'var(--text-secondary)' }}>Reliable service and safety compliance as standard.</li>
+//                 </ul>
+//               </div>
+
+//               <div style={{ marginBottom: '35px' }}>
+//                 <button 
+//                   onClick={() => {
+//                     navigate('/order');
+//                     window.scrollTo(0, 0);
+//                   }} 
+//                   className="btn btn-primary"
+//                   style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+//                 >
+//                   <i className="fa-solid fa-truck-fast"></i> Schedule Your First Delivery
+//                 </button>
+//               </div>
+
+//               <div className="about-values-grid">
+//                 <div className="value-item">
+//                   <span className="value-icon"><i className="fa-solid fa-truck-ramp-box"></i></span>
+//                   <h4 className="value-title">On-Demand Logistics</h4>
+//                   <p className="value-desc">Certified fleet refuels vehicles and equipment during downtime.</p>
+//                 </div>
+//                 <div className="value-item">
+//                   <span className="value-icon"><i className="fa-solid fa-scale-balanced"></i></span>
+//                   <h4 className="value-title">Uptime Transparency</h4>
+//                   <p className="value-desc">Calibrated digital flow meters show precise volumetric billing.</p>
+//                 </div>
+//                 <div className="value-item">
+//                   <span className="value-icon"><i className="fa-solid fa-shield-halved"></i></span>
+//                   <h4 className="value-title">Safety Compliance</h4>
+//                   <p className="value-desc">Strict adherence to HAZMAT, NFPA 30A, and EPA guidelines.</p>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+
+//         {/* Founder Section */}
+//         <section className="about-founder section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-color)' }}>
+//           <div className="container">
+//             <div className="founder-grid fade-in-up">
+
+//               <div className="founder-image-col">
+//                 <div className="founder-card-frame">
+//                   <img src="/images/daniyal.jpeg" alt="Muhammad Daniyal - Founder & CEO" className="founder-avatar-img" />
+//                   <div className="founder-badge">Founder & CEO</div>
+//                 </div>
+//               </div>
+
+//               <div className="founder-info-col">
+//                 <div className="hero-subtitle-badge" style={{ backgroundColor: 'var(--brand-petrol)', borderColor: 'rgba(58,134,200,0.15)', color: '#1a4f7c' }}>
+//                   <span>Visionary Leadership</span>
+//                 </div>
+//                 <h2 className="section-title" style={{ marginBottom: '16px' }}>Muhammad Daniyal</h2>
+//                 <h4 className="founder-subtitle">Founder & CEO, Zyphuel</h4>
+//                 <p className="founder-bio">
+//                   Muhammad Daniyal is the visionary founder leading Zyphuel. Recognizing the persistent energy delivery bottlenecks in Pakistan—from home backup generators during grid outages to logistical disruptions in commercial fleet management—he designed an on-demand, mobile refuelling network. Under his supervision, Zyphuel is setting new benchmarks for fuel safety, transparency, and consumer convenience.
+//                 </p>
+//                 <div className="founder-quote-box">
+//                   <i className="fa-solid fa-quote-left quote-icon"></i>
+//                   <p className="founder-quote-text">
+//                     "We are bringing technology and efficiency directly to the fueling nozzle. No lines, no delay, and complete digital transparency with every drop delivered."
+//                   </p>
+//                 </div>
+//               </div>
+
+//             </div>
+//           </div>
+//         </section>
+
+//         {/* Partner Section */}
+//         <section className="about-partner section-padding" style={{ borderTop: '1px solid var(--border-color)' }}>
+//           <div className="container">
+//             <div className="partner-grid fade-in-up">
+
+//               <div className="partner-info-col">
+//                 <div className="hero-subtitle-badge" style={{ backgroundColor: 'rgba(168, 85, 247, 0.1)', borderColor: 'rgba(168, 85, 247, 0.2)', color: '#7e22ce' }}>
+//                   <span>Growth & Tech Partner</span>
+//                 </div>
+//                 <h2 className="section-title" style={{ marginBottom: '16px' }}>Strategic Business Partner</h2>
+//                 <h4 className="partner-company-name">Scale Verse</h4>
+//                 <p className="partner-description">
+//                   Scale Verse is Zyphuel's primary technology and design alliance. The user interfaces, digital dashboards, logistics platforms, and scaling operations that power our 24/7 delivery services were engineered in collaboration with Scale Verse's executive team.
+//                 </p>
+
+//                 <div className="partner-meta-box">
+//                   <div className="partner-meta-item">
+//                     <span className="partner-meta-label">Website:</span>
+//                     <a href="https://scaleverse.app" target="_blank" rel="noopener noreferrer" className="partner-website-link">
+//                       scaleverse.app <i className="fa-solid fa-arrow-up-right-from-square"></i>
+//                     </a>
+//                   </div>
+
+//                   <div className="partner-founder-profile">
+//                     <img src="/images/umar.jpeg" alt="Muhammad Umer Farooq - Founder of Scaleverse" className="partner-founder-avatar" />
+//                     <div className="partner-founder-details">
+//                       <span className="partner-founder-badge">Scale Verse</span>
+//                       <h4 className="partner-founder-fullname">Muhammad Umer Farooq</h4>
+//                       <p className="partner-founder-designation">Founder of Scaleverse</p>
+//                     </div>
+//                   </div>
+//                   <div className="partner-founder-profile">
+//                     <img src="/images/rauf.jpeg" alt="Abdul Rauf - Co-Founder of Scaleverse" className="partner-founder-avatar" />
+//                     <div className="partner-founder-details">
+//                       <span className="partner-founder-badge">Scale Verse</span>
+//                       <h4 className="partner-founder-fullname">Abdul Rauf</h4>
+//                       <p className="partner-founder-designation">CO-Founder of Scaleverse</p>
+//                     </div>
+//                   </div>
+//                 </div>
+//               </div>
+
+//               <div className="partner-preview-col">
+//                 <div className="browser-mockup-frame">
+//                   <div className="browser-header-bar">
+//                     <span className="browser-header-dot red"></span>
+//                     <span className="browser-header-dot yellow"></span>
+//                     <span className="browser-header-dot green"></span>
+//                     <span className="browser-address-field">https://scaleverse.app</span>
+//                   </div>
+//                   <div className="browser-body-content">
+//                     <a href="https://scaleverse.app" target="_blank" rel="noopener noreferrer" className="partner-link-block">
+//                       <img src="/images/scaleverse-preview.jpg" alt="Scaleverse Web Portal Preview" className="partner-mockup-img" />
+//                       <div className="browser-hover-overlay">
+//                         <span>Visit scaleverse.app <i className="fa-solid fa-up-right-from-square"></i></span>
+//                       </div>
+//                     </a>
+//                   </div>
+//                 </div>
+//               </div>
+
+//             </div>
+//           </div>
+//         </section>
+
+//         {/* Strategic Collaboration Post Section */}
+//         <section className="about-collaboration section-padding" style={{ backgroundColor: '#faf5ff', borderTop: '1px solid var(--border-color)' }}>
+//           <div className="container">
+//             <div className="collaboration-post-container fade-in-up">
+//               <div className="collaboration-post-header">
+//                 <div className="collab-badge-row">
+//                   <span className="collab-badge badge-zyphuel">Zyphuel</span>
+//                   <span className="collab-divider"><i className="fa-solid fa-handshake"></i></span>
+//                   <span className="collab-badge badge-scaleverse">Scale Verse</span>
+//                 </div>
+//                 <div className="collab-meta">
+//                   <span className="collab-location"><i className="fa-solid fa-earth-americas"></i> Lahore &amp; London</span>
+//                   <span className="collab-date"><i className="fa-solid fa-calendar-days"></i> July 2026</span>
+//                 </div>
+//               </div>
+              
+//               <div className="collaboration-post-content">
+//                 <h3 className="collab-post-title">
+//                   Strategic Announcement: Scale Verse × Zyphuel Partner to Accelerate Next-Generation Energy Mobility
+//                 </h3>
+//                 <p className="collab-post-paragraph">
+//                   <strong>Scale Verse</strong>, a premier global digital engineering and product acceleration firm, today announced a long-term technology partnership with <strong>Zyphuel</strong>, Pakistan's leading digital platform for on-demand fuel and petrol delivery. This strategic alliance focuses on optimizing Zyphuel's smart logistics backbone, real-time routing engines, and consumer telemetry dashboards.
+//                 </p>
+//                 <p className="collab-post-paragraph">
+//                   Through this alliance, Scale Verse's executive product team will design and engineer scalable web architectures, IoT-calibrated fuel meter integrations, and predictive supply chain dispatch dashboards for Zyphuel. By merging Scale Verse's international software design principles with Zyphuel's hyper-local distribution network in Lahore, the partnership represents a major milestone in modernizing fuel logistics in the region.
+//                 </p>
+//                 <p className="collab-post-paragraph font-italic">
+//                   "This collaboration is a testament to what happens when local operational expertise meets world-class engineering standards. Scale Verse is proud to assist Zyphuel in scaling its platform and delivering seamless, transparent refueling solutions to thousands of customers."
+//                   <br />
+//                   <span className="collab-sign">— Joint Executive Board Statement</span>
+//                 </p>
+//               </div>
+              
+//               <div className="collaboration-post-footer">
+//                 <span className="collab-category">Global Expansion Initiative</span>
+//                 <div className="collab-share-info">
+//                   <span>Official Release</span>
+//                   <i className="fa-solid fa-circle-check verify-icon"></i>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+
+//       </main>
+//     </div>
+//   );
+// }
+
+
+                Home code 7/9/2026
+
+
+
+
+import { useState, useEffect, memo } from 'react'
+import { Link } from 'react-router-dom'
+import { useScrollReveal } from '../hooks/useScrollReveal'
+import GeometricalBirds from '../components/GeometricalBirds'
+import HeroGraphic from '../components/HeroGraphic'
+
+// --- CONSTANTS & MOCK DATA ---
+const ARTICLES = [
+  {
+    id: 1,
+    category: 'Zyphuel Energy',
+    categoryClass: 'zyphuel',
+    title: "The Future of Fueling: How On-Demand Fuel Delivery is Transforming Lahore's Logistics",
+    summary: "Explore how mobile fuel delivery is eliminating long queues at petrol stations, reducing urban emissions, and reshaping energy logistics across Pakistan's major business hubs.",
+    date: 'July 6, 2026',
+    readTime: '6 min read',
+    author: 'Zyphuel Logistics Team',
+    authorIcon: 'fa-solid fa-truck-droplet',
+    image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80',
+    tags: ['MobilePetrol', 'EnergyMobility', 'LahoreLogistics'],
+    content: [
+      "On-demand fuel delivery is no longer a futuristic concept—it is a rapidly growing reality in urban centers like Lahore. By bridging the gap between oil depots and end-consumers, mobile refueling services are solving core municipal and logistics challenges.",
+      "Traditional fueling requires driving to a gas station, standing in long queues, and wasting valuable fuel and time. Zyphuel's digital platform allows individuals and fleet managers to request fuel delivery with a simple click. A micro-refueling truck equipped with calibrated digital telemetry arrives at the location to dispense fuel directly into the vehicle.",
+      "To optimize logistics with our dedicated, yet limited delivery staff, Zyphuel implements a structured payment policy: smaller orders of 5 to 10 Litres are processed via Cash on Delivery (COD) for maximum local convenience, whereas orders exceeding 10 Litres require Advance Payment for security and priority dispatch.",
+      "From an environmental standpoint, this reduces congestion and idle emissions at petrol stations. Furthermore, Zyphuel ensures the highest standards of safety, utilizing double-walled tanks and strict spill-prevention protocols. The future of energy mobility is decentralized, transparent, and built on convenience."
+    ]
+  },
+  {
+    id: 2,
+    category: 'Scale Verse Tech',
+    categoryClass: 'scaleverse',
+    title: 'Scaling the Digital Frontier: How Scale Verse Accelerates Product Engineering for High-Growth Startups',
+    summary: "A deep dive into Scale Verse's product development blueprint, covering high-performance cloud architectures, custom UI/UX frameworks, and scalable database schemas.",
+    date: 'July 4, 2026',
+    readTime: '8 min read',
+    author: 'Umer Farooq, Founder',
+    authorIcon: 'fa-solid fa-laptop-code',
+    image: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=600&q=80',
+    tags: ['ProductEngineering', 'CloudScaling', 'UIUXDesign'],
+    content: [
+      "In today's fast-paced digital economy, startups face a dual challenge: validating their product-market fit and scaling their tech stack to support rapid user growth. Scale Verse has positioned itself as a premier global accelerator, offering product engineering strategies that help startups achieve world-class scale.",
+      "The agency's approach focuses on modular software design, serverless cloud hosting, and database architectures. By designing systems that handle peak loads without overhead, Scale Verse empowers tech founders to focus on user experience and business operations.",
+      "In addition to backend scalability, Scale Verse prioritizes conversion-driven UI/UX design. Beautiful user flows and subtle micro-animations make digital products feel alive and responsive, driving retention. Through custom software development and AI automation, Scale Verse bridges the gap between early-stage ideas and enterprise-level execution."
+    ]
+  },
+  {
+    id: 3,
+    category: 'Zyphuel Energy',
+    categoryClass: 'zyphuel',
+    title: "Solving the Energy Gap: Why Generator Refueling Services are Critical for Lahore's Enterprise Sector",
+    summary: 'Discover how automated commercial generator refueling minimizes operational downtime for factories, hospitals, and corporate offices facing unexpected power interruptions.',
+    date: 'July 1, 2026',
+    readTime: '5 min read',
+    author: 'Zyphuel Commercial Ops',
+    authorIcon: 'fa-solid fa-charging-station',
+    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80',
+    tags: ['GeneratorDiesel', 'B2BRefueling', 'BusinessContinuity'],
+    content: [
+      "Power reliability remains a persistent concern for businesses across Lahore. When power cuts occur, local industries, medical facilities, and office buildings rely on diesel generators to keep operations running. However, managing generator refueling manually—using plastic jerry cans—presents high safety risks and logistics headaches.",
+      "Zyphuel's specialized generator refueling service solves this issue by delivering diesel directly to on-site generator tanks. Using digital flow meters, the quantity is precisely measured and verified, preventing theft, spillages, and discrepancies.",
+      "Businesses can schedule weekly or monthly refueling plans. This automated dispatch system ensures that corporate facilities maintain continuous uptime without human intervention. By outsourcing fuel supply chains to Zyphuel, local companies are reducing operational costs and ensuring business continuity."
+    ]
+  },
+  {
+    id: 4,
+    category: 'Scale Verse Tech',
+    categoryClass: 'scaleverse',
+    title: 'The Synergy of Design & Logistics: Inside the Scale Verse and Zyphuel Engineering Alliance',
+    summary: "Case study detailing how Scale Verse engineered Zyphuel's smart dispatch telemetry dashboard, routing optimization engine, and high-performance customer app.",
+    date: 'June 28, 2026',
+    readTime: '10 min read',
+    author: 'Abdul Rauf, Co-Founder',
+    authorIcon: 'fa-solid fa-hands-holding-circle',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80',
+    tags: ['LogisticsApp', 'EngineeringAlliance', 'DashboardTech'],
+    content: [
+      "The collaboration between Zyphuel and Scale Verse is a prime case study of operational expertise meeting world-class engineering standards. To manage a fleet of mobile fuel trucks in a dense metropolitan area like Lahore, Zyphuel needed a robust dispatching and routing platform.",
+      "Scale Verse engineered a centralized logistics dashboard and real-time dispatch system. By integrating GPS tracking with predictive traffic analytics, the dispatch dashboard calculates the optimal route for every delivery truck, reducing ETAs to under 45 minutes.",
+      "Additionally, Scale Verse designed the consumer interfaces for ordering fuel. Transparent pricing, dynamic route tracking, and secure payment pathways are all built on top of a highly responsive, modern React architecture. This partnership shows how localized services can scale seamlessly when backed by clean design and robust technical infrastructure."
+    ]
+  },
+  {
+    id: 5,
+    category: 'Zyphuel Energy',
+    categoryClass: 'zyphuel',
+    title: 'Smart Refueling: Inside the IoT and Telemetry Tech Powering Doorstep Fuel Delivery',
+    summary: "Learn about the tech stack powering Zyphuel's micro-refueling fleet, from calibrated digital flow meters to real-time safety shut-off systems and route dispatch sensors.",
+    date: 'June 24, 2026',
+    readTime: '7 min read',
+    author: 'Zyphuel Engineering',
+    authorIcon: 'fa-solid fa-microchip',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80',
+    tags: ['IoTFuelMeters', 'GPSRouting', 'SafetyTelemetry'],
+    content: [
+      "Transparency and trust are critical when dealing with fuel distribution. Historically, consumers and B2B clients faced issues with short-fueling or contaminated fuel. Zyphuel addresses these concerns by embedding advanced IoT telemetry directly into its micro-tanker fleet.",
+      "Each truck is equipped with highly calibrated electronic flow meters that sync with the cloud. When fuel is dispensed, the exact quantity is streamed in real-time to the customer's mobile app. This ensures 100% measurement transparency.",
+      "Furthermore, temperature and quality sensors monitor the fuel integrity throughout the transit. If any quality variance is detected, safety shut-off valves trigger automatically. By merging IoT hardware with cloud-native logistics, Zyphuel is setting a new benchmark for energy security and transparency."
+    ]
+  },
+  {
+    id: 6,
+    category: 'Scale Verse Tech',
+    categoryClass: 'scaleverse',
+    title: 'Leveraging AI and Workflow Automation to Drive Modern Enterprise Efficiency',
+    summary: 'A thought-leadership piece on integrating AI chatbot assistants, automated CRM funnels, and predictive scheduling platforms to reduce operational overhead.',
+    date: 'June 18, 2026',
+    readTime: '9 min read',
+    author: 'Scale Verse Engineering',
+    authorIcon: 'fa-solid fa-robot',
+    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80',
+    tags: ['AIIntegrations', 'WorkflowAutomation', 'EnterpriseCRM'],
+    content: [
+      "Operational efficiency is the cornerstone of modern enterprise success. Scale Verse is helping companies streamline operations by implementing custom artificial intelligence (AI) and automated workflow pipelines.",
+      "Rather than replacing human workers, these AI tools automate repetitive back-office tasks—like customer inquiry sorting, scheduling, and invoice reconciliation. For example, AI-powered chatbots can resolve up to 70% of standard customer queries instantly, allowing support teams to focus on complex cases.",
+      "Workflow automation also connects disparate platforms (like CRMs, logistics software, and accounting tools) into a cohesive digital workflow. This eliminates manual data entry errors and speeds up processing times. Through targeted AI integration, Scale Verse enables enterprises to scale productivity and cut operational costs."
+    ]
+  }
+];
+
+const DATA_3D = [
+  '1540968221243-29f5d70540bf',
+  '1596135187959-562c650d98bc',
+  '1628944682084-831f35256163',
+  '1590013330451-3946e83e0392',
+  '1590421959604-741d0eec0a2e',
+  '1572613000712-eadc57acbecd',
+  '1570097192570-4b49a6736f9f',
+  '1620789550663-2b10e0080354',
+  '1617775623669-20bff4ffaa5c',
+  '/public/images/Gallen.png',
+  '/public/images/Shirt.png',
+  '/public/images/Cap.png'
+];
+
+// --- SUB-COMPONENTS ---
+
+const HeroSection = memo(() => (
+  <section id="home" className="hero" style={{ minHeight: 'calc(100vh - var(--nav-height))', display: 'flex', alignItems: 'center', position: 'relative' }}>
+    {/* Decorative Background Feature */}
+    <div className="hero-birds-bg" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0, opacity: 0.4 }}>
+      <GeometricalBirds />
+    </div>
+    
+    <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+      <div className="hero-grid">
+        <div className="hero-content fade-in-up">
+          <div className="hero-subtitle-badge">
+            <img src="Zyphuel-logo.png" alt="Zyphuel Logo" style={{ width: '20px', height: 'auto', marginRight: '8px' }} />
+            <span>Fuel on Your Doorstep – Lahore</span>
+          </div>
+          <h1 className="hero-title">
+            Reliable <span>Fuel Delivery</span>
+          </h1>
+          <p className="hero-description">
+            From diesel to petrol – order online and get premium fuel delivered directly
+            to your vehicle, fleet yard, event generator, or construction site. Safe,
+            swift, and transparent.
+          </p>
+          <div className="hero-ctas">
+            <Link to="/order" className="btn btn-primary">
+              <i className="fa-solid fa-gas-pump"></i> Order Fuel Now
+            </Link>
+            <Link to="/about" className="btn btn-ghost">
+              Learn More <i className="fa-solid fa-arrow-right"></i>
+            </Link>
+          </div>
+
+          <div className="hero-badges-row">
+            <div className="hero-trust-badge">
+              <i className="fa-solid fa-clock"></i>
+              <span>24/7 Delivery</span>
+            </div>
+            <div className="hero-trust-badge">
+              <i className="fa-solid fa-bolt"></i>
+              <span>Fast 45-Min ETA</span>
+            </div>
+            <div className="hero-trust-badge">
+              <i className="fa-solid fa-shield-halved"></i>
+              <span>Genuine Fuel</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="hero-graphic fade-in-up" style={{ transitionDelay: '0.2s' }}>
+          <div className="animated-svg-container">
+            <HeroGraphic />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+));
+HeroSection.displayName = 'HeroSection';
+
+const BlogGrid = ({ articles, onArticleSelect }) => (
+  <div className="blog-grid">
+    {articles.map((article, idx) => (
+      <article
+        key={article.id}
+        className="blog-card fade-in-up"
+        style={{ transitionDelay: `${0.05 + (idx % 3) * 0.05}s` }}
+      >
+        <div className="blog-card-image-wrapper">
+          <span className={`blog-card-category-badge ${article.categoryClass}`}>
+            {article.category}
+          </span>
+          <img
+            src={article.image}
+            alt={article.title}
+            className="blog-card-img"
+            loading="lazy"
+          />
+        </div>
+        <div className="blog-card-content">
+          <div className="blog-card-meta">
+            <i className="fa-regular fa-calendar"></i>
+            <span>{article.date}</span>
+            <span>•</span>
+            <i className="fa-regular fa-clock"></i>
+            <span>{article.readTime}</span>
+          </div>
+          <h3 className="blog-card-title">{article.title}</h3>
+          <p className="blog-card-desc">{article.summary}</p>
+          <div className="blog-card-tags">
+            {article.tags.map(tag => (
+              <span key={tag} className="blog-card-tag">#{tag}</span>
+            ))}
+          </div>
+          <div className="blog-card-footer">
+            <div className="blog-card-author">
+              <div className="blog-card-author-icon">
+                <i className={article.authorIcon}></i>
+              </div>
+              <span className="blog-card-author-name">{article.author}</span>
+            </div>
+            <button
+              className="blog-card-link"
+              onClick={() => onArticleSelect(article)}
+              style={{ cursor: 'pointer', border: 'none', background: 'none' }}
+            >
+              Read Article <i className="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+    ))}
+  </div>
+);
+
+const ThreeDCarousel = ({ rotationAngle, setRotationAngle }) => {
+  const angle = 360 / DATA_3D.length;
+  const radius = Math.round((160 / 2) / Math.tan(Math.PI / DATA_3D.length));
+  const normalizedAngle = ((rotationAngle % 360) + 360) % 360;
+  const targetCardIndex = Math.round((360 - normalizedAngle) / angle) % DATA_3D.length;
+
+  return (
+    <div className="fade-in-up carousel-3d-wrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '400px', position: 'relative' }}>
+      <style dangerouslySetInnerHTML={{ __html: `
+        .scene-container { display: grid; width: 100%; height: 320px; perspective: 65em; place-items: center; overflow: visible; margin-bottom: 20px; }
+        .a3d-carousel { display: grid; transform-style: preserve-3d; transition: transform 1.2s cubic-bezier(0.2, 0.85, 0.32, 1.2); width: 160px; height: 220px; }
+        .card-3d { grid-area: 1 / 1; width: 160px; height: 220px; object-fit: cover; border-radius: 1.2em; backface-visibility: hidden; box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5); border: 2px solid rgba(255, 255, 255, 0.1); transition: all 0.5s ease; filter: brightness(0.65); }
+        .card-3d.active-focus { filter: brightness(1.1); border-color: var(--accent-color, #0ea5e9); box-shadow: 0 0 20px rgba(14, 165, 233, 0.4), 0 12px 28px rgba(0, 0, 0, 0.6); }
+        .carousel-controls { display: flex; gap: 20px; margin-top: 30px; z-index: 10; }
+        .carousel-control-btn { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: #ffffff; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .carousel-control-btn:hover { background: var(--accent-color, #0ea5e9); border-color: var(--accent-color, #0ea5e9); transform: scale(1.1); box-shadow: 0 0 15px rgba(14, 165, 233, 0.4); }
+      `}} />
+
+      <div className="scene-container">
+        <div className="a3d-carousel" style={{ transform: `rotateY(${rotationAngle}deg)` }}>
+          {DATA_3D.map((imgCode, i) => {
+            const isActive = i === targetCardIndex;
+            // Bugfix: Resolve full image path strings cleanly without interpolating into unsplash layout template
+            const imageSrc = imgCode.startsWith('/') 
+              ? imgCode 
+              : `https://images.unsplash.com/photo-${imgCode}?auto=format&fit=crop&w=260&q=80`;
+
+            return (
+              <img
+                key={i}
+                className={`card-3d ${isActive ? 'active-focus' : ''}`}
+                src={imageSrc}
+                style={{ transform: `rotateY(${i * angle}deg) translateZ(${radius + 20}px)` }}
+                alt={`3D Slide ${i}`}
+              />
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="carousel-controls">
+        <button className="carousel-control-btn" onClick={() => setRotationAngle(prev => prev + angle)} aria-label="Previous Slide">
+          <i className="fa-solid fa-arrow-left"></i>
+        </button>
+        <button className="carousel-control-btn" onClick={() => setRotationAngle(prev => prev - angle)} aria-label="Next Slide">
+          <i className="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const BlogModal = ({ article, onClose }) => {
+  if (!article) return null;
+
+  return (
+    <div className="blog-modal-backdrop open" onClick={onClose}>
+      <div className="blog-modal" onClick={e => e.stopPropagation()}>
+        <button className="blog-modal-close-btn" onClick={onClose} aria-label="Close article modal">
+          <i className="fa-solid fa-xmark"></i>
+        </button>
+        <div className="blog-modal-img-wrapper">
+          <span className={`blog-modal-category ${article.categoryClass}`}>{article.category}</span>
+          <img src={article.image} alt={article.title} className="blog-modal-img" />
+        </div>
+        <div className="blog-modal-body-wrapper">
+          <div className="blog-modal-meta">
+            <span><i className="fa-regular fa-calendar"></i> {article.date}</span>
+            <span>•</span>
+            <span><i className="fa-regular fa-clock"></i> {article.readTime}</span>
+            <span>•</span>
+            <span><i className={article.authorIcon}></i> {article.author}</span>
+          </div>
+          <h2 className="blog-modal-title">{article.title}</h2>
+          <div className="blog-modal-text-content">
+            {article.content.map((paragraph, index) => (
+              <p key={index} className="blog-modal-paragraph">{paragraph}</p>
+            ))}
+          </div>
+          <div className="blog-modal-tags">
+            {article.tags.map(tag => (
+              <span key={tag} className="blog-modal-tag">#{tag}</span>
+            ))}
+          </div>
+        </div>
+        <div className="blog-modal-footer">
+          <button className="btn btn-ghost" onClick={onClose}>Close Window</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// --- MAIN COMPONENT ---
+
+export default function HomePage() {
+  const [activeFilter, setActiveFilter] = useState('All');
+  const [selectedArticle, setSelectedArticle] = useState(null);
+  const [rotationAngle, setRotationAngle] = useState(0);
+
+  // Auto-play interval for 3D carousel
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setRotationAngle(prev => prev - (360 / DATA_3D.length));
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Pass activeFilter to useScrollReveal so scroll animation re-triggers on tab changes
+  const pageRef = useScrollReveal([activeFilter]);
+
+  const filteredArticles = activeFilter === 'All'
+    ? ARTICLES
+    : ARTICLES.filter(a => a.category === activeFilter);
+
+  // Escape key event listener to close modal + body scroll prevention
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setSelectedArticle(null);
+    };
+
+    if (selectedArticle) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [selectedArticle]);
+
+  return (
+    <div ref={pageRef}>
+      <HeroSection />
+
+      {/* Blog & Articles Section */}
+      <section id="blog" className="blog-section section-padding">
+        <div className="container">
+          <div className="blog-header fade-in-up">
+            <h2 className="section-title">Blog & Articles</h2>
+            <p className="section-subtitle">
+              Read the latest updates about mobile fuel logistics, digital accelerators,
+              energy mobility, and our partnership engineering breakthroughs.
+            </p>
+          </div>
+
+          {/* Filters */}
+          <div className="blog-filters fade-in-up" style={{ transitionDelay: '0.1s' }}>
+            {['All', 'Zyphuel Energy', 'Scale Verse Tech'].map(filter => (
+              <button
+                key={filter}
+                className={`blog-filter-btn ${activeFilter === filter ? 'active' : ''}`}
+                onClick={() => setActiveFilter(filter)}
+              >
+                {filter === 'All' ? 'All Articles' : filter}
+              </button>
+            ))}
+          </div>
+
+          {/* Grid of articles */}
+          <BlogGrid articles={filteredArticles} onArticleSelect={setSelectedArticle} />
+        </div>
+      </section>
+
+      {/* Slideshow Section - 3D Card Carousel */}
+      <section id="slideshow" className="slideshow-section section-padding" style={{ borderTop: '1px solid var(--border-color)', backgroundColor: '#090d16', padding: '80px 0', overflow: 'hidden' }}>
+        <div className="container" style={{ maxWidth: '1000px' }}>
+          <div className="fade-in-up" style={{ textAlign: 'center', marginBottom: '50px' }}>
+            <h2 className="section-title" style={{ color: '#ffffff' }}>Slideshow</h2>
+            <p className="section-subtitle" style={{ color: '#94a3b8' }}>
+              Interact with our premium 3D rotating showcase. Use the buttons below or let it auto-play.
+            </p>
+          </div>
+
+          <ThreeDCarousel rotationAngle={rotationAngle} setRotationAngle={setRotationAngle} />
+        </div>
+      </section>
+
+      {/* Detailed Blog Modal */}
+      <BlogModal article={selectedArticle} onClose={() => setSelectedArticle(null)} />
+    </div>
+  );
+}

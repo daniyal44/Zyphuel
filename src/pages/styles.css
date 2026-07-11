@@ -1,0 +1,404 @@
+/* Scoped team members section styles for AboutPage */
+
+.about-team-section {
+  display: block;
+  background-color: #f8fafc;
+  border-top: 1px solid var(--border-color);
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.about-team-section .main-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 500px;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.about-team-section .carousel-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-team-section .controls-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding-left: 40px;
+}
+
+.about-team-section .carousel-container {
+  width: 100%;
+  max-width: 500px;
+  height: 400px;
+  position: relative;
+  perspective: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-team-section .carousel-container .nav-arrow {
+  display: none;
+}
+
+.about-team-section .carousel-track {
+  width: 450px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-team-section .card {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.about-team-section .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.about-team-section .card.center {
+  z-index: 10;
+  transform: scale(1.1) translateZ(0);
+  box-shadow: 0 20px 45px rgba(14, 165, 233, 0.15);
+  border-color: var(--accent-color, #0ea5e9);
+}
+
+.about-team-section .card.center img {
+  filter: none;
+}
+
+.about-team-section .card.up-2 {
+  z-index: 1;
+  transform: translateY(-240px) scale(0.7) translateZ(-300px);
+  opacity: 0.5;
+}
+
+.about-team-section .card.up-2 img {
+  filter: grayscale(100%);
+}
+
+.about-team-section .card.up-1 {
+  z-index: 5;
+  transform: translateY(-120px) scale(0.85) translateZ(-100px);
+  opacity: 0.85;
+}
+
+.about-team-section .card.up-1 img {
+  filter: grayscale(100%);
+}
+
+.about-team-section .card.down-1 {
+  z-index: 5;
+  transform: translateY(120px) scale(0.85) translateZ(-100px);
+  opacity: 0.85;
+}
+
+.about-team-section .card.down-1 img {
+  filter: grayscale(100%);
+}
+
+.about-team-section .card.down-2 {
+  z-index: 1;
+  transform: translateY(240px) scale(0.7) translateZ(-300px);
+  opacity: 0.5;
+}
+
+.about-team-section .card.down-2 img {
+  filter: grayscale(100%);
+}
+
+.about-team-section .card.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.about-team-section .member-info {
+  text-align: center;
+  margin-top: 20px;
+  transition: all 0.5s ease-out;
+}
+
+.about-team-section .member-name {
+  color: var(--brand-dark, #0b1329);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  position: relative;
+  display: inline-block;
+}
+
+.about-team-section .member-name::before,
+.about-team-section .member-name::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  width: 60px;
+  height: 2px;
+  background: var(--accent-color, #0ea5e9);
+}
+
+.about-team-section .member-name::before {
+  left: -80px;
+}
+
+.about-team-section .member-name::after {
+  right: -80px;
+}
+
+.about-team-section .member-role {
+  color: var(--text-secondary, #64748b);
+  font-size: 1.1rem;
+  font-weight: 600;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 5px 0;
+  margin-top: -5px;
+}
+
+.about-team-section .dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.about-team-section .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(14, 165, 233, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.about-team-section .dot.active {
+  background: var(--accent-color, #0ea5e9);
+  transform: scale(1.25);
+}
+
+.about-team-section .nav-arrow {
+  position: relative;
+  background: transparent;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+
+.about-team-section .nav-arrow:hover {
+  background: transparent;
+  transform: scale(1.15);
+}
+
+.about-team-section .nav-arrow img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: none;
+  transition: all 0.3s ease;
+}
+
+.about-team-section .nav-arrow.up {
+  transform: none;
+}
+
+.about-team-section .nav-arrow.down {
+  transform: none;
+}
+
+.about-team-section .nav-controls {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-team-section .scroll-indicator {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(11, 19, 41, 0.85);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  text-align: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: scrollFadeOut 5s ease-in-out forwards;
+  font-weight: 500;
+  line-height: 1;
+}
+
+@keyframes scrollFadeOut {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-team-section .main-container {
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+    max-width: 100%;
+  }
+
+  .about-team-section .carousel-section {
+    flex: none;
+    width: 100%;
+  }
+
+  .about-team-section .controls-section {
+    flex: none;
+    width: 100%;
+    padding-left: 0;
+    gap: 20px;
+  }
+
+  .about-team-section .carousel-container {
+    height: 380px;
+    max-width: 350px;
+  }
+
+  .about-team-section .carousel-container .nav-arrow {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    background: transparent;
+    border: none;
+  }
+
+  .about-team-section .carousel-container .nav-arrow:hover {
+    transform: translateX(-50%) scale(1.15);
+  }
+
+  .about-team-section .carousel-container .nav-arrow.up {
+    top: 10px;
+  }
+
+  .about-team-section .carousel-container .nav-arrow.down {
+    bottom: 10px;
+  }
+
+  .about-team-section .carousel-container .nav-arrow.up img {
+    transform: rotate(-90deg);
+    width: 36px;
+    height: 36px;
+  }
+
+  .about-team-section .carousel-container .nav-arrow.down img {
+    transform: rotate(90deg);
+    width: 36px;
+    height: 36px;
+  }
+
+  .about-team-section .nav-controls {
+    display: none;
+  }
+
+  .about-team-section .card {
+    width: 200px;
+    height: 200px;
+  }
+
+  .about-team-section .carousel-track {
+    width: 240px;
+  }
+
+  .about-team-section .card.up-2 {
+    transform: translateY(-130px) scale(0.7) translateZ(-300px);
+  }
+
+  .about-team-section .card.up-1 {
+    transform: translateY(-65px) scale(0.85) translateZ(-100px);
+  }
+
+  .about-team-section .card.down-1 {
+    transform: translateY(65px) scale(0.85) translateZ(-100px);
+  }
+
+  .about-team-section .card.down-2 {
+    transform: translateY(130px) scale(0.7) translateZ(-300px);
+  }
+
+  .about-team-section .member-name {
+    font-size: 1.6rem;
+  }
+
+  .about-team-section .member-role {
+    font-size: 0.95rem;
+  }
+
+  .about-team-section .member-name::before,
+  .about-team-section .member-name::after {
+    width: 30px;
+  }
+
+  .about-team-section .member-name::before {
+    left: -45px;
+  }
+
+  .about-team-section .member-name::after {
+    right: -45px;
+  }
+}
