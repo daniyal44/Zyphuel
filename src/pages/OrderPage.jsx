@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useToast } from '../context/ToastContext'
+import { useSEO } from '../hooks/useSEO'
 
 const FUEL_PRICES = {
   petrol: 310.71,
@@ -28,6 +29,15 @@ const FUEL_ICONS = {
 }
 
 export default function OrderPage() {
+  useSEO({
+    title: 'Order Fuel, LPG Gas & Water Refill | Zyphuel (Z Fuel, Zphuel, Zafuel, Ziphuel, Zephiel)',
+    description: 'Place your order online at Zyphuel (Z fuel, Z fuels, keyfuels, zafuel, ziphuel). Select fuel, LPG gas, or water refills. Fast 20-45 mins delivery to your coordinates in Lahore, Pakistan. Check order images, links, and track live.',
+    keywords: [
+      'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
+      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'order fuel online', 'LPG gas cylinder order', 'water refill delivery', 'Lahore cash on delivery'
+    ]
+  })
+
   const pageRef = useScrollReveal()
   const { showToast } = useToast()
   const location = useLocation()

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useSEO } from '../hooks/useSEO'
 
 const sections = [
   { id: 'terms-intro', label: '1. Acceptance of Terms' },
@@ -15,6 +16,15 @@ const sections = [
 export default function TermsOfUsePage() {
   const pageRef = useScrollReveal()
   const [activeSection, setActiveSection] = useState('terms-intro')
+
+  useSEO({
+    title: 'Terms of Use & Legal Agreement | Zyphuel (Z Fuel, Zphuel, Zafuel, Ziphuel, Zephiel)',
+    description: 'Read the Terms of Use for Zyphuel (Z fuel, Z fuels, keyfuels, zafuel, ziphuel). Legal terms regarding ordering utility services, fuel delivery, liability, intellectual property, blogs, articles, and founder policies.',
+    keywords: [
+      'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
+      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'terms of use', 'legal contract', 'dispute resolution Lahore'
+    ]
+  })
 
   useEffect(() => {
     const els = sections.map(s => document.getElementById(s.id)).filter(Boolean)

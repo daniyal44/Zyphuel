@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import GeometricalBirds from '../components/GeometricalBirds';
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useSEO } from '../hooks/useSEO';
 import "./styles.css";
 
 
@@ -28,6 +29,15 @@ const teamMembers = [
 // Main Export Component: AboutPage
 // ==========================================
 export default function AboutPage() {
+  useSEO({
+    title: 'About Us & Founders | Zyphuel (Z Fuel, Zphuel, Zafuel, Ziphuel, Zephiel) - CEO & Partners',
+    description: 'Learn about Zyphuel (Z fuel, Z fuels, keyfuels, zafuel, ziphuel), founded by Muhammad Daniyal (CEO) and Muhammad Umer Farooq (Business Partner). Explore articles, blogs, images, and videos detailing our mobile refueling mission in Lahore.',
+    keywords: [
+      'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
+      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'Muhammad Daniyal CEO', 'Scale Verse', 'Muhammad Umer Farooq', 'Zyphuel story', 'energy mobility partners'
+    ]
+  });
+
   const pageRef = useScrollReveal();
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);

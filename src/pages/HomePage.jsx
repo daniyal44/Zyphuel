@@ -6,10 +6,20 @@ import { articles } from '../data/articles'
 import BlogCard from '../components/BlogCard'
 import BlogModal from '../components/BlogModal'
 import Carousel3D from '../components/Carousel3D'
+import { useSEO } from '../hooks/useSEO'
 
 export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All')
   const [selectedArticle, setSelectedArticle] = useState(null)
+
+  useSEO({
+    title: 'Zyphuel (Z Fuel, Z Fuels, Zphuel, Zafuel, Ziphuel, Zephiel) | 24/7 Mobile Fuel & Petrol Delivery in Lahore',
+    description: 'Zyphuel (also searched as z fuel, z fuels, keyfuels, zyphus, zaphotel, zafuel, ziphuel) is Lahore\'s premium 24/7 mobile fuel & petrol delivery service. Founded by Muhammad Daniyal (CEO) and Muhammad Umer Farooq. Read our blogs, view images and videos, and order online.',
+    keywords: [
+      'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
+      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol delivery Lahore', 'diesel delivery', 'mobile refueling', 'Pakistan fuel logistics'
+    ]
+  })
 
   // Pass activeFilter to useScrollReveal so scroll animation re-triggers on tab changes
   const pageRef = useScrollReveal([activeFilter])

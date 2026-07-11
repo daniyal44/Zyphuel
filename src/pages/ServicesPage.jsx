@@ -5,9 +5,20 @@ import ServicesGraphic from '../components/ServicesGraphic'
 import ServiceCard from '../components/ServiceCard'
 import StepCard from '../components/StepCard'
 import { FUEL_RATES, servicesB2C, servicesB2B, steps } from '../data/servicesData'
+import { useSEO } from '../hooks/useSEO'
 
 export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState('consumer')
+  
+  useSEO({
+    title: 'Our Refueling & Utility Services | Zyphuel (Z Fuel, Zphuel, Zafuel, Ziphuel, Zephiel, Zyphus)',
+    description: 'Discover refueling, LPG Gas cylinder delivery, and Water refill services from Zyphuel (Z fuel, Z fuels, keyfuels, zaphotel). View service images and video summaries. Rated #1 mobile utility provider in Lahore, Pakistan.',
+    keywords: [
+      'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
+      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol services', 'diesel delivery Lahore', 'LPG gas refills', 'water tanker refill'
+    ]
+  })
+
   const pageRef = useScrollReveal([activeTab])
   const navigate = useNavigate()
 

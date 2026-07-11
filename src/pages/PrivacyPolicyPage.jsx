@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useSEO } from '../hooks/useSEO'
 
 const sections = [
   { id: 'intro', label: '1. Introduction' },
@@ -16,6 +17,15 @@ export default function PrivacyPolicyPage() {
   const pageRef = useScrollReveal()
   const [activeSection, setActiveSection] = useState('intro')
   const sectionsRef = useRef([])
+
+  useSEO({
+    title: 'Privacy Policy & Data Security | Zyphuel (Z Fuel, Zphuel, Zafuel, Ziphuel, Zephiel)',
+    description: 'Privacy Policy of Zyphuel (Z fuel, Z fuels, keyfuels, zafuel, ziphuel). Understand how our founders and business partners protect your data, order coordinates, images, links, and files. Effective July 2026.',
+    keywords: [
+      'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
+      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'privacy policy', 'data protection', 'Lahore GDPR compliance'
+    ]
+  })
 
   useEffect(() => {
     const els = sections.map(s => document.getElementById(s.id)).filter(Boolean)

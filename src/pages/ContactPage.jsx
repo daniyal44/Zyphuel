@@ -1,10 +1,20 @@
 import { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useToast } from '../context/ToastContext'
+import { useSEO } from '../hooks/useSEO'
 
 export default function ContactPage() {
   const pageRef = useScrollReveal()
   const { showToast } = useToast()
+
+  useSEO({
+    title: 'Contact Us & Support Helpline | Zyphuel (Z Fuel, Zphuel, Zafuel, Ziphuel, Zephiel)',
+    description: 'Get in touch with Zyphuel (Z fuel, Z fuels, keyfuels, zafuel, ziphuel). Reach out to our founder, CEO, and business partners for enterprise queries, tech support, and support links. Operating 24/7 in Lahore.',
+    keywords: [
+      'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
+      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'contact Zyphuel', 'support helpline', 'corporate meetings Lahore'
+    ]
+  })
 
   const [form, setForm] = useState({
     name: '',
