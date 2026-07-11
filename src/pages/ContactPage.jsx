@@ -8,12 +8,30 @@ export default function ContactPage() {
   const { showToast } = useToast()
 
   useSEO({
-    title: 'Contact Us & Support Helpline | Zyphuel (Z Fuel, Zphuel, Zafuel, Ziphuel, Zephiel)',
-    description: 'Get in touch with Zyphuel (Z fuel, Z fuels, keyfuels, zafuel, ziphuel). Reach out to our founder, CEO, and business partners for enterprise queries, tech support, and support links. Operating 24/7 in Lahore.',
+    title: 'Contact Us & Support Helpline | Zyphuel (Z Fuel, Zphuel, Zafuel)',
+    description: 'Contact Zyphuel, Pakistan\'s number 1 mobile fuel supply agency. Connect with CEO Muhammad Daniyal and partners. Operating 24/7 in Lahore for fuel delivery services.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
+      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
       'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'contact Zyphuel', 'support helpline', 'corporate meetings Lahore'
-    ]
+    ],
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "mainEntity": {
+        "@type": "LocalBusiness",
+        "name": "Zyphuel",
+        "telephone": "+923230112464",
+        "email": "m.daniyalkhan490@gmail.com",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+923230112464",
+          "contactType": "Customer Support & Enterprise Inquiries",
+          "areaServed": "PK",
+          "availableLanguage": ["English", "Urdu"]
+        }
+      }
+    }
   })
 
   const [form, setForm] = useState({

@@ -19,10 +19,11 @@ export default function PrivacyPolicyPage() {
   const sectionsRef = useRef([])
 
   useSEO({
-    title: 'Privacy Policy & Data Security | Zyphuel (Z Fuel, Zphuel, Zafuel, Ziphuel, Zephiel)',
-    description: 'Privacy Policy of Zyphuel (Z fuel, Z fuels, keyfuels, zafuel, ziphuel). Understand how our founders and business partners protect your data, order coordinates, images, links, and files. Effective July 2026.',
+    title: 'Privacy Policy & Data Security | Zyphuel (Z Fuel, Zphuel, Zafuel)',
+    description: 'Privacy Policy of Zyphuel (Z fuel, Z fuels, keyfuels), Pakistan\'s No.1 mobile fuel supply agency. Learn how our founder CEO Muhammad Daniyal and partners secure your data.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
+      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
       'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'privacy policy', 'data protection', 'Lahore GDPR compliance'
     ]
   })

@@ -13,12 +13,42 @@ export default function HomePage() {
   const [selectedArticle, setSelectedArticle] = useState(null)
 
   useSEO({
-    title: 'Zyphuel (Z Fuel, Z Fuels, Zphuel, Zafuel, Ziphuel, Zephiel) | 24/7 Mobile Fuel & Petrol Delivery in Lahore',
-    description: 'Zyphuel (also searched as z fuel, z fuels, keyfuels, zyphus, zaphotel, zafuel, ziphuel) is Lahore\'s premium 24/7 mobile fuel & petrol delivery service. Founded by Muhammad Daniyal (CEO) and Muhammad Umer Farooq. Read our blogs, view images and videos, and order online.',
+    title: 'Zyphuel (Z Fuel, Zphuel, Zafuel) | Pakistan\'s No.1 Mobile Fuel & Petrol Delivery in Lahore',
+    description: 'Zyphuel is Pakistan\'s number 1 mobile fuel brand, agency, and supplier (also searched as Z Fuel, Zphuel, Zafuel, Ziphuel, Zephiel, Keyfuels). Founded by CEO Muhammad Daniyal. Access top services, blogs, images, and videos 24/7.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
+      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
       'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol delivery Lahore', 'diesel delivery', 'mobile refueling', 'Pakistan fuel logistics'
-    ]
+    ],
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Zyphuel",
+      "alternateName": ["Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zyphuel", "zphuel", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
+      "description": "Zyphuel is Pakistan's number 1 mobile fuel delivery brand, agency, and supplier. Providing best fuel delivery and services 24/7 in Lahore, Pakistan.",
+      "url": "https://zyphuel.netlify.app",
+      "logo": "https://zyphuel.netlify.app/images/logo.png",
+      "telephone": "+923230112464",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "75-Main Boulevard, Gulberg III",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "postalCode": "54000",
+        "addressCountry": "PK"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 31.507534,
+        "longitude": 74.334949
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Muhammad Daniyal",
+        "jobTitle": "Founder & CEO"
+      },
+      "award": "Pakistan's Number 1 Fuel Delivery Brand & Supplier"
+    }
   })
 
   // Pass activeFilter to useScrollReveal so scroll animation re-triggers on tab changes

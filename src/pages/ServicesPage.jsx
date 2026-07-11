@@ -11,12 +11,52 @@ export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState('consumer')
   
   useSEO({
-    title: 'Our Refueling & Utility Services | Zyphuel (Z Fuel, Zphuel, Zafuel, Ziphuel, Zephiel, Zyphus)',
-    description: 'Discover refueling, LPG Gas cylinder delivery, and Water refill services from Zyphuel (Z fuel, Z fuels, keyfuels, zaphotel). View service images and video summaries. Rated #1 mobile utility provider in Lahore, Pakistan.',
+    title: 'Our Refueling & Utility Services | Zyphuel (Z Fuel, Zphuel, Zafuel)',
+    description: 'Discover refueling, LPG Gas cylinder, and Water refill services from Zyphuel (Z fuel, Z fuels, keyfuels). Rated Pakistan\'s number 1 best fuel delivery and utility service. View images, video summaries, and articles.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
+      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
       'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol services', 'diesel delivery Lahore', 'LPG gas refills', 'water tanker refill'
-    ]
+    ],
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Zyphuel",
+        "url": "https://zyphuel.netlify.app"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Zyphuel Utility Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mobile Fuel & Petrol Delivery",
+              "description": "Pakistan's best 24/7 doorstep fuel, petrol, and diesel delivery services."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "LPG Gas Cylinder Refills",
+              "description": "Doorstep LPG cylinder refilling services in Lahore."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Water Refill Delivery",
+              "description": "Gallon water tank refilling at Rs. 100/gallon."
+            }
+          }
+        ]
+      }
+    }
   })
 
   const pageRef = useScrollReveal([activeTab])

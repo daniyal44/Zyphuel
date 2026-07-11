@@ -30,12 +30,42 @@ const teamMembers = [
 // ==========================================
 export default function AboutPage() {
   useSEO({
-    title: 'About Us & Founders | Zyphuel (Z Fuel, Zphuel, Zafuel, Ziphuel, Zephiel) - CEO & Partners',
-    description: 'Learn about Zyphuel (Z fuel, Z fuels, keyfuels, zafuel, ziphuel), founded by Muhammad Daniyal (CEO) and Muhammad Umer Farooq (Business Partner). Explore articles, blogs, images, and videos detailing our mobile refueling mission in Lahore.',
+    title: 'About Us & Founders | Zyphuel (Z Fuel, Zphuel, Zafuel) - CEO & Partners',
+    description: 'Learn about Zyphuel (Z fuel, Z fuels, keyfuels), Pakistan\'s No.1 mobile fuel delivery brand, founded by CEO Muhammad Daniyal and Muhammad Umer Farooq (Business Partner). Explore articles, blogs, images, and videos detailing our mission.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
+      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
       'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'Muhammad Daniyal CEO', 'Scale Verse', 'Muhammad Umer Farooq', 'Zyphuel story', 'energy mobility partners'
-    ]
+    ],
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Zyphuel",
+        "url": "https://zyphuel.netlify.app",
+        "founder": [
+          {
+            "@type": "Person",
+            "name": "Muhammad Daniyal",
+            "jobTitle": "Founder & CEO",
+            "sameAs": "https://github.com/daniyal44"
+          }
+        ],
+        "partner": [
+          {
+            "@type": "Person",
+            "name": "Muhammad Umer Farooq",
+            "jobTitle": "Founder of Scale Verse (Business Partner)"
+          },
+          {
+            "@type": "Person",
+            "name": "Muhammad Abdul Rauf",
+            "jobTitle": "CO-Founder of Scale Verse (Business Partner)"
+          }
+        ]
+      }
+    }
   });
 
   const pageRef = useScrollReveal();

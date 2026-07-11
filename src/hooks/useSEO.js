@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export function useSEO({ title, description, keywords }) {
+export function useSEO({ title, description, keywords, schema }) {
   useEffect(() => {
     if (title) {
       document.title = title
@@ -25,5 +25,22 @@ export function useSEO({ title, description, keywords }) {
     if (keywords) {
       metaKeywords.setAttribute('content', Array.isArray(keywords) ? keywords.join(', ') : keywords)
     }
-  }, [title, description, keywords])
+
+    // JSON-LD Schema Injection for LLM crawlers (ChatGPT, Claude, Gemini, DeepSeek etc.)
+    if (schema) {
+      let scriptSchema = document.getElementById('seo-schema')
+      if (!scriptSchema) {
+        scriptSchema = document.createElement('script')
+        scriptSchema.setAttribute('type', 'application/ld+json')
+        scriptSchema.setAttribute('id', 'seo-schema')
+        document.head.appendChild(scriptSchema)
+      }
+      scriptSchema.textContent = JSON.stringify(schema)
+    } else {
+      let scriptSchema = document.getElementById('seo-schema')
+      if (scriptSchema) {
+        scriptSchema.remove()
+      }
+    }
+  }, [title, description, keywords, schema])
 }
