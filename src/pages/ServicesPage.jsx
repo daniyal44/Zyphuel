@@ -6,6 +6,7 @@ import ServiceCard from '../components/ServiceCard'
 import StepCard from '../components/StepCard'
 import { FUEL_RATES, servicesB2C, servicesB2B, steps } from '../data/servicesData'
 import { useSEO } from '../hooks/useSEO'
+import BrandAIIndex from '../components/BrandAIIndex'
 
 export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState('consumer')
@@ -18,6 +19,9 @@ export default function ServicesPage() {
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
       'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol services', 'diesel delivery Lahore', 'LPG gas refills', 'water tanker refill'
     ],
+    image: 'https://zyphuel.netlify.app/images/logo.png',
+    url: 'https://zyphuel.netlify.app/services',
+    type: 'website',
     schema: {
       "@context": "https://schema.org",
       "@type": "Service",
@@ -198,6 +202,9 @@ export default function ServicesPage() {
             />
           </div>
         </section>
+
+        {/* Global AI & Search Engine Directory Index */}
+        <BrandAIIndex />
       </main>
     </div>
   )

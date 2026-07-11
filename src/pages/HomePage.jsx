@@ -7,6 +7,7 @@ import BlogCard from '../components/BlogCard'
 import BlogModal from '../components/BlogModal'
 import Carousel3D from '../components/Carousel3D'
 import { useSEO } from '../hooks/useSEO'
+import BrandAIIndex from '../components/BrandAIIndex'
 
 export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All')
@@ -20,6 +21,9 @@ export default function HomePage() {
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
       'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol delivery Lahore', 'diesel delivery', 'mobile refueling', 'Pakistan fuel logistics'
     ],
+    image: 'https://zyphuel.netlify.app/images/logo.png',
+    url: 'https://zyphuel.netlify.app',
+    type: 'website',
     schema: {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
@@ -154,6 +158,9 @@ export default function HomePage() {
 
       {/* Slideshow Section - 3D Card Carousel */}
       <Carousel3D />
+
+      {/* Global AI & Search Engine Directory Index */}
+      <BrandAIIndex />
 
       {/* Detailed Blog Modal */}
       <BlogModal

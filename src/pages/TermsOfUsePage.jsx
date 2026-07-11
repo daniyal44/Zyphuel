@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useSEO } from '../hooks/useSEO'
+import BrandAIIndex from '../components/BrandAIIndex'
 
 const sections = [
   { id: 'terms-intro', label: '1. Acceptance of Terms' },
@@ -24,7 +25,10 @@ export default function TermsOfUsePage() {
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
       'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'terms of use', 'legal contract', 'dispute resolution Lahore'
-    ]
+    ],
+    image: 'https://zyphuel.netlify.app/images/logo.png',
+    url: 'https://zyphuel.netlify.app/terms-of-use',
+    type: 'website',
   })
 
   useEffect(() => {
@@ -149,6 +153,9 @@ export default function TermsOfUsePage() {
             </div>
           </div>
         </div>
+
+        {/* Global AI & Search Engine Directory Index */}
+        <BrandAIIndex />
       </main>
     </div>
   )

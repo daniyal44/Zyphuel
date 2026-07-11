@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
+import BrandAIIndex from '../components/BrandAIIndex'
 
 export default function ContactPage() {
   const pageRef = useScrollReveal()
@@ -15,6 +16,9 @@ export default function ContactPage() {
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
       'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'contact Zyphuel', 'support helpline', 'corporate meetings Lahore'
     ],
+    image: 'https://zyphuel.netlify.app/images/logo.png',
+    url: 'https://zyphuel.netlify.app/contact',
+    type: 'website',
     schema: {
       "@context": "https://schema.org",
       "@type": "ContactPage",
@@ -364,6 +368,9 @@ ${form.message.trim()}`
             </div>
           </div>
         </section>
+
+        {/* Global AI & Search Engine Directory Index */}
+        <BrandAIIndex />
       </main>
 
       {/* Floating WhatsApp */}

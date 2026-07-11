@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
+import BrandAIIndex from '../components/BrandAIIndex'
 
 const FUEL_PRICES = {
   petrol: 310.71,
@@ -37,6 +38,9 @@ export default function OrderPage() {
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
       'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'order fuel online', 'LPG gas cylinder order', 'water refill delivery', 'Lahore cash on delivery'
     ],
+    image: 'https://zyphuel.netlify.app/images/logo.png',
+    url: 'https://zyphuel.netlify.app/order',
+    type: 'website',
     schema: {
       "@context": "https://schema.org",
       "@type": "OrderAction",
@@ -1167,6 +1171,9 @@ export default function OrderPage() {
           </div>
         </div>
       </div>
+
+      {/* Global AI & Search Engine Directory Index */}
+      <BrandAIIndex />
 
       {/* Truck Button Styles + Custom Category Selector styles */}
       <style>{`

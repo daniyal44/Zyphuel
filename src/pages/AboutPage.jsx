@@ -3,6 +3,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import GeometricalBirds from '../components/GeometricalBirds';
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useSEO } from '../hooks/useSEO';
+import BrandAIIndex from '../components/BrandAIIndex';
 import "./styles.css";
 
 
@@ -37,6 +38,9 @@ export default function AboutPage() {
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
       'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'Muhammad Daniyal CEO', 'Scale Verse', 'Muhammad Umer Farooq', 'Zyphuel story', 'energy mobility partners'
     ],
+    image: 'https://zyphuel.netlify.app/images/logo.png',
+    url: 'https://zyphuel.netlify.app/about',
+    type: 'website',
     schema: {
       "@context": "https://schema.org",
       "@type": "AboutPage",
@@ -472,6 +476,9 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        {/* Global AI & Search Engine Directory Index */}
+        <BrandAIIndex />
 
       </main>
     </div>
