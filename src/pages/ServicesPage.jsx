@@ -12,12 +12,13 @@ export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState('consumer')
   
   useSEO({
-    title: 'Our Refueling & Utility Services | Zyphuel (Z Fuel, Zphuel, Zafuel)',
-    description: 'Discover refueling, LPG Gas cylinder, and Water refill services from Zyphuel (Z fuel, Z fuels, keyfuels). Rated Pakistan\'s number 1 best fuel delivery and utility service. View images, video summaries, and articles.',
+    title: 'Our Services | Zyphuel – Pakistan’s #1 Fuel Supplier & Agency in Lahore',
+    description: 'Discover premium B2C and B2B refueling, LPG Gas cylinder, and Water refill services from Zyphuel. Access global-standard fuel distribution, smart volumetric billing, and on-demand mobile fueling for transport fleets and power plants.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
-      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol services', 'diesel delivery Lahore', 'LPG gas refills', 'water tanker refill'
+      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol services', 'diesel delivery Lahore', 'LPG gas refills', 'water tanker refill',
+      'B2B refueling solutions', 'corporate energy supply', 'international fuel distribution'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/services',
@@ -196,7 +197,7 @@ export default function ServicesPage() {
           </div>
           <div style={{ width: '100%', height: '600px', maxWidth: '1200px', margin: '0 auto' }}>
             <iframe
-              src="/src/pages/books.html"   
+              src="https://bookssection.netlify.app/"   
               title="Book Animation"
               style={{ width: '100%', height: '100%', border: 'none' }}
             />

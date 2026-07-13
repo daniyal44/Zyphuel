@@ -28,9 +28,9 @@ const LocalBusinessSchema = () => {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Zyphuel',
-    image: 'https://www.zyphuel.com/images/zyphuel-logo.png', // adjust to actual domain
-    '@id': 'https://www.zyphuel.com',
-    url: 'https://www.zyphuel.com',
+    image: 'https://zyphuel.netlify.app/images/logo.png', // adjust to actual domain
+    '@id': 'https://zyphuel.netlify.app',
+    url: 'https://zyphuel.netlify.app',
     telephone: footerData.contact.phone,
     description: footerData.brand.description,
     address: {

@@ -31,12 +31,13 @@ const FUEL_ICONS = {
 
 export default function OrderPage() {
   useSEO({
-    title: 'Order Fuel, LPG Gas & Water Refill | Zyphuel (Z Fuel, Zphuel, Zafuel)',
-    description: 'Place your order online at Zyphuel (Z fuel, Z fuels, keyfuels). Get Pakistan\'s best fuel delivery and service. Select petrol, diesel, gas, or water refills. Order now for 24/7 delivery.',
+    title: 'Order Fuel | Zyphuel – Pakistan’s #1 Fuel Supplier & Agency in Lahore',
+    description: 'Place your mobile refueling order online. Choose from petrol, diesel, high octane, LPG gas cylinders, or water tanker refills. Fastest 24/7 delivery in Lahore matching international logistics standards.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
-      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'order fuel online', 'LPG gas cylinder order', 'water refill delivery', 'Lahore cash on delivery'
+      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'order fuel online', 'LPG gas cylinder order', 'water refill delivery', 'Lahore cash on delivery',
+      'easy refueling request', 'emergency fuel supply', 'on-demand fuel dispatch'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/order',

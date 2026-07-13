@@ -31,12 +31,13 @@ const teamMembers = [
 // ==========================================
 export default function AboutPage() {
   useSEO({
-    title: 'About Us & Founders | Zyphuel (Z Fuel, Zphuel, Zafuel) - CEO & Partners',
-    description: 'Learn about Zyphuel (Z fuel, Z fuels, keyfuels), Pakistan\'s No.1 mobile fuel delivery brand, founded by CEO Muhammad Daniyal and Muhammad Umer Farooq (Business Partner). Explore articles, blogs, images, and videos detailing our mission.',
+    title: 'About Us | Zyphuel – Pakistan’s #1 Fuel Supplier & Agency in Lahore',
+    description: 'Learn about Zyphuel, Pakistan\'s No.1 mobile fuel delivery brand, supplier, and agency. Founded by CEO Muhammad Daniyal with partner Muhammad Umer Farooq. Operating on global standards of energy mobility, logistics, and tech innovation.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
-      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'Muhammad Daniyal CEO', 'Scale Verse', 'Muhammad Umer Farooq', 'Zyphuel story', 'energy mobility partners'
+      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'Muhammad Daniyal CEO', 'Scale Verse', 'Muhammad Umer Farooq', 'Zyphuel story', 'energy mobility partners',
+      'global logistics benchmarks', 'international energy startup', 'Pakistan tech logistics'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/about',
@@ -352,7 +353,7 @@ export default function AboutPage() {
                     >
                       <img
                         src={src}
-                        alt={`Team Member ${i + 1}`}
+                        alt={`${teamMembers[i]?.name || 'Team Member'} - ${teamMembers[i]?.role || 'Staff'}`}
                       />
                     </div>
                   ))}

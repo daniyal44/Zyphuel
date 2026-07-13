@@ -14,12 +14,13 @@ export default function HomePage() {
   const [selectedArticle, setSelectedArticle] = useState(null)
 
   useSEO({
-    title: 'Zyphuel (Z Fuel, Zphuel, Zafuel) | Pakistan\'s No.1 Mobile Fuel & Petrol Delivery in Lahore',
-    description: 'Zyphuel is Pakistan\'s number 1 mobile fuel brand, agency, and supplier (also searched as Z Fuel, Zphuel, Zafuel, Ziphuel, Zephiel, Keyfuels). Founded by CEO Muhammad Daniyal. Access top services, blogs, images, and videos 24/7.',
+    title: 'Zyphuel – Pakistan’s #1 Fuel Supplier & Agency in Lahore',
+    description: 'Zyphuel is Pakistan\'s #1 mobile fuel brand, agency, and supplier. Founded by CEO Muhammad Daniyal. We provide international-standard on-demand mobile refueling and digital energy logistics 24/7 across Lahore and Pakistan.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
-      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol delivery Lahore', 'diesel delivery', 'mobile refueling', 'Pakistan fuel logistics'
+      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol delivery Lahore', 'diesel delivery', 'mobile refueling', 'Pakistan fuel logistics',
+      'global energy logistics', 'international fuel supply standards', 'smart refueling agency', 'Pakistan top fuel brand'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app',

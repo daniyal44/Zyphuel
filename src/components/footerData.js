@@ -1,11 +1,11 @@
 export const footerData = {
   brand: {
     name: 'Zyphuel',
-    logoPath: '/public/images/Zyphuel-logo.png',
+    logoPath: '/images/Zyphuel-logo.png',
     logoAlt: 'Zyphuel - On-Demand 24/7 Mobile Fuel & Petrol Delivery Lahore',
     fallbackLogo: true, // triggers SVG if image fails
     description:
-      'Zyphuel is Pakistan\'s premier digital fuel delivery platform, bridging oil depots and consumers seamlessly. We deliver petrol and diesel 24/7 across Lahore.',
+      'Zyphuel is Pakistan\'s #1 mobile fuel delivery brand, supplier, and agency. Providing international-standard, 24/7 on-demand petrol and diesel fuel delivery across Lahore.',
   },
   contact: {
     phone: '+92 3230-112464',

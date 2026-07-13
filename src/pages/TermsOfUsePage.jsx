@@ -19,7 +19,7 @@ export default function TermsOfUsePage() {
   const [activeSection, setActiveSection] = useState('terms-intro')
 
   useSEO({
-    title: 'Terms of Use & Legal Agreement | Zyphuel (Z Fuel, Zphuel, Zafuel)',
+    title: 'Terms of Use | Zyphuel – Pakistan’s #1 Fuel Supplier & Agency in Lahore',
     description: 'Read the Terms of Use for Zyphuel (Z fuel, Z fuels, keyfuels), Pakistan\'s No.1 mobile fuel delivery brand. Legal terms regarding ordering services, liability, and CEO policies.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',

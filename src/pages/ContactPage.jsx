@@ -9,12 +9,13 @@ export default function ContactPage() {
   const { showToast } = useToast()
 
   useSEO({
-    title: 'Contact Us & Support Helpline | Zyphuel (Z Fuel, Zphuel, Zafuel)',
-    description: 'Contact Zyphuel, Pakistan\'s number 1 mobile fuel supply agency. Connect with CEO Muhammad Daniyal and partners. Operating 24/7 in Lahore for fuel delivery services.',
+    title: 'Contact Us | Zyphuel – Pakistan’s #1 Fuel Supplier & Agency in Lahore',
+    description: 'Get in touch with Zyphuel, Pakistan\'s #1 mobile fuel delivery brand, agency, and supplier. Connect with CEO Muhammad Daniyal and the customer support helpline for business partnerships, emergency requests, or query resolutions.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
-      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'contact Zyphuel', 'support helpline', 'corporate meetings Lahore'
+      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'contact Zyphuel', 'support helpline', 'corporate meetings Lahore',
+      'business collaboration', 'partner with Zyphuel', 'international corporate helpline'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/contact',

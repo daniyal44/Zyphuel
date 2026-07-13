@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react'
 
 const DATA_3D = [
-  'https://i.postimg.cc/x1vN9qbh/wall.png',
-  'https://i.postimg.cc/vTT5BMdL/tablet.png',
-  'https://i.postimg.cc/ZRCqvqCz/cup.png',
-  'https://i.postimg.cc/wBRPt89x/pen.png',
-  'https://i.postimg.cc/W3HPB6NB/card.png',
-  'https://i.postimg.cc/T3tGj68w/fuel.png',
-  'https://i.postimg.cc/PJQ0tWTC/helmet.png',
-  'https://i.postimg.cc/TYpkHfqp/collab.png',
-  'https://i.postimg.cc/g0pRh3Wz/tank.png',
-  'https://i.postimg.cc/pXNDvw6y/Shirt.png',
-  'https://i.postimg.cc/wMYdxxJx/Gallen.png',
-  'https://i.postimg.cc/J0sR0YYN/Cap.png'
+  { url: 'https://i.postimg.cc/x1vN9qbh/wall.png', alt: 'Zyphuel Corporate Office Branding Wall' },
+  { url: 'https://i.postimg.cc/vTT5BMdL/tablet.png', alt: 'Zyphuel Mobile Fuel Delivery Ordering App on Tablet' },
+  { url: 'https://i.postimg.cc/ZRCqvqCz/cup.png', alt: 'Zyphuel Official Brand Mug and Stationary' },
+  { url: 'https://i.postimg.cc/wBRPt89x/pen.png', alt: 'Zyphuel Branded Corporate Pen' },
+  { url: 'https://i.postimg.cc/W3HPB6NB/card.png', alt: 'Zyphuel Corporate Business Card' },
+  { url: 'https://i.postimg.cc/T3tGj68w/fuel.png', alt: 'Zyphuel Premium Fuel Pump Dispenser' },
+  { url: 'https://i.postimg.cc/PJQ0tWTC/helmet.png', alt: 'Zyphuel Safe Operations Fuel Delivery Rider Helmet' },
+  { url: 'https://i.postimg.cc/TYpkHfqp/collab.png', alt: 'Zyphuel Enterprise Partnerships and Collaboration' },
+  { url: 'https://i.postimg.cc/g0pRh3Wz/tank.png', alt: 'Zyphuel Fuel Storage Tank Logistics' },
+  { url: 'https://i.postimg.cc/pXNDvw6y/Shirt.png', alt: 'Zyphuel Branded Delivery Agent Uniform T-Shirt' },
+  { url: 'https://i.postimg.cc/wMYdxxJx/Gallen.png', alt: 'Zyphuel Portable Fuel Jerry Can' },
+  { url: 'https://i.postimg.cc/J0sR0YYN/Cap.png', alt: 'Zyphuel Branded Cap' }
 ]
 
 export default function Carousel3D() {
@@ -123,7 +123,7 @@ export default function Carousel3D() {
                 transform: `rotateY(${rotationAngle}deg)` 
               }}
             >
-              {DATA_3D.map((imgCode, i) => {
+              {DATA_3D.map((item, i) => {
                 const angle = 360 / DATA_3D.length;
                 const radius = Math.round((220 / 2) / Math.tan(Math.PI / DATA_3D.length));
                 
@@ -143,8 +143,8 @@ export default function Carousel3D() {
                   >
                     <img
                       className="carousel-img"
-                      src={imgCode}
-                      alt={`3D Slide ${i}`}
+                      src={item.url}
+                      alt={item.alt}
                     />
                   </div>
                 );
