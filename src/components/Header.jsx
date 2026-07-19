@@ -40,8 +40,17 @@ export default function Header({ onOpenInterestModal }) {
   }, [location.pathname])
 
   const isActive = (to, exact) => {
-    if (exact) return location.pathname === to
-    return location.pathname === to
+    if (exact || to === '/') return location.pathname === to
+    return location.pathname.startsWith(to)
+  }
+
+  const handleDownload = () => {
+    const link = document.createElement('a')
+    link.href = '/APK/Zyphuel.apk'
+    link.setAttribute('download', 'Zyphuel.apk')
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   return (
@@ -68,13 +77,13 @@ export default function Header({ onOpenInterestModal }) {
             <i className="fa-solid fa-circle-check"></i> Lahore City
           </span>
           <span
-            className="badge-pill badge-upcoming"
-            id="upcoming-cities-badge"
+            className="badge-pill badge-zyphuel"
+            id="Zyphuel Mobile APP"
             style={{ cursor: 'pointer' }}
-            title="Expanding soon! Click to subscribe."
-            onClick={onOpenInterestModal}
+            title="Download Zyphuel APK"
+            onClick={handleDownload}
           >
-            App launch soon!
+            <i className="fa-solid fa-mobile-screen-button"></i> Download APP
           </span>
         </div>
 
