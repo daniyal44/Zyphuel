@@ -21,7 +21,7 @@ export const footerData = {
     },
     {
       platform: 'Google Business Profile',
-      url: 'https://share.google/ZSPw1hDsv9vVNzHMR',
+      url: 'https://share.google/Nb4XGKYq5aU0nzLr3',
       icon: 'fa-brands fa-google', // use fa-google if available; otherwise fallback
     },
     {

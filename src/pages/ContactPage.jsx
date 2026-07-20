@@ -28,6 +28,13 @@ export default function ContactPage() {
         "name": "Zyphuel",
         "telephone": "+923230112464",
         "email": "m.daniyalkhan490@gmail.com",
+        "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
+        "sameAs": [
+          "https://share.google/Nb4XGKYq5aU0nzLr3",
+          "https://www.linkedin.com/in/muhammad-d-9243b5243",
+          "https://github.com/daniyal44",
+          "https://www.facebook.com/muhammad.daniyal.522942/"
+        ],
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+923230112464",

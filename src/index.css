@@ -2043,6 +2043,76 @@ a.footer-contact-link:hover {
     color: var(--accent-color-hover);
 }
 
+/* Footer GMB Row */
+.footer-gmb-row {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding: 20px 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    backdrop-filter: blur(8px);
+}
+
+.gmb-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.gmb-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4285F4, #EA4335, #FBBC05, #34A853);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.35rem;
+    box-shadow: 0 4px 12px rgba(66, 133, 244, 0.2);
+}
+
+.gmb-text h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.gmb-text p {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.gmb-cta-btn {
+    background: linear-gradient(135deg, var(--accent-color), #0284c7);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.2);
+    transition: all 0.3s ease;
+}
+
+.gmb-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(14, 165, 233, 0.3);
+    color: #ffffff;
+}
+
 /* ==========================================================================
    TOAST NOTIFICATION COMPONENT
    ========================================================================== */

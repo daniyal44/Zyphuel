@@ -34,6 +34,13 @@ export default function HomePage() {
       "url": "https://zyphuel.netlify.app",
       "logo": "https://zyphuel.netlify.app/images/logo.png",
       "telephone": "+923230112464",
+      "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
+      "sameAs": [
+        "https://share.google/Nb4XGKYq5aU0nzLr3",
+        "https://www.linkedin.com/in/muhammad-d-9243b5243",
+        "https://github.com/daniyal44",
+        "https://www.facebook.com/muhammad.daniyal.522942/"
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "75-Main Boulevard, Gulberg III",
@@ -50,7 +57,8 @@ export default function HomePage() {
       "founder": {
         "@type": "Person",
         "name": "Muhammad Daniyal",
-        "jobTitle": "Founder & CEO"
+        "jobTitle": "Founder & CEO",
+        "sameAs": "https://github.com/daniyal44"
       },
       "award": "Pakistan's Number 1 Fuel Delivery Brand & Supplier"
     }

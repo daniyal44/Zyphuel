@@ -176,6 +176,28 @@ export default function Footer() {
           )}
         </div>
 
+        {/* Separate GMB / Google Business Profile highlighted section */}
+        <div className="footer-gmb-row">
+          <div className="gmb-info">
+            <span className="gmb-icon-wrapper">
+              <i className="fa-brands fa-google"></i>
+            </span>
+            <div className="gmb-text">
+              <h4>Verified Google Business Profile</h4>
+              <p>Explore verified customer ratings, reviews, and directions for Pakistan's #1 Mobile Fuel Delivery Agency on Google Maps.</p>
+            </div>
+          </div>
+          <a
+            href="https://share.google/Nb4XGKYq5aU0nzLr3"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gmb-cta-btn"
+            title="Rate & Review Zyphuel on Google Maps"
+          >
+            <i className="fa-solid fa-map-location-dot"></i> GMB Profile
+          </a>
+        </div>
+
         {/* Bottom bar */}
         <div className="footer-bottom">
           <p>{copyright}</p>

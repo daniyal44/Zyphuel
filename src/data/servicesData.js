@@ -1,7 +1,7 @@
 export const FUEL_RATES = {
-  petrol: 299.50,
-  diesel: 311.47,
-  highOctane: 440.00,
+  petrol: 316.15,
+  diesel: 354.35,
+  highOctane: 448.00,
 };
 
 export const servicesB2C = [

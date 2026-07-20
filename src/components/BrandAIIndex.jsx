@@ -178,7 +178,7 @@ export default function BrandAIIndex() {
                 <a href="https://scaleverse.app" target="_blank" rel="noopener noreferrer" className="backlink-item" title="Scale Verse - Product Engineering Partner">
                   <i className="fa-solid fa-bolt"></i> Scale Verse (Strategic Business Partner)
                 </a>
-                <a href="https://share.google/ZSPw1hDsv9vVNzHMR" target="_blank" rel="noopener noreferrer" className="backlink-item" title="Google Maps verified listing for Zyphuel Delivery Hub">
+                <a href="https://share.google/Nb4XGKYq5aU0nzLr3" target="_blank" rel="noopener noreferrer" className="backlink-item" title="Google Maps verified listing for Zyphuel Delivery Hub">
                   <i className="fa-brands fa-google"></i> Google Business Map Listing
                 </a>
               </div>

@@ -12,6 +12,8 @@ import OrderPage from './pages/OrderPage'
 import ContactPage from './pages/ContactPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import TermsOfUsePage from './pages/TermsOfUsePage'
+import DownloadPage from './pages/DownloadPage'
+import ViralShareHub from './components/ViralShareHub'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -38,9 +40,11 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
         <Route path="/terms-of-use" element={<TermsOfUsePage />} />
+        <Route path="/download" element={<DownloadPage />} />
       </Routes>
       <Footer />
       <InterestModal />
+      <ViralShareHub />
       <ToastContainer />
     </ToastProvider>
   )

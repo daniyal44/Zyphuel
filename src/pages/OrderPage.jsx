@@ -6,9 +6,9 @@ import { useSEO } from '../hooks/useSEO'
 import BrandAIIndex from '../components/BrandAIIndex'
 
 const FUEL_PRICES = {
-  petrol: 310.71,
-  diesel: 323.30,
-  highOctane: 445.00,
+  petrol: 316.15,
+  diesel: 354.35,
+  highOctane: 448.00,
   lpg: 241.43,
   water: 100.00, // Price is Rs 100 per gallon refill
 }

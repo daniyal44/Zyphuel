@@ -1,0 +1,213 @@
+/* Viral Share Hub styles */
+.viral-share-hub {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 16px;
+  pointer-events: none;
+}
+
+.viral-share-hub * {
+  pointer-events: auto;
+}
+
+/* FAB button */
+.share-fab {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-color), #0284c7);
+  border: none;
+  color: #ffffff;
+  font-size: 1.35rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(14, 165, 233, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.share-fab:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5);
+}
+
+.share-fab i {
+  transition: transform 0.4s ease;
+}
+
+.viral-share-hub.active .share-fab {
+  background: #ef4444;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.4);
+  transform: rotate(90deg);
+}
+
+/* Glowing halo animation for FAB */
+.fab-glow {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-color);
+  animation: fabPulse 2s infinite ease-out;
+  opacity: 0;
+}
+
+@keyframes fabPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.viral-share-hub:not(.active) .fab-glow {
+  opacity: 1;
+}
+
+/* Share items menu */
+.share-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.85);
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.viral-share-hub.active .share-menu {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  visibility: visible;
+}
+
+/* Individual share item circles */
+.share-item {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.share-item:hover {
+  transform: scale(1.15);
+  color: #ffffff;
+}
+
+/* Platform Colors on Hover */
+.share-item.whatsapp:hover {
+  background-color: #25D366;
+  border-color: #25D366;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.share-item.facebook:hover {
+  background-color: #1877F2;
+  border-color: #1877F2;
+  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+}
+
+.share-item.linkedin:hover {
+  background-color: #0A66C2;
+  border-color: #0A66C2;
+  box-shadow: 0 4px 12px rgba(10, 102, 194, 0.3);
+}
+
+.share-item.twitter:hover {
+  background-color: #000000;
+  border-color: #000000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.share-item.gmb:hover {
+  background: linear-gradient(135deg, #4285F4, #EA4335, #FBBC05, #34A853);
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+}
+
+.share-item.copy-link:hover {
+  background-color: #0f172a;
+  border-color: #0f172a;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.3);
+}
+
+/* Tooltips */
+.share-item .tooltip {
+  position: absolute;
+  right: 60px;
+  background-color: #0f172a;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(10px);
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  box-shadow: var(--shadow-md);
+}
+
+.share-item .tooltip::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #0f172a;
+}
+
+.share-item:hover .tooltip {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+}
+
+/* Mobile responsive alignment adjustment */
+@media (max-width: 768px) {
+  .viral-share-hub {
+    bottom: 16px;
+    right: 16px;
+    gap: 12px;
+  }
+  .share-fab {
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+  }
+  .share-item {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+  .share-item .tooltip {
+    display: none; /* Hide tooltips on mobile screens to save space */
+  }
+}

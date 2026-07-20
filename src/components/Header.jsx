@@ -44,15 +44,6 @@ export default function Header({ onOpenInterestModal }) {
     return location.pathname.startsWith(to)
   }
 
-  const handleDownload = () => {
-    const link = document.createElement('a')
-    link.href = '/APK/Zyphuel.apk'
-    link.setAttribute('download', 'Zyphuel.apk')
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
-
   return (
     <header className={`header${scrolled ? ' scrolled' : ''}`} id="header">
       <div className="container">
@@ -76,15 +67,14 @@ export default function Header({ onOpenInterestModal }) {
           <span className="badge-pill badge-active" title="Active Delivery Areas">
             <i className="fa-solid fa-circle-check"></i> Lahore City
           </span>
-          <span
+          <Link
+            to="/download"
             className="badge-pill badge-zyphuel"
-            id="Zyphuel Mobile APP"
+            title="Download Page"
             style={{ cursor: 'pointer' }}
-            title="Download Zyphuel APK"
-            onClick={handleDownload}
           >
-            <i className="fa-solid fa-mobile-screen-button"></i> Download APP
-          </span>
+            <i className="fa-solid fa-file-arrow-down"></i> Download App
+          </Link>
         </div>
 
         {/* Hamburger */}

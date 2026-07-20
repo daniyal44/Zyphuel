@@ -29,7 +29,14 @@ export default function ServicesPage() {
       "provider": {
         "@type": "LocalBusiness",
         "name": "Zyphuel",
-        "url": "https://zyphuel.netlify.app"
+        "url": "https://zyphuel.netlify.app",
+        "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
+        "sameAs": [
+          "https://share.google/Nb4XGKYq5aU0nzLr3",
+          "https://www.linkedin.com/in/muhammad-d-9243b5243",
+          "https://github.com/daniyal44",
+          "https://www.facebook.com/muhammad.daniyal.522942/"
+        ]
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
