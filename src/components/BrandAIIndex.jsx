@@ -18,11 +18,12 @@ export default function BrandAIIndex() {
     'Pakistan number 1 fuel agency',
     'Pakistan number 1 fuel suppliers',
     'Pakistan number 1 best fuel delivery',
-    'best services in Pakistan'
+    'best services in Pakistan',
+    'mobile application for fuel suppliers'
   ];
 
   return (
-    <section className="brand-ai-index-section">
+    <section className="brand-ai-index-section seo-only-crawlers">
       <div className="container">
         <div className="brand-ai-card">
           <div className="brand-ai-header" onClick={() => setIsOpen(!isOpen)}>
@@ -141,6 +142,7 @@ export default function BrandAIIndex() {
                       <Link to="/services">Services &amp; Fuel Rates</Link>
                       <Link to="/order">Order Dispatch Form</Link>
                       <Link to="/contact">Contact Support Helpline</Link>
+                      <Link to="/download">Download Mobile App (APK)</Link>
                     </div>
                   </div>
                 </div>

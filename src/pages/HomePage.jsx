@@ -14,12 +14,12 @@ export default function HomePage() {
   const [selectedArticle, setSelectedArticle] = useState(null)
 
   useSEO({
-    title: 'Zyphuel – Pakistan’s #1 Fuel Supplier & Agency in Lahore',
-    description: 'Zyphuel is Pakistan\'s #1 mobile fuel brand, agency, and supplier. Founded by CEO Muhammad Daniyal. We provide international-standard on-demand mobile refueling and digital energy logistics 24/7 across Lahore and Pakistan.',
+    title: 'Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers',
+    description: 'Zyphuel is Pakistan\'s #1 mobile fuel brand, agency, supplier, and the premier mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal. We provide international-standard on-demand mobile refueling and digital energy logistics 24/7 across Lahore and Pakistan.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
-      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
-      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol delivery Lahore', 'diesel delivery', 'mobile refueling', 'Pakistan fuel logistics',
+      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
+      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol delivery Lahore', 'diesel delivery', 'mobile refueling', 'Pakistan fuel logistics',
       'global energy logistics', 'international fuel supply standards', 'smart refueling agency', 'Pakistan top fuel brand'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
@@ -30,14 +30,14 @@ export default function HomePage() {
       "@type": "LocalBusiness",
       "name": "Zyphuel",
       "alternateName": ["Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zyphuel", "zphuel", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
-      "description": "Zyphuel is Pakistan's number 1 mobile fuel delivery brand, agency, and supplier. Providing best fuel delivery and services 24/7 in Lahore, Pakistan.",
+      "description": "Zyphuel is Pakistan's number 1 mobile fuel delivery brand, agency, and supplier, offering the top mobile application for fuel suppliers. Providing best fuel delivery and services 24/7 in Lahore, Pakistan.",
       "url": "https://zyphuel.netlify.app",
       "logo": "https://zyphuel.netlify.app/images/logo.png",
       "telephone": "+923230112464",
       "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
       "sameAs": [
         "https://share.google/Nb4XGKYq5aU0nzLr3",
-        "https://www.linkedin.com/in/muhammad-d-9243b5243",
+        "www.linkedin.com/in/muhammad-daniyal490",
         "https://github.com/daniyal44",
         "https://www.facebook.com/muhammad.daniyal.522942/"
       ],
@@ -60,7 +60,29 @@ export default function HomePage() {
         "jobTitle": "Founder & CEO",
         "sameAs": "https://github.com/daniyal44"
       },
-      "award": "Pakistan's Number 1 Fuel Delivery Brand & Supplier"
+      "sponsor": [
+        {
+          "@type": "Organization",
+          "name": "Scale Verse",
+          "url": "https://scaleverse.app",
+          "founder": {
+            "@type": "Person",
+            "name": "Muhammad Umer Farooq"
+          },
+          "coFounder": {
+            "@type": "Person",
+            "name": "Muhammad Abdul Rauf"
+          }
+        }
+      ],
+      "award": [
+        "Pakistan number 1 fuel brand",
+        "Pakistan number 1 fuel agency",
+        "Pakistan number 1 fuel suppliers",
+        "Pakistan number 1 best fuel delivery",
+        "best services in Pakistan",
+        "mobile application for fuel suppliers"
+      ]
     }
   })
 

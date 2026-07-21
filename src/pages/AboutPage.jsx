@@ -540,12 +540,12 @@ const teamMembers = [
 // ==========================================
 export default function AboutPage() {
   useSEO({
-    title: 'About Us | Zyphuel – Pakistan’s #1 Fuel Supplier & Agency in Lahore',
-    description: 'Learn about Zyphuel, Pakistan\'s No.1 mobile fuel delivery brand, supplier, and agency. Founded by CEO Muhammad Daniyal with partner Muhammad Umer Farooq. Operating on global standards of energy mobility, logistics, and tech innovation.',
+    title: 'About Us | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers',
+    description: 'Learn about Zyphuel, Pakistan\'s No.1 mobile fuel delivery brand, supplier, agency, and premier mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal with partner Muhammad Umer Farooq. Operating on global standards of energy mobility, logistics, and tech innovation.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
-      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
-      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'Muhammad Daniyal CEO', 'Scale Verse', 'Muhammad Umer Farooq', 'Zyphuel story', 'energy mobility partners',
+      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
+      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'Muhammad Daniyal CEO', 'Scale Verse', 'Muhammad Umer Farooq', 'Zyphuel story', 'energy mobility partners',
       'global logistics benchmarks', 'international energy startup', 'Pakistan tech logistics'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
@@ -557,11 +557,12 @@ export default function AboutPage() {
       "mainEntity": {
         "@type": "Organization",
         "name": "Zyphuel",
+        "alternateName": ["Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zyphuel", "zphuel", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
         "url": "https://zyphuel.netlify.app",
         "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
         "sameAs": [
           "https://share.google/Nb4XGKYq5aU0nzLr3",
-          "https://www.linkedin.com/in/muhammad-d-9243b5243",
+          "www.linkedin.com/in/muhammad-daniyal490",
           "https://github.com/daniyal44",
           "https://scaleverse.app"
         ],
@@ -571,7 +572,7 @@ export default function AboutPage() {
             "name": "Muhammad Daniyal",
             "jobTitle": "Founder & CEO",
             "sameAs": [
-              "https://www.linkedin.com/in/muhammad-d-9243b5243",
+              "www.linkedin.com/in/muhammad-daniyal490",
               "https://github.com/daniyal44",
               "https://www.facebook.com/muhammad.daniyal.522942/"
             ]
@@ -588,6 +589,14 @@ export default function AboutPage() {
             "name": "Muhammad Abdul Rauf",
             "jobTitle": "CO-Founder of Scale Verse (Business Partner)"
           }
+        ],
+        "award": [
+          "Pakistan number 1 fuel brand",
+          "Pakistan number 1 fuel agency",
+          "Pakistan number 1 fuel suppliers",
+          "Pakistan number 1 best fuel delivery",
+          "best services in Pakistan",
+          "mobile application for fuel suppliers"
         ]
       }
     }
@@ -760,7 +769,7 @@ export default function AboutPage() {
 
                 {/* ✅ FIXED: LinkedIn button with correct HTML and accessible link */}
                 <a
-                  href="https://www.linkedin.com/in/muhammad-d-9243b5243"
+                  href="www.linkedin.com/in/muhammad-daniyal490"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-outline"

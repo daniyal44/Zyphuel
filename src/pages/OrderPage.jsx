@@ -4,6 +4,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
 import BrandAIIndex from '../components/BrandAIIndex'
+import { useFuelPrices } from '../context/FuelPriceContext'
 
 const FUEL_PRICES = {
   petrol: 316.15,
@@ -31,12 +32,12 @@ const FUEL_ICONS = {
 
 export default function OrderPage() {
   useSEO({
-    title: 'Order Fuel | Zyphuel – Pakistan’s #1 Fuel Supplier & Agency in Lahore',
+    title: 'Order Fuel | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers',
     description: 'Place your mobile refueling order online. Choose from petrol, diesel, high octane, LPG gas cylinders, or water tanker refills. Fastest 24/7 delivery in Lahore matching international logistics standards.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
-      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
-      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'order fuel online', 'LPG gas cylinder order', 'water refill delivery', 'Lahore cash on delivery',
+      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
+      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'order fuel online', 'LPG gas cylinder order', 'water refill delivery', 'Lahore cash on delivery',
       'easy refueling request', 'emergency fuel supply', 'on-demand fuel dispatch'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
@@ -60,9 +61,23 @@ export default function OrderPage() {
           "@type": "AggregateOffer",
           "priceCurrency": "PKR",
           "lowPrice": "100.00",
-          "highPrice": "445.00",
-          "offerCount": "3"
+          "highPrice": "448.00",
+          "offerCount": "5"
         }
+      },
+      "agent": {
+        "@type": "LocalBusiness",
+        "name": "Zyphuel",
+        "alternateName": ["Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zyphuel", "zphuel", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
+        "url": "https://zyphuel.netlify.app",
+        "award": [
+          "Pakistan number 1 fuel brand",
+          "Pakistan number 1 fuel agency",
+          "Pakistan number 1 fuel suppliers",
+          "Pakistan number 1 best fuel delivery",
+          "best services in Pakistan",
+          "mobile application for fuel suppliers"
+        ]
       }
     }
   })
@@ -102,7 +117,13 @@ export default function OrderPage() {
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
   const [deliverySpeed, setDeliverySpeed] = useState('simple') // 'simple' or 'urgent'
-  const [prices, setPrices] = useState({ ...FUEL_PRICES })
+  
+  const { prices: livePrices } = useFuelPrices()
+  const [prices, setPrices] = useState({ ...livePrices })
+
+  useEffect(() => {
+    setPrices(livePrices)
+  }, [livePrices])
 
   // Error state
   const [errors, setErrors] = useState({})

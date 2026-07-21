@@ -1,44 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
         <loc>https://zyphuel.netlify.app/</loc>
-        <lastmod>2026-07-13</lastmod>
+        <lastmod>2026-07-21</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/Zyphuel-logo.png</image:loc>
+            <image:title>Zyphuel - Pakistan Number 1 Fuel Brand Logo</image:title>
+            <image:caption>Official logo for Zyphuel, Pakistan's leading on-demand fuel brand and delivery service.</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/logo.png</image:loc>
+            <image:title>Zyphuel Icon</image:title>
+            <image:caption>Zyphuel brand icon and favicon asset.</image:caption>
+        </image:image>
     </url>
     <url>
         <loc>https://zyphuel.netlify.app/services</loc>
-        <lastmod>2026-07-13</lastmod>
+        <lastmod>2026-07-21</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://zyphuel.netlify.app/about</loc>
-        <lastmod>2026-07-13</lastmod>
+        <lastmod>2026-07-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/daniyal.jpeg</image:loc>
+            <image:title>Muhammad Daniyal - Founder &amp; CEO of Zyphuel</image:title>
+            <image:caption>Headshot of Muhammad Daniyal, Founder &amp; CEO of Zyphuel, Pakistan's premier fuel supplier.</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/umar.jpeg</image:loc>
+            <image:title>Muhammad Umer Farooq - Scale Verse Founder</image:title>
+            <image:caption>Strategic technology partner Muhammad Umer Farooq, founder of Scale Verse.</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/rauf.jpeg</image:loc>
+            <image:title>Muhammad Abdul Rauf - Scale Verse Co-Founder</image:title>
+            <image:caption>Strategic technology business partner Muhammad Abdul Rauf, co-founder of Scale Verse.</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://i.postimg.cc/TYpkHfqp/collab.png</image:loc>
+            <image:title>Zyphuel &amp; Scale Verse Collaboration Diagram</image:title>
+            <image:caption>Partnership blueprint mapping the digital logistics ecosystem engineered by Scale Verse and Zyphuel.</image:caption>
+        </image:image>
+        <video:video>
+            <video:thumbnail_loc>https://zyphuel.netlify.app/images/Zyphuel-logo.png</video:thumbnail_loc>
+            <video:title>Zyphuel Service Walkthrough Video</video:title>
+            <video:description>Explore Pakistan's number 1 best fuel delivery operations, fleet logistics, and mobile application dispatch workflow guided by our CEO.</video:description>
+            <video:player_loc>https://www.youtube.com/embed/dQw4w9WgXcQ</video:player_loc>
+            <video:duration>212</video:duration>
+        </video:video>
     </url>
     <url>
         <loc>https://zyphuel.netlify.app/order</loc>
-        <lastmod>2026-07-13</lastmod>
+        <lastmod>2026-07-21</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
+        <loc>https://zyphuel.netlify.app/download</loc>
+        <lastmod>2026-07-21</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/app_order_screen.jpg</image:loc>
+            <image:title>Zyphuel Mobile Application Order Refueling Screen</image:title>
+            <image:caption>Step-by-step fuel order submission and coordinate pinning inside the mobile application for fuel suppliers.</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/app_tracking_screen.jpg</image:loc>
+            <image:title>Zyphuel Mobile App Real-Time GPS Tracking</image:title>
+            <image:caption>Live GPS vehicle locator screen tracking micro-refueler trucks in the Zyphuel Android application.</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/app_receipt_screen.jpg</image:loc>
+            <image:title>Zyphuel Mobile App Digital Receipt Invoice</image:title>
+            <image:caption>Calibrated flow-meter invoice breakdown for fleet refueling.</image:caption>
+        </image:image>
+    </url>
+    <url>
         <loc>https://zyphuel.netlify.app/contact</loc>
-        <lastmod>2026-07-13</lastmod>
+        <lastmod>2026-07-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://zyphuel.netlify.app/privacy-policy</loc>
-        <lastmod>2026-07-13</lastmod>
+        <lastmod>2026-07-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
     </url>
     <url>
         <loc>https://zyphuel.netlify.app/terms-of-use</loc>
-        <lastmod>2026-07-13</lastmod>
+        <lastmod>2026-07-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
     </url>

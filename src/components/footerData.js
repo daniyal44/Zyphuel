@@ -25,22 +25,25 @@ export const footerData = {
       icon: 'fa-brands fa-google', // use fa-google if available; otherwise fallback
     },
     {
-      platform: 'Instagram',
-      url: '#', // replace with real URL
-      icon: 'fa-brands fa-instagram',
+      platform: 'LinkedIn Company',
+      url: 'https://www.linkedin.com/company/zyphuel/?viewAsMember=true', // replace with real URL
+      icon: 'fa-brands fa-linkedin',
     },
     {
       platform: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/muhammad-d-9243b5243',
+      url: 'www.linkedin.com/in/muhammad-daniyal490',
       icon: 'fa-brands fa-linkedin-in',
     },
   ],
   quickLinks: [
     { label: 'Home', to: '/' },
-    { label: 'Services', to: '/services' },
-    { label: 'About us', to: '/about' },
-    { label: 'Order Fuel', to: '/order' },
-    { label: 'Contact us', to: '/contact' },
+    { label: 'Services & Rates', to: '/services' },
+    { label: 'About Us & Team', to: '/about' },
+    { label: 'Order Fuel Dispatch', to: '/order' },
+    { label: 'Contact Helpline', to: '/contact' },
+    { label: 'Download Mobile App', to: '/download' },
+    { label: 'Privacy Policy', to: '/privacy-policy' },
+    { label: 'Terms of Use', to: '/terms-of-use' },
   ],
   // Enhanced list of Lahore towns (more local areas)
   lahoreTowns: [

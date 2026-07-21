@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import InterestModal from './components/InterestModal'
 import ToastContainer from './components/Toast'
 import { ToastProvider } from './context/ToastContext'
+import { FuelPriceProvider } from './context/FuelPriceContext'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ServicesPage from './pages/ServicesPage'
@@ -13,7 +14,6 @@ import ContactPage from './pages/ContactPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import TermsOfUsePage from './pages/TermsOfUsePage'
 import DownloadPage from './pages/DownloadPage'
-import ViralShareHub from './components/ViralShareHub'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -30,22 +30,23 @@ const openModal = () => {
 function App() {
   return (
     <ToastProvider>
-      <ScrollToTop />
-      <Header onOpenInterestModal={openModal} />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/order" element={<OrderPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-        <Route path="/terms-of-use" element={<TermsOfUsePage />} />
-        <Route path="/download" element={<DownloadPage />} />
-      </Routes>
-      <Footer />
-      <InterestModal />
-      <ViralShareHub />
-      <ToastContainer />
+      <FuelPriceProvider>
+        <ScrollToTop />
+        <Header onOpenInterestModal={openModal} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/order" element={<OrderPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-of-use" element={<TermsOfUsePage />} />
+          <Route path="/download" element={<DownloadPage />} />
+        </Routes>
+        <Footer />
+        <InterestModal />
+        <ToastContainer />
+      </FuelPriceProvider>
     </ToastProvider>
   )
 }

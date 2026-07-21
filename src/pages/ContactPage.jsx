@@ -9,12 +9,12 @@ export default function ContactPage() {
   const { showToast } = useToast()
 
   useSEO({
-    title: 'Contact Us | Zyphuel – Pakistan’s #1 Fuel Supplier & Agency in Lahore',
-    description: 'Get in touch with Zyphuel, Pakistan\'s #1 mobile fuel delivery brand, agency, and supplier. Connect with CEO Muhammad Daniyal and the customer support helpline for business partnerships, emergency requests, or query resolutions.',
+    title: 'Contact Us | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers',
+    description: 'Get in touch with Zyphuel, Pakistan\'s #1 mobile fuel delivery brand, agency, supplier, and best mobile application for fuel suppliers. Connect with CEO Muhammad Daniyal and the customer support helpline.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
-      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
-      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'contact Zyphuel', 'support helpline', 'corporate meetings Lahore',
+      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
+      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'contact Zyphuel', 'support helpline', 'corporate meetings Lahore',
       'business collaboration', 'partner with Zyphuel', 'international corporate helpline'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
@@ -26,12 +26,13 @@ export default function ContactPage() {
       "mainEntity": {
         "@type": "LocalBusiness",
         "name": "Zyphuel",
+        "alternateName": ["Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zyphuel", "zphuel", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
         "telephone": "+923230112464",
         "email": "m.daniyalkhan490@gmail.com",
         "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
         "sameAs": [
           "https://share.google/Nb4XGKYq5aU0nzLr3",
-          "https://www.linkedin.com/in/muhammad-d-9243b5243",
+          "www.linkedin.com/in/muhammad-daniyal490",
           "https://github.com/daniyal44",
           "https://www.facebook.com/muhammad.daniyal.522942/"
         ],
@@ -41,7 +42,15 @@ export default function ContactPage() {
           "contactType": "Customer Support & Enterprise Inquiries",
           "areaServed": "PK",
           "availableLanguage": ["English", "Urdu"]
-        }
+        },
+        "award": [
+          "Pakistan number 1 fuel brand",
+          "Pakistan number 1 fuel agency",
+          "Pakistan number 1 fuel suppliers",
+          "Pakistan number 1 best fuel delivery",
+          "best services in Pakistan",
+          "mobile application for fuel suppliers"
+        ]
       }
     }
   })

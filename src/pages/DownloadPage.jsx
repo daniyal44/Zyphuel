@@ -34,10 +34,12 @@ export default function DownloadPage() {
   }, [slides.length])
   
   useSEO({
-    title: 'Download App | Zyphuel – Pakistan’s #1 Fuel Supplier & Agency in Lahore',
-    description: 'Download the official Zyphuel Mobile App for Android. Experience Pakistan\'s first 24/7 on-demand mobile fuel delivery service. Order petrol, diesel, and high-octane directly to your doorstep in Lahore.',
+    title: 'Download App | Zyphuel – Pakistan’s #1 Mobile Application for Fuel Suppliers',
+    description: 'Download the official Zyphuel Mobile App for Android, recognized as the premier mobile application for fuel suppliers in Pakistan. Experience 24/7 on-demand petrol, diesel, and high-octane delivery in Lahore.',
     keywords: [
-      'Zyphuel App', 'Download Zyphuel APK', 'Zyphuel Android App', 'mobile fuel delivery app',
+      'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
+      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
+      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'Zyphuel App', 'Download Zyphuel APK', 'Zyphuel Android App', 'mobile fuel delivery app',
       'petrol delivery app Lahore', 'fuel tracker app', 'diesel delivery Lahore app', 'Muhammad Daniyal CEO',
       'Pakistan on-demand fuel app', 'smart energy logistics app'
     ],
@@ -56,6 +58,7 @@ export default function DownloadPage() {
       "author": {
         "@type": "LocalBusiness",
         "name": "Zyphuel",
+        "alternateName": ["Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zyphuel", "zphuel", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
         "url": "https://zyphuel.netlify.app",
         "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
         "founder": {
@@ -63,9 +66,17 @@ export default function DownloadPage() {
           "name": "Muhammad Daniyal",
           "jobTitle": "Founder & CEO",
           "sameAs": "https://github.com/daniyal44"
-        }
+        },
+        "award": [
+          "Pakistan number 1 fuel brand",
+          "Pakistan number 1 fuel agency",
+          "Pakistan number 1 fuel suppliers",
+          "Pakistan number 1 best fuel delivery",
+          "best services in Pakistan",
+          "mobile application for fuel suppliers"
+        ]
       },
-      "description": "The official mobile application for Zyphuel, Pakistan's #1 mobile fuel delivery brand, agency, and supplier, offering 24/7 terminal-grade petrol and diesel delivery directly to vehicles and generators in Lahore."
+      "description": "The official mobile application for Zyphuel, Pakistan's #1 mobile fuel delivery brand, agency, and supplier, offering the ultimate mobile application for fuel suppliers with 24/7 terminal-grade refueling in Lahore."
     }
   })
 

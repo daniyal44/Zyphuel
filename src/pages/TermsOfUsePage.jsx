@@ -19,12 +19,12 @@ export default function TermsOfUsePage() {
   const [activeSection, setActiveSection] = useState('terms-intro')
 
   useSEO({
-    title: 'Terms of Use | Zyphuel – Pakistan’s #1 Fuel Supplier & Agency in Lahore',
-    description: 'Read the Terms of Use for Zyphuel (Z fuel, Z fuels, keyfuels), Pakistan\'s No.1 mobile fuel delivery brand. Legal terms regarding ordering services, liability, and CEO policies.',
+    title: 'Terms of Use | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers',
+    description: 'Read the Terms of Use for Zyphuel (Z fuel, Z fuels, keyfuels), Pakistan\'s No.1 mobile fuel delivery brand and top mobile application for fuel suppliers. Legal terms regarding ordering services.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
-      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
-      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'terms of use', 'legal contract', 'dispute resolution Lahore'
+      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
+      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'terms of use', 'legal contract', 'dispute resolution Lahore'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/terms-of-use',

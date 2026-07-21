@@ -4,20 +4,22 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 import ServicesGraphic from '../components/ServicesGraphic'
 import ServiceCard from '../components/ServiceCard'
 import StepCard from '../components/StepCard'
-import { FUEL_RATES, servicesB2C, servicesB2B, steps } from '../data/servicesData'
+import { servicesB2C, servicesB2B, steps } from '../data/servicesData'
 import { useSEO } from '../hooks/useSEO'
 import BrandAIIndex from '../components/BrandAIIndex'
+import { useFuelPrices } from '../context/FuelPriceContext'
 
 export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState('consumer')
+  const { prices: livePrices } = useFuelPrices()
   
   useSEO({
-    title: 'Our Services | Zyphuel – Pakistan’s #1 Fuel Supplier & Agency in Lahore',
-    description: 'Discover premium B2C and B2B refueling, LPG Gas cylinder, and Water refill services from Zyphuel. Access global-standard fuel distribution, smart volumetric billing, and on-demand mobile fueling for transport fleets and power plants.',
+    title: 'Our Services | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers',
+    description: 'Discover premium B2C and B2B refueling, LPG Gas cylinder, and Water refill services from Zyphuel. Access the best mobile application for fuel suppliers, global-standard fuel distribution, smart volumetric billing, and on-demand mobile fueling 24/7.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
-      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'best fuel delivery Pakistan', 'best services in Pakistan',
-      'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol services', 'diesel delivery Lahore', 'LPG gas refills', 'water tanker refill',
+      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
+      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol services', 'diesel delivery Lahore', 'LPG gas refills', 'water tanker refill',
       'B2B refueling solutions', 'corporate energy supply', 'international fuel distribution'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
@@ -29,13 +31,22 @@ export default function ServicesPage() {
       "provider": {
         "@type": "LocalBusiness",
         "name": "Zyphuel",
+        "alternateName": ["Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zyphuel", "zphuel", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
         "url": "https://zyphuel.netlify.app",
         "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
         "sameAs": [
           "https://share.google/Nb4XGKYq5aU0nzLr3",
-          "https://www.linkedin.com/in/muhammad-d-9243b5243",
+          "www.linkedin.com/in/muhammad-daniyal490",
           "https://github.com/daniyal44",
           "https://www.facebook.com/muhammad.daniyal.522942/"
+        ],
+        "award": [
+          "Pakistan number 1 fuel brand",
+          "Pakistan number 1 fuel agency",
+          "Pakistan number 1 fuel suppliers",
+          "Pakistan number 1 best fuel delivery",
+          "best services in Pakistan",
+          "mobile application for fuel suppliers"
         ]
       },
       "hasOfferCatalog": {
@@ -107,15 +118,15 @@ export default function ServicesPage() {
                 <div className="live-pricing-bar fade-in-up" style={{ marginBottom: '28px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
                   <div style={{ background: 'rgba(255, 255, 255, 0.8)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '8px', backdropFilter: 'blur(4px)' }}>
                     <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--brand-petrol)' }}></span>
-                    <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)' }}>Petrol: Rs. {FUEL_RATES.petrol.toFixed(2)}/L</span>
+                    <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)' }}>Petrol: Rs. {livePrices.petrol.toFixed(2)}/L</span>
                   </div>
                   <div style={{ background: 'rgba(255, 255, 255, 0.8)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '8px', backdropFilter: 'blur(4px)' }}>
                     <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#7c3aed' }}></span>
-                    <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)' }}>Diesel: Rs. {FUEL_RATES.diesel.toFixed(2)}/L</span>
+                    <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)' }}>Diesel: Rs. {livePrices.diesel.toFixed(2)}/L</span>
                   </div>
                   <div style={{ background: 'rgba(255, 255, 255, 0.8)', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '8px 16px', display: 'flex', alignItems: 'center', gap: '8px', backdropFilter: 'blur(4px)' }}>
                     <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#0ea5e9' }}></span>
-                    <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)' }}>High-Octane: Rs. {FUEL_RATES.highOctane.toFixed(2)}/L</span>
+                    <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text-primary)' }}>High-Octane: Rs. {livePrices.highOctane.toFixed(2)}/L</span>
                   </div>
                 </div>
                 <div className="hero-ctas">
