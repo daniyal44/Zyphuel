@@ -24,11 +24,25 @@ export default function TermsOfUsePage() {
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
-      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'terms of use', 'legal contract', 'dispute resolution Lahore'
+      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'terms of use', 'legal contract', 'dispute resolution Lahore'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
-    url: 'https://zyphuel.netlify.app/terms-of-use',
+    canonicalPath: '/terms-of-use',
     type: 'website',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Terms of Use - Zyphuel",
+      "description": "Terms of use and service agreement for Zyphuel fuel delivery and digital logistics platform.",
+      "url": "https://zyphuel.netlify.app/terms-of-use",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zyphuel.netlify.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Terms of Use", "item": "https://zyphuel.netlify.app/terms-of-use" }
+        ]
+      }
+    }
   })
 
   useEffect(() => {

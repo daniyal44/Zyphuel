@@ -1,14 +1,15 @@
 import { useEffect } from 'react'
 
-export function useSEO({ title, description, keywords, schema, image, url, type }) {
+export function useSEO({ title, description, keywords, schema, image, url, type, canonicalPath }) {
   useEffect(() => {
     // 1. Basic Meta Elements
     if (title) {
       document.title = title
     }
 
-    const defaultUrl = url || window.location.href || 'https://zyphuel.netlify.app'
-    const defaultImage = image || 'https://zyphuel.netlify.app/images/logo.png'
+    const domain = 'https://zyphuel.netlify.app'
+    const fullUrl = url || (canonicalPath ? `${domain}${canonicalPath === '/' ? '' : canonicalPath}` : window.location.href)
+    const defaultImage = image || `${domain}/images/logo.png`
     const defaultType = type || 'website'
 
     // Helper to set/update meta tag
@@ -29,36 +30,48 @@ export function useSEO({ title, description, keywords, schema, image, url, type 
       el.setAttribute('content', content)
     }
 
+    const setLinkTag = (rel, href, attributes = {}) => {
+      let selector = `link[rel="${rel}"]`
+      if (attributes.hreflang) selector += `[hreflang="${attributes.hreflang}"]`
+      let element = document.querySelector(selector)
+      if (!element) {
+        element = document.createElement('link')
+        element.setAttribute('rel', rel)
+        Object.keys(attributes).forEach((key) => element.setAttribute(key, attributes[key]))
+        document.head.appendChild(element)
+      }
+      element.setAttribute('href', href)
+    }
+
+    // 2. Core Meta Tags
     setMetaTag('description', null, description)
     if (keywords) {
       setMetaTag('keywords', null, Array.isArray(keywords) ? keywords.join(', ') : keywords)
     }
-    setMetaTag('robots', null, 'index, follow')
+    setMetaTag('robots', null, 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')
 
-    // 2. Open Graph Tags
+    // 3. Open Graph Tags
     setMetaTag(null, 'og:title', title)
     setMetaTag(null, 'og:description', description)
     setMetaTag(null, 'og:image', defaultImage)
-    setMetaTag(null, 'og:url', defaultUrl)
+    setMetaTag(null, 'og:url', fullUrl)
     setMetaTag(null, 'og:type', defaultType)
     setMetaTag(null, 'og:site_name', 'Zyphuel')
 
-    // 3. Twitter Card Tags
+    // 4. Twitter Card Tags
     setMetaTag('twitter:card', null, 'summary_large_image')
     setMetaTag('twitter:title', title)
     setMetaTag('twitter:description', description)
     setMetaTag('twitter:image', defaultImage)
 
-    // 4. Canonical Link
-    let canonical = document.querySelector("link[rel='canonical']")
-    if (!canonical) {
-      canonical = document.createElement('link')
-      canonical.setAttribute('rel', 'canonical')
-      document.head.appendChild(canonical)
-    }
-    canonical.setAttribute('href', defaultUrl)
+    // 5. Canonical Link & International Hreflang Tags
+    setLinkTag('canonical', fullUrl)
+    setLinkTag('alternate', fullUrl, { hreflang: 'x-default' })
+    setLinkTag('alternate', fullUrl, { hreflang: 'en-PK' })
+    setLinkTag('alternate', fullUrl, { hreflang: 'en-US' })
+    setLinkTag('alternate', fullUrl, { hreflang: 'ur-PK' })
 
-    // 5. JSON-LD Schema Injection
+    // 6. JSON-LD Schema Injection
     if (schema) {
       let scriptSchema = document.getElementById('seo-schema')
       if (!scriptSchema) {
@@ -74,6 +87,5 @@ export function useSEO({ title, description, keywords, schema, image, url, type 
         scriptSchema.remove()
       }
     }
-  }, [title, description, keywords, schema, image, url, type])
+  }, [title, description, keywords, schema, image, url, type, canonicalPath])
 }
-

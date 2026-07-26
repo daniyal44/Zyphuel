@@ -21,15 +21,29 @@ export default function PrivacyPolicyPage() {
 
   useSEO({
     title: 'Privacy Policy | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers',
-    description: 'Privacy Policy of Zyphuel (Z fuel, Z fuels, keyfuels), Pakistan\'s No.1 mobile fuel supply agency and top mobile application for fuel suppliers. Learn how our founder CEO Muhammad Daniyal and partners secure your data.',
+    description: 'Privacy Policy of Zyphuel (Z fuel, Z fuels, keyfuels), Pakistan\'s No.1 mobile fuel supply agency and top mobile application for fuel suppliers. Learn how founder & CEO Muhammad Daniyal and partners secure your data.',
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
-      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'privacy policy', 'data protection', 'Lahore GDPR compliance'
+      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'privacy policy', 'data protection', 'Lahore GDPR compliance'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
-    url: 'https://zyphuel.netlify.app/privacy-policy',
+    canonicalPath: '/privacy-policy',
     type: 'website',
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Privacy Policy - Zyphuel",
+      "description": "Zyphuel data privacy policy and data security standards for users in Pakistan and globally.",
+      "url": "https://zyphuel.netlify.app/privacy-policy",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zyphuel.netlify.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://zyphuel.netlify.app/privacy-policy" }
+        ]
+      }
+    }
   })
 
   useEffect(() => {
