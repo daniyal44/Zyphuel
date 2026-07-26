@@ -30,8 +30,8 @@ export const footerData = {
       icon: 'fa-brands fa-linkedin',
     },
     {
-      platform: 'LinkedIn',
-      url: 'www.linkedin.com/in/muhammad-daniyal490',
+      platform: 'LinkedIn Profile',
+      url: 'https://www.linkedin.com/in/muhammad-daniyal490',
       icon: 'fa-brands fa-linkedin-in',
     },
   ],

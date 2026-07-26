@@ -87,9 +87,14 @@ export default function BrandAIIndex() {
                     <img src="/images/daniyal.jpeg" alt="Muhammad Daniyal" className="dossier-avatar" />
                     <div>
                       <span>Muhammad Daniyal</span>
-                      <a href="https://github.com/daniyal44" target="_blank" rel="noopener noreferrer" className="dossier-link">
-                        GitHub Profile <i className="fa-solid fa-arrow-up-right-from-square"></i>
-                      </a>
+                      <div style={{ display: 'flex', gap: '10px', marginTop: '4px' }}>
+                        <a href="https://www.linkedin.com/in/muhammad-daniyal490" target="_blank" rel="noopener noreferrer" className="dossier-link">
+                          LinkedIn Profile <i className="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/daniyal44" target="_blank" rel="noopener noreferrer" className="dossier-link">
+                          GitHub Profile <i className="fa-brands fa-github"></i>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -174,6 +179,12 @@ export default function BrandAIIndex() {
                 <Link to="/services" className="backlink-item" title="Best Services in Pakistan - Utility &amp; Water Delivery">
                   <i className="fa-solid fa-award"></i> Best Services in Pakistan
                 </Link>
+                <a href="https://www.linkedin.com/company/zyphuel/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="backlink-item" title="Zyphuel Official LinkedIn Company Page">
+                  <i className="fa-brands fa-linkedin"></i> Zyphuel LinkedIn Company Page
+                </a>
+                <a href="https://www.linkedin.com/in/muhammad-daniyal490" target="_blank" rel="noopener noreferrer" className="backlink-item" title="Muhammad Daniyal - Founder & CEO LinkedIn Profile">
+                  <i className="fa-brands fa-linkedin"></i> Muhammad Daniyal LinkedIn Profile
+                </a>
                 <a href="https://github.com/daniyal44" target="_blank" rel="noopener noreferrer" className="backlink-item" title="Muhammad Daniyal - Founder &amp; CEO GitHub">
                   <i className="fa-brands fa-github"></i> Muhammad Daniyal (CEO &amp; Founder)
                 </a>

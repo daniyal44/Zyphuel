@@ -70,6 +70,13 @@ export default function OrderPage() {
         "name": "Zyphuel",
         "alternateName": ["Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zyphuel", "zphuel", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
         "url": "https://zyphuel.netlify.app",
+        "sameAs": [
+          "https://www.linkedin.com/company/zyphuel/?viewAsMember=true",
+          "https://www.linkedin.com/in/muhammad-daniyal490",
+          "https://share.google/Nb4XGKYq5aU0nzLr3",
+          "https://github.com/daniyal44",
+          "https://www.facebook.com/muhammad.daniyal.522942/"
+        ],
         "award": [
           "Pakistan number 1 fuel brand",
           "Pakistan number 1 fuel agency",

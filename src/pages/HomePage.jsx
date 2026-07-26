@@ -36,8 +36,9 @@ export default function HomePage() {
       "telephone": "+923230112464",
       "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
       "sameAs": [
+        "https://www.linkedin.com/company/zyphuel/?viewAsMember=true",
+        "https://www.linkedin.com/in/muhammad-daniyal490",
         "https://share.google/Nb4XGKYq5aU0nzLr3",
-        "www.linkedin.com/in/muhammad-daniyal490",
         "https://github.com/daniyal44",
         "https://www.facebook.com/muhammad.daniyal.522942/"
       ],
@@ -58,7 +59,11 @@ export default function HomePage() {
         "@type": "Person",
         "name": "Muhammad Daniyal",
         "jobTitle": "Founder & CEO",
-        "sameAs": "https://github.com/daniyal44"
+        "sameAs": [
+          "https://www.linkedin.com/in/muhammad-daniyal490",
+          "https://github.com/daniyal44",
+          "https://www.facebook.com/muhammad.daniyal.522942/"
+        ]
       },
       "sponsor": [
         {

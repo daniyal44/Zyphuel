@@ -35,8 +35,9 @@ export default function ServicesPage() {
         "url": "https://zyphuel.netlify.app",
         "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
         "sameAs": [
+          "https://www.linkedin.com/company/zyphuel/?viewAsMember=true",
+          "https://www.linkedin.com/in/muhammad-daniyal490",
           "https://share.google/Nb4XGKYq5aU0nzLr3",
-          "www.linkedin.com/in/muhammad-daniyal490",
           "https://github.com/daniyal44",
           "https://www.facebook.com/muhammad.daniyal.522942/"
         ],

@@ -559,10 +559,10 @@ export default function AboutPage() {
         "name": "Zyphuel",
         "alternateName": ["Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zyphuel", "zphuel", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
         "url": "https://zyphuel.netlify.app",
-        "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
         "sameAs": [
+          "https://www.linkedin.com/company/zyphuel/?viewAsMember=true",
+          "https://www.linkedin.com/in/muhammad-daniyal490",
           "https://share.google/Nb4XGKYq5aU0nzLr3",
-          "www.linkedin.com/in/muhammad-daniyal490",
           "https://github.com/daniyal44",
           "https://scaleverse.app"
         ],
@@ -572,7 +572,7 @@ export default function AboutPage() {
             "name": "Muhammad Daniyal",
             "jobTitle": "Founder & CEO",
             "sameAs": [
-              "www.linkedin.com/in/muhammad-daniyal490",
+              "https://www.linkedin.com/in/muhammad-daniyal490",
               "https://github.com/daniyal44",
               "https://www.facebook.com/muhammad.daniyal.522942/"
             ]
@@ -767,16 +767,26 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                {/* ✅ FIXED: LinkedIn button with correct HTML and accessible link */}
-                <a
-                  href="www.linkedin.com/in/muhammad-daniyal490"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-outline"
-                  style={{ marginTop: '20px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
-                >
-                  <i className="fa-brands fa-linkedin"></i> LinkedIn Profile
-                </a>
+                <div style={{ marginTop: '20px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                  <a
+                    href="https://www.linkedin.com/in/muhammad-daniyal490"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                  >
+                    <i className="fa-brands fa-linkedin"></i> CEO LinkedIn Profile
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/zyphuel/?viewAsMember=true"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                  >
+                    <i className="fa-brands fa-linkedin"></i> Zyphuel LinkedIn Page
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -61,11 +61,22 @@ export default function DownloadPage() {
         "alternateName": ["Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zyphuel", "zphuel", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
         "url": "https://zyphuel.netlify.app",
         "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
+        "sameAs": [
+          "https://www.linkedin.com/company/zyphuel/?viewAsMember=true",
+          "https://www.linkedin.com/in/muhammad-daniyal490",
+          "https://share.google/Nb4XGKYq5aU0nzLr3",
+          "https://github.com/daniyal44",
+          "https://www.facebook.com/muhammad.daniyal.522942/"
+        ],
         "founder": {
           "@type": "Person",
           "name": "Muhammad Daniyal",
           "jobTitle": "Founder & CEO",
-          "sameAs": "https://github.com/daniyal44"
+          "sameAs": [
+            "https://www.linkedin.com/in/muhammad-daniyal490",
+            "https://github.com/daniyal44",
+            "https://www.facebook.com/muhammad.daniyal.522942/"
+          ]
         },
         "award": [
           "Pakistan number 1 fuel brand",
