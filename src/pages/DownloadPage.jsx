@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import BrandAIIndex from '../components/BrandAIIndex'
+import { APP_VERSION, RELEASE_DATE, APP_SIZE, MIN_ANDROID, CHANGELOG } from '../data/appVersion'
 import './styles.css'
 
 export default function DownloadPage() {
@@ -34,8 +35,8 @@ export default function DownloadPage() {
   }, [slides.length])
   
   useSEO({
-    title: 'Download App | Zyphuel – Pakistan’s #1 Mobile Application for Fuel Suppliers',
-    description: 'Download the official Zyphuel Mobile App for Android, recognized as the premier mobile application for fuel suppliers in Pakistan. Experience 24/7 on-demand petrol, diesel, and high-octane delivery in Lahore.',
+    title: `Download App v${APP_VERSION} | Zyphuel – Pakistan’s #1 Mobile Application for Fuel Suppliers`,
+    description: `Download the official Zyphuel Mobile App v${APP_VERSION} for Android. Recognized as the premier mobile application for fuel suppliers in Pakistan. Experience 24/7 on-demand petrol, diesel, and high-octane delivery in Lahore.`,
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
@@ -53,8 +54,8 @@ export default function DownloadPage() {
       "operatingSystem": "Android 8.0 and above",
       "applicationCategory": "BusinessApplication, UtilitiesApplication",
       "downloadUrl": "https://zyphuel.netlify.app/APK/Zyphuel.apk",
-      "fileSize": "22.8MB",
-      "softwareVersion": "1.0.4",
+      "fileSize": APP_SIZE,
+      "softwareVersion": APP_VERSION,
       "author": {
         "@type": "LocalBusiness",
         "name": "Zyphuel",
@@ -145,7 +146,7 @@ export default function DownloadPage() {
               <div className="download-hero-content fade-in-up">
                 <div className="hero-subtitle-badge">
                   <i className="fa-solid fa-mobile-screen"></i>
-                  <span>Smart Mobile Refueling</span>
+                  <span>Smart Mobile Refueling • v{APP_VERSION} (Latest Update)</span>
                 </div>
                 <h1 className="hero-title">
                   Refuel Smarter With the <span>Zyphuel App</span>
@@ -159,7 +160,7 @@ export default function DownloadPage() {
                   <button onClick={handleApkDownload} className="btn btn-primary btn-download-main">
                     <i className="fa-brands fa-android"></i>
                     <div className="btn-download-text">
-                      <span className="small-label">Download for Android</span>
+                      <span className="small-label">Download for Android • v{APP_VERSION}</span>
                       <span className="large-label">Direct APK Download</span>
                     </div>
                   </button>
@@ -244,11 +245,15 @@ export default function DownloadPage() {
                 </div>
 
                 <div className="app-meta-tags">
-                  <span><strong>Version:</strong> 1.0.4</span>
+                  <span className="version-meta-highlight">
+                    <i className="fa-solid fa-code-branch"></i> <strong>Version:</strong> v{APP_VERSION} <span className="version-tag-badge">Latest</span>
+                  </span>
                   <span className="separator">•</span>
-                  <span><strong>Size:</strong> 22.8 MB</span>
+                  <span><strong>Size:</strong> {APP_SIZE}</span>
                   <span className="separator">•</span>
-                  <span><strong>Min Android:</strong> 8.0 (Oreo)+</span>
+                  <span><strong>Updated:</strong> {RELEASE_DATE}</span>
+                  <span className="separator">•</span>
+                  <span><strong>Min Android:</strong> {MIN_ANDROID}</span>
                 </div>
               </div>
 
@@ -361,6 +366,42 @@ export default function DownloadPage() {
                 <p>Our smart delivery trucks are equipped with digitally calibrated flow meters that ensure you receive 100% genuine, precise quantities of fuel without evaporation or leakage.</p>
               </div>
 
+            </div>
+          </div>
+        </section>
+
+        {/* Version Release Notes & Changelog Section */}
+        <section className="app-changelog-section section-padding">
+          <div className="container">
+            <div className="section-header fade-in-up">
+              <div className="version-header-badge">
+                <i className="fa-solid fa-code-branch"></i> Release History
+              </div>
+              <h2 className="section-title">What's New in Version {APP_VERSION}</h2>
+              <p className="section-subtitle">Key enhancements, stability updates, and feature upgrades introduced in our latest release ({RELEASE_DATE}).</p>
+            </div>
+
+            <div className="changelog-grid fade-in-up">
+              {CHANGELOG.map((release, idx) => (
+                <div key={idx} className={`changelog-card ${idx === 0 ? 'featured' : ''}`}>
+                  <div className="changelog-card-header">
+                    <div className="changelog-version-tag">
+                      <i className="fa-solid fa-tag"></i> Version {release.version}
+                    </div>
+                    <span className="changelog-date">{release.date}</span>
+                    {idx === 0 && <span className="changelog-badge-latest">Current Version</span>}
+                  </div>
+                  <h3 className="changelog-title">{release.title}</h3>
+                  <ul className="changelog-features-list">
+                    {release.features.map((feat, fIdx) => (
+                      <li key={fIdx}>
+                        <i className="fa-solid fa-circle-check"></i>
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </section>
