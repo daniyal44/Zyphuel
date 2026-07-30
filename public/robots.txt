@@ -37,6 +37,15 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
 User-agent: bingbot
 Allow: /
 

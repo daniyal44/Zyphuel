@@ -130,17 +130,17 @@
         <changefreq>daily</changefreq>
         <priority>0.95</priority>
         <image:image>
-            <image:loc>https://zyphuel.netlify.app/images/app_order_screen.jpg</image:loc>
+            <image:loc>https://zyphuel.netlify.app/images/1.jpeg</image:loc>
             <image:title>Zyphuel Mobile Application Fuel Order Screen</image:title>
             <image:caption>Step-by-step fuel order submission and coordinate pinning inside the mobile application for fuel suppliers.</image:caption>
         </image:image>
         <image:image>
-            <image:loc>https://zyphuel.netlify.app/images/app_tracking_screen.jpg</image:loc>
+            <image:loc>https://zyphuel.netlify.app/images/2.jpeg</image:loc>
             <image:title>Zyphuel Mobile App Real-Time GPS Refueler Tracking</image:title>
             <image:caption>Live GPS vehicle locator screen tracking micro-refueler trucks in the Zyphuel Android application.</image:caption>
         </image:image>
         <image:image>
-            <image:loc>https://zyphuel.netlify.app/images/app_receipt_screen.jpg</image:loc>
+            <image:loc>https://zyphuel.netlify.app/images/3.jpeg</image:loc>
             <image:title>Zyphuel Mobile App Digital Meter Invoice Receipt</image:title>
             <image:caption>Calibrated flow-meter invoice breakdown for enterprise fleet refueling.</image:caption>
         </image:image>
