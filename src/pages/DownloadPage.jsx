@@ -192,57 +192,13 @@ export default function DownloadPage() {
                 {/* QR Code Segment */}
                 <div className="qr-scanner-box">
                   <div className="qr-svg-container">
-                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="qr-svg" aria-label="QR Code to Download Zyphuel Mobile App">
-                      {/* Quiet Zone & Border */}
-                      <rect width="100" height="100" fill="white" rx="8" />
-                      
-                      {/* Top-Left Finder Pattern */}
-                      <rect x="10" y="10" width="30" height="30" fill="var(--text-primary)" />
-                      <rect x="15" y="15" width="20" height="20" fill="white" />
-                      <rect x="20" y="20" width="10" height="10" fill="var(--accent-color)" />
-                      
-                      {/* Top-Right Finder Pattern */}
-                      <rect x="60" y="10" width="30" height="30" fill="var(--text-primary)" />
-                      <rect x="65" y="15" width="20" height="20" fill="white" />
-                      <rect x="70" y="20" width="10" height="10" fill="var(--accent-color)" />
-                      
-                      {/* Bottom-Left Finder Pattern */}
-                      <rect x="10" y="60" width="30" height="30" fill="var(--text-primary)" />
-                      <rect x="15" y="65" width="20" height="20" fill="white" />
-                      <rect x="20" y="70" width="10" height="10" fill="var(--accent-color)" />
-                      
-                      {/* Bottom-Right Alignment Pattern & Bits */}
-                      <rect x="75" y="75" width="10" height="10" fill="var(--text-primary)" />
-                      
-                      {/* Timing patterns and bits */}
-                      <rect x="45" y="10" width="5" height="5" fill="var(--text-primary)" />
-                      <rect x="50" y="15" width="5" height="5" fill="var(--accent-color)" />
-                      <rect x="45" y="25" width="5" height="5" fill="var(--text-primary)" />
-                      
-                      <rect x="10" y="45" width="5" height="5" fill="var(--accent-color)" />
-                      <rect x="20" y="45" width="5" height="5" fill="var(--text-primary)" />
-                      <rect x="30" y="45" width="5" height="5" fill="var(--text-primary)" />
-                      
-                      <rect x="45" y="45" width="10" height="10" fill="var(--text-primary)" />
-                      <rect x="50" y="55" width="5" height="5" fill="var(--accent-color)" />
-                      
-                      <rect x="60" y="45" width="5" height="5" fill="var(--text-primary)" />
-                      <rect x="70" y="45" width="5" height="5" fill="var(--accent-color)" />
-                      <rect x="80" y="45" width="5" height="5" fill="var(--text-primary)" />
-                      
-                      <rect x="45" y="65" width="5" height="5" fill="var(--accent-color)" />
-                      <rect x="50" y="75" width="5" height="5" fill="var(--text-primary)" />
-                      <rect x="45" y="85" width="5" height="5" fill="var(--text-primary)" />
-                      
-                      <rect x="65" y="60" width="5" height="5" fill="var(--text-primary)" />
-                      <rect x="85" y="60" width="5" height="5" fill="var(--accent-color)" />
-                      <rect x="75" y="65" width="5" height="5" fill="var(--text-primary)" />
-                      <rect x="85" y="70" width="5" height="5" fill="var(--text-primary)" />
-                      
-                      <rect x="60" y="80" width="10" height="5" fill="var(--accent-color)" />
-                      <rect x="65" y="85" width="5" height="5" fill="var(--text-primary)" />
-                      <rect x="85" y="85" width="5" height="5" fill="var(--text-primary)" />
-                    </svg>
+                    <img
+                      src="/images/Qr-code.png"
+                      alt="Scan QR Code to Download Zyphuel Mobile Application for Fuel Suppliers"
+                      title="Zyphuel Mobile App Download QR Code"
+                      style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '4px' }}
+                      loading="lazy"
+                    />
                   </div>
                   <div className="qr-info">
                     <h4>Scan to Download Mobile Application</h4>

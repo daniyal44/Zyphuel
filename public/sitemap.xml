@@ -149,6 +149,11 @@
             <image:title>Zyphuel Dispatcher Tablet Dashboard</image:title>
             <image:caption>Tablet UI interface used by fuel suppliers and driver dispatchers.</image:caption>
         </image:image>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/Qr-code.png</image:loc>
+            <image:title>Zyphuel Mobile Application Download QR Code</image:title>
+            <image:caption>Scan QR code image to download Zyphuel Android application APK.</image:caption>
+        </image:image>
     </url>
 
     <!-- Order Dispatch Page -->
