@@ -244,20 +244,18 @@ export default function DownloadPage() {
                       
                       {/* Screen Slider Showcase */}
                       <div className="phone-slider-container">
-                        <div className="phone-slider-wrapper" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-                          {slides.map((slide, idx) => (
-                            <div key={idx} className="phone-slide">
-                              <img
-                                src={slide.img}
-                                alt={`Zyphuel Mobile Application for Fuel Suppliers - ${slide.title}`}
-                                title={`Zyphuel App Feature - ${slide.title}`}
-                                className="phone-slide-img"
-                                loading="lazy"
-                                itemProp="screenshot"
-                              />
-                            </div>
-                          ))}
-                        </div>
+                        {slides.map((slide, idx) => (
+                          <div key={idx} className={`phone-slide ${currentSlide === idx ? 'active' : ''}`}>
+                            <img
+                              src={slide.img}
+                              alt={`Zyphuel Mobile Application for Fuel Suppliers - ${slide.title}`}
+                              title={`Zyphuel App Feature - ${slide.title}`}
+                              className="phone-slide-img"
+                              loading="eager"
+                              itemProp="screenshot"
+                            />
+                          </div>
+                        ))}
                       </div>
 
                     </div>
