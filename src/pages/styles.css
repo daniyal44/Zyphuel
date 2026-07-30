@@ -622,8 +622,40 @@
 .phone-mockup-container {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.mockup-active-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 23, 42, 0.85);
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 30px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  font-size: 0.82rem;
+  margin-bottom: 18px;
+  box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.25);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.mockup-active-badge .badge-num {
+  background: var(--accent-color);
+  color: #ffffff;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+
+.mockup-active-badge .badge-text {
+  font-weight: 600;
+  color: #e2e8f0;
 }
 
 .phone-mockup-device {

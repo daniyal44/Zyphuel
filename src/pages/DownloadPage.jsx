@@ -12,28 +12,28 @@ export default function DownloadPage() {
   const slides = [
     {
       img: '/images/1.jpeg',
-      title: '1. Order Refueling',
-      desc: 'Select fuel type (Petrol, Octane, Diesel), specify amount, and drag pin to coordinates.'
+      title: 'Order Refueling Screen',
+      subtitle: 'Select fuel type (Petrol, Octane, Diesel), specify amount, and drag pin to coordinates.'
     },
     {
       img: '/images/2.jpeg',
-      title: '2. Live Delivery GPS',
-      desc: 'Track our micro-refueler truck approaching in real-time with continuous ETA.'
+      title: 'Live GPS Delivery Tracking',
+      subtitle: 'Track our micro-refueler truck approaching in real-time with continuous live ETA.'
     },
     {
       img: '/images/3.jpeg',
-      title: '3. Digital Invoice Proof',
-      desc: 'View digitally calibrated flow-meter receipts and transaction logs immediately.'
+      title: 'Digital Meter Receipt',
+      subtitle: 'View digitally calibrated flow-meter receipts and transaction logs immediately.'
     }
   ]
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 4500)
+    }, 5000)
     return () => clearInterval(timer)
   }, [slides.length])
-  
+
   useSEO({
     title: `Download App v${APP_VERSION} | Zyphuel – Pakistan’s #1 Mobile Application for Fuel Suppliers`,
     description: `Download the official Zyphuel Mobile App v${APP_VERSION} for Android. Recognized as the premier mobile application for fuel suppliers in Pakistan. Experience 24/7 on-demand petrol, diesel, and high-octane delivery in Lahore.`,
@@ -44,7 +44,7 @@ export default function DownloadPage() {
       'petrol delivery app Lahore', 'fuel tracker app', 'diesel delivery Lahore app', 'Muhammad Daniyal CEO',
       'Pakistan on-demand fuel app', 'smart energy logistics app'
     ],
-    image: 'https://zyphuel.netlify.app/images/app_order_screen.jpg',
+    image: 'https://zyphuel.netlify.app/images/1.jpeg',
     imageAlt: 'Zyphuel Mobile Application for Fuel Suppliers Interface Screen',
     url: 'https://zyphuel.netlify.app/download',
     type: 'website',
@@ -62,17 +62,17 @@ export default function DownloadPage() {
           "screenshot": [
             {
               "@type": "ImageObject",
-              "url": "https://zyphuel.netlify.app/images/app_order_screen.jpg",
+              "url": "https://zyphuel.netlify.app/images/1.jpeg",
               "caption": "Zyphuel Mobile App Fuel Order Screen"
             },
             {
               "@type": "ImageObject",
-              "url": "https://zyphuel.netlify.app/images/app_tracking_screen.jpg",
+              "url": "https://zyphuel.netlify.app/images/2.jpeg",
               "caption": "Zyphuel Mobile App Live GPS Vehicle Tracking Screen"
             },
             {
               "@type": "ImageObject",
-              "url": "https://zyphuel.netlify.app/images/app_receipt_screen.jpg",
+              "url": "https://zyphuel.netlify.app/images/3.jpeg",
               "caption": "Zyphuel Mobile App Digital Calibrated Receipt Screen"
             }
           ],
@@ -133,25 +133,27 @@ export default function DownloadPage() {
     <div ref={pageRef} className="download-page-wrapper">
       <main style={{ paddingTop: 'var(--nav-height)' }}>
         
-        {/* Hero Section */}
+        {/* Modern Glassmorphic Download Hero */}
         <section className="download-hero">
           <div className="container">
             <div className="download-hero-grid">
               
-              {/* Left Column: Details & Actions */}
+              {/* Left Column: Headline, Highlights & Actions */}
               <div className="download-hero-content fade-in-up">
                 <div className="hero-subtitle-badge">
                   <i className="fa-solid fa-mobile-screen"></i>
                   <span>Smart Mobile Refueling • v{APP_VERSION} (Latest Release)</span>
                 </div>
+                
                 <h1 className="hero-title">
                   Refuel Smarter With the <span>Zyphuel Mobile App</span>
                 </h1>
+                
                 <p className="hero-description">
-                  Take full control of your fuel logistics. Our international-standard mobile application allows you to schedule fuel deliveries, track smart refuelers in real-time, view invoice history, and manage multi-vehicle corporate fleets 24/7 across Lahore.
+                  Experience Pakistan's premier mobile application for fuel suppliers. Schedule petrol, diesel, and high-octane deliveries, track smart refuelers in real-time with continuous live ETA, view calibrated digital receipts, and manage multi-vehicle corporate fleets 24/7 across Lahore.
                 </p>
 
-                {/* Primary Actions */}
+                {/* Primary Download CTAs */}
                 <div className="download-actions">
                   <a
                     href="/APK/Zyphuel.apk"
@@ -167,7 +169,7 @@ export default function DownloadPage() {
                     <i className="fa-brands fa-android"></i>
                     <div className="btn-download-text">
                       <span className="small-label">Download for Android • v{APP_VERSION}</span>
-                      <span className="large-label">Direct APK Download</span>
+                      <span className="large-label">Direct APK Download ({APP_SIZE})</span>
                     </div>
                   </a>
 
@@ -189,23 +191,24 @@ export default function DownloadPage() {
                   </div>
                 </div>
 
-                {/* QR Code Segment */}
+                {/* QR Code Scanner Card */}
                 <div className="qr-scanner-box">
                   <div className="qr-svg-container">
                     <img
                       src="/images/Qr-code.png"
                       alt="Scan QR Code to Download Zyphuel Mobile Application for Fuel Suppliers"
                       title="Zyphuel Mobile App Download QR Code"
-                      style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '4px' }}
+                      className="qr-code-img"
                       loading="lazy"
                     />
                   </div>
                   <div className="qr-info">
-                    <h4>Scan to Download Mobile Application</h4>
-                    <p>Point your smartphone camera at the QR code to download the installation file directly onto your Android device.</p>
+                    <h4>Scan QR to Install Immediately</h4>
+                    <p>Scan with your smartphone camera to download the Android APK installer directly to your mobile device.</p>
                   </div>
                 </div>
 
+                {/* Metadata Pills */}
                 <div className="app-meta-tags">
                   <span className="version-meta-highlight">
                     <i className="fa-solid fa-code-branch"></i> <strong>Version:</strong> v{APP_VERSION} <span className="version-tag-badge">Latest</span>
@@ -219,9 +222,16 @@ export default function DownloadPage() {
                 </div>
               </div>
 
-              {/* Right Column: Premium CSS Mobile Mockup */}
+              {/* Right Column: Refactored 3D Phone Mockup Display */}
               <div className="download-hero-visual fade-in-up">
                 <div className="phone-mockup-container" itemScope itemType="https://schema.org/MobileApplication">
+                  
+                  {/* Slide Label Badge */}
+                  <div className="mockup-active-badge">
+                    <span className="badge-num">{currentSlide + 1} / {slides.length}</span>
+                    <span className="badge-text">{slides[currentSlide].title}</span>
+                  </div>
+
                   <div className="phone-mockup-device">
                     <div className="phone-speaker"></div>
                     <div className="phone-camera-notch"></div>
@@ -229,7 +239,7 @@ export default function DownloadPage() {
                     <div className="phone-button volume-up"></div>
                     <div className="phone-button volume-down"></div>
                     
-                    {/* Screen Container */}
+                    {/* Screen Frame Container */}
                     <div className="phone-mockup-screen">
                       
                       {/* Screen Slider Showcase */}
@@ -264,7 +274,8 @@ export default function DownloadPage() {
 
                     </div>
                   </div>
-                  {/* Visual Background Glows */}
+
+                  {/* Ambient Background Glow Effects */}
                   <div className="glow-circle primary"></div>
                   <div className="glow-circle secondary"></div>
                 </div>
@@ -274,21 +285,20 @@ export default function DownloadPage() {
           </div>
         </section>
 
-        {/* Features Section */}
+        {/* Feature Highlights Grid */}
         <section className="app-features section-padding">
           <div className="container">
             <div className="section-header fade-in-up">
               <h2 className="section-title">Why Use the Zyphuel Mobile App?</h2>
-              <p className="section-subtitle">Engineered on international benchmarks to provide the most reliable mobile application for fuel suppliers in Pakistan.</p>
+              <p className="section-subtitle">Engineered on international energy mobility benchmarks to provide the most reliable mobile application for fuel suppliers in Pakistan.</p>
             </div>
 
             <div className="app-features-grid">
-              
               <div className="feature-app-card fade-in-up">
                 <div className="icon-wrapper tracking">
                   <i className="fa-solid fa-map-location-dot"></i>
                 </div>
-                <h3>Real-Time GPS Tracking</h3>
+                <h3>Real-Time GPS Telemetry</h3>
                 <p>Track the exact coordinate route of our smart refueler from the dispatch station straight to your parked vehicle or generator. Dynamic estimated arrival times updated per second.</p>
               </div>
 
@@ -315,7 +325,6 @@ export default function DownloadPage() {
                 <h3>Volumetric Security</h3>
                 <p>Our smart delivery trucks are equipped with digitally calibrated flow meters that ensure you receive 100% genuine, precise quantities of fuel without evaporation or leakage.</p>
               </div>
-
             </div>
           </div>
         </section>
@@ -339,7 +348,7 @@ export default function DownloadPage() {
                       <i className="fa-solid fa-tag"></i> Version {release.version}
                     </div>
                     <span className="changelog-date">{release.date}</span>
-                    {idx === 0 && <span className="changelog-badge-latest">Current Version</span>}
+                    {idx === 0 && <span className="changelog-badge-latest">Current Release</span>}
                   </div>
                   <h3 className="changelog-title">{release.title}</h3>
                   <ul className="changelog-features-list">
@@ -365,7 +374,6 @@ export default function DownloadPage() {
             </div>
 
             <div className="steps-timeline">
-              
               <div className="step-timeline-item fade-in-up">
                 <div className="step-num">01</div>
                 <div className="step-content">
@@ -397,7 +405,6 @@ export default function DownloadPage() {
                   <p>Launch the Zyphuel App, input your cell phone number to receive an OTP verification code, and start ordering premium fuel on-demand!</p>
                 </div>
               </div>
-
             </div>
           </div>
         </section>
