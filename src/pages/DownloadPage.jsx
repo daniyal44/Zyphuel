@@ -258,21 +258,21 @@ export default function DownloadPage() {
                             </div>
                           ))}
                         </div>
-
-                        {/* Slide Dots */}
-                        <div className="phone-slider-dots">
-                          {slides.map((_, idx) => (
-                            <span
-                              key={idx}
-                              className={`phone-slider-dot ${currentSlide === idx ? 'active' : ''}`}
-                              onClick={() => setCurrentSlide(idx)}
-                              aria-label={`Show slide ${idx + 1}`}
-                            ></span>
-                          ))}
-                        </div>
                       </div>
 
                     </div>
+                  </div>
+
+                  {/* Slide Dots below phone frame */}
+                  <div className="phone-slider-dots-outside">
+                    {slides.map((_, idx) => (
+                      <span
+                        key={idx}
+                        className={`phone-slider-dot ${currentSlide === idx ? 'active' : ''}`}
+                        onClick={() => setCurrentSlide(idx)}
+                        aria-label={`Show slide ${idx + 1}`}
+                      ></span>
+                    ))}
                   </div>
 
                   {/* Ambient Background Glow Effects */}
