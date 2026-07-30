@@ -11,17 +11,17 @@ export default function DownloadPage() {
 
   const slides = [
     {
-      img: '/images/app_order_screen.jpg',
+      img: '/images/1.jpeg',
       title: '1. Order Refueling',
       desc: 'Select fuel type (Petrol, Octane, Diesel), specify amount, and drag pin to coordinates.'
     },
     {
-      img: '/images/app_tracking_screen.jpg',
+      img: '/images/2.jpeg',
       title: '2. Live Delivery GPS',
       desc: 'Track our micro-refueler truck approaching in real-time with continuous ETA.'
     },
     {
-      img: '/images/app_receipt_screen.jpg',
+      img: '/images/3.jpeg',
       title: '3. Digital Invoice Proof',
       desc: 'View digitally calibrated flow-meter receipts and transaction logs immediately.'
     }
@@ -232,26 +232,6 @@ export default function DownloadPage() {
                     {/* Screen Container */}
                     <div className="phone-mockup-screen">
                       
-                      {/* App Navbar */}
-                      <div className="app-header">
-                        <div className="app-logo">
-                          <img
-                            src="/images/Zyphuel-logo.png"
-                            alt="Zyphuel Mobile Application Logo"
-                            title="Zyphuel Mobile Application for Fuel Suppliers"
-                            className="app-logo-img"
-                            itemProp="image"
-                          />
-                        </div>
-                        <div className="app-loc-pill">
-                          <i className="fa-solid fa-location-dot"></i>
-                          <span>Gulberg III, Lahore</span>
-                        </div>
-                        <div className="app-avatar">
-                          <i className="fa-solid fa-circle-user"></i>
-                        </div>
-                      </div>
-
                       {/* Screen Slider Showcase */}
                       <div className="phone-slider-container">
                         <div className="phone-slider-wrapper" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
@@ -267,12 +247,6 @@ export default function DownloadPage() {
                               />
                             </div>
                           ))}
-                        </div>
-
-                        {/* Floating overlay caption at bottom of slide */}
-                        <div className="phone-slider-caption">
-                          <h4>{slides[currentSlide].title}</h4>
-                          <p>{slides[currentSlide].desc}</p>
                         </div>
 
                         {/* Slide Dots */}
