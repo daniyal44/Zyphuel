@@ -1,12 +1,23 @@
 // Centralized Zyphuel Mobile App Version Configuration
 // Update this file on every application release to dynamically sync versions on the Download page.
 
-export const APP_VERSION = '1.2.0';
-export const RELEASE_DATE = 'July 2026';
-export const APP_SIZE = '22.8 MB';
+export const APP_VERSION = '1.4.0';
+export const RELEASE_DATE = 'July 30, 2026';
+export const APP_SIZE = '24.8 MB';
 export const MIN_ANDROID = '8.0 (Oreo)+';
 
 export const CHANGELOG = [
+  {
+    version: '1.4.0',
+    date: 'July 30, 2026',
+    title: 'Live GPS Auto-Detection & 2-Hour Fuel Rate Push Alerts',
+    features: [
+      'Automatic GPS location detection & address pinning for Lahore (Green Town & key sectors)',
+      'Live fuel rate dashboard for Petrol (Rs 335.06/L), Diesel (Rs 390.62/L), HOBC 97 Octane (Rs 350/L), & LPG Gas',
+      'Automated 2-hour market fuel rate push notification system & alert manager',
+      'One-tap "Order Now" rapid refueler dispatch launcher'
+    ]
+  },
   {
     version: '1.2.0',
     date: 'July 2026',

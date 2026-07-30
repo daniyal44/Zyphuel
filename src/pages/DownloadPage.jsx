@@ -9,21 +9,22 @@ export default function DownloadPage() {
   const [activeFaq, setActiveFaq] = useState(null)
   const [currentSlide, setCurrentSlide] = useState(0)
 
+  // Slides mapped directly from actual app screenshots: 1.jpeg, 2.jpeg, 3.jpeg
   const slides = [
     {
       img: '/images/1.jpeg',
-      title: 'Order Refueling Screen',
-      subtitle: 'Select fuel type (Petrol, Octane, Diesel), specify amount, and drag pin to coordinates.'
+      title: "Lahore's Premium Delivery Network",
+      subtitle: 'Official Zyphuel mobile app initialization with automated push notification channel binding.'
     },
     {
       img: '/images/2.jpeg',
-      title: 'Live GPS Delivery Tracking',
-      subtitle: 'Track our micro-refueler truck approaching in real-time with continuous live ETA.'
+      title: 'User Live Location & Live Fuel Rates',
+      subtitle: 'GPS auto-detection (Green Town, Lahore) with live rates for Petrol (Rs 335.06/L), Diesel (Rs 390.62/L), HOBC 97 Octane (Rs 350/L), & LPG.'
     },
     {
       img: '/images/3.jpeg',
-      title: 'Digital Meter Receipt',
-      subtitle: 'View digitally calibrated flow-meter receipts and transaction logs immediately.'
+      title: '2-Hour Fuel Rate Push Notifications',
+      subtitle: 'Automated 2-hour market fuel price alert notifications and real-time delivery milestone updates.'
     }
   ]
 
@@ -36,11 +37,11 @@ export default function DownloadPage() {
 
   useSEO({
     title: `Download App v${APP_VERSION} | Zyphuel – Pakistan’s #1 Mobile Application for Fuel Suppliers`,
-    description: `Download the official Zyphuel Mobile App v${APP_VERSION} for Android. Recognized as the premier mobile application for fuel suppliers in Pakistan. Experience 24/7 on-demand petrol, diesel, and high-octane delivery in Lahore.`,
+    description: `Download the official Zyphuel Mobile App v${APP_VERSION} for Android (${APP_SIZE}). Feature-packed with GPS auto-detection, live fuel rates for Petrol, Diesel, 97 Octane & LPG, and automated 2-hour price alert notifications across Lahore.`,
     keywords: [
       'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
-      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'Zyphuel App', 'Download Zyphuel APK', 'Zyphuel Android App', 'mobile fuel delivery app',
+      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'Zyphuel App v1.4.0', 'Download Zyphuel APK', 'Zyphuel Android App', 'mobile fuel delivery app',
       'petrol delivery app Lahore', 'fuel tracker app', 'diesel delivery Lahore app', 'Muhammad Daniyal CEO',
       'Pakistan on-demand fuel app', 'smart energy logistics app'
     ],
@@ -63,17 +64,17 @@ export default function DownloadPage() {
             {
               "@type": "ImageObject",
               "url": "https://zyphuel.netlify.app/images/1.jpeg",
-              "caption": "Zyphuel Mobile App Fuel Order Screen"
+              "caption": "Lahore's Premium Delivery Network Splash Screen"
             },
             {
               "@type": "ImageObject",
               "url": "https://zyphuel.netlify.app/images/2.jpeg",
-              "caption": "Zyphuel Mobile App Live GPS Vehicle Tracking Screen"
+              "caption": "Zyphuel User Live Location & Live Rates Dashboard"
             },
             {
               "@type": "ImageObject",
               "url": "https://zyphuel.netlify.app/images/3.jpeg",
-              "caption": "Zyphuel Mobile App Digital Calibrated Receipt Screen"
+              "caption": "Zyphuel 2-Hour Fuel Rate Notification System"
             }
           ],
           "author": {
@@ -82,7 +83,7 @@ export default function DownloadPage() {
             "url": "https://zyphuel.netlify.app",
             "logo": "https://zyphuel.netlify.app/images/logo.png"
           },
-          "description": "The official mobile application for Zyphuel, Pakistan's #1 mobile fuel delivery brand, agency, and supplier, offering the ultimate mobile application for fuel suppliers with 24/7 terminal-grade refueling in Lahore."
+          "description": "The official mobile application for Zyphuel v1.4.0, Pakistan's #1 mobile fuel delivery brand, agency, and supplier, featuring GPS auto-detection, live multi-fuel rates, and 2-hour market price notifications."
         },
         {
           "@type": "BreadcrumbList",
@@ -112,12 +113,12 @@ export default function DownloadPage() {
 
   const faqs = [
     {
-      question: 'Is the Zyphuel APK safe to download and install?',
-      answer: 'Yes, absolutely. The Zyphuel Android Application package is safe, verified, and free from any malware. It is compiled and digitally signed by our engineering team. We recommend downloading the APK directly from our official portal to ensure you get the genuine, unaltered app.'
+      question: 'Is the Zyphuel APK v1.4.0 safe to download and install?',
+      answer: 'Yes, absolutely. The Zyphuel Android Application package (v1.4.0) is safe, verified, and free from any malware. It is compiled and digitally signed by our engineering team. We recommend downloading the APK directly from our official portal to ensure you get the genuine, unaltered app.'
     },
     {
       question: 'Why is the app distributed via direct APK instead of Google Play?',
-      answer: 'We distribute the APK directly to enable rapid deployment of logistics-focused features, map APIs, and real-time fleet synchronization updates directly to our consumers without delays. A Google Play release is currently in the indexing phase and will be live shortly.'
+      answer: 'We distribute the APK directly to enable rapid deployment of logistics-focused features, GPS auto-detection APIs, and real-time fleet synchronization updates directly to our consumers without delays. A Google Play release is currently in the indexing phase and will be live shortly.'
     },
     {
       question: 'When will the iOS App Store version be available?',
@@ -125,7 +126,7 @@ export default function DownloadPage() {
     },
     {
       question: 'Does the application require special system permissions?',
-      answer: 'The Zyphuel app requires basic Location permissions (to accurately route fuel trucks to your vehicle/generator coordinates) and Notification permissions (to update you on order status and delivery milestones). We do not access contacts, storage, or personal files.'
+      answer: 'The Zyphuel app requires basic Location permissions (to accurately auto-detect your address coordinates in Lahore) and Notification permissions (to deliver 2-hour fuel market rate updates and order status milestones). We do not access contacts, storage, or personal files.'
     }
   ]
 
@@ -150,7 +151,7 @@ export default function DownloadPage() {
                 </h1>
                 
                 <p className="hero-description">
-                  Experience Pakistan's premier mobile application for fuel suppliers. Schedule petrol, diesel, and high-octane deliveries, track smart refuelers in real-time with continuous live ETA, view calibrated digital receipts, and manage multi-vehicle corporate fleets 24/7 across Lahore.
+                  Experience Pakistan's premier mobile application for fuel suppliers. Feature-packed with GPS auto-detection (Green Town, Lahore & citywide), real-time rates for Super Euro-V Petrol, Euro-V Diesel, HOBC 97 High-Octane & LPG Gas, plus automated 2-hour market price notifications 24/7.
                 </p>
 
                 {/* Primary Download CTAs */}
@@ -203,7 +204,7 @@ export default function DownloadPage() {
                     />
                   </div>
                   <div className="qr-info">
-                    <h4>Scan QR to Install Immediately</h4>
+                    <h4>Scan QR to Install v{APP_VERSION}</h4>
                     <p>Scan with your smartphone camera to download the Android APK installer directly to your mobile device.</p>
                   </div>
                 </div>
@@ -222,11 +223,11 @@ export default function DownloadPage() {
                 </div>
               </div>
 
-              {/* Right Column: Refactored 3D Phone Mockup Display */}
+              {/* Right Column: 3D Phone Mockup Display */}
               <div className="download-hero-visual fade-in-up">
                 <div className="phone-mockup-container" itemScope itemType="https://schema.org/MobileApplication">
                   
-                  {/* Slide Label Badge */}
+                  {/* Slide Label Badge mapped from screenshot headlines */}
                   <div className="mockup-active-badge">
                     <span className="badge-num">{currentSlide + 1} / {slides.length}</span>
                     <span className="badge-text">{slides[currentSlide].title}</span>
@@ -283,45 +284,45 @@ export default function DownloadPage() {
           </div>
         </section>
 
-        {/* Feature Highlights Grid */}
+        {/* Feature Highlights Grid synced with screenshot capabilities */}
         <section className="app-features section-padding">
           <div className="container">
             <div className="section-header fade-in-up">
               <h2 className="section-title">Why Use the Zyphuel Mobile App?</h2>
-              <p className="section-subtitle">Engineered on international energy mobility benchmarks to provide the most reliable mobile application for fuel suppliers in Pakistan.</p>
+              <p className="section-subtitle">Engineered with real-time GPS auto-detection, multi-fuel live market rate tracking, and 2-hour push notifications for fuel suppliers in Pakistan.</p>
             </div>
 
             <div className="app-features-grid">
               <div className="feature-app-card fade-in-up">
                 <div className="icon-wrapper tracking">
-                  <i className="fa-solid fa-map-location-dot"></i>
+                  <i className="fa-solid fa-location-crosshairs"></i>
                 </div>
-                <h3>Real-Time GPS Telemetry</h3>
-                <p>Track the exact coordinate route of our smart refueler from the dispatch station straight to your parked vehicle or generator. Dynamic estimated arrival times updated per second.</p>
+                <h3>GPS Auto-Detect Location</h3>
+                <p>Automatic GPS coordinate detection & location pinning for Green Town, Lahore and surrounding sectors. Easily edit addresses or trigger auto-detection with one tap.</p>
               </div>
 
               <div className="feature-app-card fade-in-up" style={{ transitionDelay: '0.1s' }}>
                 <div className="icon-wrapper schedule">
-                  <i className="fa-solid fa-calendar-check"></i>
+                  <i className="fa-solid fa-gas-pump"></i>
                 </div>
-                <h3>Automated Scheduled Orders</h3>
-                <p>Never run out of backup power. Set automated weekly or monthly refueling schedules for home generators, construction plants, or delivery fleets with custom alerts.</p>
+                <h3>Multi-Fuel Live Rate Dashboard</h3>
+                <p>Monitor live market rates in real-time: Petrol (Rs 335.06/L), Diesel (Rs 390.62/L), High-Octane 97 (Rs 350.00/L), and LPG Gas (Rs 241.43/kg) with transparent Euro-V quality specs.</p>
               </div>
 
               <div className="feature-app-card fade-in-up" style={{ transitionDelay: '0.2s' }}>
                 <div className="icon-wrapper payment">
-                  <i className="fa-solid fa-receipt"></i>
+                  <i className="fa-solid fa-bell"></i>
                 </div>
-                <h3>Digital Fleet Invoicing</h3>
-                <p>Assign fuel quotas, trace consumption dashboards, and receive instant digital receipts featuring terminal-grade volumetric delivery proofs for transparency.</p>
+                <h3>2-Hour Price Alert Push Notifications</h3>
+                <p>Stay informed with automated 2-hour fuel market price update notifications sent straight to your lock screen, alongside live refueler dispatch milestone alerts.</p>
               </div>
 
               <div className="feature-app-card fade-in-up" style={{ transitionDelay: '0.3s' }}>
                 <div className="icon-wrapper telemetry">
-                  <i className="fa-solid fa-gauge-high"></i>
+                  <i className="fa-solid fa-bolt"></i>
                 </div>
-                <h3>Volumetric Security</h3>
-                <p>Our smart delivery trucks are equipped with digitally calibrated flow meters that ensure you receive 100% genuine, precise quantities of fuel without evaporation or leakage.</p>
+                <h3>Instant "Order Now" Dispatch</h3>
+                <p>Place on-demand fuel orders instantly with our streamlined one-tap checkout, calibrated flow-meter digital receipts, and 24/7 priority delivery servicing Lahore.</p>
               </div>
             </div>
           </div>
@@ -368,7 +369,7 @@ export default function DownloadPage() {
           <div className="container">
             <div className="section-header fade-in-up">
               <h2 className="section-title">How to Install</h2>
-              <p className="section-subtitle">Follow these quick, easy steps to get Zyphuel set up on your Android device.</p>
+              <p className="section-subtitle">Follow these quick, easy steps to get Zyphuel v{APP_VERSION} set up on your Android device.</p>
             </div>
 
             <div className="steps-timeline">
@@ -376,7 +377,7 @@ export default function DownloadPage() {
                 <div className="step-num">01</div>
                 <div className="step-content">
                   <h4>Download the Installation File</h4>
-                  <p>Click the <strong>Direct APK Download</strong> button above or scan our QR Code. Save the `.apk` file to your mobile storage folder.</p>
+                  <p>Click the <strong>Direct APK Download</strong> button above or scan our QR Code. Save the `Zyphuel.apk` (v{APP_VERSION}) file to your mobile storage folder.</p>
                 </div>
               </div>
 
@@ -400,7 +401,7 @@ export default function DownloadPage() {
                 <div className="step-num">04</div>
                 <div className="step-content">
                   <h4>Verify &amp; Start Ordering</h4>
-                  <p>Launch the Zyphuel App, input your cell phone number to receive an OTP verification code, and start ordering premium fuel on-demand!</p>
+                  <p>Launch the Zyphuel App, allow location &amp; notification permissions, and start ordering premium fuel on-demand!</p>
                 </div>
               </div>
             </div>
