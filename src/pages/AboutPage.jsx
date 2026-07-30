@@ -745,9 +745,16 @@ export default function AboutPage() {
           <div className="container">
             <div className="founder-grid fade-in-up">
               <div className="founder-image-col">
-                <div className="founder-card-frame">
-                  <img src="/images/daniyal.jpeg" alt="Muhammad Daniyal - Founder & CEO" className="founder-avatar-img" />
-                  <div className="founder-badge">Founder & CEO</div>
+                <div className="founder-card-frame" itemScope itemType="https://schema.org/Person">
+                  <img
+                    src="/images/daniyal.jpeg"
+                    alt="Muhammad Daniyal - Founder & CEO of Zyphuel Pakistan"
+                    title="Muhammad Daniyal - Founder & CEO of Zyphuel"
+                    className="founder-avatar-img"
+                    loading="lazy"
+                    itemProp="image"
+                  />
+                  <div className="founder-badge">Founder &amp; CEO</div>
                 </div>
               </div>
 
@@ -756,7 +763,7 @@ export default function AboutPage() {
                   <span>Visionary Leadership</span>
                 </div>
                 <h2 className="section-title" style={{ marginBottom: '16px' }}>Muhammad Daniyal</h2>
-                <h4 className="founder-subtitle">Founder & CEO, Zyphuel</h4>
+                <h4 className="founder-subtitle">Founder &amp; CEO, Zyphuel</h4>
                 <p className="founder-bio">
                   Muhammad Daniyal is the visionary founder leading Zyphuel. Recognizing the persistent energy delivery bottlenecks in Pakistan—from home backup generators during grid outages to logistical disruptions in commercial fleet management—he designed an on-demand, mobile refuelling network. Under his supervision, Zyphuel is setting new benchmarks for fuel safety, transparency, and consumer convenience.
                 </p>
@@ -771,8 +778,9 @@ export default function AboutPage() {
                   <a
                     href="https://www.linkedin.com/in/muhammad-daniyal490"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="me noopener noreferrer"
                     className="btn btn-outline"
+                    title="Muhammad Daniyal LinkedIn Profile"
                     style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
                     <i className="fa-brands fa-linkedin"></i> CEO LinkedIn Profile
@@ -780,11 +788,22 @@ export default function AboutPage() {
                   <a
                     href="https://www.linkedin.com/company/zyphuel/?viewAsMember=true"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="me noopener noreferrer"
                     className="btn btn-outline"
+                    title="Zyphuel LinkedIn Company Page"
                     style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
                     <i className="fa-brands fa-linkedin"></i> Zyphuel LinkedIn Page
+                  </a>
+                  <a
+                    href="https://github.com/daniyal44"
+                    target="_blank"
+                    rel="me noopener noreferrer"
+                    className="btn btn-outline"
+                    title="Muhammad Daniyal GitHub Open Source Portfolio"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                  >
+                    <i className="fa-brands fa-github"></i> CEO GitHub
                   </a>
                 </div>
               </div>
@@ -798,7 +817,7 @@ export default function AboutPage() {
             <div className="partner-grid fade-in-up">
               <div className="partner-info-col">
                 <div className="hero-subtitle-badge" style={{ backgroundColor: 'rgba(168, 85, 247, 0.1)', borderColor: 'rgba(168, 85, 247, 0.2)', color: '#7e22ce' }}>
-                  <span>Growth & Tech Partner</span>
+                  <span>Growth &amp; Tech Partner</span>
                 </div>
                 <h2 className="section-title" style={{ marginBottom: '16px' }}>Strategic Business Partner</h2>
                 <h4 className="partner-company-name">Scale Verse</h4>
@@ -809,25 +828,39 @@ export default function AboutPage() {
                 <div className="partner-meta-box">
                   <div className="partner-meta-item">
                     <span className="partner-meta-label">Website:</span>
-                    <a href="https://scaleverse.app" target="_blank" rel="noopener noreferrer" className="partner-website-link">
+                    <a href="https://scaleverse.app" target="_blank" rel="noopener noreferrer" className="partner-website-link" title="Scale Verse Official Website">
                       scaleverse.app <i className="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
                   </div>
 
-                  <div className="partner-founder-profile">
-                    <img src="/images/umar.jpeg" alt="Muhammad Umer Farooq - Founder of Scaleverse" className="partner-founder-avatar" />
+                  <div className="partner-founder-profile" itemScope itemType="https://schema.org/Person">
+                    <img
+                      src="/images/umar.jpeg"
+                      alt="Muhammad Umer Farooq - Founder of Scale Verse"
+                      title="Muhammad Umer Farooq - Founder of Scale Verse"
+                      className="partner-founder-avatar"
+                      loading="lazy"
+                      itemProp="image"
+                    />
                     <div className="partner-founder-details">
                       <span className="partner-founder-badge">Scale Verse</span>
-                      <h4 className="partner-founder-fullname">Muhammad Umer Farooq</h4>
-                      <p className="partner-founder-designation">Founder of Scaleverse</p>
+                      <h4 className="partner-founder-fullname" itemProp="name">Muhammad Umer Farooq</h4>
+                      <p className="partner-founder-designation" itemProp="jobTitle">Founder of Scaleverse</p>
                     </div>
                   </div>
-                  <div className="partner-founder-profile">
-                    <img src="/images/rauf.jpeg" alt="Abdul Rauf - Co-Founder of Scaleverse" className="partner-founder-avatar" />
+                  <div className="partner-founder-profile" itemScope itemType="https://schema.org/Person">
+                    <img
+                      src="/images/rauf.jpeg"
+                      alt="Abdul Rauf - Co-Founder of Scale Verse"
+                      title="Abdul Rauf - Co-Founder of Scale Verse"
+                      className="partner-founder-avatar"
+                      loading="lazy"
+                      itemProp="image"
+                    />
                     <div className="partner-founder-details">
                       <span className="partner-founder-badge">Scale Verse</span>
-                      <h4 className="partner-founder-fullname">Abdul Rauf</h4>
-                      <p className="partner-founder-designation">CO-Founder of Scaleverse</p>
+                      <h4 className="partner-founder-fullname" itemProp="name">Abdul Rauf</h4>
+                      <p className="partner-founder-designation" itemProp="jobTitle">CO-Founder of Scaleverse</p>
                     </div>
                   </div>
                 </div>
@@ -842,8 +875,14 @@ export default function AboutPage() {
                     <span className="browser-address-field">https://scaleverse.app</span>
                   </div>
                   <div className="browser-body-content">
-                    <a href="https://scaleverse.app" target="_blank" rel="noopener noreferrer" className="partner-link-block">
-                      <img src="/images/scaleverse-preview.jpg" alt="Scaleverse Web Portal Preview" className="partner-mockup-img" />
+                    <a href="https://scaleverse.app" target="_blank" rel="noopener noreferrer" className="partner-link-block" title="Scale Verse Web Portal">
+                      <img
+                        src="/images/scaleverse-preview.jpg"
+                        alt="Scale Verse Web Portal & Design System Preview"
+                        title="Scale Verse Engineering Preview"
+                        className="partner-mockup-img"
+                        loading="lazy"
+                      />
                       <div className="browser-hover-overlay">
                         <span>Visit scaleverse.app <i className="fa-solid fa-up-right-from-square"></i></span>
                       </div>

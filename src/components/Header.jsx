@@ -15,11 +15,11 @@ const LogoFallbackSVG = () => (
 )
 
 const navLinks = [
-  { to: '/', label: 'Home', exact: true },
-  { to: '/services', label: 'Services' },
-  { to: '/about', label: 'About Us' },
-  { to: '/order', label: 'Order Fuel' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/', label: 'Home', exact: true, title: 'Zyphuel Home Page' },
+  { to: '/services', label: 'Services', title: 'Zyphuel Services & Fuel Rates' },
+  { to: '/about', label: 'About Us', title: 'About Zyphuel & Leadership Team' },
+  { to: '/order', label: 'Order Fuel', title: 'Order Refueling Online' },
+  { to: '/contact', label: 'Contact', title: 'Contact Support & Helpline' },
 ]
 
 export default function Header({ onOpenInterestModal }) {
@@ -45,17 +45,18 @@ export default function Header({ onOpenInterestModal }) {
   }
 
   return (
-    <header className={`header${scrolled ? ' scrolled' : ''}`} id="header">
+    <header className={`header${scrolled ? ' scrolled' : ''}`} id="header" itemScope itemType="https://schema.org/WPHeader">
       <div className="container">
         {/* Logo */}
-        <Link to="/" className="logo">
+        <Link to="/" className="logo" title="Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers" aria-label="Zyphuel Home">
           {!logoError ? (
             <img
               src="/images/Zyphuel-logo.png"
               alt="Zyphuel - On-Demand 24/7 Mobile Fuel & Petrol Delivery Lahore"
-              title="Zyphuel - Fuel on Your Doorstep"
+              title="Zyphuel - Pakistan Number 1 Fuel Supplier & Mobile Application for Fuel Suppliers"
               className="logo-icon"
               onError={() => setLogoError(true)}
+              itemProp="logo"
             />
           ) : (
             <LogoFallbackSVG />
@@ -64,13 +65,14 @@ export default function Header({ onOpenInterestModal }) {
 
         {/* Status Pills */}
         <div className="header-badges">
-          <span className="badge-pill badge-active" title="Active Delivery Areas">
+          <span className="badge-pill badge-active" title="Active Delivery Areas in Lahore, Pakistan">
             <i className="fa-solid fa-circle-check"></i> Lahore City
           </span>
           <Link
             to="/download"
             className="badge-pill badge-zyphuel"
-            title="Download Page"
+            title="Download Zyphuel Mobile Application for Fuel Suppliers (Android APK)"
+            aria-label="Download Zyphuel Mobile Application for Fuel Suppliers"
             style={{ cursor: 'pointer' }}
           >
             <i className="fa-solid fa-file-arrow-down"></i> Download App
@@ -90,11 +92,12 @@ export default function Header({ onOpenInterestModal }) {
         </button>
 
         {/* Nav Menu */}
-        <nav className={`nav-menu${navOpen ? ' open' : ''}`} id="nav-menu">
+        <nav className={`nav-menu${navOpen ? ' open' : ''}`} id="nav-menu" aria-label="Main Navigation">
           {navLinks.map(link => (
             <Link
               key={link.to}
               to={link.to}
+              title={link.title}
               className={`nav-link${isActive(link.to, link.exact) ? ' active' : ''}`}
             >
               {link.label}
@@ -102,6 +105,7 @@ export default function Header({ onOpenInterestModal }) {
           ))}
           <Link
             to="/order"
+            title="Order Petrol & Diesel Refueling Now"
             className="btn btn-primary btn-sm"
             style={{ padding: '8px 18px', fontSize: '0.85rem' }}
           >

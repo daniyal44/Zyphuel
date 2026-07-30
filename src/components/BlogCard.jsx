@@ -5,6 +5,8 @@ export default function BlogCard({ article, index, onReadMore }) {
     <article
       className="blog-card fade-in-up"
       style={{ transitionDelay: `${0.05 + (index % 3) * 0.05}s` }}
+      itemScope
+      itemType="https://schema.org/BlogPosting"
     >
       <div className="blog-card-image-wrapper">
         <span className={`blog-card-category-badge ${article.categoryClass}`}>
@@ -12,21 +14,23 @@ export default function BlogCard({ article, index, onReadMore }) {
         </span>
         <img
           src={article.image}
-          alt={article.title}
+          alt={`${article.title} - Zyphuel Pakistan Number 1 Fuel Delivery Article`}
+          title={`${article.title} - Zyphuel Fuel Logistics`}
           className="blog-card-img"
           loading="lazy"
+          itemProp="image"
         />
       </div>
       <div className="blog-card-content">
         <div className="blog-card-meta">
           <i className="fa-regular fa-calendar"></i>
-          <span>{article.date}</span>
+          <span itemProp="datePublished">{article.date}</span>
           <span>•</span>
           <i className="fa-regular fa-clock"></i>
           <span>{article.readTime}</span>
         </div>
-        <h3 className="blog-card-title">{article.title}</h3>
-        <p className="blog-card-desc">{article.summary}</p>
+        <h3 className="blog-card-title" itemProp="headline">{article.title}</h3>
+        <p className="blog-card-desc" itemProp="description">{article.summary}</p>
         <div className="blog-card-tags">
           {article.tags.map(tag => (
             <span key={tag} className="blog-card-tag">
@@ -35,16 +39,17 @@ export default function BlogCard({ article, index, onReadMore }) {
           ))}
         </div>
         <div className="blog-card-footer">
-          <div className="blog-card-author">
+          <div className="blog-card-author" itemProp="author" itemScope itemType="https://schema.org/Person">
             <div className="blog-card-author-icon">
               <i className={article.authorIcon}></i>
             </div>
-            <span className="blog-card-author-name">{article.author}</span>
+            <span className="blog-card-author-name" itemProp="name">{article.author}</span>
           </div>
           <button
             className="blog-card-link"
             onClick={() => onReadMore(article)}
             style={{ cursor: 'pointer', border: 'none', background: 'none' }}
+            aria-label={`Read full article: ${article.title}`}
           >
             Read Article <i className="fa-solid fa-chevron-right"></i>
           </button>

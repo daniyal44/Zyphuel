@@ -2,7 +2,7 @@ export const footerData = {
   brand: {
     name: 'Zyphuel',
     logoPath: '/images/Zyphuel-logo.png',
-    logoAlt: 'Zyphuel - On-Demand 24/7 Mobile Fuel & Petrol Delivery Lahore',
+    logoAlt: 'Zyphuel - Pakistan No.1 Mobile Fuel Supplier & Best Mobile Application for Fuel Suppliers',
     fallbackLogo: true, // triggers SVG if image fails
     description:
       'Zyphuel is Pakistan\'s #1 mobile fuel delivery brand, supplier, and agency. Providing international-standard, 24/7 on-demand petrol and diesel fuel delivery across Lahore.',
@@ -10,7 +10,7 @@ export const footerData = {
   contact: {
     phone: '+92 3230-112464',
     email: 'm.daniyalkhan490@gmail.com',
-    address: 'Lahore, Pakistan',
+    address: '75-Main Boulevard, Gulberg III, Lahore, Pakistan',
     whatsapp: 'https://wa.me/923230112464',
   },
   socialLinks: [
@@ -18,21 +18,31 @@ export const footerData = {
       platform: 'Facebook',
       url: 'https://www.facebook.com/muhammad.daniyal.522942/',
       icon: 'fa-brands fa-facebook-f',
+      title: 'Zyphuel Official Facebook Page & Community',
     },
     {
       platform: 'Google Business Profile',
       url: 'https://share.google/Nb4XGKYq5aU0nzLr3',
-      icon: 'fa-brands fa-google', // use fa-google if available; otherwise fallback
+      icon: 'fa-brands fa-google',
+      title: 'Zyphuel Google Business & Maps Location Lahore',
     },
     {
       platform: 'LinkedIn Company',
-      url: 'https://www.linkedin.com/company/zyphuel/?viewAsMember=true', // replace with real URL
+      url: 'https://www.linkedin.com/company/zyphuel/?viewAsMember=true',
       icon: 'fa-brands fa-linkedin',
+      title: 'Zyphuel Official LinkedIn Company Page',
     },
     {
       platform: 'LinkedIn Profile',
       url: 'https://www.linkedin.com/in/muhammad-daniyal490',
       icon: 'fa-brands fa-linkedin-in',
+      title: 'Muhammad Daniyal - Founder & CEO LinkedIn Profile',
+    },
+    {
+      platform: 'GitHub Profile',
+      url: 'https://github.com/daniyal44',
+      icon: 'fa-brands fa-github',
+      title: 'Muhammad Daniyal GitHub Open Source Portfolio',
     },
   ],
   quickLinks: [
@@ -45,7 +55,6 @@ export const footerData = {
     { label: 'Privacy Policy', to: '/privacy-policy' },
     { label: 'Terms of Use', to: '/terms-of-use' },
   ],
-  // Enhanced list of Lahore towns (more local areas)
   lahoreTowns: [
     'DHA (Phase 1-9)',
     'Gulberg',

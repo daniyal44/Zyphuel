@@ -1,4 +1,3 @@
-
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { footerData } from './footerData.js';
@@ -28,17 +27,33 @@ const LocalBusinessSchema = () => {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Zyphuel',
-    image: 'https://zyphuel.netlify.app/images/logo.png', // adjust to actual domain
-    '@id': 'https://zyphuel.netlify.app',
+    alternateName: ['Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels'],
+    image: [
+      'https://zyphuel.netlify.app/images/logo.png',
+      'https://zyphuel.netlify.app/images/Zyphuel-logo.png',
+      'https://zyphuel.netlify.app/images/fuel.png'
+    ],
+    logo: 'https://zyphuel.netlify.app/images/logo.png',
+    '@id': 'https://zyphuel.netlify.app/#organization',
     url: 'https://zyphuel.netlify.app',
     telephone: footerData.contact.phone,
+    email: footerData.contact.email,
     description: footerData.brand.description,
     address: {
       '@type': 'PostalAddress',
+      streetAddress: '75-Main Boulevard, Gulberg III',
       addressLocality: 'Lahore',
       addressRegion: 'Punjab',
+      postalCode: '54600',
       addressCountry: 'PK',
     },
+    sameAs: [
+      'https://www.linkedin.com/company/zyphuel/?viewAsMember=true',
+      'https://www.linkedin.com/in/muhammad-daniyal490',
+      'https://share.google/Nb4XGKYq5aU0nzLr3',
+      'https://github.com/daniyal44',
+      'https://www.facebook.com/muhammad.daniyal.522942/'
+    ],
     areaServed: footerData.lahoreTowns.map((town) => ({
       '@type': 'City',
       name: town,
@@ -66,7 +81,6 @@ export default function Footer() {
   const [logoError, setLogoError] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  // Memoize data to avoid unnecessary re-renders (though static)
   const { brand, contact, socialLinks, quickLinks, lahoreTowns, expansion, bottomLinks, copyright } =
     useMemo(() => footerData, []);
 
@@ -83,10 +97,12 @@ export default function Footer() {
                 <img
                   src={brand.logoPath}
                   alt={brand.logoAlt}
-                  title="Zyphuel - Fuel on Your Doorstep"
+                  title="Zyphuel - Pakistan Number 1 Fuel Delivery Brand & Supplier"
                   className="logo-icon"
                   style={{ height: '32px' }}
                   onError={() => setLogoError(true)}
+                  loading="lazy"
+                  itemProp="logo"
                 />
               ) : (
                 <LogoFallbackSVG />
@@ -96,29 +112,30 @@ export default function Footer() {
             
             {/* Contact details */}
             <div className="footer-contacts">
-              <a href={`tel:${contact.phone.replace(/[^0-9+]/g, '')}`} className="footer-contact-link">
+              <a href={`tel:${contact.phone.replace(/[^0-9+]/g, '')}`} className="footer-contact-link" title="Call Zyphuel Customer Support Helpline">
                 <i className="fa-solid fa-phone"></i>
                 <span>{contact.phone}</span>
               </a>
-              <a href={`mailto:${contact.email}`} className="footer-contact-link">
+              <a href={`mailto:${contact.email}`} className="footer-contact-link" title="Email Zyphuel Enterprise Support Desk">
                 <i className="fa-solid fa-envelope"></i>
                 <span>{contact.email}</span>
               </a>
-              <div className="footer-contact-link">
+              <div className="footer-contact-link" title="Zyphuel Headquarters Lahore Office">
                 <i className="fa-solid fa-location-dot"></i>
                 <span>{contact.address}</span>
               </div>
             </div>
 
             <div className="footer-socials">
-              {socialLinks.map(({ platform, url, icon }) => (
+              {socialLinks.map(({ platform, url, icon, title }) => (
                 <a
                   key={platform}
                   href={url}
                   className="social-btn"
                   aria-label={platform}
+                  title={title || platform}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="me noopener noreferrer"
                 >
                   <i className={icon}></i>
                 </a>
@@ -132,7 +149,7 @@ export default function Footer() {
             <ul className="footer-links">
               {quickLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to}>{link.label}</Link>
+                  <Link to={link.to} title={`${link.label} - Zyphuel`}>{link.label}</Link>
                 </li>
               ))}
             </ul>
@@ -140,7 +157,7 @@ export default function Footer() {
 
           {/* Column 3: Lahore Towns */}
           <div>
-            <h4 className="footer-title">Lahore Towns</h4>
+            <h4 className="footer-title">Lahore Active Towns</h4>
             <div className={`service-towns-container ${isExpanded ? 'expanded' : 'collapsed'}`}>
               <div className="service-towns-pills">
                 {lahoreTowns.map((town) => (
@@ -154,6 +171,7 @@ export default function Footer() {
               className="towns-expand-btn" 
               onClick={() => setIsExpanded(!isExpanded)}
               aria-expanded={isExpanded}
+              aria-label="Toggle all Lahore fuel delivery towns"
             >
               <span>{isExpanded ? 'Show Less' : 'Show All Areas'}</span>
               <i className={`fa-solid fa-chevron-down chevron-icon ${isExpanded ? 'rotated' : ''}`}></i>
@@ -178,7 +196,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Full Width SEO & AI Search Engine Indexing Directory (Visually Hidden) */}
+        {/* Full Width SEO & AI Search Engine Indexing Directory */}
         <div className="footer-seo-row seo-only-crawlers" style={{ marginTop: '40px', padding: '30px 0', borderTop: '1px solid rgba(255, 255, 255, 0.06)', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px', fontSize: '0.8rem', color: '#64748b', lineHeight: '1.6' }}>
             <div>
@@ -207,7 +225,7 @@ export default function Footer() {
           <p>{copyright}</p>
           <div style={{ display: 'flex', gap: '20px' }}>
             {bottomLinks.map((link) => (
-              <Link key={link.to} to={link.to}>
+              <Link key={link.to} to={link.to} title={`${link.label} - Zyphuel`}>
                 {link.label}
               </Link>
             ))}

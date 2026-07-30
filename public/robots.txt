@@ -1,5 +1,16 @@
 User-agent: *
 Allow: /
+Allow: /images/
+Allow: /APK/
+
+# Image Crawlers
+User-agent: Googlebot-Image
+Allow: /
+Allow: /images/
+
+User-agent: MSNBOT-Media
+Allow: /
+Allow: /images/
 
 # Allow AI & Search agents explicitly for LLM RAG indexing and search summaries
 User-agent: GPTBot
