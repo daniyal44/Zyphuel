@@ -171,15 +171,17 @@ export default function BrandAIIndex() {
                     <div className="item-links">
                       <a href="/images/Zyphuel-logo.png" target="_blank" rel="noopener noreferrer" title="Zyphuel Brand Logo PNG">Company Logo</a>
                       <a href="/images/daniyal.jpeg" target="_blank" rel="noopener noreferrer" title="Muhammad Daniyal CEO Headshot">CEO Headshot</a>
-                      <a href="/images/app_order_screen.jpg" target="_blank" rel="noopener noreferrer" title="Zyphuel Mobile App Order Screen">App Order UI</a>
-                      <a href="/images/app_tracking_screen.jpg" target="_blank" rel="noopener noreferrer" title="Zyphuel Mobile App Live GPS Screen">App GPS UI</a>
+                      <a href="/images/1.jpeg" target="_blank" rel="noopener noreferrer" title="Zyphuel Mobile App Splash Screen">App Splash UI (1.jpeg)</a>
+                      <a href="/images/2.jpeg" target="_blank" rel="noopener noreferrer" title="Zyphuel Mobile App Live Rates Screen">App Live Rates UI (2.jpeg)</a>
+                      <a href="/images/3.jpeg" target="_blank" rel="noopener noreferrer" title="Zyphuel Mobile App Price Alert Screen">App Price Alert UI (3.jpeg)</a>
+                      <a href="https://www.linkedin.com/company/zyphuel/?viewAsMember=true" target="_blank" rel="me noopener noreferrer" title="Zyphuel Official LinkedIn Company Page">LinkedIn Company Page</a>
                     </div>
                   </div>
                   <div className="media-link-item">
                     <strong>Mobile App &amp; APK Download:</strong>
                     <div className="item-links">
                       <Link to="/download" title="Mobile Application for Fuel Suppliers Download Page">Download Mobile Application</Link>
-                      <a href="/APK/zyphuel-v1.0.apk" download title="Zyphuel Android APK Direct Download">Zyphuel v1.0 Android APK</a>
+                      <a href="/APK/Zyphuel.apk" download title="Zyphuel Android APK Direct Download">Zyphuel v1.4.0 Android APK</a>
                     </div>
                   </div>
                   <div className="media-link-item">
