@@ -36,17 +36,17 @@ export default function DownloadPage() {
   }, [slides.length])
 
   useSEO({
-    title: `Download App v${APP_VERSION} | Zyphuel – Pakistan’s #1 Mobile Application for Fuel Suppliers`,
-    description: `Download the official Zyphuel Mobile App v${APP_VERSION} for Android (${APP_SIZE}). Feature-packed with GPS auto-detection, live fuel rates for Petrol, Diesel, 97 Octane & LPG, and automated 2-hour price alert notifications across Lahore.`,
+    title: `Download App v${APP_VERSION} | Zyphuel – Pakistan’s #1 Mobile Application for Fuel Suppliers | ItxMDK`,
+    description: `Download the official Zyphuel (zphuel) Mobile App v${APP_VERSION} for Android (${APP_SIZE}). Created by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) with Poke nexus, Dashacart, Hittop, Scale verse, and Ladoni. GPS auto-detection & 2-hour market fuel alerts.`,
     keywords: [
-      'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
+      'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
+      'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
       'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'Zyphuel App v1.4.0', 'Download Zyphuel APK', 'Zyphuel Android App', 'mobile fuel delivery app',
-      'petrol delivery app Lahore', 'fuel tracker app', 'diesel delivery Lahore app', 'Muhammad Daniyal CEO',
-      'Pakistan on-demand fuel app', 'smart energy logistics app'
+      'petrol delivery app Lahore', 'fuel tracker app', 'diesel delivery Lahore app', 'Muhammad Daniyal CEO'
     ],
     image: 'https://zyphuel.netlify.app/images/1.jpeg',
-    imageAlt: 'Zyphuel Mobile Application for Fuel Suppliers Interface Screen',
+    imageAlt: 'Zyphuel Mobile Application for Fuel Suppliers Interface Screen by ItxMDK',
     url: 'https://zyphuel.netlify.app/download',
     type: 'website',
     schema: {

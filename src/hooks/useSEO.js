@@ -1,5 +1,13 @@
 import { useEffect } from 'react'
 
+const DEFAULT_KEYWORDS = [
+  'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
+  'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
+  'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers',
+  'Pakistan number 1 best fuel delivery', 'best services in Pakistan', 'mobile application for fuel suppliers',
+  'best mobile application for fuel suppliers', 'fuel delivery app Lahore', 'on-demand energy logistics'
+]
+
 export function useSEO({ title, description, keywords, schema, image, url, type, canonicalPath, imageAlt, imageWidth, imageHeight }) {
   useEffect(() => {
     const domain = 'https://zyphuel.netlify.app'
@@ -48,15 +56,21 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
       element.setAttribute('href', href)
     }
 
+    // Combine keywords
+    let combinedKeywords = DEFAULT_KEYWORDS
+    if (keywords) {
+      const extraKws = Array.isArray(keywords) ? keywords : keywords.split(',').map(s => s.trim())
+      const set = new Set([...extraKws, ...DEFAULT_KEYWORDS])
+      combinedKeywords = Array.from(set)
+    }
+
     // 2. Core Meta Tags
     setMetaTag('description', null, description)
-    if (keywords) {
-      setMetaTag('keywords', null, Array.isArray(keywords) ? keywords.join(', ') : keywords)
-    }
+    setMetaTag('keywords', null, combinedKeywords.join(', '))
     setMetaTag('robots', null, 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')
     setMetaTag('image', null, defaultImage)
-    setMetaTag('author', null, 'Muhammad Daniyal – Founder & CEO of Zyphuel')
-    setMetaTag('publisher', null, 'Zyphuel Pakistan')
+    setMetaTag('author', null, 'Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) - Founder & CEO of Zyphuel')
+    setMetaTag('publisher', null, 'Zyphuel Pakistan (ItxMDK & Scale Verse Ecosystem)')
 
     // 3. Open Graph Tags (Facebook, WhatsApp, LinkedIn)
     setMetaTag(null, 'og:title', title)
@@ -75,7 +89,7 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
     // 4. Twitter Card Tags
     setMetaTag('twitter:card', null, 'summary_large_image')
     setMetaTag('twitter:site', null, '@Zyphuel')
-    setMetaTag('twitter:creator', null, '@muhammad_daniyal')
+    setMetaTag('twitter:creator', null, '@itsmdk')
     setMetaTag('twitter:title', title)
     setMetaTag('twitter:description', description)
     setMetaTag('twitter:image', defaultImage)
@@ -106,3 +120,4 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
     }
   }, [title, description, keywords, schema, image, url, type, canonicalPath, imageAlt, imageWidth, imageHeight])
 }
+

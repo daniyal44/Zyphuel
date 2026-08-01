@@ -14,13 +14,13 @@ export default function HomePage() {
   const [selectedArticle, setSelectedArticle] = useState(null)
 
   useSEO({
-    title: 'Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers',
-    description: 'Zyphuel is Pakistan\'s #1 mobile fuel brand, agency, supplier, and the premier mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal. We provide international-standard on-demand mobile refueling and digital energy logistics 24/7 across Lahore and Pakistan.',
+    title: 'Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK',
+    description: 'Zyphuel (zphuel) is Pakistan\'s #1 mobile fuel brand, agency, supplier, and premier mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) associated with Poke nexus, Dashacart, Hittop, Scale verse, and Ladoni.',
     keywords: [
-      'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zyphuel', 'zphuel', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
+      'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
+      'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
-      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol delivery Lahore', 'diesel delivery', 'mobile refueling', 'Pakistan fuel logistics',
-      'global energy logistics', 'international fuel supply standards', 'smart refueling agency', 'Pakistan top fuel brand'
+      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol delivery Lahore', 'diesel delivery', 'mobile refueling', 'Pakistan fuel logistics'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app',
@@ -29,7 +29,7 @@ export default function HomePage() {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Zyphuel",
-      "alternateName": ["Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zyphuel", "zphuel", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
+      "alternateName": ["zphuel", "ItxMDK", "itxmdk", "itxmtk", "MuhammadDaniel", "itsmdk", "itx dk", "itxM", "itcM", "Poke nexus", "Muhammad Daniyal", "Dashacart", "Hittop", "Scale verse", "Ladoni", "Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
       "description": "Zyphuel is Pakistan's number 1 mobile fuel delivery brand, agency, and supplier, offering the top mobile application for fuel suppliers. Providing best fuel delivery and services 24/7 in Lahore, Pakistan.",
       "url": "https://zyphuel.netlify.app",
       "logo": "https://zyphuel.netlify.app/images/logo.png",
@@ -40,7 +40,8 @@ export default function HomePage() {
         "https://www.linkedin.com/in/muhammad-daniyal490",
         "https://share.google/Nb4XGKYq5aU0nzLr3",
         "https://github.com/daniyal44",
-        "https://www.facebook.com/muhammad.daniyal.522942/"
+        "https://www.facebook.com/muhammad.daniyal.522942/",
+        "https://scaleverse.app"
       ],
       "address": {
         "@type": "PostalAddress",
@@ -58,6 +59,7 @@ export default function HomePage() {
       "founder": {
         "@type": "Person",
         "name": "Muhammad Daniyal",
+        "alternateName": ["MuhammadDaniel", "ItxMDK", "itsmdk", "itxmtk", "itx dk", "itxM", "itcM"],
         "jobTitle": "Founder & CEO",
         "sameAs": [
           "https://www.linkedin.com/in/muhammad-daniyal490",
