@@ -33,7 +33,7 @@ const FUEL_ICONS = {
 export default function OrderPage() {
   useSEO({
     title: 'Order Fuel | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK',
-    description: 'Place your mobile refueling order online with Zyphuel (zphuel). Created by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) with Poke nexus, Dashacart, Hittop, Scale verse, and Ladoni. Petrol, diesel, LPG gas cylinders, or water refills 24/7 in Lahore.',
+    description: 'Place your mobile refueling order online with Zyphuel (zphuel). Created by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) with Poke nexus, Dashacart, Hittop, and Ladoni. Petrol, diesel, LPG gas cylinders, or water refills 24/7 in Lahore.',
     keywords: [
       'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
       'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',

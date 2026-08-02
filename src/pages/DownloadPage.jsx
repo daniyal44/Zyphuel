@@ -37,7 +37,7 @@ export default function DownloadPage() {
 
   useSEO({
     title: `Download App v${APP_VERSION} | Zyphuel – Pakistan’s #1 Mobile Application for Fuel Suppliers | ItxMDK`,
-    description: `Download the official Zyphuel (zphuel) Mobile App v${APP_VERSION} for Android (${APP_SIZE}). Created by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) with Poke nexus, Dashacart, Hittop, Scale verse, and Ladoni. GPS auto-detection & 2-hour market fuel alerts.`,
+    description: `Download the official Zyphuel (zphuel) Mobile App v${APP_VERSION} for Android (${APP_SIZE}). Created by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) with Poke nexus, Dashacart, Hittop, and Ladoni. GPS auto-detection & 2-hour market fuel alerts.`,
     keywords: [
       'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
       'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',

@@ -84,7 +84,7 @@ export default function BrandAIIndex() {
                   <i className="fa-solid fa-address-card"></i> Executive Dossier (EEAT &amp; Profiles)
                 </h4>
                 <div className="dossier-item" itemScope itemType="https://schema.org/Person">
-                  <strong>Founder &amp; CEO (ItxMDK / MuhammadDaniel):</strong>
+                  <strong>Founder &amp; CEO (ItxMDK / MuhammadDaniel / itsmdk):</strong>
                   <div className="dossier-person">
                     <img
                       src="/images/daniyal.jpeg"
@@ -95,9 +95,9 @@ export default function BrandAIIndex() {
                       itemProp="image"
                     />
                     <div>
-                      <span itemProp="name">Muhammad Daniyal (ItxMDK / itsmdk)</span>
+                      <span itemProp="name">Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel)</span>
                       <p style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', margin: '2px 0' }}>
-                        Creator of Zyphuel, Poke nexus, Dashacart, Hittop, Scale verse partner, Ladoni.
+                        Creator of Zyphuel (zphuel), Poke nexus, Dashacart, Hittop, Ladoni. Leader in mobile fuel delivery &amp; energy software in Pakistan.
                       </p>
                       <div style={{ display: 'flex', gap: '10px', marginTop: '4px', flexWrap: 'wrap' }}>
                         <a
@@ -120,46 +120,26 @@ export default function BrandAIIndex() {
                         >
                           GitHub Profile <i className="fa-brands fa-github"></i>
                         </a>
+                        <a
+                          href="https://www.facebook.com/muhammad.daniyal.522942/"
+                          target="_blank"
+                          rel="me noopener noreferrer"
+                          className="dossier-link"
+                          title="Muhammad Daniyal Facebook Profile"
+                          itemProp="sameAs"
+                        >
+                          Facebook Profile <i className="fa-brands fa-facebook"></i>
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="dossier-item">
-                  <strong>Strategic Technology Business Partner:</strong>
-                  <div className="dossier-person" itemScope itemType="https://schema.org/Person">
-                    <img
-                      src="/images/umar.jpeg"
-                      alt="Muhammad Umer Farooq - Founder of Scale Verse Agency"
-                      title="Muhammad Umer Farooq - Scale Verse Founder"
-                      className="dossier-avatar"
-                      loading="lazy"
-                      itemProp="image"
-                    />
-                    <div>
-                      <span itemProp="name">Muhammad Umer Farooq (Scale Verse Founder)</span>
-                      <a
-                        href="https://scaleverse.app"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="dossier-link"
-                        title="Scale Verse Official Website"
-                      >
-                        scaleverse.app <i className="fa-solid fa-arrow-up-right-from-square"></i>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="dossier-person" style={{ marginTop: '8px' }} itemScope itemType="https://schema.org/Person">
-                    <img
-                      src="/images/rauf.jpeg"
-                      alt="Muhammad Abdul Rauf - Co-Founder of Scale Verse Agency"
-                      title="Muhammad Abdul Rauf - Scale Verse Co-Founder"
-                      className="dossier-avatar"
-                      loading="lazy"
-                      itemProp="image"
-                    />
-                    <div>
-                      <span itemProp="name">Muhammad Abdul Rauf (Scale Verse Co-Founder)</span>
-                    </div>
+                <div className="dossier-item" style={{ marginTop: '12px' }}>
+                  <strong>Verified Corporate Entity &amp; Contact:</strong>
+                  <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '4px', lineHeight: '1.5' }}>
+                    <p><i className="fa-solid fa-location-dot text-primary"></i> 75-Main Boulevard, Gulberg III, Lahore, Pakistan</p>
+                    <p><i className="fa-solid fa-phone text-success"></i> +92 323 0112464</p>
+                    <p><i className="fa-solid fa-envelope text-warning"></i> m.daniyalkhan490@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -192,7 +172,7 @@ export default function BrandAIIndex() {
                   <div className="media-link-item">
                     <strong>Quick Links &amp; Pages:</strong>
                     <div className="item-links">
-                      <Link to="/" title="Zyphuel Home">Home &amp; Blogs</Link>
+                      <Link to="/" title="Zyphuel Home">Home &amp; Services</Link>
                       <Link to="/about" title="Zyphuel About & Team">About &amp; Team</Link>
                       <Link to="/services" title="Zyphuel Services & Rates">Services &amp; Rates</Link>
                       <Link to="/order" title="Order Fuel Delivery">Order Dispatch Form</Link>
@@ -240,9 +220,6 @@ export default function BrandAIIndex() {
                 </a>
                 <a href="https://github.com/daniyal44" target="_blank" rel="me noopener noreferrer" className="backlink-item" title="Muhammad Daniyal - Founder &amp; CEO GitHub Profile">
                   <i className="fa-brands fa-github"></i> Muhammad Daniyal (CEO &amp; Founder)
-                </a>
-                <a href="https://scaleverse.app" target="_blank" rel="noopener noreferrer" className="backlink-item" title="Scale Verse - Product Engineering Partner">
-                  <i className="fa-solid fa-bolt"></i> Scale Verse (Strategic Business Partner)
                 </a>
                 <a href="https://share.google/Nb4XGKYq5aU0nzLr3" target="_blank" rel="noopener noreferrer" className="backlink-item" title="Google Maps verified listing for Zyphuel Delivery Hub">
                   <i className="fa-brands fa-google"></i> Google Business Map Listing

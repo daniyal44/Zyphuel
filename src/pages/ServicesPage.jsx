@@ -15,7 +15,7 @@ export default function ServicesPage() {
   
   useSEO({
     title: 'Our Services | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK',
-    description: 'Discover premium B2C and B2B refueling, LPG Gas cylinder, and Water refill services from Zyphuel (zphuel). Created by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) with Poke nexus, Dashacart, Hittop, Scale verse, and Ladoni.',
+    description: 'Discover premium B2C and B2B refueling, LPG Gas cylinder, and Water refill services from Zyphuel (zphuel). Created by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) with Poke nexus, Dashacart, Hittop, and Ladoni.',
     keywords: [
       'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
       'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',

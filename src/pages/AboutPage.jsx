@@ -8,24 +8,18 @@ import { useSEO } from '../hooks/useSEO';
 import BrandAIIndex from '../components/BrandAIIndex';
 import "./styles.css";
 
-const TOTAL_CARDS = 6;
+const TOTAL_CARDS = 3;
 
 const cardImages = [
   "/images/daniyal.jpeg",
-  "/images/umar.jpeg",
-  "/images/rauf.jpeg",
-  "https://i.postimg.cc/TYpkHfqp/collab.png",
   "/images/adil.png",
   "https://i.postimg.cc/SsxV8N1q/logo.png",
 ];
 
 const teamMembers = [
-  { name: "Muhammad Daniyal", role: "Founder of Zyphuel" },
-  { name: "Muhammad Umer Farooq", role: "Founder of Scale Verse" },
-  { name: "Muhammad Abdul Rauf", role: "CO-Founder of Scale Verse" },
-  { name: "Zyphuel", role: "Collaboration with Scale Verse" },
-  { name: "Adil Farooq", role: "Sales Manager" },
-  { name: "Scale Verse", role: "Business Partner's" },
+  { name: "Muhammad Daniyal", role: "Founder & CEO of Zyphuel (ItxMDK)" },
+  { name: "Adil Farooq", role: "Sales & Fleet Operations Lead" },
+  { name: "Zyphuel Executive Team", role: "Mobile Energy Logistics" },
 ];
 
 // ==========================================
@@ -34,12 +28,12 @@ const teamMembers = [
 export default function AboutPage() {
   useSEO({
     title: 'About Us | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK',
-    description: 'Learn about Zyphuel (zphuel), Pakistan\'s No.1 mobile fuel delivery brand, supplier, agency, and premier mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) with Poke nexus, Dashacart, Hittop, Scale verse, and Ladoni.',
+    description: 'Learn about Zyphuel (zphuel), Pakistan\'s No.1 mobile fuel delivery brand, supplier, agency, and premier mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) associated with Poke nexus, Dashacart, Hittop, and Ladoni.',
     keywords: [
       'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
       'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
-      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'Muhammad Daniyal CEO', 'Scale Verse', 'Muhammad Umer Farooq', 'Zyphuel story'
+      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'Muhammad Daniyal CEO', 'Zyphuel story'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/about',
@@ -57,7 +51,7 @@ export default function AboutPage() {
           "https://www.linkedin.com/in/muhammad-daniyal490",
           "https://share.google/Nb4XGKYq5aU0nzLr3",
           "https://github.com/daniyal44",
-          "https://scaleverse.app"
+          "https://www.facebook.com/muhammad.daniyal.522942/"
         ],
         "founder": [
           {
@@ -70,18 +64,6 @@ export default function AboutPage() {
               "https://github.com/daniyal44",
               "https://www.facebook.com/muhammad.daniyal.522942/"
             ]
-          }
-        ],
-        "partner": [
-          {
-            "@type": "Person",
-            "name": "Muhammad Umer Farooq",
-            "jobTitle": "Founder of Scale Verse (Business Partner)"
-          },
-          {
-            "@type": "Person",
-            "name": "Muhammad Abdul Rauf",
-            "jobTitle": "CO-Founder of Scale Verse (Business Partner)"
           }
         ],
         "award": [

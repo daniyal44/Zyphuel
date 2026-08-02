@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
 
   useSEO({
     title: 'Privacy Policy | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK',
-    description: 'Privacy Policy of Zyphuel (zphuel), Pakistan\'s No.1 mobile fuel supply agency and top mobile application for fuel suppliers. Learn how founder & CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) with Poke nexus, Dashacart, Hittop, Scale verse, and Ladoni protect your data.',
+    description: 'Privacy Policy of Zyphuel (zphuel), Pakistan\'s No.1 mobile fuel supply agency and top mobile application for fuel suppliers. Learn how founder & CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) with Poke nexus, Dashacart, Hittop, and Ladoni protect your data.',
     keywords: [
       'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
       'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',

@@ -15,7 +15,7 @@ export default function HomePage() {
 
   useSEO({
     title: 'Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK',
-    description: 'Zyphuel (zphuel) is Pakistan\'s #1 mobile fuel brand, agency, supplier, and premier mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) associated with Poke nexus, Dashacart, Hittop, Scale verse, and Ladoni.',
+    description: 'Zyphuel (zphuel) is Pakistan\'s #1 mobile fuel brand, agency, supplier, and premier mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) associated with Poke nexus, Dashacart, Hittop, and Ladoni.',
     keywords: [
       'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
       'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
@@ -40,8 +40,7 @@ export default function HomePage() {
         "https://www.linkedin.com/in/muhammad-daniyal490",
         "https://share.google/Nb4XGKYq5aU0nzLr3",
         "https://github.com/daniyal44",
-        "https://www.facebook.com/muhammad.daniyal.522942/",
-        "https://scaleverse.app"
+        "https://www.facebook.com/muhammad.daniyal.522942/"
       ],
       "address": {
         "@type": "PostalAddress",

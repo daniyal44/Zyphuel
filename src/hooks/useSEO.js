@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 const DEFAULT_KEYWORDS = [
   'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
   'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
+  'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
   'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers',
   'Pakistan number 1 best fuel delivery', 'best services in Pakistan', 'mobile application for fuel suppliers',
   'best mobile application for fuel suppliers', 'fuel delivery app Lahore', 'on-demand energy logistics'
@@ -70,7 +71,7 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
     setMetaTag('robots', null, 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')
     setMetaTag('image', null, defaultImage)
     setMetaTag('author', null, 'Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) - Founder & CEO of Zyphuel')
-    setMetaTag('publisher', null, 'Zyphuel Pakistan (ItxMDK & Scale Verse Ecosystem)')
+    setMetaTag('publisher', null, 'Zyphuel Pakistan (ItxMDK & Muhammad Daniyal Enterprise)')
 
     // 3. Open Graph Tags (Facebook, WhatsApp, LinkedIn)
     setMetaTag(null, 'og:title', title)

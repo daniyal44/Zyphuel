@@ -10,7 +10,7 @@ export default function ContactPage() {
 
   useSEO({
     title: 'Contact Us | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK',
-    description: 'Get in touch with Zyphuel (zphuel), Pakistan\'s #1 mobile fuel delivery brand, supplier, agency, and premier mobile application for fuel suppliers. Connect with CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) for Poke nexus, Dashacart, Hittop, Scale verse, and Ladoni.',
+    description: 'Get in touch with Zyphuel (zphuel), Pakistan\'s #1 mobile fuel delivery brand, supplier, agency, and premier mobile application for fuel suppliers. Connect with CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) for Poke nexus, Dashacart, Hittop, and Ladoni.',
     keywords: [
       'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
       'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
