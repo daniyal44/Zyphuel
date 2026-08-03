@@ -146,26 +146,7 @@ export default function DownloadPage() {
                   <span>Smart Mobile Refueling • v{APP_VERSION} (Latest Release)</span>
                 </div>
                 
-                {/* Platform Availability Section */}
-                <div className="platform-availability-strip">
-                  <span className="availability-label">
-                    <i className="fa-solid fa-circle-check"></i> Platform Availability:
-                  </span>
-                  <div className="availability-badges">
-                    <span className="avail-badge avail-web" title="Available on Website">
-                      <i className="fa-solid fa-globe"></i>
-                      <span>Website: <strong className="status-live">Available Now</strong></span>
-                    </span>
-                    <span className="avail-badge avail-play" title="Google Play Store - Launching Soon">
-                      <i className="fa-brands fa-google-play"></i>
-                      <span>Play Store: <strong className="status-soon">Launching Soon</strong></span>
-                    </span>
-                    <span className="avail-badge avail-appstore" title="Apple App Store - Launching Soon">
-                      <i className="fa-brands fa-apple"></i>
-                      <span>App Store: <strong className="status-soon">Launching Soon</strong></span>
-                    </span>
-                  </div>
-                </div>
+                
                 
                 <h1 className="hero-title">
                   Refuel Smarter With the <span>Zyphuel Mobile App</span>

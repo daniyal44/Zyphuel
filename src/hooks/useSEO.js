@@ -73,6 +73,17 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
     setMetaTag('author', null, 'Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) - Founder & CEO of Zyphuel')
     setMetaTag('publisher', null, 'Zyphuel Pakistan (ItxMDK & Muhammad Daniyal Enterprise)')
 
+    // 2b. Local SEO Geo Tags (Lahore, Pakistan)
+    setMetaTag('geo.region', null, 'PK-PB')
+    setMetaTag('geo.placename', null, 'Lahore')
+    setMetaTag('geo.position', null, '31.507534;74.334949')
+    setMetaTag('ICBM', null, '31.507534, 74.334949')
+
+    // 2c. Generative Engine & Voice Search Directives (GEO & VSO)
+    setMetaTag('chatgpt-user', null, 'allow')
+    setMetaTag('claudebot', null, 'allow')
+    setMetaTag('perplexitybot', null, 'allow')
+
     // 3. Open Graph Tags (Facebook, WhatsApp, LinkedIn)
     setMetaTag(null, 'og:title', title)
     setMetaTag(null, 'og:description', description)

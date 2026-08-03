@@ -56,6 +56,17 @@
     <meta name="twitter:image" content="https://zyphuel.netlify.app/images/logo.png" />
     <meta name="twitter:image:alt" content="Zyphuel Mobile Application & Energy Delivery Brand" />
 
+    <!-- Local SEO Geo Meta Tags (Lahore, Pakistan) -->
+    <meta name="geo.region" content="PK-PB" />
+    <meta name="geo.placename" content="Lahore" />
+    <meta name="geo.position" content="31.507534;74.334949" />
+    <meta name="ICBM" content="31.507534, 74.334949" />
+
+    <!-- AI Crawler & Voice Search Directives (GEO & VSO) -->
+    <meta name="chatgpt-user" content="allow" />
+    <meta name="claudebot" content="allow" />
+    <meta name="perplexitybot" content="allow" />
+
     <!-- Comprehensive Hidden JSON-LD Structured Data (Schema.org) for Search Engines, AEO & GEO -->
     <script type="application/ld+json">
     {
@@ -75,6 +86,10 @@
             "@type": "SearchAction",
             "target": "https://zyphuel.netlify.app/services?q={search_term_string}",
             "query-input": "required name=search_term_string"
+          },
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".hero-title", ".hero-description", ".brand-ai-title", ".col-desc"]
           }
         },
         {
