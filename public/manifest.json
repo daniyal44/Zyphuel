@@ -1,0 +1,23 @@
+{
+  "short_name": "Zyphuel",
+  "name": "Zyphuel – Mobile Application for Fuel Suppliers & Refueling",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/logo.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/download",
+  "background_color": "#0f172a",
+  "theme_color": "#0ea5e9",
+  "display": "standalone",
+  "orientation": "portrait",
+  "description": "Zyphuel is Pakistan's #1 mobile fuel delivery brand and premier application for fuel suppliers. Order petrol, diesel, and LPG online with GPS auto-detection."
+}
