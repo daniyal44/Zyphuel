@@ -168,7 +168,7 @@ export default function HomePage() {
 
           {/* Filters */}
           <div className="blog-filters fade-in-up" style={{ transitionDelay: '0.1s' }}>
-            {['All', 'Zyphuel Energy', 'Scale Verse Tech'].map(filter => (
+            {['All', 'Zyphuel Energy', 'Zyphuel App & Guides', 'Generator & Utilities'].map(filter => (
               <button
                 key={filter}
                 className={`blog-filter-btn ${activeFilter === filter ? 'active' : ''}`}

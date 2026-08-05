@@ -10,7 +10,7 @@ export const footerData = {
   contact: {
     phone: '+92 3230-112464',
     email: 'm.daniyalkhan490@gmail.com',
-    address: '75-Main Boulevard, Gulberg III, Lahore, Pakistan',
+    address: 'Lahore, Pakistan',
     whatsapp: 'https://wa.me/923230112464',
   },
   socialLinks: [
@@ -22,13 +22,13 @@ export const footerData = {
     },
     {
       platform: 'Google Business Profile',
-      url: 'https://share.google/Nb4XGKYq5aU0nzLr3',
+      url: 'https://share.google/mOyMqMib3kVYMKvbQ',
       icon: 'fa-brands fa-google',
       title: 'Zyphuel Google Business & Maps Location Lahore',
     },
     {
       platform: 'LinkedIn Company',
-      url: 'https://www.linkedin.com/company/zyphuel/?viewAsMember=true',
+      url: 'https://www.linkedin.com/company/zyphuel/',
       icon: 'fa-brands fa-linkedin',
       title: 'Zyphuel Official LinkedIn Company Page',
     },

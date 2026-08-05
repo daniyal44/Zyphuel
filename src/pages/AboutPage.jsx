@@ -8,18 +8,24 @@ import { useSEO } from '../hooks/useSEO';
 import BrandAIIndex from '../components/BrandAIIndex';
 import "./styles.css";
 
-const TOTAL_CARDS = 3;
+const TOTAL_CARDS = 6;
 
 const cardImages = [
   "/images/daniyal.jpeg",
   "/images/adil.png",
-  "https://i.postimg.cc/SsxV8N1q/logo.png",
+  "/public/images/logo.png",
+  "/public/images/Qr-code.png",
+  "/public/images/fuel.png",
+  "/public/images/Shirt.png"
 ];
 
 const teamMembers = [
   { name: "Muhammad Daniyal", role: "Founder & CEO of Zyphuel (ItxMDK)" },
   { name: "Adil Farooq", role: "Sales & Fleet Operations Lead" },
   { name: "Zyphuel Executive Team", role: "Mobile Energy Logistics" },
+  { name : "Zyphuel  Qr code" , role:"Mmobile Application"  },
+  { name : " Accurate Measurement ", role: "Fuel Gallon"},
+  {name: "Rider Identity", role: "Zyphuel black T-shirt with logo"}
 ];
 
 // ==========================================

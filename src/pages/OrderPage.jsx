@@ -221,17 +221,17 @@ export default function OrderPage() {
     }
   }, []) // eslint-disable-line
 
-  // Quantity sync helpers
+  // Quantity sync helpers (Increments default +1 unit)
   const syncFuelQty = (val) => {
     let v = parseInt(val) || 0
-    if (v < 5) v = 5
+    if (v < 1) v = 1
     if (v > 2000) v = 2000
     setFuelQty(v)
   }
 
   const syncGasQty = (val) => {
     let v = parseInt(val) || 0
-    if (v < 5) v = 5
+    if (v < 1) v = 1
     if (v > 200) v = 200
     setGasQty(v)
   }
@@ -587,23 +587,23 @@ export default function OrderPage() {
                             <div className="stepper-wrap">
                               <div className="quantity-stepper">
                                 <button type="button" className="stepper-btn" aria-label="Decrease fuel quantity"
-                                  onClick={() => syncFuelQty(fuelQty - 10)}>-</button>
+                                  onClick={() => syncFuelQty(fuelQty - 1)}>-</button>
                                 <input type="number" className="stepper-input"
-                                  value={fuelQty} min="5" max="2000"
+                                  value={fuelQty} min="1" max="2000" step="1"
                                   onChange={e => syncFuelQty(e.target.value)}
                                   aria-label="Fuel quantity in Litres" />
                                 <button type="button" className="stepper-btn" aria-label="Increase fuel quantity"
-                                  onClick={() => syncFuelQty(fuelQty + 10)}>+</button>
+                                  onClick={() => syncFuelQty(fuelQty + 1)}>+</button>
                               </div>
                               <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Litres</span>
                             </div>
                             
                             <input type="range" className="slider-control"
-                              min="5" max="2000" value={fuelQty}
+                              min="1" max="2000" step="1" value={fuelQty}
                               onChange={e => syncFuelQty(e.target.value)}
                               aria-label="Fuel quantity slider" />
                             <div className="limits-row">
-                              <span>Min: 5 L</span>
+                              <span>Min: 1 L</span>
                               <span>Max: 2000 L</span>
                             </div>
                           </div>
@@ -615,30 +615,30 @@ export default function OrderPage() {
                         <div className="quantity-config-card animated fadeIn" style={{ marginBottom: '20px' }}>
                           <div className="quantity-config-header">
                             <span className="config-title"><i className="fa-solid fa-fire-burner"></i> LPG Gas Cylinder Refill</span>
-                            <span className="config-unit">Kilograms</span>
+                            <span className="config-unit">Kilograms / Cylinders</span>
                           </div>
                           
                           <div className="form-group">
                             <div className="stepper-wrap">
                               <div className="quantity-stepper">
                                 <button type="button" className="stepper-btn" aria-label="Decrease gas quantity"
-                                  onClick={() => syncGasQty(gasQty - 5)}>-</button>
+                                  onClick={() => syncGasQty(gasQty - 1)}>-</button>
                                 <input type="number" className="stepper-input"
-                                  value={gasQty} min="5" max="200"
+                                  value={gasQty} min="1" max="200" step="1"
                                   onChange={e => syncGasQty(e.target.value)}
                                   aria-label="Gas quantity in Kg" />
                                 <button type="button" className="stepper-btn" aria-label="Increase gas quantity"
-                                  onClick={() => syncGasQty(gasQty + 5)}>+</button>
+                                  onClick={() => syncGasQty(gasQty + 1)}>+</button>
                               </div>
-                              <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Kg (Min: 5 Kg)</span>
+                              <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Kg / Units</span>
                             </div>
                             
                             <input type="range" className="slider-control"
-                              min="5" max="200" step="5" value={gasQty}
+                              min="1" max="200" step="1" value={gasQty}
                               onChange={e => syncGasQty(e.target.value)}
                               aria-label="Gas quantity slider" />
                             <div className="limits-row">
-                              <span>Min: 5 Kg</span>
+                              <span>Min: 1 Kg</span>
                               <span>Max: 200 Kg</span>
                             </div>
                           </div>
@@ -657,19 +657,19 @@ export default function OrderPage() {
                             <div className="stepper-wrap">
                               <div className="quantity-stepper">
                                 <button type="button" className="stepper-btn" aria-label="Decrease water quantity"
-                                  onClick={() => syncWaterQty(waterQty - 5)}>-</button>
+                                  onClick={() => syncWaterQty(waterQty - 1)}>-</button>
                                 <input type="number" className="stepper-input"
-                                  value={waterQty} min="1" max="500"
+                                  value={waterQty} min="1" max="500" step="1"
                                   onChange={e => syncWaterQty(e.target.value)}
                                   aria-label="Water quantity in Gallons" />
                                 <button type="button" className="stepper-btn" aria-label="Increase water quantity"
-                                  onClick={() => syncWaterQty(waterQty + 5)}>+</button>
+                                  onClick={() => syncWaterQty(waterQty + 1)}>+</button>
                               </div>
                               <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Gallons</span>
                             </div>
                             
                             <input type="range" className="slider-control"
-                              min="1" max="500" value={waterQty}
+                              min="1" max="500" step="1" value={waterQty}
                               onChange={e => syncWaterQty(e.target.value)}
                               aria-label="Water quantity slider" />
                             <div className="limits-row">
