@@ -13,10 +13,10 @@ const TOTAL_CARDS = 6;
 const cardImages = [
   "/images/daniyal.jpeg",
   "/images/adil.png",
-  "/public/images/logo.png",
-  "/public/images/Qr-code.png",
-  "/public/images/fuel.png",
-  "/public/images/Shirt.png"
+  "/images/logo.png",
+  "/images/Qr-code.png",
+  "/images/fuel.png",
+  "/images/Shirt.png"
 ];
 
 const teamMembers = [
