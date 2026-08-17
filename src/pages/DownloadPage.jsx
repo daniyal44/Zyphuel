@@ -5,6 +5,60 @@ import BrandAIIndex from '../components/BrandAIIndex'
 import { APP_VERSION, RELEASE_DATE, APP_SIZE, MIN_ANDROID, CHANGELOG } from '../data/appVersion'
 import './styles.css'
 
+const appArticles = [
+  {
+    id: 'app-article-1',
+    badge: 'Mobile App Architecture',
+    badgeIcon: 'fa-solid fa-microchip',
+    title: 'Zyphuel Mobile App v1.5.0: Next-Gen Doorstep Fuel Logistics & Cloud Telemetry in Pakistan',
+    readTime: '5 min read',
+    date: 'August 18, 2026',
+    author: 'Muhammad Daniyal (Founder & CEO)',
+    authorIcon: 'fa-solid fa-user-gear',
+    tags: ['ZyphuelApp', 'MuhammadDaniyal', 'DoorstepPetrol', 'LahoreFuelApp'],
+    summary: 'Explore how the official Zyphuel Android APK (v1.5.0, 31.0 MB) transforms urban energy delivery in Lahore with instant GPS auto-detection, zero-latency cloud telemetry, and 100% verified Euro-V fuel standards.',
+    paragraphs: [
+      'The newly released Zyphuel Mobile Application (v1.5.0) sets a national benchmark for mobile fuel delivery across Pakistan. Engineered from the ground up by Founder & CEO Muhammad Daniyal (known online as ItxMDK / itsmdk / MuhammadDaniel), the application connects individual car owners, commercial fleets, and industrial generator operators directly to a fleet of smart micro-refueler bowsers.',
+      'Unlike traditional petrol stations where motorists endure lengthy queues and manual meter discrepancies, the Zyphuel Android app leverages automated GPS address pinning covering DHA Phase 1-9, Gulberg, Johar Town, Model Town, Green Town, Bahria Town, and citywide Lahore. With a single tap, users request certified Super Euro-V Petrol, Euro-V Diesel, or High-Octane 97 delivered directly into their vehicle fuel tank.',
+      'Every transaction is monitored via cloud-connected electronic flow meters that stream exact liters and pricing in real time to the smartphone screen, guaranteeing 100% volumetric transparency with zero short-fueling.'
+    ]
+  },
+  {
+    id: 'app-article-2',
+    badge: 'Real-Time Price Telemetry',
+    badgeIcon: 'fa-solid fa-bell',
+    title: '2-Hour Automated Fuel Rate Push Notifications: Why Fleet Managers Rely on Zyphuel',
+    readTime: '4 min read',
+    date: 'August 18, 2026',
+    author: 'Zyphuel Telemetry Engineering',
+    authorIcon: 'fa-solid fa-satellite-dish',
+    tags: ['FuelPriceAlerts', 'OGRAPakistan', 'FleetRefueling', 'SmartAlerts'],
+    summary: 'How Zyphuel\'s built-in 2-hour push notification engine delivers official OGRA price updates and live market rate tracking directly to Android lock screens.',
+    paragraphs: [
+      'Fuel price fluctuations in Pakistan demand instant awareness for both enterprise fleet managers and daily commuters. The Zyphuel Android APK v1.5.0 features a dedicated background notification daemon that broadcasts verified OGRA fuel rate updates every 2 hours directly to users\' notification shades.',
+      'Users track real-time prices for Euro-V Petrol, Euro-V Diesel, HOBC 97 Octane, and sealed LPG Gas Cylinders. When market rate revisions occur, Zyphuel users receive priority price lock options, allowing them to order fuel at current rates before depot adjustments take effect.',
+      'Combined with real-time dispatch alerts and live micro-refueler tracking, the app eliminates guesswork and streamlines fuel budgeting for businesses across Punjab.'
+    ]
+  },
+  {
+    id: 'app-article-3',
+    badge: 'Enterprise B2B Solutions',
+    badgeIcon: 'fa-solid fa-truck-droplet',
+    title: 'Commercial Generator Refueling & Sealed LPG Gas Cylinder Refills in Lahore',
+    readTime: '4 min read',
+    date: 'August 18, 2026',
+    author: 'Adil Farooq (Fleet Operations Lead)',
+    authorIcon: 'fa-solid fa-shield-halved',
+    tags: ['GeneratorDiesel', 'LPGGasCylinder', 'B2BRefueling', 'BusinessContinuity'],
+    summary: 'Eliminate power outage downtime in factories, hospitals, and corporate plazas with scheduled generator diesel refills and safety-tested LPG cylinder deliveries.',
+    paragraphs: [
+      'Unscheduled load-shedding and power interruptions across Lahore pose major operational risks to corporate offices, IT parks, and healthcare facilities. Transporting heavy diesel containers or gas cylinders manually is hazardous and violates occupational safety regulations.',
+      'The Zyphuel Mobile App introduces scheduled enterprise replenishment. Businesses can set recurring delivery dates for commercial standby generators and commercial LPG kitchen manifolds. HAZMAT-certified operators arrive with specialized dispensing nozzles, grounding wires, and automatic fire suppression equipment.',
+      'With transparent Cash on Delivery (COD) for smaller utility orders and centralized monthly corporate billing for fleet clients, Zyphuel provides an all-in-one energy logistics platform right in your pocket.'
+    ]
+  }
+]
+
 export default function DownloadPage() {
   const [activeFaq, setActiveFaq] = useState(null)
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -19,7 +73,7 @@ export default function DownloadPage() {
     {
       img: '/images/2.jpeg',
       title: 'User Live Location & Live Fuel Rates',
-      subtitle: 'GPS auto-detection (Green Town, Lahore) with live rates for Petrol (Rs 335.06/L), Diesel (Rs 390.62/L), HOBC 97 Octane (Rs 350/L), & LPG.'
+      subtitle: 'GPS auto-detection (Green Town, Lahore) with live rates for Petrol, Diesel, HOBC 97 Octane, & LPG.'
     },
     {
       img: '/images/3.jpeg',
@@ -42,7 +96,7 @@ export default function DownloadPage() {
       'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
       'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
-      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'Zyphuel App v1.4.0', 'Download Zyphuel APK', 'Zyphuel Android App', 'mobile fuel delivery app',
+      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', `Zyphuel App v${APP_VERSION}`, 'Download Zyphuel APK', 'Zyphuel Android App', 'mobile fuel delivery app',
       'petrol delivery app Lahore', 'fuel tracker app', 'diesel delivery Lahore app', 'Muhammad Daniyal CEO'
     ],
     image: 'https://zyphuel.netlify.app/images/1.jpeg',
@@ -83,7 +137,7 @@ export default function DownloadPage() {
             "url": "https://zyphuel.netlify.app",
             "logo": "https://zyphuel.netlify.app/images/logo.png"
           },
-          "description": "The official mobile application for Zyphuel v1.4.0, Pakistan's #1 mobile fuel delivery brand, agency, and supplier, featuring GPS auto-detection, live multi-fuel rates, and 2-hour market price notifications."
+          "description": `The official mobile application for Zyphuel v${APP_VERSION}, Pakistan's #1 mobile fuel delivery brand, agency, and supplier, featuring GPS auto-detection, live multi-fuel rates, and 2-hour market price notifications.`
         },
         {
           "@type": "BreadcrumbList",
@@ -91,6 +145,58 @@ export default function DownloadPage() {
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zyphuel.netlify.app/" },
             { "@type": "ListItem", "position": 2, "name": "Download Mobile Application", "item": "https://zyphuel.netlify.app/download" }
           ]
+        },
+        {
+          "@type": "Article",
+          "@id": "https://zyphuel.netlify.app/download#app-article-1",
+          "headline": "Zyphuel Mobile App v1.5.0: Next-Gen Doorstep Fuel Logistics & Cloud Telemetry in Pakistan",
+          "description": "Explore how the official Zyphuel Android APK (v1.5.0, 31.0 MB) transforms urban energy delivery in Lahore with instant GPS auto-detection and zero-latency cloud telemetry.",
+          "image": "https://zyphuel.netlify.app/images/1.jpeg",
+          "datePublished": "2026-08-18T00:00:00+05:00",
+          "dateModified": "2026-08-18T00:00:00+05:00",
+          "author": {
+            "@type": "Person",
+            "name": "Muhammad Daniyal",
+            "alternateName": ["ItxMDK", "itsmdk", "MuhammadDaniel"]
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Zyphuel"
+          }
+        },
+        {
+          "@type": "Article",
+          "@id": "https://zyphuel.netlify.app/download#app-article-2",
+          "headline": "2-Hour Automated Fuel Rate Push Notifications: Why Fleet Managers Rely on Zyphuel",
+          "description": "How Zyphuel's built-in 2-hour push notification engine delivers official OGRA price updates and live market rate tracking directly to Android lock screens.",
+          "image": "https://zyphuel.netlify.app/images/3.jpeg",
+          "datePublished": "2026-08-18T00:00:00+05:00",
+          "dateModified": "2026-08-18T00:00:00+05:00",
+          "author": {
+            "@type": "Organization",
+            "name": "Zyphuel Telemetry Engineering"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Zyphuel"
+          }
+        },
+        {
+          "@type": "Article",
+          "@id": "https://zyphuel.netlify.app/download#app-article-3",
+          "headline": "Commercial Generator Refueling & Sealed LPG Gas Cylinder Refills in Lahore",
+          "description": "Eliminate power outage downtime in factories, hospitals, and corporate plazas with scheduled generator diesel refills and safety-tested LPG cylinder deliveries.",
+          "image": "https://zyphuel.netlify.app/images/2.jpeg",
+          "datePublished": "2026-08-18T00:00:00+05:00",
+          "dateModified": "2026-08-18T00:00:00+05:00",
+          "author": {
+            "@type": "Person",
+            "name": "Adil Farooq"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Zyphuel"
+          }
         }
       ]
     }
@@ -113,8 +219,8 @@ export default function DownloadPage() {
 
   const faqs = [
     {
-      question: 'Is the Zyphuel APK v1.4.0 safe to download and install?',
-      answer: 'Yes, absolutely. The Zyphuel Android Application package (v1.4.0) is safe, verified, and free from any malware. It is compiled and digitally signed by our engineering team. We recommend downloading the APK directly from our official portal to ensure you get the genuine, unaltered app.'
+      question: `Is the Zyphuel APK v${APP_VERSION} safe to download and install?`,
+      answer: `Yes, absolutely. The Zyphuel Android Application package (v${APP_VERSION}) is safe, verified, and free from any malware. It is compiled and digitally signed by our engineering team. We recommend downloading the APK directly from our official portal to ensure you get the genuine, unaltered app.`
     },
     {
       question: 'Why is the app distributed via direct APK instead of Google Play?',
@@ -146,14 +252,12 @@ export default function DownloadPage() {
                   <span>Smart Mobile Refueling • v{APP_VERSION} (Latest Release)</span>
                 </div>
                 
-                
-                
                 <h1 className="hero-title">
                   Refuel Smarter With the <span>Zyphuel Mobile App</span>
                 </h1>
                 
                 <p className="hero-description">
-                  Experience Pakistan's premier mobile application for fuel suppliers. Feature-packed with GPS auto-detection (Green Town, Lahore & citywide), real-time rates for Super Euro-V Petrol, Euro-V Diesel, HOBC 97 High-Octane & LPG Gas, plus automated 2-hour market price notifications 24/7.
+                  Experience Pakistan's premier mobile application for fuel suppliers. Feature-packed with GPS auto-detection (Gulberg, DHA, Green Town, Johar Town & citywide Lahore), real-time rates for Super Euro-V Petrol, Euro-V Diesel, HOBC 97 High-Octane & LPG Gas, plus automated 2-hour market price notifications 24/7.
                 </p>
 
                 {/* Primary Download CTAs */}
@@ -300,7 +404,7 @@ export default function DownloadPage() {
                   <i className="fa-solid fa-location-crosshairs"></i>
                 </div>
                 <h3>GPS Auto-Detect Location</h3>
-                <p>Automatic GPS coordinate detection & location pinning for Green Town, Lahore and surrounding sectors. Easily edit addresses or trigger auto-detection with one tap.</p>
+                <p>Automatic GPS coordinate detection & location pinning for Gulberg, DHA, Green Town, Lahore and surrounding sectors. Easily edit addresses or trigger auto-detection with one tap.</p>
               </div>
 
               <div className="feature-app-card fade-in-up" style={{ transitionDelay: '0.1s' }}>
@@ -379,7 +483,7 @@ export default function DownloadPage() {
                 <div className="step-num">01</div>
                 <div className="step-content">
                   <h4>Download the Installation File</h4>
-                  <p>Click the <strong>Direct APK Download</strong> button above or scan our QR Code. Save the `Zyphuel.apk` (v{APP_VERSION}) file to your mobile storage folder.</p>
+                  <p>Click the <strong>Direct APK Download</strong> button above or scan our QR Code. Save the `Zyphuel.apk` (v{APP_VERSION}) file ({APP_SIZE}) to your mobile storage folder.</p>
                 </div>
               </div>
 
@@ -406,6 +510,70 @@ export default function DownloadPage() {
                   <p>Launch the Zyphuel App, allow location &amp; notification permissions, and start ordering premium fuel on-demand!</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            App Insights & Guides (3 SEO Articles with Left-to-Right Animations)
+           ========================================================================= */}
+        <section className="app-articles-section">
+          <div className="container">
+            <div className="section-header fade-in-up">
+              <div className="version-header-badge">
+                <i className="fa-solid fa-newspaper"></i> Official App Guides &amp; Insights
+              </div>
+              <h2 className="section-title">In-Depth Guides: Mastering the Zyphuel Mobile App</h2>
+              <p className="section-subtitle">
+                Explore expert articles on on-demand fueling telemetry, 2-hour market price alerts, and enterprise fleet management engineered by CEO Muhammad Daniyal (ItxMDK).
+              </p>
+            </div>
+
+            <div className="app-articles-grid">
+              {appArticles.map((article, idx) => (
+                <article key={article.id} className="app-article-card" itemScope itemType="https://schema.org/Article">
+                  <div>
+                    <div className="app-article-header">
+                      <span className="app-article-badge">
+                        <i className={article.badgeIcon}></i> {article.badge}
+                      </span>
+                      <div className="app-article-meta">
+                        <span><i className="fa-regular fa-clock"></i> {article.readTime}</span>
+                        <span>•</span>
+                        <span>{article.date}</span>
+                      </div>
+                    </div>
+
+                    <h3 className="app-article-title" itemProp="headline">
+                      {article.title}
+                    </h3>
+
+                    <div className="app-article-body" itemProp="articleBody">
+                      <p style={{ fontWeight: '600', color: '#1e293b', marginBottom: '14px' }}>
+                        {article.summary}
+                      </p>
+                      {article.paragraphs.map((para, pIdx) => (
+                        <p key={pIdx}>{para}</p>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <div className="app-article-author">
+                      <i className={article.authorIcon}></i>
+                      <span>By <strong itemProp="author">{article.author}</strong></span>
+                    </div>
+
+                    <div className="app-article-tags">
+                      {article.tags.map((tag) => (
+                        <span key={tag} className="app-article-tag">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
