@@ -12,8 +12,14 @@ const DEFAULT_KEYWORDS = [
   'petrol price cheker wesbite', 'diesel', 'diesel gasoline', 'patrol and diesel', 'i want diesel', 'fuel', 'OGRA fuel rates', 'petrol rate today', 'diesel rate today',
   // Sports & Cricket trending entities
   'Asia cup', 'Asian games', 'ICC', 't20 world cup', 'ODI world cup', 'test match',
-  'pak vs Australia', 'pak vs india', 'pak vs Bangladesh', 'pak vs new Zealand', 'pak vs Sri Lanka', 'pak vs Ireland', 'pak vs Afghanistan', 'pak vs Zimbabwe', 'pak vs south Africa', 'pak vs west indies', 'pak vs England',
+  'pak vs Australia', 'pak vs india', 'pak vs Bangladesh', 'pak vs new Zealand', 'pak vs Sri Lanka', 'pak vs Ireland',
+  'pak vs Afghanistan', 'pak vs Zimbabwe', 'pak vs south Africa', 'pak vs west indies', 'pak vs England', 'pak vs Oman', 'pak vs UAE',
   'upcoming cricket matches', 'aus vs ban', 'aus vs ind', 't20 league\'s', 't10 leagues', 'PSL live score', 'cricket match updates Pakistan',
+  // Geopolitical & World Events
+  'iran USA war', 'state of hormuz', 'strait of hormuz', 'Greater Israel', 'USA war', 'Israel attack on turkey',
+  'Gulf country situation', 'china', 'Russia', 'north korea', 'south Korea', 'trending keyowrds',
+  // Tech & Mobile Gadgets
+  'iphone latest model', 'android latest phone',
   // Social Media & Discover terms
   'linkedln', 'facebok', 'reels', 'trending reels', 'social media updates'
 ]

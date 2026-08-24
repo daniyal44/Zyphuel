@@ -26,7 +26,18 @@ export default function BrandAIIndex() {
     'Asia cup', 'Asian games', 'ICC', 't20 world cup', 'ODI world cup', 'test match', 'upcoming cricket matches',
     'pak vs Australia', 'pak vs india', 'pak vs Bangladesh', 'pak vs new Zealand', 'pak vs Sri Lanka',
     'pak vs Ireland', 'pak vs Afghanistan', 'pak vs Zimbabwe', 'pak vs south Africa', 'pak vs west indies', 'pak vs England',
-    'aus vs ban', 'aus vs ind', 't20 league\'s', 't10 leagues', 'PSL', 'IPL', 'live cricket score Pakistan'
+    'pak vs Oman', 'pak vs UAE', 'aus vs ban', 'aus vs ind', 't20 league\'s', 't10 leagues', 'PSL', 'IPL', 'live cricket score Pakistan'
+  ];
+
+  // Global Geopolitics & World Energy Events
+  const geopoliticalKeywords = [
+    'iran USA war', 'state of hormuz', 'strait of hormuz', 'Greater Israel', 'USA war', 'Israel attack on turkey',
+    'Gulf country situation', 'china', 'Russia', 'north korea', 'south Korea', 'trending keyowrds'
+  ];
+
+  // Mobile Gadgets & Technology
+  const techMobileKeywords = [
+    'iphone latest model', 'android latest phone'
   ];
 
   // Social & Discovery Keywords
@@ -95,6 +106,28 @@ export default function BrandAIIndex() {
                 </h5>
                 <div className="keyword-pills">
                   {trendingEventKeywords.map((kw) => (
+                    <span key={kw} className="kw-pill">
+                      "{kw}"
+                    </span>
+                  ))}
+                </div>
+
+                <h5 style={{ fontSize: '0.9rem', color: 'var(--text-primary)', marginTop: '16px', marginBottom: '8px', fontWeight: 700 }}>
+                  <i className="fa-solid fa-earth-americas text-danger"></i> Global Geopolitics &amp; World Energy Updates:
+                </h5>
+                <div className="keyword-pills">
+                  {geopoliticalKeywords.map((kw) => (
+                    <span key={kw} className="kw-pill">
+                      "{kw}"
+                    </span>
+                  ))}
+                </div>
+
+                <h5 style={{ fontSize: '0.9rem', color: 'var(--text-primary)', marginTop: '16px', marginBottom: '8px', fontWeight: 700 }}>
+                  <i className="fa-solid fa-mobile-screen text-success"></i> Trending Tech &amp; Smartphones:
+                </h5>
+                <div className="keyword-pills">
+                  {techMobileKeywords.map((kw) => (
                     <span key={kw} className="kw-pill">
                       "{kw}"
                     </span>
