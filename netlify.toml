@@ -11,6 +11,7 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(self), camera=(), microphone=()"
     Cache-Control = "public, max-age=0, must-revalidate"
+    X-Robots-Tag = "all, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 
 # Cache static assets immutably
 [[headers]]

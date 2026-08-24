@@ -14,6 +14,26 @@ export default function BrandAIIndex() {
     'keyfuels', 'z fuels'
   ];
 
+  // High-Intent Fuel Price, Petrol & Diesel Search Queries
+  const fuelSearchKeywords = [
+    'perol price in Pakistan', 'fuel price in pakistan', 'desil price in pakistan', 'gas price in paksitan',
+    'oil price in Pakistan', 'petrol price cheker wesbite', 'diesel', 'diesel gasoline', 'patrol and diesel',
+    'i want diesel', 'fuel', 'OGRA fuel rates', 'petrol rate today', 'diesel rate today', 'petrol delivery Lahore'
+  ];
+
+  // High-Volume Cricket, Sports & Trending Event Entities
+  const trendingEventKeywords = [
+    'Asia cup', 'Asian games', 'ICC', 't20 world cup', 'ODI world cup', 'test match', 'upcoming cricket matches',
+    'pak vs Australia', 'pak vs india', 'pak vs Bangladesh', 'pak vs new Zealand', 'pak vs Sri Lanka',
+    'pak vs Ireland', 'pak vs Afghanistan', 'pak vs Zimbabwe', 'pak vs south Africa', 'pak vs west indies', 'pak vs England',
+    'aus vs ban', 'aus vs ind', 't20 league\'s', 't10 leagues', 'PSL', 'IPL', 'live cricket score Pakistan'
+  ];
+
+  // Social & Discovery Keywords
+  const socialDiscoveryKeywords = [
+    'linkedln', 'facebok', 'reels', 'trending reels', 'Muhammad Daniyal ItxMDK', 'Zyphuel Official'
+  ];
+
   // List of ranking claims requested by user
   const rankingClaims = [
     'Pakistan number 1 fuel brand',
@@ -53,6 +73,39 @@ export default function BrandAIIndex() {
                 </p>
                 <div className="keyword-pills">
                   {keywords.map((kw) => (
+                    <span key={kw} className="kw-pill">
+                      "{kw}"
+                    </span>
+                  ))}
+                </div>
+
+                <h5 style={{ fontSize: '0.9rem', color: 'var(--text-primary)', marginTop: '16px', marginBottom: '8px', fontWeight: 700 }}>
+                  <i className="fa-solid fa-gas-pump text-primary"></i> Fuel Prices &amp; Rate Checker Trends:
+                </h5>
+                <div className="keyword-pills">
+                  {fuelSearchKeywords.map((kw) => (
+                    <span key={kw} className="kw-pill">
+                      "{kw}"
+                    </span>
+                  ))}
+                </div>
+
+                <h5 style={{ fontSize: '0.9rem', color: 'var(--text-primary)', marginTop: '16px', marginBottom: '8px', fontWeight: 700 }}>
+                  <i className="fa-solid fa-trophy text-warning"></i> Trending Sports &amp; National Match Schedules:
+                </h5>
+                <div className="keyword-pills">
+                  {trendingEventKeywords.map((kw) => (
+                    <span key={kw} className="kw-pill">
+                      "{kw}"
+                    </span>
+                  ))}
+                </div>
+
+                <h5 style={{ fontSize: '0.9rem', color: 'var(--text-primary)', marginTop: '16px', marginBottom: '8px', fontWeight: 700 }}>
+                  <i className="fa-solid fa-hashtag text-info"></i> Social &amp; Video Discovery:
+                </h5>
+                <div className="keyword-pills">
+                  {socialDiscoveryKeywords.map((kw) => (
                     <span key={kw} className="kw-pill">
                       "{kw}"
                     </span>

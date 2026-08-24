@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <!-- Home Page -->
     <url>
         <loc>https://zyphuel.netlify.app/</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
         <image:image>
@@ -38,9 +37,14 @@
     <!-- Services Page -->
     <url>
         <loc>https://zyphuel.netlify.app/services</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/fuel.png</image:loc>
+            <image:title>Zyphuel Mobile Petrol &amp; Diesel Delivery</image:title>
+            <image:caption>On-demand commercial diesel and petrol delivery across Lahore.</image:caption>
+        </image:image>
         <image:image>
             <image:loc>https://zyphuel.netlify.app/images/Gallen.png</image:loc>
             <image:title>Zyphuel Emergency Fuel Gallen Canister</image:title>
@@ -86,7 +90,7 @@
     <!-- Download Mobile Application Page -->
     <url>
         <loc>https://zyphuel.netlify.app/download</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.95</priority>
         <image:image>
@@ -119,22 +123,22 @@
     <!-- Order Dispatch Page -->
     <url>
         <loc>https://zyphuel.netlify.app/order</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>daily</changefreq>
-        <priority>0.9</priority>
+        <priority>0.95</priority>
         <image:image>
             <image:loc>https://zyphuel.netlify.app/images/tank.png</image:loc>
-            <image:title>Zyphuel Online Refueling Order Service</image:title>
-            <image:caption>Book doorstep fuel delivery online in Lahore Pakistan.</image:caption>
+            <image:title>Zyphuel Online Refueling Order Service - Diesel &amp; Petrol Delivery</image:title>
+            <image:caption>Book doorstep diesel and petrol delivery online in Lahore Pakistan with 24/7 fast dispatch.</image:caption>
         </image:image>
     </url>
 
     <!-- About Page -->
     <url>
         <loc>https://zyphuel.netlify.app/about</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.85</priority>
+        <priority>0.9</priority>
         <image:image>
             <image:loc>https://zyphuel.netlify.app/images/daniyal.jpeg</image:loc>
             <image:title>Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) - Founder &amp; CEO of Zyphuel</image:title>
@@ -145,41 +149,34 @@
             <image:title>Adil - Fleet Operations Lead at Zyphuel</image:title>
             <image:caption>Adil, Operations Lead orchestrating 24/7 mobile fuel logistics across Lahore.</image:caption>
         </image:image>
-        <video:video>
-            <video:thumbnail_loc>https://zyphuel.netlify.app/images/Zyphuel-logo.png</video:thumbnail_loc>
-            <video:title>Zyphuel Mobile Fuel Delivery Walkthrough &amp; Fleet Logistics</video:title>
-            <video:description>Explore Pakistan's number 1 best fuel delivery operations, fleet logistics, and mobile application dispatch workflow guided by CEO Muhammad Daniyal (ItxMDK).</video:description>
-            <video:player_loc>https://www.youtube.com/embed/dQw4w9WgXcQ</video:player_loc>
-            <video:duration>212</video:duration>
-        </video:video>
     </url>
 
     <!-- Contact Page -->
     <url>
         <loc>https://zyphuel.netlify.app/contact</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
+        <priority>0.85</priority>
         <image:image>
             <image:loc>https://zyphuel.netlify.app/images/logo.png</image:loc>
             <image:title>Zyphuel Customer Helpline &amp; Fleet Office Lahore</image:title>
-            <image:caption>Get 24/7 fuel support and corporate fleet partnerships in Lahore Pakistan.</image:caption>
+            <image:caption>Get 24/7 fuel support, diesel queries, and corporate fleet partnerships in Lahore Pakistan.</image:caption>
         </image:image>
     </url>
 
     <!-- Privacy Policy -->
     <url>
         <loc>https://zyphuel.netlify.app/privacy-policy</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.6</priority>
     </url>
 
     <!-- Terms of Use -->
     <url>
         <loc>https://zyphuel.netlify.app/terms-of-use</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-08-24</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.6</priority>
     </url>
 </urlset>

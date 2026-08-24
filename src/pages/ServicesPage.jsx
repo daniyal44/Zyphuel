@@ -14,15 +14,16 @@ export default function ServicesPage() {
   const { prices: livePrices } = useFuelPrices()
   
   useSEO({
-    title: 'Our Services | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK',
-    description: 'Discover premium B2C and B2B refueling, LPG Gas cylinder, and Water refill services from Zyphuel (zphuel). Created by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) with Poke nexus, Dashacart, Hittop, and Ladoni.',
+    title: 'Diesel & Petrol Fuel Delivery Services | Generator & Fleet Refueling | Zyphuel',
+    description: 'Explore Zyphuel\'s on-demand fuel delivery services: 24/7 doorstep Euro-V diesel, super petrol, commercial generator refueling, LPG cylinder delivery, and corporate fleet solutions in Lahore.',
     keywords: [
+      'diesel', 'diesel delivery Lahore', 'petrol and diesel', 'patrol and diesel', 'generator diesel refueling Lahore', 'commercial diesel supply', 'diesel gasoline', 'i want diesel',
       'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
       'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
-      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol services', 'diesel delivery Lahore', 'LPG gas refills', 'water tanker refill'
+      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'petrol services', 'LPG gas refills', 'water tanker refill'
     ],
-    image: 'https://zyphuel.netlify.app/images/logo.png',
+    image: 'https://zyphuel.netlify.app/images/fuel.png',
     url: 'https://zyphuel.netlify.app/services',
     type: 'website',
     schema: {

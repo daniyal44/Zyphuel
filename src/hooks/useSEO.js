@@ -6,7 +6,16 @@ const DEFAULT_KEYWORDS = [
   'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
   'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers',
   'Pakistan number 1 best fuel delivery', 'best services in Pakistan', 'mobile application for fuel suppliers',
-  'best mobile application for fuel suppliers', 'fuel delivery app Lahore', 'on-demand energy logistics'
+  'best mobile application for fuel suppliers', 'fuel delivery app Lahore', 'on-demand energy logistics',
+  // Fuel & Price search trends
+  'perol price in Pakistan', 'fuel price in pakistan', 'desil price in pakistan', 'gas price in paksitan', 'oil price in Pakistan',
+  'petrol price cheker wesbite', 'diesel', 'diesel gasoline', 'patrol and diesel', 'i want diesel', 'fuel', 'OGRA fuel rates', 'petrol rate today', 'diesel rate today',
+  // Sports & Cricket trending entities
+  'Asia cup', 'Asian games', 'ICC', 't20 world cup', 'ODI world cup', 'test match',
+  'pak vs Australia', 'pak vs india', 'pak vs Bangladesh', 'pak vs new Zealand', 'pak vs Sri Lanka', 'pak vs Ireland', 'pak vs Afghanistan', 'pak vs Zimbabwe', 'pak vs south Africa', 'pak vs west indies', 'pak vs England',
+  'upcoming cricket matches', 'aus vs ban', 'aus vs ind', 't20 league\'s', 't10 leagues', 'PSL live score', 'cricket match updates Pakistan',
+  // Social Media & Discover terms
+  'linkedln', 'facebok', 'reels', 'trending reels', 'social media updates'
 ]
 
 // Global Knowledge Graph Objects (AEO, GEO, VSO, Local SEO)

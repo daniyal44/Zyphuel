@@ -32,60 +32,87 @@ const FUEL_ICONS = {
 
 export default function OrderPage() {
   useSEO({
-    title: 'Order Fuel | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK',
-    description: 'Place your mobile refueling order online with Zyphuel (zphuel). Created by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) with Poke nexus, Dashacart, Hittop, and Ladoni. Petrol, diesel, LPG gas cylinders, or water refills 24/7 in Lahore.',
+    title: 'Order Diesel & Petrol Fuel Online | Doorstep Fuel Delivery Lahore | Zyphuel',
+    description: 'Order diesel, petrol, LPG gas cylinders, and water delivery online with Zyphuel. 45-minute express dispatch in Lahore for vehicles, fleets, generators, and construction sites. Cash on delivery & online payment.',
     keywords: [
+      'diesel', 'diesel delivery Lahore', 'order diesel Lahore', 'petrol and diesel', 'patrol and diesel', 'diesel gasoline', 'i want diesel', 'generator diesel order',
       'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
       'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
       'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
-      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'order fuel online', 'LPG gas cylinder order', 'water refill delivery', 'Lahore cash on delivery'
+      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'order fuel online', 'LPG gas cylinder order', 'water refill delivery', 'Lahore cash on delivery'
     ],
-    image: 'https://zyphuel.netlify.app/images/logo.png',
+    image: 'https://zyphuel.netlify.app/images/tank.png',
     url: 'https://zyphuel.netlify.app/order',
     type: 'website',
     schema: {
       "@context": "https://schema.org",
-      "@type": "OrderAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://zyphuel.netlify.app/order",
-        "actionPlatform": [
-          "http://schema.org/DesktopWebPlatform",
-          "http://schema.org/MobileWebPlatform"
-        ]
-      },
-      "object": {
-        "@type": "Product",
-        "name": "Zyphuel Mobile Refueling",
-        "offers": {
-          "@type": "AggregateOffer",
-          "priceCurrency": "PKR",
-          "lowPrice": "100.00",
-          "highPrice": "448.00",
-          "offerCount": "5"
+      "@graph": [
+        {
+          "@type": "OrderAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://zyphuel.netlify.app/order",
+            "actionPlatform": [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/MobileWebPlatform"
+            ]
+          },
+          "object": {
+            "@type": "Product",
+            "name": "Zyphuel Mobile Refueling - Diesel & Petrol Delivery",
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "PKR",
+              "lowPrice": "100.00",
+              "highPrice": "448.00",
+              "offerCount": "5"
+            }
+          },
+          "agent": {
+            "@type": "LocalBusiness",
+            "name": "Zyphuel",
+            "url": "https://zyphuel.netlify.app"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://zyphuel.netlify.app/order#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How can I order diesel or petrol online in Lahore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Choose your required fuel category (Diesel, Petrol, High-Octane, LPG Cylinder, or Water Refill) on this order page, set your quantity, enter your delivery address in Lahore, and select your delivery speed. Our dispatcher routes the nearest certified bowser to your location."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the minimum quantity for doorstep diesel delivery?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can order as little as 1 liter up to 2,000+ liters per order. Bulk orders of 50+ liters receive free delivery in covered zones in Lahore."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Cash on Delivery (COD) supported?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders (up to 10 liters of fuel, 10 kg LPG, or 20 gallons of water). Bank transfers and corporate invoicing are available for commercial clients."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are Zyphuel fuel supplies OGRA certified and Euro-V compliant?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "100% of Zyphuel fuel supplies are sourced from licensed primary oil marketing depots, strictly compliant with official OGRA regulations and Euro-V environmental standards."
+              }
+            }
+          ]
         }
-      },
-      "agent": {
-        "@type": "LocalBusiness",
-        "name": "Zyphuel",
-        "alternateName": ["zphuel", "ItxMDK", "itxmdk", "itxmtk", "MuhammadDaniel", "itsmdk", "itx dk", "itxM", "itcM", "Poke nexus", "Muhammad Daniyal", "Dashacart", "Hittop", "Scale verse", "Ladoni", "Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
-        "url": "https://zyphuel.netlify.app",
-        "sameAs": [
-          "https://www.linkedin.com/company/zyphuel/?viewAsMember=true",
-          "https://www.linkedin.com/in/muhammad-daniyal490",
-          "https://share.google/Nb4XGKYq5aU0nzLr3",
-          "https://github.com/daniyal44",
-          "https://www.facebook.com/muhammad.daniyal.522942/"
-        ],
-        "award": [
-          "Pakistan number 1 fuel brand",
-          "Pakistan number 1 fuel agency",
-          "Pakistan number 1 fuel suppliers",
-          "Pakistan number 1 best fuel delivery",
-          "best services in Pakistan",
-          "mobile application for fuel suppliers"
-        ]
-      }
+      ]
     }
   })
 
@@ -1160,6 +1187,97 @@ export default function OrderPage() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SEO On-Page Guide & FAQ Section: Doorstep Diesel & Petrol Delivery in Lahore */}
+        <section className="order-seo-info section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-color)', marginTop: '40px' }}>
+          <div className="container" style={{ maxWidth: '1000px' }}>
+            <div className="fade-in-up">
+              <div className="hero-subtitle-badge" style={{ backgroundColor: 'var(--brand-petrol)', borderColor: 'rgba(58,134,200,0.15)', color: '#1a4f7c' }}>
+                <i className="fa-solid fa-truck-fast"></i>
+                <span>Verified Fuel Logistics Lahore</span>
+              </div>
+              <h2 className="section-title" style={{ fontSize: '1.8rem', marginTop: '10px', marginBottom: '16px' }}>
+                Doorstep Diesel &amp; Petrol Delivery in Lahore – 24/7 On-Demand Fuel Service
+              </h2>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '20px' }}>
+                Whether you need high-grade <strong>Euro-V Diesel</strong> for industrial standby generators, commercial fleet logistics, agricultural machinery, or <strong>Super Petrol</strong> and <strong>High-Octane 97</strong> delivered directly to your car doorstep in Lahore, Zyphuel provides certified, seamless, and timely fuel dispatch. Forget waiting in long petrol pump queues or transporting hazardous jerrycans—our specialized bowser fleet delivers calibrated fuel straight to your GPS location with zero short-fueling.
+              </p>
+
+              {/* 3 Pillars Grid */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', margin: '30px 0' }}>
+                <div style={{ background: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-color)', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+                  <div style={{ fontSize: '1.8rem', color: '#0ea5e9', marginBottom: '12px' }}><i className="fa-solid fa-truck-droplet"></i></div>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>Diesel &amp; Generator Refueling</h3>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                    Direct on-site diesel delivery for residential backup generators, corporate plazas, hospitals, construction equipment, and heavy commercial trucks across Lahore.
+                  </p>
+                </div>
+
+                <div style={{ background: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-color)', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+                  <div style={{ fontSize: '1.8rem', color: '#10b981', marginBottom: '12px' }}><i className="fa-solid fa-gauge-high"></i></div>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>Calibrated Volumetric Billing</h3>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                    Every tanker nozzle is fitted with digital flow meters calibrated according to international accuracy standards, producing instant printed and digital receipts.
+                  </p>
+                </div>
+
+                <div style={{ background: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-color)', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+                  <div style={{ fontSize: '1.8rem', color: '#6366f1', marginBottom: '12px' }}><i className="fa-solid fa-clock-rotate-left"></i></div>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>45-Min Express Dispatch</h3>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                    Strategic micro-hubs located across DHA Phase 1-9, Gulberg, Johar Town, Bahria Town, Model Town, and Cantonment ensure rapid 24/7 delivery.
+                  </p>
+                </div>
+              </div>
+
+              {/* Ordering FAQs Accordion */}
+              <div style={{ marginTop: '40px' }}>
+                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '20px', color: 'var(--text-primary)' }}>
+                  Frequently Asked Questions (FAQ) – Ordering Fuel in Pakistan
+                </h3>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  <div style={{ background: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
+                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>
+                      1. How can I order diesel or petrol online in Lahore?
+                    </h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                      Simply choose your required fuel category (Diesel, Petrol, High-Octane, LPG Cylinder, or Water Refill) on this order page, set your quantity, enter your delivery address in Lahore, and select your preferred delivery speed. Our dispatcher immediately routes the nearest certified bowser to your location.
+                    </p>
+                  </div>
+
+                  <div style={{ background: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
+                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>
+                      2. What is the minimum quantity for doorstep diesel delivery?
+                    </h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                      You can order as little as 1 liter up to 2,000+ liters per order. For orders below 50 liters, a nominal standard delivery fee applies. For bulk orders of 50+ liters, delivery is free within our service coverage zones in Lahore.
+                    </p>
+                  </div>
+
+                  <div style={{ background: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
+                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>
+                      3. Is Cash on Delivery (COD) supported?
+                    </h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                      Yes! Cash on Delivery (COD) is supported for domestic orders (up to 10 liters of fuel, 10 kg LPG, or 20 gallons of water). For commercial bulk refueling and fleet orders, we provide bank transfer, online payment, and corporate invoicing terms.
+                    </p>
+                  </div>
+
+                  <div style={{ background: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
+                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>
+                      4. Are Zyphuel fuels tested and OGRA certified?
+                    </h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                      100% of Zyphuel fuel supplies are sourced directly from licensed primary oil marketing depots, compliant with official OGRA regulations and Euro-V environmental standards. Our team conducts regular density, flashpoint, and purity checks.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
