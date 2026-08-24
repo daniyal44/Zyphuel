@@ -317,9 +317,9 @@ const ROUTES = [
   {
     path: '/services',
     outFile: 'dist/services/index.html',
-    title: "Diesel & Petrol Fuel Delivery Services | Generator & Fleet Refueling | Zyphuel",
-    description: "Discover premium B2C and B2B refueling, Euro-V diesel, super petrol, LPG Gas cylinder, and Water refill services from Zyphuel (zphuel). Created by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) with Poke nexus, Dashacart, Hittop, and Ladoni.",
-    keywords: "diesel, diesel delivery Lahore, petrol and diesel, patrol and diesel, generator diesel refueling Lahore, commercial diesel supply, diesel gasoline, i want diesel, Zyphuel services, doorstep petrol delivery, LPG gas cylinder refill, water tanker supply, B2B commercial fuel supply, fleet refueling Lahore, OGRA fuel rates Pakistan, Pakistan number 1 fuel brand, mobile application for fuel suppliers",
+    title: "Doorstep Fuel Delivery Services in Lahore | Petrol & Diesel | Zyphuel",
+    description: "Explore Zyphuel's 24/7 doorstep fuel delivery services across Lahore: Euro-V Super Petrol, High-Octane 97, Generator Diesel, LPG Cylinders, and Corporate Fleet Solutions with calibrated flow metering and live GPS tracking.",
+    keywords: TRENDING_GLOBAL_KEYWORDS,
     canonical: `${DOMAIN}/services`,
     ogImage: `${DOMAIN}/images/fuel.png`,
     ogType: 'website',
@@ -376,6 +376,52 @@ const ROUTES = [
               }
             ]
           }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": `${DOMAIN}/services#faq`,
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What services does Zyphuel provide in Lahore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zyphuel provides 24/7 on-demand doorstep fuel delivery including Euro-V Super Petrol (92 Octane), High-Octane 97, Euro-V Diesel for vehicles and backup generators, sealed LPG Gas Cylinder refills, and bulk potable Water Tanker delivery across Lahore."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does Zyphuel NOT do?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zyphuel does NOT supply uncertified or open-market fuel, does NOT decant fuel through manual uncalibrated jerrycans or plastic funnels, does NOT outsource deliveries to uncertified bike riders, and does NOT charge hidden surcharges above official OGRA rates."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is fuel measured and calibrated during doorstep delivery?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Every Zyphuel mobile micro-tanker is equipped with electronic positive-displacement flow meters with digital pulse encoders that measure volume to 0.01 Liter precision, generating an instant digital and printed volumetric receipt."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I order diesel for commercial generator backup during load shedding?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Zyphuel specializes in commercial standby generator diesel replenishment with 100-foot high-pressure hoses capable of fueling rooftop, basement, and ground-level generator tanks for corporate offices, hospitals, factories, and residential buildings."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Cash on Delivery (COD) supported for fuel orders?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders up to 10 liters of fuel, 10 kg LPG cylinder, or 20 gallons of water. For larger orders or corporate fleets, online bank transfers and 30-day billing accounts are available."
+              }
+            }
+          ]
         },
         ...ARTICLES_SCHEMA.filter(a => a["@id"].includes('article-3') || a["@id"].includes('article-4'))
       ]
