@@ -1,11 +1,10 @@
-
-
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import GeometricalBirds from '../components/GeometricalBirds';
-import { useState, useEffect, useRef, useCallback } from "react";
 import { useSEO } from '../hooks/useSEO';
 import BrandAIIndex from '../components/BrandAIIndex';
+import { aboutArticles, wikiMetadata } from '../data/aboutData';
 import "./styles.css";
 
 const TOTAL_CARDS = 6;
@@ -20,68 +19,83 @@ const cardImages = [
 ];
 
 const teamMembers = [
-  { name: "Muhammad Daniyal", role: "Founder & CEO of Zyphuel (ItxMDK)" },
+  { name: "Muhammad Daniyal", role: "Founder & CEO of Zyphuel (ItxMDK / MuhammadDaniel / itsmdk)" },
   { name: "Adil Farooq", role: "Sales & Fleet Operations Lead" },
   { name: "Zyphuel Executive Team", role: "Mobile Energy Logistics" },
-  { name : "Zyphuel  Qr code" , role:"Mmobile Application"  },
-  { name : " Accurate Measurement ", role: "Fuel Gallon"},
-  {name: "Rider Identity", role: "Zyphuel black T-shirt with logo"}
+  { name: "Zyphuel QR Code", role: "Mobile Application v1.5.0" },
+  { name: "Accurate Measurement", role: "Calibrated Fuel Tanker & Flow Meter" },
+  { name: "Rider Identity", role: "HAZMAT Certified Safety Uniform" }
 ];
 
-// ==========================================
-// Main Export Component: AboutPage
-// ==========================================
 export default function AboutPage() {
   useSEO({
-    title: 'About Us | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK',
-    description: 'Learn about Zyphuel (zphuel), Pakistan\'s No.1 mobile fuel delivery brand, supplier, agency, and premier mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) associated with Poke nexus, Dashacart, Hittop, and Ladoni.',
+    title: 'About Us & Leadership | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application | ItxMDK',
+    description: 'Learn about Zyphuel (zphuel), Pakistan\'s No.1 mobile fuel delivery brand, supplier, agency, and premier mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) associated with Poke nexus, Dashacart, Hittop, and Ladoni. Read official articles, social media press releases, and encyclopedic dossiers.',
     keywords: [
-      'diesel', 'diesel delivery', 'petrol and diesel', 'patrol and diesel', 'diesel logistics Lahore', 'generator fuel Pakistan',
-      'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
-      'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
-      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
-      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'founder', 'ceo', 'Muhammad Daniyal CEO', 'Zyphuel story'
+      'About Zyphuel', 'diesel delivery', 'petrol and diesel', 'patrol and diesel', 'generator fuel Pakistan', 'Muhammad Daniyal CEO',
+      'ItxMDK', 'itsmdk', 'MuhammadDaniel', 'itxmtk', 'itx dk', 'itxM', 'itcM', 'Poke nexus', 'PokeNexus',
+      'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
+      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers',
+      'Pakistan number 1 best fuel delivery', 'best services in Pakistan', 'mobile application for fuel suppliers',
+      'best mobile application for fuel suppliers', 'founder', 'ceo', 'Muhammad Daniyal CEO', 'Zyphuel story',
+      'Zyphuel LinkedIn', 'Zyphuel articles', 'Zyphuel Facebook', 'Zyphuel GitHub', 'Zyphuel Wikipedia'
     ],
-    image: 'https://zyphuel.netlify.app/images/logo.png',
+    image: 'https://zyphuel.netlify.app/images/daniyal.jpeg',
     url: 'https://zyphuel.netlify.app/about',
     type: 'website',
     schema: {
       "@context": "https://schema.org",
-      "@type": "AboutPage",
-      "mainEntity": {
-        "@type": "Organization",
-        "name": "Zyphuel",
-        "alternateName": ["zphuel", "ItxMDK", "itxmdk", "itxmtk", "MuhammadDaniel", "itsmdk", "itx dk", "itxM", "itcM", "Poke nexus", "Muhammad Daniyal", "Dashacart", "Hittop", "Scale verse", "Ladoni", "Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
-        "url": "https://zyphuel.netlify.app",
-        "sameAs": [
-          "https://www.linkedin.com/company/zyphuel/?viewAsMember=true",
-          "https://www.linkedin.com/in/muhammad-daniyal490",
-          "https://share.google/Nb4XGKYq5aU0nzLr3",
-          "https://github.com/daniyal44",
-          "https://www.facebook.com/muhammad.daniyal.522942/"
-        ],
-        "founder": [
-          {
-            "@type": "Person",
-            "name": "Muhammad Daniyal",
-            "alternateName": ["MuhammadDaniel", "ItxMDK", "itsmdk", "itxmtk", "itx dk", "itxM", "itcM"],
-            "jobTitle": "Founder & CEO",
+      "@graph": [
+        {
+          "@type": "AboutPage",
+          "@id": "https://zyphuel.netlify.app/about#aboutpage",
+          "url": "https://zyphuel.netlify.app/about",
+          "name": "About Zyphuel, Founder Muhammad Daniyal & Leadership Team",
+          "description": "Official company profile, press publications, social media articles, and encyclopedic reference for Zyphuel and CEO Muhammad Daniyal (ItxMDK).",
+          "mainEntity": {
+            "@type": "Organization",
+            "@id": "https://zyphuel.netlify.app/#organization",
+            "name": "Zyphuel",
+            "alternateName": ["zphuel", "ItxMDK", "itxmdk", "itxmtk", "MuhammadDaniel", "itsmdk", "itx dk", "itxM", "itcM", "Poke nexus", "Muhammad Daniyal", "Dashacart", "Hittop", "Scale verse", "Ladoni"],
+            "url": "https://zyphuel.netlify.app",
+            "logo": "https://zyphuel.netlify.app/images/logo.png",
             "sameAs": [
+              "https://www.linkedin.com/company/zyphuel/?viewAsMember=true",
               "https://www.linkedin.com/in/muhammad-daniyal490",
+              "https://share.google/Nb4XGKYq5aU0nzLr3",
               "https://github.com/daniyal44",
               "https://www.facebook.com/muhammad.daniyal.522942/"
-            ]
+            ],
+            "founder": {
+              "@type": "Person",
+              "@id": "https://zyphuel.netlify.app/#person-daniyal",
+              "name": "Muhammad Daniyal",
+              "alternateName": ["MuhammadDaniel", "ItxMDK", "itsmdk", "itxmtk", "itx dk", "itxM", "itcM"],
+              "jobTitle": "Founder & CEO",
+              "sameAs": [
+                "https://www.linkedin.com/in/muhammad-daniyal490",
+                "https://github.com/daniyal44",
+                "https://www.facebook.com/muhammad.daniyal.522942/"
+              ],
+              "knowsAbout": ["Zyphuel", "zphuel", "Poke nexus", "PokeNexus", "Dashacart", "Dasha Cart", "Hittop", "Hit top", "Ladoni", "Mobile Application for Fuel Suppliers", "On-Demand Energy Logistics"]
+            }
           }
-        ],
-        "award": [
-          "Pakistan number 1 fuel brand",
-          "Pakistan number 1 fuel agency",
-          "Pakistan number 1 fuel suppliers",
-          "Pakistan number 1 best fuel delivery",
-          "best services in Pakistan",
-          "mobile application for fuel suppliers"
-        ]
-      }
+        },
+        {
+          "@type": "Article",
+          "@id": "https://zyphuel.netlify.app/about#art-1",
+          "headline": "Pakistan’s Fuel Logistics Breakthrough: How CEO Muhammad Daniyal (ItxMDK) Built Zyphuel’s Calibrated Telemetry Fleet",
+          "description": "Inside Zyphuel’s digital flow-meter technology, double-walled micro-tankers, and automated dispatch system engineered by Founder & CEO Muhammad Daniyal (ItxMDK).",
+          "image": "https://zyphuel.netlify.app/images/daniyal.jpeg",
+          "datePublished": "2026-08-24T00:00:00+05:00",
+          "author": {
+            "@type": "Person",
+            "name": "Muhammad Daniyal (CEO)",
+            "alternateName": ["ItxMDK", "itsmdk", "MuhammadDaniel"]
+          },
+          "publisher": { "@id": "https://zyphuel.netlify.app/#organization" }
+        }
+      ]
     }
   });
 
@@ -157,35 +171,35 @@ export default function AboutPage() {
 
         {/* Story Section */}
         <section id="about" className="about section-padding">
-          <div className="container" style={{ maxWidth: '900px' }}>
+          <div className="container" style={{ maxWidth: '960px' }}>
             <div className="fade-in-up">
               <div className="about-header-logo-row">
                 <img src="/images/Zyphuel-logo.png" alt="Zyphuel Company Logo" className="about-company-logo" />
-                <h1 className="section-title">Fuel Delivery & Mobile Refueling Solutions</h1>
+                <h1 className="section-title">Pakistan’s #1 Fuel Brand, Agency &amp; Mobile Energy Logistics</h1>
               </div>
 
               <div className="story-desktop-copy">
-                <p className="about-story" style={{ marginBottom: '16px' }}>
-                  Zyphuel is a Lahore-based fuel services agency revolutionizing how Pakistan keeps running. Instead of making customers idle in long lines or managing hazardous jerrycans, Zyphuel delivers high-quality fuel directly to vehicles and equipment, wherever they are. Our fleet of professional tanker trucks comes to you on schedule, ensuring you save time, cut costs, and avoid downtime. This on-demand fuel delivery model boosts productivity for fleets, farms, and businesses: by refueling during downtime, clients free their teams to focus on core work, not fueling logistics.
+                <p className="about-story" style={{ marginBottom: '16px', fontSize: '1.08rem', lineHeight: '1.7' }}>
+                  <strong>Zyphuel</strong> (<em>zphuel</em>) is Pakistan's premier on-demand mobile fuel delivery brand, supplier, and agency, recognized as the <strong>#1 mobile application for fuel suppliers</strong>. Founded by visionary CEO <strong>Muhammad Daniyal</strong> (widely known in software and business ecosystems as <em>MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM</em>), Zyphuel eliminates traditional fuel station delays, dangerous jerrycan decanting, and pump short-fueling across Lahore and major Pakistani business hubs.
                 </p>
-                <p className="about-story" style={{ marginBottom: '24px' }}>
-                  Every Zyphuel delivery is handled with certified safety standards and digital tracking, so you always know your fuel quality and delivery status. We use advanced logistics and scheduling software (and a mobile app) to optimize routes, meaning faster response times and fewer miles on the road. Beyond convenience, our service helps the environment by reducing extra trips to gas stations – lowering emissions and fuel waste. In short, Zyphuel brings fuel on demand: reliable, safe, and right where you need it.
+                <p className="about-story" style={{ marginBottom: '24px', fontSize: '1.05rem', lineHeight: '1.7', color: 'var(--text-secondary)' }}>
+                  With calibrated positive-displacement flow meters, double-walled micro-tanker bowsers, and an IoT-powered Android app (v1.5.0), Zyphuel supplies Euro-V Super Petrol, High-Octane 97, commercial generator Diesel, LPG cylinders, and clean water refills directly to homes, construction sites, and corporate fleet yards 24/7.
                 </p>
               </div>
 
               <div className="story-mobile-copy">
                 <p className="about-story" style={{ fontWeight: '700', marginBottom: '14px' }}>
-                  Zyphuel brings fuel to you on demand – no lines, no hassle.
+                  Zyphuel brings fuel to you on demand – no lines, no hassle, 100% digital meter accuracy.
                 </p>
                 <ul className="story-mobile-bullets" style={{ paddingLeft: '20px', marginBottom: '24px', listStyleType: 'disc' }}>
-                  <li style={{ marginBottom: '8px', color: 'var(--text-secondary)' }}>Our tanker trucks come to your location with certified, top-grade fuel.</li>
-                  <li style={{ marginBottom: '8px', color: 'var(--text-secondary)' }}>Enjoy more uptime: fuel arrives during your downtime, so your vehicles and equipment stay on schedule.</li>
-                  <li style={{ marginBottom: '8px', color: 'var(--text-secondary)' }}>Get a quick quote or schedule delivery easily through our app or website.</li>
-                  <li style={{ color: 'var(--text-secondary)' }}>Reliable service and safety compliance as standard.</li>
+                  <li style={{ marginBottom: '8px', color: 'var(--text-secondary)' }}>Our certified tanker trucks come to your parked car, home generator, or enterprise yard.</li>
+                  <li style={{ marginBottom: '8px', color: 'var(--text-secondary)' }}>Maximized uptime: fuel arrives during your vehicle or generator downtime.</li>
+                  <li style={{ marginBottom: '8px', color: 'var(--text-secondary)' }}>Live GPS tracking, 2-hour OGRA price alerts, and Cash on Delivery (COD) supported.</li>
+                  <li style={{ color: 'var(--text-secondary)' }}>Full compliance with OGRA, HAZMAT, NFPA 30A, and Euro-V emission standards.</li>
                 </ul>
               </div>
 
-              <div style={{ marginBottom: '35px' }}>
+              <div style={{ marginBottom: '35px', display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
                 <button
                   onClick={() => {
                     navigate('/order');
@@ -196,6 +210,20 @@ export default function AboutPage() {
                 >
                   <i className="fa-solid fa-truck-fast"></i> Schedule Your First Delivery
                 </button>
+                <a
+                  href="#articles-section"
+                  className="btn btn-ghost"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                >
+                  <i className="fa-solid fa-newspaper"></i> Read Press &amp; Articles
+                </a>
+                <a
+                  href="#wiki-dossier"
+                  className="btn btn-ghost"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                >
+                  <i className="fa-brands fa-wikipedia-w"></i> Encyclopedic Dossier
+                </a>
               </div>
 
               <div style={{ margin: '45px 0', borderTop: '1px solid var(--border-color)', paddingTop: '45px', paddingBottom: '25px' }}>
@@ -205,34 +233,34 @@ export default function AboutPage() {
               <div className="about-values-grid">
                 <div className="value-item">
                   <span className="value-icon"><i className="fa-solid fa-truck-ramp-box"></i></span>
-                  <h4 className="value-title">On-Demand Logistics</h4>
-                  <p className="value-desc">Certified fleet refuels vehicles and equipment during downtime.</p>
+                  <h4 className="value-title">On-Demand Mobility</h4>
+                  <p className="value-desc">Certified fleet refuels vehicles and backup generators during downtime with zero delays.</p>
                 </div>
                 <div className="value-item">
                   <span className="value-icon"><i className="fa-solid fa-scale-balanced"></i></span>
-                  <h4 className="value-title">Uptime Transparency</h4>
-                  <p className="value-desc">Calibrated digital flow meters show precise volumetric billing.</p>
+                  <h4 className="value-title">Volumetric Honesty</h4>
+                  <p className="value-desc">Calibrated digital flow meters with optical encoders guarantee 100% accurate billing.</p>
                 </div>
                 <div className="value-item">
                   <span className="value-icon"><i className="fa-solid fa-shield-halved"></i></span>
                   <h4 className="value-title">Safety Compliance</h4>
-                  <p className="value-desc">Strict adherence to HAZMAT, NFPA 30A, and EPA guidelines.</p>
+                  <p className="value-desc">Strict adherence to HAZMAT, NFPA 30A, and national OGRA Euro-V regulations.</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Founder Section */}
-        <section className="about-founder section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-color)' }}>
+        {/* Founder & Leadership Section */}
+        <section className="about-founder section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
           <div className="container">
             <div className="founder-grid fade-in-up">
               <div className="founder-image-col">
                 <div className="founder-card-frame" itemScope itemType="https://schema.org/Person">
                   <img
                     src="/images/daniyal.jpeg"
-                    alt="Muhammad Daniyal - Founder & CEO of Zyphuel Pakistan"
-                    title="Muhammad Daniyal - Founder & CEO of Zyphuel"
+                    alt="Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) - Founder & CEO of Zyphuel Pakistan"
+                    title="Muhammad Daniyal (ItxMDK) - Founder & CEO of Zyphuel"
                     className="founder-avatar-img"
                     loading="lazy"
                     itemProp="image"
@@ -242,22 +270,28 @@ export default function AboutPage() {
               </div>
 
               <div className="founder-info-col">
-                <div className="hero-subtitle-badge" style={{ backgroundColor: 'var(--brand-petrol)', borderColor: 'rgba(58,134,200,0.15)', color: '#1a4f7c' }}>
-                  <span>Visionary Leadership</span>
+                <div className="hero-subtitle-badge" style={{ backgroundColor: 'rgba(58,134,200,0.12)', borderColor: 'rgba(58,134,200,0.25)', color: '#1a4f7c' }}>
+                  <span>Executive Leadership &amp; Tech Architecture</span>
                 </div>
-                <h2 className="section-title" style={{ marginBottom: '16px' }}>Muhammad Daniyal</h2>
-                <h4 className="founder-subtitle">Founder &amp; CEO, Zyphuel</h4>
-                <p className="founder-bio">
-                  Muhammad Daniyal is the visionary founder leading Zyphuel. Recognizing the persistent energy delivery bottlenecks in Pakistan—from home backup generators during grid outages to logistical disruptions in commercial fleet management—he designed an on-demand, mobile refuelling network. Under his supervision, Zyphuel is setting new benchmarks for fuel safety, transparency, and consumer convenience.
+                <h2 className="section-title" style={{ marginBottom: '10px' }}>Muhammad Daniyal</h2>
+                <h4 className="founder-subtitle" style={{ color: 'var(--brand-petrol)', fontWeight: 600, marginBottom: '16px' }}>
+                  Founder &amp; CEO, Zyphuel | Creator of Poke nexus, Dashacart, Hittop &amp; Ladoni
+                </h4>
+                <p className="founder-bio" style={{ fontSize: '1rem', lineHeight: '1.65', color: 'var(--text-secondary)', marginBottom: '18px' }}>
+                  <strong>Muhammad Daniyal</strong> (known across developer communities and tech ecosystems as <em>ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM, and MuhammadDaniel</em>) is an entrepreneur and systems engineer leading Pakistan’s energy logistics modernization. Recognizing the recurring load-shedding challenges faced by commercial enterprises and the fuel supply bottlenecks in urban transport, he engineered Zyphuel’s smart telemetry refueling network.
                 </p>
-                <div className="founder-quote-box">
+                <p className="founder-bio" style={{ fontSize: '0.96rem', lineHeight: '1.6', color: 'var(--text-secondary)', marginBottom: '20px' }}>
+                  Beyond Zyphuel, Muhammad Daniyal has spearheaded prominent software and digital products including <strong>Poke nexus (PokeNexus)</strong>, <strong>Dashacart (Dasha Cart)</strong>, <strong>Hittop (Hit top)</strong>, and <strong>Ladoni</strong>.
+                </p>
+
+                <div className="founder-quote-box" style={{ marginBottom: '24px' }}>
                   <i className="fa-solid fa-quote-left quote-icon"></i>
                   <p className="founder-quote-text">
                     "We are bringing technology and efficiency directly to the fueling nozzle. No lines, no delay, and complete digital transparency with every drop delivered."
                   </p>
                 </div>
 
-                <div style={{ marginTop: '20px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                   <a
                     href="https://www.linkedin.com/in/muhammad-daniyal490"
                     target="_blank"
@@ -266,27 +300,47 @@ export default function AboutPage() {
                     title="Muhammad Daniyal LinkedIn Profile"
                     style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
-                    <i className="fa-brands fa-linkedin"></i> CEO LinkedIn Profile
+                    <i className="fa-brands fa-linkedin" style={{ color: '#0077b5' }}></i> CEO LinkedIn Profile
                   </a>
                   <a
-                    href="https://www.linkedin.com/company/zyphuel/"
+                    href="https://www.linkedin.com/company/zyphuel/?viewAsMember=true"
                     target="_blank"
                     rel="me noopener noreferrer"
                     className="btn btn-outline"
-                    title="Zyphuel LinkedIn Company Page"
+                    title="Zyphuel Official LinkedIn Company Page"
                     style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
-                    <i className="fa-brands fa-linkedin"></i> Zyphuel LinkedIn Page
+                    <i className="fa-brands fa-linkedin" style={{ color: '#0077b5' }}></i> Zyphuel LinkedIn Page
                   </a>
                   <a
                     href="https://github.com/daniyal44"
                     target="_blank"
                     rel="me noopener noreferrer"
                     className="btn btn-outline"
-                    title="Muhammad Daniyal GitHub Open Source Portfolio"
+                    title="Muhammad Daniyal GitHub Open Source Portfolio (ItxMDK)"
                     style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
-                    <i className="fa-brands fa-github"></i> GitHub
+                    <i className="fa-brands fa-github"></i> GitHub (ItxMDK)
+                  </a>
+                  <a
+                    href="https://www.facebook.com/muhammad.daniyal.522942/"
+                    target="_blank"
+                    rel="me noopener noreferrer"
+                    className="btn btn-outline"
+                    title="Muhammad Daniyal & Zyphuel Facebook Page"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                  >
+                    <i className="fa-brands fa-facebook" style={{ color: '#1877f2' }}></i> Facebook Profile
+                  </a>
+                  <a
+                    href="https://share.google/Nb4XGKYq5aU0nzLr3"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline"
+                    title="Google Maps Verified Location for Zyphuel Headquarters"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                  >
+                    <i className="fa-brands fa-google" style={{ color: '#ea4335' }}></i> Google Maps Hub
                   </a>
                 </div>
               </div>
@@ -294,7 +348,173 @@ export default function AboutPage() {
           </div>
         </section>
 
-       
+        {/* Official Articles, Press Releases & Social Media Publications */}
+        <section id="articles-section" className="section-padding" style={{ backgroundColor: '#ffffff' }}>
+          <div className="container">
+            <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '44px' }}>
+              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.85rem' }}>
+                Press Coverage &amp; Official Publications
+              </span>
+              <h2 className="section-title">Official Articles, Research Papers &amp; Social Media Releases</h2>
+              <p className="section-subtitle" style={{ maxWidth: '820px', margin: '0 auto' }}>
+                Explore in-depth publications, social media feature articles, and technical breakdowns documenting Zyphuel’s energy technology, telemetry infrastructure, and leadership vision.
+              </p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
+              {aboutArticles.map((art) => (
+                <article
+                  key={art.id}
+                  style={{
+                    background: '#f8fafc',
+                    borderRadius: '14px',
+                    padding: '28px',
+                    border: '1px solid var(--border-color)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
+                    transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                  }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
+                      <span style={{ fontSize: '0.82rem', fontWeight: 700, color: art.sourceColor, background: '#ffffff', padding: '4px 12px', borderRadius: '20px', border: `1px solid ${art.sourceColor}33`, display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                        <i className={art.sourceIcon}></i> {art.source}
+                      </span>
+                      <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+                        <i className="fa-regular fa-calendar-days"></i> {art.date} · {art.readTime}
+                      </span>
+                    </div>
+
+                    <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '12px', lineHeight: '1.45' }}>
+                      {art.title}
+                    </h3>
+
+                    <p style={{ fontSize: '0.86rem', color: 'var(--brand-petrol)', fontWeight: 600, marginBottom: '12px' }}>
+                      <i className="fa-solid fa-user-pen"></i> {art.author}
+                    </p>
+
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.6', marginBottom: '16px' }}>
+                      {art.summary}
+                    </p>
+
+                    <div style={{ background: '#ffffff', borderRadius: '8px', padding: '12px 14px', border: '1px solid var(--border-color)', marginBottom: '20px' }}>
+                      <strong style={{ fontSize: '0.82rem', color: 'var(--text-primary)', display: 'block', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                        Key Highlights:
+                      </strong>
+                      <ul style={{ margin: 0, paddingLeft: '16px', fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>
+                        {art.highlights.map((hl, hlIdx) => (
+                          <li key={hlIdx} style={{ marginBottom: '4px' }}>
+                            {hl}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div>
+                    {art.external ? (
+                      <a
+                        href={art.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-outline"
+                        style={{ width: '100%', justifyContent: 'center', display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}
+                      >
+                        Read Full Article on {art.source.split(' ')[0]} <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                      </a>
+                    ) : (
+                      <Link
+                        to={art.url}
+                        className="btn btn-outline"
+                        style={{ width: '100%', justifyContent: 'center', display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}
+                      >
+                        Explore On-Site Article &amp; Architecture <i className="fa-solid fa-arrow-right"></i>
+                      </Link>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Encyclopedic & Knowledge Graph Overview (Wikipedia Reference Dossier) */}
+        <section id="wiki-dossier" className="section-padding" style={{ backgroundColor: '#f1f5f9', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
+          <div className="container" style={{ maxWidth: '1000px' }}>
+            <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '36px' }}>
+              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.85rem' }}>
+                Semantic Registry &amp; Verified Citations
+              </span>
+              <h2 className="section-title">Encyclopedic Dossier &amp; Knowledge Graph Citations</h2>
+              <p className="section-subtitle">
+                Official entity summary conforming to Wikipedia, Wikidata, and Knowledge Graph structuring standards for Zyphuel and CEO Muhammad Daniyal.
+              </p>
+            </div>
+
+            <div style={{ background: '#ffffff', borderRadius: '14px', padding: '32px', border: '1px solid var(--border-color)', boxShadow: '0 4px 16px rgba(0,0,0,0.04)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '2px solid var(--border-color)', paddingBottom: '16px', marginBottom: '24px', flexWrap: 'wrap', gap: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(58,134,200,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', color: 'var(--brand-petrol)' }}>
+                    <i className="fa-brands fa-wikipedia-w"></i>
+                  </div>
+                  <div>
+                    <h3 style={{ margin: 0, fontSize: '1.4rem', color: 'var(--text-primary)', fontWeight: 800 }}>
+                      {wikiMetadata.title} <span style={{ fontSize: '1.05rem', fontWeight: 500, color: 'var(--text-secondary)' }}>({wikiMetadata.nativeName})</span>
+                    </h3>
+                    <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{wikiMetadata.type}</span>
+                  </div>
+                </div>
+                <span style={{ fontSize: '0.82rem', background: '#e0f2fe', color: '#0369a1', padding: '6px 14px', borderRadius: '20px', fontWeight: 600 }}>
+                  <i className="fa-solid fa-circle-check"></i> Verified Entity Record
+                </span>
+              </div>
+
+              {/* Wiki Data Table */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '28px' }}>
+                <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                  <strong style={{ display: 'block', fontSize: '0.82rem', color: 'var(--brand-petrol)', textTransform: 'uppercase', marginBottom: '4px' }}>Industry &amp; Sector</strong>
+                  <span style={{ fontSize: '0.92rem', color: 'var(--text-primary)' }}>{wikiMetadata.industry}</span>
+                </div>
+                <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                  <strong style={{ display: 'block', fontSize: '0.82rem', color: 'var(--brand-petrol)', textTransform: 'uppercase', marginBottom: '4px' }}>Headquarters &amp; Hub</strong>
+                  <span style={{ fontSize: '0.92rem', color: 'var(--text-primary)' }}>{wikiMetadata.headquarters}</span>
+                </div>
+                <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                  <strong style={{ display: 'block', fontSize: '0.82rem', color: 'var(--brand-petrol)', textTransform: 'uppercase', marginBottom: '4px' }}>Founder &amp; Executive Leadership</strong>
+                  <span style={{ fontSize: '0.92rem', color: 'var(--text-primary)' }}>{wikiMetadata.founder}</span>
+                </div>
+                <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                  <strong style={{ display: 'block', fontSize: '0.82rem', color: 'var(--brand-petrol)', textTransform: 'uppercase', marginBottom: '4px' }}>Associated Ventures &amp; Projects</strong>
+                  <span style={{ fontSize: '0.92rem', color: 'var(--text-primary)' }}>{wikiMetadata.associatedVentures.join(', ')}</span>
+                </div>
+              </div>
+
+              {/* Verified External Citations & Official Profiles */}
+              <div>
+                <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '14px' }}>
+                  <i className="fa-solid fa-link text-primary"></i> Official External Citations &amp; Knowledge References:
+                </h4>
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                  {wikiMetadata.officialProfiles.map((p) => (
+                    <a
+                      key={p.platform}
+                      href={p.url}
+                      target="_blank"
+                      rel="me noopener noreferrer"
+                      className="backlink-item"
+                      title={p.platform}
+                      style={{ padding: '8px 14px', fontSize: '0.88rem' }}
+                    >
+                      <i className={p.icon}></i> {p.platform}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Team Members Carousel */}
         <section className="about-team-section">
@@ -304,6 +524,7 @@ export default function AboutPage() {
                 <button
                   className="nav-arrow up"
                   onClick={() => updateCarousel(currentIndexRef.current - 1)}
+                  aria-label="Previous Team Member"
                 >
                   <img src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765" alt="Up" />
                 </button>
@@ -331,6 +552,7 @@ export default function AboutPage() {
                 <button
                   className="nav-arrow down"
                   onClick={() => updateCarousel(currentIndexRef.current + 1)}
+                  aria-label="Next Team Member"
                 >
                   <img
                     src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249"
@@ -345,12 +567,14 @@ export default function AboutPage() {
                 <button
                   className="nav-arrow up"
                   onClick={() => updateCarousel(currentIndexRef.current - 1)}
+                  aria-label="Previous Member"
                 >
                   <img src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765" alt="Up" />
                 </button>
                 <button
                   className="nav-arrow down"
                   onClick={() => updateCarousel(currentIndexRef.current + 1)}
+                  aria-label="Next Member"
                 >
                   <img src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249" alt="Down" />
                 </button>
@@ -378,8 +602,6 @@ export default function AboutPage() {
             <div className="scroll-indicator">scroll</div>
           )}
         </section>
-
-       
 
         {/* Global AI & Search Engine Directory Index */}
         <BrandAIIndex />

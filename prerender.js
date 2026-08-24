@@ -283,9 +283,9 @@ const ROUTES = [
   {
     path: '/about',
     outFile: 'dist/about/index.html',
-    title: "About Us | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK",
-    description: "Learn about Zyphuel (zphuel), Pakistan's No.1 mobile fuel delivery brand, supplier, agency, and premier mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) associated with Poke nexus, Dashacart, Hittop, and Ladoni.",
-    keywords: "About Zyphuel, diesel delivery, patrol and diesel, generator fuel Pakistan, Muhammad Daniyal CEO, ItxMDK, itsmdk, MuhammadDaniel, Poke nexus, Dashacart, Hittop, Ladoni, Pakistan number 1 fuel brand, Pakistan number 1 fuel agency, Pakistan number 1 fuel suppliers, Pakistan number 1 best fuel delivery, best services in Pakistan, mobile application for fuel suppliers, best mobile application for fuel suppliers, founder, ceo, Muhammad Daniyal CEO, Zyphuel story",
+    title: "About Us & Leadership | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application | ItxMDK",
+    description: "Learn about Zyphuel (zphuel), Pakistan's No.1 mobile fuel delivery brand, supplier, agency, and premier mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) associated with Poke nexus, Dashacart, Hittop, and Ladoni. Read official articles, social media press releases, and encyclopedic dossiers.",
+    keywords: TRENDING_GLOBAL_KEYWORDS,
     canonical: `${DOMAIN}/about`,
     ogImage: `${DOMAIN}/images/daniyal.jpeg`,
     ogType: 'website',
