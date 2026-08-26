@@ -199,7 +199,7 @@ export default function AboutPage() {
                 </ul>
               </div>
 
-              <div style={{ marginBottom: '35px', display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+              <div className="hero-ctas" style={{ marginBottom: '35px', display: 'flex', gap: '14px', alignItems: 'center', flexWrap: 'wrap' }}>
                 <button
                   onClick={() => {
                     navigate('/order');
@@ -212,38 +212,33 @@ export default function AboutPage() {
                 </button>
                 <a
                   href="#articles-section"
-                  className="btn btn-ghost"
+                  className="btn btn-secondary"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                 >
                   <i className="fa-solid fa-newspaper"></i> Read Press &amp; Articles
                 </a>
                 <a
                   href="#wiki-dossier"
-                  className="btn btn-ghost"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                  style={{ fontSize: 'var(--fs-sm)', color: 'var(--text-accent)', fontWeight: 600, padding: '8px 12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
                 >
                   <i className="fa-brands fa-wikipedia-w"></i> Encyclopedic Dossier
                 </a>
               </div>
 
-              <div style={{ margin: '45px 0', borderTop: '1px solid var(--border-color)', paddingTop: '45px', paddingBottom: '25px' }}>
-                <GeometricalBirds />
-              </div>
-
-              <div className="about-values-grid">
+              <div className="about-values-grid" style={{ marginTop: '40px' }}>
                 <div className="value-item">
                   <span className="value-icon"><i className="fa-solid fa-truck-ramp-box"></i></span>
-                  <h4 className="value-title">On-Demand Mobility</h4>
+                  <h3 className="value-title">On-Demand Mobility</h3>
                   <p className="value-desc">Certified fleet refuels vehicles and backup generators during downtime with zero delays.</p>
                 </div>
                 <div className="value-item">
                   <span className="value-icon"><i className="fa-solid fa-scale-balanced"></i></span>
-                  <h4 className="value-title">Volumetric Honesty</h4>
+                  <h3 className="value-title">Volumetric Honesty</h3>
                   <p className="value-desc">Calibrated digital flow meters with optical encoders guarantee 100% accurate billing.</p>
                 </div>
                 <div className="value-item">
                   <span className="value-icon"><i className="fa-solid fa-shield-halved"></i></span>
-                  <h4 className="value-title">Safety Compliance</h4>
+                  <h3 className="value-title">Safety Compliance</h3>
                   <p className="value-desc">Strict adherence to HAZMAT, NFPA 30A, and national OGRA Euro-V regulations.</p>
                 </div>
               </div>
@@ -274,9 +269,9 @@ export default function AboutPage() {
                   <span>Executive Leadership &amp; Tech Architecture</span>
                 </div>
                 <h2 className="section-title" style={{ marginBottom: '10px' }}>Muhammad Daniyal</h2>
-                <h4 className="founder-subtitle" style={{ color: 'var(--brand-petrol)', fontWeight: 600, marginBottom: '16px' }}>
+                <h3 className="founder-subtitle" style={{ color: 'var(--brand-petrol)', fontWeight: 600, fontSize: 'var(--fs-md)', marginBottom: '16px' }}>
                   Founder &amp; CEO, Zyphuel | Creator of Poke nexus, Dashacart, Hittop &amp; Ladoni
-                </h4>
+                </h3>
                 <p className="founder-bio" style={{ fontSize: '1rem', lineHeight: '1.65', color: 'var(--text-secondary)', marginBottom: '18px' }}>
                   <strong>Muhammad Daniyal</strong> (known across developer communities and tech ecosystems as <em>ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM, and MuhammadDaniel</em>) is an entrepreneur and systems engineer leading Pakistan’s energy logistics modernization. Recognizing the recurring load-shedding challenges faced by commercial enterprises and the fuel supply bottlenecks in urban transport, he engineered Zyphuel’s smart telemetry refueling network.
                 </p>
@@ -352,7 +347,7 @@ export default function AboutPage() {
         <section id="articles-section" className="section-padding" style={{ backgroundColor: '#ffffff' }}>
           <div className="container">
             <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '44px' }}>
-              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.85rem' }}>
+              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
                 Press Coverage &amp; Official Publications
               </span>
               <h2 className="section-title">Official Articles, Research Papers &amp; Social Media Releases</h2>
@@ -522,11 +517,11 @@ export default function AboutPage() {
             <div className="carousel-section">
               <div className="carousel-container">
                 <button
-                  className="nav-arrow up"
+                  className="nav-arrow prev"
                   onClick={() => updateCarousel(currentIndexRef.current - 1)}
                   aria-label="Previous Team Member"
                 >
-                  <img src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765" alt="Up" />
+                  <i className="fa-solid fa-chevron-left"></i>
                 </button>
 
                 <div
@@ -550,14 +545,11 @@ export default function AboutPage() {
                 </div>
 
                 <button
-                  className="nav-arrow down"
+                  className="nav-arrow next"
                   onClick={() => updateCarousel(currentIndexRef.current + 1)}
                   aria-label="Next Team Member"
                 >
-                  <img
-                    src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249"
-                    alt="Down"
-                  />
+                  <i className="fa-solid fa-chevron-right"></i>
                 </button>
               </div>
             </div>
@@ -565,18 +557,18 @@ export default function AboutPage() {
             <div className="controls-section">
               <div className="nav-controls">
                 <button
-                  className="nav-arrow up"
+                  className="nav-arrow prev"
                   onClick={() => updateCarousel(currentIndexRef.current - 1)}
                   aria-label="Previous Member"
                 >
-                  <img src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765" alt="Up" />
+                  <i className="fa-solid fa-chevron-left"></i>
                 </button>
                 <button
-                  className="nav-arrow down"
+                  className="nav-arrow next"
                   onClick={() => updateCarousel(currentIndexRef.current + 1)}
                   aria-label="Next Member"
                 >
-                  <img src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249" alt="Down" />
+                  <i className="fa-solid fa-chevron-right"></i>
                 </button>
               </div>
 
