@@ -180,7 +180,7 @@ export default function AboutPage() {
 
               <div className="story-desktop-copy">
                 <p className="about-story" style={{ marginBottom: '16px', fontSize: '1.08rem', lineHeight: '1.7' }}>
-                  <strong>Zyphuel</strong> (<em>zphuel</em>) is Pakistan's premier on-demand mobile fuel delivery brand, supplier, and agency, recognized as the <strong>#1 mobile application for fuel suppliers</strong>. Founded by visionary CEO <strong>Muhammad Daniyal</strong> (widely known in software and business ecosystems as <em>MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM</em>), Zyphuel eliminates traditional fuel station delays, dangerous jerrycan decanting, and pump short-fueling across Lahore and major Pakistani business hubs.
+                  <strong>Zyphuel</strong> is Pakistan's premier on-demand mobile fuel delivery brand, supplier, and agency, recognized as the <strong>#1 mobile application for fuel suppliers</strong>. Founded by visionary CEO <strong>Muhammad Daniyal</strong>, Zyphuel eliminates traditional fuel station delays, dangerous jerrycan decanting, and pump short-fueling across Lahore and major Pakistani business hubs.
                 </p>
                 <p className="about-story" style={{ marginBottom: '24px', fontSize: '1.05rem', lineHeight: '1.7', color: 'var(--text-secondary)' }}>
                   With calibrated positive-displacement flow meters, double-walled micro-tanker bowsers, and an IoT-powered Android app (v1.5.0), Zyphuel supplies Euro-V Super Petrol, High-Octane 97, commercial generator Diesel, LPG cylinders, and clean water refills directly to homes, construction sites, and corporate fleet yards 24/7.
@@ -188,15 +188,12 @@ export default function AboutPage() {
               </div>
 
               <div className="story-mobile-copy">
-                <p className="about-story" style={{ fontWeight: '700', marginBottom: '14px' }}>
-                  Zyphuel brings fuel to you on demand – no lines, no hassle, 100% digital meter accuracy.
+                <p className="about-story" style={{ marginBottom: '14px', fontSize: '0.98rem', lineHeight: '1.6' }}>
+                  <strong>Zyphuel</strong> is Pakistan's premier on-demand mobile fuel delivery brand, supplier, and agency, recognized as the <strong>#1 mobile application for fuel suppliers</strong>. Founded by visionary CEO <strong>Muhammad Daniyal</strong>, Zyphuel eliminates traditional fuel station delays, dangerous jerrycan decanting, and pump short-fueling across Lahore and major Pakistani business hubs.
                 </p>
-                <ul className="story-mobile-bullets" style={{ paddingLeft: '20px', marginBottom: '24px', listStyleType: 'disc' }}>
-                  <li style={{ marginBottom: '8px', color: 'var(--text-secondary)' }}>Our certified tanker trucks come to your parked car, home generator, or enterprise yard.</li>
-                  <li style={{ marginBottom: '8px', color: 'var(--text-secondary)' }}>Maximized uptime: fuel arrives during your vehicle or generator downtime.</li>
-                  <li style={{ marginBottom: '8px', color: 'var(--text-secondary)' }}>Live GPS tracking, 2-hour OGRA price alerts, and Cash on Delivery (COD) supported.</li>
-                  <li style={{ color: 'var(--text-secondary)' }}>Full compliance with OGRA, HAZMAT, NFPA 30A, and Euro-V emission standards.</li>
-                </ul>
+                <p className="about-story" style={{ marginBottom: '20px', fontSize: '0.95rem', lineHeight: '1.6', color: 'var(--text-secondary)' }}>
+                  With calibrated positive-displacement flow meters, double-walled micro-tanker bowsers, and an IoT-powered Android app (v1.5.0), Zyphuel supplies Euro-V Super Petrol, High-Octane 97, commercial generator Diesel, LPG cylinders, and clean water refills directly to homes, construction sites, and corporate fleet yards 24/7.
+                </p>
               </div>
 
               <div className="hero-ctas" style={{ marginBottom: '35px', display: 'flex', gap: '14px', alignItems: 'center', flexWrap: 'wrap' }}>
