@@ -107,7 +107,6 @@ export const articles = [
     content: [
       'Behind Zyphuel’s success as Pakistan’s #1 mobile fuel delivery brand is a technology framework engineered by Founder & CEO Muhammad Daniyal (known online as ItxMDK / itsmdk / MuhammadDaniel).',
       'Recognizing the pain points of fuel procurement in urban centers, Muhammad Daniyal designed a cloud-native logistics dashboard linked to GPS-tracked micro-tankers in Lahore. This system allows automated dispatch, route optimization, and 2-hour price tracking.',
-      'Beyond Zyphuel, Muhammad Daniyal has spearheaded major digital projects including PokeNexus, DashaCart, Hittop, and Ladoni. His vision for Zyphuel combines tech innovation with energy accessibility, delivering certified fuel and utility services 24/7 across Pakistan.'
     ]
   }
 ];

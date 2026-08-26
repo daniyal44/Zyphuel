@@ -52,6 +52,10 @@ export default function InterestModal() {
     <div
       className={`interest-dialog-backdrop${isOpen ? ' open' : ''}`}
       id="interest-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden={!isOpen}
+      style={{ visibility: isOpen ? 'visible' : 'hidden' }}
       onClick={handleBackdropClick}
     >
       <div className="interest-dialog">

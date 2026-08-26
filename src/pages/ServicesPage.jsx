@@ -189,37 +189,45 @@ export default function ServicesPage() {
                 </p>
 
                 {/* Live Rates Ticker */}
-                <div className="live-pricing-bar fade-in-up" style={{ marginBottom: '28px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                  <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '8px 14px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.04)' }}>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: 'var(--brand-petrol)' }}></span>
-                    <span style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-primary)' }}>Petrol: Rs. {livePrices.petrol.toFixed(2)}/L</span>
+                <div
+                  className="live-pricing-bar fade-in-up"
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+                    gap: '10px',
+                    marginBottom: '16px'
+                  }}
+                >
+                  <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm, 6px)', padding: '8px 12px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.03)' }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--brand-petrol-dark, #0284c7)', flexShrink: 0 }}></span>
+                    <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>Petrol: Rs. {livePrices.petrol.toFixed(2)}/L</span>
                   </div>
-                  <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '8px 14px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.04)' }}>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#7c3aed' }}></span>
-                    <span style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-primary)' }}>Diesel: Rs. {livePrices.diesel.toFixed(2)}/L</span>
+                  <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm, 6px)', padding: '8px 12px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.03)' }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#7c3aed', flexShrink: 0 }}></span>
+                    <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>Diesel: Rs. {livePrices.diesel.toFixed(2)}/L</span>
                   </div>
-                  <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '8px 14px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.04)' }}>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#0ea5e9' }}></span>
-                    <span style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-primary)' }}>High-Octane: Rs. {livePrices.highOctane.toFixed(2)}/L</span>
+                  <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm, 6px)', padding: '8px 12px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.03)' }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#0ea5e9', flexShrink: 0 }}></span>
+                    <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>High-Octane: Rs. {livePrices.highOctane.toFixed(2)}/L</span>
                   </div>
-                  <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '8px 14px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.04)' }}>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#f97316' }}></span>
-                    <span style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-primary)' }}>LPG: Rs. {livePrices.lpg ? livePrices.lpg.toFixed(2) : '241.43'}/kg</span>
+                  <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm, 6px)', padding: '8px 12px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.03)' }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#f97316', flexShrink: 0 }}></span>
+                    <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>LPG: Rs. {livePrices.lpg ? livePrices.lpg.toFixed(2) : '241.43'}/kg</span>
                   </div>
-                  <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '8px', padding: '8px 14px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.04)' }}>
-                    <span style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#06b6d4' }}></span>
-                    <span style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-primary)' }}>Water: Rs. 100/gal</span>
+                  <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm, 6px)', padding: '8px 12px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.03)' }}>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#06b6d4', flexShrink: 0 }}></span>
+                    <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>Water: Rs. 100/gal</span>
                   </div>
                 </div>
 
-                <div className="hero-ctas" style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
-                  <button onClick={() => handleOrderRedirect('petrol', 50)} className="btn btn-primary">
+                <div className="hero-ctas" style={{ display: 'flex', gap: '14px', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <button onClick={() => handleOrderRedirect('petrol', 50)} className="btn btn-primary" style={{ minHeight: '48px' }}>
                     <i className="fa-solid fa-cart-shopping"></i> Order Fuel Online
                   </button>
-                  <Link to="/download" className="btn btn-secondary">
+                  <Link to="/download" className="btn btn-secondary" style={{ minHeight: '48px' }}>
                     <i className="fa-solid fa-mobile-screen-button"></i> Download Mobile App v1.5.0
                   </Link>
-                  <a href="#services-scope" className="btn btn-ghost">
+                  <a href="#services-scope" style={{ fontSize: 'var(--fs-sm, 0.875rem)', color: 'var(--text-accent, #0284c7)', fontWeight: 600, padding: '8px 12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                     Service Scope &amp; Safety <i className="fa-solid fa-arrow-down"></i>
                   </a>
                 </div>
@@ -237,7 +245,7 @@ export default function ServicesPage() {
         <section id="catalog" className="section-padding" style={{ backgroundColor: '#ffffff' }}>
           <div className="container">
             <div className="section-header fade-in-up">
-              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.85rem' }}>
+              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0284c7)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
                 Complete Service Catalog
               </span>
               <h2 className="section-title">Explore Our Tailored Refueling Services</h2>
@@ -281,7 +289,7 @@ export default function ServicesPage() {
         <section id="services-scope" className="section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
           <div className="container">
             <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.85rem' }}>
+              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0284c7)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
                 Service Transparency &amp; Safety Compliance
               </span>
               <h2 className="section-title">What We Provide vs. What We Do NOT Provide</h2>
@@ -358,7 +366,7 @@ export default function ServicesPage() {
         <section className="section-padding" style={{ backgroundColor: '#ffffff' }}>
           <div className="container">
             <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '44px' }}>
-              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.85rem' }}>
+              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0284c7)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
                 End-to-End Delivery Pipeline
               </span>
               <h2 className="section-title">How Your Fuel Moves From Depot to Destination</h2>
@@ -381,10 +389,10 @@ export default function ServicesPage() {
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
-                    <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--brand-petrol)', opacity: 0.8 }}>
+                    <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--brand-petrol-dark, #0284c7)', opacity: 0.8 }}>
                       Stage {stage.stage}
                     </span>
-                    <span style={{ fontSize: '0.82rem', fontWeight: 600, background: 'rgba(58,134,200,0.1)', color: 'var(--brand-petrol)', padding: '4px 10px', borderRadius: '20px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ fontSize: '0.82rem', fontWeight: 600, background: 'rgba(58,134,200,0.1)', color: 'var(--brand-petrol-dark, #0284c7)', padding: '4px 10px', borderRadius: '20px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <i className={`fa-solid ${stage.roleIcon}`}></i> {stage.role}
                     </span>
                   </div>
@@ -404,7 +412,7 @@ export default function ServicesPage() {
         <section className="section-padding" style={{ backgroundColor: '#f1f5f9', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
           <div className="container">
             <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.85rem' }}>
+              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0284c7)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
                 Energy Logistics &amp; Technical Insights
               </span>
               <h2 className="section-title">In-Depth Fuel Logistics &amp; Engineering Articles</h2>
@@ -426,7 +434,7 @@ export default function ServicesPage() {
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '14px' }}>
-                    <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--brand-petrol)', background: 'rgba(58,134,200,0.1)', padding: '5px 12px', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--brand-petrol-dark, #0284c7)', background: 'rgba(58,134,200,0.1)', padding: '5px 12px', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <i className={`fa-solid ${art.badgeIcon}`}></i> {art.badge}
                     </span>
                     <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
@@ -438,7 +446,7 @@ export default function ServicesPage() {
                     {art.title}
                   </h3>
 
-                  <p style={{ fontSize: '0.96rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '16px', lineHeight: '1.6', background: '#f8fafc', padding: '12px 16px', borderRadius: '8px', borderLeft: '4px solid var(--brand-petrol)' }}>
+                  <p style={{ fontSize: '0.96rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '16px', lineHeight: '1.6', background: '#f8fafc', padding: '12px 16px', borderRadius: '8px', borderLeft: '4px solid var(--brand-petrol-dark, #0284c7)' }}>
                     {art.summary}
                   </p>
 
@@ -459,7 +467,7 @@ export default function ServicesPage() {
         <section className="section-padding" style={{ backgroundColor: '#ffffff' }}>
           <div className="container">
             <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.85rem' }}>
+              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0284c7)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
                 Service FAQs
               </span>
               <h2 className="section-title">Frequently Asked Questions</h2>
@@ -470,36 +478,36 @@ export default function ServicesPage() {
 
             <div style={{ maxWidth: '840px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div style={{ background: '#f8fafc', borderRadius: '10px', padding: '20px', border: '1px solid var(--border-color)' }}>
-                <h4 style={{ margin: '0 0 8px 0', fontSize: '1.05rem', color: 'var(--text-primary)', fontWeight: 700 }}>
-                  <i className="fa-solid fa-circle-question text-primary"></i> What areas in Lahore are covered for doorstep petrol &amp; diesel delivery?
-                </h4>
+                <h3 style={{ margin: '0 0 8px 0', fontSize: '1.05rem', color: 'var(--text-primary)', fontWeight: 700 }}>
+                  <i className="fa-solid fa-circle-question" style={{ color: 'var(--accent-color, #0ea5e9)', marginRight: '8px' }}></i> What areas in Lahore are covered for doorstep petrol &amp; diesel delivery?
+                </h3>
                 <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
                   Zyphuel operates citywide across Lahore, including DHA Phase 1 through Phase 9, Gulberg, Johar Town, Model Town, Bahria Town, Lahore Cantt, Garden Town, Faisal Town, Wapda Town, and Sundar &amp; Quaid-e-Azam Industrial Estates.
                 </p>
               </div>
 
               <div style={{ background: '#f8fafc', borderRadius: '10px', padding: '20px', border: '1px solid var(--border-color)' }}>
-                <h4 style={{ margin: '0 0 8px 0', fontSize: '1.05rem', color: 'var(--text-primary)', fontWeight: 700 }}>
-                  <i className="fa-solid fa-circle-question text-primary"></i> How is fuel measured and calibrated during delivery?
-                </h4>
+                <h3 style={{ margin: '0 0 8px 0', fontSize: '1.05rem', color: 'var(--text-primary)', fontWeight: 700 }}>
+                  <i className="fa-solid fa-circle-question" style={{ color: 'var(--accent-color, #0ea5e9)', marginRight: '8px' }}></i> How is fuel measured and calibrated during delivery?
+                </h3>
                 <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
                   Every Zyphuel micro-bowser uses positive-displacement digital flow meters with optical encoders calibrated to national weights and measures standards. You receive a printed volumetric receipt and a real-time digital sync on your phone.
                 </p>
               </div>
 
               <div style={{ background: '#f8fafc', borderRadius: '10px', padding: '20px', border: '1px solid var(--border-color)' }}>
-                <h4 style={{ margin: '0 0 8px 0', fontSize: '1.05rem', color: 'var(--text-primary)', fontWeight: 700 }}>
-                  <i className="fa-solid fa-circle-question text-primary"></i> Can I schedule recurring diesel deliveries for my commercial generator?
-                </h4>
+                <h3 style={{ margin: '0 0 8px 0', fontSize: '1.05rem', color: 'var(--text-primary)', fontWeight: 700 }}>
+                  <i className="fa-solid fa-circle-question" style={{ color: 'var(--accent-color, #0ea5e9)', marginRight: '8px' }}></i> Can I schedule recurring diesel deliveries for my commercial generator?
+                </h3>
                 <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
                   Yes. We offer automated recurring replenishment contracts for commercial plazas, factories, hospitals, and schools. We monitor your consumption schedule and refill standby tanks before power outages occur.
                 </p>
               </div>
 
               <div style={{ background: '#f8fafc', borderRadius: '10px', padding: '20px', border: '1px solid var(--border-color)' }}>
-                <h4 style={{ margin: '0 0 8px 0', fontSize: '1.05rem', color: 'var(--text-primary)', fontWeight: 700 }}>
-                  <i className="fa-solid fa-circle-question text-primary"></i> Is Cash on Delivery (COD) supported?
-                </h4>
+                <h3 style={{ margin: '0 0 8px 0', fontSize: '1.05rem', color: 'var(--text-primary)', fontWeight: 700 }}>
+                  <i className="fa-solid fa-circle-question" style={{ color: 'var(--accent-color, #0ea5e9)', marginRight: '8px' }}></i> Is Cash on Delivery (COD) supported?
+                </h3>
                 <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
                   Yes! Cash on Delivery (COD) is available for domestic orders up to 10 liters of fuel, 10 kg LPG, or 20 gallons of water. For commercial orders and fleets, direct bank transfers and monthly billing accounts are supported.
                 </p>

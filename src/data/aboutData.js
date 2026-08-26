@@ -119,7 +119,7 @@ export const wikiMetadata = {
     'Ladoni'
   ],
   officialProfiles: [
-    { platform: 'LinkedIn Company Page', url: 'https://www.linkedin.com/company/zyphuel/?viewAsMember=true', icon: 'fa-brands fa-linkedin' },
+    { platform: 'LinkedIn Company Page', url: 'https://www.linkedin.com/company/zyphuel/', icon: 'fa-brands fa-linkedin' },
     { platform: 'CEO LinkedIn Profile', url: 'https://www.linkedin.com/in/muhammad-daniyal490', icon: 'fa-brands fa-linkedin' },
     { platform: 'GitHub Architecture Dossier', url: 'https://github.com/daniyal44/Zyphuel', icon: 'fa-brands fa-github' },
     { platform: 'Google Business Verified Location', url: 'https://share.google/Nb4XGKYq5aU0nzLr3', icon: 'fa-brands fa-google' },

@@ -60,7 +60,8 @@ export default function AboutPage() {
             "url": "https://zyphuel.netlify.app",
             "logo": "https://zyphuel.netlify.app/images/logo.png",
             "sameAs": [
-              "https://www.linkedin.com/company/zyphuel/?viewAsMember=true",
+              "https://www.linkedin.com/company/zyphuel/",
+
               "https://www.linkedin.com/in/muhammad-daniyal490",
               "https://share.google/Nb4XGKYq5aU0nzLr3",
               "https://github.com/daniyal44",
@@ -270,11 +271,9 @@ export default function AboutPage() {
                   Founder &amp; CEO, Zyphuel | Creator of Poke nexus, Dashacart, Hittop &amp; Ladoni
                 </h3>
                 <p className="founder-bio" style={{ fontSize: '1rem', lineHeight: '1.65', color: 'var(--text-secondary)', marginBottom: '18px' }}>
-                  <strong>Muhammad Daniyal</strong> (known across developer communities and tech ecosystems as <em>ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM, and MuhammadDaniel</em>) is an entrepreneur and systems engineer leading Pakistan’s energy logistics modernization. Recognizing the recurring load-shedding challenges faced by commercial enterprises and the fuel supply bottlenecks in urban transport, he engineered Zyphuel’s smart telemetry refueling network.
+                  <strong>Muhammad Daniyal</strong>  is an entrepreneur and systems engineer leading Pakistan’s energy logistics modernization. Recognizing the recurring load-shedding challenges faced by commercial enterprises and the fuel supply bottlenecks in urban transport, he engineered Zyphuel’s smart telemetry refueling network.
                 </p>
-                <p className="founder-bio" style={{ fontSize: '0.96rem', lineHeight: '1.6', color: 'var(--text-secondary)', marginBottom: '20px' }}>
-                  Beyond Zyphuel, Muhammad Daniyal has spearheaded prominent software and digital products including <strong>Poke nexus (PokeNexus)</strong>, <strong>Dashacart (Dasha Cart)</strong>, <strong>Hittop (Hit top)</strong>, and <strong>Ladoni</strong>.
-                </p>
+                
 
                 <div className="founder-quote-box" style={{ marginBottom: '24px' }}>
                   <i className="fa-solid fa-quote-left quote-icon"></i>
@@ -295,24 +294,24 @@ export default function AboutPage() {
                     <i className="fa-brands fa-linkedin" style={{ color: '#0077b5' }}></i> CEO LinkedIn Profile
                   </a>
                   <a
-                    href="https://www.linkedin.com/company/zyphuel/?viewAsMember=true"
+                    href="https://www.linkedin.com/company/zyphuel/"
                     target="_blank"
                     rel="me noopener noreferrer"
                     className="btn btn-outline"
                     title="Zyphuel Official LinkedIn Company Page"
                     style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
-                    <i className="fa-brands fa-linkedin" style={{ color: '#0077b5' }}></i> Zyphuel LinkedIn Page
+                    <i className="fa-brands fa-linkedin" style={{ color: '#0077b5' }}></i> Company
                   </a>
                   <a
                     href="https://github.com/daniyal44"
                     target="_blank"
                     rel="me noopener noreferrer"
                     className="btn btn-outline"
-                    title="Muhammad Daniyal GitHub Open Source Portfolio (ItxMDK)"
+                    title="Muhammad Daniyal GitHub Open Source Portfolio "
                     style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
-                    <i className="fa-brands fa-github"></i> GitHub (ItxMDK)
+                    <i className="fa-brands fa-github"></i> GitHub 
                   </a>
                   <a
                     href="https://www.facebook.com/muhammad.daniyal.522942/"

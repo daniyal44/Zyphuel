@@ -33,7 +33,7 @@ const GLOBAL_ORGANIZATION = {
   "url": "https://zyphuel.netlify.app",
   "logo": "https://zyphuel.netlify.app/images/logo.png",
   "sameAs": [
-    "https://www.linkedin.com/company/zyphuel/?viewAsMember=true",
+    "https://www.linkedin.com/company/zyphuel/",
     "https://www.linkedin.com/in/muhammad-daniyal490",
     "https://github.com/daniyal44",
     "https://www.facebook.com/muhammad.daniyal.522942/"

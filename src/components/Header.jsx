@@ -18,7 +18,6 @@ const navLinks = [
   { to: '/', label: 'Home', exact: true, title: 'Zyphuel Home Page' },
   { to: '/services', label: 'Services', title: 'Zyphuel Services & Fuel Rates' },
   { to: '/about', label: 'About Us', title: 'About Zyphuel & Leadership Team' },
-  { to: '/order', label: 'Order Fuel', title: 'Order Refueling Online' },
   { to: '/contact', label: 'Contact', title: 'Contact Support & Helpline' },
 ]
 
@@ -106,10 +105,10 @@ export default function Header({ onOpenInterestModal }) {
           <Link
             to="/order"
             title="Order Petrol & Diesel Refueling Now"
-            className="btn btn-primary btn-sm"
+            className="btn btn-secondary btn-sm"
             style={{ padding: '8px 18px', fontSize: '0.85rem' }}
           >
-            Order Now
+            Order Fuel
           </Link>
         </nav>
       </div>

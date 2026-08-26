@@ -319,7 +319,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-block;
     width: 6px;
     height: 6px;
-    background-color: var(--accent-color);
+    background-color: #f59e0b;
     border-radius: 50%;
     animation: badgePulse 2s infinite ease-in-out;
 }
@@ -1884,9 +1884,9 @@ a.footer-contact-link:hover {
 }
 
 .service-towns-container.collapsed {
-    max-height: 105px;
-    mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+    max-height: 84px;
+    mask-image: none;
+    -webkit-mask-image: none;
     overflow-y: hidden;
 }
 
@@ -2004,23 +2004,23 @@ a.footer-contact-link:hover {
 }
 
 .footer .badge-upcoming::before {
-    background-color: #10b981;
+    background-color: #f59e0b;
     animation: livePulse 1.6s infinite ease-in-out;
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5);
 }
 
 @keyframes livePulse {
     0% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5);
     }
     70% {
         transform: scale(1);
-        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+        box-shadow: 0 0 0 6px rgba(245, 158, 11, 0);
     }
     100% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
     }
 }
 
@@ -2181,12 +2181,14 @@ a.footer-contact-link:hover {
     align-items: center;
     justify-content: center;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .interest-dialog-backdrop.open {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
 }
 
@@ -2208,10 +2210,25 @@ a.footer-contact-link:hover {
 
 .interest-close-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 14px;
+    right: 14px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
     font-size: 1.25rem;
     color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.interest-close-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-primary);
 }
 
 .interest-title {
@@ -3198,26 +3215,30 @@ a.footer-contact-link:hover {
     position: absolute;
     top: 16px;
     left: 16px;
-    font-size: 0.72rem;
-    font-weight: 800;
-    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 12px;
     border-radius: var(--radius-full);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-transform: none;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     z-index: 10;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--text-primary);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(4px);
 }
 
 .blog-card-category-badge.zyphuel {
     background-color: #ecfdf5;
-    color: #10b981;
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .blog-card-category-badge.scaleverse {
     background-color: #f5f3ff;
-    color: #8b5cf6;
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    color: #7c3aed;
+    border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
 .blog-card-content {
@@ -3678,25 +3699,25 @@ a.footer-contact-link:hover {
 
 .service-card-tag {
     align-self: flex-start;
-    font-size: 0.72rem;
-    font-weight: 800;
+    font-size: 0.75rem;
+    font-weight: 600;
     padding: 4px 10px;
     border-radius: var(--radius-full);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    text-transform: none;
+    letter-spacing: 0.02em;
     margin-bottom: 20px;
 }
 
 .service-card-tag.b2c {
-    background-color: var(--brand-petrol);
-    color: var(--accent-color-hover);
-    border: 1px solid rgba(14, 165, 233, 0.15);
+    background-color: #f1f5f9;
+    color: #0369a1;
+    border: 1px solid rgba(3, 105, 161, 0.18);
 }
 
 .service-card-tag.b2b {
-    background-color: rgba(168, 85, 247, 0.08);
-    color: #7e22ce;
-    border: 1px solid rgba(168, 85, 247, 0.15);
+    background-color: #f5f3ff;
+    color: #6d28d9;
+    border: 1px solid rgba(109, 40, 217, 0.18);
 }
 
 .service-card-icon {
@@ -3716,20 +3737,23 @@ a.footer-contact-link:hover {
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     font-size: 0.88rem;
     color: var(--text-secondary);
 }
 
 .service-card-specs li {
     display: flex;
-    align-items: center;
-    gap: 8px;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.45;
 }
 
 .service-card-specs li i {
     color: var(--success-mint);
     font-size: 0.85rem;
+    margin-top: 3px;
+    flex-shrink: 0;
 }
 
 .service-card-cta {
@@ -3741,28 +3765,31 @@ a.footer-contact-link:hover {
     font-weight: 700;
     font-size: 0.9rem;
     transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .service-card-cta.b2c-cta {
-    background-color: var(--brand-petrol);
-    color: var(--accent-color-hover);
-}
-
-.service-card-cta.b2c-cta:hover {
     background-color: var(--accent-color);
     color: #ffffff;
 }
 
+.service-card-cta.b2c-cta:hover {
+    background-color: var(--accent-color-hover);
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
 .service-card-cta.b2b-cta {
-    background-color: rgba(168, 85, 247, 0.05);
-    color: #7e22ce;
-    border: 1px solid rgba(168, 85, 247, 0.1);
+    background-color: #8b5cf6;
+    color: #ffffff;
 }
 
 .service-card-cta.b2b-cta:hover {
-    background-color: #a855f7;
-    color: #ffffff;
-    border-color: #a855f7;
+    background-color: #7c3aed;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
 }
 
 /* Interactive Price Calculator */

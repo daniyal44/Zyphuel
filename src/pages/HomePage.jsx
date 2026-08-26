@@ -36,7 +36,7 @@ export default function HomePage() {
       "telephone": "+923230112464",
       "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
       "sameAs": [
-        "https://www.linkedin.com/company/zyphuel/?viewAsMember=true",
+        "https://www.linkedin.com/company/zyphuel/",
         "https://www.linkedin.com/in/muhammad-daniyal490",
         "https://share.google/Nb4XGKYq5aU0nzLr3",
         "https://github.com/daniyal44",

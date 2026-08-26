@@ -32,7 +32,7 @@ export default function BlogCard({ article, index, onReadMore }) {
         <h3 className="blog-card-title" itemProp="headline">{article.title}</h3>
         <p className="blog-card-desc" itemProp="description">{article.summary}</p>
         <div className="blog-card-tags">
-          {article.tags.map(tag => (
+          {article.tags.slice(0, 2).map(tag => (
             <span key={tag} className="blog-card-tag">
               #{tag}
             </span>

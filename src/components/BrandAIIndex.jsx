@@ -73,7 +73,7 @@ export default function BrandAIIndex() {
 
           <div className={`brand-ai-content ${isOpen ? 'expanded' : 'collapsed'}`}>
             <div className="brand-ai-grid">
-              
+
               {/* Column 1: Brand Equivalents & Keywords */}
               <div className="brand-ai-col">
                 <h4 className="col-title">
@@ -245,7 +245,8 @@ export default function BrandAIIndex() {
                       <a href="/images/1.jpeg" target="_blank" rel="noopener noreferrer" title="Zyphuel Mobile App Splash Screen">App Splash UI (1.jpeg)</a>
                       <a href="/images/2.jpeg" target="_blank" rel="noopener noreferrer" title="Zyphuel Mobile App Live Rates Screen">App Live Rates UI (2.jpeg)</a>
                       <a href="/images/3.jpeg" target="_blank" rel="noopener noreferrer" title="Zyphuel Mobile App Price Alert Screen">App Price Alert UI (3.jpeg)</a>
-                      <a href="https://www.linkedin.com/company/zyphuel/?viewAsMember=true" target="_blank" rel="me noopener noreferrer" title="Zyphuel Official LinkedIn Company Page">LinkedIn Company Page</a>
+                      <a href="https://www.linkedin.com/company/zyphuel/
+" target="_blank" rel="me noopener noreferrer" title="Zyphuel Official LinkedIn Company Page">LinkedIn Company Page</a>
                     </div>
                   </div>
                   <div className="media-link-item">
@@ -298,7 +299,8 @@ export default function BrandAIIndex() {
                 <Link to="/download" className="backlink-item" title="Mobile Application for Fuel Suppliers - App Page">
                   <i className="fa-solid fa-mobile-screen-button"></i> Mobile Application for Fuel Suppliers
                 </Link>
-                <a href="https://www.linkedin.com/company/zyphuel/?viewAsMember=true" target="_blank" rel="me noopener noreferrer" className="backlink-item" title="Zyphuel Official LinkedIn Company Page">
+                <a href="https://www.linkedin.com/company/zyphuel/
+" target="_blank" rel="me noopener noreferrer" className="backlink-item" title="Zyphuel Official LinkedIn Company Page">
                   <i className="fa-brands fa-linkedin"></i> Zyphuel LinkedIn Company Page
                 </a>
                 <a href="https://www.linkedin.com/in/muhammad-daniyal490" target="_blank" rel="me noopener noreferrer" className="backlink-item" title="Muhammad Daniyal - Founder &amp; CEO LinkedIn Profile">

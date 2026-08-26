@@ -52,8 +52,6 @@ export const footerData = {
     { label: 'Order Fuel Dispatch', to: '/order' },
     { label: 'Contact Helpline', to: '/contact' },
     { label: 'Download Mobile App', to: '/download' },
-    { label: 'Privacy Policy', to: '/privacy-policy' },
-    { label: 'Terms of Use', to: '/terms-of-use' },
   ],
   lahoreTowns: [
     'DHA (Phase 1-9)',
