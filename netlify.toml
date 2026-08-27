@@ -24,6 +24,41 @@
   [headers.values]
     Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
 
+[[redirects]]
+  from = "/about"
+  to = "/about/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/services"
+  to = "/services/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/download"
+  to = "/download/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/order"
+  to = "/order/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/privacy-policy/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms-of-use"
+  to = "/terms-of-use/index.html"
+  status = 200
+
 # Fallback for SPA navigation
 [[redirects]]
   from = "/*"
