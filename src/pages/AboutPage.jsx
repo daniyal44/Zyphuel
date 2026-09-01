@@ -3,7 +3,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import GeometricalBirds from '../components/GeometricalBirds';
 import { useSEO } from '../hooks/useSEO';
-import BrandAIIndex from '../components/BrandAIIndex';
 import { aboutArticles, wikiMetadata } from '../data/aboutData';
 import "./styles.css";
 
@@ -19,8 +18,8 @@ const cardImages = [
 ];
 
 const teamMembers = [
-  { name: "Muhammad Daniyal", role: "Founder & CEO of Zyphuel (ItxMDK / MuhammadDaniel / itsmdk)" },
-  { name: "Adil Farooq", role: "Sales & Fleet Operations Lead" },
+  { name: "Muhammad Daniyal", role: "Founder & CEO of Zyphuel " },
+  { name: "Adil Farooq", role: "Zyphuel Sales Manager " },
   { name: "Zyphuel Executive Team", role: "Mobile Energy Logistics" },
   { name: "Zyphuel QR Code", role: "Mobile Application v1.5.0" },
   { name: "Accurate Measurement", role: "Calibrated Fuel Tanker & Flow Meter" },
@@ -29,16 +28,12 @@ const teamMembers = [
 
 export default function AboutPage() {
   useSEO({
-    title: 'About Us & Leadership | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application | ItxMDK',
-    description: 'Learn about Zyphuel (zphuel), Pakistan\'s No.1 mobile fuel delivery brand, supplier, agency, and premier mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) associated with Poke nexus, Dashacart, Hittop, and Ladoni. Read official articles, social media press releases, and encyclopedic dossiers.',
+    title: 'About Zyphuel | Mobile Fuel Delivery Team in Lahore',
+    description: 'How Zyphuel runs doorstep petrol and diesel delivery in Lahore — calibrated micro-tankers, digital flow meters, HAZMAT-trained riders, and the team behind the operation.',
     keywords: [
-      'About Zyphuel', 'diesel delivery', 'petrol and diesel', 'patrol and diesel', 'generator fuel Pakistan', 'Muhammad Daniyal CEO',
-      'ItxMDK', 'itsmdk', 'MuhammadDaniel', 'itxmtk', 'itx dk', 'itxM', 'itcM', 'Poke nexus', 'PokeNexus',
-      'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
-      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers',
-      'Pakistan number 1 best fuel delivery', 'best services in Pakistan', 'mobile application for fuel suppliers',
-      'best mobile application for fuel suppliers', 'founder', 'ceo', 'Muhammad Daniyal CEO', 'Zyphuel story',
-      'Zyphuel LinkedIn', 'Zyphuel articles', 'Zyphuel Facebook', 'Zyphuel GitHub', 'Zyphuel Wikipedia'
+      'about Zyphuel', 'fuel delivery company Lahore', 'mobile refueling Pakistan',
+      'diesel delivery Lahore', 'generator fuel Pakistan', 'calibrated fuel metering',
+      'Zyphuel team', 'Muhammad Daniyal Zyphuel'
     ],
     image: 'https://zyphuel.netlify.app/images/daniyal.jpeg',
     url: 'https://zyphuel.netlify.app/about',
@@ -50,51 +45,31 @@ export default function AboutPage() {
           "@type": "AboutPage",
           "@id": "https://zyphuel.netlify.app/about#aboutpage",
           "url": "https://zyphuel.netlify.app/about",
-          "name": "About Zyphuel, Founder Muhammad Daniyal & Leadership Team",
-          "description": "Official company profile, press publications, social media articles, and encyclopedic reference for Zyphuel and CEO Muhammad Daniyal (ItxMDK).",
+          "name": "About Zyphuel & the Team",
+          "description": "Company profile for Zyphuel, a mobile petrol and diesel delivery operator serving Lahore, Pakistan.",
           "mainEntity": {
             "@type": "Organization",
             "@id": "https://zyphuel.netlify.app/#organization",
             "name": "Zyphuel",
-            "alternateName": ["zphuel", "ItxMDK", "itxmdk", "itxmtk", "MuhammadDaniel", "itsmdk", "itx dk", "itxM", "itcM", "Poke nexus", "Muhammad Daniyal", "Dashacart", "Hittop", "Scale verse", "Ladoni"],
+            "alternateName": ["zphuel"],
             "url": "https://zyphuel.netlify.app",
             "logo": "https://zyphuel.netlify.app/images/logo.png",
             "sameAs": [
               "https://www.linkedin.com/company/zyphuel/",
-
-              "https://www.linkedin.com/in/muhammad-daniyal490",
               "https://share.google/Nb4XGKYq5aU0nzLr3",
-              "https://github.com/daniyal44",
               "https://www.facebook.com/muhammad.daniyal.522942/"
             ],
             "founder": {
               "@type": "Person",
               "@id": "https://zyphuel.netlify.app/#person-daniyal",
               "name": "Muhammad Daniyal",
-              "alternateName": ["MuhammadDaniel", "ItxMDK", "itsmdk", "itxmtk", "itx dk", "itxM", "itcM"],
               "jobTitle": "Founder & CEO",
               "sameAs": [
                 "https://www.linkedin.com/in/muhammad-daniyal490",
-                "https://github.com/daniyal44",
-                "https://www.facebook.com/muhammad.daniyal.522942/"
-              ],
-              "knowsAbout": ["Zyphuel", "zphuel", "Poke nexus", "PokeNexus", "Dashacart", "Dasha Cart", "Hittop", "Hit top", "Ladoni", "Mobile Application for Fuel Suppliers", "On-Demand Energy Logistics"]
+                "https://github.com/daniyal44"
+              ]
             }
           }
-        },
-        {
-          "@type": "Article",
-          "@id": "https://zyphuel.netlify.app/about#art-1",
-          "headline": "Pakistan’s Fuel Logistics Breakthrough: How CEO Muhammad Daniyal (ItxMDK) Built Zyphuel’s Calibrated Telemetry Fleet",
-          "description": "Inside Zyphuel’s digital flow-meter technology, double-walled micro-tankers, and automated dispatch system engineered by Founder & CEO Muhammad Daniyal (ItxMDK).",
-          "image": "https://zyphuel.netlify.app/images/daniyal.jpeg",
-          "datePublished": "2026-08-24T00:00:00+05:00",
-          "author": {
-            "@type": "Person",
-            "name": "Muhammad Daniyal (CEO)",
-            "alternateName": ["ItxMDK", "itsmdk", "MuhammadDaniel"]
-          },
-          "publisher": { "@id": "https://zyphuel.netlify.app/#organization" }
         }
       ]
     }
@@ -176,12 +151,12 @@ export default function AboutPage() {
             <div className="fade-in-up">
               <div className="about-header-logo-row">
                 <img src="/images/Zyphuel-logo.png" alt="Zyphuel Company Logo" className="about-company-logo" />
-                <h1 className="section-title">Pakistan’s #1 Fuel Brand, Agency &amp; Mobile Energy Logistics</h1>
+                <h1 className="section-title">Mobile Fuel Delivery, Built for Lahore</h1>
               </div>
 
               <div className="story-desktop-copy">
                 <p className="about-story" style={{ marginBottom: '16px', fontSize: '1.08rem', lineHeight: '1.7' }}>
-                  <strong>Zyphuel</strong> is Pakistan's premier on-demand mobile fuel delivery brand, supplier, and agency, recognized as the <strong>#1 mobile application for fuel suppliers</strong>. Founded by visionary CEO <strong>Muhammad Daniyal</strong>, Zyphuel eliminates traditional fuel station delays, dangerous jerrycan decanting, and pump short-fueling across Lahore and major Pakistani business hubs.
+                  <strong>Zyphuel</strong> is an on-demand mobile fuel delivery service operating across Lahore. Founded by <strong>Muhammad Daniyal</strong>, it exists to remove three everyday problems: queueing at fuel stations, decanting fuel from unsafe jerrycans, and being short-changed at the pump.
                 </p>
                 <p className="about-story" style={{ marginBottom: '24px', fontSize: '1.05rem', lineHeight: '1.7', color: 'var(--text-secondary)' }}>
                   With calibrated positive-displacement flow meters, double-walled micro-tanker bowsers, and an IoT-powered Android app (v1.5.0), Zyphuel supplies Euro-V Super Petrol, High-Octane 97, commercial generator Diesel, LPG cylinders, and clean water refills directly to homes, construction sites, and corporate fleet yards 24/7.
@@ -190,7 +165,7 @@ export default function AboutPage() {
 
               <div className="story-mobile-copy">
                 <p className="about-story" style={{ marginBottom: '14px', fontSize: '0.98rem', lineHeight: '1.6' }}>
-                  <strong>Zyphuel</strong> is Pakistan's premier on-demand mobile fuel delivery brand, supplier, and agency, recognized as the <strong>#1 mobile application for fuel suppliers</strong>. Founded by visionary CEO <strong>Muhammad Daniyal</strong>, Zyphuel eliminates traditional fuel station delays, dangerous jerrycan decanting, and pump short-fueling across Lahore and major Pakistani business hubs.
+                  <strong>Zyphuel</strong> is an on-demand mobile fuel delivery service operating across Lahore. Founded by <strong>Muhammad Daniyal</strong>, it exists to remove three everyday problems: queueing at fuel stations, decanting fuel from unsafe jerrycans, and being short-changed at the pump.
                 </p>
                 <p className="about-story" style={{ marginBottom: '20px', fontSize: '0.95rem', lineHeight: '1.6', color: 'var(--text-secondary)' }}>
                   With calibrated positive-displacement flow meters, double-walled micro-tanker bowsers, and an IoT-powered Android app (v1.5.0), Zyphuel supplies Euro-V Super Petrol, High-Octane 97, commercial generator Diesel, LPG cylinders, and clean water refills directly to homes, construction sites, and corporate fleet yards 24/7.
@@ -252,8 +227,8 @@ export default function AboutPage() {
                 <div className="founder-card-frame" itemScope itemType="https://schema.org/Person">
                   <img
                     src="/images/daniyal.jpeg"
-                    alt="Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) - Founder & CEO of Zyphuel Pakistan"
-                    title="Muhammad Daniyal (ItxMDK) - Founder & CEO of Zyphuel"
+                    alt="Muhammad Daniyal, Founder & CEO of Zyphuel"
+                    title="Muhammad Daniyal – Founder & CEO of Zyphuel"
                     className="founder-avatar-img"
                     loading="lazy"
                     itemProp="image"
@@ -268,7 +243,7 @@ export default function AboutPage() {
                 </div>
                 <h2 className="section-title" style={{ marginBottom: '10px' }}>Muhammad Daniyal</h2>
                 <h3 className="founder-subtitle" style={{ color: 'var(--brand-petrol)', fontWeight: 600, fontSize: 'var(--fs-md)', marginBottom: '16px' }}>
-                  Founder &amp; CEO, Zyphuel | Creator of Poke nexus, Dashacart, Hittop &amp; Ladoni
+                  Founder &amp; CEO, Zyphuel
                 </h3>
                 <p className="founder-bio" style={{ fontSize: '1rem', lineHeight: '1.65', color: 'var(--text-secondary)', marginBottom: '18px' }}>
                   <strong>Muhammad Daniyal</strong>  is an entrepreneur and systems engineer leading Pakistan’s energy logistics modernization. Recognizing the recurring load-shedding challenges faced by commercial enterprises and the fuel supply bottlenecks in urban transport, he engineered Zyphuel’s smart telemetry refueling network.
@@ -592,7 +567,6 @@ export default function AboutPage() {
         </section>
 
         {/* Global AI & Search Engine Directory Index */}
-        <BrandAIIndex />
 
       </main>
     </div>

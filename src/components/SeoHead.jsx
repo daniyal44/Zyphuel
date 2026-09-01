@@ -3,9 +3,9 @@ import { useEffect } from 'react'
 const DOMAIN = 'https://zyphuel.netlify.app'
 
 export default function SeoHead({
-  title = "Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK",
-  description = "Zyphuel (zphuel) is Pakistan's number 1 mobile fuel delivery brand, supplier, and agency, and the top-rated mobile application for fuel suppliers. Founded by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) with Poke nexus, Dashacart, Hittop, and Ladoni.",
-  keywords = "Zyphuel, zphuel, ItxMDK, itxmdk, itxmtk, MuhammadDaniel, itsmdk, itx dk, itxM, itcM, Poke nexus, PokeNexus, Muhammad Daniyal, Dashacart, Dasha Cart, Hittop, Hit top, Scale verse, ScaleVerse, Ladoni, Z, zy, zyp, zyph, zyphu, zyphue, zafuel, ziphuel, zaful, zeiphuel, zephiel, zaphotel, z fuel, zaphael, zyphus, keyfuels, z fuels, Pakistan number 1 fuel brand, Pakistan number 1 fuel agency, Pakistan number 1 fuel suppliers, Pakistan number 1 best fuel delivery, best services in Pakistan, mobile application for fuel suppliers, fuel delivery app Lahore, on-demand energy logistics",
+  title = "Diesel & Petrol Delivery in Lahore | Zyphuel Mobile Refueling",
+  description = "Zyphuel delivers petrol and diesel to your door in Lahore — homes, generators, and commercial fleets. Calibrated metering, live GPS tracking, and 24/7 dispatch.",
+  keywords = "fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore, mobile refueling Pakistan, doorstep fuel delivery, generator diesel delivery, bulk diesel supplier Lahore, fleet refueling service, on-demand fuel delivery app, Zyphuel",
   canonicalPath = '/',
   ogImage = `${DOMAIN}/images/logo.png`,
   ogType = 'website',

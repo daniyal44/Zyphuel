@@ -1,6 +1,7 @@
 export const articles = [
   {
     id: 1,
+    slug: 'future-of-fuel-delivery-lahore',
     category: 'Zyphuel Energy',
     categoryClass: 'zyphuel',
     title: 'The Future of Fueling: How On-Demand Fuel Delivery is Transforming Lahore\'s Logistics',
@@ -20,6 +21,7 @@ export const articles = [
   },
   {
     id: 2,
+    slug: 'download-zyphuel-apk-guide',
     category: 'Zyphuel App & Guides',
     categoryClass: 'zyphuel-app',
     title: 'How to Download Zyphuel APK v1.5.0 Safely in Pakistan: Live Price Alerts & GPS Setup',
@@ -39,6 +41,7 @@ export const articles = [
   },
   {
     id: 3,
+    slug: 'generator-refueling-services-lahore',
     category: 'Generator & Utilities',
     categoryClass: 'zyphuel-utilities',
     title: 'Solving the Energy Gap: Why Generator Refueling Services are Critical for Lahore\'s Enterprise Sector',
@@ -57,6 +60,7 @@ export const articles = [
   },
   {
     id: 4,
+    slug: 'generator-diesel-lpg-delivery-lahore',
     category: 'Generator & Utilities',
     categoryClass: 'zyphuel-utilities',
     title: 'Doorstep Generator Diesel & LPG Gas Cylinder Delivery in Lahore: 2026 Fuel Rates & Safety Guide',
@@ -76,6 +80,7 @@ export const articles = [
   },
   {
     id: 5,
+    slug: 'iot-telemetry-fuel-delivery',
     category: 'Zyphuel Energy',
     categoryClass: 'zyphuel',
     title: 'Smart Refueling: Inside the IoT and Telemetry Tech Powering Doorstep Fuel Delivery',
@@ -94,6 +99,7 @@ export const articles = [
   },
   {
     id: 6,
+    slug: 'zyphuel-calibrated-telemetry-fleet',
     category: 'Zyphuel Energy',
     categoryClass: 'zyphuel',
     title: 'Pakistan’s Fuel Logistics Breakthrough: How CEO Muhammad Daniyal (ItxMDK) Built Zyphuel’s Calibrated Telemetry Fleet',

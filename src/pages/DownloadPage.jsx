@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
-import BrandAIIndex from '../components/BrandAIIndex'
 import { APP_VERSION, RELEASE_DATE, APP_SIZE, MIN_ANDROID, CHANGELOG } from '../data/appVersion'
 import './styles.css'
 
@@ -18,7 +17,7 @@ const appArticles = [
     tags: ['ZyphuelApp', 'MuhammadDaniyal', 'DoorstepPetrol', 'LahoreFuelApp'],
     summary: 'Explore how the official Zyphuel Android APK (v1.5.0, 31.0 MB) transforms urban energy delivery in Lahore with instant GPS auto-detection, zero-latency cloud telemetry, and 100% verified Euro-V fuel standards.',
     paragraphs: [
-      'The newly released Zyphuel Mobile Application (v1.5.0) sets a national benchmark for mobile fuel delivery across Pakistan. Engineered from the ground up by Founder & CEO Muhammad Daniyal (known online as ItxMDK / itsmdk / MuhammadDaniel), the application connects individual car owners, commercial fleets, and industrial generator operators directly to a fleet of smart micro-refueler bowsers.',
+      'The Zyphuel Mobile Application (v1.5.0) is built for on-demand fuel delivery in Lahore. Engineered by Founder & CEO Muhammad Daniyal, the app connects individual car owners, commercial fleets, and industrial generator operators directly to a fleet of micro-refueler bowsers.',
       'Unlike traditional petrol stations where motorists endure lengthy queues and manual meter discrepancies, the Zyphuel Android app leverages automated GPS address pinning covering DHA Phase 1-9, Gulberg, Johar Town, Model Town, Green Town, Bahria Town, and citywide Lahore. With a single tap, users request certified Super Euro-V Petrol, Euro-V Diesel, or High-Octane 97 delivered directly into their vehicle fuel tank.',
       'Every transaction is monitored via cloud-connected electronic flow meters that stream exact liters and pricing in real time to the smartphone screen, guaranteeing 100% volumetric transparency with zero short-fueling.'
     ]
@@ -90,17 +89,15 @@ export default function DownloadPage() {
   }, [slides.length])
 
   useSEO({
-    title: `Download App v${APP_VERSION} | Zyphuel – Pakistan’s #1 Mobile Application for Fuel Suppliers | ItxMDK`,
-    description: `Download the official Zyphuel (zphuel) Mobile App v${APP_VERSION} for Android (${APP_SIZE}). Created by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) with Poke nexus, Dashacart, Hittop, and Ladoni. GPS auto-detection & 2-hour market fuel alerts.`,
+    title: `Download the Zyphuel Android App v${APP_VERSION} | Fuel Delivery in Lahore`,
+    description: `Download the official Zyphuel Android app v${APP_VERSION} (${APP_SIZE}) to order petrol, diesel and generator fuel in Lahore. GPS address detection, live fuel rates, and delivery tracking.`,
     keywords: [
-      'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
-      'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
-      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
-      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', `Zyphuel App v${APP_VERSION}`, 'Download Zyphuel APK', 'Zyphuel Android App', 'mobile fuel delivery app',
-      'petrol delivery app Lahore', 'fuel tracker app', 'diesel delivery Lahore app', 'Muhammad Daniyal CEO'
+      'Zyphuel app', `Zyphuel App v${APP_VERSION}`, 'download Zyphuel APK', 'Zyphuel Android app',
+      'fuel delivery app Lahore', 'petrol delivery app Lahore', 'diesel delivery app Lahore',
+      'mobile fuel delivery app Pakistan', 'fuel rate alerts app'
     ],
     image: 'https://zyphuel.netlify.app/images/1.jpeg',
-    imageAlt: 'Zyphuel Mobile Application for Fuel Suppliers Interface Screen by ItxMDK',
+    imageAlt: 'Zyphuel Android app screen showing live fuel rates and delivery tracking',
     url: 'https://zyphuel.netlify.app/download',
     type: 'website',
     schema: {
@@ -137,7 +134,7 @@ export default function DownloadPage() {
             "url": "https://zyphuel.netlify.app",
             "logo": "https://zyphuel.netlify.app/images/logo.png"
           },
-          "description": `The official mobile application for Zyphuel v${APP_VERSION}, Pakistan's #1 mobile fuel delivery brand, agency, and supplier, featuring GPS auto-detection, live multi-fuel rates, and 2-hour market price notifications.`
+          "description": `The official Zyphuel Android app v${APP_VERSION} for on-demand petrol and diesel delivery in Lahore, featuring GPS address detection, live multi-fuel rates, and 2-hourly market price notifications.`
         },
         {
           "@type": "BreadcrumbList",
@@ -156,8 +153,7 @@ export default function DownloadPage() {
           "dateModified": "2026-08-18T00:00:00+05:00",
           "author": {
             "@type": "Person",
-            "name": "Muhammad Daniyal",
-            "alternateName": ["ItxMDK", "itsmdk", "MuhammadDaniel"]
+            "name": "Muhammad Daniyal"
           },
           "publisher": {
             "@type": "Organization",
@@ -257,7 +253,7 @@ export default function DownloadPage() {
                 </h1>
                 
                 <p className="hero-description">
-                  Experience Pakistan's premier mobile application for fuel suppliers. Feature-packed with GPS auto-detection (Gulberg, DHA, Green Town, Johar Town & citywide Lahore), real-time rates for Super Euro-V Petrol, Euro-V Diesel, HOBC 97 High-Octane & LPG Gas, plus automated 2-hour market price notifications 24/7.
+                  Order fuel from your phone in minutes. GPS auto-detection (Gulberg, DHA, Green Town, Johar Town & citywide Lahore), real-time rates for Super Euro-V Petrol, Euro-V Diesel, HOBC 97 High-Octane & LPG Gas, plus automated 2-hour market price notifications 24/7.
                 </p>
 
                 {/* Primary Download CTAs */}
@@ -525,7 +521,7 @@ export default function DownloadPage() {
               </div>
               <h2 className="section-title">In-Depth Guides: Mastering the Zyphuel Mobile App</h2>
               <p className="section-subtitle">
-                Explore expert articles on on-demand fueling telemetry, 2-hour market price alerts, and enterprise fleet management engineered by CEO Muhammad Daniyal (ItxMDK).
+                Guides on on-demand fueling telemetry, 2-hour market price alerts, and enterprise fleet management.
               </p>
             </div>
 
@@ -610,7 +606,6 @@ export default function DownloadPage() {
         </section>
 
         {/* Brand/AI Index search footer directory */}
-        <BrandAIIndex />
 
       </main>
     </div>

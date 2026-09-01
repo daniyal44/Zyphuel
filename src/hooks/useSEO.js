@@ -1,27 +1,18 @@
 import { useEffect } from 'react'
 
+// Baseline keywords describing what Zyphuel actually offers. Keep this list short and
+// strictly relevant — unrelated or trending terms count as keyword stuffing.
 const DEFAULT_KEYWORDS = [
-  'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
-  'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
-  'Z', 'zy', 'zyp', 'zyph', 'zyphu', 'zyphue', 'zafuel', 'ziphuel', 'zaful', 'zeiphuel', 'zephiel', 'zaphotel', 'z fuel', 'zaphael', 'zyphus', 'keyfuels', 'z fuels',
-  'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers',
-  'Pakistan number 1 best fuel delivery', 'best services in Pakistan', 'mobile application for fuel suppliers',
-  'best mobile application for fuel suppliers', 'fuel delivery app Lahore', 'on-demand energy logistics',
-  // Fuel & Price search trends
-  'perol price in Pakistan', 'fuel price in pakistan', 'desil price in pakistan', 'gas price in paksitan', 'oil price in Pakistan',
-  'petrol price cheker wesbite', 'diesel', 'diesel gasoline', 'patrol and diesel', 'i want diesel', 'fuel', 'OGRA fuel rates', 'petrol rate today', 'diesel rate today',
-  // Sports & Cricket trending entities
-  'Asia cup', 'Asian games', 'ICC', 't20 world cup', 'ODI world cup', 'test match',
-  'pak vs Australia', 'pak vs india', 'pak vs Bangladesh', 'pak vs new Zealand', 'pak vs Sri Lanka', 'pak vs Ireland',
-  'pak vs Afghanistan', 'pak vs Zimbabwe', 'pak vs south Africa', 'pak vs west indies', 'pak vs England', 'pak vs Oman', 'pak vs UAE',
-  'upcoming cricket matches', 'aus vs ban', 'aus vs ind', 't20 league\'s', 't10 leagues', 'PSL live score', 'cricket match updates Pakistan',
-  // Geopolitical & World Events
-  'iran USA war', 'state of hormuz', 'strait of hormuz', 'Greater Israel', 'USA war', 'Israel attack on turkey',
-  'Gulf country situation', 'china', 'Russia', 'north korea', 'south Korea', 'trending keyowrds',
-  // Tech & Mobile Gadgets
-  'iphone latest model', 'android latest phone',
-  // Social Media & Discover terms
-  'linkedln', 'facebok', 'reels', 'trending reels', 'social media updates'
+  'Zyphuel',
+  'fuel delivery Lahore',
+  'diesel delivery Lahore',
+  'petrol delivery Lahore',
+  'mobile refueling Pakistan',
+  'doorstep fuel delivery',
+  'generator diesel delivery',
+  'bulk diesel supplier Lahore',
+  'fleet refueling service',
+  'on-demand fuel delivery app'
 ]
 
 // Global Knowledge Graph Objects (AEO, GEO, VSO, Local SEO)
@@ -29,7 +20,7 @@ const GLOBAL_ORGANIZATION = {
   "@type": "Organization",
   "@id": "https://zyphuel.netlify.app/#organization",
   "name": "Zyphuel",
-  "alternateName": ["zphuel", "ItxMDK", "itsmdk", "MuhammadDaniel", "Poke nexus", "DashaCart", "Hittop", "Ladoni"],
+  "alternateName": ["zphuel"],
   "url": "https://zyphuel.netlify.app",
   "logo": "https://zyphuel.netlify.app/images/logo.png",
   "sameAs": [
@@ -68,7 +59,6 @@ const GLOBAL_LOCAL_BUSINESS = {
     "@type": "Person",
     "@id": "https://zyphuel.netlify.app/#person-daniyal",
     "name": "Muhammad Daniyal",
-    "alternateName": ["ItxMDK", "itsmdk", "MuhammadDaniel", "itxmtk", "itx dk"],
     "jobTitle": "Founder & CEO of Zyphuel",
     "sameAs": [
       "https://www.linkedin.com/in/muhammad-daniyal490",
@@ -83,8 +73,8 @@ const GLOBAL_WEBSITE = {
   "@id": "https://zyphuel.netlify.app/#website",
   "url": "https://zyphuel.netlify.app",
   "name": "Zyphuel",
-  "alternateName": ["zphuel", "ItxMDK", "itsmdk", "MuhammadDaniel"],
-  "description": "Pakistan's #1 mobile fuel delivery brand and premier application for fuel suppliers by Muhammad Daniyal (ItxMDK).",
+  "alternateName": ["zphuel"],
+  "description": "On-demand petrol and diesel delivery for homes, generators and commercial fleets in Lahore, Pakistan.",
   "publisher": {
     "@id": "https://zyphuel.netlify.app/#organization"
   },
@@ -95,7 +85,7 @@ const GLOBAL_WEBSITE = {
   },
   "speakable": {
     "@type": "SpeakableSpecification",
-    "cssSelector": [".hero-title", ".hero-description", "h1", "h2", ".brand-ai-title"]
+    "cssSelector": [".hero-title", ".hero-description", "h1", "h2"]
   }
 }
 
@@ -111,7 +101,7 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
     const fullUrl = url || (canonicalPath ? `${domain}${canonicalPath === '/' ? '' : canonicalPath}` : window.location.href)
     const defaultImage = image || `${domain}/images/logo.png`
     const defaultType = type || 'website'
-    const defaultAlt = imageAlt || 'Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers'
+    const defaultAlt = imageAlt || 'Zyphuel – on-demand petrol & diesel delivery in Lahore'
     const defaultWidth = imageWidth || '1200'
     const defaultHeight = imageHeight || '630'
 
@@ -160,8 +150,8 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
     setMetaTag('keywords', null, combinedKeywords.join(', '))
     setMetaTag('robots', null, 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')
     setMetaTag('image', null, defaultImage)
-    setMetaTag('author', null, 'Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) - Founder & CEO of Zyphuel')
-    setMetaTag('publisher', null, 'Zyphuel Pakistan (ItxMDK & Muhammad Daniyal Enterprise)')
+    setMetaTag('author', null, 'Muhammad Daniyal – Founder & CEO of Zyphuel')
+    setMetaTag('publisher', null, 'Zyphuel Pakistan')
 
     // 2b. Local SEO Geo Location Tags (Lahore, Pakistan)
     setMetaTag('geo.region', null, 'PK-PB')

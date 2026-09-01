@@ -59,6 +59,16 @@
   to = "/terms-of-use/index.html"
   status = 200
 
+[[redirects]]
+  from = "/blog"
+  to = "/blog/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/blog/*"
+  to = "/blog/:splat/index.html"
+  status = 200
+
 # Fallback for SPA navigation
 [[redirects]]
   from = "/*"

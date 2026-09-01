@@ -179,4 +179,49 @@
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
+    <!-- Blog Landing Page -->
+    <url>
+        <loc>https://zyphuel.netlify.app/blog</loc>
+        <lastmod>2026-09-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- Blog Articles -->
+    <url>
+        <loc>https://zyphuel.netlify.app/blog/future-of-fuel-delivery-lahore</loc>
+        <lastmod>2026-07-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide</loc>
+        <lastmod>2026-08-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://zyphuel.netlify.app/blog/generator-refueling-services-lahore</loc>
+        <lastmod>2026-07-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://zyphuel.netlify.app/blog/generator-diesel-lpg-delivery-lahore</loc>
+        <lastmod>2026-06-29</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://zyphuel.netlify.app/blog/iot-telemetry-fuel-delivery</loc>
+        <lastmod>2026-06-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://zyphuel.netlify.app/blog/zyphuel-calibrated-telemetry-fleet</loc>
+        <lastmod>2026-06-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 </urlset>

@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { articles } from './src/data/articles.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const toAbsolute = (p) => path.resolve(__dirname, p)
@@ -12,8 +13,8 @@ const ORGANIZATION_SCHEMA = {
   "@type": "Organization",
   "@id": `${DOMAIN}/#organization`,
   "name": "Zyphuel",
-  "alternateName": ["zphuel", "ItxMDK", "itxmdk", "itxmtk", "MuhammadDaniel", "itsmdk", "itx dk", "itxM", "itcM", "Poke nexus", "Muhammad Daniyal", "Dashacart", "Hittop", "Scale verse", "Ladoni", "Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
-  "description": "Zyphuel is Pakistan's number 1 mobile fuel delivery brand, supplier, and agency, and the best mobile application for fuel suppliers. Providing reliable 24/7 petrol, diesel, LPG gas, and utility delivery services.",
+  "alternateName": ["zphuel"],
+  "description": "Zyphuel delivers petrol and diesel to your door in Lahore, Pakistan — serving households, generator owners, and commercial fleets with calibrated metering and live GPS tracking.",
   "url": DOMAIN,
   "logo": `${DOMAIN}/images/logo.png`,
   "image": `${DOMAIN}/images/logo.png`,
@@ -44,23 +45,14 @@ const ORGANIZATION_SCHEMA = {
     "@type": "Person",
     "@id": `${DOMAIN}/#person-daniyal`,
     "name": "Muhammad Daniyal",
-    "alternateName": ["MuhammadDaniel", "ItxMDK", "itsmdk", "itxmtk", "itsmdk", "itx dk", "itxM", "itcM"],
     "jobTitle": "Founder & CEO",
     "sameAs": [
       "https://www.linkedin.com/in/muhammad-daniyal490",
       "https://github.com/daniyal44",
       "https://www.facebook.com/muhammad.daniyal.522942/"
     ],
-    "knowsAbout": ["Zyphuel", "zphuel", "Poke nexus", "PokeNexus", "Dashacart", "Dasha Cart", "Hittop", "Hit top", "Ladoni", "Mobile Application for Fuel Suppliers", "On-Demand Energy Logistics"]
-  },
-  "award": [
-    "Pakistan number 1 fuel brand",
-    "Pakistan number 1 fuel agency",
-    "Pakistan number 1 fuel suppliers",
-    "Pakistan number 1 best fuel delivery",
-    "best services in Pakistan",
-    "mobile application for fuel suppliers"
-  ]
+    "knowsAbout": ["Fuel delivery logistics", "On-demand energy delivery", "Fleet refueling"]
+  }
 }
 
 const LOCAL_BUSINESS_SCHEMA = {
@@ -97,7 +89,7 @@ const WEBSITE_SCHEMA = {
   "@id": `${DOMAIN}/#website`,
   "url": DOMAIN,
   "name": "Zyphuel",
-  "alternateName": ["zphuel", "ItxMDK", "itxmdk", "itxmtk", "MuhammadDaniel", "itsmdk", "itx dk", "itxM", "itcM", "Poke nexus", "PokeNexus", "Muhammad Daniyal", "Dashacart", "Dasha Cart", "Hittop", "Hit top", "Scale verse", "ScaleVerse", "Ladoni", "Z fuel", "Z fuels"],
+  "alternateName": ["zphuel"],
   "description": "Official website for Zyphuel (zphuel) - Pakistan's #1 fuel brand, agency, and supplier, and the premier mobile application for fuel suppliers by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel).",
   "publisher": {
     "@id": `${DOMAIN}/#organization`
@@ -215,15 +207,15 @@ const ARTICLES_SCHEMA = [
   }
 ]
 
-const TRENDING_GLOBAL_KEYWORDS = "perol price in Pakistan, fuel price in pakistan, desil price in pakistan, gas price in paksitan, oil price in Pakistan, petrol price cheker wesbite, diesel, diesel gasoline, patrol and diesel, i want diesel, fuel, OGRA fuel rates, Asia cup, Asian games, ICC, t20 world cup, ODI world cup, test match, pak vs Australia, pak vs india, pak vs Bangladesh, pak vs new Zealand, pak vs Sri Lanka, pak vs Ireland, pak vs Afghanistan, pak vs Zimbabwe, pak vs south Africa, pak vs west indies, pak vs England, pak vs Oman, pak vs UAE, upcoming cricket matches, aus vs ban, aus vs ind, t20 league's, t10 leagues, iran USA war, state of hormuz, strait of hormuz, Greater Israel, USA war, Israel attack on turkey, Gulf country situation, iphone latest model, android latest phone, china, Russia, north korea, south Korea, trending keyowrds, linkedln, facebok, reels, Zyphuel, zphuel, ItxMDK, itxmdk, itxmtk, MuhammadDaniel, itsmdk, itx dk, itxM, itcM, Poke nexus, PokeNexus, Muhammad Daniyal, Dashacart, Dasha Cart, Hittop, Hit top, Scale verse, ScaleVerse, Ladoni, Pakistan number 1 fuel brand, Pakistan number 1 fuel agency, Pakistan number 1 fuel suppliers, Pakistan number 1 best fuel delivery, best services in Pakistan, mobile application for fuel suppliers, fuel delivery app Lahore, on-demand energy logistics"
+const RELEVANT_KEYWORDS = "Zyphuel, fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore, mobile refueling Pakistan, doorstep fuel delivery, generator diesel delivery, bulk diesel supplier Lahore, fleet refueling service, on-demand fuel delivery app, order fuel online Lahore, diesel delivery near me, petrol delivery at home, LPG gas cylinder delivery Lahore, water tanker Lahore"
 
 const ROUTES = [
   {
     path: '/',
     outFile: 'dist/index.html',
-    title: "Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK",
-    description: "Zyphuel (zphuel) is Pakistan's number 1 mobile fuel delivery brand, supplier, and agency. Providing 24/7 on-demand diesel, petrol, LPG gas cylinders, and generator refueling in Lahore. Founded by CEO Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel).",
-    keywords: TRENDING_GLOBAL_KEYWORDS,
+    title: "Diesel & Petrol Delivery in Lahore | Zyphuel Mobile Refueling",
+    description: "Zyphuel delivers petrol and diesel to your door in Lahore — homes, generators, and commercial fleets. Calibrated metering, live GPS tracking, and 24/7 dispatch. Order online or on the app.",
+    keywords: RELEVANT_KEYWORDS,
     canonical: `${DOMAIN}/`,
     ogImage: `${DOMAIN}/images/logo.png`,
     ogType: 'website',
@@ -244,34 +236,34 @@ const ROUTES = [
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Who is Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel)?",
+              "name": "Which areas of Lahore does Zyphuel deliver to?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Muhammad Daniyal (also known online as ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM, and MuhammadDaniel) is the Founder & CEO of Zyphuel (zphuel), Pakistan's #1 mobile fuel delivery brand and mobile application for fuel suppliers. He is also associated with top tech initiatives including Poke nexus, Dashacart, Hittop, and Ladoni."
+                "text": "Zyphuel delivers petrol and diesel across Lahore, including Gulberg, DHA, Johar Town, Model Town, Bahria Town, and surrounding industrial zones. Contact us to confirm coverage for your address."
               }
             },
             {
               "@type": "Question",
-              "name": "What is Zyphuel (zphuel)?",
+              "name": "How do I order fuel from Zyphuel?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel (zphuel) is Pakistan's number 1 mobile fuel delivery brand, supplier, agency, and premier mobile application for fuel suppliers. It provides 24/7 on-demand petrol, diesel, LPG gas, and water delivery across Lahore, Pakistan."
+                "text": "Place an order through the website order page or the Zyphuel Android app. Pin your location, choose petrol or diesel and the quantity you need, and a refueling unit is dispatched to you."
               }
             },
             {
               "@type": "Question",
-              "name": "What are Poke nexus, Dashacart, Hittop, and Ladoni?",
+              "name": "How is the fuel quantity measured?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Poke nexus, Dashacart (Dasha Cart), Hittop (Hit top), and Ladoni are key software projects and digital products created or led by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) and Zyphuel."
+                "text": "Every delivery uses a calibrated digital flow meter. You receive an itemised invoice showing the exact litres dispensed and the rate applied."
               }
             },
             {
               "@type": "Question",
-              "name": "Which is the best mobile application for fuel suppliers in Pakistan?",
+              "name": "Does Zyphuel serve commercial fleets and generators?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel is ranked as the best mobile application for fuel suppliers and Pakistan's number 1 fuel brand, offering real-time GPS tracking, 2-hour fuel rate push alerts, calibrated volumetric billing, and express dispatch."
+                "text": "Yes. Zyphuel supplies scheduled and on-demand diesel for standby generators, construction equipment, and commercial vehicle fleets, with fleet accounts available for recurring deliveries."
               }
             }
           ]
@@ -283,9 +275,9 @@ const ROUTES = [
   {
     path: '/about',
     outFile: 'dist/about/index.html',
-    title: "About Us & Leadership | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application | ItxMDK",
-    description: "Learn about Zyphuel (zphuel), Pakistan's No.1 mobile fuel delivery brand, supplier, agency, and premier mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) associated with Poke nexus, Dashacart, Hittop, and Ladoni. Read official articles, social media press releases, and encyclopedic dossiers.",
-    keywords: TRENDING_GLOBAL_KEYWORDS,
+    title: "About Zyphuel – Lahore's Trusted Fuel Delivery Service | Our Team",
+    description: "Learn about Zyphuel, Lahore's trusted doorstep fuel delivery service. Meet our team, our mission, and how we deliver petrol and diesel safely to homes, generators, and commercial fleets.",
+    keywords: RELEVANT_KEYWORDS,
     canonical: `${DOMAIN}/about`,
     ogImage: `${DOMAIN}/images/daniyal.jpeg`,
     ogType: 'website',
@@ -319,7 +311,7 @@ const ROUTES = [
     outFile: 'dist/services/index.html',
     title: "Doorstep Fuel Delivery Services in Lahore | Petrol & Diesel | Zyphuel",
     description: "Explore Zyphuel's 24/7 doorstep fuel delivery services across Lahore: Euro-V Super Petrol, High-Octane 97, Generator Diesel, LPG Cylinders, and Corporate Fleet Solutions with calibrated flow metering and live GPS tracking.",
-    keywords: TRENDING_GLOBAL_KEYWORDS,
+    keywords: RELEVANT_KEYWORDS,
     canonical: `${DOMAIN}/services`,
     ogImage: `${DOMAIN}/images/fuel.png`,
     ogType: 'website',
@@ -430,8 +422,8 @@ const ROUTES = [
   {
     path: '/download',
     outFile: 'dist/download/index.html',
-    title: "Download App v1.5.0 | Zyphuel – Pakistan’s #1 Mobile Application for Fuel Suppliers | ItxMDK",
-    description: "Download the official Zyphuel (zphuel) Mobile App v1.5.0 for Android (31.0 MB). Created by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) with Poke nexus, Dashacart, Hittop, and Ladoni. GPS auto-detection & 2-hour market fuel alerts.",
+    title: "Download Zyphuel App – Order Fuel from Your Phone | Android APK",
+    description: "Download the official Zyphuel Android App (v1.5.0, 31.0 MB). Order petrol, diesel, LPG gas delivery in Lahore. GPS auto-detection, live fuel prices, and 2-hour OGRA rate alerts.",
     keywords: "Download Zyphuel APK, Zyphuel App v1.5.0, mobile application for fuel suppliers, petrol delivery app Android, fuel price alert app Pakistan, Muhammad Daniyal ItxMDK app, best mobile application for fuel suppliers, Lahore fuel delivery app",
     canonical: `${DOMAIN}/download`,
     ogImage: `${DOMAIN}/images/1.jpeg`,
@@ -513,8 +505,8 @@ const ROUTES = [
   {
     path: '/order',
     outFile: 'dist/order/index.html',
-    title: "Order Diesel & Petrol Fuel Online | Doorstep Fuel Delivery Lahore | Zyphuel",
-    description: "Place your mobile diesel and petrol order online with Zyphuel (zphuel). Created by Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel) with Poke nexus, Dashacart, Hittop, and Ladoni. Petrol, diesel, LPG gas cylinders, or water refills 24/7 in Lahore.",
+    title: "Order Diesel & Petrol Online | Doorstep Fuel Delivery Lahore | Zyphuel",
+    description: "Order petrol, diesel, LPG gas cylinders, or water refills online with Zyphuel. 24/7 doorstep delivery in Lahore with calibrated metering and live GPS tracking.",
     keywords: "diesel, diesel delivery Lahore, order diesel Lahore, petrol and diesel, patrol and diesel, diesel gasoline, i want diesel, generator diesel order, Order petrol Lahore, diesel dispatch online, emergency fuel delivery, LPG cylinder order Lahore, water tanker delivery, Cash on Delivery fuel Lahore, Pakistan number 1 best fuel delivery",
     canonical: `${DOMAIN}/order`,
     ogImage: `${DOMAIN}/images/tank.png`,
@@ -588,8 +580,8 @@ const ROUTES = [
   {
     path: '/contact',
     outFile: 'dist/contact/index.html',
-    title: "Contact Us | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK",
-    description: "Get in touch with Zyphuel (zphuel), Pakistan's #1 mobile fuel delivery brand, supplier, agency, and premier mobile application for fuel suppliers. Connect with CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) for Poke nexus, Dashacart, Hittop, and Ladoni.",
+    title: "Contact Zyphuel – 24/7 Fuel Delivery Support in Lahore",
+    description: "Get in touch with Zyphuel for fuel delivery inquiries, fleet accounts, and customer support in Lahore. Call, WhatsApp, or email us 24/7.",
     keywords: "Contact Zyphuel, diesel delivery contact, fuel helpline Lahore, Muhammad Daniyal contact, fuel agency Lahore address, WhatsApp fuel delivery Lahore",
     canonical: `${DOMAIN}/contact`,
     ogImage: `${DOMAIN}/images/logo.png`,
@@ -626,8 +618,8 @@ const ROUTES = [
   {
     path: '/privacy-policy',
     outFile: 'dist/privacy-policy/index.html',
-    title: "Privacy Policy | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK",
-    description: "Privacy Policy of Zyphuel (zphuel), Pakistan's No.1 mobile fuel supply agency and top mobile application for fuel suppliers. Learn how founder & CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) with Poke nexus, Dashacart, Hittop, and Ladoni protect your data.",
+    title: "Privacy Policy | Zyphuel Fuel Delivery",
+    description: "Zyphuel's privacy policy. Learn how we protect your data when you order fuel delivery in Lahore through our website and Android app.",
     keywords: "Zyphuel privacy policy, data protection, user security, Android app permissions, Lahore privacy standards",
     canonical: `${DOMAIN}/privacy-policy`,
     ogImage: `${DOMAIN}/images/logo.png`,
@@ -656,8 +648,8 @@ const ROUTES = [
   {
     path: '/terms-of-use',
     outFile: 'dist/terms-of-use/index.html',
-    title: "Terms of Use | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK",
-    description: "Terms of Use for Zyphuel (zphuel), Pakistan's No.1 mobile fuel delivery brand and top mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) with Poke nexus, Dashacart, Hittop, and Ladoni.",
+    title: "Terms of Use | Zyphuel Fuel Delivery",
+    description: "Terms of use for Zyphuel fuel delivery service. Understand our order policies, cancellation rules, and service agreements for petrol and diesel delivery in Lahore.",
     keywords: "Terms of use, service contract, fuel order terms, cancellation rules, Zyphuel legal terms",
     canonical: `${DOMAIN}/terms-of-use`,
     ogImage: `${DOMAIN}/images/logo.png`,
@@ -682,7 +674,72 @@ const ROUTES = [
         }
       ]
     }
-  }
+  },
+  {
+    path: '/blog',
+    outFile: 'dist/blog/index.html',
+    title: "Fuel Delivery Blog & Guides | Zyphuel Lahore",
+    description: "Read the latest articles and guides on doorstep fuel delivery, generator diesel replenishment, and mobile energy logistics in Lahore from Zyphuel.",
+    keywords: RELEVANT_KEYWORDS,
+    canonical: `${DOMAIN}/blog`,
+    ogImage: `${DOMAIN}/images/logo.png`,
+    ogType: 'website',
+    schema: {
+      "@graph": [
+        WEBSITE_SCHEMA,
+        ORGANIZATION_SCHEMA,
+        LOCAL_BUSINESS_SCHEMA,
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": `${DOMAIN}/` },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${DOMAIN}/blog` }
+          ]
+        },
+        ...ARTICLES_SCHEMA
+      ]
+    }
+  },
+  ...articles.map(article => ({
+    path: `/blog/${article.slug}`,
+    outFile: `dist/blog/${article.slug}/index.html`,
+    title: `${article.title} | Zyphuel Blog`,
+    description: article.summary,
+    keywords: `${article.tags.join(', ')}, fuel delivery Lahore, diesel delivery Lahore, Zyphuel`,
+    canonical: `${DOMAIN}/blog/${article.slug}`,
+    ogImage: article.image || `${DOMAIN}/images/logo.png`,
+    ogType: 'article',
+    schema: {
+      "@graph": [
+        WEBSITE_SCHEMA,
+        ORGANIZATION_SCHEMA,
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": `${DOMAIN}/` },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${DOMAIN}/blog` },
+            { "@type": "ListItem", "position": 3, "name": article.title, "item": `${DOMAIN}/blog/${article.slug}` }
+          ]
+        },
+        {
+          "@type": "Article",
+          "@id": `${DOMAIN}/blog/${article.slug}#article`,
+          "headline": article.title,
+          "description": article.summary,
+          "image": article.image,
+          "datePublished": article.date,
+          "author": {
+            "@type": "Organization",
+            "name": article.author
+          },
+          "publisher": {
+            "@id": `${DOMAIN}/#organization`
+          },
+          "mainEntityOfPage": `${DOMAIN}/blog/${article.slug}`
+        }
+      ]
+    }
+  }))
 ]
 
 async function prerender() {
@@ -825,7 +882,7 @@ async function prerender() {
     console.log('🧹 Cleaned up temporary dist-ssr directory.')
   }
 
-  console.log('🎉 Static Site Generation (SSG) completed successfully for all 8 routes!')
+  console.log(`🎉 Static Site Generation (SSG) completed successfully for all ${ROUTES.length} routes!`)
 }
 
 prerender().catch((err) => {

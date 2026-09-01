@@ -14,6 +14,8 @@ import ContactPage from './pages/ContactPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import TermsOfUsePage from './pages/TermsOfUsePage'
 import DownloadPage from './pages/DownloadPage'
+import BlogListPage from './pages/BlogListPage'
+import BlogArticlePage from './pages/BlogArticlePage'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -42,6 +44,8 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-use" element={<TermsOfUsePage />} />
           <Route path="/download" element={<DownloadPage />} />
+          <Route path="/blog" element={<BlogListPage />} />
+          <Route path="/blog/:slug" element={<BlogArticlePage />} />
         </Routes>
         <Footer />
         <InterestModal />

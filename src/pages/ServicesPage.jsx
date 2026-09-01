@@ -14,7 +14,6 @@ import {
   serviceArticles
 } from '../data/servicesData'
 import { useSEO } from '../hooks/useSEO'
-import BrandAIIndex from '../components/BrandAIIndex'
 import { useFuelPrices } from '../context/FuelPriceContext'
 
 export default function ServicesPage() {
@@ -27,11 +26,10 @@ export default function ServicesPage() {
     title: 'Doorstep Fuel Delivery Services in Lahore | Petrol & Diesel | Zyphuel',
     description: 'Explore Zyphuel\'s 24/7 doorstep fuel delivery services across Lahore: Euro-V Super Petrol, High-Octane 97, Generator Diesel, LPG Cylinders, and Corporate Fleet Solutions with calibrated flow metering and live GPS tracking.',
     keywords: [
-      'diesel', 'diesel delivery Lahore', 'petrol and diesel', 'patrol and diesel', 'generator diesel refueling Lahore',
-      'commercial diesel supply', 'diesel gasoline', 'i want diesel', 'perol price in Pakistan', 'fuel price in pakistan',
-      'desil price in pakistan', 'gas price in paksitan', 'oil price in Pakistan', 'petrol price cheker wesbite',
-      'petrol rate today', 'diesel rate today', 'OGRA fuel rates', 'fleet refueling Pakistan', 'doorstep petrol delivery',
-      'LPG gas cylinder refills', 'water tanker refill Lahore', 'Zyphuel services', 'ItxMDK'
+      'fuel delivery services Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
+      'generator diesel refueling Lahore', 'commercial diesel supply Lahore', 'fleet refueling Pakistan',
+      'doorstep petrol delivery', 'LPG gas cylinder refill Lahore', 'water tanker refill Lahore',
+      'high octane 97 delivery Lahore', 'Zyphuel services'
     ],
     image: 'https://zyphuel.netlify.app/images/fuel.png',
     url: 'https://zyphuel.netlify.app/services',
@@ -537,7 +535,6 @@ export default function ServicesPage() {
         </section>
 
         {/* Global AI & Search Engine Directory Index */}
-        <BrandAIIndex />
       </main>
     </div>
   )

@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useSEO } from '../hooks/useSEO'
-import BrandAIIndex from '../components/BrandAIIndex'
 
 const sections = [
   { id: 'intro', label: '1. Introduction' },
@@ -20,13 +19,11 @@ export default function PrivacyPolicyPage() {
   const sectionsRef = useRef([])
 
   useSEO({
-    title: 'Privacy Policy | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK',
-    description: 'Privacy Policy of Zyphuel (zphuel), Pakistan\'s No.1 mobile fuel supply agency and top mobile application for fuel suppliers. Learn how founder & CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) with Poke nexus, Dashacart, Hittop, and Ladoni protect your data.',
+    title: 'Privacy Policy | Zyphuel Fuel Delivery',
+    description: 'How Zyphuel collects, uses, and protects your personal data when you order fuel delivery in Lahore through our website and Android app.',
     keywords: [
-      'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
-      'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
-      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
-      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'privacy policy', 'data protection', 'Lahore GDPR compliance'
+      'Zyphuel privacy policy', 'fuel delivery data protection', 'Zyphuel app privacy',
+      'customer data policy Pakistan', 'Zyphuel terms and privacy'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     canonicalPath: '/privacy-policy',
@@ -167,7 +164,6 @@ export default function PrivacyPolicyPage() {
         </div>
 
         {/* Global AI & Search Engine Directory Index */}
-        <BrandAIIndex />
       </main>
     </div>
   )

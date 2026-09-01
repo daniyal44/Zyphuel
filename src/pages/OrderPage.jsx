@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
-import BrandAIIndex from '../components/BrandAIIndex'
 import { useFuelPrices } from '../context/FuelPriceContext'
 
 const FUEL_PRICES = {
@@ -35,11 +34,9 @@ export default function OrderPage() {
     title: 'Order Diesel & Petrol Fuel Online | Doorstep Fuel Delivery Lahore | Zyphuel',
     description: 'Order diesel, petrol, LPG gas cylinders, and water delivery online with Zyphuel. 45-minute express dispatch in Lahore for vehicles, fleets, generators, and construction sites. Cash on delivery & online payment.',
     keywords: [
-      'diesel', 'diesel delivery Lahore', 'order diesel Lahore', 'petrol and diesel', 'patrol and diesel', 'diesel gasoline', 'i want diesel', 'generator diesel order',
-      'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
-      'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
-      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
-      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'order fuel online', 'LPG gas cylinder order', 'water refill delivery', 'Lahore cash on delivery'
+      'order diesel Lahore', 'order petrol Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
+      'generator diesel order', 'order fuel online Pakistan', 'LPG gas cylinder order Lahore',
+      'water refill delivery Lahore', 'fuel cash on delivery Lahore', 'Zyphuel order'
     ],
     image: 'https://zyphuel.netlify.app/images/tank.png',
     url: 'https://zyphuel.netlify.app/order',
@@ -1320,7 +1317,6 @@ export default function OrderPage() {
       </div>
 
       {/* Global AI & Search Engine Directory Index */}
-      <BrandAIIndex />
 
       {/* Truck Button Styles + Custom Category Selector styles */}
       <style>{`

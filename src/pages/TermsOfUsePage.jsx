@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useSEO } from '../hooks/useSEO'
-import BrandAIIndex from '../components/BrandAIIndex'
 
 const sections = [
   { id: 'terms-intro', label: '1. Acceptance of Terms' },
@@ -19,13 +18,11 @@ export default function TermsOfUsePage() {
   const [activeSection, setActiveSection] = useState('terms-intro')
 
   useSEO({
-    title: 'Terms of Use | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK',
-    description: 'Terms of Use for Zyphuel (zphuel), Pakistan\'s No.1 mobile fuel delivery brand and top mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) with Poke nexus, Dashacart, Hittop, and Ladoni.',
+    title: 'Terms of Use | Zyphuel Fuel Delivery',
+    description: 'The terms that govern your use of the Zyphuel website and Android app for fuel delivery in Lahore, including orders, payment, delivery, and dispute resolution.',
     keywords: [
-      'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
-      'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
-      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
-      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'terms of use', 'legal contract', 'dispute resolution Lahore'
+      'Zyphuel terms of use', 'fuel delivery terms and conditions', 'Zyphuel service agreement',
+      'fuel order terms Pakistan', 'Zyphuel app terms'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     canonicalPath: '/terms-of-use',
@@ -172,7 +169,6 @@ export default function TermsOfUsePage() {
         </div>
 
         {/* Global AI & Search Engine Directory Index */}
-        <BrandAIIndex />
       </main>
     </div>
   )

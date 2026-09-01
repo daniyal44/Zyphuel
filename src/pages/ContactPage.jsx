@@ -2,20 +2,17 @@ import { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
-import BrandAIIndex from '../components/BrandAIIndex'
 
 export default function ContactPage() {
   const pageRef = useScrollReveal()
   const { showToast } = useToast()
 
   useSEO({
-    title: 'Contact Us | Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK',
-    description: 'Get in touch with Zyphuel (zphuel), Pakistan\'s #1 mobile fuel delivery brand, supplier, agency, and premier mobile application for fuel suppliers. Connect with CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) for Poke nexus, Dashacart, Hittop, and Ladoni.',
+    title: 'Contact Zyphuel | Fuel Delivery Support in Lahore',
+    description: 'Reach Zyphuel for fuel orders, generator diesel, and commercial fleet accounts in Lahore. Call, WhatsApp, or send an enquiry — support available 24/7 in English and Urdu.',
     keywords: [
-      'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
-      'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
-      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
-      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'contact Zyphuel', 'support helpline', 'corporate meetings Lahore'
+      'contact Zyphuel', 'fuel delivery helpline Lahore', 'diesel supplier contact Lahore',
+      'fleet fuel account Pakistan', 'generator diesel enquiry', 'Zyphuel support'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/contact',
@@ -26,15 +23,17 @@ export default function ContactPage() {
       "mainEntity": {
         "@type": "LocalBusiness",
         "name": "Zyphuel",
-        "alternateName": ["zphuel", "ItxMDK", "itxmdk", "itxmtk", "MuhammadDaniel", "itsmdk", "itx dk", "itxM", "itcM", "Poke nexus", "Muhammad Daniyal", "Dashacart", "Hittop", "Scale verse", "Ladoni", "Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
+        "alternateName": ["zphuel"],
         "telephone": "+923230112464",
         "email": "m.daniyalkhan490@gmail.com",
         "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
+        "areaServed": {
+          "@type": "City",
+          "name": "Lahore"
+        },
         "sameAs": [
           "https://www.linkedin.com/company/zyphuel/",
-          "https://www.linkedin.com/in/muhammad-daniyal490",
           "https://share.google/Nb4XGKYq5aU0nzLr3",
-          "https://github.com/daniyal44",
           "https://www.facebook.com/muhammad.daniyal.522942/"
         ],
         "contactPoint": {
@@ -43,15 +42,7 @@ export default function ContactPage() {
           "contactType": "Customer Support & Enterprise Inquiries",
           "areaServed": "PK",
           "availableLanguage": ["English", "Urdu"]
-        },
-        "award": [
-          "Pakistan number 1 fuel brand",
-          "Pakistan number 1 fuel agency",
-          "Pakistan number 1 fuel suppliers",
-          "Pakistan number 1 best fuel delivery",
-          "best services in Pakistan",
-          "mobile application for fuel suppliers"
-        ]
+        }
       }
     }
   })
@@ -388,7 +379,6 @@ ${form.message.trim()}`
         </section>
 
         {/* Global AI & Search Engine Directory Index */}
-        <BrandAIIndex />
       </main>
 
       {/* Floating WhatsApp */}

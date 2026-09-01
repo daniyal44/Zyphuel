@@ -7,20 +7,18 @@ import BlogCard from '../components/BlogCard'
 import BlogModal from '../components/BlogModal'
 import Carousel3D from '../components/Carousel3D'
 import { useSEO } from '../hooks/useSEO'
-import BrandAIIndex from '../components/BrandAIIndex'
 
 export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All')
   const [selectedArticle, setSelectedArticle] = useState(null)
 
   useSEO({
-    title: 'Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers | ItxMDK',
-    description: 'Zyphuel (zphuel) is Pakistan\'s #1 mobile fuel brand, agency, supplier, and premier mobile application for fuel suppliers. Founded by CEO Muhammad Daniyal (MuhammadDaniel, ItxMDK, itsmdk, itxmtk, itx dk, itxM, itcM) associated with Poke nexus, Dashacart, Hittop, and Ladoni.',
+    title: 'Diesel & Petrol Delivery in Lahore | Zyphuel Mobile Refueling',
+    description: 'Zyphuel delivers petrol and diesel to your door in Lahore — homes, generators, and commercial fleets. Calibrated metering, live GPS tracking, and 24/7 dispatch. Order online or on the app.',
     keywords: [
-      'Zyphuel', 'zphuel', 'ItxMDK', 'itxmdk', 'itxmtk', 'MuhammadDaniel', 'itsmdk', 'itx dk', 'itxM', 'itcM',
-      'Poke nexus', 'PokeNexus', 'Muhammad Daniyal', 'Dashacart', 'Dasha Cart', 'Hittop', 'Hit top', 'Scale verse', 'ScaleVerse', 'Ladoni',
-      'Pakistan number 1 fuel brand', 'Pakistan number 1 fuel agency', 'Pakistan number 1 fuel suppliers', 'Pakistan number 1 best fuel delivery', 'best services in Pakistan',
-      'mobile application for fuel suppliers', 'best mobile application for fuel suppliers', 'fuel suppliers', 'images', 'videos', 'links', 'articles', 'blogs', 'founder', 'ceo', 'business partners', 'petrol delivery Lahore', 'diesel delivery', 'mobile refueling', 'Pakistan fuel logistics'
+      'fuel delivery Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
+      'mobile refueling Pakistan', 'doorstep fuel delivery', 'generator diesel delivery',
+      'bulk diesel supplier Lahore', 'fleet refueling service', 'on-demand fuel delivery app'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app',
@@ -29,17 +27,20 @@ export default function HomePage() {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Zyphuel",
-      "alternateName": ["zphuel", "ItxMDK", "itxmdk", "itxmtk", "MuhammadDaniel", "itsmdk", "itx dk", "itxM", "itcM", "Poke nexus", "Muhammad Daniyal", "Dashacart", "Hittop", "Scale verse", "Ladoni", "Z", "zy", "zyp", "zyph", "zyphu", "zyphue", "zafuel", "ziphuel", "zaful", "zeiphuel", "zephiel", "zaphotel", "z fuel", "zaphael", "zyphus", "keyfuels", "z fuels"],
-      "description": "Zyphuel is Pakistan's number 1 mobile fuel delivery brand, agency, and supplier, offering the top mobile application for fuel suppliers. Providing best fuel delivery and services 24/7 in Lahore, Pakistan.",
+      "alternateName": ["zphuel"],
+      "description": "Zyphuel delivers petrol and diesel to your location in Lahore, Pakistan — serving households, generator owners, and commercial fleets with calibrated metering and live GPS tracking.",
       "url": "https://zyphuel.netlify.app",
       "logo": "https://zyphuel.netlify.app/images/logo.png",
       "telephone": "+923230112464",
+      "priceRange": "$$",
+      "areaServed": {
+        "@type": "City",
+        "name": "Lahore"
+      },
       "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
       "sameAs": [
         "https://www.linkedin.com/company/zyphuel/",
-        "https://www.linkedin.com/in/muhammad-daniyal490",
         "https://share.google/Nb4XGKYq5aU0nzLr3",
-        "https://github.com/daniyal44",
         "https://www.facebook.com/muhammad.daniyal.522942/"
       ],
       "address": {
@@ -58,37 +59,12 @@ export default function HomePage() {
       "founder": {
         "@type": "Person",
         "name": "Muhammad Daniyal",
-        "alternateName": ["MuhammadDaniel", "ItxMDK", "itsmdk", "itxmtk", "itx dk", "itxM", "itcM"],
         "jobTitle": "Founder & CEO",
         "sameAs": [
           "https://www.linkedin.com/in/muhammad-daniyal490",
-          "https://github.com/daniyal44",
-          "https://www.facebook.com/muhammad.daniyal.522942/"
+          "https://github.com/daniyal44"
         ]
-      },
-      "sponsor": [
-        {
-          "@type": "Organization",
-          "name": "Scale Verse",
-          "url": "https://scaleverse.app",
-          "founder": {
-            "@type": "Person",
-            "name": "Muhammad Umer Farooq"
-          },
-          "coFounder": {
-            "@type": "Person",
-            "name": "Muhammad Abdul Rauf"
-          }
-        }
-      ],
-      "award": [
-        "Pakistan number 1 fuel brand",
-        "Pakistan number 1 fuel agency",
-        "Pakistan number 1 fuel suppliers",
-        "Pakistan number 1 best fuel delivery",
-        "best services in Pakistan",
-        "mobile application for fuel suppliers"
-      ]
+      }
     }
   })
 
@@ -197,7 +173,6 @@ export default function HomePage() {
       <Carousel3D />
 
       {/* Global AI & Search Engine Directory Index */}
-      <BrandAIIndex />
 
       {/* Detailed Blog Modal */}
       <BlogModal
