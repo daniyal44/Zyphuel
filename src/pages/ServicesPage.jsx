@@ -13,6 +13,7 @@ import {
   operationalPipeline,
   serviceArticles
 } from '../data/servicesData'
+import { APP_VERSION } from '../data/appVersion'
 import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
 
@@ -223,7 +224,7 @@ export default function ServicesPage() {
                     <i className="fa-solid fa-cart-shopping"></i> Order Fuel Online
                   </button>
                   <Link to="/download" className="btn btn-secondary" style={{ minHeight: '48px' }}>
-                    <i className="fa-solid fa-mobile-screen-button"></i> Download Mobile App v1.5.0
+                    <i className="fa-solid fa-mobile-screen-button"></i> Download Mobile App v{APP_VERSION}
                   </Link>
                   <a href="#services-scope" style={{ fontSize: 'var(--fs-sm, 0.875rem)', color: 'var(--text-accent, #0284c7)', fontWeight: 600, padding: '8px 12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                     Service Scope &amp; Safety <i className="fa-solid fa-arrow-down"></i>

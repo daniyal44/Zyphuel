@@ -1,12 +1,25 @@
 // Centralized Zyphuel Mobile App Version Configuration
 // Update this file on every application release to dynamically sync versions across the platform.
 
-export const APP_VERSION = '1.5.0';
-export const RELEASE_DATE = 'August 18, 2026';
-export const APP_SIZE = '31.0 MB';
+export const APP_VERSION = '2.3.0.1';
+export const RELEASE_DATE = 'September 2, 2026';
+export const APP_SIZE = '31.4 MB';
 export const MIN_ANDROID = '8.0 (Oreo)+';
 
 export const CHANGELOG = [
+  {
+    version: '2.3.0.1',
+    date: 'September 2, 2026',
+    title: 'Biometric Security, Rider Foreground Telemetry & Next-Gen Cloud Sync',
+    features: [
+      'Added biometric authentication (Fingerprint & Face Unlock) for secure, instantaneous checkout',
+      'Engineered Rider Foreground GPS location service with low-latency live dispatch tracking',
+      'Integrated Firebase Cloud Messaging (FCM) push notification engine for instant price alerts',
+      'Modernized Jetpack Compose Material 3 UI architecture and upgraded Lahore sector auto-pinning',
+      'Added encrypted local data storage (DataStore & Room) for offline order staging and swift sync',
+      'Multi-fuel live rate tracking (Super Euro-V Petrol, High-Octane 97, Euro-V Diesel, LPG Gas) with calibrated digital metering'
+    ]
+  },
   {
     version: '1.5.0',
     date: 'August 18, 2026',

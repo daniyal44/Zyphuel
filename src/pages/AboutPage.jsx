@@ -4,6 +4,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import GeometricalBirds from '../components/GeometricalBirds';
 import { useSEO } from '../hooks/useSEO';
 import { aboutArticles, wikiMetadata } from '../data/aboutData';
+import { APP_VERSION } from '../data/appVersion';
 import "./styles.css";
 
 const TOTAL_CARDS = 6;
@@ -21,7 +22,7 @@ const teamMembers = [
   { name: "Muhammad Daniyal", role: "Founder & CEO of Zyphuel " },
   { name: "Adil Farooq", role: "Zyphuel Sales Manager " },
   { name: "Zyphuel Executive Team", role: "Mobile Energy Logistics" },
-  { name: "Zyphuel QR Code", role: "Mobile Application v1.5.0" },
+  { name: "Zyphuel QR Code", role: `Mobile Application v${APP_VERSION}` },
   { name: "Accurate Measurement", role: "Calibrated Fuel Tanker & Flow Meter" },
   { name: "Rider Identity", role: "HAZMAT Certified Safety Uniform" }
 ];
@@ -159,7 +160,7 @@ export default function AboutPage() {
                   <strong>Zyphuel</strong> is an on-demand mobile fuel delivery service operating across Lahore. Founded by <strong>Muhammad Daniyal</strong>, it exists to remove three everyday problems: queueing at fuel stations, decanting fuel from unsafe jerrycans, and being short-changed at the pump.
                 </p>
                 <p className="about-story" style={{ marginBottom: '24px', fontSize: '1.05rem', lineHeight: '1.7', color: 'var(--text-secondary)' }}>
-                  With calibrated positive-displacement flow meters, double-walled micro-tanker bowsers, and an IoT-powered Android app (v1.5.0), Zyphuel supplies Euro-V Super Petrol, High-Octane 97, commercial generator Diesel, LPG cylinders, and clean water refills directly to homes, construction sites, and corporate fleet yards 24/7.
+                  With calibrated positive-displacement flow meters, double-walled micro-tanker bowsers, and an IoT-powered Android app (v{APP_VERSION}), Zyphuel supplies Euro-V Super Petrol, High-Octane 97, commercial generator Diesel, LPG cylinders, and clean water refills directly to homes, construction sites, and corporate fleet yards 24/7.
                 </p>
               </div>
 
@@ -168,7 +169,7 @@ export default function AboutPage() {
                   <strong>Zyphuel</strong> is an on-demand mobile fuel delivery service operating across Lahore. Founded by <strong>Muhammad Daniyal</strong>, it exists to remove three everyday problems: queueing at fuel stations, decanting fuel from unsafe jerrycans, and being short-changed at the pump.
                 </p>
                 <p className="about-story" style={{ marginBottom: '20px', fontSize: '0.95rem', lineHeight: '1.6', color: 'var(--text-secondary)' }}>
-                  With calibrated positive-displacement flow meters, double-walled micro-tanker bowsers, and an IoT-powered Android app (v1.5.0), Zyphuel supplies Euro-V Super Petrol, High-Octane 97, commercial generator Diesel, LPG cylinders, and clean water refills directly to homes, construction sites, and corporate fleet yards 24/7.
+                  With calibrated positive-displacement flow meters, double-walled micro-tanker bowsers, and an IoT-powered Android app (v{APP_VERSION}), Zyphuel supplies Euro-V Super Petrol, High-Octane 97, commercial generator Diesel, LPG cylinders, and clean water refills directly to homes, construction sites, and corporate fleet yards 24/7.
                 </p>
               </div>
 

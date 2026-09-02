@@ -122,11 +122,11 @@ const ARTICLES_SCHEMA = [
   {
     "@type": "TechArticle",
     "@id": `${DOMAIN}/#article-2`,
-    "headline": "How to Download Zyphuel APK v1.5.0 Safely in Pakistan: Live Price Alerts & GPS Setup",
-    "description": "A step-by-step installation guide for downloading the official Zyphuel Android APK (v1.5.0), enabling location auto-detection, and configuring 2-hour market fuel price notifications.",
+    "headline": "How to Download Zyphuel APK v2.3.0.1 Safely in Pakistan: Live Price Alerts & GPS Setup",
+    "description": "A step-by-step installation guide for downloading the official Zyphuel Android APK (v2.3.0.1), enabling location auto-detection, and configuring 2-hour market fuel price notifications.",
     "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=90",
     "datePublished": "2026-07-05T08:00:00+05:00",
-    "dateModified": "2026-08-24T00:00:00+05:00",
+    "dateModified": "2026-09-02T00:00:00+05:00",
     "author": {
       "@type": "Organization",
       "name": "Zyphuel App Engineering"
@@ -423,8 +423,8 @@ const ROUTES = [
     path: '/download',
     outFile: 'dist/download/index.html',
     title: "Download Zyphuel App – Order Fuel from Your Phone | Android APK",
-    description: "Download the official Zyphuel Android App (v1.5.0, 31.0 MB). Order petrol, diesel, LPG gas delivery in Lahore. GPS auto-detection, live fuel prices, and 2-hour OGRA rate alerts.",
-    keywords: "Download Zyphuel APK, Zyphuel App v1.5.0, mobile application for fuel suppliers, petrol delivery app Android, fuel price alert app Pakistan, Muhammad Daniyal ItxMDK app, best mobile application for fuel suppliers, Lahore fuel delivery app",
+    description: "Download the official Zyphuel Android App (v2.3.0.1, 31.4 MB). Order petrol, diesel, LPG gas delivery in Lahore. GPS auto-detection, live fuel prices, and 2-hour OGRA rate alerts.",
+    keywords: "Download Zyphuel APK, Zyphuel App v2.3.0.1, mobile application for fuel suppliers, petrol delivery app Android, fuel price alert app Pakistan, Muhammad Daniyal ItxMDK app, best mobile application for fuel suppliers, Lahore fuel delivery app",
     canonical: `${DOMAIN}/download`,
     ogImage: `${DOMAIN}/images/1.jpeg`,
     ogType: 'website',
@@ -447,8 +447,8 @@ const ROUTES = [
           "operatingSystem": "Android 8.0 and above",
           "applicationCategory": "BusinessApplication, UtilitiesApplication",
           "downloadUrl": `${DOMAIN}/APK/Zyphuel.apk`,
-          "fileSize": "31.0MB",
-          "softwareVersion": "1.5.0",
+          "fileSize": "31.4MB",
+          "softwareVersion": "2.3.0.1",
           "author": { "@id": `${DOMAIN}/#organization` },
           "offers": {
             "@type": "Offer",
@@ -459,11 +459,11 @@ const ROUTES = [
         {
           "@type": "Article",
           "@id": `${DOMAIN}/download#app-article-1`,
-          "headline": "Zyphuel Mobile App v1.5.0: Next-Gen Doorstep Fuel Logistics & Cloud Telemetry in Pakistan",
-          "description": "Explore how the official Zyphuel Android APK (v1.5.0, 31.0 MB) transforms urban energy delivery in Lahore with instant GPS auto-detection and zero-latency cloud telemetry.",
+          "headline": "Zyphuel Mobile App v2.3.0.1: Next-Gen Doorstep Fuel Logistics & Cloud Telemetry in Pakistan",
+          "description": "Explore how the official Zyphuel Android APK (v2.3.0.1, 31.4 MB) transforms urban energy delivery in Lahore with instant GPS auto-detection and zero-latency cloud telemetry.",
           "image": `${DOMAIN}/images/1.jpeg`,
-          "datePublished": "2026-08-24T00:00:00+05:00",
-          "dateModified": "2026-08-24T00:00:00+05:00",
+          "datePublished": "2026-09-02T00:00:00+05:00",
+          "dateModified": "2026-09-02T00:00:00+05:00",
           "author": {
             "@type": "Person",
             "name": "Muhammad Daniyal",
@@ -477,8 +477,8 @@ const ROUTES = [
           "headline": "2-Hour Automated Fuel Rate Push Notifications: Why Fleet Managers Rely on Zyphuel",
           "description": "How Zyphuel's built-in 2-hour push notification engine delivers official OGRA price updates and live market rate tracking directly to Android lock screens.",
           "image": `${DOMAIN}/images/3.jpeg`,
-          "datePublished": "2026-08-24T00:00:00+05:00",
-          "dateModified": "2026-08-24T00:00:00+05:00",
+          "datePublished": "2026-09-02T00:00:00+05:00",
+          "dateModified": "2026-09-02T00:00:00+05:00",
           "author": {
             "@type": "Organization",
             "name": "Zyphuel Telemetry Engineering"
@@ -491,8 +491,8 @@ const ROUTES = [
           "headline": "Commercial Generator Refueling & Sealed LPG Gas Cylinder Refills in Lahore",
           "description": "Eliminate power outage downtime in factories, hospitals, and corporate plazas with scheduled generator diesel refills and safety-tested LPG cylinder deliveries.",
           "image": `${DOMAIN}/images/2.jpeg`,
-          "datePublished": "2026-08-24T00:00:00+05:00",
-          "dateModified": "2026-08-24T00:00:00+05:00",
+          "datePublished": "2026-09-02T00:00:00+05:00",
+          "dateModified": "2026-09-02T00:00:00+05:00",
           "author": {
             "@type": "Person",
             "name": "Adil Farooq"

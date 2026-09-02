@@ -9,15 +9,15 @@ const appArticles = [
     id: 'app-article-1',
     badge: 'Mobile App Architecture',
     badgeIcon: 'fa-solid fa-microchip',
-    title: 'Zyphuel Mobile App v1.5.0: Next-Gen Doorstep Fuel Logistics & Cloud Telemetry in Pakistan',
+    title: `Zyphuel Mobile App v${APP_VERSION}: Next-Gen Doorstep Fuel Logistics & Cloud Telemetry in Pakistan`,
     readTime: '5 min read',
-    date: 'August 18, 2026',
+    date: RELEASE_DATE,
     author: 'Muhammad Daniyal (Founder & CEO)',
     authorIcon: 'fa-solid fa-user-gear',
     tags: ['ZyphuelApp', 'MuhammadDaniyal', 'DoorstepPetrol', 'LahoreFuelApp'],
-    summary: 'Explore how the official Zyphuel Android APK (v1.5.0, 31.0 MB) transforms urban energy delivery in Lahore with instant GPS auto-detection, zero-latency cloud telemetry, and 100% verified Euro-V fuel standards.',
+    summary: `Explore how the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) transforms urban energy delivery in Lahore with instant GPS auto-detection, zero-latency cloud telemetry, and 100% verified Euro-V fuel standards.`,
     paragraphs: [
-      'The Zyphuel Mobile Application (v1.5.0) is built for on-demand fuel delivery in Lahore. Engineered by Founder & CEO Muhammad Daniyal, the app connects individual car owners, commercial fleets, and industrial generator operators directly to a fleet of micro-refueler bowsers.',
+      `The Zyphuel Mobile Application (v${APP_VERSION}) is built for on-demand fuel delivery in Lahore. Engineered by Founder & CEO Muhammad Daniyal, the app connects individual car owners, commercial fleets, and industrial generator operators directly to a fleet of micro-refueler bowsers.`,
       'Unlike traditional petrol stations where motorists endure lengthy queues and manual meter discrepancies, the Zyphuel Android app leverages automated GPS address pinning covering DHA Phase 1-9, Gulberg, Johar Town, Model Town, Green Town, Bahria Town, and citywide Lahore. With a single tap, users request certified Super Euro-V Petrol, Euro-V Diesel, or High-Octane 97 delivered directly into their vehicle fuel tank.',
       'Every transaction is monitored via cloud-connected electronic flow meters that stream exact liters and pricing in real time to the smartphone screen, guaranteeing 100% volumetric transparency with zero short-fueling.'
     ]
@@ -28,13 +28,13 @@ const appArticles = [
     badgeIcon: 'fa-solid fa-bell',
     title: '2-Hour Automated Fuel Rate Push Notifications: Why Fleet Managers Rely on Zyphuel',
     readTime: '4 min read',
-    date: 'August 18, 2026',
+    date: RELEASE_DATE,
     author: 'Zyphuel Telemetry Engineering',
     authorIcon: 'fa-solid fa-satellite-dish',
     tags: ['FuelPriceAlerts', 'OGRAPakistan', 'FleetRefueling', 'SmartAlerts'],
     summary: 'How Zyphuel\'s built-in 2-hour push notification engine delivers official OGRA price updates and live market rate tracking directly to Android lock screens.',
     paragraphs: [
-      'Fuel price fluctuations in Pakistan demand instant awareness for both enterprise fleet managers and daily commuters. The Zyphuel Android APK v1.5.0 features a dedicated background notification daemon that broadcasts verified OGRA fuel rate updates every 2 hours directly to users\' notification shades.',
+      `Fuel price fluctuations in Pakistan demand instant awareness for both enterprise fleet managers and daily commuters. The Zyphuel Android APK v${APP_VERSION} features a dedicated background notification daemon that broadcasts verified OGRA fuel rate updates every 2 hours directly to users' notification shades.`,
       'Users track real-time prices for Euro-V Petrol, Euro-V Diesel, HOBC 97 Octane, and sealed LPG Gas Cylinders. When market rate revisions occur, Zyphuel users receive priority price lock options, allowing them to order fuel at current rates before depot adjustments take effect.',
       'Combined with real-time dispatch alerts and live micro-refueler tracking, the app eliminates guesswork and streamlines fuel budgeting for businesses across Punjab.'
     ]
@@ -45,7 +45,7 @@ const appArticles = [
     badgeIcon: 'fa-solid fa-truck-droplet',
     title: 'Commercial Generator Refueling & Sealed LPG Gas Cylinder Refills in Lahore',
     readTime: '4 min read',
-    date: 'August 18, 2026',
+    date: RELEASE_DATE,
     author: 'Adil Farooq (Fleet Operations Lead)',
     authorIcon: 'fa-solid fa-shield-halved',
     tags: ['GeneratorDiesel', 'LPGGasCylinder', 'B2BRefueling', 'BusinessContinuity'],
@@ -146,11 +146,11 @@ export default function DownloadPage() {
         {
           "@type": "Article",
           "@id": "https://zyphuel.netlify.app/download#app-article-1",
-          "headline": "Zyphuel Mobile App v1.5.0: Next-Gen Doorstep Fuel Logistics & Cloud Telemetry in Pakistan",
-          "description": "Explore how the official Zyphuel Android APK (v1.5.0, 31.0 MB) transforms urban energy delivery in Lahore with instant GPS auto-detection and zero-latency cloud telemetry.",
+          "headline": `Zyphuel Mobile App v${APP_VERSION}: Next-Gen Doorstep Fuel Logistics & Cloud Telemetry in Pakistan`,
+          "description": `Explore how the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) transforms urban energy delivery in Lahore with instant GPS auto-detection and zero-latency cloud telemetry.`,
           "image": "https://zyphuel.netlify.app/images/1.jpeg",
-          "datePublished": "2026-08-18T00:00:00+05:00",
-          "dateModified": "2026-08-18T00:00:00+05:00",
+          "datePublished": "2026-09-02T00:00:00+05:00",
+          "dateModified": "2026-09-02T00:00:00+05:00",
           "author": {
             "@type": "Person",
             "name": "Muhammad Daniyal"
@@ -166,8 +166,8 @@ export default function DownloadPage() {
           "headline": "2-Hour Automated Fuel Rate Push Notifications: Why Fleet Managers Rely on Zyphuel",
           "description": "How Zyphuel's built-in 2-hour push notification engine delivers official OGRA price updates and live market rate tracking directly to Android lock screens.",
           "image": "https://zyphuel.netlify.app/images/3.jpeg",
-          "datePublished": "2026-08-18T00:00:00+05:00",
-          "dateModified": "2026-08-18T00:00:00+05:00",
+          "datePublished": "2026-09-02T00:00:00+05:00",
+          "dateModified": "2026-09-02T00:00:00+05:00",
           "author": {
             "@type": "Organization",
             "name": "Zyphuel Telemetry Engineering"
@@ -183,8 +183,8 @@ export default function DownloadPage() {
           "headline": "Commercial Generator Refueling & Sealed LPG Gas Cylinder Refills in Lahore",
           "description": "Eliminate power outage downtime in factories, hospitals, and corporate plazas with scheduled generator diesel refills and safety-tested LPG cylinder deliveries.",
           "image": "https://zyphuel.netlify.app/images/2.jpeg",
-          "datePublished": "2026-08-18T00:00:00+05:00",
-          "dateModified": "2026-08-18T00:00:00+05:00",
+          "datePublished": "2026-09-02T00:00:00+05:00",
+          "dateModified": "2026-09-02T00:00:00+05:00",
           "author": {
             "@type": "Person",
             "name": "Adil Farooq"
@@ -220,7 +220,7 @@ export default function DownloadPage() {
     },
     {
       question: 'Why is the app distributed via direct APK instead of Google Play?',
-      answer: 'We distribute the APK directly to enable rapid deployment of logistics-focused features, GPS auto-detection APIs, and real-time fleet synchronization updates directly to our consumers without delays. A Google Play release is currently in the indexing phase and will be live shortly.'
+      answer: 'We distribute the APK directly to enable rapid deployment of logistics-focused features, GPS auto-detection APIs, and real-time fleet synchronization updates directly to our consumers without delays. The official Google Play Store release is launching soon and will be available shortly.'
     },
     {
       question: 'When will the iOS App Store version be available?',
@@ -277,10 +277,10 @@ export default function DownloadPage() {
                   </a>
 
                   <div className="badge-store-group">
-                    <span className="store-badge play-store disabled" title="Google Play Store - Review in Progress">
+                    <span className="store-badge play-store disabled" title="Google Play Store - Launch Soon">
                       <i className="fa-brands fa-google-play"></i>
                       <div className="store-badge-text">
-                        <span className="small-label">Review in Progress</span>
+                        <span className="small-label">Launch Soon</span>
                         <span className="large-label">Google Play</span>
                       </div>
                     </span>

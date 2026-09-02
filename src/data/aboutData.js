@@ -1,3 +1,5 @@
+import { APP_VERSION, APP_SIZE } from './appVersion.js';
+
 export const aboutArticles = [
   {
     id: 'art-social-linkedin-1',
@@ -46,9 +48,9 @@ export const aboutArticles = [
     readTime: '5 min read',
     url: '/download',
     external: false,
-    summary: 'Inside the software architecture of the Zyphuel Android APK (v1.5.0, 31.0 MB), featuring geolocation auto-pinning, live bowser tracking, and automated 2-hour market rate alerts.',
+    summary: `Inside the software architecture of the Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}), featuring geolocation auto-pinning, live bowser tracking, and automated 2-hour market rate alerts.`,
     highlights: [
-      'Native Android APK v1.5.0 with real-time GPS location lock',
+      `Native Android APK v${APP_VERSION} with real-time GPS location lock`,
       'Instant volumetric digital billing receipt generation',
       'Direct WhatsApp emergency dispatch bridge'
     ]
@@ -109,7 +111,7 @@ export const wikiMetadata = {
     'Euro-V Low-Sulfur Diesel & Generator Supply',
     'Sealed LPG Gas Cylinder Refills & Swap',
     'Potable Clean Water Tankers (Rs. 100/gal)',
-    'Zyphuel Mobile Application for Fuel Suppliers (v1.5.0 Android APK)'
+    `Zyphuel Mobile Application for Fuel Suppliers (v${APP_VERSION} Android APK)`
   ],
   associatedVentures: [
     'Poke nexus (PokeNexus)',

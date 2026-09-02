@@ -1,3 +1,5 @@
+import { APP_VERSION, APP_SIZE, RELEASE_DATE } from './appVersion.js';
+
 export const articles = [
   {
     id: 1,
@@ -24,18 +26,18 @@ export const articles = [
     slug: 'download-zyphuel-apk-guide',
     category: 'Zyphuel App & Guides',
     categoryClass: 'zyphuel-app',
-    title: 'How to Download Zyphuel APK v1.5.0 Safely in Pakistan: Live Price Alerts & GPS Setup',
-    summary: 'A step-by-step installation guide for downloading the official Zyphuel Android APK (v1.5.0, 31.0 MB), enabling location auto-detection, and configuring 2-hour market fuel price notifications.',
-    date: 'August 18, 2026',
+    title: `How to Download Zyphuel APK v${APP_VERSION} Safely in Pakistan: Live Price Alerts & GPS Setup`,
+    summary: `A step-by-step installation guide for downloading the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}), enabling location auto-detection, and configuring 2-hour market fuel price notifications.`,
+    date: RELEASE_DATE,
     readTime: '5 min read',
     author: 'Zyphuel App Engineering',
     authorIcon: 'fa-solid fa-mobile-screen-button',
     image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=90',
     tags: ['ZyphuelAPK', 'DownloadApp', 'FuelRateAlerts', 'AndroidApp'],
     content: [
-      'Searching for a safe and direct mobile fuel delivery app in Pakistan? The official Zyphuel Android Application (v1.5.0, 31.0 MB) is digitally signed, verified, and free from malware, offering seamless mobile refueling across Lahore.',
+      `Searching for a safe and direct mobile fuel delivery app in Pakistan? The official Zyphuel Android Application (v${APP_VERSION}, ${APP_SIZE}) is digitally signed, verified, and free from malware, offering seamless mobile refueling across Lahore.`,
       'To install Zyphuel on your smartphone, download the APK package directly from the official portal at https://zyphuel.netlify.app/download or scan the official QR code. Toggle "Install from Unknown Sources" in your phone settings if prompted, and complete the installation in seconds.',
-      'Key features built into v1.5.0 include automated GPS location detection across all Lahore sectors (Green Town, Gulberg, DHA Phase 1-9, Johar Town, Model Town, and Bahria Town), a real-time multi-fuel dashboard (Super Euro-V Petrol, Euro-V Diesel, HOBC 97, and LPG Gas), and lock-screen push alerts every 2 hours with official OGRA price updates.',
+      `Key features built into v${APP_VERSION} include automated GPS location detection across all Lahore sectors (Green Town, Gulberg, DHA Phase 1-9, Johar Town, Model Town, and Bahria Town), a real-time multi-fuel dashboard (Super Euro-V Petrol, Euro-V Diesel, HOBC 97, and LPG Gas), and lock-screen push alerts every 2 hours with official OGRA price updates.`,
       'By installing the official Zyphuel APK, consumers and business fleet managers get 24/7 access to doorstep fuel delivery with calibrated digital receipts and priority dispatch.'
     ]
   },
