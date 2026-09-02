@@ -62,7 +62,7 @@ export default function TermsOfUsePage() {
         <section className="legal-hero">
           <div className="container">
             <h1 className="legal-title fade-in-up">Terms of Use</h1>
-            <p className="legal-meta fade-in-up" style={{ transitionDelay: '0.1s' }}>Last Updated: July 1, 2026 &bull; Version 1.4</p>
+            <p className="legal-meta fade-in-up" style={{ transitionDelay: '0.1s' }}>Last Updated: September 2, 2026 &bull; Version 2.3</p>
           </div>
         </section>
 

@@ -4,7 +4,7 @@
     <!-- Home Page -->
     <url>
         <loc>https://zyphuel.netlify.app/</loc>
-        <lastmod>2026-08-27</lastmod>
+        <lastmod>2026-09-02</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
         <image:image>
@@ -37,7 +37,7 @@
     <!-- Services Page -->
     <url>
         <loc>https://zyphuel.netlify.app/services</loc>
-        <lastmod>2026-08-27</lastmod>
+        <lastmod>2026-09-02</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -90,7 +90,7 @@
     <!-- Download Mobile Application Page -->
     <url>
         <loc>https://zyphuel.netlify.app/download</loc>
-        <lastmod>2026-08-27</lastmod>
+        <lastmod>2026-09-02</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.95</priority>
         <image:image>
@@ -123,7 +123,7 @@
     <!-- Order Dispatch Page -->
     <url>
         <loc>https://zyphuel.netlify.app/order</loc>
-        <lastmod>2026-08-27</lastmod>
+        <lastmod>2026-09-02</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.95</priority>
         <image:image>
@@ -136,7 +136,7 @@
     <!-- About Page -->
     <url>
         <loc>https://zyphuel.netlify.app/about</loc>
-        <lastmod>2026-08-27</lastmod>
+        <lastmod>2026-09-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -154,7 +154,7 @@
     <!-- Contact Page -->
     <url>
         <loc>https://zyphuel.netlify.app/contact</loc>
-        <lastmod>2026-08-27</lastmod>
+        <lastmod>2026-09-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <image:image>
@@ -167,7 +167,7 @@
     <!-- Privacy Policy -->
     <url>
         <loc>https://zyphuel.netlify.app/privacy-policy</loc>
-        <lastmod>2026-08-27</lastmod>
+        <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -175,53 +175,88 @@
     <!-- Terms of Use -->
     <url>
         <loc>https://zyphuel.netlify.app/terms-of-use</loc>
-        <lastmod>2026-08-27</lastmod>
+        <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <!-- Blog Landing Page -->
     <url>
         <loc>https://zyphuel.netlify.app/blog</loc>
-        <lastmod>2026-09-01</lastmod>
+        <lastmod>2026-09-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/fuel.png</image:loc>
+            <image:title>Zyphuel Mobile Energy &amp; Technology Blog</image:title>
+            <image:caption>Latest insights on on-demand fuel delivery, IoT telemetry, and generator diesel logistics in Lahore, Pakistan.</image:caption>
+        </image:image>
     </url>
 
     <!-- Blog Articles -->
     <url>
         <loc>https://zyphuel.netlify.app/blog/future-of-fuel-delivery-lahore</loc>
-        <lastmod>2026-07-06</lastmod>
+        <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.75</priority>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/fuel.png</image:loc>
+            <image:title>The Future of Fueling in Lahore</image:title>
+            <image:caption>How on-demand fuel delivery transforms urban logistics in Lahore.</image:caption>
+        </image:image>
     </url>
     <url>
         <loc>https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide</loc>
-        <lastmod>2026-08-18</lastmod>
+        <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.85</priority>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/1.jpeg</image:loc>
+            <image:title>Download Zyphuel APK Guide</image:title>
+            <image:caption>Official installation guide for Zyphuel Android APK with live GPS auto-detection.</image:caption>
+        </image:image>
     </url>
     <url>
         <loc>https://zyphuel.netlify.app/blog/generator-refueling-services-lahore</loc>
-        <lastmod>2026-07-01</lastmod>
+        <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.75</priority>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/tank.png</image:loc>
+            <image:title>Commercial Generator Refueling Services in Lahore</image:title>
+            <image:caption>Preventing power outage downtime with scheduled generator diesel replenishment.</image:caption>
+        </image:image>
     </url>
     <url>
         <loc>https://zyphuel.netlify.app/blog/generator-diesel-lpg-delivery-lahore</loc>
-        <lastmod>2026-06-29</lastmod>
+        <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.75</priority>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/Gallen.png</image:loc>
+            <image:title>Doorstep Generator Diesel &amp; LPG Gas Cylinder Delivery</image:title>
+            <image:caption>Commercial diesel and sealed LPG gas cylinder delivery across Lahore.</image:caption>
+        </image:image>
     </url>
     <url>
         <loc>https://zyphuel.netlify.app/blog/iot-telemetry-fuel-delivery</loc>
-        <lastmod>2026-06-24</lastmod>
+        <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.75</priority>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/tablet.png</image:loc>
+            <image:title>IoT and Telemetry Tech Powering Doorstep Fuel Delivery</image:title>
+            <image:caption>Inside Zyphuel digital flow-meters and cloud logistics telemetry.</image:caption>
+        </image:image>
     </url>
     <url>
         <loc>https://zyphuel.netlify.app/blog/zyphuel-calibrated-telemetry-fleet</loc>
-        <lastmod>2026-06-20</lastmod>
+        <lastmod>2026-09-02</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.75</priority>
+        <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/daniyal.jpeg</image:loc>
+            <image:title>Founder &amp; CEO Muhammad Daniyal - Zyphuel Telemetry Fleet</image:title>
+            <image:caption>Engineering Pakistan's calibrated fuel delivery fleet and telemetry infrastructure.</image:caption>
+        </image:image>
     </url>
 </urlset>

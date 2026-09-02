@@ -77,7 +77,7 @@ export const articles = [
       'Commercial standby generators and domestic kitchens in Lahore require a steady supply of high-grade fuel and LPG cylinders. Transporting heavy gas cylinders or fuel drums manually poses severe safety hazards.',
       'Zyphuel provides an integrated utility delivery service supplying certified Euro-V Diesel for industrial generators alongside sealed LPG Gas Cylinders and clean water tanker refills.',
       'All deliveries adhere to strict safety protocols: bowsers are equipped with emergency shut-off valves, static grounding wires, and fire suppression systems. Gas cylinders undergo mandatory pressure testing before dispatch.',
-      'With transparent pricing based on official OGRA rates (Petrol Rs 335.06/L, Diesel Rs 390.62/L, HOBC 97 Rs 350.00/L), Zyphuel gives businesses and homeowners complete peace of mind.'
+      'With transparent pricing based on official OGRA rates (Petrol Rs 343.87/L, Diesel Rs 370.92/L, HOBC 97 Rs 365.00/L, LPG Gas Rs 258.65/kg), Zyphuel gives businesses and homeowners complete peace of mind.'
     ]
   },
   {

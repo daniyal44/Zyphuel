@@ -109,7 +109,7 @@ const ARTICLES_SCHEMA = [
     "description": "Explore how mobile fuel delivery is eliminating long queues at petrol stations, reducing urban emissions, and reshaping energy logistics across Pakistan's major business hubs.",
     "image": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=90",
     "datePublished": "2026-07-06T08:00:00+05:00",
-    "dateModified": "2026-08-24T00:00:00+05:00",
+    "dateModified": "2026-09-02T00:00:00+05:00",
     "author": {
       "@type": "Organization",
       "name": "Zyphuel Logistics Team"
@@ -143,7 +143,7 @@ const ARTICLES_SCHEMA = [
     "description": "Discover how automated commercial generator refueling minimizes operational downtime for factories, hospitals, and corporate offices facing unexpected power interruptions.",
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=90",
     "datePublished": "2026-07-01T08:00:00+05:00",
-    "dateModified": "2026-08-24T00:00:00+05:00",
+    "dateModified": "2026-09-02T00:00:00+05:00",
     "author": {
       "@type": "Organization",
       "name": "Zyphuel Commercial Ops"
@@ -160,7 +160,7 @@ const ARTICLES_SCHEMA = [
     "description": "Learn how corporate offices, factories, and housing societies in Lahore eliminate load-shedding downtime with on-demand Euro-V generator refueling and LPG gas cylinder refills.",
     "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=90",
     "datePublished": "2026-06-29T08:00:00+05:00",
-    "dateModified": "2026-08-24T00:00:00+05:00",
+    "dateModified": "2026-09-02T00:00:00+05:00",
     "author": {
       "@type": "Organization",
       "name": "Zyphuel Utilities Team"
@@ -177,7 +177,7 @@ const ARTICLES_SCHEMA = [
     "description": "Learn about the tech stack powering Zyphuel's micro-refueling fleet, from calibrated digital flow meters to real-time safety shut-off systems and route dispatch sensors.",
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=90",
     "datePublished": "2026-06-24T08:00:00+05:00",
-    "dateModified": "2026-08-24T00:00:00+05:00",
+    "dateModified": "2026-09-02T00:00:00+05:00",
     "author": {
       "@type": "Organization",
       "name": "Zyphuel Engineering"
@@ -194,7 +194,7 @@ const ARTICLES_SCHEMA = [
     "description": "Inside Zyphuel’s digital flow-meter technology, double-walled micro-tankers, and automated dispatch system engineered by Founder & CEO Muhammad Daniyal (ItxMDK).",
     "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=90",
     "datePublished": "2026-06-20T08:00:00+05:00",
-    "dateModified": "2026-08-24T00:00:00+05:00",
+    "dateModified": "2026-09-02T00:00:00+05:00",
     "author": {
       "@type": "Person",
       "name": "Muhammad Daniyal (CEO)",
@@ -728,6 +728,7 @@ const ROUTES = [
           "description": article.summary,
           "image": article.image,
           "datePublished": article.date,
+          "dateModified": "2026-09-02T00:00:00+05:00",
           "author": {
             "@type": "Organization",
             "name": article.author
@@ -873,6 +874,21 @@ async function prerender() {
 
     fs.writeFileSync(outPath, html, 'utf-8')
     console.log(`✅ Saved ${route.outFile} (${Buffer.byteLength(html, 'utf-8')} bytes)`)
+  }
+
+  // Ensure sitemap.xml and robots.txt in dist are synced
+  const sitemapSrc = toAbsolute('public/sitemap.xml')
+  const sitemapDist = toAbsolute('dist/sitemap.xml')
+  if (fs.existsSync(sitemapSrc)) {
+    fs.copyFileSync(sitemapSrc, sitemapDist)
+    console.log('📋 Synced sitemap.xml to dist/')
+  }
+
+  const robotsSrc = toAbsolute('public/robots.txt')
+  const robotsDist = toAbsolute('dist/robots.txt')
+  if (fs.existsSync(robotsSrc)) {
+    fs.copyFileSync(robotsSrc, robotsDist)
+    console.log('🤖 Synced robots.txt to dist/')
   }
 
   // Clean up temporary dist-ssr directory

@@ -18,6 +18,7 @@ const navLinks = [
   { to: '/', label: 'Home', exact: true, title: 'Zyphuel Home Page' },
   { to: '/services', label: 'Services', title: 'Zyphuel Services & Fuel Rates' },
   { to: '/about', label: 'About Us', title: 'About Zyphuel & Leadership Team' },
+  { to: '/blog', label: 'Blog', title: 'Zyphuel Energy & Technology Blog' },
   { to: '/contact', label: 'Contact', title: 'Contact Support & Helpline' },
 ]
 

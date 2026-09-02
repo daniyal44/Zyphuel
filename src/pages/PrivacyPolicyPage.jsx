@@ -65,7 +65,7 @@ export default function PrivacyPolicyPage() {
         <section className="legal-hero">
           <div className="container">
             <h1 className="legal-title fade-in-up">Privacy Policy</h1>
-            <p className="legal-meta fade-in-up" style={{ transitionDelay: '0.1s' }}>Last Updated: July 1, 2026 &bull; Version 2.1</p>
+            <p className="legal-meta fade-in-up" style={{ transitionDelay: '0.1s' }}>Last Updated: September 2, 2026 &bull; Version 2.3</p>
           </div>
         </section>
 

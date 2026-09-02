@@ -49,6 +49,7 @@ export const footerData = {
     { label: 'Home', to: '/' },
     { label: 'Services & Rates', to: '/services' },
     { label: 'About Us & Team', to: '/about' },
+    { label: 'Blog & Articles', to: '/blog' },
     { label: 'Order Fuel Dispatch', to: '/order' },
     { label: 'Contact Helpline', to: '/contact' },
     { label: 'Download Mobile App', to: '/download' },

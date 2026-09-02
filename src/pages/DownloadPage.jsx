@@ -408,7 +408,7 @@ export default function DownloadPage() {
                   <i className="fa-solid fa-gas-pump"></i>
                 </div>
                 <h3>Multi-Fuel Live Rate Dashboard</h3>
-                <p>Monitor live market rates in real-time: Petrol (Rs 335.06/L), Diesel (Rs 390.62/L), High-Octane 97 (Rs 350.00/L), and LPG Gas (Rs 241.43/kg) with transparent Euro-V quality specs.</p>
+                <p>Monitor live market rates in real-time: Petrol (Rs 343.87/L), Diesel (Rs 370.92/L), High-Octane 97 (Rs 365.00/L), and LPG Gas (Rs 258.65/kg) with transparent Euro-V quality specs.</p>
               </div>
 
               <div className="feature-app-card fade-in-up" style={{ transitionDelay: '0.2s' }}>

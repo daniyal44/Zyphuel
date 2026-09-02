@@ -211,7 +211,7 @@ export default function ServicesPage() {
                   </div>
                   <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm, 6px)', padding: '8px 12px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.03)' }}>
                     <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#f97316', flexShrink: 0 }}></span>
-                    <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>LPG: Rs. {livePrices.lpg ? livePrices.lpg.toFixed(2) : '241.43'}/kg</span>
+                    <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>LPG: Rs. {livePrices.lpg ? livePrices.lpg.toFixed(2) : '258.65'}/kg</span>
                   </div>
                   <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm, 6px)', padding: '8px 12px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.03)' }}>
                     <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#06b6d4', flexShrink: 0 }}></span>
