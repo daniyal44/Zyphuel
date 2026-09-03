@@ -28,18 +28,11 @@ export default function TermsOfUsePage() {
     canonicalPath: '/terms-of-use',
     type: 'website',
     schema: {
-      "@context": "https://schema.org",
       "@type": "WebPage",
+      "@id": "https://zyphuel.netlify.app/terms-of-use#webpage",
       "name": "Terms of Use - Zyphuel",
       "description": "Terms of use and service agreement for Zyphuel fuel delivery and digital logistics platform.",
-      "url": "https://zyphuel.netlify.app/terms-of-use",
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zyphuel.netlify.app/" },
-          { "@type": "ListItem", "position": 2, "name": "Terms of Use", "item": "https://zyphuel.netlify.app/terms-of-use" }
-        ]
-      }
+      "url": "https://zyphuel.netlify.app/terms-of-use"
     }
   })
 

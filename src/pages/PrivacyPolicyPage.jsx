@@ -29,18 +29,11 @@ export default function PrivacyPolicyPage() {
     canonicalPath: '/privacy-policy',
     type: 'website',
     schema: {
-      "@context": "https://schema.org",
       "@type": "WebPage",
+      "@id": "https://zyphuel.netlify.app/privacy-policy#webpage",
       "name": "Privacy Policy - Zyphuel",
       "description": "Zyphuel data privacy policy and data security standards for users in Pakistan and globally.",
-      "url": "https://zyphuel.netlify.app/privacy-policy",
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zyphuel.netlify.app/" },
-          { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://zyphuel.netlify.app/privacy-policy" }
-        ]
-      }
+      "url": "https://zyphuel.netlify.app/privacy-policy"
     }
   })
 

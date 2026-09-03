@@ -199,7 +199,10 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
     // 6. Dynamic Multi-Schema Graph Construction (AEO, GEO, VSO & Schema.org)
     const currentPath = window.location.pathname
     const pathNameClean = currentPath === '/' ? 'Home' : currentPath.replace(/^\/+|\/+$/g, '').replace(/-/g, ' ')
-    const pathTitleFormatted = pathNameClean.charAt(0).toUpperCase() + pathNameClean.slice(1)
+    const pathTitleFormatted = pathNameClean
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ')
 
     const breadcrumbSchema = {
       "@type": "BreadcrumbList",
@@ -208,7 +211,7 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": domain
+          "item": `${domain}/`
         },
         ...(currentPath !== '/' ? [{
           "@type": "ListItem",
@@ -227,10 +230,15 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
     ]
 
     if (schema) {
+      const cleanNode = (node) => {
+        if (!node || typeof node !== 'object') return node
+        const { ['@context']: _, ...rest } = node
+        return rest
+      }
       if (schema['@graph'] && Array.isArray(schema['@graph'])) {
-        finalGraph = [...finalGraph, ...schema['@graph']]
+        finalGraph = [...finalGraph, ...schema['@graph'].map(cleanNode)]
       } else {
-        finalGraph.push(schema)
+        finalGraph.push(cleanNode(schema))
       }
     }
 
