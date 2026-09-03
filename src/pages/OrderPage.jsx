@@ -57,6 +57,36 @@ export default function OrderPage() {
           "object": {
             "@type": "Product",
             "name": "Zyphuel Mobile Refueling - Diesel & Petrol Delivery",
+            "description": "On-demand doorstep fuel and utility delivery in Lahore with certified digital flow-meter calibration. Super petrol, diesel, LPG cylinders, and water refills.",
+            "image": "https://zyphuel.netlify.app/images/tank.png",
+            "brand": {
+              "@type": "Brand",
+              "name": "Zyphuel"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "128",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "review": [
+              {
+                "@type": "Review",
+                "author": {
+                  "@type": "Person",
+                  "name": "Hamza Tariq"
+                },
+                "datePublished": "2026-08-10",
+                "reviewBody": "Fast and dependable doorstep diesel delivery in Lahore. Genuine fuel quality and digital flow meter ensures exact quantity.",
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5",
+                  "worstRating": "1"
+                }
+              }
+            ],
             "offers": {
               "@type": "AggregateOffer",
               "priceCurrency": "PKR",

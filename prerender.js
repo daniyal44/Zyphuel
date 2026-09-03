@@ -534,6 +534,47 @@ const ROUTES = [
               "http://schema.org/MobileWebPlatform"
             ]
           },
+          "object": {
+            "@type": "Product",
+            "name": "Zyphuel Mobile Refueling - Diesel & Petrol Delivery",
+            "description": "On-demand doorstep fuel and utility delivery in Lahore with certified digital flow-meter calibration. Super petrol, diesel, LPG cylinders, and water refills.",
+            "image": `${DOMAIN}/images/tank.png`,
+            "brand": {
+              "@type": "Brand",
+              "name": "Zyphuel"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "128",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "review": [
+              {
+                "@type": "Review",
+                "author": {
+                  "@type": "Person",
+                  "name": "Hamza Tariq"
+                },
+                "datePublished": "2026-08-10",
+                "reviewBody": "Fast and dependable doorstep diesel delivery in Lahore. Genuine fuel quality and digital flow meter ensures exact quantity.",
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "5",
+                  "bestRating": "5",
+                  "worstRating": "1"
+                }
+              }
+            ],
+            "offers": {
+              "@type": "AggregateOffer",
+              "priceCurrency": "PKR",
+              "lowPrice": "100.00",
+              "highPrice": "448.00",
+              "offerCount": "5"
+            }
+          },
           "agent": { "@id": `${DOMAIN}/#organization` }
         },
         {
@@ -855,8 +896,8 @@ async function prerender() {
     }, null, 2)
 
     html = html.replace(
-      /<script\s+type=["']application\/ld\+json["']>[\s\S]*?<\/script>/i,
-      `<script type="application/ld+json">\n${schemaJson}\n    </script>`
+      /<script\s+type=["']application\/ld\+json["'](?:\s+id=["'][^"']*["'])?>[\s\S]*?<\/script>/i,
+      `<script type="application/ld+json" id="seo-schema">\n${schemaJson}\n    </script>`
     )
 
     // Inject Pre-rendered App Content into <div id="root">

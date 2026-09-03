@@ -198,7 +198,7 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
 
     // 6. Dynamic Multi-Schema Graph Construction (AEO, GEO, VSO & Schema.org)
     const currentPath = window.location.pathname
-    const pathNameClean = currentPath === '/' ? 'Home' : currentPath.replace('/', '').replace('-', ' ')
+    const pathNameClean = currentPath === '/' ? 'Home' : currentPath.replace(/^\/+|\/+$/g, '').replace(/-/g, ' ')
     const pathTitleFormatted = pathNameClean.charAt(0).toUpperCase() + pathNameClean.slice(1)
 
     const breadcrumbSchema = {
