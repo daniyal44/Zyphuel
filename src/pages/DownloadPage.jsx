@@ -62,7 +62,7 @@ export default function DownloadPage() {
   const [activeFaq, setActiveFaq] = useState(null)
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  // Slides mapped directly from actual app screenshots: 1.jpeg, 2.jpeg, 3.jpeg
+  // Slides mapped directly from actual app screenshots: 1.jpeg, 2.jpeg, 3.jpeg, 4.jpeg
   const slides = [
     {
       img: '/images/1.jpeg',
@@ -78,6 +78,11 @@ export default function DownloadPage() {
       img: '/images/3.jpeg',
       title: '2-Hour Fuel Rate Push Notifications',
       subtitle: 'Automated 2-hour market fuel price alert notifications and real-time delivery milestone updates.'
+    },
+    {
+      img: '/images/4.jpeg',
+      title: 'Calibrated Dispensing & Digital Proof',
+      subtitle: 'Zero short-fueling digital invoice breakdown with live telemetry sensor confirmation.'
     }
   ]
 
@@ -149,8 +154,8 @@ export default function DownloadPage() {
           "headline": `Zyphuel Mobile App v${APP_VERSION}: Next-Gen Doorstep Fuel Logistics & Cloud Telemetry in Pakistan`,
           "description": `Explore how the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) transforms urban energy delivery in Lahore with instant GPS auto-detection and zero-latency cloud telemetry.`,
           "image": "https://zyphuel.netlify.app/images/1.jpeg",
-          "datePublished": "2026-09-02T00:00:00+05:00",
-          "dateModified": "2026-09-02T00:00:00+05:00",
+          "datePublished": "2026-09-05T00:00:00+05:00",
+          "dateModified": "2026-09-06T00:00:00+05:00",
           "author": {
             "@type": "Person",
             "name": "Muhammad Daniyal"
@@ -166,8 +171,8 @@ export default function DownloadPage() {
           "headline": "2-Hour Automated Fuel Rate Push Notifications: Why Fleet Managers Rely on Zyphuel",
           "description": "How Zyphuel's built-in 2-hour push notification engine delivers official OGRA price updates and live market rate tracking directly to Android lock screens.",
           "image": "https://zyphuel.netlify.app/images/3.jpeg",
-          "datePublished": "2026-09-02T00:00:00+05:00",
-          "dateModified": "2026-09-02T00:00:00+05:00",
+          "datePublished": "2026-09-05T00:00:00+05:00",
+          "dateModified": "2026-09-06T00:00:00+05:00",
           "author": {
             "@type": "Organization",
             "name": "Zyphuel Telemetry Engineering"
@@ -183,8 +188,8 @@ export default function DownloadPage() {
           "headline": "Commercial Generator Refueling & Sealed LPG Gas Cylinder Refills in Lahore",
           "description": "Eliminate power outage downtime in factories, hospitals, and corporate plazas with scheduled generator diesel refills and safety-tested LPG cylinder deliveries.",
           "image": "https://zyphuel.netlify.app/images/2.jpeg",
-          "datePublished": "2026-09-02T00:00:00+05:00",
-          "dateModified": "2026-09-02T00:00:00+05:00",
+          "datePublished": "2026-09-05T00:00:00+05:00",
+          "dateModified": "2026-09-06T00:00:00+05:00",
           "author": {
             "@type": "Person",
             "name": "Adil Farooq"
@@ -216,19 +221,31 @@ export default function DownloadPage() {
   const faqs = [
     {
       question: `Is the Zyphuel APK v${APP_VERSION} safe to download and install?`,
-      answer: `Yes, absolutely. The Zyphuel Android Application package (v${APP_VERSION}) is safe, verified, and free from any malware. It is compiled and digitally signed by our engineering team. We recommend downloading the APK directly from our official portal to ensure you get the genuine, unaltered app.`
+      answer: `Yes, absolutely. The Zyphuel Android Application package (v${APP_VERSION}, ${APP_SIZE}) is safe, verified, and free from any malware. It is compiled and digitally signed by our engineering team. We recommend downloading the APK directly from our official portal to ensure you get the genuine, unaltered app.`
+    },
+    {
+      question: 'How do the 2-hour market fuel price notifications work?',
+      answer: 'Following OGRA’s implementation of the daily fuel pricing mechanism based on international Platts benchmarks, the app monitors official price updates and sends automated lock-screen notifications every 2 hours. This enables drivers and fleet managers to lock current rates before depot price adjustments take effect.'
+    },
+    {
+      question: 'How does Zyphuel ensure 100% volumetric accuracy and prevent short-fueling?',
+      answer: 'Every micro-refueler bowser is equipped with positive-displacement electronic flow meters calibrated to 0.01L precision with automated temperature compensation (15°C standard). The meter streams the live dispensing volume directly to your smartphone screen via an encrypted Bluetooth/cloud bridge, followed by an immutable digital receipt.'
+    },
+    {
+      question: 'Which areas of Lahore are covered by the mobile app?',
+      answer: 'The Zyphuel app features automated GPS coordinate detection covering all major Lahore zones including DHA Phase 1–9, Gulberg, Johar Town, Model Town, Green Town, Bahria Town, Faisal Town, Cantt, and surrounding industrial corridors with average 45-minute dispatch.'
+    },
+    {
+      question: 'Can I pay with Cash on Delivery (COD) for household fuel orders?',
+      answer: 'Yes! Smaller household orders from 1 to 10 Litres can be settled directly via Cash on Delivery (COD). For larger vehicle fills, commercial generator refueling, or corporate fleet accounts, we accept instant bank transfer, debit/credit cards, and structured 15/30-day corporate billing.'
     },
     {
       question: 'Why is the app distributed via direct APK instead of Google Play?',
-      answer: 'We distribute the APK directly to enable rapid deployment of logistics-focused features, GPS auto-detection APIs, and real-time fleet synchronization updates directly to our consumers without delays. The official Google Play Store release is launching soon and will be available shortly.'
+      answer: 'We distribute the APK directly to enable rapid deployment of logistics-focused features, real-time GPS auto-detection updates, and driver foreground telemetry sync directly to our consumers without store delays. The official Google Play Store release is launching soon.'
     },
     {
       question: 'When will the iOS App Store version be available?',
-      answer: 'Our iOS version is currently in closed beta testing. We expect to launch it on the Apple App Store in the next quarter. In the meantime, iPhone users can enjoy a seamless ordering experience by accessing our fully responsive web platform on their mobile browsers.'
-    },
-    {
-      question: 'Does the application require special system permissions?',
-      answer: 'The Zyphuel app requires basic Location permissions (to accurately auto-detect your address coordinates in Lahore) and Notification permissions (to deliver 2-hour fuel market rate updates and order status milestones). We do not access contacts, storage, or personal files.'
+      answer: 'Our iOS version is currently in closed beta testing and scheduled to launch on the Apple App Store soon. In the meantime, iPhone users can enjoy a seamless ordering experience by accessing our fully responsive web platform at https://zyphuel.netlify.app/order.'
     }
   ]
 
@@ -386,45 +403,237 @@ export default function DownloadPage() {
           </div>
         </section>
 
-        {/* Feature Highlights Grid synced with screenshot capabilities */}
-        <section className="app-features section-padding">
+        {/* Key Benefits Metrics Banner */}
+        <section className="download-benefits-banner">
+          <div className="container">
+            <div className="benefits-metrics-grid fade-in-up">
+              <div className="benefit-metric-card">
+                <div className="metric-icon"><i className="fa-solid fa-clock-rotate-left"></i></div>
+                <div className="metric-value">45+ Mins</div>
+                <div className="metric-label">Saved Per Refueling Trip</div>
+              </div>
+              <div className="benefit-metric-card">
+                <div className="metric-icon"><i className="fa-solid fa-gauge-high"></i></div>
+                <div className="metric-value">99.99%</div>
+                <div className="metric-label">Calibrated Volumetric Accuracy</div>
+              </div>
+              <div className="benefit-metric-card">
+                <div className="metric-icon"><i className="fa-solid fa-shield-halved"></i></div>
+                <div className="metric-value">0% Fraud</div>
+                <div className="metric-label">Zero Short-Fueling Guarantee</div>
+              </div>
+              <div className="benefit-metric-card">
+                <div className="metric-icon"><i className="fa-solid fa-bell"></i></div>
+                <div className="metric-value">2-Hour</div>
+                <div className="metric-label">OGRA Market Price Push Alerts</div>
+              </div>
+              <div className="benefit-metric-card">
+                <div className="metric-icon"><i className="fa-solid fa-map-location-dot"></i></div>
+                <div className="metric-value">100%</div>
+                <div className="metric-label">Lahore Citywide Sector Coverage</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works Section */}
+        <section id="how-it-works" className="how-it-works-section section-padding">
           <div className="container">
             <div className="section-header fade-in-up">
-              <h2 className="section-title">Why Use the Zyphuel Mobile App?</h2>
-              <p className="section-subtitle">Engineered with real-time GPS auto-detection, multi-fuel live market rate tracking, and 2-hour push notifications for fuel suppliers in Pakistan.</p>
+              <div className="version-header-badge">
+                <i className="fa-solid fa-route"></i> Streamlined Workflow
+              </div>
+              <h2 className="section-title">How the Zyphuel App Works</h2>
+              <p className="section-subtitle">Order certified Euro-V fuel directly to your parked vehicle or standby generator in 4 simple steps.</p>
             </div>
 
-            <div className="app-features-grid">
-              <div className="feature-app-card fade-in-up">
-                <div className="icon-wrapper tracking">
-                  <i className="fa-solid fa-location-crosshairs"></i>
+            <div className="how-steps-grid">
+              <div className="how-step-card fade-in-up">
+                <div className="how-step-header">
+                  <div className="how-step-badge">01</div>
+                  <div className="how-step-icon"><i className="fa-solid fa-gas-pump"></i></div>
                 </div>
-                <h3>GPS Auto-Detect Location</h3>
-                <p>Automatic GPS coordinate detection & location pinning for Gulberg, DHA, Green Town, Lahore and surrounding sectors. Easily edit addresses or trigger auto-detection with one tap.</p>
+                <h3>Choose Fuel &amp; Quantity</h3>
+                <p>Select your required fuel: Super Euro-V Petrol, High-Octane 97, Euro-V Diesel, or LPG Gas Cylinders. Choose any volume from 1 Litre up to full tank capacity.</p>
+                <div className="how-step-meta">
+                  <i className="fa-solid fa-circle-check"></i> COD available for 1 to 10L
+                </div>
               </div>
 
-              <div className="feature-app-card fade-in-up" style={{ transitionDelay: '0.1s' }}>
-                <div className="icon-wrapper schedule">
-                  <i className="fa-solid fa-gas-pump"></i>
+              <div className="how-step-card fade-in-up" style={{ transitionDelay: '0.1s' }}>
+                <div className="how-step-header">
+                  <div className="how-step-badge">02</div>
+                  <div className="how-step-icon"><i className="fa-solid fa-location-crosshairs"></i></div>
                 </div>
-                <h3>Multi-Fuel Live Rate Dashboard</h3>
-                <p>Monitor live market rates in real-time: Petrol (Rs 343.87/L), Diesel (Rs 370.92/L), High-Octane 97 (Rs 365.00/L), and LPG Gas (Rs 258.65/kg) with transparent Euro-V quality specs.</p>
+                <h3>Auto-Pin Your GPS Location</h3>
+                <p>The app automatically detects your exact GPS coordinates in Lahore (Gulberg, DHA 1–9, Johar Town, Bahria Town, Green Town, etc.) or allows custom pin adjustments.</p>
+                <div className="how-step-meta">
+                  <i className="fa-solid fa-circle-check"></i> Instant sector resolution
+                </div>
               </div>
 
-              <div className="feature-app-card fade-in-up" style={{ transitionDelay: '0.2s' }}>
-                <div className="icon-wrapper payment">
-                  <i className="fa-solid fa-bell"></i>
+              <div className="how-step-card fade-in-up" style={{ transitionDelay: '0.2s' }}>
+                <div className="how-step-header">
+                  <div className="how-step-badge">03</div>
+                  <div className="how-step-icon"><i className="fa-solid fa-satellite-dish"></i></div>
                 </div>
-                <h3>2-Hour Price Alert Push Notifications</h3>
-                <p>Stay informed with automated 2-hour fuel market price update notifications sent straight to your lock screen, alongside live refueler dispatch milestone alerts.</p>
+                <h3>Live Micro-Refueler Tracking</h3>
+                <p>Watch your assigned micro-tanker bowser approach on the interactive map with real-time GPS telemetry, driver contact details, and precise live ETA updates.</p>
+                <div className="how-step-meta">
+                  <i className="fa-solid fa-circle-check"></i> Average 45-min arrival time
+                </div>
               </div>
 
-              <div className="feature-app-card fade-in-up" style={{ transitionDelay: '0.3s' }}>
-                <div className="icon-wrapper telemetry">
-                  <i className="fa-solid fa-bolt"></i>
+              <div className="how-step-card fade-in-up" style={{ transitionDelay: '0.3s' }}>
+                <div className="how-step-header">
+                  <div className="how-step-badge">04</div>
+                  <div className="how-step-icon"><i className="fa-solid fa-receipt"></i></div>
                 </div>
-                <h3>Instant "Order Now" Dispatch</h3>
-                <p>Place on-demand fuel orders instantly with our streamlined one-tap checkout, calibrated flow-meter digital receipts, and 24/7 priority delivery servicing Lahore.</p>
+                <h3>Calibrated Metering &amp; Receipt</h3>
+                <p>HAZMAT-certified operators refuel your tank using calibrated digital flow meters. Watch exact litres stream live on your phone and receive a verified digital invoice.</p>
+                <div className="how-step-meta">
+                  <i className="fa-solid fa-circle-check"></i> 100% volumetric transparency
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Us Section */}
+        <section id="why-choose-us" className="why-choose-section section-padding">
+          <div className="container">
+            <div className="section-header fade-in-up">
+              <div className="version-header-badge">
+                <i className="fa-solid fa-award"></i> The Zyphuel Advantage
+              </div>
+              <h2 className="section-title">Why Choose the Zyphuel Mobile App?</h2>
+              <p className="section-subtitle">Say goodbye to petrol station congestion, meter manipulation, and dangerous open jerry-can transportation.</p>
+            </div>
+
+            <div className="why-choose-grid">
+              <div className="why-card fade-in-up">
+                <div className="why-card-icon"><i className="fa-solid fa-calculator"></i></div>
+                <h3>Zero Short-Fueling Guarantee</h3>
+                <p>Conventional retail pumps in Pakistan frequently suffer from mechanical meter wear or tampering. Zyphuel uses positive-displacement flow meters with 0.01L digital precision.</p>
+                <ul className="why-card-feature-list">
+                  <li><i className="fa-solid fa-check"></i> 0.01-Litre optical pulse encoders</li>
+                  <li><i className="fa-solid fa-check"></i> Live Bluetooth meter sync to your phone</li>
+                  <li><i className="fa-solid fa-check"></i> Cryptographically signed digital receipts</li>
+                </ul>
+              </div>
+
+              <div className="why-card fade-in-up" style={{ transitionDelay: '0.1s' }}>
+                <div className="why-card-icon"><i className="fa-solid fa-droplet"></i></div>
+                <h3>100% Pure Euro-V Terminal Fuel</h3>
+                <p>Direct from certified petroleum storage terminals into our double-walled bowsers. Zero middle-man dilution, zero water contamination, and certified fuel density testing.</p>
+                <ul className="why-card-feature-list">
+                  <li><i className="fa-solid fa-check"></i> Super Euro-V Petrol (92 Octane)</li>
+                  <li><i className="fa-solid fa-check"></i> High-Octane 97 (HOBC) for luxury vehicles</li>
+                  <li><i className="fa-solid fa-check"></i> Low-Sulfur Hi-Cetane Euro-V Diesel</li>
+                </ul>
+              </div>
+
+              <div className="why-card fade-in-up" style={{ transitionDelay: '0.2s' }}>
+                <div className="why-card-icon"><i className="fa-solid fa-bell"></i></div>
+                <h3>2-Hour Market Price Lock Alerts</h3>
+                <p>Stay ahead of Pakistan's new OGRA daily fuel pricing system. Our background notification daemon tracks international Platts benchmark shifts every 2 hours.</p>
+                <ul className="why-card-feature-list">
+                  <li><i className="fa-solid fa-check"></i> Automated lock-screen rate push notifications</li>
+                  <li><i className="fa-solid fa-check"></i> Priority rate-lock before pump price hikes</li>
+                  <li><i className="fa-solid fa-check"></i> Official ex-depot transparency</li>
+                </ul>
+              </div>
+
+              <div className="why-card fade-in-up" style={{ transitionDelay: '0.3s' }}>
+                <div className="why-card-icon"><i className="fa-solid fa-hourglass-half"></i></div>
+                <h3>Save 45+ Minutes Per Fueling Trip</h3>
+                <p>Eliminate unnecessary round trips to petrol pumps, standing in gridlocked queues during peak hours, and navigating congested Lahore city traffic.</p>
+                <ul className="why-card-feature-list">
+                  <li><i className="fa-solid fa-check"></i> Refuel parked at your residence while you sleep</li>
+                  <li><i className="fa-solid fa-check"></i> Refuel at corporate office parking lots</li>
+                  <li><i className="fa-solid fa-check"></i> Zero engine idling fuel waste in lines</li>
+                </ul>
+              </div>
+
+              <div className="why-card fade-in-up" style={{ transitionDelay: '0.4s' }}>
+                <div className="why-card-icon"><i className="fa-solid fa-shield-virus"></i></div>
+                <h3>NFPA 30A &amp; HAZMAT Safety Standards</h3>
+                <p>Transporting loose fuel in unapproved plastic bottles or cans is hazardous and illegal. Our purpose-built micro-tankers operate under international safety protocols.</p>
+                <ul className="why-card-feature-list">
+                  <li><i className="fa-solid fa-check"></i> Static grounding cables &amp; anti-spark nozzles</li>
+                  <li><i className="fa-solid fa-check"></i> Automatic emergency vapor shut-off valves</li>
+                  <li><i className="fa-solid fa-check"></i> HAZMAT-certified and trained operators</li>
+                </ul>
+              </div>
+
+              <div className="why-card fade-in-up" style={{ transitionDelay: '0.5s' }}>
+                <div className="why-card-icon"><i className="fa-solid fa-wallet"></i></div>
+                <h3>Flexible Payment &amp; B2B Fleet Invoicing</h3>
+                <p>From individual household COD deliveries to multi-vehicle corporate accounts, Zyphuel provides frictionless financial management.</p>
+                <ul className="why-card-feature-list">
+                  <li><i className="fa-solid fa-check"></i> Cash on Delivery (COD) for 1–10 Litres</li>
+                  <li><i className="fa-solid fa-check"></i> Biometric 1-tap checkout (Fingerprint/Face)</li>
+                  <li><i className="fa-solid fa-check"></i> 15/30-day consolidated corporate credit lines</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How It Can Help Section */}
+        <section id="how-it-helps" className="how-it-helps-section section-padding">
+          <div className="container">
+            <div className="section-header fade-in-up">
+              <div className="version-header-badge">
+                <i className="fa-solid fa-hand-holding-heart"></i> Tailored Solutions
+              </div>
+              <h2 className="section-title">How the Zyphuel App Helps You</h2>
+              <p className="section-subtitle">Dedicated on-demand fueling solutions designed for everyday drivers, generator owners, and enterprise fleets.</p>
+            </div>
+
+            <div className="help-use-cases-grid">
+              <div className="help-use-case-card fade-in-up">
+                <span className="help-card-tag">Personal Mobility</span>
+                <h3>Daily Drivers &amp; Commuters</h3>
+                <p>Never worry about an empty fuel needle on your morning commute. Schedule a doorstep refuel at night and start your day with a full tank without visiting a crowded petrol pump.</p>
+                <ul className="help-card-perks">
+                  <li><i className="fa-solid fa-check"></i> Refuel parked at your porch or carport</li>
+                  <li><i className="fa-solid fa-check"></i> Biometric fingerprint order confirmation</li>
+                  <li><i className="fa-solid fa-check"></i> Cash on Delivery supported for small top-ups</li>
+                </ul>
+              </div>
+
+              <div className="help-use-case-card fade-in-up" style={{ transitionDelay: '0.1s' }}>
+                <span className="help-card-tag">Power Continuity</span>
+                <h3>Standby Generator Owners</h3>
+                <p>Avoid emergency blackouts during unexpected Lahore load-shedding. Our micro-tankers pump clean Euro-V diesel directly into rooftop or basement generator tanks using 100ft high-reach hoses.</p>
+                <ul className="help-card-perks">
+                  <li><i className="fa-solid fa-check"></i> Essential for clinics, software houses &amp; homes</li>
+                  <li><i className="fa-solid fa-check"></i> Scheduled weekly/monthly automated replenishment</li>
+                  <li><i className="fa-solid fa-check"></i> Eliminates dangerous loose jerry-can carrying</li>
+                </ul>
+              </div>
+
+              <div className="help-use-case-card fade-in-up" style={{ transitionDelay: '0.2s' }}>
+                <span className="help-card-tag">Roadside Rescue</span>
+                <h3>24/7 Emergency Refueling</h3>
+                <p>Stranded on Lahore Ring Road, Canal Bank Road, or downtown traffic with an empty fuel tank? Share your live location via the app for express 45-minute emergency roadside dispatch.</p>
+                <ul className="help-card-perks">
+                  <li><i className="fa-solid fa-check"></i> Rapid 45-minute response in covered areas</li>
+                  <li><i className="fa-solid fa-check"></i> Safety perimeter cones &amp; fire protection</li>
+                  <li><i className="fa-solid fa-check"></i> 24/7 emergency dispatch helpline support</li>
+                </ul>
+              </div>
+
+              <div className="help-use-case-card fade-in-up" style={{ transitionDelay: '0.3s' }}>
+                <span className="help-card-tag">Commercial Fleets</span>
+                <h3>Fleet Yards &amp; Logistics Hubs</h3>
+                <p>Consolidate refueling for delivery vans, courier trucks, and corporate transport during off-hours. Eliminate driver petty cash theft, mileage fraud, and fake manual receipts.</p>
+                <ul className="help-card-perks">
+                  <li><i className="fa-solid fa-check"></i> Shift-downtime yard refueling</li>
+                  <li><i className="fa-solid fa-check"></i> Digital consumption telemetry &amp; RFID tracking</li>
+                  <li><i className="fa-solid fa-check"></i> Consolidated monthly billing statements</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -504,6 +713,93 @@ export default function DownloadPage() {
                 <div className="step-content">
                   <h4>Verify &amp; Start Ordering</h4>
                   <p>Launch the Zyphuel App, allow location &amp; notification permissions, and start ordering premium fuel on-demand!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* App Technical Specifications Section */}
+        <section id="tech-specs" className="app-specs-section section-padding">
+          <div className="container">
+            <div className="section-header fade-in-up">
+              <div className="version-header-badge" style={{ background: 'rgba(14, 165, 233, 0.2)', color: '#38bdf8' }}>
+                <i className="fa-solid fa-server"></i> Technical Architecture
+              </div>
+              <h2 className="section-title">Application Technical Specifications</h2>
+              <p className="section-subtitle">Native Android architecture engineered for low-latency IoT flow-meter synchronization and background price alerts.</p>
+            </div>
+
+            <div className="specs-grid-layout fade-in-up">
+              <div className="spec-item-box">
+                <div className="spec-item-icon"><i className="fa-solid fa-code-branch"></i></div>
+                <div className="spec-item-content">
+                  <h4>Application Version</h4>
+                  <div className="spec-value">v{APP_VERSION} (Production)</div>
+                  <div className="spec-subtext">Updated {RELEASE_DATE}</div>
+                </div>
+              </div>
+
+              <div className="spec-item-box">
+                <div className="spec-item-icon"><i className="fa-solid fa-box-archive"></i></div>
+                <div className="spec-item-content">
+                  <h4>Package File Size</h4>
+                  <div className="spec-value">{APP_SIZE} (Universal APK)</div>
+                  <div className="spec-subtext">Optimized ProGuard release build</div>
+                </div>
+              </div>
+
+              <div className="spec-item-box">
+                <div className="spec-item-icon"><i className="fa-brands fa-android"></i></div>
+                <div className="spec-item-content">
+                  <h4>Minimum OS Requirement</h4>
+                  <div className="spec-value">{MIN_ANDROID}</div>
+                  <div className="spec-subtext">Targeting Android 14 (API 34)</div>
+                </div>
+              </div>
+
+              <div className="spec-item-box">
+                <div className="spec-item-icon"><i className="fa-solid fa-microchip"></i></div>
+                <div className="spec-item-content">
+                  <h4>Supported Architectures</h4>
+                  <div className="spec-value">arm64-v8a, armeabi-v7a, x86_64</div>
+                  <div className="spec-subtext">Universal multi-ABI support</div>
+                </div>
+              </div>
+
+              <div className="spec-item-box">
+                <div className="spec-item-icon"><i className="fa-solid fa-fingerprint"></i></div>
+                <div className="spec-item-content">
+                  <h4>Security &amp; Biometrics</h4>
+                  <div className="spec-value">BiometricPrompt API (v2)</div>
+                  <div className="spec-subtext">Encrypted Room &amp; DataStore storage</div>
+                </div>
+              </div>
+
+              <div className="spec-item-box">
+                <div className="spec-item-icon"><i className="fa-solid fa-satellite"></i></div>
+                <div className="spec-item-content">
+                  <h4>Telemetry &amp; Notifications</h4>
+                  <div className="spec-value">FCM + Foreground GPS Daemon</div>
+                  <div className="spec-subtext">2-Hour rolling OGRA price sync</div>
+                </div>
+              </div>
+
+              <div className="spec-item-box">
+                <div className="spec-item-icon"><i className="fa-solid fa-shield-halved"></i></div>
+                <div className="spec-item-content">
+                  <h4>Digital Signature &amp; Integrity</h4>
+                  <div className="spec-value">APK Signature Scheme v3</div>
+                  <div className="spec-subtext">Digitally signed &amp; verified clean</div>
+                </div>
+              </div>
+
+              <div className="spec-item-box">
+                <div className="spec-item-icon"><i className="fa-solid fa-user-gear"></i></div>
+                <div className="spec-item-content">
+                  <h4>Developer &amp; Publisher</h4>
+                  <div className="spec-value">Zyphuel Technologies</div>
+                  <div className="spec-subtext">Founder: Muhammad Daniyal (ItxMDK)</div>
                 </div>
               </div>
             </div>

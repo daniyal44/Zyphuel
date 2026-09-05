@@ -6,8 +6,8 @@ import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
 
 const FUEL_PRICES = {
-  petrol: 343.87,
-  diesel: 370.92,
+  petrol: 345.87,
+  diesel: 378.05,
   highOctane: 365.00,
   lpg: 258.65,
   water: 100.00, // Price is Rs 100 per gallon refill

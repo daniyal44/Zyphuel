@@ -105,14 +105,14 @@ const ARTICLES_SCHEMA = [
   {
     "@type": "Article",
     "@id": `${DOMAIN}/#article-1`,
-    "headline": "The Future of Fueling: How On-Demand Fuel Delivery is Transforming Lahore's Logistics",
-    "description": "Explore how mobile fuel delivery is eliminating long queues at petrol stations, reducing urban emissions, and reshaping energy logistics across Pakistan's major business hubs.",
+    "headline": "Pakistan’s Shift to Daily Fuel Pricing: How OGRA’s 2026 Reform Works & Why App Alerts Protect Consumers",
+    "description": "Analyzing Pakistan’s historic transition to daily fuel pricing based on rolling 7-day international Platts benchmarks, the roadmap to full 2027 deregulation, and how Zyphuel’s 2-hour push notification engine protects motorists and fleet budgets.",
     "image": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=90",
-    "datePublished": "2026-07-06T08:00:00+05:00",
-    "dateModified": "2026-09-02T00:00:00+05:00",
+    "datePublished": "2026-09-05T08:00:00+05:00",
+    "dateModified": "2026-09-06T00:00:00+05:00",
     "author": {
       "@type": "Organization",
-      "name": "Zyphuel Logistics Team"
+      "name": "Zyphuel Energy Analysis Team"
     },
     "publisher": {
       "@id": `${DOMAIN}/#organization`
@@ -122,11 +122,11 @@ const ARTICLES_SCHEMA = [
   {
     "@type": "TechArticle",
     "@id": `${DOMAIN}/#article-2`,
-    "headline": "How to Download Zyphuel APK v2.3.0.1 Safely in Pakistan: Live Price Alerts & GPS Setup",
-    "description": "A step-by-step installation guide for downloading the official Zyphuel Android APK (v2.3.0.1), enabling location auto-detection, and configuring 2-hour market fuel price notifications.",
+    "headline": "How to Download and Install Zyphuel APK v2.3.0.1: Biometrics, Live GPS Auto-Pinning & Daily Rate Sync",
+    "description": "A complete, step-by-step setup guide for the official Zyphuel Android APK (v2.3.0.1, 31.4 MB), covering biometric security checkout, GPS sector auto-detection across Lahore, and real-time bowser telemetry.",
     "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=90",
-    "datePublished": "2026-07-05T08:00:00+05:00",
-    "dateModified": "2026-09-02T00:00:00+05:00",
+    "datePublished": "2026-09-05T08:00:00+05:00",
+    "dateModified": "2026-09-06T00:00:00+05:00",
     "author": {
       "@type": "Organization",
       "name": "Zyphuel App Engineering"
@@ -139,11 +139,11 @@ const ARTICLES_SCHEMA = [
   {
     "@type": "Article",
     "@id": `${DOMAIN}/#article-3`,
-    "headline": "Solving the Energy Gap: Why Generator Refueling Services are Critical for Lahore's Enterprise Sector",
-    "description": "Discover how automated commercial generator refueling minimizes operational downtime for factories, hospitals, and corporate offices facing unexpected power interruptions.",
+    "headline": "Powering Through Load-Shedding: Industrial Generator Refueling & Direct Euro-V Diesel Logistics in Lahore",
+    "description": "How factories, medical plazas, IT technology parks, and high-rise commercial facilities eliminate unpredicted blackout downtime with scheduled Euro-V generator diesel replenishment.",
     "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=90",
-    "datePublished": "2026-07-01T08:00:00+05:00",
-    "dateModified": "2026-09-02T00:00:00+05:00",
+    "datePublished": "2026-09-04T08:00:00+05:00",
+    "dateModified": "2026-09-06T00:00:00+05:00",
     "author": {
       "@type": "Organization",
       "name": "Zyphuel Commercial Ops"
@@ -156,11 +156,11 @@ const ARTICLES_SCHEMA = [
   {
     "@type": "Article",
     "@id": `${DOMAIN}/#article-4`,
-    "headline": "Doorstep Generator Diesel & LPG Gas Cylinder Delivery in Lahore: 2026 Fuel Rates & Safety Guide",
-    "description": "Learn how corporate offices, factories, and housing societies in Lahore eliminate load-shedding downtime with on-demand Euro-V generator refueling and LPG gas cylinder refills.",
+    "headline": "Commercial Generator Diesel & Sealed LPG Cylinder Refills: 2026 Safety Standards & Doorstep Delivery in Lahore",
+    "description": "A definitive safety guide on ordering certified Euro-V generator diesel, sealed LPG gas cylinders, and bulk clean water tankers directly to doorsteps across Lahore.",
     "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=90",
-    "datePublished": "2026-06-29T08:00:00+05:00",
-    "dateModified": "2026-09-02T00:00:00+05:00",
+    "datePublished": "2026-09-03T08:00:00+05:00",
+    "dateModified": "2026-09-06T00:00:00+05:00",
     "author": {
       "@type": "Organization",
       "name": "Zyphuel Utilities Team"
@@ -173,14 +173,14 @@ const ARTICLES_SCHEMA = [
   {
     "@type": "TechArticle",
     "@id": `${DOMAIN}/#article-5`,
-    "headline": "Smart Refueling: Inside the IoT and Telemetry Tech Powering Doorstep Fuel Delivery",
-    "description": "Learn about the tech stack powering Zyphuel's micro-refueling fleet, from calibrated digital flow meters to real-time safety shut-off systems and route dispatch sensors.",
+    "headline": "Combating Pump Short-Fueling: Inside Zyphuel’s Calibrated Positive-Displacement Flow Meters & Cloud Telemetry",
+    "description": "An engineering breakdown of how positive-displacement electronic flow meters, 0.01L pulse encoders, and IoT cloud telemetry eliminate retail pump short-fueling and fuel adulteration.",
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=90",
-    "datePublished": "2026-06-24T08:00:00+05:00",
-    "dateModified": "2026-09-02T00:00:00+05:00",
+    "datePublished": "2026-09-01T08:00:00+05:00",
+    "dateModified": "2026-09-06T00:00:00+05:00",
     "author": {
       "@type": "Organization",
-      "name": "Zyphuel Engineering"
+      "name": "Zyphuel Telemetry Engineering"
     },
     "publisher": {
       "@id": `${DOMAIN}/#organization`
@@ -190,11 +190,11 @@ const ARTICLES_SCHEMA = [
   {
     "@type": "Article",
     "@id": `${DOMAIN}/#article-6`,
-    "headline": "Pakistan’s Fuel Logistics Breakthrough: How CEO Muhammad Daniyal (ItxMDK) Built Zyphuel’s Calibrated Telemetry Fleet",
-    "description": "Inside Zyphuel’s digital flow-meter technology, double-walled micro-tankers, and automated dispatch system engineered by Founder & CEO Muhammad Daniyal (ItxMDK).",
+    "headline": "Pakistan’s Mobile Energy Logistics Revolution: Founder & CEO Muhammad Daniyal (ItxMDK) on Scaling Zyphuel",
+    "description": "Inside Zyphuel’s journey from Lahore’s first on-demand mobile refueler to a tech-enabled energy network, led by Founder & CEO Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel).",
     "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=90",
-    "datePublished": "2026-06-20T08:00:00+05:00",
-    "dateModified": "2026-09-02T00:00:00+05:00",
+    "datePublished": "2026-08-28T08:00:00+05:00",
+    "dateModified": "2026-09-06T00:00:00+05:00",
     "author": {
       "@type": "Person",
       "name": "Muhammad Daniyal (CEO)",
@@ -769,7 +769,7 @@ const ROUTES = [
           "description": article.summary,
           "image": article.image,
           "datePublished": article.date,
-          "dateModified": "2026-09-02T00:00:00+05:00",
+          "dateModified": "2026-09-06T00:00:00+05:00",
           "author": {
             "@type": "Organization",
             "name": article.author

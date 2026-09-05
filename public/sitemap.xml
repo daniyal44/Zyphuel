@@ -4,7 +4,7 @@
     <!-- Home Page -->
     <url>
         <loc>https://zyphuel.netlify.app/</loc>
-        <lastmod>2026-09-02</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
         <image:image>
@@ -37,7 +37,7 @@
     <!-- Services Page -->
     <url>
         <loc>https://zyphuel.netlify.app/services</loc>
-        <lastmod>2026-09-02</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -90,7 +90,7 @@
     <!-- Download Mobile Application Page -->
     <url>
         <loc>https://zyphuel.netlify.app/download</loc>
-        <lastmod>2026-09-02</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.95</priority>
         <image:image>
@@ -109,6 +109,11 @@
             <image:caption>Calibrated flow-meter invoice breakdown for enterprise fleet refueling.</image:caption>
         </image:image>
         <image:image>
+            <image:loc>https://zyphuel.netlify.app/images/4.jpeg</image:loc>
+            <image:title>Zyphuel Calibrated Dispensing &amp; Digital Proof Telemetry</image:title>
+            <image:caption>Real-time digital counter and calibrated flow-meter digital receipt proof inside the Zyphuel Android APK.</image:caption>
+        </image:image>
+        <image:image>
             <image:loc>https://zyphuel.netlify.app/images/tablet.png</image:loc>
             <image:title>Zyphuel Dispatcher Tablet Dashboard</image:title>
             <image:caption>Tablet UI interface used by fuel suppliers and driver dispatchers.</image:caption>
@@ -123,7 +128,7 @@
     <!-- Order Dispatch Page -->
     <url>
         <loc>https://zyphuel.netlify.app/order</loc>
-        <lastmod>2026-09-02</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.95</priority>
         <image:image>
@@ -136,7 +141,7 @@
     <!-- About Page -->
     <url>
         <loc>https://zyphuel.netlify.app/about</loc>
-        <lastmod>2026-09-02</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
         <image:image>
@@ -154,7 +159,7 @@
     <!-- Contact Page -->
     <url>
         <loc>https://zyphuel.netlify.app/contact</loc>
-        <lastmod>2026-09-02</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <image:image>
@@ -167,7 +172,7 @@
     <!-- Privacy Policy -->
     <url>
         <loc>https://zyphuel.netlify.app/privacy-policy</loc>
-        <lastmod>2026-09-02</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -175,14 +180,14 @@
     <!-- Terms of Use -->
     <url>
         <loc>https://zyphuel.netlify.app/terms-of-use</loc>
-        <lastmod>2026-09-02</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     <!-- Blog Landing Page -->
     <url>
         <loc>https://zyphuel.netlify.app/blog</loc>
-        <lastmod>2026-09-02</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
         <image:image>
@@ -195,68 +200,68 @@
     <!-- Blog Articles -->
     <url>
         <loc>https://zyphuel.netlify.app/blog/future-of-fuel-delivery-lahore</loc>
-        <lastmod>2026-09-02</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <image:image>
             <image:loc>https://zyphuel.netlify.app/images/fuel.png</image:loc>
-            <image:title>The Future of Fueling in Lahore</image:title>
-            <image:caption>How on-demand fuel delivery transforms urban logistics in Lahore.</image:caption>
+            <image:title>Pakistan Shift to Daily Fuel Pricing and OGRA 2026 Reform</image:title>
+            <image:caption>Analyzing Pakistan transition to daily fuel pricing based on rolling 7-day international Platts benchmarks and how Zyphuel 2-hour push notification engine protects motorists.</image:caption>
         </image:image>
     </url>
     <url>
         <loc>https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide</loc>
-        <lastmod>2026-09-02</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
         <image:image>
             <image:loc>https://zyphuel.netlify.app/images/1.jpeg</image:loc>
-            <image:title>Download Zyphuel APK Guide</image:title>
-            <image:caption>Official installation guide for Zyphuel Android APK with live GPS auto-detection.</image:caption>
+            <image:title>How to Download and Install Zyphuel APK v2.3.0.1</image:title>
+            <image:caption>Complete step-by-step setup guide for Zyphuel Android APK with biometric authentication and live GPS sector auto-detection.</image:caption>
         </image:image>
     </url>
     <url>
         <loc>https://zyphuel.netlify.app/blog/generator-refueling-services-lahore</loc>
-        <lastmod>2026-09-02</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <image:image>
             <image:loc>https://zyphuel.netlify.app/images/tank.png</image:loc>
-            <image:title>Commercial Generator Refueling Services in Lahore</image:title>
-            <image:caption>Preventing power outage downtime with scheduled generator diesel replenishment.</image:caption>
+            <image:title>Powering Through Load-Shedding: Industrial Generator Refueling in Lahore</image:title>
+            <image:caption>How commercial plazas, IT parks, and medical facilities eliminate blackout downtime with scheduled Euro-V generator diesel replenishment.</image:caption>
         </image:image>
     </url>
     <url>
         <loc>https://zyphuel.netlify.app/blog/generator-diesel-lpg-delivery-lahore</loc>
-        <lastmod>2026-09-02</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <image:image>
             <image:loc>https://zyphuel.netlify.app/images/Gallen.png</image:loc>
-            <image:title>Doorstep Generator Diesel &amp; LPG Gas Cylinder Delivery</image:title>
-            <image:caption>Commercial diesel and sealed LPG gas cylinder delivery across Lahore.</image:caption>
+            <image:title>Commercial Generator Diesel and Sealed LPG Cylinder Refills</image:title>
+            <image:caption>Definitive safety guide on ordering certified Euro-V generator diesel, sealed LPG gas cylinders, and bulk potable water tankers.</image:caption>
         </image:image>
     </url>
     <url>
         <loc>https://zyphuel.netlify.app/blog/iot-telemetry-fuel-delivery</loc>
-        <lastmod>2026-09-02</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <image:image>
             <image:loc>https://zyphuel.netlify.app/images/tablet.png</image:loc>
-            <image:title>IoT and Telemetry Tech Powering Doorstep Fuel Delivery</image:title>
-            <image:caption>Inside Zyphuel digital flow-meters and cloud logistics telemetry.</image:caption>
+            <image:title>Combating Pump Short-Fueling: Calibrated Positive-Displacement Flow Meters</image:title>
+            <image:caption>Engineering breakdown of 0.01L pulse-encoder electronic flow meters and IoT cloud telemetry eliminating retail pump short-fueling.</image:caption>
         </image:image>
     </url>
     <url>
         <loc>https://zyphuel.netlify.app/blog/zyphuel-calibrated-telemetry-fleet</loc>
-        <lastmod>2026-09-02</lastmod>
+        <lastmod>2026-09-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
         <image:image>
             <image:loc>https://zyphuel.netlify.app/images/daniyal.jpeg</image:loc>
-            <image:title>Founder &amp; CEO Muhammad Daniyal - Zyphuel Telemetry Fleet</image:title>
-            <image:caption>Engineering Pakistan's calibrated fuel delivery fleet and telemetry infrastructure.</image:caption>
+            <image:title>Pakistan Mobile Energy Logistics Revolution: Founder and CEO Muhammad Daniyal</image:title>
+            <image:caption>Inside Zyphuel journey from Lahore first on-demand mobile refueler to a tech-enabled energy network led by Founder and CEO Muhammad Daniyal (ItxMDK).</image:caption>
         </image:image>
     </url>
 </urlset>

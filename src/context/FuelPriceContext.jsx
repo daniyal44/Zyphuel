@@ -3,8 +3,8 @@ import { createContext, useContext, useState, useEffect } from 'react';
 const FuelPriceContext = createContext();
 
 const DEFAULT_PRICES = {
-  petrol: 343.87,
-  diesel: 370.92,
+  petrol: 345.87,
+  diesel: 378.05,
   highOctane: 365.00,
   lpg: 258.65,
   water: 100.00,
