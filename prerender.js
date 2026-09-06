@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, pathToFileURL } from 'node:url'
 import { articles } from './src/data/articles.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -799,7 +799,7 @@ async function prerender() {
   if (!fs.existsSync(ssrPath)) {
     throw new Error('dist-ssr/entry-server.js not found. Run SSR build first.')
   }
-  const { render } = await import(`file://${ssrPath.replace(/\\/g, '/')}`)
+  const { render } = await import(pathToFileURL(ssrPath).href)
 
   for (const route of ROUTES) {
     console.log(`⚡ Pre-rendering: ${route.path} -> ${route.outFile}`)
