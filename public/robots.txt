@@ -3,7 +3,6 @@ Allow: /
 Allow: /images/
 Allow: /APK/
 Allow: /manifest.json
-Crawl-delay: 0
 
 # Image Crawlers
 User-agent: Googlebot-Image
