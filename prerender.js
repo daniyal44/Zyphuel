@@ -107,7 +107,7 @@ const ARTICLES_SCHEMA = [
     "@id": `${DOMAIN}/#article-1`,
     "headline": "Pakistan’s Shift to Daily Fuel Pricing: How OGRA’s 2026 Reform Works & Why App Alerts Protect Consumers",
     "description": "Analyzing Pakistan’s historic transition to daily fuel pricing based on rolling 7-day international Platts benchmarks, the roadmap to full 2027 deregulation, and how Zyphuel’s 2-hour push notification engine protects motorists and fleet budgets.",
-    "image": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=90",
+    "image": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=720&q=80",
     "datePublished": "2026-09-05T08:00:00+05:00",
     "dateModified": "2026-09-06T00:00:00+05:00",
     "author": {
@@ -124,7 +124,7 @@ const ARTICLES_SCHEMA = [
     "@id": `${DOMAIN}/#article-2`,
     "headline": "How to Download and Install Zyphuel APK v2.3.0.1: Biometrics, Live GPS Auto-Pinning & Daily Rate Sync",
     "description": "A complete, step-by-step setup guide for the official Zyphuel Android APK (v2.3.0.1, 31.4 MB), covering biometric security checkout, GPS sector auto-detection across Lahore, and real-time bowser telemetry.",
-    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=90",
+    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=720&q=80",
     "datePublished": "2026-09-05T08:00:00+05:00",
     "dateModified": "2026-09-06T00:00:00+05:00",
     "author": {
@@ -141,7 +141,7 @@ const ARTICLES_SCHEMA = [
     "@id": `${DOMAIN}/#article-3`,
     "headline": "Powering Through Load-Shedding: Industrial Generator Refueling & Direct Euro-V Diesel Logistics in Lahore",
     "description": "How factories, medical plazas, IT technology parks, and high-rise commercial facilities eliminate unpredicted blackout downtime with scheduled Euro-V generator diesel replenishment.",
-    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=90",
+    "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=720&q=80",
     "datePublished": "2026-09-04T08:00:00+05:00",
     "dateModified": "2026-09-06T00:00:00+05:00",
     "author": {
@@ -158,7 +158,7 @@ const ARTICLES_SCHEMA = [
     "@id": `${DOMAIN}/#article-4`,
     "headline": "Commercial Generator Diesel & Sealed LPG Cylinder Refills: 2026 Safety Standards & Doorstep Delivery in Lahore",
     "description": "A definitive safety guide on ordering certified Euro-V generator diesel, sealed LPG gas cylinders, and bulk clean water tankers directly to doorsteps across Lahore.",
-    "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=90",
+    "image": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=720&q=80",
     "datePublished": "2026-09-03T08:00:00+05:00",
     "dateModified": "2026-09-06T00:00:00+05:00",
     "author": {
@@ -175,7 +175,7 @@ const ARTICLES_SCHEMA = [
     "@id": `${DOMAIN}/#article-5`,
     "headline": "Combating Pump Short-Fueling: Inside Zyphuel’s Calibrated Positive-Displacement Flow Meters & Cloud Telemetry",
     "description": "An engineering breakdown of how positive-displacement electronic flow meters, 0.01L pulse encoders, and IoT cloud telemetry eliminate retail pump short-fueling and fuel adulteration.",
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=90",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=720&q=80",
     "datePublished": "2026-09-01T08:00:00+05:00",
     "dateModified": "2026-09-06T00:00:00+05:00",
     "author": {
@@ -192,7 +192,7 @@ const ARTICLES_SCHEMA = [
     "@id": `${DOMAIN}/#article-6`,
     "headline": "Pakistan’s Mobile Energy Logistics Revolution: Founder & CEO Muhammad Daniyal (ItxMDK) on Scaling Zyphuel",
     "description": "Inside Zyphuel’s journey from Lahore’s first on-demand mobile refueler to a tech-enabled energy network, led by Founder & CEO Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel).",
-    "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=90",
+    "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=720&q=80",
     "datePublished": "2026-08-28T08:00:00+05:00",
     "dateModified": "2026-09-06T00:00:00+05:00",
     "author": {
@@ -930,6 +930,20 @@ async function prerender() {
   if (fs.existsSync(robotsSrc)) {
     fs.copyFileSync(robotsSrc, robotsDist)
     console.log('🤖 Synced robots.txt to dist/')
+  }
+
+  const llmsSrc = toAbsolute('public/llms.txt')
+  const llmsDist = toAbsolute('dist/llms.txt')
+  if (fs.existsSync(llmsSrc)) {
+    fs.copyFileSync(llmsSrc, llmsDist)
+    console.log('📄 Synced llms.txt to dist/')
+  }
+
+  const gscSrc = toAbsolute('public/google1ab7400cf65ca469.html')
+  const gscDist = toAbsolute('dist/google1ab7400cf65ca469.html')
+  if (fs.existsSync(gscSrc)) {
+    fs.copyFileSync(gscSrc, gscDist)
+    console.log('🔍 Synced google1ab7400cf65ca469.html to dist/')
   }
 
   // Clean up temporary dist-ssr directory

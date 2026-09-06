@@ -1,0 +1,40 @@
+# Zyphuel
+
+> Zyphuel is Pakistan's premier on-demand mobile refueling and energy delivery platform operating in Lahore, Pakistan. We deliver certified Euro-V Diesel and Super Petrol directly to vehicles, generators, fleet yards, construction sites, and commercial facilities with calibrated digital flow meters and real-time GPS tracking.
+
+## Overview
+Zyphuel solves fuel procurement challenges across Lahore by dispatching specialized mini-bowsers equipped with certified digital flow meters, anti-static grounding, and emergency safety cutoffs. Our service operates 24/7 with an average delivery window of 45 minutes across all major towns and sectors in Lahore.
+
+## Services Offered
+- **Doorstep Vehicle Refueling**: On-demand petrol and diesel delivery directly to personal and executive vehicles at homes, offices, and roadside locations.
+- **Generator Refueling**: Scheduled and emergency Euro-V diesel delivery for residential, corporate, medical, and industrial standby generators to eliminate load-shedding downtime.
+- **Commercial Fleet Refueling**: Bulk fueling solutions for logistics fleets, transport companies, and delivery vans with unified digital invoicing and fuel consumption tracking.
+- **Event & Construction Fueling**: On-site refueling for construction equipment, excavators, and temporary event power generators.
+- **Clean Water Tankers**: Bulk commercial and residential clean water delivery across Lahore.
+- **Sealed LPG Cylinders**: Safe, certified LPG gas cylinder replacements delivered to doorsteps.
+
+## Service Areas (Lahore, Pakistan)
+Gulberg, DHA Lahore (Phases 1-9), Model Town, Johar Town, Bahria Town, Cantt, Faisal Town, Garden Town, WAPDA Town, Canal Road, Cavalry Ground, Shadman, Allama Iqbal Town, Lake City, and surrounding metropolitan areas.
+
+## Core Features & Guarantees
+- **Accurate Calibrated Metering**: Real-time calibrated digital meters ensure you receive every drop you pay for with printed and digital receipts.
+- **100% Genuine Fuel**: Direct supply chain from certified oil marketing companies (Euro-V compliant).
+- **Live GPS Tracking**: Real-time tracking of fuel bowser dispatch, route, and estimated time of arrival.
+- **Instant Online & App Booking**: Place fuel orders in seconds via the web platform or official Android mobile application.
+
+## Key Links & Pages
+- [Homepage](https://zyphuel.netlify.app/): Overview of services, live fuel rates, and features.
+- [Order Fuel](https://zyphuel.netlify.app/order): Instant fuel calculator and doorstep order placement.
+- [Services](https://zyphuel.netlify.app/services): Complete breakdown of fuel types, generator services, and fleet solutions.
+- [About Zyphuel](https://zyphuel.netlify.app/about): Mission, founder background, and corporate information.
+- [Download Android App](https://zyphuel.netlify.app/download): Direct download of Zyphuel APK (v2.3.0.1) with biometrics and live tracking.
+- [Blog & Guides](https://zyphuel.netlify.app/blog): Fuel industry insights, OGRA regulations, load-shedding solutions, and tech guides.
+- [Contact & Support](https://zyphuel.netlify.app/contact): Customer service, dispatch helpline, and WhatsApp support.
+- [Privacy Policy](https://zyphuel.netlify.app/privacy-policy): User privacy, location permissions, and data protection policies.
+- [Terms of Use](https://zyphuel.netlify.app/terms-of-use): Service agreements, safety protocols, and cancellation policies.
+
+## Contact Information
+- **Phone / WhatsApp**: +92 323 0112464
+- **Email**: zyphuel@gmail.com
+- **Headquarters**: 75-Main Boulevard, Gulberg III, Lahore, Punjab 54000, Pakistan
+- **Operating Hours**: 24 Hours / 7 Days a Week

@@ -92,7 +92,7 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Column 1: Brand & Socials */}
           <div className="footer-brand-col">
-            <h4 className="footer-title">About Zyphuel</h4>
+            <h3 className="footer-title">About Zyphuel</h3>
             <Link to="/" className="footer-logo" aria-label={`${brand.name} Home`}>
               {!logoError ? (
                 <img
@@ -100,7 +100,10 @@ export default function Footer() {
                   alt={brand.logoAlt}
                   title="Zyphuel - Pakistan Number 1 Fuel Delivery Brand & Supplier"
                   className="logo-icon"
-                  style={{ height: '32px', marginTop: '4px' }}
+                  width="120"
+                  height="32"
+                  decoding="async"
+                  style={{ height: '32px', width: 'auto', marginTop: '4px' }}
                   onError={() => setLogoError(true)}
                   loading="lazy"
                   itemProp="logo"
@@ -146,7 +149,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h4 className="footer-title">Quick Links</h4>
+            <h3 className="footer-title">Quick Links</h3>
             <ul className="footer-links">
               {quickLinks.map((link) => (
                 <li key={link.to}>
@@ -158,7 +161,7 @@ export default function Footer() {
 
           {/* Column 3: Lahore Towns */}
           <div>
-            <h4 className="footer-title">Lahore Active Towns</h4>
+            <h3 className="footer-title">Lahore Active Towns</h3>
             <div className={`service-towns-container ${isExpanded ? 'expanded' : 'collapsed'}`}>
               <div className="service-towns-pills">
                 {lahoreTowns.map((town) => (
@@ -183,7 +186,7 @@ export default function Footer() {
           <div>
             {expansion.showAlert && (
               <div>
-                <h4 className="footer-title">Expansion Alert</h4>
+                <h3 className="footer-title">Expansion Alert</h3>
                 <div className="expansion-card">
                   <p className="footer-about-text" style={{ marginBottom: '14px', fontSize: '0.85rem' }}>
                     {expansion.text}

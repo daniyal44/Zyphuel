@@ -12,7 +12,7 @@ export const articles = [
     readTime: '6 min read',
     author: 'Zyphuel Energy Analysis Team',
     authorIcon: 'fa-solid fa-chart-line',
-    image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=90',
+    image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=720&q=80',
     tags: ['DailyFuelPricing', 'OGRAPakistan', 'FuelRates2026', 'SmartRefueling', 'LahoreLogistics'],
     content: [
       'In July 2026, the Government of Pakistan initiated a transformative reform in the downstream petroleum sector by transitioning from bi-weekly price announcements to a daily fuel pricing mechanism. Administered directly by the Oil and Gas Regulatory Authority (OGRA), domestic ex-depot prices for Premier Euro-5 Petrol and Hi-Cetane High-Speed Diesel are now calculated daily based on a rolling seven-day average of international Platts benchmark prices.',
@@ -32,7 +32,7 @@ export const articles = [
     readTime: '5 min read',
     author: 'Zyphuel App Engineering',
     authorIcon: 'fa-solid fa-mobile-screen-button',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=90',
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=720&q=80',
     tags: ['ZyphuelAPK', 'DownloadApp', 'Android8', 'BiometricSecurity', 'LahoreFuelApp'],
     content: [
       `Searching for a secure, verified mobile fuel delivery app in Pakistan? The official Zyphuel Android Application (v${APP_VERSION}, package size ${APP_SIZE}) is engineered with native Android Jetpack Compose Material 3 UI, compiled and digitally signed by our engineering team for devices running Android 8.0 (Oreo) and above.`,
@@ -52,7 +52,7 @@ export const articles = [
     readTime: '6 min read',
     author: 'Zyphuel Commercial Ops',
     authorIcon: 'fa-solid fa-charging-station',
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=90',
+    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=720&q=80',
     tags: ['GeneratorDiesel', 'LoadSheddingLahore', 'B2BRefueling', 'BusinessContinuity', 'Euro5Diesel'],
     content: [
       'Unscheduled grid instability and urban load-shedding continue to pose severe operational threats to enterprise continuity across Lahore. Critical infrastructure—such as surgical clinics, cold-chain warehouses, software exports centers, and financial banking branches—relies on high-capacity standby diesel generators. However, maintaining adequate diesel reserves through manual container transport is dangerous, labor-intensive, and fraught with compliance risks.',
@@ -72,7 +72,7 @@ export const articles = [
     readTime: '5 min read',
     author: 'Zyphuel Utilities Team',
     authorIcon: 'fa-solid fa-fire-burner',
-    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=90',
+    image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=720&q=80',
     tags: ['LPGGasCylinder', 'GeneratorDiesel', 'LahoreUtilities', 'SafetyProtocols', 'DoorstepGas'],
     content: [
       'Modern businesses, restaurants, catering facilities, and residential societies require a dependable, safe supply of multiple essential utilities—clean Euro-V diesel for backup generators, sealed Liquefied Petroleum Gas (LPG) for commercial cooking manifolds, and bulk potable water. Zyphuel unites these services under a single unified logistics dispatch platform.',
@@ -92,7 +92,7 @@ export const articles = [
     readTime: '7 min read',
     author: 'Zyphuel Telemetry Engineering',
     authorIcon: 'fa-solid fa-microchip',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=90',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=720&q=80',
     tags: ['ZeroShortFueling', 'IoTFuelMeters', 'DigitalMetering', 'FuelIntegrity', 'CloudTelemetry'],
     content: [
       'One of the most persistent complaints among vehicle owners and enterprise fleet managers in Pakistan is the phenomenon of short-fueling—where mechanical meter calibration drift or deliberate pump tampering delivers 5% to 12% less fuel than the registered invoice indicates. Zyphuel was engineered from the ground up to solve this trust deficit through transparent hardware and cloud telemetry.',
@@ -112,7 +112,7 @@ export const articles = [
     readTime: '7 min read',
     author: 'Muhammad Daniyal (CEO)',
     authorIcon: 'fa-solid fa-user-shield',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=90',
+    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=720&q=80',
     tags: ['MuhammadDaniyal', 'ItxMDK', 'ZyphuelCEO', 'EnergyTech', 'PakistanStartups'],
     content: [
       'In a rapidly urbanizing metropolis of over 14 million people like Lahore, conventional retail refueling stations present severe logistical friction: millions of hours wasted idling in traffic, gridlock around station access roads, and rising urban carbon emissions. Recognizing this bottleneck, tech innovator and entrepreneur Muhammad Daniyal (widely known across technical communities as ItxMDK / itsmdk / MuhammadDaniel) conceptualized and built Zyphuel.',

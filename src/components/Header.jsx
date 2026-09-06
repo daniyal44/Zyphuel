@@ -55,6 +55,10 @@ export default function Header({ onOpenInterestModal }) {
               alt="Zyphuel - On-Demand 24/7 Mobile Fuel & Petrol Delivery Lahore"
               title="Zyphuel - Pakistan Number 1 Fuel Supplier & Mobile Application for Fuel Suppliers"
               className="logo-icon"
+              width="142"
+              height="38"
+              fetchpriority="high"
+              decoding="async"
               onError={() => setLogoError(true)}
               itemProp="logo"
             />

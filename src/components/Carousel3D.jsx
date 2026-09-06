@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react'
 
 const DATA_3D = [
-  { url: 'https://i.postimg.cc/x1vN9qbh/wall.png', alt: 'Zyphuel Corporate Office Branding Wall' },
-  { url: 'https://i.postimg.cc/vTT5BMdL/tablet.png', alt: 'Zyphuel Mobile Fuel Delivery Ordering App on Tablet' },
-  { url: 'https://i.postimg.cc/ZRCqvqCz/cup.png', alt: 'Zyphuel Official Brand Mug and Stationary' },
-  { url: 'https://i.postimg.cc/wBRPt89x/pen.png', alt: 'Zyphuel Branded Corporate Pen' },
-  { url: 'https://i.postimg.cc/W3HPB6NB/card.png', alt: 'Zyphuel Corporate Business Card' },
-  { url: 'https://i.postimg.cc/T3tGj68w/fuel.png', alt: 'Zyphuel Premium Fuel Pump Dispenser' },
-  { url: 'https://i.postimg.cc/PJQ0tWTC/helmet.png', alt: 'Zyphuel Safe Operations Fuel Delivery Rider Helmet' },
-  { url: 'https://i.postimg.cc/TYpkHfqp/collab.png', alt: 'Zyphuel Enterprise Partnerships and Collaboration' },
-  { url: 'https://i.postimg.cc/g0pRh3Wz/tank.png', alt: 'Zyphuel Fuel Storage Tank Logistics' },
-  { url: 'https://i.postimg.cc/pXNDvw6y/Shirt.png', alt: 'Zyphuel Branded Delivery Agent Uniform T-Shirt' },
-  { url: 'https://i.postimg.cc/wMYdxxJx/Gallen.png', alt: 'Zyphuel Portable Fuel Jerry Can' },
-  { url: 'https://i.postimg.cc/J0sR0YYN/Cap.png', alt: 'Zyphuel Branded Cap' }
+  { url: '/images/carousel/wall.webp', alt: 'Zyphuel Corporate Office Branding Wall' },
+  { url: '/images/carousel/tablet.webp', alt: 'Zyphuel Mobile Fuel Delivery Ordering App on Tablet' },
+  { url: '/images/carousel/cup.webp', alt: 'Zyphuel Official Brand Mug and Stationary' },
+  { url: '/images/carousel/pen.webp', alt: 'Zyphuel Branded Corporate Pen' },
+  { url: '/images/carousel/card.webp', alt: 'Zyphuel Corporate Business Card' },
+  { url: '/images/carousel/fuel.webp', alt: 'Zyphuel Premium Fuel Pump Dispenser' },
+  { url: '/images/carousel/helmet.webp', alt: 'Zyphuel Safe Operations Fuel Delivery Rider Helmet' },
+  { url: '/images/carousel/collab.webp', alt: 'Zyphuel Enterprise Partnerships and Collaboration' },
+  { url: '/images/carousel/tank.webp', alt: 'Zyphuel Fuel Storage Tank Logistics' },
+  { url: '/images/carousel/shirt.webp', alt: 'Zyphuel Branded Delivery Agent Uniform T-Shirt' },
+  { url: '/images/carousel/gallen.webp', alt: 'Zyphuel Portable Fuel Jerry Can' },
+  { url: '/images/carousel/cap.webp', alt: 'Zyphuel Branded Cap' }
 ]
 
 export default function Carousel3D() {
@@ -148,6 +148,10 @@ export default function Carousel3D() {
                       className="carousel-img"
                       src={item.url}
                       alt={item.alt}
+                      loading="lazy"
+                      decoding="async"
+                      width="220"
+                      height="220"
                     />
                   </div>
                 );

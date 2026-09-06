@@ -18,6 +18,9 @@ export default function BlogCard({ article, index, onReadMore }) {
           title={`${article.title} - Zyphuel Fuel Logistics`}
           className="blog-card-img"
           loading="lazy"
+          decoding="async"
+          width="360"
+          height="240"
           itemProp="image"
         />
       </div>

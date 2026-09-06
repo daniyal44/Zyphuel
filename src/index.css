@@ -7,8 +7,8 @@
     --surface-card: #ffffff;          /* Pure White Cards and Surfaces */
     --text-primary: #0f172a;          /* Deep Slate Gray */
     --text-secondary: #475569;        /* Soft Muted Slate */
-    --accent-color: #0ea5e9;          /* Brand CTA Sky Blue (Secondary Accent) */
-    --accent-color-hover: #0284c7;    /* Hover State CTA Sky Blue */
+    --accent-color: #0284c7;          /* Brand CTA Sky Blue (WCAG AA compliant 4.64:1 with white text) */
+    --accent-color-hover: #0369a1;    /* Hover State CTA Sky Blue */
     --brand-petrol: #f0f9ff;          /* Very Soft Light Blue Tint */
     --brand-petrol-dark: #0284c7;     /* Darker Petrol Blue for icons/borders */
     --success-mint: #10b981;          /* Success Emerald Green */
@@ -2006,21 +2006,21 @@ a.footer-contact-link:hover {
 .footer .badge-upcoming::before {
     background-color: #f59e0b;
     animation: livePulse 1.6s infinite ease-in-out;
-    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5);
+    will-change: transform, opacity;
 }
 
 @keyframes livePulse {
     0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5);
+        transform: scale(0.85);
+        opacity: 0.6;
     }
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 6px rgba(245, 158, 11, 0);
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
     }
     100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+        transform: scale(0.85);
+        opacity: 0.6;
     }
 }
 

@@ -76,7 +76,7 @@ export default function HomePage() {
     : articles.filter(a => a.category === activeFilter)
 
   return (
-    <div ref={pageRef}>
+    <main id="main-content" ref={pageRef}>
       {/* Hero Section */}
       <section id="home" className="hero" style={{ minHeight: 'calc(100vh - var(--nav-height))', display: 'flex', alignItems: 'center' }}>
         <div className="container">
@@ -100,7 +100,7 @@ export default function HomePage() {
                   <i className="fa-solid fa-gas-pump"></i> Order Fuel Now
                 </Link>
                 <Link to="/about" className="btn btn-ghost">
-                  Learn More <i className="fa-solid fa-arrow-right"></i>
+                  Learn More About Zyphuel <i className="fa-solid fa-arrow-right"></i>
                 </Link>
               </div>
 
@@ -179,6 +179,6 @@ export default function HomePage() {
         article={selectedArticle}
         onClose={() => setSelectedArticle(null)}
       />
-    </div>
+    </main>
   )
 }
