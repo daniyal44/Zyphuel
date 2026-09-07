@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
+import Breadcrumbs from '../components/Breadcrumbs'
 
 export default function ContactPage() {
   const pageRef = useScrollReveal()
@@ -16,6 +17,7 @@ export default function ContactPage() {
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/contact/',
+    canonicalPath: '/contact/',
     type: 'website',
     schema: {
       "@context": "https://schema.org",
@@ -23,7 +25,6 @@ export default function ContactPage() {
       "mainEntity": {
         "@type": "LocalBusiness",
         "name": "Zyphuel",
-        "alternateName": ["zphuel"],
         "telephone": "+923230112464",
         "email": "m.daniyalkhan490@gmail.com",
         "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
@@ -181,8 +182,9 @@ ${form.message.trim()}`
       <main style={{ paddingTop: 'var(--nav-height)' }}>
         <section id="contact" className="contact section-padding">
           <div className="container">
+            <Breadcrumbs items={[{ label: 'Contact', path: '/contact/' }]} />
             <div className="section-header fade-in-up">
-              <h1 className="section-title">Contact Form</h1>
+              <h1 className="section-title">Contact Zyphuel</h1>
               <p className="section-subtitle">Reach out for bulk inquiries, fleet accounts, tech support, or media relations. Our team responds within hours.</p>
             </div>
 
@@ -280,8 +282,17 @@ ${form.message.trim()}`
                       ].map(item => (
                         <div
                           key={item.method}
+                          role="button"
+                          tabIndex={0}
+                          aria-pressed={form.contactMethod === item.method}
                           className={`contact-method-card ${form.contactMethod === item.method ? 'selected' : ''}`}
                           onClick={() => handleMethodChange(item.method)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault()
+                              handleMethodChange(item.method)
+                            }
+                          }}
                         >
                           <i className={item.icon}></i>
                           <span>{item.label}</span>
@@ -377,8 +388,6 @@ ${form.message.trim()}`
             </div>
           </div>
         </section>
-
-        {/* Global AI & Search Engine Directory Index */}
       </main>
 
       {/* Floating WhatsApp */}

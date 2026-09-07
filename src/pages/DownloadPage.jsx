@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { APP_VERSION, RELEASE_DATE, APP_SIZE, MIN_ANDROID, CHANGELOG } from '../data/appVersion'
+import Breadcrumbs from '../components/Breadcrumbs'
 import './styles.css'
 
 const appArticles = [
@@ -94,8 +95,8 @@ export default function DownloadPage() {
   }, [slides.length])
 
   useSEO({
-    title: `Download the Zyphuel Android App v${APP_VERSION} | Fuel Delivery in Lahore`,
-    description: `Download the official Zyphuel Android app v${APP_VERSION} (${APP_SIZE}) to order petrol, diesel and generator fuel in Lahore. GPS address detection, live fuel rates, and delivery tracking.`,
+    title: 'Download Zyphuel App | Fuel Delivery App for Lahore',
+    description: 'Download the official Zyphuel Android APK (v2.3.0.1) for on-demand doorstep petrol and diesel delivery in Lahore. GPS auto-detection and live tracking.',
     keywords: [
       'Zyphuel app', `Zyphuel App v${APP_VERSION}`, 'download Zyphuel APK', 'Zyphuel Android app',
       'fuel delivery app Lahore', 'petrol delivery app Lahore', 'diesel delivery app Lahore',
@@ -104,6 +105,7 @@ export default function DownloadPage() {
     image: 'https://zyphuel.netlify.app/images/1.jpeg',
     imageAlt: 'Zyphuel Android app screen showing live fuel rates and delivery tracking',
     url: 'https://zyphuel.netlify.app/download/',
+    canonicalPath: '/download/',
     type: 'website',
     schema: {
       "@context": "https://schema.org",
@@ -145,7 +147,7 @@ export default function DownloadPage() {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zyphuel.netlify.app/" },
-            { "@type": "ListItem", "position": 2, "name": "Download Mobile Application", "item": "https://zyphuel.netlify.app/download" }
+            { "@type": "ListItem", "position": 2, "name": "Download Mobile Application", "item": "https://zyphuel.netlify.app/download/" }
           ]
         },
         {
@@ -256,6 +258,7 @@ export default function DownloadPage() {
         {/* Modern Glassmorphic Download Hero */}
         <section className="download-hero">
           <div className="container">
+            <Breadcrumbs items={[{ label: 'Download App', path: '/download/' }]} />
             <div className="download-hero-grid">
               
               {/* Left Column: Headline, Highlights & Actions */}
@@ -266,7 +269,7 @@ export default function DownloadPage() {
                 </div>
                 
                 <h1 className="hero-title">
-                  Refuel Smarter With the <span>Zyphuel Mobile App</span>
+                  Download the <span>Zyphuel App</span>
                 </h1>
                 
                 <p className="hero-description">
@@ -799,7 +802,7 @@ export default function DownloadPage() {
                 <div className="spec-item-content">
                   <h4>Developer &amp; Publisher</h4>
                   <div className="spec-value">Zyphuel Technologies</div>
-                  <div className="spec-subtext">Founder: Muhammad Daniyal (ItxMDK)</div>
+                  <div className="spec-subtext">Founder: Muhammad Daniyal</div>
                 </div>
               </div>
             </div>
@@ -900,9 +903,6 @@ export default function DownloadPage() {
             </div>
           </div>
         </section>
-
-        {/* Brand/AI Index search footer directory */}
-
       </main>
     </div>
   )

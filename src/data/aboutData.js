@@ -6,7 +6,7 @@ export const aboutArticles = [
     source: 'LinkedIn Enterprise Publication',
     sourceIcon: 'fa-brands fa-linkedin',
     sourceColor: '#0077b5',
-    title: "Pakistan’s Fuel Logistics Breakthrough: How CEO Muhammad Daniyal (ItxMDK) Built Zyphuel’s Calibrated Telemetry Fleet",
+    title: "Fuel Logistics Modernization: How CEO Muhammad Daniyal Built Zyphuel’s Calibrated Telemetry Fleet",
     author: 'Muhammad Daniyal (Founder & CEO)',
     date: 'September 2026',
     readTime: '6 min read',
@@ -28,7 +28,7 @@ export const aboutArticles = [
     author: 'Zyphuel Engineering Team',
     date: 'September 2026',
     readTime: '5 min read',
-    url: '/download',
+    url: '/download/',
     external: false,
     summary: `Inside the software architecture of the Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}), featuring geolocation auto-pinning, live bowser tracking, and automated 2-hour market rate alerts.`,
     highlights: [
@@ -46,7 +46,7 @@ export const aboutArticles = [
     author: 'Commercial Operations Team',
     date: 'September 2026',
     readTime: '5 min read',
-    url: '/services',
+    url: '/services/',
     external: false,
     summary: 'A deep-dive into how hospitals, IT plazas, manufacturing plants, and corporate offices eliminate blackout downtime through scheduled Euro-V generator diesel deliveries.',
     highlights: [

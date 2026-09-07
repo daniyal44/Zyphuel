@@ -2,15 +2,15 @@ export const footerData = {
   brand: {
     name: 'Zyphuel',
     logoPath: '/images/Zyphuel-logo.png',
-    logoAlt: 'Zyphuel - Pakistan No.1 Mobile Fuel Supplier & Best Mobile Application for Fuel Suppliers',
+    logoAlt: 'Zyphuel - Mobile Fuel Delivery Service Lahore',
     fallbackLogo: true, // triggers SVG if image fails
     description:
-      'Zyphuel is Pakistan\'s #1 mobile fuel delivery brand, supplier, and agency. Providing international-standard, 24/7 on-demand petrol and diesel fuel delivery across Lahore.',
+      'Zyphuel provides 24/7 on-demand doorstep petrol and diesel fuel delivery across Lahore with calibrated digital flow meters and real-time GPS tracking.',
   },
   contact: {
     phone: '+92 3230-112464',
     email: 'm.daniyalkhan490@gmail.com',
-    address: 'Lahore, Pakistan',
+    address: '75-Main Boulevard, Gulberg III, Lahore, Pakistan',
     whatsapp: 'https://wa.me/923230112464',
   },
   socialLinks: [
@@ -22,7 +22,7 @@ export const footerData = {
     },
     {
       platform: 'Google Business Profile',
-      url: 'https://share.google/mOyMqMib3kVYMKvbQ',
+      url: 'https://share.google/Nb4XGKYq5aU0nzLr3',
       icon: 'fa-brands fa-google',
       title: 'Zyphuel Google Business & Maps Location Lahore',
     },
@@ -82,8 +82,8 @@ export const footerData = {
     badge: 'Islamabad Coming Soon',
   },
   bottomLinks: [
-    { label: 'Privacy Policy', to: '/privacy-policy/' },
-    { label: 'Terms of Use', to: '/terms-of-use/' },
+    { label: 'Privacy Policy', to: '/privacy/' },
+    { label: 'Terms of Use', to: '/terms/' },
   ],
   copyright: `© ${new Date().getFullYear()} Zyphuel Pakistan. All rights reserved.`,
 };

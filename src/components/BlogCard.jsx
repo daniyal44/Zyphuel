@@ -16,8 +16,8 @@ export default function BlogCard({ article, index, onReadMore }) {
         <Link to={`/blog/${article.slug}/`} tabIndex="-1" aria-hidden="true">
           <img
             src={article.image}
-            alt={`${article.title} - Zyphuel Pakistan Number 1 Fuel Delivery Article`}
-            title={`${article.title} - Zyphuel Fuel Logistics`}
+            alt={article.title}
+            title={article.title}
             className="blog-card-img"
             loading="lazy"
             decoding="async"

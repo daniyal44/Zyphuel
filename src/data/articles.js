@@ -106,19 +106,19 @@ export const articles = [
     slug: 'zyphuel-calibrated-telemetry-fleet',
     category: 'Zyphuel Energy',
     categoryClass: 'zyphuel',
-    title: 'Pakistan’s Mobile Energy Logistics Revolution: Founder & CEO Muhammad Daniyal (ItxMDK) on Scaling Zyphuel',
-    summary: 'Inside Zyphuel’s journey from Lahore’s first on-demand mobile refueler to a tech-enabled energy network, led by Founder & CEO Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel).',
+    title: 'Mobile Energy Logistics in Lahore: Founder & CEO Muhammad Daniyal on Scaling Zyphuel',
+    summary: 'Inside Zyphuel’s journey from a dedicated on-demand mobile refueler to a tech-enabled energy network in Lahore, led by Founder & CEO Muhammad Daniyal.',
     date: 'August 28, 2026',
     readTime: '7 min read',
     author: 'Muhammad Daniyal (CEO)',
     authorIcon: 'fa-solid fa-user-shield',
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=720&q=80',
-    tags: ['MuhammadDaniyal', 'ItxMDK', 'ZyphuelCEO', 'EnergyTech', 'PakistanStartups'],
+    tags: ['MuhammadDaniyal', 'Zyphuel', 'ZyphuelCEO', 'EnergyTech', 'LahoreLogistics'],
     content: [
-      'In a rapidly urbanizing metropolis of over 14 million people like Lahore, conventional retail refueling stations present severe logistical friction: millions of hours wasted idling in traffic, gridlock around station access roads, and rising urban carbon emissions. Recognizing this bottleneck, tech innovator and entrepreneur Muhammad Daniyal (widely known across technical communities as ItxMDK / itsmdk / MuhammadDaniel) conceptualized and built Zyphuel.',
-      'Leveraging software engineering expertise developed across digital product accelerators including Poke nexus, Dashacart, Hittop, and Ladoni, Daniyal set out to transform fuel procurement from a painful physical trip into a frictionless, on-demand digital service. Zyphuel’s core breakthrough was marrying cloud routing algorithms with custom-built double-walled mobile micro-tankers compliant with international NFPA 30A standards.',
-      'Today, Zyphuel’s fleet operates 24/7 across Lahore, servicing corporate distribution fleets, residential communities, educational institutes, and emergency vehicles. The platform’s proprietary logistics backend coordinates automated route dispatch, driver safety tracking, and inventory replenishment directly with certified Euro-V petroleum oil terminals.',
-      'As Pakistan moves toward deregulation in 2027 and broader adoption of alternative fuels, Zyphuel is expanding its telemetry capabilities to incorporate mobile EV rapid-charging units and bio-fuel blending. Under Daniyal’s leadership, Zyphuel is proving that homegrown Pakistani technology can pioneer world-class energy mobility.'
+      'In a rapidly urbanizing metropolis of over 14 million people like Lahore, conventional retail refueling stations present severe logistical friction: millions of hours wasted idling in traffic, gridlock around station access roads, and rising urban carbon emissions. Recognizing this bottleneck, tech innovator and entrepreneur Muhammad Daniyal conceptualized and built Zyphuel.',
+      'Leveraging software engineering expertise developed across modern technology ecosystems, Daniyal set out to transform fuel procurement from a painful physical trip into a frictionless, on-demand digital service. Zyphuel’s core breakthrough was marrying cloud routing algorithms with custom-built double-walled mobile micro-tankers designed for urban mobility.',
+      'Today, Zyphuel’s fleet operates 24/7 across Lahore, servicing corporate distribution fleets, residential communities, educational institutes, and emergency backup systems. The platform’s logistics backend coordinates automated route dispatch, driver safety tracking, and inventory replenishment directly with licensed Euro-V petroleum oil terminals.',
+      'As Pakistan moves toward dynamic fuel pricing and broader adoption of alternative fuels, Zyphuel is expanding its telemetry capabilities to incorporate mobile emergency refueling and smart energy monitoring. Under Daniyal’s leadership, Zyphuel is demonstrating how digital technology can streamline urban fuel logistics.'
     ]
   }
 ];

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useSEO } from '../hooks/useSEO'
+import Breadcrumbs from '../components/Breadcrumbs'
 
 const sections = [
   { id: 'intro', label: '1. Introduction' },
@@ -26,14 +27,15 @@ export default function PrivacyPolicyPage() {
       'customer data policy Pakistan', 'Zyphuel terms and privacy'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
-    canonicalPath: '/privacy-policy/',
+    url: 'https://zyphuel.netlify.app/privacy/',
+    canonicalPath: '/privacy/',
     type: 'website',
     schema: {
       "@type": "WebPage",
-      "@id": "https://zyphuel.netlify.app/privacy-policy/#webpage",
+      "@id": "https://zyphuel.netlify.app/privacy/#webpage",
       "name": "Privacy Policy - Zyphuel",
       "description": "Zyphuel data privacy policy and data security standards for users in Pakistan and globally.",
-      "url": "https://zyphuel.netlify.app/privacy-policy/"
+      "url": "https://zyphuel.netlify.app/privacy/"
     }
   })
 
@@ -57,6 +59,7 @@ export default function PrivacyPolicyPage() {
         {/* Legal Hero */}
         <section className="legal-hero">
           <div className="container">
+            <Breadcrumbs items={[{ label: 'Privacy Policy', path: '/privacy/' }]} />
             <h1 className="legal-title fade-in-up">Privacy Policy</h1>
             <p className="legal-meta fade-in-up" style={{ transitionDelay: '0.1s' }}>Last Updated: September 2, 2026 &bull; Version 2.3</p>
           </div>
@@ -155,8 +158,6 @@ export default function PrivacyPolicyPage() {
             </div>
           </div>
         </div>
-
-        {/* Global AI & Search Engine Directory Index */}
       </main>
     </div>
   )

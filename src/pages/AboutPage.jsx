@@ -5,6 +5,7 @@ import GeometricalBirds from '../components/GeometricalBirds';
 import { useSEO } from '../hooks/useSEO';
 import { aboutArticles } from '../data/aboutData';
 import { APP_VERSION } from '../data/appVersion';
+import Breadcrumbs from '../components/Breadcrumbs';
 import "./styles.css";
 
 const TOTAL_CARDS = 6;
@@ -29,8 +30,8 @@ const teamMembers = [
 
 export default function AboutPage() {
   useSEO({
-    title: 'About Zyphuel | Mobile Fuel Delivery Team in Lahore',
-    description: 'How Zyphuel runs doorstep petrol and diesel delivery in Lahore — calibrated micro-tankers, digital flow meters, HAZMAT-trained riders, and the team behind the operation.',
+    title: 'About Zyphuel | Mobile Fuel Delivery in Lahore',
+    description: 'Learn about Zyphuel, a Lahore-focused mobile fuel delivery platform built to make fuel ordering, delivery and tracking simpler.',
     keywords: [
       'about Zyphuel', 'fuel delivery company Lahore', 'mobile refueling Pakistan',
       'diesel delivery Lahore', 'generator fuel Pakistan', 'calibrated fuel metering',
@@ -52,7 +53,6 @@ export default function AboutPage() {
             "@type": "Organization",
             "@id": "https://zyphuel.netlify.app/#organization",
             "name": "Zyphuel",
-            "alternateName": ["zphuel"],
             "url": "https://zyphuel.netlify.app",
             "logo": "https://zyphuel.netlify.app/images/logo.png",
             "sameAs": [
@@ -145,14 +145,15 @@ export default function AboutPage() {
   return (
     <div ref={pageRef}>
       <main style={{ paddingTop: 'var(--nav-height)' }}>
+        <Breadcrumbs items={[{ label: 'About Us', path: '/about/' }]} />
 
         {/* Story Section */}
         <section id="about" className="about section-padding">
           <div className="container" style={{ maxWidth: '960px' }}>
             <div className="fade-in-up">
               <div className="about-header-logo-row">
-                <img src="/images/Zyphuel-logo.png" alt="Zyphuel Company Logo" className="about-company-logo" />
-                <h1 className="section-title">Mobile Fuel Delivery, Built for Lahore</h1>
+                <img src="/images/Zyphuel-logo.png" alt="Zyphuel Company Logo" className="about-company-logo" width="180" height="48" />
+                <h1 className="section-title">About Zyphuel</h1>
               </div>
 
               <div className="story-desktop-copy">
@@ -174,16 +175,13 @@ export default function AboutPage() {
               </div>
 
               <div className="hero-ctas" style={{ marginBottom: '35px', display: 'flex', gap: '14px', alignItems: 'center', flexWrap: 'wrap' }}>
-                <button
-                  onClick={() => {
-                    navigate('/order');
-                    window.scrollTo(0, 0);
-                  }}
+                <Link
+                  to="/order/"
                   className="btn btn-primary"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                 >
                   <i className="fa-solid fa-truck-fast"></i> Schedule Your First Delivery
-                </button>
+                </Link>
                 <a
                   href="#articles-section"
                   className="btn btn-secondary"
@@ -225,6 +223,8 @@ export default function AboutPage() {
                     alt="Muhammad Daniyal, Founder & CEO of Zyphuel"
                     title="Muhammad Daniyal – Founder & CEO of Zyphuel"
                     className="founder-avatar-img"
+                    width="320"
+                    height="320"
                     loading="lazy"
                     itemProp="image"
                   />
@@ -484,9 +484,6 @@ export default function AboutPage() {
             <div className="scroll-indicator">scroll</div>
           )}
         </section>
-
-        {/* Global AI & Search Engine Directory Index */}
-
       </main>
     </div>
   );

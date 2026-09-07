@@ -13,13 +13,13 @@ export default function HomePage() {
   const [selectedArticle, setSelectedArticle] = useState(null)
 
   useSEO({
-    title: 'Diesel & Petrol Delivery in Lahore (24/7 Doorstep Service) | Zyphuel',
-    description: 'Order Euro-V Diesel & Super Petrol delivered to your door in Lahore in 30–45 mins. Calibrated digital flow meters, live GPS tracking & Cash on Delivery (COD). Call/WhatsApp +92 3230-112464.',
+    title: 'Zyphuel | Doorstep Petrol & Diesel Delivery in Lahore',
+    description: 'Zyphuel provides convenient doorstep petrol, diesel and high-octane fuel delivery in Lahore. Explore services, coverage areas and the Zyphuel mobile app.',
     keywords: [
       'fuel delivery Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
       'mobile refueling Pakistan', 'doorstep fuel delivery', 'generator diesel delivery',
       'bulk diesel supplier Lahore', 'fleet refueling service', 'on-demand fuel delivery app',
-      'i want diesel', 'online petrol delivery', 'petrol and diesel delivery'
+      'online petrol delivery', 'petrol and diesel delivery Lahore'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/',
@@ -28,7 +28,6 @@ export default function HomePage() {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Zyphuel",
-      "alternateName": ["zphuel"],
       "description": "Zyphuel delivers petrol and diesel to your location in Lahore, Pakistan — serving households, generator owners, and commercial fleets with calibrated metering and live GPS tracking.",
       "url": "https://zyphuel.netlify.app",
       "logo": "https://zyphuel.netlify.app/images/logo.png",
@@ -89,7 +88,7 @@ export default function HomePage() {
                 <span>Fuel on Your Doorstep – Lahore</span>
               </div>
               <h1 className="hero-title">
-                Reliable <span>Fuel Delivery</span>
+                Doorstep <span>Fuel Delivery</span> in Lahore
               </h1>
               <p className="hero-description">
                 From diesel to petrol – order online and get premium fuel delivered directly
@@ -173,7 +172,6 @@ export default function HomePage() {
       {/* Slideshow Section - 3D Card Carousel */}
       <Carousel3D />
 
-      {/* Global AI & Search Engine Directory Index */}
 
       {/* Detailed Blog Modal */}
       <BlogModal

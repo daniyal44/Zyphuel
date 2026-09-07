@@ -4,15 +4,9 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
+import { FUEL_PRICES } from '../data/fuelPrices'
+import Breadcrumbs from '../components/Breadcrumbs'
 import RefuelingLifecycleTracker from '../components/RefuelingLifecycleTracker'
-
-const FUEL_PRICES = {
-  petrol: 345.87,
-  diesel: 378.05,
-  highOctane: 365.00,
-  lpg: 258.65,
-  water: 100.00, // Price is Rs 100 per gallon refill
-}
 
 const FUEL_DISPLAY = {
   petrol: 'Petrol',
@@ -32,8 +26,8 @@ const FUEL_ICONS = {
 
 export default function OrderPage() {
   useSEO({
-    title: 'Order Diesel & Petrol Fuel Online | Doorstep Fuel Delivery Lahore | Zyphuel',
-    description: 'Order diesel, petrol, LPG gas cylinders, and water delivery online with Zyphuel. 45-minute express dispatch in Lahore for vehicles, fleets, generators, and construction sites. Cash on delivery & online payment.',
+    title: 'Order Petrol & Diesel Online in Lahore | Zyphuel',
+    description: 'Order diesel, petrol, LPG gas cylinders, and water delivery online with Zyphuel in Lahore. Express 45-minute doorstep dispatch with digital calibration meter.',
     keywords: [
       'order diesel Lahore', 'order petrol Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
       'generator diesel order', 'order fuel online Pakistan', 'LPG gas cylinder order Lahore',
@@ -41,6 +35,7 @@ export default function OrderPage() {
     ],
     image: 'https://zyphuel.netlify.app/images/tank.png',
     url: 'https://zyphuel.netlify.app/order/',
+    canonicalPath: '/order/',
     type: 'website',
     schema: {
       "@context": "https://schema.org",
@@ -64,30 +59,6 @@ export default function OrderPage() {
               "@type": "Brand",
               "name": "Zyphuel"
             },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "reviewCount": "128",
-              "bestRating": "5",
-              "worstRating": "1"
-            },
-            "review": [
-              {
-                "@type": "Review",
-                "author": {
-                  "@type": "Person",
-                  "name": "Hamza Tariq"
-                },
-                "datePublished": "2026-08-10",
-                "reviewBody": "Fast and dependable doorstep diesel delivery in Lahore. Genuine fuel quality and digital flow meter ensures exact quantity.",
-                "reviewRating": {
-                  "@type": "Rating",
-                  "ratingValue": "5",
-                  "bestRating": "5",
-                  "worstRating": "1"
-                }
-              }
-            ],
             "offers": {
               "@type": "AggregateOffer",
               "priceCurrency": "PKR",
@@ -513,8 +484,9 @@ export default function OrderPage() {
         {/* Order Form Section */}
         <section id="order" className="order-section section-padding">
           <div className="container">
+            <Breadcrumbs items={[{ label: 'Order Fuel', path: '/order/' }]} />
             <div className="section-header fade-in-up">
-              <h1 className="section-title">Order Refueling & Utility Services</h1>
+              <h1 className="section-title">Order Petrol &amp; Diesel Online in Lahore</h1>
               <p className="section-subtitle">Select fuel, LPG Gas, or Water. Calculate rates in real time, customize quantities, and track your delivery.</p>
             </div>
 

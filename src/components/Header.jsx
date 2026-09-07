@@ -50,12 +50,12 @@ export default function Header({ onOpenInterestModal }) {
     <header className={`header${scrolled ? ' scrolled' : ''}`} id="header" itemScope itemType="https://schema.org/WPHeader">
       <div className="container">
         {/* Logo */}
-        <Link to="/" className="logo" title="Zyphuel – Pakistan’s #1 Fuel Supplier & Mobile Application for Fuel Suppliers" aria-label="Zyphuel Home">
+        <Link to="/" className="logo" title="Zyphuel – Doorstep Fuel Delivery in Lahore" aria-label="Zyphuel Home">
           {!logoError ? (
             <img
               src="/images/Zyphuel-logo.png"
-              alt="Zyphuel - On-Demand 24/7 Mobile Fuel & Petrol Delivery Lahore"
-              title="Zyphuel - Pakistan Number 1 Fuel Supplier & Mobile Application for Fuel Suppliers"
+              alt="Zyphuel - On-Demand Mobile Fuel & Petrol Delivery Lahore"
+              title="Zyphuel - Mobile Fuel Delivery in Lahore"
               className="logo-icon"
               width="142"
               height="38"
@@ -77,8 +77,8 @@ export default function Header({ onOpenInterestModal }) {
           <Link
             to="/download/"
             className="badge-pill badge-zyphuel"
-            title="Download Zyphuel Mobile Application for Fuel Suppliers (Android APK)"
-            aria-label="Download Zyphuel Mobile Application for Fuel Suppliers"
+            title="Download Zyphuel Mobile App (Android APK)"
+            aria-label="Download Zyphuel Mobile App"
             style={{ cursor: 'pointer' }}
           >
             <i className="fa-solid fa-file-arrow-down"></i> Download App

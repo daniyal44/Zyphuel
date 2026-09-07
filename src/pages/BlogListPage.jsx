@@ -3,16 +3,18 @@ import { Link } from 'react-router-dom'
 import { articles } from '../data/articles'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import Breadcrumbs from '../components/Breadcrumbs'
 
 export default function BlogListPage() {
   const [activeFilter, setActiveFilter] = useState('All')
   const pageRef = useScrollReveal([activeFilter])
 
   useSEO({
-    title: 'Fuel Delivery Blog & Articles | Zyphuel Lahore',
+    title: 'Zyphuel Blog | Fuel Delivery, Energy & Vehicle Guides',
     description: 'Read the latest articles about fuel delivery, generator refueling, LPG gas delivery, and mobile energy logistics in Lahore, Pakistan.',
     keywords: ['fuel delivery blog', 'diesel delivery articles', 'generator refueling guide', 'Lahore fuel news', 'Zyphuel blog'],
     url: 'https://zyphuel.netlify.app/blog/',
+    canonicalPath: '/blog/',
     type: 'website'
   })
 
@@ -24,8 +26,9 @@ export default function BlogListPage() {
     <div ref={pageRef}>
       <section className="blog-section section-padding">
         <div className="container">
+          <Breadcrumbs items={[{ label: 'Blog', path: '/blog/' }]} />
           <div className="blog-header fade-in-up">
-            <h1 className="section-title">Blog & Articles</h1>
+            <h1 className="section-title">Zyphuel Blog &amp; Fuel Guides</h1>
             <p className="section-subtitle">
               Read the latest updates about mobile fuel logistics, energy mobility,
               and fuel delivery innovations in Lahore.

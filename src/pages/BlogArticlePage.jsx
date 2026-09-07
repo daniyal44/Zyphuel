@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { articles } from '../data/articles'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import Breadcrumbs from '../components/Breadcrumbs'
 
 export default function BlogArticlePage() {
   const { slug } = useParams()
@@ -14,22 +15,36 @@ export default function BlogArticlePage() {
     keywords: article ? article.tags : [],
     image: article ? article.image : undefined,
     url: `https://zyphuel.netlify.app/blog/${slug}/`,
+    canonicalPath: article ? `/blog/${slug}/` : undefined,
     type: 'article',
     schema: article ? {
-      "@type": "Article",
-      "headline": article.title,
-      "description": article.summary,
-      "image": article.image,
-      "datePublished": article.date,
-      "author": {
-        "@type": "Organization",
-        "name": article.author
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Zyphuel",
-        "logo": "https://zyphuel.netlify.app/images/logo.png"
-      }
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "headline": article.title,
+          "description": article.summary,
+          "image": article.image,
+          "datePublished": article.date,
+          "author": {
+            "@type": "Organization",
+            "name": article.author
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Zyphuel",
+            "logo": "https://zyphuel.netlify.app/images/logo.png"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://zyphuel.netlify.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://zyphuel.netlify.app/blog/" },
+            { "@type": "ListItem", "position": 3, "name": article.title, "item": `https://zyphuel.netlify.app/blog/${slug}/` }
+          ]
+        }
+      ]
     } : null
   })
 
@@ -46,9 +61,16 @@ export default function BlogArticlePage() {
   return (
     <div ref={pageRef}>
       <article className="section-padding" style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1.5rem' }}>
+        <Breadcrumbs
+          items={[
+            { label: 'Blog', path: '/blog/' },
+            { label: article.title, path: `/blog/${slug}/` }
+          ]}
+        />
+
         {/* Back Link */}
         <Link to="/blog/" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', textDecoration: 'none', marginBottom: '2rem', fontSize: '0.95rem' }} className="fade-in-up">
-          <i className="fa-solid fa-arrow-left"></i> Back to Blog
+          <i className="fa-solid fa-arrow-left"></i> Back to All Articles
         </Link>
 
         {/* Category & Meta */}
@@ -97,9 +119,12 @@ export default function BlogArticlePage() {
         </div>
 
         {/* CTA */}
-        <div className="fade-in-up" style={{ marginTop: '3rem', textAlign: 'center' }}>
+        <div className="fade-in-up" style={{ marginTop: '3rem', textAlign: 'center', display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
           <Link to="/order/" className="btn btn-primary">
             <i className="fa-solid fa-gas-pump"></i> Order Fuel Now
+          </Link>
+          <Link to="/services/" className="btn btn-outline">
+            <i className="fa-solid fa-truck-droplet"></i> Explore Services
           </Link>
         </div>
       </article>

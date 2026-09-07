@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useSEO } from '../hooks/useSEO'
+import Breadcrumbs from '../components/Breadcrumbs'
 
 const sections = [
   { id: 'terms-intro', label: '1. Acceptance of Terms' },
@@ -25,14 +26,15 @@ export default function TermsOfUsePage() {
       'fuel order terms Pakistan', 'Zyphuel app terms'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
-    canonicalPath: '/terms-of-use/',
+    url: 'https://zyphuel.netlify.app/terms/',
+    canonicalPath: '/terms/',
     type: 'website',
     schema: {
       "@type": "WebPage",
-      "@id": "https://zyphuel.netlify.app/terms-of-use/#webpage",
+      "@id": "https://zyphuel.netlify.app/terms/#webpage",
       "name": "Terms of Use - Zyphuel",
       "description": "Terms of use and service agreement for Zyphuel fuel delivery and digital logistics platform.",
-      "url": "https://zyphuel.netlify.app/terms-of-use/"
+      "url": "https://zyphuel.netlify.app/terms/"
     }
   })
 
@@ -54,6 +56,7 @@ export default function TermsOfUsePage() {
         {/* Legal Hero */}
         <section className="legal-hero">
           <div className="container">
+            <Breadcrumbs items={[{ label: 'Terms of Use', path: '/terms/' }]} />
             <h1 className="legal-title fade-in-up">Terms of Use</h1>
             <p className="legal-meta fade-in-up" style={{ transitionDelay: '0.1s' }}>Last Updated: September 2, 2026 &bull; Version 2.3</p>
           </div>
@@ -160,8 +163,6 @@ export default function TermsOfUsePage() {
             </div>
           </div>
         </div>
-
-        {/* Global AI & Search Engine Directory Index */}
       </main>
     </div>
   )

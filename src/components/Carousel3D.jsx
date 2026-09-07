@@ -32,7 +32,7 @@ export default function Carousel3D() {
         <div className="fade-in-up" style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h2 className="section-title" style={{ color: '#ffffff' }}>Our Brand &amp; Fleet</h2>
           <p className="section-subtitle" style={{ color: '#94a3b8' }}>
-            Zyphuel is Pakistan’s #1 fuel agency and premier fuel supplier, dedicated to top-quality mobile energy solutions nationwide.
+            Zyphuel is a Lahore-focused mobile fuel delivery service dedicated to dependable doorstep refueling, calibrated metering, and safety.
           </p>
         </div>
 

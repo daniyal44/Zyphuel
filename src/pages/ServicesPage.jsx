@@ -16,6 +16,7 @@ import {
 import { APP_VERSION } from '../data/appVersion'
 import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
+import Breadcrumbs from '../components/Breadcrumbs'
 
 export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState('consumer')
@@ -24,8 +25,8 @@ export default function ServicesPage() {
   const navigate = useNavigate()
 
   useSEO({
-    title: 'Doorstep Fuel Delivery Services in Lahore | Petrol & Diesel | Zyphuel',
-    description: 'Explore Zyphuel\'s 24/7 doorstep fuel delivery services across Lahore: Euro-V Super Petrol, High-Octane 97, Generator Diesel, LPG Cylinders, and Corporate Fleet Solutions with calibrated flow metering and live GPS tracking.',
+    title: 'Fuel Delivery Services in Lahore | Petrol, Diesel & High-Octane | Zyphuel',
+    description: 'Explore Zyphuel\'s fuel delivery services in Lahore, including petrol, diesel, high-octane fuel, generator refueling and utility delivery.',
     keywords: [
       'fuel delivery services Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
       'generator diesel refueling Lahore', 'commercial diesel supply Lahore', 'fleet refueling Pakistan',
@@ -168,6 +169,7 @@ export default function ServicesPage() {
   return (
     <div ref={pageRef}>
       <main style={{ paddingTop: 'var(--nav-height)' }}>
+        <Breadcrumbs items={[{ label: 'Services', path: '/services/' }]} />
 
         {/* Hero Section */}
         <section className="services-hero">
@@ -179,7 +181,7 @@ export default function ServicesPage() {
                   <span>24/7 On-Demand Fuel Mobility Lahore</span>
                 </div>
                 <h1 className="hero-title" style={{ marginBottom: '16px' }}>
-                  Doorstep <span>Petrol, Diesel &amp; Utilities</span> Refueling in Lahore
+                  Fuel Delivery Services in Lahore
                 </h1>
                 <p className="hero-description" style={{ fontSize: '1.05rem', color: 'var(--text-secondary)', marginBottom: '24px', lineHeight: '1.65' }}>
                   Eliminate petrol station trips, long queues, and fuel shortage risks. Zyphuel delivers terminal-grade 
@@ -534,8 +536,6 @@ export default function ServicesPage() {
             />
           </div>
         </section>
-
-        {/* Global AI & Search Engine Directory Index */}
       </main>
     </div>
   )

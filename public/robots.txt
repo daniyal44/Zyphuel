@@ -1,8 +1,10 @@
 User-agent: *
 Allow: /
 Allow: /images/
+Allow: /assets/
 Allow: /APK/
 Allow: /manifest.json
+Disallow: /404.html
 
 # Image Crawlers
 User-agent: Googlebot-Image
@@ -38,7 +40,7 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-# AI & LLM Search Crawlers (AEO, GEO, RAG Discovery)
+# AI & LLM Search Crawlers
 User-agent: GPTBot
 Allow: /
 

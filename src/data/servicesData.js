@@ -1,10 +1,6 @@
-export const FUEL_RATES = {
-  petrol: 345.87,
-  diesel: 378.05,
-  highOctane: 365.00,
-  lpg: 258.65,
-  water: 100.00,
-};
+import { FUEL_PRICES } from './fuelPrices.js';
+
+export const FUEL_RATES = FUEL_PRICES;
 
 export const servicesB2C = [
   {

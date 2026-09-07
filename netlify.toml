@@ -17,6 +17,13 @@
     Cache-Control = "public, max-age=0, must-revalidate"
     X-Robots-Tag = "all, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 
+# 404 error page header - tell search engines not to index error pages
+[[headers]]
+  for = "/404.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
 # Cache static assets immutably
 [[headers]]
   for = "/assets/*"
@@ -55,13 +62,33 @@
   status = 301
 
 [[redirects]]
+  from = "/privacy"
+  to = "/privacy/"
+  status = 301
+
+[[redirects]]
   from = "/privacy-policy"
-  to = "/privacy-policy/"
+  to = "/privacy/"
+  status = 301
+
+[[redirects]]
+  from = "/privacy-policy/"
+  to = "/privacy/"
+  status = 301
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms/"
   status = 301
 
 [[redirects]]
   from = "/terms-of-use"
-  to = "/terms-of-use/"
+  to = "/terms/"
+  status = 301
+
+[[redirects]]
+  from = "/terms-of-use/"
+  to = "/terms/"
   status = 301
 
 [[redirects]]
@@ -74,8 +101,8 @@
   to = "/blog/:splat/"
   status = 301
 
-# Fallback for SPA navigation
+# Genuine 404 status for missing paths (prevents Google Soft 404 penalty)
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404

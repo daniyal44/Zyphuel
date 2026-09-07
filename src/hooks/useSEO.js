@@ -20,7 +20,6 @@ const GLOBAL_ORGANIZATION = {
   "@type": "Organization",
   "@id": "https://zyphuel.netlify.app/#organization",
   "name": "Zyphuel",
-  "alternateName": ["zphuel"],
   "url": "https://zyphuel.netlify.app",
   "logo": "https://zyphuel.netlify.app/images/logo.png",
   "sameAs": [
@@ -73,7 +72,6 @@ const GLOBAL_WEBSITE = {
   "@id": "https://zyphuel.netlify.app/#website",
   "url": "https://zyphuel.netlify.app",
   "name": "Zyphuel",
-  "alternateName": ["zphuel"],
   "description": "On-demand petrol and diesel delivery for homes, generators and commercial fleets in Lahore, Pakistan.",
   "publisher": {
     "@id": "https://zyphuel.netlify.app/#organization"
@@ -195,7 +193,7 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
     // 4. Twitter Card Tags
     setMetaTag('twitter:card', null, 'summary_large_image')
     setMetaTag('twitter:site', null, '@Zyphuel')
-    setMetaTag('twitter:creator', null, '@itsmdk')
+    setMetaTag('twitter:creator', null, '@Zyphuel')
     setMetaTag('twitter:title', title)
     setMetaTag('twitter:description', description)
     setMetaTag('twitter:image', defaultImage)

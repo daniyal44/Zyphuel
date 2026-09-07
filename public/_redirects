@@ -1,8 +1,18 @@
-/about              /about/index.html           200
-/services           /services/index.html        200
-/download           /download/index.html        200
-/order              /order/index.html           200
-/contact            /contact/index.html         200
-/privacy-policy     /privacy-policy/index.html  200
-/terms-of-use       /terms-of-use/index.html    200
-/*                  /index.html                 200
+# Canonical trailing-slash 301 redirects
+/about              /about/             301
+/services           /services/          301
+/download           /download/          301
+/order              /order/             301
+/contact            /contact/           301
+/privacy            /privacy/           301
+/terms              /terms/             301
+/blog               /blog/              301
+
+# Legacy URL 301 redirects to canonical legal pages
+/privacy-policy     /privacy/           301
+/privacy-policy/    /privacy/           301
+/terms-of-use       /terms/             301
+/terms-of-use/      /terms/             301
+
+# Genuine 404 status for non-existent pages (Prevents Google Soft 404 penalty)
+/*                  /404.html           404

@@ -27,7 +27,6 @@ const LocalBusinessSchema = () => {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Zyphuel',
-    alternateName: ['zphuel'],
     image: [
       'https://zyphuel.netlify.app/images/logo.png',
       'https://zyphuel.netlify.app/images/Zyphuel-logo.png',
@@ -44,7 +43,7 @@ const LocalBusinessSchema = () => {
       streetAddress: '75-Main Boulevard, Gulberg III',
       addressLocality: 'Lahore',
       addressRegion: 'Punjab',
-      postalCode: '54600',
+      postalCode: '54000',
       addressCountry: 'PK',
     },
     sameAs: [
@@ -98,7 +97,7 @@ export default function Footer() {
                 <img
                   src={brand.logoPath}
                   alt={brand.logoAlt}
-                  title="Zyphuel - Pakistan Number 1 Fuel Delivery Brand & Supplier"
+                  title="Zyphuel - Doorstep Fuel Delivery in Lahore"
                   className="logo-icon"
                   width="120"
                   height="32"

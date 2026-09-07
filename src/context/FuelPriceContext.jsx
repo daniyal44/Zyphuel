@@ -1,14 +1,9 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { FUEL_PRICES } from '../data/fuelPrices.js';
 
 const FuelPriceContext = createContext();
 
-const DEFAULT_PRICES = {
-  petrol: 345.87,
-  diesel: 378.05,
-  highOctane: 365.00,
-  lpg: 258.65,
-  water: 100.00,
-};
+const DEFAULT_PRICES = FUEL_PRICES;
 
 export function FuelPriceProvider({ children }) {
   const [prices, setPrices] = useState(DEFAULT_PRICES);

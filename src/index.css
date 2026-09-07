@@ -4347,48 +4347,49 @@ a.footer-contact-link:hover {
     }
 }
 
-/* Backlink & Reference Registry Styles */
-.backlinks-container {
+/* Accessible Breadcrumbs Navigation */
+.breadcrumb-nav {
+    padding: 16px 0;
+    background: transparent;
+    font-size: 0.88rem;
+}
+
+.breadcrumb-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 6px;
 }
 
-.backlink-item {
-    background: rgba(14, 165, 233, 0.05);
-    border: 1px solid rgba(14, 165, 233, 0.15);
-    color: #38bdf8;
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 6px 12px;
-    border-radius: 8px;
+.breadcrumb-item {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    transition: all 0.25s ease;
+    color: var(--text-secondary);
 }
 
-.backlink-item:hover {
-    background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
-    border-color: rgba(14, 165, 233, 0.35);
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.12);
+.breadcrumb-link {
+    color: var(--accent-color, #0284c7);
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
-/* Visually hide SEO keyword blocks and indexes from users to protect design/strategy, but keep fully indexable in DOM for AI/crawlers */
-.seo-only-crawlers {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
+.breadcrumb-link:hover {
+    color: var(--accent-color-hover, #0369a1);
+    text-decoration: underline;
 }
 
+.breadcrumb-separator {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 8px;
+    font-size: 0.65rem;
+    color: #94a3b8;
+}
 
-
+.breadcrumb-current {
+    color: var(--text-primary);
+    font-weight: 600;
+}
