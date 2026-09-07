@@ -39,7 +39,7 @@ export default function OrderPage() {
       'water refill delivery Lahore', 'fuel cash on delivery Lahore', 'Zyphuel order'
     ],
     image: 'https://zyphuel.netlify.app/images/tank.png',
-    url: 'https://zyphuel.netlify.app/order',
+    url: 'https://zyphuel.netlify.app/order/',
     type: 'website',
     schema: {
       "@context": "https://schema.org",
@@ -48,7 +48,7 @@ export default function OrderPage() {
           "@type": "OrderAction",
           "target": {
             "@type": "EntryPoint",
-            "urlTemplate": "https://zyphuel.netlify.app/order",
+            "urlTemplate": "https://zyphuel.netlify.app/order/",
             "actionPlatform": [
               "http://schema.org/DesktopWebPlatform",
               "http://schema.org/MobileWebPlatform"

@@ -33,14 +33,14 @@ export default function ServicesPage() {
       'high octane 97 delivery Lahore', 'Zyphuel services'
     ],
     image: 'https://zyphuel.netlify.app/images/fuel.png',
-    url: 'https://zyphuel.netlify.app/services',
+    url: 'https://zyphuel.netlify.app/services/',
     type: 'website',
     schema: {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "Service",
-          "@id": "https://zyphuel.netlify.app/services#service",
+          "@id": "https://zyphuel.netlify.app/services/#service",
           "name": "On-Demand Doorstep Fuel & Utility Delivery",
           "provider": {
             "@type": "LocalBusiness",
@@ -107,7 +107,7 @@ export default function ServicesPage() {
         },
         {
           "@type": "FAQPage",
-          "@id": "https://zyphuel.netlify.app/services#faq",
+          "@id": "https://zyphuel.netlify.app/services/#faq",
           "mainEntity": [
             {
               "@type": "Question",
@@ -156,7 +156,7 @@ export default function ServicesPage() {
   })
 
   const handleOrderRedirect = (fuelTypeKey, qtyVal) => {
-    navigate('/order', {
+    navigate('/order/', {
       state: {
         fuelType: fuelTypeKey,
         qty: qtyVal || 50
@@ -223,7 +223,7 @@ export default function ServicesPage() {
                   <button onClick={() => handleOrderRedirect('petrol', 50)} className="btn btn-primary" style={{ minHeight: '48px' }}>
                     <i className="fa-solid fa-cart-shopping"></i> Order Fuel Online
                   </button>
-                  <Link to="/download" className="btn btn-secondary" style={{ minHeight: '48px' }}>
+                  <Link to="/download/" className="btn btn-secondary" style={{ minHeight: '48px' }}>
                     <i className="fa-solid fa-mobile-screen-button"></i> Download Mobile App v{APP_VERSION}
                   </Link>
                   <a href="#services-scope" style={{ fontSize: 'var(--fs-sm, 0.875rem)', color: 'var(--text-accent, #0284c7)', fontWeight: 600, padding: '8px 12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>

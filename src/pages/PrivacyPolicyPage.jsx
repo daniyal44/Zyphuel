@@ -26,14 +26,14 @@ export default function PrivacyPolicyPage() {
       'customer data policy Pakistan', 'Zyphuel terms and privacy'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
-    canonicalPath: '/privacy-policy',
+    canonicalPath: '/privacy-policy/',
     type: 'website',
     schema: {
       "@type": "WebPage",
-      "@id": "https://zyphuel.netlify.app/privacy-policy#webpage",
+      "@id": "https://zyphuel.netlify.app/privacy-policy/#webpage",
       "name": "Privacy Policy - Zyphuel",
       "description": "Zyphuel data privacy policy and data security standards for users in Pakistan and globally.",
-      "url": "https://zyphuel.netlify.app/privacy-policy"
+      "url": "https://zyphuel.netlify.app/privacy-policy/"
     }
   })
 

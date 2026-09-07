@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function BlogCard({ article, index, onReadMore }) {
   return (
@@ -12,17 +13,19 @@ export default function BlogCard({ article, index, onReadMore }) {
         <span className={`blog-card-category-badge ${article.categoryClass}`}>
           {article.category}
         </span>
-        <img
-          src={article.image}
-          alt={`${article.title} - Zyphuel Pakistan Number 1 Fuel Delivery Article`}
-          title={`${article.title} - Zyphuel Fuel Logistics`}
-          className="blog-card-img"
-          loading="lazy"
-          decoding="async"
-          width="360"
-          height="240"
-          itemProp="image"
-        />
+        <Link to={`/blog/${article.slug}/`} tabIndex="-1" aria-hidden="true">
+          <img
+            src={article.image}
+            alt={`${article.title} - Zyphuel Pakistan Number 1 Fuel Delivery Article`}
+            title={`${article.title} - Zyphuel Fuel Logistics`}
+            className="blog-card-img"
+            loading="lazy"
+            decoding="async"
+            width="360"
+            height="240"
+            itemProp="image"
+          />
+        </Link>
       </div>
       <div className="blog-card-content">
         <div className="blog-card-meta">
@@ -32,7 +35,11 @@ export default function BlogCard({ article, index, onReadMore }) {
           <i className="fa-regular fa-clock"></i>
           <span>{article.readTime}</span>
         </div>
-        <h3 className="blog-card-title" itemProp="headline">{article.title}</h3>
+        <h3 className="blog-card-title" itemProp="headline">
+          <Link to={`/blog/${article.slug}/`} style={{ color: 'inherit', textDecoration: 'none' }}>
+            {article.title}
+          </Link>
+        </h3>
         <p className="blog-card-desc" itemProp="description">{article.summary}</p>
         <div className="blog-card-tags">
           {article.tags.slice(0, 2).map(tag => (
@@ -48,14 +55,13 @@ export default function BlogCard({ article, index, onReadMore }) {
             </div>
             <span className="blog-card-author-name" itemProp="name">{article.author}</span>
           </div>
-          <button
+          <Link
+            to={`/blog/${article.slug}/`}
             className="blog-card-link"
-            onClick={() => onReadMore(article)}
-            style={{ cursor: 'pointer', border: 'none', background: 'none' }}
             aria-label={`Read full article: ${article.title}`}
           >
             Read Article <i className="fa-solid fa-chevron-right"></i>
-          </button>
+          </Link>
         </div>
       </div>
     </article>

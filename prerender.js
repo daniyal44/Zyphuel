@@ -96,7 +96,7 @@ const WEBSITE_SCHEMA = {
   },
   "potentialAction": {
     "@type": "SearchAction",
-    "target": `${DOMAIN}/services?q={search_term_string}`,
+    "target": `${DOMAIN}/services/?q={search_term_string}`,
     "query-input": "required name=search_term_string"
   }
 }
@@ -134,7 +134,7 @@ const ARTICLES_SCHEMA = [
     "publisher": {
       "@id": `${DOMAIN}/#organization`
     },
-    "mainEntityOfPage": `${DOMAIN}/download`
+    "mainEntityOfPage": `${DOMAIN}/download/`
   },
   {
     "@type": "Article",
@@ -151,7 +151,7 @@ const ARTICLES_SCHEMA = [
     "publisher": {
       "@id": `${DOMAIN}/#organization`
     },
-    "mainEntityOfPage": `${DOMAIN}/services`
+    "mainEntityOfPage": `${DOMAIN}/services/`
   },
   {
     "@type": "Article",
@@ -168,7 +168,7 @@ const ARTICLES_SCHEMA = [
     "publisher": {
       "@id": `${DOMAIN}/#organization`
     },
-    "mainEntityOfPage": `${DOMAIN}/services`
+    "mainEntityOfPage": `${DOMAIN}/services/`
   },
   {
     "@type": "TechArticle",
@@ -185,7 +185,7 @@ const ARTICLES_SCHEMA = [
     "publisher": {
       "@id": `${DOMAIN}/#organization`
     },
-    "mainEntityOfPage": `${DOMAIN}/about`
+    "mainEntityOfPage": `${DOMAIN}/about/`
   },
   {
     "@type": "Article",
@@ -203,7 +203,7 @@ const ARTICLES_SCHEMA = [
     "publisher": {
       "@id": `${DOMAIN}/#organization`
     },
-    "mainEntityOfPage": `${DOMAIN}/about`
+    "mainEntityOfPage": `${DOMAIN}/about/`
   }
 ]
 
@@ -213,8 +213,8 @@ const ROUTES = [
   {
     path: '/',
     outFile: 'dist/index.html',
-    title: "Diesel & Petrol Delivery in Lahore | Zyphuel Mobile Refueling",
-    description: "Zyphuel delivers petrol and diesel to your door in Lahore — homes, generators, and commercial fleets. Calibrated metering, live GPS tracking, and 24/7 dispatch. Order online or on the app.",
+    title: "Diesel & Petrol Delivery in Lahore (24/7 Doorstep Service) | Zyphuel",
+    description: "Order Euro-V Diesel & Super Petrol delivered to your door in Lahore in 30–45 mins. Calibrated digital flow meters, live GPS tracking & Cash on Delivery (COD). Call/WhatsApp +92 3230-112464.",
     keywords: RELEVANT_KEYWORDS,
     canonical: `${DOMAIN}/`,
     ogImage: `${DOMAIN}/images/logo.png`,
@@ -273,12 +273,12 @@ const ROUTES = [
     }
   },
   {
-    path: '/about',
+    path: '/about/',
     outFile: 'dist/about/index.html',
-    title: "About Zyphuel – Lahore's Trusted Fuel Delivery Service | Our Team",
-    description: "Learn about Zyphuel, Lahore's trusted doorstep fuel delivery service. Meet our team, our mission, and how we deliver petrol and diesel safely to homes, generators, and commercial fleets.",
+    title: "About Zyphuel – Lahore's Trusted Mobile Fuel Delivery Service | Our Team",
+    description: "Learn how Zyphuel revolutionizes doorstep fuel delivery across Lahore. Founded by Muhammad Daniyal (ItxMDK), serving homes, generators & commercial fleets with zero-shortage calibrated metering.",
     keywords: RELEVANT_KEYWORDS,
-    canonical: `${DOMAIN}/about`,
+    canonical: `${DOMAIN}/about/`,
     ogImage: `${DOMAIN}/images/daniyal.jpeg`,
     ogType: 'website',
     schema: {
@@ -290,13 +290,13 @@ const ROUTES = [
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": `${DOMAIN}/` },
-            { "@type": "ListItem", "position": 2, "name": "About Us", "item": `${DOMAIN}/about` }
+            { "@type": "ListItem", "position": 2, "name": "About Us", "item": `${DOMAIN}/about/` }
           ]
         },
         {
           "@type": "AboutPage",
-          "@id": `${DOMAIN}/about#aboutpage`,
-          "url": `${DOMAIN}/about`,
+          "@id": `${DOMAIN}/about/#aboutpage`,
+          "url": `${DOMAIN}/about/`,
           "name": "About Zyphuel & Leadership Team",
           "mainEntity": {
             "@id": `${DOMAIN}/#organization`
@@ -307,12 +307,12 @@ const ROUTES = [
     }
   },
   {
-    path: '/services',
+    path: '/services/',
     outFile: 'dist/services/index.html',
-    title: "Doorstep Fuel Delivery Services in Lahore | Petrol & Diesel | Zyphuel",
-    description: "Explore Zyphuel's 24/7 doorstep fuel delivery services across Lahore: Euro-V Super Petrol, High-Octane 97, Generator Diesel, LPG Cylinders, and Corporate Fleet Solutions with calibrated flow metering and live GPS tracking.",
+    title: "Doorstep Fuel Delivery Services in Lahore | Diesel & Petrol | Zyphuel",
+    description: "24/7 Doorstep Fuel Delivery in Lahore: Euro-V Diesel for standby generators & vehicles, Super Petrol, LPG cylinders & bulk water tankers. Certified digital metering & fast 45-min dispatch.",
     keywords: RELEVANT_KEYWORDS,
-    canonical: `${DOMAIN}/services`,
+    canonical: `${DOMAIN}/services/`,
     ogImage: `${DOMAIN}/images/fuel.png`,
     ogType: 'website',
     schema: {
@@ -324,12 +324,12 @@ const ROUTES = [
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": `${DOMAIN}/` },
-            { "@type": "ListItem", "position": 2, "name": "Services", "item": `${DOMAIN}/services` }
+            { "@type": "ListItem", "position": 2, "name": "Services", "item": `${DOMAIN}/services/` }
           ]
         },
         {
           "@type": "Service",
-          "@id": `${DOMAIN}/services#service`,
+          "@id": `${DOMAIN}/services/#service`,
           "name": "On-Demand Doorstep Fuel & Utility Delivery",
           "provider": { "@id": `${DOMAIN}/#organization` },
           "serviceType": "Energy Logistics and Fuel Supply",
@@ -371,7 +371,7 @@ const ROUTES = [
         },
         {
           "@type": "FAQPage",
-          "@id": `${DOMAIN}/services#faq`,
+          "@id": `${DOMAIN}/services/#faq`,
           "mainEntity": [
             {
               "@type": "Question",
@@ -420,12 +420,12 @@ const ROUTES = [
     }
   },
   {
-    path: '/download',
+    path: '/download/',
     outFile: 'dist/download/index.html',
-    title: "Download Zyphuel App – Order Fuel from Your Phone | Android APK",
-    description: "Download the official Zyphuel Android App (v2.3.0.1, 31.4 MB). Order petrol, diesel, LPG gas delivery in Lahore. GPS auto-detection, live fuel prices, and 2-hour OGRA rate alerts.",
+    title: "Download Zyphuel App APK v2.3.0.1 | Doorstep Fuel Delivery Lahore",
+    description: "Download official Zyphuel Android APK (v2.3.0.1, 31.4 MB). Order petrol, generator diesel & LPG in Lahore with 1 tap. Live GPS truck tracking, calibrated receipts & 2-hour rate alerts.",
     keywords: "Download Zyphuel APK, Zyphuel App v2.3.0.1, mobile application for fuel suppliers, petrol delivery app Android, fuel price alert app Pakistan, Muhammad Daniyal ItxMDK app, best mobile application for fuel suppliers, Lahore fuel delivery app",
-    canonical: `${DOMAIN}/download`,
+    canonical: `${DOMAIN}/download/`,
     ogImage: `${DOMAIN}/images/1.jpeg`,
     ogType: 'website',
     schema: {
@@ -437,12 +437,12 @@ const ROUTES = [
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": `${DOMAIN}/` },
-            { "@type": "ListItem", "position": 2, "name": "Download App", "item": `${DOMAIN}/download` }
+            { "@type": "ListItem", "position": 2, "name": "Download App", "item": `${DOMAIN}/download/` }
           ]
         },
         {
           "@type": "SoftwareApplication",
-          "@id": `${DOMAIN}/download#app`,
+          "@id": `${DOMAIN}/download/#app`,
           "name": "Zyphuel Mobile Application for Fuel Suppliers",
           "operatingSystem": "Android 8.0 and above",
           "applicationCategory": "BusinessApplication, UtilitiesApplication",
@@ -458,7 +458,7 @@ const ROUTES = [
         },
         {
           "@type": "Article",
-          "@id": `${DOMAIN}/download#app-article-1`,
+          "@id": `${DOMAIN}/download/#app-article-1`,
           "headline": "Zyphuel Mobile App v2.3.0.1: Next-Gen Doorstep Fuel Logistics & Cloud Telemetry in Pakistan",
           "description": "Explore how the official Zyphuel Android APK (v2.3.0.1, 31.4 MB) transforms urban energy delivery in Lahore with instant GPS auto-detection and zero-latency cloud telemetry.",
           "image": `${DOMAIN}/images/1.jpeg`,
@@ -473,7 +473,7 @@ const ROUTES = [
         },
         {
           "@type": "Article",
-          "@id": `${DOMAIN}/download#app-article-2`,
+          "@id": `${DOMAIN}/download/#app-article-2`,
           "headline": "2-Hour Automated Fuel Rate Push Notifications: Why Fleet Managers Rely on Zyphuel",
           "description": "How Zyphuel's built-in 2-hour push notification engine delivers official OGRA price updates and live market rate tracking directly to Android lock screens.",
           "image": `${DOMAIN}/images/3.jpeg`,
@@ -487,7 +487,7 @@ const ROUTES = [
         },
         {
           "@type": "Article",
-          "@id": `${DOMAIN}/download#app-article-3`,
+          "@id": `${DOMAIN}/download/#app-article-3`,
           "headline": "Commercial Generator Refueling & Sealed LPG Gas Cylinder Refills in Lahore",
           "description": "Eliminate power outage downtime in factories, hospitals, and corporate plazas with scheduled generator diesel refills and safety-tested LPG cylinder deliveries.",
           "image": `${DOMAIN}/images/2.jpeg`,
@@ -503,12 +503,12 @@ const ROUTES = [
     }
   },
   {
-    path: '/order',
+    path: '/order/',
     outFile: 'dist/order/index.html',
-    title: "Order Diesel & Petrol Online | Doorstep Fuel Delivery Lahore | Zyphuel",
-    description: "Order petrol, diesel, LPG gas cylinders, or water refills online with Zyphuel. 24/7 doorstep delivery in Lahore with calibrated metering and live GPS tracking.",
-    keywords: "diesel, diesel delivery Lahore, order diesel Lahore, petrol and diesel, patrol and diesel, diesel gasoline, i want diesel, generator diesel order, Order petrol Lahore, diesel dispatch online, emergency fuel delivery, LPG cylinder order Lahore, water tanker delivery, Cash on Delivery fuel Lahore, Pakistan number 1 best fuel delivery",
-    canonical: `${DOMAIN}/order`,
+    title: "Order Diesel & Petrol Online Lahore | 24/7 Doorstep Delivery | Zyphuel",
+    description: "Need fuel right now? Order Euro-V Diesel & Petrol online in Lahore. Fast 30–45 min dispatch for generators, cars & commercial fleets. Calibrated meters & Cash on Delivery. Call/WhatsApp 0323-0112464.",
+    keywords: "diesel, diesel delivery Lahore, order diesel Lahore, petrol and diesel, patrol and diesel, diesel gasoline, i want diesel, online petrol delivery, fuel delivery services, generator diesel order, Order petrol Lahore, diesel dispatch online, emergency fuel delivery, LPG cylinder order Lahore, water tanker delivery, Cash on Delivery fuel Lahore, Pakistan number 1 best fuel delivery",
+    canonical: `${DOMAIN}/order/`,
     ogImage: `${DOMAIN}/images/tank.png`,
     ogType: 'website',
     schema: {
@@ -520,15 +520,15 @@ const ROUTES = [
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": `${DOMAIN}/` },
-            { "@type": "ListItem", "position": 2, "name": "Order Fuel", "item": `${DOMAIN}/order` }
+            { "@type": "ListItem", "position": 2, "name": "Order Fuel", "item": `${DOMAIN}/order/` }
           ]
         },
         {
           "@type": "OrderAction",
-          "@id": `${DOMAIN}/order#action`,
+          "@id": `${DOMAIN}/order/#action`,
           "target": {
             "@type": "EntryPoint",
-            "urlTemplate": `${DOMAIN}/order`,
+            "urlTemplate": `${DOMAIN}/order/`,
             "actionPlatform": [
               "http://schema.org/DesktopWebPlatform",
               "http://schema.org/MobileWebPlatform"
@@ -579,7 +579,7 @@ const ROUTES = [
         },
         {
           "@type": "FAQPage",
-          "@id": `${DOMAIN}/order#faq`,
+          "@id": `${DOMAIN}/order/#faq`,
           "mainEntity": [
             {
               "@type": "Question",
@@ -619,12 +619,12 @@ const ROUTES = [
     }
   },
   {
-    path: '/contact',
+    path: '/contact/',
     outFile: 'dist/contact/index.html',
-    title: "Contact Zyphuel – 24/7 Fuel Delivery Support in Lahore",
-    description: "Get in touch with Zyphuel for fuel delivery inquiries, fleet accounts, and customer support in Lahore. Call, WhatsApp, or email us 24/7.",
+    title: "Contact Zyphuel – 24/7 Fuel Helpline & Diesel Delivery Lahore | Call & WhatsApp",
+    description: "Contact Zyphuel 24/7 for urgent fuel delivery, generator diesel replenishment, or corporate fleet accounts in Lahore. Call or WhatsApp +92 3230-112464.",
     keywords: "Contact Zyphuel, diesel delivery contact, fuel helpline Lahore, Muhammad Daniyal contact, fuel agency Lahore address, WhatsApp fuel delivery Lahore",
-    canonical: `${DOMAIN}/contact`,
+    canonical: `${DOMAIN}/contact/`,
     ogImage: `${DOMAIN}/images/logo.png`,
     ogType: 'website',
     schema: {
@@ -636,13 +636,13 @@ const ROUTES = [
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": `${DOMAIN}/` },
-            { "@type": "ListItem", "position": 2, "name": "Contact", "item": `${DOMAIN}/contact` }
+            { "@type": "ListItem", "position": 2, "name": "Contact", "item": `${DOMAIN}/contact/` }
           ]
         },
         {
           "@type": "ContactPage",
-          "@id": `${DOMAIN}/contact#contactpage`,
-          "url": `${DOMAIN}/contact`,
+          "@id": `${DOMAIN}/contact/#contactpage`,
+          "url": `${DOMAIN}/contact/`,
           "name": "Contact Zyphuel Helpline & Support",
           "mainEntity": {
             "@type": "ContactPoint",
@@ -657,12 +657,12 @@ const ROUTES = [
     }
   },
   {
-    path: '/privacy-policy',
+    path: '/privacy-policy/',
     outFile: 'dist/privacy-policy/index.html',
     title: "Privacy Policy | Zyphuel Fuel Delivery",
     description: "Zyphuel's privacy policy. Learn how we protect your data when you order fuel delivery in Lahore through our website and Android app.",
     keywords: "Zyphuel privacy policy, data protection, user security, Android app permissions, Lahore privacy standards",
-    canonical: `${DOMAIN}/privacy-policy`,
+    canonical: `${DOMAIN}/privacy-policy/`,
     ogImage: `${DOMAIN}/images/logo.png`,
     ogType: 'website',
     schema: {
@@ -673,13 +673,13 @@ const ROUTES = [
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": `${DOMAIN}/` },
-            { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": `${DOMAIN}/privacy-policy` }
+            { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": `${DOMAIN}/privacy-policy/` }
           ]
         },
         {
           "@type": "WebPage",
-          "@id": `${DOMAIN}/privacy-policy#webpage`,
-          "url": `${DOMAIN}/privacy-policy`,
+          "@id": `${DOMAIN}/privacy-policy/#webpage`,
+          "url": `${DOMAIN}/privacy-policy/`,
           "name": "Privacy Policy - Zyphuel",
           "description": "Zyphuel data privacy policy and data security standards for users in Pakistan and globally."
         }
@@ -687,12 +687,12 @@ const ROUTES = [
     }
   },
   {
-    path: '/terms-of-use',
+    path: '/terms-of-use/',
     outFile: 'dist/terms-of-use/index.html',
     title: "Terms of Use | Zyphuel Fuel Delivery",
     description: "Terms of use for Zyphuel fuel delivery service. Understand our order policies, cancellation rules, and service agreements for petrol and diesel delivery in Lahore.",
     keywords: "Terms of use, service contract, fuel order terms, cancellation rules, Zyphuel legal terms",
-    canonical: `${DOMAIN}/terms-of-use`,
+    canonical: `${DOMAIN}/terms-of-use/`,
     ogImage: `${DOMAIN}/images/logo.png`,
     ogType: 'website',
     schema: {
@@ -703,13 +703,13 @@ const ROUTES = [
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": `${DOMAIN}/` },
-            { "@type": "ListItem", "position": 2, "name": "Terms of Use", "item": `${DOMAIN}/terms-of-use` }
+            { "@type": "ListItem", "position": 2, "name": "Terms of Use", "item": `${DOMAIN}/terms-of-use/` }
           ]
         },
         {
           "@type": "WebPage",
-          "@id": `${DOMAIN}/terms-of-use#webpage`,
-          "url": `${DOMAIN}/terms-of-use`,
+          "@id": `${DOMAIN}/terms-of-use/#webpage`,
+          "url": `${DOMAIN}/terms-of-use/`,
           "name": "Terms of Use - Zyphuel",
           "description": "Terms of use and service agreement for Zyphuel fuel delivery and digital logistics platform."
         }
@@ -717,12 +717,12 @@ const ROUTES = [
     }
   },
   {
-    path: '/blog',
+    path: '/blog/',
     outFile: 'dist/blog/index.html',
-    title: "Fuel Delivery Blog & Guides | Zyphuel Lahore",
-    description: "Read the latest articles and guides on doorstep fuel delivery, generator diesel replenishment, and mobile energy logistics in Lahore from Zyphuel.",
+    title: "Fuel Delivery Blog, Pricing Guides & News | Zyphuel Lahore",
+    description: "Stay updated on OGRA daily fuel prices, generator diesel maintenance, mobile refueling safety, and energy logistics innovations in Lahore from the Zyphuel expert team.",
     keywords: RELEVANT_KEYWORDS,
-    canonical: `${DOMAIN}/blog`,
+    canonical: `${DOMAIN}/blog/`,
     ogImage: `${DOMAIN}/images/logo.png`,
     ogType: 'website',
     schema: {
@@ -734,7 +734,7 @@ const ROUTES = [
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": `${DOMAIN}/` },
-            { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${DOMAIN}/blog` }
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${DOMAIN}/blog/` }
           ]
         },
         ...ARTICLES_SCHEMA
@@ -742,12 +742,12 @@ const ROUTES = [
     }
   },
   ...articles.map(article => ({
-    path: `/blog/${article.slug}`,
+    path: `/blog/${article.slug}/`,
     outFile: `dist/blog/${article.slug}/index.html`,
     title: `${article.title} | Zyphuel Blog`,
     description: article.summary,
     keywords: `${article.tags.join(', ')}, fuel delivery Lahore, diesel delivery Lahore, Zyphuel`,
-    canonical: `${DOMAIN}/blog/${article.slug}`,
+    canonical: `${DOMAIN}/blog/${article.slug}/`,
     ogImage: article.image || `${DOMAIN}/images/logo.png`,
     ogType: 'article',
     schema: {
@@ -758,13 +758,13 @@ const ROUTES = [
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": `${DOMAIN}/` },
-            { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${DOMAIN}/blog` },
-            { "@type": "ListItem", "position": 3, "name": article.title, "item": `${DOMAIN}/blog/${article.slug}` }
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${DOMAIN}/blog/` },
+            { "@type": "ListItem", "position": 3, "name": article.title, "item": `${DOMAIN}/blog/${article.slug}/` }
           ]
         },
         {
           "@type": "Article",
-          "@id": `${DOMAIN}/blog/${article.slug}#article`,
+          "@id": `${DOMAIN}/blog/${article.slug}/#article`,
           "headline": article.title,
           "description": article.summary,
           "image": article.image,
@@ -777,7 +777,7 @@ const ROUTES = [
           "publisher": {
             "@id": `${DOMAIN}/#organization`
           },
-          "mainEntityOfPage": `${DOMAIN}/blog/${article.slug}`
+          "mainEntityOfPage": `${DOMAIN}/blog/${article.slug}/`
         }
       ]
     }

@@ -80,7 +80,7 @@ const GLOBAL_WEBSITE = {
   },
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://zyphuel.netlify.app/services?q={search_term_string}",
+    "target": "https://zyphuel.netlify.app/services/?q={search_term_string}",
     "query-input": "required name=search_term_string"
   },
   "speakable": {
@@ -98,7 +98,19 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
       document.title = title
     }
 
-    const fullUrl = url || (canonicalPath ? `${domain}${canonicalPath === '/' ? '' : canonicalPath}` : window.location.href)
+    let fullUrl = url
+    if (!fullUrl) {
+      if (canonicalPath) {
+        const cleanP = canonicalPath === '/' ? '/' : (canonicalPath.endsWith('/') ? canonicalPath : canonicalPath + '/')
+        fullUrl = `${domain}${cleanP}`
+      } else {
+        const rawPath = window.location.pathname
+        const cleanP = rawPath === '/' ? '/' : (rawPath.endsWith('/') ? rawPath : rawPath + '/')
+        fullUrl = `${domain}${cleanP}`
+      }
+    } else if (!fullUrl.endsWith('/') && !fullUrl.includes('?')) {
+      fullUrl = fullUrl + '/'
+    }
     const defaultImage = image || `${domain}/images/logo.png`
     const defaultType = type || 'website'
     const defaultAlt = imageAlt || 'Zyphuel – on-demand petrol & diesel delivery in Lahore'

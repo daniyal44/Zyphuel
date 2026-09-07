@@ -28,50 +28,51 @@
   [headers.values]
     Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
 
+# Explicit 301 normalization to canonical trailing slash URLs
 [[redirects]]
   from = "/about"
-  to = "/about/index.html"
-  status = 200
+  to = "/about/"
+  status = 301
 
 [[redirects]]
   from = "/services"
-  to = "/services/index.html"
-  status = 200
+  to = "/services/"
+  status = 301
 
 [[redirects]]
   from = "/download"
-  to = "/download/index.html"
-  status = 200
+  to = "/download/"
+  status = 301
 
 [[redirects]]
   from = "/order"
-  to = "/order/index.html"
-  status = 200
+  to = "/order/"
+  status = 301
 
 [[redirects]]
   from = "/contact"
-  to = "/contact/index.html"
-  status = 200
+  to = "/contact/"
+  status = 301
 
 [[redirects]]
   from = "/privacy-policy"
-  to = "/privacy-policy/index.html"
-  status = 200
+  to = "/privacy-policy/"
+  status = 301
 
 [[redirects]]
   from = "/terms-of-use"
-  to = "/terms-of-use/index.html"
-  status = 200
+  to = "/terms-of-use/"
+  status = 301
 
 [[redirects]]
   from = "/blog"
-  to = "/blog/index.html"
-  status = 200
+  to = "/blog/"
+  status = 301
 
 [[redirects]]
-  from = "/blog/*"
-  to = "/blog/:splat/index.html"
-  status = 200
+  from = "/blog/:splat"
+  to = "/blog/:splat/"
+  status = 301
 
 # Fallback for SPA navigation
 [[redirects]]

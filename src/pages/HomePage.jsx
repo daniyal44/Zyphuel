@@ -13,15 +13,16 @@ export default function HomePage() {
   const [selectedArticle, setSelectedArticle] = useState(null)
 
   useSEO({
-    title: 'Diesel & Petrol Delivery in Lahore | Zyphuel Mobile Refueling',
-    description: 'Zyphuel delivers petrol and diesel to your door in Lahore — homes, generators, and commercial fleets. Calibrated metering, live GPS tracking, and 24/7 dispatch. Order online or on the app.',
+    title: 'Diesel & Petrol Delivery in Lahore (24/7 Doorstep Service) | Zyphuel',
+    description: 'Order Euro-V Diesel & Super Petrol delivered to your door in Lahore in 30–45 mins. Calibrated digital flow meters, live GPS tracking & Cash on Delivery (COD). Call/WhatsApp +92 3230-112464.',
     keywords: [
       'fuel delivery Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
       'mobile refueling Pakistan', 'doorstep fuel delivery', 'generator diesel delivery',
-      'bulk diesel supplier Lahore', 'fleet refueling service', 'on-demand fuel delivery app'
+      'bulk diesel supplier Lahore', 'fleet refueling service', 'on-demand fuel delivery app',
+      'i want diesel', 'online petrol delivery', 'petrol and diesel delivery'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
-    url: 'https://zyphuel.netlify.app',
+    url: 'https://zyphuel.netlify.app/',
     type: 'website',
     schema: {
       "@context": "https://schema.org",
@@ -96,10 +97,10 @@ export default function HomePage() {
                 swift, and transparent.
               </p>
               <div className="hero-ctas">
-                <Link to="/order" className="btn btn-primary">
+                <Link to="/order/" className="btn btn-primary">
                   <i className="fa-solid fa-gas-pump"></i> Order Fuel Now
                 </Link>
-                <Link to="/about" className="btn btn-ghost">
+                <Link to="/about/" className="btn btn-ghost">
                   Learn More About Zyphuel <i className="fa-solid fa-arrow-right"></i>
                 </Link>
               </div>

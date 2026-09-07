@@ -25,14 +25,14 @@ export default function TermsOfUsePage() {
       'fuel order terms Pakistan', 'Zyphuel app terms'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
-    canonicalPath: '/terms-of-use',
+    canonicalPath: '/terms-of-use/',
     type: 'website',
     schema: {
       "@type": "WebPage",
-      "@id": "https://zyphuel.netlify.app/terms-of-use#webpage",
+      "@id": "https://zyphuel.netlify.app/terms-of-use/#webpage",
       "name": "Terms of Use - Zyphuel",
       "description": "Terms of use and service agreement for Zyphuel fuel delivery and digital logistics platform.",
-      "url": "https://zyphuel.netlify.app/terms-of-use"
+      "url": "https://zyphuel.netlify.app/terms-of-use/"
     }
   })
 

@@ -13,7 +13,7 @@ export default function BlogArticlePage() {
     description: article ? article.summary : 'The requested article could not be found.',
     keywords: article ? article.tags : [],
     image: article ? article.image : undefined,
-    url: `https://zyphuel.netlify.app/blog/${slug}`,
+    url: `https://zyphuel.netlify.app/blog/${slug}/`,
     type: 'article',
     schema: article ? {
       "@type": "Article",
@@ -38,7 +38,7 @@ export default function BlogArticlePage() {
       <div ref={pageRef} className="section-padding" style={{ textAlign: 'center', minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Article Not Found</h1>
         <p style={{ marginBottom: '2rem', color: 'var(--text-secondary)' }}>The article you're looking for doesn't exist.</p>
-        <Link to="/blog" className="btn btn-primary">← Back to Blog</Link>
+        <Link to="/blog/" className="btn btn-primary">← Back to Blog</Link>
       </div>
     )
   }
@@ -47,7 +47,7 @@ export default function BlogArticlePage() {
     <div ref={pageRef}>
       <article className="section-padding" style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1.5rem' }}>
         {/* Back Link */}
-        <Link to="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', textDecoration: 'none', marginBottom: '2rem', fontSize: '0.95rem' }} className="fade-in-up">
+        <Link to="/blog/" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', textDecoration: 'none', marginBottom: '2rem', fontSize: '0.95rem' }} className="fade-in-up">
           <i className="fa-solid fa-arrow-left"></i> Back to Blog
         </Link>
 
@@ -98,7 +98,7 @@ export default function BlogArticlePage() {
 
         {/* CTA */}
         <div className="fade-in-up" style={{ marginTop: '3rem', textAlign: 'center' }}>
-          <Link to="/order" className="btn btn-primary">
+          <Link to="/order/" className="btn btn-primary">
             <i className="fa-solid fa-gas-pump"></i> Order Fuel Now
           </Link>
         </div>

@@ -37,15 +37,15 @@ export default function AboutPage() {
       'Zyphuel team', 'Muhammad Daniyal Zyphuel'
     ],
     image: 'https://zyphuel.netlify.app/images/daniyal.jpeg',
-    url: 'https://zyphuel.netlify.app/about',
+    url: 'https://zyphuel.netlify.app/about/',
     type: 'website',
     schema: {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "AboutPage",
-          "@id": "https://zyphuel.netlify.app/about#aboutpage",
-          "url": "https://zyphuel.netlify.app/about",
+          "@id": "https://zyphuel.netlify.app/about/#aboutpage",
+          "url": "https://zyphuel.netlify.app/about/",
           "name": "About Zyphuel & the Team",
           "description": "Company profile for Zyphuel, a mobile petrol and diesel delivery operator serving Lahore, Pakistan.",
           "mainEntity": {

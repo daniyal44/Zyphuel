@@ -12,7 +12,7 @@ export default function BlogListPage() {
     title: 'Fuel Delivery Blog & Articles | Zyphuel Lahore',
     description: 'Read the latest articles about fuel delivery, generator refueling, LPG gas delivery, and mobile energy logistics in Lahore, Pakistan.',
     keywords: ['fuel delivery blog', 'diesel delivery articles', 'generator refueling guide', 'Lahore fuel news', 'Zyphuel blog'],
-    url: 'https://zyphuel.netlify.app/blog',
+    url: 'https://zyphuel.netlify.app/blog/',
     type: 'website'
   })
 
@@ -49,7 +49,7 @@ export default function BlogListPage() {
           <div className="blog-grid">
             {filteredArticles.map((article, idx) => (
               <Link
-                to={`/blog/${article.slug}`}
+                to={`/blog/${article.slug}/`}
                 key={article.id}
                 className="blog-card fade-in-up"
                 style={{ transitionDelay: `${idx * 0.1}s`, textDecoration: 'none', color: 'inherit' }}

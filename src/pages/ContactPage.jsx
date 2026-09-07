@@ -15,7 +15,7 @@ export default function ContactPage() {
       'fleet fuel account Pakistan', 'generator diesel enquiry', 'Zyphuel support'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
-    url: 'https://zyphuel.netlify.app/contact',
+    url: 'https://zyphuel.netlify.app/contact/',
     type: 'website',
     schema: {
       "@context": "https://schema.org",

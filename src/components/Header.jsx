@@ -16,10 +16,10 @@ const LogoFallbackSVG = () => (
 
 const navLinks = [
   { to: '/', label: 'Home', exact: true, title: 'Zyphuel Home Page' },
-  { to: '/services', label: 'Services', title: 'Zyphuel Services & Fuel Rates' },
-  { to: '/about', label: 'About Us', title: 'About Zyphuel & Leadership Team' },
-  { to: '/blog', label: 'Blog', title: 'Zyphuel Energy & Technology Blog' },
-  { to: '/contact', label: 'Contact', title: 'Contact Support & Helpline' },
+  { to: '/services/', label: 'Services', title: 'Zyphuel Services & Fuel Rates' },
+  { to: '/about/', label: 'About Us', title: 'About Zyphuel & Leadership Team' },
+  { to: '/blog/', label: 'Blog', title: 'Zyphuel Energy & Technology Blog' },
+  { to: '/contact/', label: 'Contact', title: 'Contact Support & Helpline' },
 ]
 
 export default function Header({ onOpenInterestModal }) {
@@ -40,8 +40,10 @@ export default function Header({ onOpenInterestModal }) {
   }, [location.pathname])
 
   const isActive = (to, exact) => {
-    if (exact || to === '/') return location.pathname === to
-    return location.pathname.startsWith(to)
+    const normLoc = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/'
+    const normTo = to.endsWith('/') ? to : to + '/'
+    if (exact || normTo === '/') return normLoc === normTo
+    return normLoc.startsWith(normTo)
   }
 
   return (
@@ -73,7 +75,7 @@ export default function Header({ onOpenInterestModal }) {
             <i className="fa-solid fa-circle-check"></i> Lahore City
           </span>
           <Link
-            to="/download"
+            to="/download/"
             className="badge-pill badge-zyphuel"
             title="Download Zyphuel Mobile Application for Fuel Suppliers (Android APK)"
             aria-label="Download Zyphuel Mobile Application for Fuel Suppliers"
@@ -108,7 +110,7 @@ export default function Header({ onOpenInterestModal }) {
             </Link>
           ))}
           <Link
-            to="/order"
+            to="/order/"
             title="Order Petrol & Diesel Refueling Now"
             className="btn btn-secondary btn-sm"
             style={{ padding: '8px 18px', fontSize: '0.85rem' }}

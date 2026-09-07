@@ -103,7 +103,7 @@ export default function DownloadPage() {
     ],
     image: 'https://zyphuel.netlify.app/images/1.jpeg',
     imageAlt: 'Zyphuel Android app screen showing live fuel rates and delivery tracking',
-    url: 'https://zyphuel.netlify.app/download',
+    url: 'https://zyphuel.netlify.app/download/',
     type: 'website',
     schema: {
       "@context": "https://schema.org",
