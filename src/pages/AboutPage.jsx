@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import GeometricalBirds from '../components/GeometricalBirds';
 import { useSEO } from '../hooks/useSEO';
-import { aboutArticles, wikiMetadata } from '../data/aboutData';
+import { aboutArticles } from '../data/aboutData';
 import { APP_VERSION } from '../data/appVersion';
 import "./styles.css";
 
@@ -190,12 +190,6 @@ export default function AboutPage() {
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                 >
                   <i className="fa-solid fa-newspaper"></i> Read Press &amp; Articles
-                </a>
-                <a
-                  href="#wiki-dossier"
-                  style={{ fontSize: 'var(--fs-sm)', color: 'var(--text-accent)', fontWeight: 600, padding: '8px 12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
-                >
-                  <i className="fa-brands fa-wikipedia-w"></i> Encyclopedic Dossier
                 </a>
               </div>
 
@@ -403,82 +397,6 @@ export default function AboutPage() {
                   </div>
                 </article>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Encyclopedic & Knowledge Graph Overview (Wikipedia Reference Dossier) */}
-        <section id="wiki-dossier" className="section-padding" style={{ backgroundColor: '#f1f5f9', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
-          <div className="container" style={{ maxWidth: '1000px' }}>
-            <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '36px' }}>
-              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', fontSize: '0.85rem' }}>
-                Semantic Registry &amp; Verified Citations
-              </span>
-              <h2 className="section-title">Encyclopedic Dossier &amp; Knowledge Graph Citations</h2>
-              <p className="section-subtitle">
-                Official entity summary conforming to Wikipedia, Wikidata, and Knowledge Graph structuring standards for Zyphuel and CEO Muhammad Daniyal.
-              </p>
-            </div>
-
-            <div style={{ background: '#ffffff', borderRadius: '14px', padding: '32px', border: '1px solid var(--border-color)', boxShadow: '0 4px 16px rgba(0,0,0,0.04)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '2px solid var(--border-color)', paddingBottom: '16px', marginBottom: '24px', flexWrap: 'wrap', gap: '10px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '10px', background: 'rgba(58,134,200,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', color: 'var(--brand-petrol)' }}>
-                    <i className="fa-brands fa-wikipedia-w"></i>
-                  </div>
-                  <div>
-                    <h3 style={{ margin: 0, fontSize: '1.4rem', color: 'var(--text-primary)', fontWeight: 800 }}>
-                      {wikiMetadata.title} <span style={{ fontSize: '1.05rem', fontWeight: 500, color: 'var(--text-secondary)' }}>({wikiMetadata.nativeName})</span>
-                    </h3>
-                    <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{wikiMetadata.type}</span>
-                  </div>
-                </div>
-                <span style={{ fontSize: '0.82rem', background: '#e0f2fe', color: '#0369a1', padding: '6px 14px', borderRadius: '20px', fontWeight: 600 }}>
-                  <i className="fa-solid fa-circle-check"></i> Verified Entity Record
-                </span>
-              </div>
-
-              {/* Wiki Data Table */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '28px' }}>
-                <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-                  <strong style={{ display: 'block', fontSize: '0.82rem', color: 'var(--brand-petrol)', textTransform: 'uppercase', marginBottom: '4px' }}>Industry &amp; Sector</strong>
-                  <span style={{ fontSize: '0.92rem', color: 'var(--text-primary)' }}>{wikiMetadata.industry}</span>
-                </div>
-                <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-                  <strong style={{ display: 'block', fontSize: '0.82rem', color: 'var(--brand-petrol)', textTransform: 'uppercase', marginBottom: '4px' }}>Headquarters &amp; Hub</strong>
-                  <span style={{ fontSize: '0.92rem', color: 'var(--text-primary)' }}>{wikiMetadata.headquarters}</span>
-                </div>
-                <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-                  <strong style={{ display: 'block', fontSize: '0.82rem', color: 'var(--brand-petrol)', textTransform: 'uppercase', marginBottom: '4px' }}>Founder &amp; Executive Leadership</strong>
-                  <span style={{ fontSize: '0.92rem', color: 'var(--text-primary)' }}>{wikiMetadata.founder}</span>
-                </div>
-                <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
-                  <strong style={{ display: 'block', fontSize: '0.82rem', color: 'var(--brand-petrol)', textTransform: 'uppercase', marginBottom: '4px' }}>Associated Ventures &amp; Projects</strong>
-                  <span style={{ fontSize: '0.92rem', color: 'var(--text-primary)' }}>{wikiMetadata.associatedVentures.join(', ')}</span>
-                </div>
-              </div>
-
-              {/* Verified External Citations & Official Profiles */}
-              <div>
-                <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '14px' }}>
-                  <i className="fa-solid fa-link text-primary"></i> Official External Citations &amp; Knowledge References:
-                </h4>
-                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                  {wikiMetadata.officialProfiles.map((p) => (
-                    <a
-                      key={p.platform}
-                      href={p.url}
-                      target="_blank"
-                      rel="me noopener noreferrer"
-                      className="backlink-item"
-                      title={p.platform}
-                      style={{ padding: '8px 14px', fontSize: '0.88rem' }}
-                    >
-                      <i className={p.icon}></i> {p.platform}
-                    </a>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </section>

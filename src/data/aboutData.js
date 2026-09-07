@@ -20,24 +20,6 @@ export const aboutArticles = [
     ]
   },
   {
-    id: 'art-wiki-overview',
-    source: 'Encyclopedic Knowledge Graph & Wiki Dossier',
-    sourceIcon: 'fa-brands fa-wikipedia-w',
-    sourceColor: '#333333',
-    title: 'Encyclopedic Profile: Zyphuel Mobile Energy Logistics, Founder Muhammad Daniyal & Software Ecosystem',
-    author: 'Zyphuel Knowledge & Systems Registry',
-    date: 'September 2026',
-    readTime: '8 min read',
-    url: 'https://github.com/daniyal44/Zyphuel',
-    external: true,
-    summary: 'A comprehensive encyclopedic overview detailing Zyphuel’s founding in Lahore, corporate credentials, technological innovations, and its integration with tech ventures including Poke nexus, Dashacart, Hittop, and Ladoni.',
-    highlights: [
-      'Corporate Headquarters: 75-Main Boulevard, Gulberg III, Lahore',
-      'Founder & CEO: Muhammad Daniyal (ItxMDK / itsmdk / MuhammadDaniel)',
-      'Certified HAZMAT, NFPA 30A, and OGRA Euro-V compliance'
-    ]
-  },
-  {
     id: 'art-social-engineering',
     source: 'Tech & Software Architecture',
     sourceIcon: 'fa-solid fa-code',
@@ -92,39 +74,3 @@ export const aboutArticles = [
     ]
   }
 ];
-
-export const wikiMetadata = {
-  title: 'Zyphuel',
-  nativeName: 'زیفیول پاکستان',
-  type: 'Private Energy Logistics & Technology Enterprise',
-  industry: 'On-Demand Fuel Delivery, Energy Software, Telemetry Fleet',
-  founded: '2026',
-  headquarters: '75-Main Boulevard, Gulberg III, Lahore, Punjab, Pakistan',
-  founder: 'Muhammad Daniyal (MuhammadDaniel / ItxMDK / itsmdk / itxmtk / itx dk / itxM / itcM)',
-  keyPeople: [
-    { name: 'Muhammad Daniyal', title: 'Founder & CEO (ItxMDK)' },
-    { name: 'Adil Farooq', title: 'Sales & Fleet Operations Lead' }
-  ],
-  products: [
-    'On-Demand Euro-V Super Petrol (92 Octane)',
-    'High-Octane 97 Refueling',
-    'Euro-V Low-Sulfur Diesel & Generator Supply',
-    'Sealed LPG Gas Cylinder Refills & Swap',
-    'Potable Clean Water Tankers (Rs. 100/gal)',
-    `Zyphuel Mobile Application for Fuel Suppliers (v${APP_VERSION} Android APK)`
-  ],
-  associatedVentures: [
-    'Poke nexus (PokeNexus)',
-    'Dashacart (Dasha Cart)',
-    'Hittop (Hit top)',
-    'Scale verse (ScaleVerse)',
-    'Ladoni'
-  ],
-  officialProfiles: [
-    { platform: 'LinkedIn Company Page', url: 'https://www.linkedin.com/company/zyphuel/', icon: 'fa-brands fa-linkedin' },
-    { platform: 'CEO LinkedIn Profile', url: 'https://www.linkedin.com/in/muhammad-daniyal490', icon: 'fa-brands fa-linkedin' },
-    { platform: 'GitHub Architecture Dossier', url: 'https://github.com/daniyal44/Zyphuel', icon: 'fa-brands fa-github' },
-    { platform: 'Google Business Verified Location', url: 'https://share.google/Nb4XGKYq5aU0nzLr3', icon: 'fa-brands fa-google' },
-    { platform: 'Official Facebook Channel', url: 'https://www.facebook.com/muhammad.daniyal.522942/', icon: 'fa-brands fa-facebook' }
-  ]
-};

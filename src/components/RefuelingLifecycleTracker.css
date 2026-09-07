@@ -1,0 +1,222 @@
+/* Refueling Lifecycle Tracker - Top Class 3D/2D Vector Animation Styles */
+
+.lifecycle-tracker-widget {
+  background: linear-gradient(145deg, #0b1120 0%, #0f172a 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  box-shadow: 0 12px 36px -8px rgba(0, 0, 0, 0.5), 0 0 24px rgba(14, 165, 233, 0.08);
+  overflow: hidden;
+  position: relative;
+  margin-top: 18px;
+  font-family: inherit;
+  color: #f8fafc;
+}
+
+/* Header & Status */
+.lifecycle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: rgba(15, 23, 42, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.lifecycle-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lifecycle-radar-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #38bdf8;
+  position: relative;
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+.lifecycle-radar-dot::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 2px solid #38bdf8;
+  animation: radarPing 1.8s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+@keyframes radarPing {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.lifecycle-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #f1f5f9;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.lifecycle-phase-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 30px;
+  letter-spacing: 0.03em;
+  transition: all 0.3s ease;
+}
+
+.lifecycle-phase-pill.idle {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.lifecycle-phase-pill.loading {
+  background: rgba(14, 165, 233, 0.18);
+  color: #38bdf8;
+  border: 1px solid rgba(14, 165, 233, 0.4);
+}
+
+.lifecycle-phase-pill.transit {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.45);
+}
+
+.lifecycle-phase-pill.delivered {
+  background: rgba(16, 185, 129, 0.18);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.25);
+}
+
+/* Interactive Phase Step Selector Tabs */
+.lifecycle-step-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: rgba(11, 17, 32, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 6px;
+  gap: 6px;
+}
+
+.step-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #94a3b8;
+  padding: 8px 6px;
+  border-radius: 8px;
+  font-size: 0.73rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.step-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+}
+
+.step-tab-btn.active {
+  background: rgba(14, 165, 233, 0.15);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #38bdf8;
+  box-shadow: 0 0 14px rgba(14, 165, 233, 0.15);
+}
+
+/* 3D Canvas SVG Container */
+.lifecycle-svg-stage {
+  position: relative;
+  width: 100%;
+  min-height: 250px;
+  background: radial-gradient(circle at 50% 30%, #172554 0%, #090e1a 75%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 8px 12px;
+}
+
+.lifecycle-svg {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  display: block;
+}
+
+/* Telemetry Footer Info Bar */
+.lifecycle-telemetry-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  background: rgba(11, 17, 32, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.74rem;
+  color: #94a3b8;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.telemetry-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.telemetry-item i {
+  color: #38bdf8;
+}
+
+.telemetry-item strong {
+  color: #f1f5f9;
+}
+
+.simulation-trigger-btn {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+}
+
+.simulation-trigger-btn:hover {
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+  .lifecycle-step-tabs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .lifecycle-telemetry-bar {
+    font-size: 0.7rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
