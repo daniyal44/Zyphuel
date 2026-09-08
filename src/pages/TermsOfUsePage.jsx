@@ -55,10 +55,26 @@ export default function TermsOfUsePage() {
       <main style={{ paddingTop: 'var(--nav-height)' }}>
         {/* Legal Hero */}
         <section className="legal-hero">
-          <div className="container">
-            <Breadcrumbs items={[{ label: 'Terms of Use', path: '/terms/' }]} />
-            <h1 className="legal-title fade-in-up">Terms of Use</h1>
-            <p className="legal-meta fade-in-up" style={{ transitionDelay: '0.1s' }}>Last Updated: September 2, 2026 &bull; Version 2.3</p>
+          <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
+            <div>
+              <Breadcrumbs items={[{ label: 'Terms of Use', path: '/terms/' }]} />
+              <h1 className="legal-title fade-in-up">Terms of Use</h1>
+              <p className="legal-meta fade-in-up" style={{ transitionDelay: '0.1s' }}>Last Updated: September 2, 2026 &bull; Version 2.3</p>
+            </div>
+            {/* Legal Agreement Compliance Seal */}
+            <div className="fade-in-up" style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'rgba(2, 132, 199, 0.08)', border: '1px solid rgba(2, 132, 199, 0.25)', borderRadius: '12px', padding: '12px 18px' }}>
+              <svg viewBox="0 0 32 32" width="32" height="32" fill="none" aria-hidden="true">
+                <rect x="6" y="4" width="20" height="24" rx="3" fill="rgba(2, 132, 199, 0.12)" stroke="#0284c7" strokeWidth="1.8" />
+                <line x1="10" y1="10" x2="22" y2="10" stroke="#0284c7" strokeWidth="1.8" strokeLinecap="round" />
+                <line x1="10" y1="15" x2="22" y2="15" stroke="#0284c7" strokeWidth="1.8" strokeLinecap="round" />
+                <line x1="10" y1="20" x2="16" y2="20" stroke="#0284c7" strokeWidth="1.8" strokeLinecap="round" />
+                <circle cx="21" cy="21" r="3.5" fill="#10b981" />
+              </svg>
+              <div style={{ fontSize: '0.8rem', lineHeight: '1.3' }}>
+                <strong style={{ color: 'var(--text-primary)', display: 'block' }}>OGRA &amp; HAZMAT Compliant</strong>
+                <span style={{ color: 'var(--text-secondary)', fontSize: '0.74rem' }}>Official Fuel Delivery Terms</span>
+              </div>
+            </div>
           </div>
         </section>
 

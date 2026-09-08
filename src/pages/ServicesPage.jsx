@@ -3,7 +3,6 @@ import { useNavigate, Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import ServicesGraphic from '../components/ServicesGraphic'
 import ServiceCard from '../components/ServiceCard'
-import StepCard from '../components/StepCard'
 import {
   servicesB2C,
   servicesB2B,

@@ -680,6 +680,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  perspective: 1200px;
 }
 
 .mockup-active-badge {
@@ -722,6 +723,14 @@
   border-radius: 40px;
   box-shadow: var(--shadow-xl), 0 25px 50px -12px rgba(15, 23, 42, 0.25);
   z-index: 5;
+  transform-style: preserve-3d;
+  transform: rotateY(-5deg) rotateX(3deg);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.phone-mockup-device:hover {
+  transform: rotateY(0deg) rotateX(0deg) translateY(-8px);
+  box-shadow: 0 35px 65px -15px rgba(2, 132, 199, 0.32);
 }
 
 /* Physical Phone details */
@@ -2002,5 +2011,21 @@
   }
 }
 
-
-
+/* Reduced motion support for 3D card deck and phone mockup */
+@media (prefers-reduced-motion: reduce) {
+  .phone-mockup-device {
+    transform: none !important;
+    transition: none !important;
+  }
+  .about-team-section .carousel-track,
+  .about-team-section .card {
+    transition: none !important;
+  }
+  .scroll-indicator {
+    animation: none !important;
+    display: none !important;
+  }
+  .app-article-card {
+    animation: none !important;
+  }
+}

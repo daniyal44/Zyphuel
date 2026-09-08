@@ -496,6 +496,61 @@ export default function OrderPage() {
               <div className="order-form-panel fade-in-up" id="main-order-panel">
                 <form id="fuel-order-form" noValidate onSubmit={e => e.preventDefault()}>
 
+                  {/* Order Progress Stepper */}
+                  <div className="order-progress-stepper" style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    background: 'rgba(2, 132, 199, 0.05)',
+                    border: '1px solid rgba(2, 132, 199, 0.15)',
+                    borderRadius: '12px',
+                    padding: '12px 16px',
+                    marginBottom: '26px',
+                    gap: '8px',
+                    overflowX: 'auto'
+                  }}>
+                    {[
+                      { num: '01', label: 'Select Items', active: Boolean(orderFuel || orderGas || orderWater), icon: 'fa-cart-shopping' },
+                      { num: '02', label: 'Quantities', active: Boolean(fuelQty > 0 || gasQty > 0 || waterQty > 0), icon: 'fa-sliders' },
+                      { num: '03', label: 'Delivery Details', active: Boolean(address.trim().length > 3), icon: 'fa-location-dot' },
+                      { num: '04', label: 'Review & Order', active: Boolean(name && phone), icon: 'fa-truck-fast' }
+                    ].map((st, i) => (
+                      <div key={st.num} style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+                        <div style={{
+                          width: '26px',
+                          height: '26px',
+                          borderRadius: '50%',
+                          background: st.active ? 'var(--accent-color, #0284c7)' : 'rgba(15, 23, 42, 0.1)',
+                          color: st.active ? '#ffffff' : 'var(--text-secondary, #64748b)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: '0.72rem',
+                          fontWeight: 700,
+                          transition: 'all 0.3s ease'
+                        }}>
+                          {st.active ? <i className={`fa-solid ${st.icon}`}></i> : st.num}
+                        </div>
+                        <span style={{
+                          fontSize: '0.8rem',
+                          fontWeight: st.active ? 600 : 500,
+                          color: st.active ? 'var(--text-primary, #0f172a)' : 'var(--text-secondary, #64748b)'
+                        }}>
+                          {st.label}
+                        </span>
+                        {i < 3 && (
+                          <div style={{
+                            width: '20px',
+                            height: '2px',
+                            background: st.active ? 'var(--accent-color, #0284c7)' : 'rgba(15, 23, 42, 0.1)',
+                            marginLeft: '4px',
+                            transition: 'background 0.3s ease'
+                          }} />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+
                   {/* 1. Select Items (Category Toggles) */}
                   <div className="form-block-title">
                     <i className="fa-solid fa-cart-shopping"></i> 1. Select Delivery Items
@@ -528,11 +583,17 @@ export default function OrderPage() {
                               <div
                                 key={type}
                                 className={`fuel-card-mini${selectedFuelType === type ? ' active' : ''}`}
+                                style={{ position: 'relative' }}
                                 onClick={(e) => {
                                   e.stopPropagation()
                                   setSelectedFuelType(type)
                                 }}
                               >
+                                {selectedFuelType === type && (
+                                  <span style={{ position: 'absolute', top: '6px', right: '6px', fontSize: '0.72rem', color: '#0284c7' }}>
+                                    <i className="fa-solid fa-droplet"></i>
+                                  </span>
+                                )}
                                 <div className="fuel-name-mini">{FUEL_DISPLAY[type]}</div>
                                 <div className="fuel-price-mini">Rs. {prices[type].toFixed(2)}/L</div>
                               </div>

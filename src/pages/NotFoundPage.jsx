@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSEO } from '../hooks/useSEO';
+import NotFoundGraphic from '../components/NotFoundGraphic';
 
 export default function NotFoundPage() {
   useSEO({
@@ -14,20 +15,7 @@ export default function NotFoundPage() {
     <main style={{ paddingTop: 'calc(var(--nav-height) + 40px)', minHeight: '80vh', display: 'flex', alignItems: 'center' }}>
       <div className="container" style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto', padding: '40px 20px' }}>
         <div className="fade-in-up animated" style={{ opacity: 1, transform: 'none' }}>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '88px',
-            height: '88px',
-            borderRadius: '50%',
-            backgroundColor: 'rgba(2, 132, 199, 0.1)',
-            color: 'var(--accent-color, #0284c7)',
-            fontSize: '2.5rem',
-            marginBottom: '24px'
-          }}>
-            <i className="fa-solid fa-triangle-exclamation"></i>
-          </div>
+          <NotFoundGraphic />
 
           <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '16px', lineHeight: 1.2 }}>
             404 - Page Not Found

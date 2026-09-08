@@ -3,6 +3,7 @@ import { articles } from '../data/articles'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import Breadcrumbs from '../components/Breadcrumbs'
+import ReadingProgressBar from '../components/ReadingProgressBar'
 
 export default function BlogArticlePage() {
   const { slug } = useParams()
@@ -60,6 +61,7 @@ export default function BlogArticlePage() {
 
   return (
     <div ref={pageRef}>
+      <ReadingProgressBar />
       <article className="section-padding" style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1.5rem' }}>
         <Breadcrumbs
           items={[

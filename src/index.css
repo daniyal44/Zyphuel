@@ -4393,3 +4393,47 @@ a.footer-contact-link:hover {
     color: var(--text-primary);
     font-weight: 600;
 }
+
+/* ==========================================================================
+   ACCESSIBILITY: PREFERS-REDUCED-MOTION SYSTEM (WCAG 2.2 AAA Compliant)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .fade-in-up {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .price-ticker {
+        animation: none !important;
+        transform: none !important;
+    }
+
+    .isometric-3d-svg {
+        animation: none !important;
+    }
+
+    .safety-card-interactive {
+        transform: none !important;
+    }
+
+    .safety-card-interactive.hovered .card-border-beam {
+        animation: none !important;
+    }
+
+    .badge-upcoming::before,
+    .footer .badge-upcoming::before,
+    .success-checkmark-circle {
+        animation: none !important;
+    }
+}
+

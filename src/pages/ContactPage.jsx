@@ -222,6 +222,46 @@ ${form.message.trim()}`
                     </table>
                   </div>
                 </div>
+
+                {/* Animated Dispatch Radar Beacon */}
+                <div style={{
+                  marginTop: '24px',
+                  background: 'linear-gradient(135deg, #090e1a 0%, #0f172a 100%)',
+                  borderRadius: '14px',
+                  border: '1px solid rgba(14, 165, 233, 0.25)',
+                  padding: '20px',
+                  color: '#f8fafc',
+                  textAlign: 'center'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '0.75rem', fontWeight: 700, color: '#38bdf8', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '10px' }}>
+                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981' }}></span>
+                    Lahore Urban Fleet Telemetry
+                  </div>
+                  <svg viewBox="0 0 260 110" style={{ width: '100%', height: 'auto', maxHeight: '110px', display: 'block', margin: '0 auto' }} aria-hidden="true">
+                    <circle cx="130" cy="55" r="45" fill="none" stroke="rgba(14, 165, 233, 0.2)" strokeWidth="1" strokeDasharray="3 3" />
+                    <circle cx="130" cy="55" r="28" fill="none" stroke="rgba(14, 165, 233, 0.35)" strokeWidth="1" />
+                    <circle cx="130" cy="55" r="10" fill="rgba(14, 165, 233, 0.25)" />
+                    <circle cx="130" cy="55" r="5" fill="#38bdf8" />
+                    {/* Animated Pulsing Ring */}
+                    <circle cx="130" cy="55" r="12" fill="none" stroke="#10b981" strokeWidth="1.5">
+                      <animate attributeName="r" values="5;48" dur="2.5s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="1;0" dur="2.5s" repeatCount="indefinite" />
+                    </circle>
+                    {/* Moving Satellite Bowsers */}
+                    <circle cx="85" cy="40" r="3" fill="#38bdf8" />
+                    <text x="85" y="32" fontSize="7" fill="#94a3b8" textAnchor="middle">Bowser #03</text>
+                    <circle cx="175" cy="70" r="3" fill="#38bdf8" />
+                    <text x="175" y="82" fontSize="7" fill="#94a3b8" textAnchor="middle">Bowser #08</text>
+                    <line x1="130" y1="55" x2="85" y2="40" stroke="#0284c7" strokeWidth="1" strokeDasharray="2 2" />
+                    <line x1="130" y1="55" x2="175" y2="70" stroke="#0284c7" strokeWidth="1" strokeDasharray="2 2" />
+                  </svg>
+                  <div style={{ fontSize: '0.8rem', color: '#cbd5e1', marginTop: '8px' }}>
+                    Central Dispatch: <strong>Main Boulevard, Gulberg III</strong>
+                  </div>
+                  <div style={{ fontSize: '0.74rem', color: '#64748b', marginTop: '2px' }}>
+                    Rapid Refueling Bowsers on Active Street Patrol
+                  </div>
+                </div>
               </div>
 
               {/* Right: Contact Form */}

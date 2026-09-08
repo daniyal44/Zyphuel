@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import GeometricalBirds from '../components/GeometricalBirds';
 import { useSEO } from '../hooks/useSEO';
 import { aboutArticles } from '../data/aboutData';
 import { APP_VERSION } from '../data/appVersion';

@@ -58,10 +58,23 @@ export default function PrivacyPolicyPage() {
       <main style={{ paddingTop: 'var(--nav-height)' }}>
         {/* Legal Hero */}
         <section className="legal-hero">
-          <div className="container">
-            <Breadcrumbs items={[{ label: 'Privacy Policy', path: '/privacy/' }]} />
-            <h1 className="legal-title fade-in-up">Privacy Policy</h1>
-            <p className="legal-meta fade-in-up" style={{ transitionDelay: '0.1s' }}>Last Updated: September 2, 2026 &bull; Version 2.3</p>
+          <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
+            <div>
+              <Breadcrumbs items={[{ label: 'Privacy Policy', path: '/privacy/' }]} />
+              <h1 className="legal-title fade-in-up">Privacy Policy</h1>
+              <p className="legal-meta fade-in-up" style={{ transitionDelay: '0.1s' }}>Last Updated: September 2, 2026 &bull; Version 2.3</p>
+            </div>
+            {/* Minimal Document Security Seal */}
+            <div className="fade-in-up" style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'rgba(2, 132, 199, 0.08)', border: '1px solid rgba(2, 132, 199, 0.25)', borderRadius: '12px', padding: '12px 18px' }}>
+              <svg viewBox="0 0 32 32" width="32" height="32" fill="none" aria-hidden="true">
+                <path d="M16 3 L27 7 V15 C27 22 22 27 16 29 C10 27 5 22 5 15 V7 L16 3 Z" fill="rgba(2, 132, 199, 0.15)" stroke="#0284c7" strokeWidth="1.8" />
+                <path d="M11 15 L14.5 18.5 L21 12" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <div style={{ fontSize: '0.8rem', lineHeight: '1.3' }}>
+                <strong style={{ color: 'var(--text-primary)', display: 'block' }}>256-Bit SSL Encrypted</strong>
+                <span style={{ color: 'var(--text-secondary)', fontSize: '0.74rem' }}>User Data &amp; Location Shielded</span>
+              </div>
+            </div>
           </div>
         </section>
 
