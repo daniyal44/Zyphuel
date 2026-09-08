@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/generate_github_graph.js",
     "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node prerender.js && node scripts/indexnow.js",
+    "graph": "node scripts/generate_github_graph.js",
     "preview": "vite preview"
   },
   "dependencies": {

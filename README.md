@@ -6,8 +6,16 @@
 
 A high-performance React.js + Vite platform for Zyphuel — on-demand doorstep fuel and clean energy delivery in Lahore, Pakistan.
 
-### 📊 Automated Development Activity Graph (Updates on Every Push)
-[![Zyphuel Development Activity](https://github-readme-activity-graph.vercel.app/graph?username=daniyal44&theme=react-dark&bg_color=090e1a&color=38bdf8&line=0284c7&point=10b981&area=true&hide_border=true&custom_title=Muhammad%20Daniyal%20%E2%80%94%20Git%20Commit%20%26%20Changes%20Velocity)](https://github.com/daniyal44/Zyphuel)
+### 📊 Development Activity & Changes Graph (Auto-Updates on Push)
+
+<p align="center">
+  <img src="./public/images/github-changes-graph.svg" alt="Zyphuel Platform Architecture — Monthly & Yearly Development Changes" width="100%" />
+</p>
+
+### 🟩 GitHub Contribution Calendar
+<p align="center">
+  <img src="https://ghchart.rshah.org/0284c7/daniyal44" alt="Muhammad Daniyal GitHub Contributions Chart" width="100%" />
+</p>
 
 
 ## Project Structure

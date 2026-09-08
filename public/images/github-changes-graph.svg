@@ -1,0 +1,103 @@
+<svg width="840" height="440" viewBox="0 0 840" 440 fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090e1a" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="barGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="lineGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7" stop-opacity="0" />
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="1" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Card -->
+  <rect width="840" height="440" rx="16" fill="url(#bgGrad)" stroke="rgba(14,165,233,0.3)" stroke-width="1.5" />
+  <line x1="40" y1="2" x2="800" y2="2" stroke="url(#lineGlow)" stroke-width="2" />
+
+  <!-- Header -->
+  <g transform="translate(35, 30)">
+    <!-- GitHub Octocat Icon Circle -->
+    <rect width="36" height="36" rx="8" fill="rgba(14,165,233,0.15)" stroke="rgba(14,165,233,0.4)" stroke-width="1" />
+    <path d="M18 10 C13.58 10 10 13.58 10 18 C10 21.54 12.29 24.53 15.47 25.59 C15.87 25.66 16.02 25.42 16.02 25.21 C16.02 25.02 16.01 24.39 16.01 23.63 C13.79 24.11 13.32 22.68 13.32 22.68 C12.95 21.76 12.43 21.51 12.43 21.51 C11.71 21.01 12.49 21.02 12.49 21.02 C13.28 21.08 13.7 21.84 13.7 21.84 C14.41 23.05 15.56 22.7 16.01 22.5 C16.08 21.99 16.29 21.63 16.51 21.43 C14.73 21.23 12.87 20.54 12.87 17.48 C12.87 16.61 13.18 15.9 13.69 15.34 C13.61 15.14 13.33 14.33 13.77 13.23 C13.77 13.23 14.44 13.01 15.97 14.05 C16.61 13.87 17.29 13.78 17.97 13.78 C18.65 13.78 19.33 13.87 19.97 14.05 C21.5 13.01 22.17 13.23 22.17 13.23 C22.61 14.33 22.33 15.14 22.25 15.34 C22.77 15.9 23.07 16.61 23.07 17.48 C23.07 20.55 21.2 21.23 19.42 21.43 C19.7 21.68 19.96 22.16 19.96 22.9 C19.96 23.95 19.95 24.8 19.95 25.21 C19.95 25.42 20.1 25.67 20.5 25.59 C23.68 24.53 25.97 21.54 25.97 18 C25.97 13.58 22.39 10 18 10 Z" fill="#38bdf8" />
+
+    <text x="48" y="16" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="700">Zyphuel — Git Development &amp; Architecture Changes</text>
+    <text x="48" y="32" fill="#94a3b8" font-family="sans-serif" font-size="12">Repository: daniyal44/Zyphuel • Auto-Generated on Every Push</text>
+
+    <!-- Pulse Live Badge -->
+    <rect x="630" y="2" width="135" height="26" rx="13" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.35)" stroke-width="1" />
+    <circle cx="645" cy="15" r="4" fill="#10b981" />
+    <text x="656" y="19" fill="#34d399" font-family="sans-serif" font-size="11" font-weight="700">Live Auto-Sync</text>
+  </g>
+
+  <!-- Metric Quick Tiles -->
+  <g transform="translate(35, 82)">
+    <!-- Total Changes -->
+    <rect width="180" height="52" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" />
+    <text x="14" y="20" fill="#94a3b8" font-family="sans-serif" font-size="10" font-weight="600" text-transform="uppercase">TOTAL CHANGES</text>
+    <text x="14" y="42" fill="#38bdf8" font-family="sans-serif" font-size="20" font-weight="800">62 Commits</text>
+
+    <!-- Velocity -->
+    <rect x="195" width="180" height="52" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" />
+    <text x="209" y="20" fill="#94a3b8" font-family="sans-serif" font-size="10" font-weight="600" text-transform="uppercase">DEVELOPMENT STATUS</text>
+    <text x="209" y="42" fill="#10b981" font-family="sans-serif" font-size="18" font-weight="800">Continuous Active</text>
+
+    <!-- Latest Commit -->
+    <rect x="390" width="380" height="52" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" />
+    <text x="404" y="20" fill="#94a3b8" font-family="sans-serif" font-size="10" font-weight="600" text-transform="uppercase">LATEST COMMIT (75b2a29)</text>
+    <text x="404" y="41" fill="#e2e8f0" font-family="sans-serif" font-size="11.5" font-weight="500">feat(ui): upgrade visual systems on non-home pag...</text>
+  </g>
+
+  <!-- Section Title: Monthly Velocity -->
+  <text x="35" y="152" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="700" letter-spacing="0.5">MONTHLY CHANGES VELOCITY</text>
+  <text x="660" y="152" fill="#94a3b8" font-family="sans-serif" font-size="12" font-weight="700" letter-spacing="0.5">YEARLY TOTAL</text>
+
+  <!-- Monthly Bars -->
+  
+      <!-- Month: Jul '26 -->
+      <text x="35" y="176" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">Jul '26</text>
+      <rect x="115" y="160" width="460" height="22" rx="6" fill="rgba(255,255,255,0.04)" />
+      <rect x="115" y="160" width="440" height="22" rx="6" fill="url(#barGrad)">
+        <animate attributeName="width" from="0" to="440" dur="0.8s" fill="freeze" />
+      </rect>
+      <text x="545" y="175" fill="#ffffff" font-family="monospace" font-size="11" font-weight="bold" text-anchor="end">24</text>
+      <text x="590" y="176" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">24 commits</text>
+    
+      <!-- Month: Aug '26 -->
+      <text x="35" y="214" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">Aug '26</text>
+      <rect x="115" y="198" width="460" height="22" rx="6" fill="rgba(255,255,255,0.04)" />
+      <rect x="115" y="198" width="385" height="22" rx="6" fill="url(#barGrad)">
+        <animate attributeName="width" from="0" to="385" dur="0.8s" fill="freeze" />
+      </rect>
+      <text x="490" y="213" fill="#ffffff" font-family="monospace" font-size="11" font-weight="bold" text-anchor="end">21</text>
+      <text x="590" y="214" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">21 commits</text>
+    
+      <!-- Month: Sep '26 -->
+      <text x="35" y="252" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">Sep '26</text>
+      <rect x="115" y="236" width="460" height="22" rx="6" fill="rgba(255,255,255,0.04)" />
+      <rect x="115" y="236" width="312" height="22" rx="6" fill="url(#barGrad)">
+        <animate attributeName="width" from="0" to="312" dur="0.8s" fill="freeze" />
+      </rect>
+      <text x="417" y="251" fill="#ffffff" font-family="monospace" font-size="11" font-weight="bold" text-anchor="end">17</text>
+      <text x="590" y="252" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12">17 commits</text>
+    
+
+  <!-- Yearly Comparison Cards -->
+  
+      <g transform="translate(660, 160)">
+        <rect width="145" height="85" rx="10" fill="rgba(15,23,42,0.85)" stroke="rgba(14,165,233,0.3)" stroke-width="1.2" />
+        <text x="16" y="24" fill="#94a3b8" font-family="sans-serif" font-size="11" font-weight="600" letter-spacing="0.5">YEAR 2026</text>
+        <text x="16" y="58" fill="#38bdf8" font-family="sans-serif" font-size="28" font-weight="900">62</text>
+        <text x="16" y="74" fill="#64748b" font-family="sans-serif" font-size="10">Code revisions</text>
+      </g>
+    
+
+  <!-- Footer -->
+  <line x1="35" y1="400" x2="805" y2="400" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+  <text x="35" y="422" fill="#64748b" font-family="sans-serif" font-size="11">Branch: main • Generated: 2026-09-08</text>
+  <text x="805" y="422" fill="#38bdf8" font-family="sans-serif" font-size="11" text-anchor="end" font-weight="600">github.com/daniyal44/Zyphuel</text>
+</svg>
