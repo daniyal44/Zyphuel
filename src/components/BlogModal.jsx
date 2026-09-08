@@ -55,6 +55,17 @@ export default function BlogModal({ article, onClose }) {
               </span>
             </div>
             <h2 className="blog-modal-title">{article.title}</h2>
+            <div className="startup-slogan-box" style={{ margin: '1rem 0' }}>
+              <div className="startup-slogan-icon">
+                <i className="fa-solid fa-rocket"></i>
+              </div>
+              <div className="startup-slogan-content">
+                <span className="startup-slogan-tag">Our Startup Slogan</span>
+                <p className="startup-slogan-text">
+                  <strong>Not a corporate giant — just an agile, passionate startup</strong> built to serve you with honesty, speed, and real care.
+                </p>
+              </div>
+            </div>
             <div className="blog-modal-text-content">
               {article.content.map((paragraph, index) => (
                 <p key={index} className="blog-modal-paragraph">{paragraph}</p>

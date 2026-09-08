@@ -86,12 +86,25 @@ export default function BlogArticlePage() {
         </h1>
 
         {/* Author & Date */}
-        <div className="fade-in-up" style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem', color: 'var(--text-secondary)', fontSize: '0.9rem', flexWrap: 'wrap' }}>
+        <div className="fade-in-up" style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem', color: 'var(--text-secondary)', fontSize: '0.9rem', flexWrap: 'wrap' }}>
           <span><i className={article.authorIcon} style={{ marginRight: '0.4rem' }}></i>{article.author}</span>
           <span>•</span>
           <span>{article.date}</span>
           <span>•</span>
           <span>{article.readTime}</span>
+        </div>
+
+        {/* Startup Visitor Slogan Banner */}
+        <div className="startup-slogan-box fade-in-up">
+          <div className="startup-slogan-icon">
+            <i className="fa-solid fa-rocket"></i>
+          </div>
+          <div className="startup-slogan-content">
+            <span className="startup-slogan-tag">Our Startup Slogan</span>
+            <p className="startup-slogan-text">
+              <strong>Not a corporate giant — just an agile, passionate startup</strong> built to serve you with honesty, speed, and real care. Every order fuels our mission to modernize doorstep fuel in Lahore.
+            </p>
+          </div>
         </div>
 
         {/* Hero Image */}
@@ -111,6 +124,19 @@ export default function BlogArticlePage() {
               {paragraph}
             </p>
           ))}
+        </div>
+
+        {/* Startup Note for Visitors */}
+        <div className="startup-slogan-box fade-in-up" style={{ marginTop: '2.5rem', background: '#f8fafc' }}>
+          <div className="startup-slogan-icon" style={{ background: '#10b981' }}>
+            <i className="fa-solid fa-heart"></i>
+          </div>
+          <div className="startup-slogan-content">
+            <span className="startup-slogan-tag" style={{ color: '#059669' }}>Built for Visitors &amp; Motorists</span>
+            <p className="startup-slogan-text">
+              <strong>We’re not an impersonal corporate bureaucracy — we’re a hungry, local startup.</strong> When you order or contact us, you connect directly with founders and engineers obsessed with delivering every single drop accurately and reliably.
+            </p>
+          </div>
         </div>
 
         {/* Tags */}

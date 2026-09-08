@@ -4437,3 +4437,77 @@ a.footer-contact-link:hover {
     }
 }
 
+/* ==========================================================================
+   STARTUP VISITOR SLOGAN BANNER & PILL (Articles & Website)
+   ========================================================================== */
+.startup-slogan-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.06) 0%, rgba(16, 185, 129, 0.06) 100%);
+    border: 1px solid rgba(2, 132, 199, 0.22);
+    border-left: 4px solid #0284c7;
+    border-radius: 10px;
+    padding: 12px 18px;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.startup-slogan-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #0284c7;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.startup-slogan-content {
+    flex-grow: 1;
+}
+
+.startup-slogan-tag {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #0284c7;
+    margin-bottom: 2px;
+}
+
+.startup-slogan-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-primary, #1e293b);
+    margin: 0;
+}
+
+.startup-slogan-text strong {
+    font-weight: 700;
+    color: #0284c7;
+}
+
+.startup-slogan-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(2, 132, 199, 0.07);
+    border: 1px solid rgba(2, 132, 199, 0.22);
+    border-radius: 30px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    color: var(--text-secondary, #475569);
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+.startup-slogan-pill strong {
+    color: #0284c7;
+    font-weight: 700;
+}
+

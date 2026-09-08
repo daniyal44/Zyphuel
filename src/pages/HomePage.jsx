@@ -140,6 +140,14 @@ export default function HomePage() {
               Read the latest updates about mobile fuel logistics, digital accelerators,
               energy mobility, and our partnership engineering breakthroughs.
             </p>
+            <div style={{ textAlign: 'center', marginTop: '12px' }}>
+              <div className="startup-slogan-pill">
+                <i className="fa-solid fa-rocket" style={{ color: '#0284c7' }}></i>
+                <span>
+                  <strong>Not a corporate giant — just an agile startup</strong> delivering certified doorstep fuel with care across Lahore.
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* Filters */}

@@ -33,6 +33,14 @@ export default function BlogListPage() {
               Read the latest updates about mobile fuel logistics, energy mobility,
               and fuel delivery innovations in Lahore.
             </p>
+            <div style={{ textAlign: 'center', marginTop: '12px' }}>
+              <div className="startup-slogan-pill">
+                <i className="fa-solid fa-rocket" style={{ color: '#0284c7' }}></i>
+                <span>
+                  <strong>Not a corporate giant — just an agile, passionate startup</strong> delivering doorstep energy with speed and honesty.
+                </span>
+              </div>
+            </div>
           </div>
 
           {/* Filters */}

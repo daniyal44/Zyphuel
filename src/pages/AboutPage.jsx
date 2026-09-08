@@ -319,6 +319,14 @@ export default function AboutPage() {
               <p className="section-subtitle" style={{ maxWidth: '820px', margin: '0 auto' }}>
                 Explore in-depth publications, social media feature articles, and technical breakdowns documenting Zyphuel’s energy technology, telemetry infrastructure, and leadership vision.
               </p>
+              <div style={{ textAlign: 'center', marginTop: '14px' }}>
+                <div className="startup-slogan-pill">
+                  <i className="fa-solid fa-rocket" style={{ color: '#0284c7' }}></i>
+                  <span>
+                    <strong>Not a corporate giant — just an agile, passionate startup</strong> building Pakistan's cleanest on-demand energy platform.
+                  </span>
+                </div>
+              </div>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
