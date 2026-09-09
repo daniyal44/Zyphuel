@@ -1,7 +1,7 @@
 {
   "name": "zyphuel-react",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.6.2",
   "type": "module",
   "scripts": {
     "dev": "vite",

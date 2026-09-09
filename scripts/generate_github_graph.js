@@ -9,6 +9,7 @@ import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
 import { fileURLToPath } from 'url'
+import { APP_VERSION, RELEASE_DATE } from '../src/data/appVersion.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -245,7 +246,7 @@ function generateSvg() {
 
     <!-- Titles -->
     <text x="48" y="15" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Zyphuel • Engineering Velocity &amp; Git Activity</text>
-    <text x="48" y="32" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11.5">Repository: daniyal44/Zyphuel • Real-Time Automatic Updates on Push</text>
+    <text x="48" y="32" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11.5">Repository: daniyal44/Zyphuel • Mobile App v${APP_VERSION} (APK) • Auto-Sync on Push</text>
 
     <!-- Live Badge -->
     <rect x="${width - 230}" y="3" width="130" height="26" rx="13" fill="rgba(16, 185, 129, 0.12)" stroke="rgba(16, 185, 129, 0.35)" stroke-width="1" />
@@ -255,20 +256,27 @@ function generateSvg() {
 
   <!-- 4 KPI TILES -->
   <g transform="translate(50, 72)">
-    <!-- Tile 1: Total Commits -->
-    <rect x="0" y="0" width="198" height="52" rx="8" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.06)" />
-    <text x="14" y="19" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">TOTAL COMMITS</text>
-    <text x="14" y="41" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="18" font-weight="800">${totalCommits} Commits</text>
+    <!-- Tile 1: App Version -->
+    <rect x="0" y="0" width="198" height="52" rx="8" fill="url(#cardGrad)" stroke="rgba(16, 185, 129, 0.35)" />
+    <text x="14" y="19" fill="#34d399" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">APP VERSION</text>
+    <text x="14" y="41" fill="#10b981" font-family="system-ui, sans-serif" font-size="18" font-weight="800">v${APP_VERSION}</text>
+    <rect x="108" y="25" width="78" height="19" rx="9.5" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1" />
+    <text x="147" y="38" fill="#34d399" font-family="system-ui, sans-serif" font-size="9" font-weight="700" text-anchor="middle">Latest APK</text>
 
-    <!-- Tile 2: Velocity -->
+    <!-- Tile 2: Total Commits -->
     <rect x="214" y="0" width="198" height="52" rx="8" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.06)" />
-    <text x="228" y="19" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">SPRINT STATUS</text>
-    <text x="228" y="41" fill="#10b981" font-family="system-ui, sans-serif" font-size="16" font-weight="800">High Velocity ⚡</text>
+    <text x="228" y="19" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">TOTAL COMMITS</text>
+    <text x="228" y="41" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="18" font-weight="800">${totalCommits} Commits</text>
 
-    <!-- Tile 3: Latest Commit -->
-    <rect x="428" y="0" width="412" height="52" rx="8" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.06)" />
-    <text x="442" y="19" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">LATEST UPDATE (${cleanSha})</text>
-    <text x="442" y="40" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12" font-weight="500">${cleanMessage}</text>
+    <!-- Tile 3: Sprint Status -->
+    <rect x="428" y="0" width="198" height="52" rx="8" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.06)" />
+    <text x="442" y="19" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">SPRINT STATUS</text>
+    <text x="442" y="41" fill="#10b981" font-family="system-ui, sans-serif" font-size="16" font-weight="800">High Velocity ⚡</text>
+
+    <!-- Tile 4: Latest Commit -->
+    <rect x="642" y="0" width="198" height="52" rx="8" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.06)" />
+    <text x="654" y="19" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">LATEST (${cleanSha})</text>
+    <text x="654" y="40" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="11" font-weight="500">${escapeXml(latest.message.length > 20 ? latest.message.substring(0, 20) + '...' : latest.message)}</text>
   </g>
 
   <!-- CHART 1: AREA VELOCITY CURVE -->
@@ -288,13 +296,14 @@ function generateSvg() {
   <!-- SIDE METRICS CARD (Top Right) -->
   <g transform="translate(635, 160)">
     <rect width="255" height="140" rx="10" fill="url(#cardGrad)" stroke="rgba(14, 165, 233, 0.25)" stroke-width="1.2" />
-    <text x="18" y="26" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5">PLATFORM ARCHITECTURE</text>
-    <text x="18" y="55" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="15" font-weight="700">React 18 + Vite SPA</text>
-    <text x="18" y="75" fill="#64748b" font-family="system-ui, sans-serif" font-size="12">SEO Optimized &amp; SSR Prerendered</text>
+    <text x="18" y="24" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5">PLATFORM ARCHITECTURE</text>
+    <text x="18" y="49" fill="#10b981" font-family="system-ui, sans-serif" font-size="14.5" font-weight="700">Mobile App v${APP_VERSION}</text>
+    <text x="18" y="68" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13" font-weight="600">React 18 + Vite SPA</text>
+    <text x="18" y="87" fill="#64748b" font-family="system-ui, sans-serif" font-size="11.5">SEO Optimized &amp; SSR Prerendered</text>
 
-    <line x1="18" y1="92" x2="237" y2="92" stroke="rgba(255,255,255,0.07)" />
-    <text x="18" y="114" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Active Branch: main</text>
-    <text x="18" y="130" fill="#10b981" font-family="system-ui, sans-serif" font-size="10.5">● 100% Passing Automated Tests</text>
+    <line x1="18" y1="99" x2="237" y2="99" stroke="rgba(255,255,255,0.07)" />
+    <text x="18" y="116" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Active Branch: main</text>
+    <text x="18" y="131" fill="#10b981" font-family="system-ui, sans-serif" font-size="10.5">● 100% Passing Automated Tests</text>
   </g>
 
   <!-- LOWER SECTION TITLES -->
