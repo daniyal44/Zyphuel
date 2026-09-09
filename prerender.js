@@ -55,9 +55,15 @@ const ORGANIZATION_SCHEMA = {
 }
 
 const LOCAL_BUSINESS_SCHEMA = {
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "GasStation"],
   "@id": `${DOMAIN}/#localbusiness`,
-  "name": "Zyphuel Mobile Refueling",
+  "name": "Zyphuel Mobile Refueling & Fuel Agency",
+  "alternateName": [
+    "Zyphuel Mobile Petrol Pump Lahore",
+    "Zyphuel Fuel Agency Lahore",
+    "Zyphuel Fuel Station On-Demand",
+    "Zyphuel Energy Delivery"
+  ],
   "url": DOMAIN,
   "logo": `${DOMAIN}/images/logo.png`,
   "image": `${DOMAIN}/images/logo.png`,
@@ -94,8 +100,8 @@ const LOCAL_BUSINESS_SCHEMA = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Doorstep Euro-V Super Petrol Delivery",
-          "description": "On-demand Super Euro-V petrol delivered directly to vehicles and homes with 0.01L digital calibrated metering."
+          "name": "Doorstep Euro-V Super Petrol Delivery & Mobile Petrol Pump",
+          "description": "On-demand Super Euro-V petrol delivered directly to vehicles and homes with 0.01L digital calibrated metering, replacing traditional petrol pump visits."
         }
       },
       {
@@ -103,7 +109,15 @@ const LOCAL_BUSINESS_SCHEMA = {
         "itemOffered": {
           "@type": "Service",
           "name": "Standby Generator Euro-V Diesel Refueling",
-          "description": "24/7 scheduled and emergency diesel logistics for commercial, residential, and industrial generators."
+          "description": "24/7 scheduled and emergency diesel logistics for commercial, residential, and industrial generators across Lahore."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Authorized Fuel Agency & Bulk Diesel Supply",
+          "description": "Commercial fuel agency services offering 200L to 10,000L bulk Euro-V diesel deliveries with calibrated flow meters and digital invoices."
         }
       },
       {
@@ -138,7 +152,10 @@ const LOCAL_BUSINESS_SCHEMA = {
     "OGRA Daily Fuel Pricing",
     "Standby Generator Refueling Logistics",
     "Doorstep Fuel Delivery Systems",
-    "NFPA 385 Hazardous Material Safety"
+    "NFPA 385 Hazardous Material Safety",
+    "Petrol Pump Operations Lahore",
+    "Fuel Agency Bulk Supply Lahore",
+    "Industrial Diesel Delivery Logistics"
   ],
   "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
   "founder": {
@@ -267,7 +284,7 @@ const ARTICLES_SCHEMA = [
   }
 ]
 
-const RELEVANT_KEYWORDS = "Zyphuel, fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore, mobile refueling Pakistan, doorstep fuel delivery, doorstep petrol delivery, generator diesel delivery, generator refueling service, bulk diesel supplier Lahore, fleet refueling service, on-demand fuel delivery app, order fuel online Lahore, diesel delivery near me, petrol delivery at home, fuel delivery DHA Lahore, petrol delivery Gulberg, diesel delivery Johar Town, OGRA compliant fuel rates, calibrated flow meter fuel delivery, LPG gas cylinder delivery Lahore, water tanker Lahore"
+const RELEVANT_KEYWORDS = "Zyphuel, fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore, petrol pump near me, fuel pump near me, nearest petrol pump, fuel station Lahore, petrol rate today Lahore, fuel agency Lahore, industrial diesel supplier, diesel pump near me, mobile refueling Pakistan, doorstep fuel delivery, doorstep petrol delivery, generator diesel delivery, generator refueling service, bulk diesel supplier Lahore, fleet refueling service, on-demand fuel delivery app, order fuel online Lahore, diesel delivery near me, petrol delivery at home, fuel delivery DHA Lahore, petrol delivery Gulberg, diesel delivery Johar Town, OGRA compliant fuel rates, calibrated flow meter fuel delivery, LPG gas cylinder delivery Lahore, water tanker Lahore"
 
 const ROUTES = [
   {
@@ -332,6 +349,22 @@ const ROUTES = [
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Zyphuel eliminates petrol pump queues and pump short-fueling with 0.01L calibrated digital flow meters, 100% OGRA compliant regulated pricing, genuine terminal-sourced Euro-V fuel, and doorstep delivery within 15-30 minutes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Zyphuel an authorized commercial fuel agency in Lahore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Zyphuel operates as a compliant mobile refueling and fuel agency supplying bulk Euro-V diesel (200L to 10,000L+) directly to corporate generator tanks, manufacturing plants, telecommunication towers, and construction yards across Lahore at official OGRA rates with verified batch quality certificates."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should I do if I run out of petrol or diesel on the road in Lahore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Simply open Zyphuel or send your live WhatsApp location to +92 323 0112464. Our rapid mobile bowsers dispatch emergency Euro-V petrol or diesel directly to your stranded vehicle within 15 to 30 minutes anywhere in Lahore."
               }
             },
             {

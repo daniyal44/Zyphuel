@@ -4864,4 +4864,198 @@ a.footer-contact-link:hover {
     }
 }
 
+/* ==========================================================================
+   PETROL PUMP ALTERNATIVE, 4-WAY COMPETITOR MATRIX & FUEL AGENCY STYLES
+   ========================================================================== */
+
+/* Petrol Pump Near Me Callout Banner */
+.pump-callout-banner {
+    background: linear-gradient(90deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    padding: 20px 0;
+    box-shadow: 0 4px 16px rgba(2, 132, 199, 0.2);
+}
+
+.pump-callout-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.pump-callout-text h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pump-callout-text p {
+    font-size: 0.9rem;
+    color: #e0f2fe;
+    margin: 0;
+}
+
+.pump-callout-ctas {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-white-pump {
+    background: #ffffff;
+    color: #0284c7;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-white-pump:hover {
+    background: #f0f9ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* 4-Way Competitor Comparison Table */
+.comparison-section {
+    padding: 70px 0;
+    background: #ffffff;
+}
+
+.comp-table-container {
+    overflow-x: auto;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+    margin-top: 32px;
+}
+
+.zyphuel-comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 720px;
+}
+
+.zyphuel-comparison-table th {
+    padding: 18px 20px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #0f172a;
+    background: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.zyphuel-comparison-table th.highlight-zyphuel {
+    background: #0284c7;
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+.zyphuel-comparison-table td {
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    border-bottom: 1px solid #f1f5f9;
+    color: #475569;
+}
+
+.zyphuel-comparison-table tr:hover td {
+    background: #f8fafc;
+}
+
+.zyphuel-comparison-table td.highlight-zyphuel {
+    background: rgba(2, 132, 199, 0.04);
+    font-weight: 700;
+    color: #0284c7;
+    border-left: 2px solid #0284c7;
+    border-right: 2px solid #0284c7;
+}
+
+.zyphuel-comparison-table tr:last-child td.highlight-zyphuel {
+    border-bottom: 2px solid #0284c7;
+}
+
+/* Fuel Agency & Bulk Diesel Supply Section */
+.agency-section {
+    padding: 70px 0;
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+    border-top: 1px solid #e2e8f0;
+}
+
+.agency-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 36px;
+}
+
+.agency-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+}
+
+.agency-card:hover {
+    border-color: #0284c7;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
+}
+
+.agency-card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.agency-card p {
+    font-size: 0.88rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    flex-grow: 1;
+}
+
+.agency-specs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px;
+}
+
+.agency-specs-list li {
+    font-size: 0.82rem;
+    color: #334155;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.agency-specs-list li i {
+    color: #10b981;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 900px) {
+    .agency-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 

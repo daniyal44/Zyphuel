@@ -24,6 +24,9 @@ export default function HomePage() {
     description: 'Order certified Euro-V petrol, diesel, and generator fuel delivered directly to your doorstep in Lahore within 15-45 minutes. Calibrated digital flow meters, OGRA rates, and live GPS tracking.',
     keywords: [
       'fuel delivery Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
+      'petrol pump near me Lahore', 'fuel station near me', 'petrol pump open now Lahore',
+      'petrol price today Lahore', 'diesel price today Lahore', 'diesel supplier Lahore',
+      'fuel agency Lahore', 'bulk diesel supply Lahore', 'commercial petroleum contractor Lahore',
       'mobile refueling Pakistan', 'doorstep fuel delivery', 'generator diesel delivery',
       'generator refueling service', 'bulk diesel supplier Lahore', 'fleet refueling service',
       'on-demand fuel delivery app', 'fuel delivery DHA Lahore', 'petrol delivery Gulberg',
@@ -233,6 +236,36 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Petrol Pump Near Me High-Intent Search Banner */}
+      <div className="pump-callout-banner">
+        <div className="container">
+          <div className="pump-callout-grid">
+            <div className="pump-callout-text">
+              <h3>
+                <i className="fa-solid fa-location-crosshairs"></i> Searching for a "Petrol Pump Near Me" in Lahore?
+              </h3>
+              <p>
+                Don't wait in long fuel queues at PSO, Shell, or Total Parco stations. We deliver Euro-V Super Petrol &amp; Diesel directly into your car or generator within 15–30 minutes at official OGRA rates.
+              </p>
+            </div>
+            <div className="pump-callout-ctas">
+              <Link to="/order/" className="btn-white-pump">
+                <i className="fa-solid fa-gas-pump"></i> Dispatch to My Location
+              </Link>
+              <a
+                href="https://wa.me/923230112464?text=Hello%20Zyphuel!%20I%20am%20looking%20for%20a%20petrol%20pump%20near%20me%20in%20Lahore.%20Please%20dispatch%20fuel%20to%20my%20location."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-whatsapp-dispatch"
+                style={{ padding: '10px 16px', fontSize: '0.88rem' }}
+              >
+                <i className="fa-brands fa-whatsapp"></i> WhatsApp Fuel
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Competitive Advantage & Trust Pillars */}
       <section className="competitive-section">
         <div className="container">
@@ -324,6 +357,159 @@ export default function HomePage() {
               <div className="comp-proof-tag">
                 <i className="fa-brands fa-android"></i> App v2.6.2 Available
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4-Way Competitor Comparison Table */}
+      <section className="comparison-section">
+        <div className="container">
+          <div className="competitive-header fade-in-up">
+            <div className="section-badge-pill" style={{ background: 'rgba(16, 185, 129, 0.1)', color: '#059669', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
+              <i className="fa-solid fa-code-compare"></i>
+              <span>Market Benchmark &amp; Analysis</span>
+            </div>
+            <h2 className="section-title">Zyphuel vs. Petrol Pumps vs. Fuel Agencies vs. Delivery Apps</h2>
+            <p className="section-subtitle">
+              See how Zyphuel outperforms traditional retail fuel stations, conventional petroleum brokers, and third-party delivery apps across Lahore.
+            </p>
+          </div>
+
+          <div className="comp-table-container fade-in-up">
+            <table className="zyphuel-comparison-table">
+              <thead>
+                <tr>
+                  <th>Feature / Service Capability</th>
+                  <th className="highlight-zyphuel"><i className="fa-solid fa-bolt"></i> Zyphuel Mobile</th>
+                  <th>Fixed Petrol Pumps (PSO/Shell/Total)</th>
+                  <th>Industrial Fuel Agencies</th>
+                  <th>Other Apps / Delivery Sites</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Doorstep Delivery to Vehicle / Generator</strong></td>
+                  <td className="highlight-zyphuel">✅ Yes (15–30 min express dispatch)</td>
+                  <td>❌ No (Must drive &amp; wait in queue)</td>
+                  <td>⚠️ Bulk only (No passenger cars)</td>
+                  <td>⚠️ Limited / Karachi only</td>
+                </tr>
+                <tr>
+                  <td><strong>Measurement Accuracy &amp; Anti-Short-Fueling</strong></td>
+                  <td className="highlight-zyphuel">✅ 0.01L Calibrated Digital Meter</td>
+                  <td>⚠️ High risk of pump short-fueling</td>
+                  <td>⚠️ Dipstick / manual bulk meters</td>
+                  <td>❌ Uncalibrated jerry cans</td>
+                </tr>
+                <tr>
+                  <td><strong>Government Regulated Pricing (OGRA)</strong></td>
+                  <td className="highlight-zyphuel">✅ 100% OGRA daily rates, zero markup</td>
+                  <td>✅ Standard station price</td>
+                  <td>⚠️ Broker commissions added</td>
+                  <td>⚠️ High surge delivery fees</td>
+                </tr>
+                <tr>
+                  <td><strong>Generator Standby Fueling (50m Hoses)</strong></td>
+                  <td className="highlight-zyphuel">✅ Direct rooftop &amp; basement access</td>
+                  <td>❌ Dangerous manual cans required</td>
+                  <td>⚠️ Ground storage tanks only</td>
+                  <td>❌ No long-reach hoses</td>
+                </tr>
+                <tr>
+                  <td><strong>Order Flexibility (Minimum Volume)</strong></td>
+                  <td className="highlight-zyphuel">✅ 10 Liters to 10,000+ Liters</td>
+                  <td>✅ No minimum (at station)</td>
+                  <td>❌ Strict 5,000L+ minimum order</td>
+                  <td>⚠️ Inflexible order limits</td>
+                </tr>
+                <tr>
+                  <td><strong>Operating Hours &amp; Emergency Response</strong></td>
+                  <td className="highlight-zyphuel">✅ 24/7/365 Uninterrupted Delivery</td>
+                  <td>⚠️ Station queues / Night closures</td>
+                  <td>❌ 9-to-5 business hours only</td>
+                  <td>❌ Irregular operating hours</td>
+                </tr>
+                <tr>
+                  <td><strong>Dedicated Android App &amp; Live Bowser GPS</strong></td>
+                  <td className="highlight-zyphuel">✅ Yes (v2.6.2 with Live Radar Tracking)</td>
+                  <td>❌ No app tracking</td>
+                  <td>❌ Phone/paper dispatch only</td>
+                  <td>⚠️ Basic web forms only</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Commercial Fuel Agency & Bulk Diesel Supply Section */}
+      <section className="agency-section">
+        <div className="container">
+          <div className="competitive-header fade-in-up">
+            <div className="section-badge-pill">
+              <i className="fa-solid fa-industry"></i>
+              <span>Commercial Energy Agency</span>
+            </div>
+            <h2 className="section-title">Authorized Fuel Agency &amp; Bulk Diesel Supply in Lahore</h2>
+            <p className="section-subtitle">
+              Zyphuel functions as an agile commercial petroleum contractor for commercial standby generators, manufacturing plants, corporate vehicle fleets, and construction sites.
+            </p>
+          </div>
+
+          <div className="agency-grid">
+            <div className="agency-card fade-in-up">
+              <div className="comp-icon-box">
+                <i className="fa-solid fa-hospital"></i>
+              </div>
+              <h3>Hospitals, Tech Parks &amp; Plazas</h3>
+              <p>
+                Zero-downtime standby generator refueling contracts. When WAPDA load-shedding hits, our automated refuelers ensure your backup power is replenished with laboratory-tested Euro-V diesel.
+              </p>
+              <ul className="agency-specs-list">
+                <li><i className="fa-solid fa-check"></i> 50-meter high-pressure rooftop hoses</li>
+                <li><i className="fa-solid fa-check"></i> Monthly consolidated invoicing</li>
+                <li><i className="fa-solid fa-check"></i> 24/7 emergency dispatch helpline</li>
+              </ul>
+              <Link to="/services/#b2b" className="sector-cta-link">
+                View Commercial Packages <i className="fa-solid fa-arrow-right"></i>
+              </Link>
+            </div>
+
+            <div className="agency-card fade-in-up" style={{ transitionDelay: '0.1s' }}>
+              <div className="comp-icon-box emerald">
+                <i className="fa-solid fa-truck-ramp-box"></i>
+              </div>
+              <h3>Logistics &amp; Transport Fleets</h3>
+              <p>
+                Overnight yard refueling for delivery vans, trucking fleets, and corporate shuttles. Vehicles start every morning fully fueled without wasting driver work hours at retail petrol pumps.
+              </p>
+              <ul className="agency-specs-list">
+                <li><i className="fa-solid fa-check"></i> RFID tag vehicle authentication</li>
+                <li><i className="fa-solid fa-check"></i> Digital fuel audit reports &amp; consumption telemetry</li>
+                <li><i className="fa-solid fa-check"></i> Eliminates driver fuel card embezzlement</li>
+              </ul>
+              <Link to="/services/#b2b" className="sector-cta-link">
+                Explore Fleet Solutions <i className="fa-solid fa-arrow-right"></i>
+              </Link>
+            </div>
+
+            <div className="agency-card fade-in-up" style={{ transitionDelay: '0.2s' }}>
+              <div className="comp-icon-box amber">
+                <i className="fa-solid fa-trowel-bricks"></i>
+              </div>
+              <h3>Construction Sites &amp; Heavy Machinery</h3>
+              <p>
+                On-site direct-to-machine diesel replenishment for excavators, road rollers, mobile generators, and earth-moving equipment across Lahore infrastructure developments.
+              </p>
+              <ul className="agency-specs-list">
+                <li><i className="fa-solid fa-check"></i> Rugged micro-bowsers for unpaved terrain</li>
+                <li><i className="fa-solid fa-check"></i> Bulk volume discounts on scheduled supply</li>
+                <li><i className="fa-solid fa-check"></i> Spill-containment certified equipment</li>
+              </ul>
+              <Link to="/contact/" className="sector-cta-link">
+                Request Industrial Quotation <i className="fa-solid fa-arrow-right"></i>
+              </Link>
             </div>
           </div>
         </div>
