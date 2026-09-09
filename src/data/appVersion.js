@@ -1,12 +1,24 @@
 // Centralized Zyphuel Mobile App Version Configuration
 // Update this file on every application release to dynamically sync versions across the platform.
 
-export const APP_VERSION = '2.3.0.1';
-export const RELEASE_DATE = 'September 5, 2026';
-export const APP_SIZE = '31.4 MB';
+export const APP_VERSION = '2.6.2';
+export const RELEASE_DATE = 'September 9, 2026';
+export const APP_SIZE = '31.8 MB';
 export const MIN_ANDROID = '8.0 (Oreo)+';
 
 export const CHANGELOG = [
+  {
+    version: '2.6.2',
+    date: 'September 9, 2026',
+    title: 'Real-Time Invoice Email Engine, High-Contrast Typography & Git Activity Graph',
+    features: [
+      'Instant HTML tax invoice email engine dispatched immediately to customer inboxes upon checkout',
+      'High-contrast pure black typography across Drawer and Profile Settings for WCAG AAA legibility',
+      '10-Category marketplace catalog for fuel, water, and automotive accessories with rapid quantity counters',
+      '13-step interactive spotlight tour guide with animated onboarding walkthrough',
+      'Automated repository engineering velocity chart and GitHub Actions telemetry pipeline'
+    ]
+  },
   {
     version: '2.3.0.1',
     date: 'September 5, 2026',
