@@ -95,6 +95,22 @@ export default function PrivacyPolicyPage() {
 
             {/* Content */}
             <div className="legal-content fade-in-up" style={{ transitionDelay: '0.2s' }}>
+              {/* Prominent Startup Notice */}
+              <div style={{
+                background: 'rgba(245, 158, 11, 0.12)',
+                border: '1px solid #f59e0b',
+                borderRadius: '12px',
+                padding: '16px 20px',
+                marginBottom: '28px'
+              }}>
+                <h3 style={{ color: '#d97706', fontSize: '1.05rem', fontWeight: 800, marginBottom: '6px' }}>
+                  <i className="fa-solid fa-triangle-exclamation"></i> STARTUP STATUS &amp; PRIVACY TRANSPARENCY
+                </h3>
+                <p style={{ color: '#92400e', fontWeight: 700, margin: 0, fontSize: '0.92rem', lineHeight: '1.6' }}>
+                  <strong>Please note: Zyphuel is currently an early-stage startup platform operating in Lahore, Pakistan, and NOT a large corporate entity. All user data, telemetry, and location permissions are processed with startup agility and strict end-to-end encryption exclusively to fulfill your on-demand service dispatches.</strong>
+                </p>
+              </div>
+
               <section id="intro" className="legal-section">
                 <h2><i className="fa-solid fa-file-shield"></i> 1. Introduction</h2>
                 <p>Welcome to <strong>Zyphuel</strong> ("we", "us", "our"). We are committed to protecting your personal data and respecting your privacy. This Privacy Policy outlines how we gather, utilize, store, and share your personal information when you access or use our website, mobile interface, or place digital fuel delivery requests within Lahore, Pakistan.</p>
@@ -117,7 +133,7 @@ export default function PrivacyPolicyPage() {
                 <p>We process your information in accordance with the law to provide security, speed, and premium service:</p>
                 <ul>
                   <li><strong>Order Processing & Fulfillment:</strong> Dispatching our tankers, calculating prices, verifying quantities, and communicating delivery statuses.</li>
-                  <li><strong>Real-Time Tracking:</strong> Utilizing localized geographical positions to provide accurate ETA timers and update safety alerts.</li>
+                  <li><strong>Real-Time Tracking:</strong> Utilizing localized geographical positions to provide active dispatch route updates and safety alerts.</li>
                   <li><strong>Customer Support:</strong> Responding to inquiries from our Contact Desk and handling bulk enterprise quotes.</li>
                   <li><strong>Service Improvement:</strong> Resolving errors, analyzing usage statistics, and optimizing the design layouts of our portals.</li>
                 </ul>

@@ -481,7 +481,7 @@ export default function DownloadPage() {
                   <div className="how-step-icon"><i className="fa-solid fa-satellite-dish"></i></div>
                 </div>
                 <h3>Live Micro-Refueler Tracking</h3>
-                <p>Watch your assigned micro-tanker bowser approach on the interactive map with real-time GPS telemetry, driver contact details, and precise live ETA updates.</p>
+                <p>Watch your assigned micro-tanker bowser approach on the interactive map with real-time GPS telemetry, driver contact details, and live delivery progress updates.</p>
                 <div className="how-step-meta">
                   <i className="fa-solid fa-circle-check"></i> Average 45-min arrival time
                 </div>

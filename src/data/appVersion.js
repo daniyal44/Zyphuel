@@ -48,7 +48,7 @@ export const CHANGELOG = [
     date: 'July 2026',
     title: 'Smart Fleet GPS & Instant Digital Receipts',
     features: [
-      'Enhanced real-time micro-refueler truck GPS tracking with live ETA',
+      'Enhanced real-time micro-refueler truck GPS tracking with live dispatch telemetry',
       'Instant digital invoice & flow-meter calibration proofing',
       'Optimized OTP login and 24/7 priority customer support'
     ]

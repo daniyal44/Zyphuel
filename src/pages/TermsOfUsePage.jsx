@@ -95,6 +95,22 @@ export default function TermsOfUsePage() {
 
             {/* Content */}
             <div className="legal-content fade-in-up" style={{ transitionDelay: '0.2s' }}>
+              {/* Prominent Startup Notice */}
+              <div style={{
+                background: 'rgba(245, 158, 11, 0.12)',
+                border: '1px solid #f59e0b',
+                borderRadius: '12px',
+                padding: '16px 20px',
+                marginBottom: '28px'
+              }}>
+                <h3 style={{ color: '#d97706', fontSize: '1.05rem', fontWeight: 800, marginBottom: '6px' }}>
+                  <i className="fa-solid fa-triangle-exclamation"></i> IMPORTANT STARTUP DISCLOSURE
+                </h3>
+                <p style={{ color: '#92400e', fontWeight: 700, margin: 0, fontSize: '0.92rem', lineHeight: '1.6' }}>
+                  <strong>Please note: Zyphuel is currently an early-stage startup platform operating in Lahore, Pakistan, and NOT a large corporate conglomerate or established commercial enterprise. All on-demand fuel and roadside delivery operations are conducted as an agile startup service within our designated local service coverage zones.</strong>
+                </p>
+              </div>
+
               <section id="terms-intro" className="legal-section">
                 <h2><i className="fa-solid fa-file-contract"></i> 1. Acceptance of Terms</h2>
                 <p>By accessing or using the Zyphuel website, mobile platform, or any associated delivery services, you acknowledge that you have read, understood, and agree to be legally bound by these Terms of Use. These Terms constitute a binding legal agreement between you ("the User") and Zyphuel Pakistan ("the Company").</p>
@@ -116,7 +132,7 @@ export default function TermsOfUsePage() {
                 <h2><i className="fa-solid fa-truck-fast"></i> 3. Orders & Delivery</h2>
                 <p>All fuel orders are subject to availability and delivery feasibility within your requested area. Zyphuel reserves the right to decline any order if your location falls outside the current active delivery radius or if demand exceeds current tanker capacity.</p>
                 <ul>
-                  <li><strong>ETA Estimates:</strong> Estimated Delivery ETAs are approximate and subject to traffic conditions, weather, safety inspections, and queue priorities.</li>
+                  <li><strong>Dispatch Timing:</strong> Dispatch and arrival schedules are approximate and subject to urban traffic conditions, weather, safety inspections, and queue priorities.</li>
                   <li><strong>Minimum Order:</strong> The minimum fuel order quantity is 5 litres. Bulk commercial orders must be pre-approved by our logistics team.</li>
                   <li><strong>Delivery Zones:</strong> Active delivery zones are limited to designated Lahore postal codes. Expansion alerts are communicated via our website and badge notifications.</li>
                   <li><strong>Emergency Deliveries:</strong> Emergency priority orders carry an additional flat surcharge of PKR 500 and cannot be guaranteed in terms of delivery timing.</li>

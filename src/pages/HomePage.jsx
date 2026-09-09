@@ -83,6 +83,21 @@ export default function HomePage() {
           <div className="hero-grid">
             {/* Left: Content */}
             <div className="hero-content fade-in-up">
+              <div style={{
+                background: 'rgba(2, 132, 199, 0.08)',
+                border: '1px solid rgba(2, 132, 199, 0.25)',
+                borderRadius: '10px',
+                padding: '8px 14px',
+                marginBottom: '16px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontSize: '0.85rem',
+                color: 'var(--brand-primary, #0284c7)'
+              }}>
+                <i className="fa-solid fa-seedling"></i>
+                <span><strong>Startup Transparency:</strong> Zyphuel is currently an early-stage startup serving Lahore, Pakistan, not a large corporation.</span>
+              </div>
               <div className="hero-subtitle-badge">
                 <i className="fa-solid fa-gas-pump"></i>
                 <span>Fuel on Your Doorstep – Lahore</span>
@@ -112,7 +127,7 @@ export default function HomePage() {
                 </div>
                 <div className="hero-trust-badge">
                   <i className="fa-solid fa-bolt"></i>
-                  <span>Fast 45-Min ETA</span>
+                  <span>Express Dispatch</span>
                 </div>
                 <div className="hero-trust-badge">
                   <i className="fa-solid fa-shield-halved"></i>

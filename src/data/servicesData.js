@@ -126,7 +126,7 @@ export const whatWeProvide = [
   {
     icon: 'fa-satellite-dish',
     title: 'Live GPS Fleet Tracking & 2-Hr Price Updates',
-    desc: 'Real-time telemetry tracking of your assigned refueling truck with accurate ETA countdown and automated 2-hour market rate alerts directly on your phone.'
+    desc: 'Real-time telemetry tracking of your assigned refueling truck with live delivery progress and automated 2-hour market rate alerts directly on your phone.'
   },
   {
     icon: 'fa-shield-halved',

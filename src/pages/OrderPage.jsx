@@ -496,6 +496,23 @@ export default function OrderPage() {
               <div className="order-form-panel fade-in-up" id="main-order-panel">
                 <form id="fuel-order-form" noValidate onSubmit={e => e.preventDefault()}>
 
+                  {/* Startup Transparency Notice */}
+                  <div style={{
+                    background: 'rgba(2, 132, 199, 0.08)',
+                    border: '1px solid rgba(2, 132, 199, 0.25)',
+                    borderRadius: '12px',
+                    padding: '12px 16px',
+                    marginBottom: '20px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px',
+                    fontSize: '0.88rem',
+                    color: 'var(--brand-primary, #0284c7)'
+                  }}>
+                    <i className="fa-solid fa-seedling" style={{ fontSize: '1.1rem' }}></i>
+                    <span><strong>Startup Transparency:</strong> Zyphuel is currently an early-stage startup operating in Lahore, not a large corporation. All orders receive personalized care and dedicated direct dispatch.</span>
+                  </div>
+
                   {/* Order Progress Stepper */}
                   <div className="order-progress-stepper" style={{
                     display: 'flex',
@@ -572,7 +589,7 @@ export default function OrderPage() {
                         </div>
                         <div className="category-title-area">
                           <span className="category-name"><i className="fa-solid fa-gas-pump icon-spacing"></i> Fuel Delivery</span>
-                          <span className="category-desc">Petrol, Diesel, or High-Octane</span>
+                          <span className="category-desc">Petrol (Regular & High-Octane) or Diesel (Regular & Generator)</span>
                         </div>
                       </div>
                       
@@ -603,7 +620,7 @@ export default function OrderPage() {
                       )}
                     </div>
 
-                    {/* Category 2: LPG Gas */}
+                    {/* Category 2: Gas */}
                     <div className={`category-card${orderGas ? ' active' : ''}`}>
                       <div className="category-header" onClick={() => {
                         if (orderGas && !orderFuel && !orderWater) {
@@ -616,14 +633,14 @@ export default function OrderPage() {
                           <i className={`fa-solid ${orderGas ? 'fa-square-check' : 'fa-square'}`}></i>
                         </div>
                         <div className="category-title-area">
-                          <span className="category-name"><i className="fa-solid fa-fire-burner icon-spacing"></i> LPG Gas Cylinder</span>
-                          <span className="category-desc">Refill LPG cylinders (Min 5 Kg, Delivery Included)</span>
+                          <span className="category-name"><i className="fa-solid fa-fire icon-spacing"></i> Gas Delivery</span>
+                          <span className="category-desc">Gas Cylinder & Refill / Exchange (Delivery Included)</span>
                         </div>
                       </div>
                       {orderGas && (
                         <div className="category-body animated fadeIn">
                           <div className="info-badge success">
-                            <i className="fa-solid fa-truck-fast"></i> Delivery Charges Free/Included in LPG rate
+                            <i className="fa-solid fa-truck-fast"></i> Delivery Charges Free/Included in Gas rate
                           </div>
                         </div>
                       )}
@@ -1158,7 +1175,7 @@ export default function OrderPage() {
             <span className="tracker-order-id" id="tracking-order-id-label">{trackerOrderId}</span>
           </div>
           <div className="tracker-eta-box">
-            Estimated Delivery ETA: <span className="tracker-eta-val" id="tracking-eta-timer">{trackerEta}</span>
+            Status: <span className="tracker-eta-val" id="tracking-eta-timer">Active Dispatch</span>
           </div>
           <div className="tracker-timeline">
             <div className="tracker-progress-line" id="tracker-progress-bar" style={{ height: `${trackerProgress}%` }}></div>
