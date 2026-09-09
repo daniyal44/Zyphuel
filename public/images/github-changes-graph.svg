@@ -60,7 +60,7 @@
     <!-- Tile 1: Total Commits -->
     <rect x="0" y="0" width="198" height="52" rx="8" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.06)" />
     <text x="14" y="19" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">TOTAL COMMITS</text>
-    <text x="14" y="41" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="18" font-weight="800">68 Commits</text>
+    <text x="14" y="41" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="18" font-weight="800">69 Commits</text>
 
     <!-- Tile 2: Velocity -->
     <rect x="214" y="0" width="198" height="52" rx="8" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.06)" />
@@ -69,8 +69,8 @@
 
     <!-- Tile 3: Latest Commit -->
     <rect x="428" y="0" width="412" height="52" rx="8" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.06)" />
-    <text x="442" y="19" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">LATEST UPDATE (70313d6)</text>
-    <text x="442" y="40" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12" font-weight="500">chore(graph): auto-update github commi...</text>
+    <text x="442" y="19" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">LATEST UPDATE (8da3a02)</text>
+    <text x="442" y="40" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="12" font-weight="500">feat(version): bump app version to 2.6...</text>
   </g>
 
   <!-- CHART 1: AREA VELOCITY CURVE -->
@@ -83,8 +83,8 @@
   <line x1="50" y1="295" x2="590" y2="295" stroke="rgba(255,255,255,0.12)" />
 
   <!-- Spline Curve & Gradient Fill -->
-  <path d="M 50.0 279.3 C 56.0 276.7, 74.0 271.4, 86.0 263.6 C 98.0 255.7, 110.0 234.8, 122.0 232.1 C 134.0 229.5, 146.0 240.0, 158.0 247.9 C 170.0 255.7, 182.0 284.5, 194.0 279.3 C 206.0 274.0, 218.0 216.4, 230.0 216.4 C 242.0 216.4, 254.0 274.0, 266.0 279.3 C 278.0 284.5, 290.0 247.9, 302.0 247.9 C 314.0 247.9, 326.0 274.0, 338.0 279.3 C 350.0 284.5, 362.0 281.9, 374.0 279.3 C 386.0 276.7, 398.0 266.2, 410.0 263.6 C 422.0 261.0, 434.0 263.6, 446.0 263.6 C 458.0 263.6, 470.0 276.7, 482.0 263.6 C 494.0 250.5, 506.0 198.1, 518.0 185.0 C 530.0 171.9, 542.0 171.9, 554.0 185.0 C 566.0 198.1, 584.0 250.5, 590.0 263.6 L 590.0 295.0 L 50.0 295.0 Z" fill="url(#areaGrad)" />
-  <path d="M 50.0 279.3 C 56.0 276.7, 74.0 271.4, 86.0 263.6 C 98.0 255.7, 110.0 234.8, 122.0 232.1 C 134.0 229.5, 146.0 240.0, 158.0 247.9 C 170.0 255.7, 182.0 284.5, 194.0 279.3 C 206.0 274.0, 218.0 216.4, 230.0 216.4 C 242.0 216.4, 254.0 274.0, 266.0 279.3 C 278.0 284.5, 290.0 247.9, 302.0 247.9 C 314.0 247.9, 326.0 274.0, 338.0 279.3 C 350.0 284.5, 362.0 281.9, 374.0 279.3 C 386.0 276.7, 398.0 266.2, 410.0 263.6 C 422.0 261.0, 434.0 263.6, 446.0 263.6 C 458.0 263.6, 470.0 276.7, 482.0 263.6 C 494.0 250.5, 506.0 198.1, 518.0 185.0 C 530.0 171.9, 542.0 171.9, 554.0 185.0 C 566.0 198.1, 584.0 250.5, 590.0 263.6" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" />
+  <path d="M 50.0 279.3 C 56.0 276.7, 74.0 271.4, 86.0 263.6 C 98.0 255.7, 110.0 234.8, 122.0 232.1 C 134.0 229.5, 146.0 240.0, 158.0 247.9 C 170.0 255.7, 182.0 284.5, 194.0 279.3 C 206.0 274.0, 218.0 216.4, 230.0 216.4 C 242.0 216.4, 254.0 274.0, 266.0 279.3 C 278.0 284.5, 290.0 247.9, 302.0 247.9 C 314.0 247.9, 326.0 274.0, 338.0 279.3 C 350.0 284.5, 362.0 281.9, 374.0 279.3 C 386.0 276.7, 398.0 266.2, 410.0 263.6 C 422.0 261.0, 434.0 263.6, 446.0 263.6 C 458.0 263.6, 470.0 276.7, 482.0 263.6 C 494.0 250.5, 506.0 198.1, 518.0 185.0 C 530.0 171.9, 542.0 174.5, 554.0 185.0 C 566.0 195.5, 584.0 237.4, 590.0 247.9 L 590.0 295.0 L 50.0 295.0 Z" fill="url(#areaGrad)" />
+  <path d="M 50.0 279.3 C 56.0 276.7, 74.0 271.4, 86.0 263.6 C 98.0 255.7, 110.0 234.8, 122.0 232.1 C 134.0 229.5, 146.0 240.0, 158.0 247.9 C 170.0 255.7, 182.0 284.5, 194.0 279.3 C 206.0 274.0, 218.0 216.4, 230.0 216.4 C 242.0 216.4, 254.0 274.0, 266.0 279.3 C 278.0 284.5, 290.0 247.9, 302.0 247.9 C 314.0 247.9, 326.0 274.0, 338.0 279.3 C 350.0 284.5, 362.0 281.9, 374.0 279.3 C 386.0 276.7, 398.0 266.2, 410.0 263.6 C 422.0 261.0, 434.0 263.6, 446.0 263.6 C 458.0 263.6, 470.0 276.7, 482.0 263.6 C 494.0 250.5, 506.0 198.1, 518.0 185.0 C 530.0 171.9, 542.0 174.5, 554.0 185.0 C 566.0 195.5, 584.0 237.4, 590.0 247.9" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" />
   
       <circle cx="50.0" cy="279.3" r="3.5" fill="#38bdf8" stroke="#0b1329" stroke-width="2" />
     
@@ -132,7 +132,7 @@
     
         <text x="554.0" y="313" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Sep 08</text>
       
-      <circle cx="590.0" cy="263.6" r="3.5" fill="#38bdf8" stroke="#0b1329" stroke-width="2" />
+      <circle cx="590.0" cy="247.9" r="3.5" fill="#38bdf8" stroke="#0b1329" stroke-width="2" />
     
         <text x="590.0" y="313" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="10" text-anchor="middle">Sep 09</text>
       
@@ -167,8 +167,8 @@
     
       <text x="50" y="442" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Sep '26</text>
       <rect x="120" y="429" width="260" height="16" rx="4" fill="rgba(255,255,255,0.04)" />
-      <rect x="120" y="429" width="220" height="16" rx="4" fill="url(#cyanGrad)" />
-      <text x="350" y="441" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">23 commits</text>
+      <rect x="120" y="429" width="230" height="16" rx="4" fill="url(#cyanGrad)" />
+      <text x="360" y="441" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="700">24 commits</text>
     
 
   <!-- Heatmap Matrix -->
@@ -312,7 +312,7 @@
       
         <rect x="797" y="450" width="13" height="13" rx="2.5" fill="#10b981" />
       
-        <rect x="797" y="468" width="13" height="13" rx="2.5" fill="#0369a1" />
+        <rect x="797" y="468" width="13" height="13" rx="2.5" fill="#0ea5e9" />
       
     <!-- Heatmap Legend -->
     <g transform="translate(635, 475)">
