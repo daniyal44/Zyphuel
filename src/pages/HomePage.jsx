@@ -7,19 +7,27 @@ import BlogCard from '../components/BlogCard'
 import BlogModal from '../components/BlogModal'
 import Carousel3D from '../components/Carousel3D'
 import { useSEO } from '../hooks/useSEO'
+import { useFuelPrices } from '../context/FuelPriceContext'
 
 export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All')
   const [selectedArticle, setSelectedArticle] = useState(null)
+  const { prices } = useFuelPrices()
+  const [calcFuel, setCalcFuel] = useState('petrol')
+  const [calcLitres, setCalcLitres] = useState(30)
+
+  const currentUnitPrice = prices[calcFuel] || 345.87
+  const calculatedTotal = (currentUnitPrice * calcLitres).toLocaleString('en-PK', { maximumFractionDigits: 2 })
 
   useSEO({
-    title: 'Zyphuel | Doorstep Petrol & Diesel Delivery in Lahore',
-    description: 'Zyphuel provides convenient doorstep petrol, diesel and high-octane fuel delivery in Lahore. Explore services, coverage areas and the Zyphuel mobile app.',
+    title: 'Doorstep Fuel Delivery in Lahore | Fast Petrol & Diesel | Zyphuel',
+    description: 'Order certified Euro-V petrol, diesel, and generator fuel delivered directly to your doorstep in Lahore within 15-45 minutes. Calibrated digital flow meters, OGRA rates, and live GPS tracking.',
     keywords: [
       'fuel delivery Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
       'mobile refueling Pakistan', 'doorstep fuel delivery', 'generator diesel delivery',
-      'bulk diesel supplier Lahore', 'fleet refueling service', 'on-demand fuel delivery app',
-      'online petrol delivery', 'petrol and diesel delivery Lahore'
+      'generator refueling service', 'bulk diesel supplier Lahore', 'fleet refueling service',
+      'on-demand fuel delivery app', 'fuel delivery DHA Lahore', 'petrol delivery Gulberg',
+      'diesel delivery Johar Town', 'OGRA compliant fuel rates', 'calibrated flow meter fuel delivery'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/',
@@ -28,14 +36,49 @@ export default function HomePage() {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Zyphuel",
-      "description": "Zyphuel delivers petrol and diesel to your location in Lahore, Pakistan — serving households, generator owners, and commercial fleets with calibrated metering and live GPS tracking.",
+      "description": "Zyphuel delivers certified Euro-V petrol and diesel to your doorstep in Lahore, Pakistan — serving households, generator owners, and commercial fleets with calibrated digital metering and live GPS tracking.",
       "url": "https://zyphuel.netlify.app",
       "logo": "https://zyphuel.netlify.app/images/logo.png",
       "telephone": "+923230112464",
       "priceRange": "$$",
-      "areaServed": {
-        "@type": "City",
-        "name": "Lahore"
+      "areaServed": [
+        { "@type": "City", "name": "Lahore", "sameAs": "https://en.wikipedia.org/wiki/Lahore" },
+        { "@type": "AdministrativeArea", "name": "Gulberg, Lahore" },
+        { "@type": "AdministrativeArea", "name": "Defence Housing Authority (DHA) Lahore" },
+        { "@type": "AdministrativeArea", "name": "Johar Town, Lahore" },
+        { "@type": "AdministrativeArea", "name": "Model Town, Lahore" },
+        { "@type": "AdministrativeArea", "name": "Bahria Town, Lahore" },
+        { "@type": "AdministrativeArea", "name": "Cantt, Lahore" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Zyphuel Doorstep Refueling & Energy Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Doorstep Euro-V Super Petrol Delivery",
+              "description": "On-demand Super Euro-V petrol delivered directly to vehicles and homes with 0.01L digital calibrated metering."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Standby Generator Euro-V Diesel Refueling",
+              "description": "24/7 scheduled and emergency diesel logistics for commercial, residential, and industrial generators."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Commercial Logistics Fleet Yard Refueling",
+              "description": "Bulk fuel replenishment for logistics vans, corporate vehicle fleets, and construction equipment."
+            }
+          }
+        ]
       },
       "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
       "sameAs": [
@@ -75,6 +118,51 @@ export default function HomePage() {
     ? articles
     : articles.filter(a => a.category === activeFilter)
 
+  const lahoreSectors = [
+    {
+      name: "DHA Lahore (Phases 1–9)",
+      eta: "15–25 min",
+      desc: "Instant doorstep petrol & diesel for luxury vehicles, corporate offices, and estate standby generators across DHA Phase 1 through Phase 9 Prism.",
+      link: "/order/?sector=dha"
+    },
+    {
+      name: "Gulberg I, II, III & MM Alam",
+      eta: "15–20 min",
+      desc: "Rapid delivery to commercial tech parks, high-rises, restaurants, and retail plazas along Main Boulevard and MM Alam Road.",
+      link: "/order/?sector=gulberg"
+    },
+    {
+      name: "Johar Town & PIA Society",
+      eta: "20–30 min",
+      desc: "Serving residential villas, medical clinics, hospitals, and commercial avenues near Shaukat Khanum and Expo Centre.",
+      link: "/order/?sector=johar-town"
+    },
+    {
+      name: "Model Town & Garden Town",
+      eta: "20–25 min",
+      desc: "Emergency load-shedding generator diesel supply and private car refueling across Model Town Blocks A through M.",
+      link: "/order/?sector=model-town"
+    },
+    {
+      name: "Bahria Town Lahore",
+      eta: "25–35 min",
+      desc: "Scheduled and on-demand micro-bowser dispatch for Sector A through F, Safari Villas, and commercial plazas.",
+      link: "/order/?sector=bahria-town"
+    },
+    {
+      name: "Lahore Cantt & Cavalry Ground",
+      eta: "20–30 min",
+      desc: "Priority gated-community fuel logistics, Askari I–XI apartments, and executive transport fleet replenishment.",
+      link: "/order/?sector=cantt"
+    },
+    {
+      name: "Industrial Estates (Sundar & Kot Lakhpat)",
+      eta: "Scheduled 24/7",
+      desc: "Bulk Euro-V diesel deliveries for manufacturing plants, heavy machinery, excavators, and logistics delivery fleets.",
+      link: "/services/#b2b"
+    }
+  ]
+
   return (
     <main id="main-content" ref={pageRef}>
       {/* Hero Section */}
@@ -106,9 +194,8 @@ export default function HomePage() {
                 Doorstep <span>Fuel Delivery</span> in Lahore
               </h1>
               <p className="hero-description">
-                From diesel to petrol – order online and get premium fuel delivered directly
-                to your vehicle, fleet yard, event generator, or construction site. Safe,
-                swift, and transparent.
+                From Euro-V diesel to super petrol – order online and get certified fuel delivered directly
+                to your vehicle, standby generator, fleet yard, or construction site. 100% OGRA compliant rates with 0.01L digital calibrated metering.
               </p>
               <div className="hero-ctas">
                 <Link to="/order/" className="btn btn-primary">
@@ -127,11 +214,11 @@ export default function HomePage() {
                 </div>
                 <div className="hero-trust-badge">
                   <i className="fa-solid fa-bolt"></i>
-                  <span>Express Dispatch</span>
+                  <span>15–30 Min Dispatch</span>
                 </div>
                 <div className="hero-trust-badge">
                   <i className="fa-solid fa-shield-halved"></i>
-                  <span>Genuine Fuel</span>
+                  <span>0.01L Calibrated</span>
                 </div>
               </div>
             </div>
@@ -142,6 +229,262 @@ export default function HomePage() {
                 <HeroGraphic />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Competitive Advantage & Trust Pillars */}
+      <section className="competitive-section">
+        <div className="container">
+          <div className="competitive-header fade-in-up">
+            <div className="section-badge-pill">
+              <i className="fa-solid fa-award"></i>
+              <span>Why Choose Zyphuel</span>
+            </div>
+            <h2 className="section-title">Why Zyphuel Beats Traditional Petrol Pumps & Other Services</h2>
+            <p className="section-subtitle">
+              Say goodbye to long fuel queues, adulterated fuel, and pump short-fueling. Experience Lahore's most advanced, tech-enabled mobile refueling service.
+            </p>
+          </div>
+
+          <div className="competitive-grid">
+            <div className="comp-card fade-in-up">
+              <div className="comp-icon-box emerald">
+                <i className="fa-solid fa-gauge-high"></i>
+              </div>
+              <h3>0.01L Calibrated Digital Metering</h3>
+              <p>
+                Unlike retail pumps where short-fueling is common, every Zyphuel micro-bowser is fitted with weights-and-measures certified positive-displacement electronic flow meters. You receive cryptographic volumetric receipts for every drop.
+              </p>
+              <div className="comp-proof-tag">
+                <i className="fa-solid fa-check text-success"></i> Tamper-Proof Electronic Meter
+              </div>
+            </div>
+
+            <div className="comp-card fade-in-up" style={{ transitionDelay: '0.1s' }}>
+              <div className="comp-icon-box">
+                <i className="fa-solid fa-file-invoice-dollar"></i>
+              </div>
+              <h3>100% OGRA Compliant Rates</h3>
+              <p>
+                We adhere strictly to official government pricing notified by the Oil &amp; Gas Regulatory Authority (OGRA). Transparent pricing, zero surge gouging, and official receipts with every single order.
+              </p>
+              <div className="comp-proof-tag">
+                <i className="fa-solid fa-shield-check text-primary"></i> Zero Price Markup Guarantee
+              </div>
+            </div>
+
+            <div className="comp-card fade-in-up" style={{ transitionDelay: '0.2s' }}>
+              <div className="comp-icon-box amber">
+                <i className="fa-solid fa-bolt"></i>
+              </div>
+              <h3>15–30 Minute Rapid Dispatch</h3>
+              <p>
+                Our decentralized micro-refueler fleet is strategically staged across major Lahore sectors. Whether you ran dry on the road or need urgent generator diesel during a power outage, help arrives fast.
+              </p>
+              <div className="comp-proof-tag">
+                <i className="fa-solid fa-truck-fast text-warning"></i> Express Local Response
+              </div>
+            </div>
+
+            <div className="comp-card fade-in-up">
+              <div className="comp-icon-box">
+                <i className="fa-solid fa-filter"></i>
+              </div>
+              <h3>Euro-V Certified Terminal Fuel</h3>
+              <p>
+                Sourced directly from certified primary oil marketing terminals. Pure Euro-V diesel with under 10 ppm sulfur content and high-octane petrol tested for clean engine combustion and maximum mileage.
+              </p>
+              <div className="comp-proof-tag">
+                <i className="fa-solid fa-certificate"></i> Lab-Tested Quality
+              </div>
+            </div>
+
+            <div className="comp-card fade-in-up" style={{ transitionDelay: '0.1s' }}>
+              <div className="comp-icon-box emerald">
+                <i className="fa-solid fa-plug-circle-bolt"></i>
+              </div>
+              <h3>Generator Standby Logistics</h3>
+              <p>
+                No more carrying dangerous jerry cans from the petrol station. We deliver directly to rooftop, basement, and ground generators with our 50-meter heavy-duty fuel hoses to beat WAPDA load-shedding.
+              </p>
+              <div className="comp-proof-tag">
+                <i className="fa-solid fa-industry"></i> Rooftop &amp; Basement Access
+              </div>
+            </div>
+
+            <div className="comp-card fade-in-up" style={{ transitionDelay: '0.2s' }}>
+              <div className="comp-icon-box">
+                <i className="fa-solid fa-mobile-screen-button"></i>
+              </div>
+              <h3>Official Android App with Live GPS</h3>
+              <p>
+                Track your fuel bowser in real time on the interactive map, receive 2-hour advance notifications before OGRA price revisions, and re-order with biometric speed.
+              </p>
+              <div className="comp-proof-tag">
+                <i className="fa-brands fa-android"></i> App v2.6.2 Available
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Quick Fuel & Generator Calculator */}
+      <section className="calc-section">
+        <div className="container">
+          <div className="calc-box fade-in-up">
+            <div className="calc-grid">
+              {/* Left Column: Selector & Controls */}
+              <div>
+                <div className="section-badge-pill" style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', borderColor: 'rgba(56, 189, 248, 0.3)' }}>
+                  <i className="fa-solid fa-calculator"></i>
+                  <span>Live Fuel Price Calculator</span>
+                </div>
+                <h2 className="calc-title">Instant Doorstep Fuel Cost Estimator</h2>
+                <p className="calc-subtitle">
+                  Calculate your fuel expense based on official OGRA rates in Lahore and dispatch a bowser to your location in seconds.
+                </p>
+
+                {/* Fuel Type Pills */}
+                <div className="fuel-type-selector">
+                  <button
+                    type="button"
+                    className={`fuel-type-pill ${calcFuel === 'petrol' ? 'active' : ''}`}
+                    onClick={() => setCalcFuel('petrol')}
+                  >
+                    <i className="fa-solid fa-gas-pump"></i> Super Petrol
+                  </button>
+                  <button
+                    type="button"
+                    className={`fuel-type-pill ${calcFuel === 'diesel' ? 'active' : ''}`}
+                    onClick={() => setCalcFuel('diesel')}
+                  >
+                    <i className="fa-solid fa-truck-droplet"></i> Euro-V Diesel
+                  </button>
+                  <button
+                    type="button"
+                    className={`fuel-type-pill ${calcFuel === 'highOctane' ? 'active' : ''}`}
+                    onClick={() => setCalcFuel('highOctane')}
+                  >
+                    <i className="fa-solid fa-bolt-lightning"></i> High-Octane 97
+                  </button>
+                  <button
+                    type="button"
+                    className={`fuel-type-pill ${calcFuel === 'lpg' ? 'active' : ''}`}
+                    onClick={() => setCalcFuel('lpg')}
+                  >
+                    <i className="fa-solid fa-fire-burner"></i> LPG Gas
+                  </button>
+                </div>
+
+                {/* Liters Input & Presets */}
+                <div style={{ marginBottom: '16px' }}>
+                  <label htmlFor="litres-range" style={{ display: 'block', fontSize: '0.88rem', color: '#94a3b8', marginBottom: '8px', fontWeight: 600 }}>
+                    Select Fuel Quantity (Liters): <span style={{ color: '#38bdf8', fontWeight: 800, fontSize: '1.1rem' }}>{calcLitres} {calcFuel === 'lpg' ? 'KG' : 'L'}</span>
+                  </label>
+                  <input
+                    id="litres-range"
+                    type="range"
+                    min="10"
+                    max="500"
+                    step="5"
+                    value={calcLitres}
+                    onChange={(e) => setCalcLitres(Number(e.target.value))}
+                    style={{ width: '100%', accentColor: '#38bdf8', cursor: 'pointer' }}
+                  />
+                  <div className="volume-presets">
+                    {[15, 30, 50, 100, 250, 500].map(v => (
+                      <button
+                        key={v}
+                        type="button"
+                        className={`vol-btn ${calcLitres === v ? 'active' : ''}`}
+                        onClick={() => setCalcLitres(v)}
+                      >
+                        {v} {calcFuel === 'lpg' ? 'KG' : 'L'}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Dynamic Price Summary */}
+              <div>
+                <div className="calc-summary-card">
+                  <div className="summary-row">
+                    <span>Product Selected</span>
+                    <strong style={{ color: '#ffffff', textTransform: 'capitalize' }}>{calcFuel}</strong>
+                  </div>
+                  <div className="summary-row">
+                    <span>Official OGRA Unit Rate</span>
+                    <strong style={{ color: '#ffffff' }}>Rs. {currentUnitPrice.toFixed(2)} / {calcFuel === 'lpg' ? 'KG' : 'L'}</strong>
+                  </div>
+                  <div className="summary-row">
+                    <span>Estimated Dispatch Window</span>
+                    <strong style={{ color: '#10b981' }}>15–30 Mins (Lahore)</strong>
+                  </div>
+                  <div className="summary-row">
+                    <span>Measurement Accuracy</span>
+                    <strong style={{ color: '#ffffff' }}>0.01L Calibrated</strong>
+                  </div>
+
+                  <div className="summary-total">
+                    <span className="summary-total-label">Estimated Total:</span>
+                    <span className="summary-total-val">Rs. {calculatedTotal}</span>
+                  </div>
+
+                  <div className="calc-action-buttons">
+                    <Link to={`/order/?fuel=${calcFuel}&qty=${calcLitres}`} className="btn btn-primary" style={{ textAlign: 'center', justifyContent: 'center' }}>
+                      <i className="fa-solid fa-gas-pump"></i> Proceed with Order
+                    </Link>
+                    <a
+                      href={`https://wa.me/923230112464?text=${encodeURIComponent(`Hello Zyphuel! I want to order ${calcLitres}${calcFuel === 'lpg' ? 'KG' : 'L'} of ${calcFuel.toUpperCase()} at Rs. ${currentUnitPrice}/L (Total: Rs. ${calculatedTotal}). Please dispatch a bowser to my location in Lahore.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-whatsapp-dispatch"
+                    >
+                      <i className="fa-brands fa-whatsapp" style={{ fontSize: '1.2rem' }}></i> Instant WhatsApp Dispatch
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Lahore Sector Coverage & Dispatch Matrix */}
+      <section className="sector-section">
+        <div className="container">
+          <div className="competitive-header fade-in-up">
+            <div className="section-badge-pill">
+              <i className="fa-solid fa-location-dot"></i>
+              <span>Lahore Metropolitan Coverage</span>
+            </div>
+            <h2 className="section-title">24/7 Doorstep Fuel Delivery Coverage Across Lahore</h2>
+            <p className="section-subtitle">
+              Zyphuel’s mobile bowser fleet is deployed across 7 primary hubs to guarantee the quickest arrival time in your neighborhood.
+            </p>
+          </div>
+
+          <div className="sector-grid">
+            {lahoreSectors.map((sector, i) => (
+              <div key={i} className="sector-card fade-in-up" style={{ transitionDelay: `${i * 0.05}s` }}>
+                <div>
+                  <div className="sector-top">
+                    <h3 className="sector-name">{sector.name}</h3>
+                    <span className="sector-eta">
+                      <i className="fa-solid fa-clock"></i> {sector.eta}
+                    </span>
+                  </div>
+                  <p className="sector-desc">{sector.desc}</p>
+                </div>
+                <div>
+                  <Link to={sector.link} className="sector-cta-link">
+                    Order for this area <i className="fa-solid fa-arrow-right"></i>
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -195,7 +538,6 @@ export default function HomePage() {
       {/* Slideshow Section - 3D Card Carousel */}
       <Carousel3D />
 
-
       {/* Detailed Blog Modal */}
       <BlogModal
         article={selectedArticle}
@@ -204,3 +546,4 @@ export default function HomePage() {
     </main>
   )
 }
+

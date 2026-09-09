@@ -323,7 +323,23 @@ const ROUTES = [
               "name": "Does Zyphuel serve commercial fleets and generators?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. Zyphuel supplies scheduled and on-demand diesel for standby generators, construction equipment, and commercial vehicle fleets, with fleet accounts available for recurring deliveries."
+                "text": "Yes. Zyphuel supplies scheduled and on-demand Euro-V diesel for standby generators, construction equipment, and commercial vehicle fleets with long-reach 50m hoses."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why choose Zyphuel instead of traditional petrol pumps in Lahore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zyphuel eliminates petrol pump queues and pump short-fueling with 0.01L calibrated digital flow meters, 100% OGRA compliant regulated pricing, genuine terminal-sourced Euro-V fuel, and doorstep delivery within 15-30 minutes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How fast does Zyphuel deliver fuel to DHA, Gulberg, or Johar Town?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zyphuel operates decentralized mobile refueler hubs across Lahore, delivering within 15-25 minutes to Gulberg, 20-30 minutes to DHA Lahore, Model Town, and Johar Town, and 25-35 minutes to Bahria Town."
               }
             }
           ]
