@@ -4,6 +4,8 @@ Allow: /images/
 Allow: /assets/
 Allow: /APK/
 Allow: /manifest.json
+Allow: /llms.txt
+Allow: /sitemap.xml
 Disallow: /404.html
 
 # Image Crawlers

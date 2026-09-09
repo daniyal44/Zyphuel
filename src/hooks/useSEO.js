@@ -9,10 +9,19 @@ const DEFAULT_KEYWORDS = [
   'petrol delivery Lahore',
   'mobile refueling Pakistan',
   'doorstep fuel delivery',
+  'doorstep petrol delivery',
   'generator diesel delivery',
+  'generator refueling service',
   'bulk diesel supplier Lahore',
   'fleet refueling service',
-  'on-demand fuel delivery app'
+  'on-demand fuel delivery app',
+  'fuel delivery DHA Lahore',
+  'petrol delivery Gulberg',
+  'diesel delivery Johar Town',
+  'OGRA compliant fuel rates',
+  'calibrated flow meter fuel delivery',
+  'LPG gas cylinder delivery Lahore',
+  'clean water tanker Lahore'
 ]
 
 // Global Knowledge Graph Objects (AEO, GEO, VSO, Local SEO)
@@ -53,6 +62,69 @@ const GLOBAL_LOCAL_BUSINESS = {
     "latitude": 31.507534,
     "longitude": 74.334949
   },
+  "areaServed": [
+    { "@type": "City", "name": "Lahore", "sameAs": "https://en.wikipedia.org/wiki/Lahore" },
+    { "@type": "AdministrativeArea", "name": "Gulberg, Lahore" },
+    { "@type": "AdministrativeArea", "name": "Defence Housing Authority (DHA) Lahore" },
+    { "@type": "AdministrativeArea", "name": "Johar Town, Lahore" },
+    { "@type": "AdministrativeArea", "name": "Model Town, Lahore" },
+    { "@type": "AdministrativeArea", "name": "Bahria Town, Lahore" },
+    { "@type": "AdministrativeArea", "name": "Cantt, Lahore" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Zyphuel Doorstep Refueling & Energy Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Doorstep Euro-V Super Petrol Delivery",
+          "description": "On-demand Super Euro-V petrol delivered directly to vehicles and homes with 0.01L digital calibrated metering."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Standby Generator Euro-V Diesel Refueling",
+          "description": "24/7 scheduled and emergency diesel logistics for commercial, residential, and industrial generators."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Commercial Logistics Fleet Yard Refueling",
+          "description": "Bulk fuel replenishment for logistics vans, corporate vehicle fleets, and construction equipment."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Potable Clean Water Tanker Dispatch",
+          "description": "Commercial and residential clean water delivery across Lahore."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Certified Sealed LPG Cylinder Delivery",
+          "description": "Weight-verified 11.8kg and 45.4kg LPG cylinders delivered with safety valve inspection."
+        }
+      }
+    ]
+  },
+  "knowsAbout": [
+    "Euro-V Fuel Standards",
+    "Positive-Displacement Flow Meters",
+    "OGRA Daily Fuel Pricing",
+    "Standby Generator Refueling Logistics",
+    "Doorstep Fuel Delivery Systems",
+    "NFPA 385 Hazardous Material Safety"
+  ],
   "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
   "founder": {
     "@type": "Person",

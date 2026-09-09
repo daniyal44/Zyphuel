@@ -77,6 +77,69 @@ const LOCAL_BUSINESS_SCHEMA = {
     "latitude": 31.507534,
     "longitude": 74.334949
   },
+  "areaServed": [
+    { "@type": "City", "name": "Lahore", "sameAs": "https://en.wikipedia.org/wiki/Lahore" },
+    { "@type": "AdministrativeArea", "name": "Gulberg, Lahore" },
+    { "@type": "AdministrativeArea", "name": "Defence Housing Authority (DHA) Lahore" },
+    { "@type": "AdministrativeArea", "name": "Johar Town, Lahore" },
+    { "@type": "AdministrativeArea", "name": "Model Town, Lahore" },
+    { "@type": "AdministrativeArea", "name": "Bahria Town, Lahore" },
+    { "@type": "AdministrativeArea", "name": "Cantt, Lahore" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Zyphuel Doorstep Refueling & Energy Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Doorstep Euro-V Super Petrol Delivery",
+          "description": "On-demand Super Euro-V petrol delivered directly to vehicles and homes with 0.01L digital calibrated metering."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Standby Generator Euro-V Diesel Refueling",
+          "description": "24/7 scheduled and emergency diesel logistics for commercial, residential, and industrial generators."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Commercial Logistics Fleet Yard Refueling",
+          "description": "Bulk fuel replenishment for logistics vans, corporate vehicle fleets, and construction equipment."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Potable Clean Water Tanker Dispatch",
+          "description": "Commercial and residential clean water delivery across Lahore."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Certified Sealed LPG Cylinder Delivery",
+          "description": "Weight-verified 11.8kg and 45.4kg LPG cylinders delivered with safety valve inspection."
+        }
+      }
+    ]
+  },
+  "knowsAbout": [
+    "Euro-V Fuel Standards",
+    "Positive-Displacement Flow Meters",
+    "OGRA Daily Fuel Pricing",
+    "Standby Generator Refueling Logistics",
+    "Doorstep Fuel Delivery Systems",
+    "NFPA 385 Hazardous Material Safety"
+  ],
   "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
   "founder": {
     "@id": `${DOMAIN}/#person-daniyal`
@@ -120,11 +183,11 @@ const ARTICLES_SCHEMA = [
   {
     "@type": "TechArticle",
     "@id": `${DOMAIN}/#article-2`,
-    "headline": "How to Download and Install Zyphuel APK v2.3.0.1: Biometrics, Live GPS Auto-Pinning & Daily Rate Sync",
-    "description": "A complete, step-by-step setup guide for the official Zyphuel Android APK (v2.3.0.1, 31.4 MB), covering biometric security checkout, GPS sector auto-detection across Lahore, and real-time bowser telemetry.",
+    "headline": "How to Download and Install Zyphuel APK v2.6.2: Biometrics, Live GPS Auto-Pinning & Daily Rate Sync",
+    "description": "A complete, step-by-step setup guide for the official Zyphuel Android APK (v2.6.2, 31.8 MB), covering biometric security checkout, GPS sector auto-detection across Lahore, and real-time bowser telemetry.",
     "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=720&q=80",
     "datePublished": "2026-09-05T08:00:00+05:00",
-    "dateModified": "2026-09-06T00:00:00+05:00",
+    "dateModified": "2026-09-09T00:00:00+05:00",
     "author": {
       "@type": "Organization",
       "name": "Zyphuel App Engineering"
@@ -204,7 +267,7 @@ const ARTICLES_SCHEMA = [
   }
 ]
 
-const RELEVANT_KEYWORDS = "Zyphuel, fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore, mobile refueling Pakistan, doorstep fuel delivery, generator diesel delivery, bulk diesel supplier Lahore, fleet refueling service, on-demand fuel delivery app, order fuel online Lahore, diesel delivery near me, petrol delivery at home, LPG gas cylinder delivery Lahore, water tanker Lahore"
+const RELEVANT_KEYWORDS = "Zyphuel, fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore, mobile refueling Pakistan, doorstep fuel delivery, doorstep petrol delivery, generator diesel delivery, generator refueling service, bulk diesel supplier Lahore, fleet refueling service, on-demand fuel delivery app, order fuel online Lahore, diesel delivery near me, petrol delivery at home, fuel delivery DHA Lahore, petrol delivery Gulberg, diesel delivery Johar Town, OGRA compliant fuel rates, calibrated flow meter fuel delivery, LPG gas cylinder delivery Lahore, water tanker Lahore"
 
 const ROUTES = [
   {
@@ -975,6 +1038,13 @@ ${sitemapUrls}
   if (fs.existsSync(gscSrc)) {
     fs.copyFileSync(gscSrc, gscDist)
     console.log('🔍 Synced google1ab7400cf65ca469.html to dist/')
+  }
+
+  const indexNowSrc = toAbsolute('public/185084a8fa7dac10b46ec58d30c56792.txt')
+  const indexNowDist = toAbsolute('dist/185084a8fa7dac10b46ec58d30c56792.txt')
+  if (fs.existsSync(indexNowSrc)) {
+    fs.copyFileSync(indexNowSrc, indexNowDist)
+    console.log('🔑 Synced 185084a8fa7dac10b46ec58d30c56792.txt to dist/')
   }
 
   // Clean up temporary dist-ssr directory
