@@ -76,7 +76,7 @@
 
     <!-- Tile 4: Latest Commit -->
     <rect x="642" y="0" width="198" height="52" rx="8" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.06)" />
-    <text x="654" y="19" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">LATEST (1bbee9a)</text>
+    <text x="654" y="19" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">LATEST (b80386f)</text>
     <text x="654" y="40" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="11" font-weight="500">feat(release): sync ...</text>
   </g>
 
