@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { APP_VERSION, RELEASE_DATE, APP_SIZE, MIN_ANDROID, CHANGELOG } from '../data/appVersion'
@@ -900,6 +901,27 @@ export default function DownloadPage() {
                   </div>
                 )
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* Order Web Alternative CTA */}
+        <section className="section-padding" style={{ backgroundColor: '#ffffff', borderTop: '1px solid var(--border-color, #e2e8f0)', textAlign: 'center' }}>
+          <div className="container">
+            <h2 className="section-title">Prefer Ordering Directly via Web?</h2>
+            <p className="section-subtitle" style={{ maxWidth: '640px', margin: '0 auto 28px auto' }}>
+              No app required! You can place on-demand doorstep fuel deliveries directly through our website with live pricing and digital flow-meter verification.
+            </p>
+            <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link to="/order/" className="btn btn-primary btn-lg">
+                <i className="fa-solid fa-cart-shopping"></i> Order Fuel Online
+              </Link>
+              <Link to="/services/" className="btn btn-secondary btn-lg">
+                <i className="fa-solid fa-truck-droplet"></i> Explore Services &amp; Rates
+              </Link>
+              <Link to="/contact/" className="btn btn-ghost btn-lg">
+                <i className="fa-solid fa-headset"></i> Contact Support
+              </Link>
             </div>
           </div>
         </section>

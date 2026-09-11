@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // Fuel-specific SVG micro-illustrations
 const ServiceSvgIcon = ({ fuelTypeKey, fallbackIcon }) => {
@@ -93,14 +94,15 @@ export default function ServiceCard({ svc, index, activeTab, onOrder }) {
         ))}
       </ul>
 
-      <button
-        onClick={() => onOrder(svc.fuelTypeKey)}
+      <Link
+        to={`/order/?fuel=${svc.fuelTypeKey || 'petrol'}&qty=50`}
         className={`service-card-cta ${isConsumer ? 'b2c-cta' : 'b2b-cta'}`}
         title={`Order ${svc.title} - Zyphuel Pakistan`}
         aria-label={`Order ${svc.title} service from Zyphuel`}
+        style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
       >
         Order Service <i className="fa-solid fa-arrow-right-long" style={{ marginLeft: '4px' }}></i>
-      </button>
+      </Link>
     </div>
   )
 }

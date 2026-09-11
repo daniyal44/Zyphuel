@@ -491,6 +491,27 @@ export default function AboutPage() {
             <div className="scroll-indicator">scroll</div>
           )}
         </section>
+
+        {/* Next Steps CTA Section */}
+        <section className="section-padding" style={{ backgroundColor: 'var(--bg-card, #ffffff)', borderTop: '1px solid var(--border-color, #e2e8f0)', textAlign: 'center' }}>
+          <div className="container">
+            <h2 className="section-title">Ready to Experience Modern Refueling?</h2>
+            <p className="section-subtitle" style={{ maxWidth: '640px', margin: '0 auto 28px auto' }}>
+              Whether you need Euro-V fuel for your private vehicle or scheduled diesel replenishment for your business generator, Zyphuel is at your service across Lahore.
+            </p>
+            <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link to="/order/" className="btn btn-primary btn-lg">
+                <i className="fa-solid fa-truck-fast"></i> Order Fuel Online Now
+              </Link>
+              <Link to="/services/" className="btn btn-secondary btn-lg">
+                <i className="fa-solid fa-list-check"></i> Explore All Services &amp; Rates
+              </Link>
+              <Link to="/contact/" className="btn btn-ghost btn-lg">
+                <i className="fa-solid fa-phone"></i> Contact Support Team
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );

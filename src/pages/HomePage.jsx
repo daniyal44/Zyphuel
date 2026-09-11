@@ -354,9 +354,9 @@ export default function HomePage() {
               <p>
                 Track your fuel bowser in real time on the interactive map, receive 2-hour advance notifications before OGRA price revisions, and re-order with biometric speed.
               </p>
-              <div className="comp-proof-tag">
-                <i className="fa-brands fa-android"></i> App v2.6.2 Available
-              </div>
+              <Link to="/download/" className="comp-proof-tag" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }} title="Download Zyphuel Android APK App">
+                <i className="fa-brands fa-android"></i> Download App v2.6.2 &rarr;
+              </Link>
             </div>
           </div>
         </div>
@@ -717,6 +717,12 @@ export default function HomePage() {
                 onReadMore={setSelectedArticle}
               />
             ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '36px' }}>
+            <Link to="/blog/" className="btn btn-secondary" title="View all Zyphuel energy articles and fuel guides">
+              <i className="fa-solid fa-newspaper"></i> View All Blog Articles &amp; Energy Guides &rarr;
+            </Link>
           </div>
         </div>
       </section>

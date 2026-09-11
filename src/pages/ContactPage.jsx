@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
@@ -425,6 +426,27 @@ ${form.message.trim()}`
                 </div>
                 <p className="map-caption"><i className="fa-solid fa-location-dot" style={{ color: 'var(--accent-color)' }}></i> 75-Main Boulevard, Gulberg III, Lahore</p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Quick Refueling Dispatch Banner */}
+        <section className="section-padding" style={{ backgroundColor: '#ffffff', borderTop: '1px solid var(--border-color, #e2e8f0)', textAlign: 'center' }}>
+          <div className="container">
+            <h2 className="section-title">Need Immediate Fuel Dispatch?</h2>
+            <p className="section-subtitle" style={{ maxWidth: '640px', margin: '0 auto 28px auto' }}>
+              Skip the contact form if you need fuel right now. Place an order directly for 15–30 minute doorstep delivery across Lahore.
+            </p>
+            <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link to="/order/" className="btn btn-primary btn-lg">
+                <i className="fa-solid fa-truck-droplet"></i> Order Fuel Online Now
+              </Link>
+              <Link to="/services/" className="btn btn-secondary btn-lg">
+                <i className="fa-solid fa-list-check"></i> View Services &amp; Live Rates
+              </Link>
+              <Link to="/download/" className="btn btn-ghost btn-lg">
+                <i className="fa-brands fa-android"></i> Download Android App
+              </Link>
             </div>
           </div>
         </section>
