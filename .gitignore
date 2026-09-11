@@ -3,4 +3,6 @@ dist/
 dist-ssr/
 .env
 .claude/
+.agents/
+AITMPL_CATALOG.json
 
