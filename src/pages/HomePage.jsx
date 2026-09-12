@@ -7,6 +7,7 @@ import BlogCard from '../components/BlogCard'
 import BlogModal from '../components/BlogModal'
 import Carousel3D from '../components/Carousel3D'
 import { useSEO } from '../hooks/useSEO'
+import { APP_VERSION } from '../data/appVersion'
 export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All')
   const [selectedArticle, setSelectedArticle] = useState(null)
@@ -347,7 +348,7 @@ export default function HomePage() {
                 Track your fuel bowser in real time on the interactive map, receive 2-hour advance notifications before OGRA price revisions, and re-order with biometric speed.
               </p>
               <Link to="/download/" className="comp-proof-tag" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }} title="Download Zyphuel Android APK App">
-                <i className="fa-brands fa-android"></i> Download App v2.6.2 &rarr;
+                <i className="fa-brands fa-android"></i> Download App v{APP_VERSION} &rarr;
               </Link>
             </div>
           </div>
@@ -424,7 +425,7 @@ export default function HomePage() {
                 </tr>
                 <tr>
                   <td><strong>Dedicated Android App &amp; Live Bowser GPS</strong></td>
-                  <td className="highlight-zyphuel">✅ Yes (v2.6.2 with Live Radar Tracking)</td>
+                  <td className="highlight-zyphuel">✅ Yes (v{APP_VERSION} with Live Radar Tracking)</td>
                   <td>❌ No app tracking</td>
                   <td>❌ Phone/paper dispatch only</td>
                   <td>⚠️ Basic web forms only</td>

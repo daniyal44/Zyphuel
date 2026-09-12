@@ -2,6 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { articles } from './src/data/articles.js'
+import { APP_VERSION, APP_SIZE, RELEASE_DATE } from './src/data/appVersion.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const toAbsolute = (p) => path.resolve(__dirname, p)
@@ -200,8 +201,8 @@ const ARTICLES_SCHEMA = [
   {
     "@type": "TechArticle",
     "@id": `${DOMAIN}/#article-2`,
-    "headline": "How to Download and Install Zyphuel APK v2.6.2: Biometrics, Live GPS Auto-Pinning & Daily Rate Sync",
-    "description": "A complete, step-by-step setup guide for the official Zyphuel Android APK (v2.6.2, 31.8 MB), covering biometric security checkout, GPS sector auto-detection across Lahore, and real-time bowser telemetry.",
+    "headline": `How to Download and Install Zyphuel APK v${APP_VERSION}: Biometrics, Live GPS Auto-Pinning & Daily Rate Sync`,
+    "description": `A complete, step-by-step setup guide for the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}), covering biometric security checkout, GPS sector auto-detection across Lahore, and real-time bowser telemetry.`,
     "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=720&q=80",
     "datePublished": "2026-09-05T08:00:00+05:00",
     "dateModified": "2026-09-09T00:00:00+05:00",
@@ -532,8 +533,8 @@ const ROUTES = [
     path: '/download/',
     outFile: 'dist/download/index.html',
     title: "Download Zyphuel App | Fuel Delivery App for Lahore",
-    description: "Download the official Zyphuel Android APK (v2.3.0.1) for on-demand doorstep petrol and diesel delivery in Lahore. GPS auto-detection and live tracking.",
-    keywords: "Download Zyphuel APK, Zyphuel App v2.3.0.1, fuel delivery app Android, fuel price alert app Pakistan, Lahore fuel delivery app",
+    description: `Download the official Zyphuel Android APK (v${APP_VERSION}) for on-demand doorstep petrol and diesel delivery in Lahore. GPS auto-detection and live tracking.`,
+    keywords: `Download Zyphuel APK, Zyphuel App v${APP_VERSION}, fuel delivery app Android, fuel price alert app Pakistan, Lahore fuel delivery app`,
     canonical: `${DOMAIN}/download/`,
     ogImage: `${DOMAIN}/images/1.jpeg`,
     ogType: 'website',
@@ -556,8 +557,8 @@ const ROUTES = [
           "operatingSystem": "Android 8.0 and above",
           "applicationCategory": "BusinessApplication, UtilitiesApplication",
           "downloadUrl": `${DOMAIN}/APK/Zyphuel.apk`,
-          "fileSize": "31.4MB",
-          "softwareVersion": "2.3.0.1",
+          "fileSize": APP_SIZE,
+          "softwareVersion": APP_VERSION,
           "author": { "@id": `${DOMAIN}/#organization` },
           "offers": {
             "@type": "Offer",
@@ -568,8 +569,8 @@ const ROUTES = [
         {
           "@type": "Article",
           "@id": `${DOMAIN}/download/#app-article-1`,
-          "headline": "Zyphuel Mobile App v2.3.0.1: Next-Gen Doorstep Fuel Logistics & Cloud Telemetry in Pakistan",
-          "description": "Explore how the official Zyphuel Android APK (v2.3.0.1, 31.4 MB) transforms urban energy delivery in Lahore with instant GPS auto-detection and zero-latency cloud telemetry.",
+          "headline": `Zyphuel Mobile App v${APP_VERSION}: Next-Gen Doorstep Fuel Logistics & Cloud Telemetry in Pakistan`,
+          "description": `Explore how the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) transforms urban energy delivery in Lahore with instant GPS auto-detection and zero-latency cloud telemetry.`,
           "image": `${DOMAIN}/images/1.jpeg`,
           "datePublished": "2026-09-02T00:00:00+05:00",
           "dateModified": "2026-09-02T00:00:00+05:00",
