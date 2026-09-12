@@ -7,17 +7,9 @@ import BlogCard from '../components/BlogCard'
 import BlogModal from '../components/BlogModal'
 import Carousel3D from '../components/Carousel3D'
 import { useSEO } from '../hooks/useSEO'
-import { useFuelPrices } from '../context/FuelPriceContext'
-
 export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All')
   const [selectedArticle, setSelectedArticle] = useState(null)
-  const { prices } = useFuelPrices()
-  const [calcFuel, setCalcFuel] = useState('petrol')
-  const [calcLitres, setCalcLitres] = useState(30)
-
-  const currentUnitPrice = prices[calcFuel] || 345.87
-  const calculatedTotal = (currentUnitPrice * calcLitres).toLocaleString('en-PK', { maximumFractionDigits: 2 })
 
   useSEO({
     title: 'Doorstep Fuel Delivery in Lahore | Fast Petrol & Diesel | Zyphuel',
@@ -515,128 +507,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Interactive Quick Fuel & Generator Calculator */}
-      <section className="calc-section">
-        <div className="container">
-          <div className="calc-box fade-in-up">
-            <div className="calc-grid">
-              {/* Left Column: Selector & Controls */}
-              <div>
-                <div className="section-badge-pill" style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', borderColor: 'rgba(56, 189, 248, 0.3)' }}>
-                  <i className="fa-solid fa-calculator"></i>
-                  <span>Live Fuel Price Calculator</span>
-                </div>
-                <h2 className="calc-title">Instant Doorstep Fuel Cost Estimator</h2>
-                <p className="calc-subtitle">
-                  Calculate your fuel expense based on official OGRA rates in Lahore and dispatch a bowser to your location in seconds.
-                </p>
-
-                {/* Fuel Type Pills */}
-                <div className="fuel-type-selector">
-                  <button
-                    type="button"
-                    className={`fuel-type-pill ${calcFuel === 'petrol' ? 'active' : ''}`}
-                    onClick={() => setCalcFuel('petrol')}
-                  >
-                    <i className="fa-solid fa-gas-pump"></i> Super Petrol
-                  </button>
-                  <button
-                    type="button"
-                    className={`fuel-type-pill ${calcFuel === 'diesel' ? 'active' : ''}`}
-                    onClick={() => setCalcFuel('diesel')}
-                  >
-                    <i className="fa-solid fa-truck-droplet"></i> Euro-V Diesel
-                  </button>
-                  <button
-                    type="button"
-                    className={`fuel-type-pill ${calcFuel === 'highOctane' ? 'active' : ''}`}
-                    onClick={() => setCalcFuel('highOctane')}
-                  >
-                    <i className="fa-solid fa-bolt-lightning"></i> High-Octane 97
-                  </button>
-                  <button
-                    type="button"
-                    className={`fuel-type-pill ${calcFuel === 'lpg' ? 'active' : ''}`}
-                    onClick={() => setCalcFuel('lpg')}
-                  >
-                    <i className="fa-solid fa-fire-burner"></i> LPG Gas
-                  </button>
-                </div>
-
-                {/* Liters Input & Presets */}
-                <div style={{ marginBottom: '16px' }}>
-                  <label htmlFor="litres-range" style={{ display: 'block', fontSize: '0.88rem', color: '#94a3b8', marginBottom: '8px', fontWeight: 600 }}>
-                    Select Fuel Quantity (Liters): <span style={{ color: '#38bdf8', fontWeight: 800, fontSize: '1.1rem' }}>{calcLitres} {calcFuel === 'lpg' ? 'KG' : 'L'}</span>
-                  </label>
-                  <input
-                    id="litres-range"
-                    type="range"
-                    min="10"
-                    max="500"
-                    step="5"
-                    value={calcLitres}
-                    onChange={(e) => setCalcLitres(Number(e.target.value))}
-                    style={{ width: '100%', accentColor: '#38bdf8', cursor: 'pointer' }}
-                  />
-                  <div className="volume-presets">
-                    {[15, 30, 50, 100, 250, 500].map(v => (
-                      <button
-                        key={v}
-                        type="button"
-                        className={`vol-btn ${calcLitres === v ? 'active' : ''}`}
-                        onClick={() => setCalcLitres(v)}
-                      >
-                        {v} {calcFuel === 'lpg' ? 'KG' : 'L'}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Dynamic Price Summary */}
-              <div>
-                <div className="calc-summary-card">
-                  <div className="summary-row">
-                    <span>Product Selected</span>
-                    <strong style={{ color: '#ffffff', textTransform: 'capitalize' }}>{calcFuel}</strong>
-                  </div>
-                  <div className="summary-row">
-                    <span>Official OGRA Unit Rate</span>
-                    <strong style={{ color: '#ffffff' }}>Rs. {currentUnitPrice.toFixed(2)} / {calcFuel === 'lpg' ? 'KG' : 'L'}</strong>
-                  </div>
-                  <div className="summary-row">
-                    <span>Estimated Dispatch Window</span>
-                    <strong style={{ color: '#10b981' }}>15–30 Mins (Lahore)</strong>
-                  </div>
-                  <div className="summary-row">
-                    <span>Measurement Accuracy</span>
-                    <strong style={{ color: '#ffffff' }}>0.01L Calibrated</strong>
-                  </div>
-
-                  <div className="summary-total">
-                    <span className="summary-total-label">Estimated Total:</span>
-                    <span className="summary-total-val">Rs. {calculatedTotal}</span>
-                  </div>
-
-                  <div className="calc-action-buttons">
-                    <Link to={`/order/?fuel=${calcFuel}&qty=${calcLitres}`} className="btn btn-primary" style={{ textAlign: 'center', justifyContent: 'center' }}>
-                      <i className="fa-solid fa-gas-pump"></i> Proceed with Order
-                    </Link>
-                    <a
-                      href={`https://wa.me/923230112464?text=${encodeURIComponent(`Hello Zyphuel! I want to order ${calcLitres}${calcFuel === 'lpg' ? 'KG' : 'L'} of ${calcFuel.toUpperCase()} at Rs. ${currentUnitPrice}/L (Total: Rs. ${calculatedTotal}). Please dispatch a bowser to my location in Lahore.`)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-whatsapp-dispatch"
-                    >
-                      <i className="fa-brands fa-whatsapp" style={{ fontSize: '1.2rem' }}></i> Instant WhatsApp Dispatch
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Lahore Sector Coverage & Dispatch Matrix */}
       <section className="sector-section">
