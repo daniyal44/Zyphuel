@@ -62,10 +62,17 @@ export function FuelPriceProvider({ children }) {
 
       const updated = { ...DEFAULT_PRICES };
       
-      if (petrolItem) updated.petrol = Number(petrolItem.price_pkr);
-      if (dieselItem) updated.diesel = Number(dieselItem.price_pkr);
-      if (lpgItem) updated.lpg = Number(lpgItem.price_pkr);
-      if (octaneItem) updated.highOctane = Number(octaneItem.price_pkr);
+      if (DEFAULT_PRICES.petrol) updated.petrol = DEFAULT_PRICES.petrol;
+      else if (petrolItem) updated.petrol = Number(petrolItem.price_pkr);
+
+      if (DEFAULT_PRICES.diesel) updated.diesel = DEFAULT_PRICES.diesel;
+      else if (dieselItem) updated.diesel = Number(dieselItem.price_pkr);
+
+      if (DEFAULT_PRICES.lpg) updated.lpg = DEFAULT_PRICES.lpg;
+      else if (lpgItem) updated.lpg = Number(lpgItem.price_pkr);
+
+      if (DEFAULT_PRICES.highOctane) updated.highOctane = DEFAULT_PRICES.highOctane;
+      else if (octaneItem) updated.highOctane = Number(octaneItem.price_pkr);
 
       setPrices(updated);
     }

@@ -411,7 +411,7 @@ export default function HomePage() {
                 </tr>
                 <tr>
                   <td><strong>Order Flexibility (Minimum Volume)</strong></td>
-                  <td className="highlight-zyphuel">✅ 10 Liters to 10,000+ Liters</td>
+                  <td className="highlight-zyphuel">✅ 5 Liters to 10,000+ Liters</td>
                   <td>✅ No minimum (at station)</td>
                   <td>❌ Strict 5,000L+ minimum order</td>
                   <td>⚠️ Inflexible order limits</td>
@@ -546,6 +546,118 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Operating & Office Hours Section */}
+      <section className="operating-hours-section" style={{ padding: '0 0 70px 0' }}>
+        <div className="container">
+          <div className="operating-hours-card fade-in-up" style={{
+            background: 'linear-gradient(135deg, #0b1329 0%, #0f172a 100%)',
+            borderRadius: '20px',
+            padding: '32px 36px',
+            border: '1px solid rgba(56, 189, 248, 0.25)',
+            boxShadow: '0 20px 40px -15px rgba(2, 132, 199, 0.2)',
+            alignItems: 'center',
+            color: '#ffffff',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            {/* Left: Info & 24/7 Delivery Status */}
+            <div>
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: 'rgba(16, 185, 129, 0.15)',
+                border: '1px solid rgba(16, 185, 129, 0.35)',
+                color: '#10b981',
+                padding: '6px 14px',
+                borderRadius: '9999px',
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                marginBottom: '14px'
+              }}>
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981' }}></span>
+                24/7 Delivery Active
+              </div>
+              <h3 style={{ fontSize: '1.65rem', fontWeight: 800, color: '#ffffff', marginBottom: '10px' }}>
+                Zyphuel Operating &amp; Office Hours
+              </h3>
+              <p style={{ color: '#94a3b8', fontSize: '0.92rem', lineHeight: '1.6', marginBottom: '20px' }}>
+                Corporate support and billing inquiries are handled during official office hours, while our <strong>doorstep fuel delivery fleet operates 24 hours a day, 7 days a week</strong> across all Lahore sectors.
+              </p>
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <Link to="/order/" className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
+                  <i className="fa-solid fa-gas-pump"></i> Order Fuel Now
+                </Link>
+                <a
+                  href="tel:+923230112464"
+                  className="btn btn-ghost"
+                  style={{ padding: '10px 20px', fontSize: '0.9rem', color: '#38bdf8', borderColor: 'rgba(56, 189, 248, 0.3)' }}
+                >
+                  <i className="fa-solid fa-phone"></i> Direct Helpline
+                </a>
+              </div>
+            </div>
+
+            {/* Right: Office Hours Schedule Card */}
+            <div style={{
+              background: 'rgba(255, 255, 255, 0.04)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: '16px',
+              padding: '20px 24px',
+              backdropFilter: 'blur(8px)'
+            }}>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
+                fontSize: '0.95rem',
+                fontWeight: 800,
+                color: '#38bdf8',
+                marginBottom: '14px',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                paddingBottom: '10px'
+              }}>
+                <i className="fa-solid fa-clock"></i> Office &amp; Delivery Timings
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '8px' }}>
+                  <span style={{ color: '#cbd5e1' }}>Monday – Thursday</span>
+                  <strong style={{ color: '#ffffff' }}>8:00 AM – 8:00 PM</strong>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '8px' }}>
+                  <span style={{ color: '#cbd5e1' }}>Friday</span>
+                  <strong style={{ color: '#ffffff' }}>8:00 AM – 1:00 PM</strong>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '8px' }}>
+                  <span style={{ color: '#cbd5e1' }}>Saturday – Sunday</span>
+                  <strong style={{ color: '#ffffff' }}>10:00 AM – 6:00 PM</strong>
+                </div>
+                <div style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  padding: '10px 14px',
+                  background: 'rgba(16, 185, 129, 0.12)',
+                  borderRadius: '10px',
+                  border: '1px solid rgba(16, 185, 129, 0.3)',
+                  marginTop: '4px'
+                }}>
+                  <span style={{ color: '#ffffff', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <i className="fa-solid fa-truck-fast" style={{ color: '#10b981' }}></i> Delivery (24/7)
+                  </span>
+                  <strong style={{ color: '#10b981', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981' }}></span>
+                    Always Active
+                  </strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Blog & Articles Section */}
       <section id="blog" className="blog-section section-padding">
         <div className="container">
@@ -555,14 +667,6 @@ export default function HomePage() {
               Read the latest updates about mobile fuel logistics, digital accelerators,
               energy mobility, and our partnership engineering breakthroughs.
             </p>
-            <div style={{ textAlign: 'center', marginTop: '12px' }}>
-              <div className="startup-slogan-pill">
-                <i className="fa-solid fa-rocket" style={{ color: '#0284c7' }}></i>
-                <span>
-                  <strong>Not a corporate giant — just an agile startup</strong> delivering certified doorstep fuel with care across Lahore.
-                </span>
-              </div>
-            </div>
           </div>
 
           {/* Filters */}

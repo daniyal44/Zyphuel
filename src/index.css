@@ -797,12 +797,21 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     white-space: nowrap;
-    gap: 50px;
-    animation: tickerSlide 25s linear infinite;
+    width: max-content;
+    will-change: transform;
+    animation: tickerSlideLTR 32s linear infinite;
 }
 
 .price-ticker:hover {
     animation-play-state: paused;
+}
+
+.price-ticker-track {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding-right: 50px;
+    flex-shrink: 0;
 }
 
 .ticker-item {
@@ -831,12 +840,21 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 4px;
 }
 
-@keyframes tickerSlide {
+@keyframes tickerSlideLTR {
     0% {
-        transform: translate3d(0, 0, 0);
+        transform: translate3d(-50%, 0, 0);
     }
     100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes tickerSlide {
+    0% {
         transform: translate3d(-50%, 0, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
     }
 }
 
@@ -4413,11 +4431,6 @@ a.footer-contact-link:hover {
         transition: none !important;
     }
 
-    .price-ticker {
-        animation: none !important;
-        transform: none !important;
-    }
-
     .isometric-3d-svg {
         animation: none !important;
     }
@@ -5057,5 +5070,17 @@ a.footer-contact-link:hover {
     }
 }
 
+/* Operating Hours Card on HomePage */
+.operating-hours-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
 
-
+@media (max-width: 820px) {
+    .operating-hours-card {
+        grid-template-columns: 1fr !important;
+        padding: 24px 20px !important;
+        gap: 24px !important;
+    }
+}

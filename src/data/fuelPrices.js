@@ -1,9 +1,9 @@
 // Centralized source of truth for fuel and utility prices in Lahore
 export const FUEL_PRICES = {
-  petrol: 345.87,
-  diesel: 378.05,
-  highOctane: 365.00,
-  lpg: 258.65,
+  petrol: 375.64,
+  diesel: 403.44,
+  highOctane: 395.26,
+  lpg: 258.34,
   water: 100.00, // Rs. 100.00 per gallon refill
 };
 

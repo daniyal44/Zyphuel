@@ -5,7 +5,6 @@ import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
 import { FUEL_PRICES } from '../data/fuelPrices'
-import Breadcrumbs from '../components/Breadcrumbs'
 import RefuelingLifecycleTracker from '../components/RefuelingLifecycleTracker'
 
 const FUEL_DISPLAY = {
@@ -90,7 +89,7 @@ export default function OrderPage() {
               "name": "What is the minimum quantity for doorstep diesel delivery?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "You can order as little as 1 liter up to 2,000+ liters per order. Bulk orders of 50+ liters receive free delivery in covered zones in Lahore."
+                "text": "You can order as little as 5 liters up to 2,000+ liters per order. Bulk orders of 50+ liters receive free delivery in covered zones in Lahore."
               }
             },
             {
@@ -133,7 +132,8 @@ export default function OrderPage() {
   })
   const [fuelQty, setFuelQty] = useState(() => {
     if (location.state && location.state.qty && ['petrol', 'diesel', 'highOctane'].includes(location.state.fuelType)) {
-      return Number(location.state.qty)
+      const q = Number(location.state.qty)
+      return q >= 5 ? q : 5
     }
     return 50
   })
@@ -166,6 +166,7 @@ export default function OrderPage() {
   const [trackerOrderId, setTrackerOrderId] = useState('')
   const [trackerEta, setTrackerEta] = useState('45 Mins')
   const [trackerProgress, setTrackerProgress] = useState(0)
+  const [generatedWaUrl, setGeneratedWaUrl] = useState('')
   const [trackerSteps, setTrackerSteps] = useState([
     { status: 'active', title: 'Order Confirmed', desc: 'Your payment method and location are validated.' },
     { status: '', title: 'Fuel Dispatched', desc: 'Tanker is routing to your address from the nearest hub.' },
@@ -183,30 +184,17 @@ export default function OrderPage() {
   const baseCost = fuelCost + gasCost + waterCost
 
   // Delivery Charges:
-  // "gas option refills cylinder min 5 kg include delivery charges"
-  // "water option per gallon 100 rs charge refill"
-  // Thus delivery charges only apply if Fuel is selected and fuelQty < 50
-  const deliveryFee = (orderFuel && fuelQty < 50) ? 250 : 0
+  // Standard Delivery: Free for bulk fuel (>=50L), or Rs. 250 for small fuel orders (<50L)
+  // Urgent Delivery: Adds Rs. 100 express priority dispatch fee (controlled, reasonable fee)
+  const standardFee = (orderFuel && fuelQty < 50) ? 250 : 0
+  const urgentFee = deliverySpeed === 'urgent' ? 100 : 0
+  const deliveryFee = standardFee + urgentFee
   const total = baseCost + deliveryFee
 
   // COD is enabled for small orders
   const isCodEligible = (!orderFuel || fuelQty <= 10) && (!orderGas || gasQty <= 10) && (!orderWater || waterQty <= 20)
 
   const fmt = (n) => `Rs. ${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
-
-  // Price ticker
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPrices(prev => ({
-        petrol: Math.max(250, +(prev.petrol + (Math.random() * 0.4 - 0.2)).toFixed(2)),
-        diesel: Math.max(250, +(prev.diesel + (Math.random() * 0.4 - 0.2)).toFixed(2)),
-        highOctane: Math.max(280, +(prev.highOctane + (Math.random() * 0.4 - 0.2)).toFixed(2)),
-        lpg: Math.max(200, +(prev.lpg + (Math.random() * 0.4 - 0.2)).toFixed(2)),
-        water: 100.00, // Fixed water price
-      }))
-    }, 6000)
-    return () => clearInterval(interval)
-  }, [])
 
   // Welcome toast from localStorage
   useEffect(() => {
@@ -233,12 +221,12 @@ export default function OrderPage() {
         } else {
           setOrderFuel(true)
           setSelectedFuelType(parsed.fuelType)
-          setFuelQty(Number(parsed.quantity) || 50)
+          setFuelQty(Math.max(5, Number(parsed.quantity) || 50))
         }
       }
 
       if (parsed.selectedFuelType) setSelectedFuelType(parsed.selectedFuelType)
-      if (parsed.fuelQty) setFuelQty(Number(parsed.fuelQty) || 50)
+      if (parsed.fuelQty) setFuelQty(Math.max(5, Number(parsed.fuelQty) || 50))
       if (parsed.orderGas !== undefined) setOrderGas(parsed.orderGas)
       if (parsed.gasQty) setGasQty(Number(parsed.gasQty) || 5)
       if (parsed.orderWater !== undefined) setOrderWater(parsed.orderWater)
@@ -247,10 +235,10 @@ export default function OrderPage() {
     }
   }, []) // eslint-disable-line
 
-  // Quantity sync helpers (Increments default +1 unit)
+  // Quantity sync helpers (Increments default +1 unit, minimum fuel 5L)
   const syncFuelQty = (val) => {
     let v = parseInt(val) || 0
-    if (v < 1) v = 1
+    if (v < 5) v = 5
     if (v > 2000) v = 2000
     setFuelQty(v)
   }
@@ -285,16 +273,16 @@ export default function OrderPage() {
     return Object.keys(newErrors).length === 0
   }
 
-  // Tracker simulation
+  // Tracker simulation & WhatsApp Redirect
   const startTracking = (orderName) => {
     const id = 'ZYP-' + Math.floor(100000 + Math.random() * 900000)
     setTrackerOrderId(`ORDER #${id}`)
     setTrackerEta(deliverySpeed === 'urgent' ? '15 Mins' : '45 Mins')
 
     const itemsList = []
-    if (orderFuel) itemsList.push(`${fuelQty}L of ${FUEL_DISPLAY[selectedFuelType]}`)
-    if (orderGas) itemsList.push(`${gasQty}Kg of LPG Gas`)
-    if (orderWater) itemsList.push(`${waterQty} Gallons of Water`)
+    if (orderFuel) itemsList.push(`${fuelQty}L of ${FUEL_DISPLAY[selectedFuelType]} (@ Rs. ${fuelRate.toFixed(2)}/L = Rs. ${fuelCost.toLocaleString()})`)
+    if (orderGas) itemsList.push(`${gasQty}Kg of LPG Gas (@ Rs. ${gasRate.toFixed(2)}/Kg = Rs. ${gasCost.toLocaleString()})`)
+    if (orderWater) itemsList.push(`${waterQty} Gallons of Water (@ Rs. ${waterRate.toFixed(2)}/Gal = Rs. ${waterCost.toLocaleString()})`)
     const itemsDesc = itemsList.join(' + ')
 
     let dispatchTitle = 'Delivery Dispatched'
@@ -310,6 +298,38 @@ export default function OrderPage() {
     setTrackerProgress(0)
     setTrackerOpen(true)
     setDeliveryPhase('loading')
+
+    // Build structured WhatsApp dispatch message with all details
+    const waLines = [
+      `⚡ *NEW ZYPHUEL ORDER - #${id}*`,
+      `--------------------------------`,
+      `👤 *Customer Name:* ${orderName || name || 'Valued Customer'}`,
+      `📞 *Phone Number:* ${phone || 'Not provided'}`,
+      `📧 *Email:* ${email || 'Not provided'}`,
+      `📍 *Delivery Address:* ${address}`,
+      notes ? `📝 *Special Instructions:* ${notes}` : null,
+      `🚀 *Dispatch Speed:* ${deliverySpeed === 'urgent' ? '⚡ Urgent Priority Dispatch (10-20 mins) [+Rs. 100]' : 'Standard Dispatch (20-45 mins)'}`,
+      `💳 *Payment Method:* ${isCodEligible ? 'Cash on Delivery (COD)' : 'Bank Transfer / Advance'}`,
+      ``,
+      `📦 *Items Ordered:*`,
+      ...itemsList.map(item => `  • ${item}`),
+      ``,
+      `💵 *Subtotal:* Rs. ${baseCost.toLocaleString()}`,
+      `🚚 *Delivery Charges:* ${deliveryFee > 0 ? `Rs. ${deliveryFee}${deliverySpeed === 'urgent' ? ' (incl. Rs. 100 Urgent Surcharge)' : ''}` : 'FREE (Standard 50L+ Offer)'}`,
+      `💰 *TOTAL BILL:* Rs. ${total.toLocaleString()}`,
+      `--------------------------------`,
+      `📍 *Central Dispatch:* Lahore Hub #01, Pakistan`,
+      `Please confirm fleet dispatch for my order.`
+    ].filter(line => line !== null).join('\n')
+
+    const waUrl = `https://wa.me/923230112464?text=${encodeURIComponent(waLines)}`
+    setGeneratedWaUrl(waUrl)
+
+    try {
+      window.open(waUrl, '_blank')
+    } catch (err) {
+      console.warn('Could not auto-open WhatsApp:', err)
+    }
     let step = 1
     if (trackingIntervalRef.current) clearInterval(trackingIntervalRef.current)
     trackingIntervalRef.current = setInterval(() => {
@@ -448,9 +468,22 @@ export default function OrderPage() {
 
         {/* Live Fuel Price Ticker */}
         <div className="price-ticker-wrap">
+          <style>{`
+            #fuel-price-ticker {
+              display: flex !important;
+              align-items: center !important;
+              white-space: nowrap !important;
+              width: max-content !important;
+              will-change: transform !important;
+              animation: tickerSlideLTR 32s linear infinite !important;
+            }
+            #fuel-price-ticker:hover {
+              animation-play-state: paused !important;
+            }
+          `}</style>
           <div className="price-ticker" id="fuel-price-ticker">
-            {[1, 2].map(i => (
-              <span key={i} style={{ display: 'contents' }}>
+            {[1, 2, 3, 4].map(i => (
+              <div key={i} className="price-ticker-track">
                 <div className="ticker-item">
                   <span className="ticker-bullet"></span>
                   Petrol (Premier Euro 5): <strong>Rs. {prices.petrol.toFixed(2)}</strong>/L
@@ -476,7 +509,7 @@ export default function OrderPage() {
                   Water Refill: <strong>Rs. {prices.water.toFixed(2)}</strong>/Gal
                   <span className="price-up">Live <i className="fa-solid fa-caret-up"></i></span>
                 </div>
-              </span>
+              </div>
             ))}
           </div>
         </div>
@@ -484,7 +517,6 @@ export default function OrderPage() {
         {/* Order Form Section */}
         <section id="order" className="order-section section-padding">
           <div className="container">
-            <Breadcrumbs items={[{ label: 'Order Fuel', path: '/order/' }]} />
             <div className="section-header fade-in-up">
               <h1 className="section-title">Order Petrol &amp; Diesel Online in Lahore</h1>
               <p className="section-subtitle">Select fuel, LPG Gas, or Water. Calculate rates in real time, customize quantities, and track your delivery.</p>
@@ -495,23 +527,6 @@ export default function OrderPage() {
               {/* Left: Order Form */}
               <div className="order-form-panel fade-in-up" id="main-order-panel">
                 <form id="fuel-order-form" noValidate onSubmit={e => e.preventDefault()}>
-
-                  {/* Startup Transparency Notice */}
-                  <div style={{
-                    background: 'rgba(2, 132, 199, 0.08)',
-                    border: '1px solid rgba(2, 132, 199, 0.25)',
-                    borderRadius: '12px',
-                    padding: '12px 16px',
-                    marginBottom: '20px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '10px',
-                    fontSize: '0.88rem',
-                    color: 'var(--brand-primary, #0284c7)'
-                  }}>
-                    <i className="fa-solid fa-seedling" style={{ fontSize: '1.1rem' }}></i>
-                    <span><strong>Startup Transparency:</strong> Zyphuel is currently an early-stage startup operating in Lahore, not a large corporation. All orders receive personalized care and dedicated direct dispatch.</span>
-                  </div>
 
                   {/* Order Progress Stepper */}
                   <div className="order-progress-stepper" style={{
@@ -692,24 +707,66 @@ export default function OrderPage() {
                             <div className="stepper-wrap">
                               <div className="quantity-stepper">
                                 <button type="button" className="stepper-btn" aria-label="Decrease fuel quantity"
-                                  onClick={() => syncFuelQty(fuelQty - 1)}>-</button>
+                                  onClick={() => syncFuelQty(fuelQty - 1)}
+                                  disabled={fuelQty <= 5}>-</button>
                                 <input type="number" className="stepper-input"
-                                  value={fuelQty} min="1" max="2000" step="1"
+                                  value={fuelQty} min="5" max="2000" step="1"
                                   onChange={e => syncFuelQty(e.target.value)}
                                   aria-label="Fuel quantity in Litres" />
                                 <button type="button" className="stepper-btn" aria-label="Increase fuel quantity"
-                                  onClick={() => syncFuelQty(fuelQty + 1)}>+</button>
+                                  onClick={() => syncFuelQty(fuelQty + 1)}
+                                  disabled={fuelQty >= 2000}>+</button>
                               </div>
                               <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Litres</span>
+                              <div style={{ marginLeft: 'auto' }}>
+                                {fuelQty < 50 ? (
+                                  <span style={{ fontSize: '0.8rem', color: '#ea580c', fontWeight: 600 }}>
+                                    <i className="fa-solid fa-circle-info"></i> Nominal Rs. 250 fee applies (&lt;50L)
+                                  </span>
+                                ) : (
+                                  <span style={{ fontSize: '0.8rem', color: '#16a34a', fontWeight: 600 }}>
+                                    <i className="fa-solid fa-circle-check"></i> Free Delivery Qualified
+                                  </span>
+                                )}
+                              </div>
                             </div>
                             
                             <input type="range" className="slider-control"
-                              min="1" max="2000" step="1" value={fuelQty}
+                              min="5" max="2000" step="1" value={fuelQty}
                               onChange={e => syncFuelQty(e.target.value)}
                               aria-label="Fuel quantity slider" />
                             <div className="limits-row">
-                              <span>Min: 1 L</span>
+                              <span>Min: 5 L</span>
                               <span>Max: 2000 L</span>
+                            </div>
+
+                            {/* Quick Select Volume Buttons */}
+                            <div style={{ marginTop: '12px' }}>
+                              <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '8px' }}>
+                                Quick Select Volume:
+                              </div>
+                              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                                {[5, 10, 20, 50, 100, 250, 500, 1000].map(qty => (
+                                  <button
+                                    key={qty}
+                                    type="button"
+                                    onClick={() => syncFuelQty(qty)}
+                                    style={{
+                                      padding: '5px 11px',
+                                      fontSize: '0.82rem',
+                                      borderRadius: '6px',
+                                      fontWeight: fuelQty === qty ? 700 : 500,
+                                      background: fuelQty === qty ? 'var(--brand-primary, #0284c7)' : 'rgba(0, 0, 0, 0.04)',
+                                      color: fuelQty === qty ? '#ffffff' : 'var(--text-primary)',
+                                      border: fuelQty === qty ? '1px solid var(--brand-primary, #0284c7)' : '1px solid rgba(0, 0, 0, 0.1)',
+                                      cursor: 'pointer',
+                                      transition: 'all 0.15s ease'
+                                    }}
+                                  >
+                                    {qty} L {qty === 50 ? '⚡ Free Delivery' : ''}
+                                  </button>
+                                ))}
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -797,40 +854,104 @@ export default function OrderPage() {
                       placeholder="e.g. House 45, Block Y, Phase 3, DHA, Lahore"
                       value={address} onChange={e => setAddress(e.target.value)} required />
                     {errors.address && <div className="validation-error-label" style={{ display: 'block' }}>{errors.address}</div>}
-                    <span style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', marginTop: '4px', display: 'inline-block' }}>
-                      <i className="fa-solid fa-map-pin" style={{ color: 'var(--accent-color)' }}></i> Powered by Google Maps, Lahore delivery zone covered.
-                    </span>
-                  </div>
-
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="notes-input">Additional Address Instructions (Optional)</label>
-                    <textarea className="form-control" id="notes-input"
-                      placeholder="Gate code, landmark details, tank placement etc..."
-                      value={notes} onChange={e => setNotes(e.target.value)}></textarea>
                   </div>
 
                   {/* Delivery Speed */}
                   <div className="form-group" style={{ marginBottom: '25px' }}>
-                    <label className="form-label">Delivery Speed Option</label>
-                    <div className="schedule-options">
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                      <label className="form-label" style={{ margin: 0 }}>
+                        <i className="fa-solid fa-truck-fast"></i> Delivery Speed Option
+                      </label>
+                      <span style={{
+                        fontSize: '0.8rem',
+                        fontWeight: 700,
+                        padding: '3px 10px',
+                        borderRadius: '6px',
+                        backgroundColor: deliverySpeed === 'urgent' ? 'rgba(234, 88, 12, 0.12)' : 'rgba(2, 132, 199, 0.1)',
+                        color: deliverySpeed === 'urgent' ? '#ea580c' : 'var(--brand-primary, #0284c7)'
+                      }}>
+                        {deliverySpeed === 'urgent' ? '⚡ Urgent Dispatch Selected (+Rs. 100)' : '✓ Standard Dispatch Selected (20-45 Mins)'}
+                      </span>
+                    </div>
+
+                    <div className="schedule-options" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
                       <div
+                        id="option-speed-simple"
                         className={`schedule-card${deliverySpeed === 'simple' ? ' active' : ''}`}
                         onClick={() => setDeliverySpeed('simple')}
+                        style={{
+                          cursor: 'pointer',
+                          userSelect: 'none',
+                          borderRadius: '12px',
+                          border: deliverySpeed === 'simple' ? '2px solid var(--brand-primary, #0284c7)' : '2px solid var(--border-color, #cbd5e1)',
+                          background: deliverySpeed === 'simple' ? 'rgba(2, 132, 199, 0.08)' : 'var(--bg-primary, #ffffff)',
+                          padding: '16px 18px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '14px',
+                          boxShadow: deliverySpeed === 'simple' ? '0 4px 14px rgba(2, 132, 199, 0.15)' : '0 1px 3px rgba(0,0,0,0.04)',
+                          transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
+                        }}
                       >
-                        <input type="radio" checked={deliverySpeed === 'simple'} onChange={() => setDeliverySpeed('simple')} />
-                        <div className="schedule-info">
-                          <span className="schedule-title">Simple Delivery</span>
-                          <span className="schedule-desc">Delivery within 20-45 mins</span>
+                        <div style={{
+                          width: '22px',
+                          height: '22px',
+                          borderRadius: '50%',
+                          border: deliverySpeed === 'simple' ? '6px solid var(--brand-primary, #0284c7)' : '2px solid #94a3b8',
+                          backgroundColor: '#ffffff',
+                          flexShrink: 0,
+                          transition: 'all 0.2s ease'
+                        }}></div>
+                        <div className="schedule-info" style={{ display: 'flex', flexDirection: 'column' }}>
+                          <span className="schedule-title" style={{ fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-primary)' }}>
+                            Simple Delivery
+                          </span>
+                          <span className="schedule-desc" style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
+                            Delivery within 20-45 mins
+                          </span>
+                          <span style={{ fontSize: '0.78rem', color: 'var(--brand-primary, #0284c7)', fontWeight: 700, marginTop: '4px' }}>
+                            Standard Rate {orderFuel && fuelQty >= 50 ? '(FREE)' : (orderFuel ? '(Rs. 250)' : '(Included)')}
+                          </span>
                         </div>
                       </div>
+
                       <div
+                        id="option-speed-urgent"
                         className={`schedule-card${deliverySpeed === 'urgent' ? ' active' : ''}`}
                         onClick={() => setDeliverySpeed('urgent')}
+                        style={{
+                          cursor: 'pointer',
+                          userSelect: 'none',
+                          borderRadius: '12px',
+                          border: deliverySpeed === 'urgent' ? '2px solid #ea580c' : '2px solid var(--border-color, #cbd5e1)',
+                          background: deliverySpeed === 'urgent' ? 'rgba(234, 88, 12, 0.08)' : 'var(--bg-primary, #ffffff)',
+                          padding: '16px 18px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '14px',
+                          boxShadow: deliverySpeed === 'urgent' ? '0 4px 14px rgba(234, 88, 12, 0.18)' : '0 1px 3px rgba(0,0,0,0.04)',
+                          transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
+                        }}
                       >
-                        <input type="radio" checked={deliverySpeed === 'urgent'} onChange={() => setDeliverySpeed('urgent')} />
-                        <div className="schedule-info">
-                          <span className="schedule-title">Urgent Delivery</span>
-                          <span className="schedule-desc">Delivery within 10-20 mins</span>
+                        <div style={{
+                          width: '22px',
+                          height: '22px',
+                          borderRadius: '50%',
+                          border: deliverySpeed === 'urgent' ? '6px solid #ea580c' : '2px solid #94a3b8',
+                          backgroundColor: '#ffffff',
+                          flexShrink: 0,
+                          transition: 'all 0.2s ease'
+                        }}></div>
+                        <div className="schedule-info" style={{ display: 'flex', flexDirection: 'column' }}>
+                          <span className="schedule-title" style={{ fontWeight: 800, fontSize: '0.98rem', color: deliverySpeed === 'urgent' ? '#ea580c' : 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                            <i className="fa-solid fa-bolt" style={{ color: '#ea580c' }}></i> Urgent Delivery
+                          </span>
+                          <span className="schedule-desc" style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
+                            Delivery within 10-20 mins
+                          </span>
+                          <span style={{ fontSize: '0.78rem', color: '#ea580c', fontWeight: 700, marginTop: '4px' }}>
+                            +Rs. 100 Express Priority Surcharge
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -1044,8 +1165,36 @@ export default function OrderPage() {
                   </div>
                   
                   <div className="summary-row">
+                    <span>Dispatch Speed</span>
+                    <strong>
+                      {deliverySpeed === 'urgent' ? (
+                        <span style={{ color: '#ea580c', fontWeight: 800, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                          <i className="fa-solid fa-bolt"></i> Urgent (+Rs. 100)
+                        </span>
+                      ) : (
+                        <span style={{ color: 'var(--text-primary)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                          <i className="fa-solid fa-clock"></i> Standard
+                        </span>
+                      )}
+                    </strong>
+                  </div>
+
+                  <div className="summary-row">
                     <span>Delivery Charges</span>
-                    <strong>{deliveryFee === 0 ? <span style={{ color: 'var(--success-mint)' }}>Free (Included)</span> : fmt(deliveryFee)}</strong>
+                    <strong>
+                      {deliveryFee === 0 ? (
+                        <span style={{ color: 'var(--success-mint)' }}>Free (Included)</span>
+                      ) : (
+                        <span>
+                          {fmt(deliveryFee)}
+                          {deliverySpeed === 'urgent' && (
+                            <span style={{ fontSize: '0.74rem', color: '#ea580c', display: 'block', fontWeight: 600 }}>
+                              (incl. Rs. 100 Urgent Surcharge)
+                            </span>
+                          )}
+                        </span>
+                      )}
+                    </strong>
                   </div>
 
                   <div className="summary-row total-row">
@@ -1131,7 +1280,7 @@ export default function OrderPage() {
                       2. What is the minimum quantity for doorstep diesel delivery?
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      You can order as little as 1 liter up to 2,000+ liters per order. For orders below 50 liters, a nominal standard delivery fee applies. For bulk orders of 50+ liters, delivery is free within our service coverage zones in Lahore.
+                      You can order as little as 5 liters up to 2,000+ liters per order. For orders below 50 liters, a nominal standard delivery fee applies. For bulk orders of 50+ liters, delivery is free within our service coverage zones in Lahore.
                     </p>
                   </div>
 
@@ -1189,6 +1338,35 @@ export default function OrderPage() {
               </div>
             ))}
           </div>
+          {generatedWaUrl && (
+            <div style={{ marginTop: '18px', marginBottom: '6px' }}>
+              <a
+                href={generatedWaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn"
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '10px',
+                  backgroundColor: '#25D366',
+                  color: '#ffffff',
+                  fontWeight: 700,
+                  padding: '13px 20px',
+                  borderRadius: '10px',
+                  textDecoration: 'none',
+                  fontSize: '1rem',
+                  boxShadow: '0 4px 14px rgba(37, 211, 102, 0.35)',
+                  cursor: 'pointer'
+                }}
+              >
+                <i className="fa-brands fa-whatsapp" style={{ fontSize: '1.3rem' }}></i>
+                Open WhatsApp Dispatch Chat
+              </a>
+            </div>
+          )}
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end', marginTop: '15px' }}>
             <button type="button" className="btn btn-ghost" id="close-tracker-btn" style={{ flex: 1 }} onClick={closeTracker}>Close Screen</button>
             <button type="button" className="btn btn-primary" id="track-order-reset-btn" style={{ flex: 1 }} onClick={resetOrder}>Order Again</button>

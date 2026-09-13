@@ -240,14 +240,13 @@ export default function AboutPage() {
                   Founder &amp; CEO, Zyphuel
                 </h3>
                 <p className="founder-bio" style={{ fontSize: '1rem', lineHeight: '1.65', color: 'var(--text-secondary)', marginBottom: '18px' }}>
-                  <strong>Muhammad Daniyal</strong>  is an entrepreneur and systems engineer leading Pakistan’s energy logistics modernization. Recognizing the recurring load-shedding challenges faced by commercial enterprises and the fuel supply bottlenecks in urban transport, he engineered Zyphuel’s smart telemetry refueling network.
+                  <strong>Muhammad Daniyal</strong> founded Zyphuel to solve a frustrating reality in urban Pakistan: the hours lost waiting at crowded fuel stations and the safety risks of transporting hazardous jerrycans during power outages. With a systems engineering background, Daniyal built Zyphuel from the ground up as a reliable, on-demand refueling service for Lahore’s motorists, standby generators, and commercial fleets. His focus is on operational dependability, calibrated digital metering, and prompt, honest doorstep dispatch.
                 </p>
-                
 
                 <div className="founder-quote-box" style={{ marginBottom: '24px' }}>
                   <i className="fa-solid fa-quote-left quote-icon"></i>
                   <p className="founder-quote-text">
-                    "We are bringing technology and efficiency directly to the fueling nozzle. No lines, no delay, and complete digital transparency with every drop delivered."
+                    "Refueling shouldn't mean wasting hours in traffic or questioning meter accuracy at the pump. We built Zyphuel to bring certified fuel straight to your doorstep or facility—with exact volumetric metering, fair pricing, and dependable delivery on every order."
                   </p>
                 </div>
 
