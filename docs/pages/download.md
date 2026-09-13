@@ -9,20 +9,20 @@
 ---
 
 ## Technical Specifications & Constants
-- **Current Version**: `v2.0.4` (dynamically imported from `src/data/appVersion.js`)
-- **File Size**: `12.4 MB`
-- **Minimum OS Requirement**: Android 8.0 (Oreo) and above (API level 26+)
+- **Current Version**: `v2.6.4.0.0.08` (dynamically imported from `src/data/appVersion.js`)
+- **File Size**: `31.6 MB`
+- **Minimum OS Requirement**: Android 7.0 (Nougat) and above (API level 24+)
 - **Architecture**: Native Android with Jetpack Compose & Material 3 UI
-- **Direct APK Endpoint**: `/apk/zyphuel-v2.0.4.apk`
+- **Direct APK Endpoint**: `/APK/Zyphuel.apk`
 - **Security Check**: SHA-256 signed, zero malware/adware, direct release build.
 
 ---
 
 ## SEO & Structured Data
-- **Page Title**: `Download Zyphuel APK v2.0.4 | Lahore On-Demand Fuel App`
-- **Meta Description**: `Download official Zyphuel Android APK (v2.0.4, 12.4 MB). Order certified Euro-V petrol & diesel in Lahore with live GPS tracking, 2-hour rate alerts, and biometric security.`
+- **Page Title**: `Download Zyphuel APK v2.6.4.0.0.08 | Lahore On-Demand Fuel App`
+- **Meta Description**: `Download official Zyphuel Android APK (v2.6.4.0.0.08, 31.6 MB). Order certified Euro-V petrol & diesel in Lahore with live GPS tracking, 2-hour rate alerts, and biometric security.`
 - **Schema Type**: `SoftwareApplication` / `MobileApplication`
-  - Operating System: `Android 8.0+`
+  - Operating System: `Android 7.0+`
   - Application Category: `UtilitiesApplication` / `BusinessApplication`
 
 ---
@@ -51,6 +51,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-14** | Synchronized app version to `v2.6.4.0.0.08` (`31.6 MB`, Android 7.0+) across website metadata, documentation, and download endpoints. | User request: align website app version with latest compiled APK release `v2.6.4.0.0.08`. |
 | **2026-09-12** | Centralized version variables (`APP_VERSION`, `APP_SIZE`, `RELEASE_DATE`) from `src/data/appVersion.js`. | Prevent version drift across downloads, articles, and SEO tags. |
 | **2026-09-06** | Added high-contrast QR code display with instant smartphone scanning. | Simplify cross-device download workflow from desktop to mobile. |
 | **2026-08-30** | Updated step-by-step Android installation security walkthrough. | Address common Android security prompt questions for non-Play Store APKs. |
