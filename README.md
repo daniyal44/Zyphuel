@@ -1,7 +1,7 @@
 # Zyphuel React App
 
-[![App Version](https://img.shields.io/badge/App%20Version-v2.6.2-10b981?style=for-the-badge&logo=android&logoColor=white)](https://zyphuel.netlify.app/download)
-[![Release Tag](https://img.shields.io/badge/Release-v2.6.2-8b5cf6?style=for-the-badge&logo=github)](https://github.com/daniyal44/Zyphuel/releases)
+[![App Version](https://img.shields.io/badge/App%20Version-v2.6.4.0.0.08-10b981?style=for-the-badge&logo=android&logoColor=white)](https://zyphuel.netlify.app/download)
+[![Release Tag](https://img.shields.io/badge/Release-v2.6.4.0.0.08-8b5cf6?style=for-the-badge&logo=github)](https://github.com/daniyal44/Zyphuel/releases)
 [![GitHub Commits](https://img.shields.io/github/commit-activity/m/daniyal44/Zyphuel?style=for-the-badge&color=0284c7&label=Monthly%20Changes)](https://github.com/daniyal44/Zyphuel/commits/main)
 [![Last Commit](https://img.shields.io/github/last-commit/daniyal44/Zyphuel?style=for-the-badge&color=10b981)](https://github.com/daniyal44/Zyphuel/commits/main)
 [![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fzyphuel.netlify.app&style=for-the-badge&label=zyphuel.netlify.app)](https://zyphuel.netlify.app/)
@@ -12,10 +12,10 @@ A high-performance React.js + Vite platform for Zyphuel — on-demand doorstep f
 
 | Metric | Detail |
 |---|---|
-| **App Version** | **v2.6.2** (Latest Production Release) |
-| **Release Date** | September 9, 2026 |
-| **Package** | `Zyphuel.apk` (31.8 MB) |
-| **Minimum OS** | Android 8.0 (Oreo) or newer |
+| **App Version** | **v2.6.4.0.0.08** (Latest Production Release) |
+| **Release Date** | September 14, 2026 |
+| **Package** | `Zyphuel.apk` (31.6 MB) |
+| **Minimum OS** | Android 7.0 (Nougat) or newer |
 | **Portal Download** | [https://zyphuel.netlify.app/download](https://zyphuel.netlify.app/download) |
 
 ### 📊 Real-Time Engineering Velocity & Activity Dashboard (Auto-Updates on Push)
