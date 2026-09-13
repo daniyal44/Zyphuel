@@ -1,12 +1,23 @@
 // Centralized Zyphuel Mobile App Version Configuration
 // Update this file on every application release to dynamically sync versions across the platform.
 
-export const APP_VERSION = '2.6.2';
-export const RELEASE_DATE = 'September 9, 2026';
-export const APP_SIZE = '31.8 MB';
-export const MIN_ANDROID = '8.0 (Oreo)+';
+export const APP_VERSION = '2.6.4.0.0.08';
+export const RELEASE_DATE = 'September 14, 2026';
+export const APP_SIZE = '31.6 MB';
+export const MIN_ANDROID = '7.0 (Nougat)+';
 
 export const CHANGELOG = [
+  {
+    version: '2.6.4.0.0.08',
+    date: 'September 14, 2026',
+    title: 'Precision Geolocation Telemetry, Dynamic Metering & Real-Time Dispatch Engine',
+    features: [
+      'Compiled production release v2.6.4.0.0.08 with enhanced runtime performance and security',
+      'Refined real-time GPS location auto-pinning and low-latency micro-refueler bowser radar tracking across all Lahore sectors',
+      'Synchronized digital metering validation with 2-hour automated OGRA market fuel rate push notifications',
+      'Optimized biometric checkout authorization (Fingerprint & Face Unlock) and instant dispatch synchronization'
+    ]
+  },
   {
     version: '2.6.2',
     date: 'September 9, 2026',
