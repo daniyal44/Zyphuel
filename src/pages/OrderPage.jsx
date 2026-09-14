@@ -173,6 +173,10 @@ export default function OrderPage() {
     { status: '', title: 'Delivered & Calibrated', desc: 'Fuel tank filled and calibrated flow receipt generated.' },
   ])
 
+  // Official Digital Invoice Modal
+  const [invoiceOpen, setInvoiceOpen] = useState(false)
+  const [invoiceData, setInvoiceData] = useState(null)
+
   // Computed summary
   const fuelRate = prices[selectedFuelType]
   const fuelCost = orderFuel ? (fuelRate * fuelQty) : 0
@@ -298,6 +302,57 @@ export default function OrderPage() {
     setTrackerProgress(0)
     setTrackerOpen(true)
     setDeliveryPhase('loading')
+
+    // Generate Official Digital Invoice
+    const now = new Date()
+    const formattedDate = now.toLocaleDateString('en-PK', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric'
+    }) + ', ' + now.toLocaleTimeString('en-PK', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    })
+
+    const inv = {
+      orderId: id,
+      date: formattedDate,
+      customerName: orderName || name || 'Valued Customer',
+      phone: phone || 'Not provided',
+      email: email || 'Not provided',
+      address: address || 'Lahore, Pakistan',
+      deliverySpeed: deliverySpeed === 'urgent' ? '⚡ Urgent Priority Dispatch (10–20 Mins)' : 'Standard Dispatch (20–45 Mins)',
+      paymentMethod: isCodEligible ? 'Cash on Delivery (COD)' : 'Advance Direct Bank Transfer',
+      isUrgent: deliverySpeed === 'urgent',
+      items: [
+        orderFuel ? {
+          title: `Euro-V ${FUEL_DISPLAY[selectedFuelType]}`,
+          detail: '0.01L Calibrated Digital Flow-Meter Refueling',
+          qty: `${fuelQty} Litres`,
+          rate: `Rs. ${fuelRate.toFixed(2)}/L`,
+          cost: fuelCost
+        } : null,
+        orderGas ? {
+          title: 'LPG Gas Cylinder Refill',
+          detail: 'Commercial & Domestic Grade Safe Bottling',
+          qty: `${gasQty} Kg`,
+          rate: `Rs. ${gasRate.toFixed(2)}/Kg`,
+          cost: gasCost
+        } : null,
+        orderWater ? {
+          title: 'Bulk Clean Water Supply',
+          detail: 'Potable Multi-Stage Filtered Safe Water',
+          qty: `${waterQty} Gallons`,
+          rate: `Rs. ${waterRate.toFixed(2)}/Gal`,
+          cost: waterCost
+        } : null,
+      ].filter(Boolean),
+      subtotal: baseCost,
+      deliveryFee: deliveryFee,
+      total: total,
+    }
+    setInvoiceData(inv)
 
     // Build structured WhatsApp dispatch message with all details
     const waLines = [
@@ -460,6 +515,118 @@ export default function OrderPage() {
       }
     }
     document.getElementById('order')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  // Invoice Print / PDF Export
+  const handlePrintInvoice = () => {
+    window.print()
+  }
+
+  // Invoice Standalone HTML File Download
+  const handleDownloadInvoiceHTML = () => {
+    if (!invoiceData) return
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zyphuel Official Invoice #${invoiceData.orderId}</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f8fafc; color: #0f172a; padding: 24px; margin: 0; }
+    .inv-card { max-width: 680px; margin: 0 auto; background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #0284c7; padding-bottom: 16px; margin-bottom: 20px; }
+    .brand { font-size: 24px; font-weight: 900; color: #0284c7; margin: 0; letter-spacing: 0.04em; }
+    .sub { font-size: 12px; color: #64748b; margin: 2px 0 0 0; }
+    .meta { text-align: right; }
+    .id { font-size: 16px; font-weight: 800; color: #0f172a; font-family: monospace; }
+    .date { font-size: 12px; color: #64748b; margin-top: 3px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; font-size: 12px; }
+    .box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; }
+    .box-title { font-weight: 800; color: #64748b; font-size: 10px; text-transform: uppercase; margin-bottom: 6px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 12px; }
+    th { background: #f1f5f9; padding: 9px 12px; text-align: left; color: #334155; border-bottom: 1px solid #cbd5e1; }
+    td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; }
+    .right { text-align: right; }
+    .totals { width: 260px; margin-left: auto; font-size: 12px; margin-bottom: 20px; }
+    .t-row { display: flex; justify-content: space-between; padding: 4px 0; color: #475569; }
+    .grand { border-top: 2px solid #0284c7; margin-top: 6px; padding-top: 8px; font-size: 15px; font-weight: 900; color: #0284c7; }
+    .guarantee { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 12px; font-size: 11px; color: #166534; line-height: 1.45; }
+    .footer { text-align: center; margin-top: 20px; font-size: 11px; color: #94a3b8; }
+    @media print { body { background: #fff; padding: 0; } .inv-card { border: none; box-shadow: none; padding: 0; } }
+  </style>
+</head>
+<body>
+  <div class="inv-card">
+    <div class="header">
+      <div>
+        <h1 class="brand">ZYPHUEL</h1>
+        <p class="sub">Certified On-Demand Energy &amp; Doorstep Fuel Logistics</p>
+        <p class="sub">Lahore Hub #01 &bull; Gulberg III, Lahore &bull; Helpline: +92 3230-112464</p>
+      </div>
+      <div class="meta">
+        <div class="id">INVOICE #${invoiceData.orderId}</div>
+        <div class="date">${invoiceData.date}</div>
+        <div style="margin-top:4px; font-size:11px; color:#10b981; font-weight:700;">&#10003; DISPATCH CONFIRMED</div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="box">
+        <div class="box-title">Billed To / Delivery Site</div>
+        <div><strong>${invoiceData.customerName}</strong></div>
+        <div>Phone: ${invoiceData.phone}</div>
+        <div>Email: ${invoiceData.email}</div>
+        <div>Address: ${invoiceData.address}</div>
+      </div>
+      <div class="box">
+        <div class="box-title">Dispatch &amp; Payment Telemetry</div>
+        <div>Speed: <strong>${invoiceData.deliverySpeed}</strong></div>
+        <div>Payment: <strong>${invoiceData.paymentMethod}</strong></div>
+        <div>Calibration: <strong>0.01L Accuracy (Positive Displacement)</strong></div>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Category &amp; Item</th>
+          <th style="text-align:center;">Qty</th>
+          <th class="right">Unit Rate</th>
+          <th class="right">Total (PKR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${invoiceData.items.map(item => `
+          <tr>
+            <td><strong>${item.title}</strong><br><span style="font-size:10px; color:#64748b;">${item.detail}</span></td>
+            <td style="text-align:center; font-weight:700;">${item.qty}</td>
+            <td class="right">${item.rate}</td>
+            <td class="right" style="font-weight:700;">Rs. ${item.cost.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+    <div class="totals">
+      <div class="t-row"><span>Subtotal Items</span><strong>Rs. ${invoiceData.subtotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}</strong></div>
+      <div class="t-row"><span>Delivery Charges</span><strong>${invoiceData.deliveryFee === 0 ? 'FREE (50L+ Offer)' : `Rs. ${invoiceData.deliveryFee.toLocaleString('en-US', { minimumFractionDigits: 2 })}`}</strong></div>
+      ${invoiceData.isUrgent ? '<div class="t-row" style="color:#ea580c; font-size:11px;"><span>Urgent Priority Surcharge</span><span>Included (+Rs. 100)</span></div>' : ''}
+      <div class="t-row grand"><span>Total Estimated</span><span>Rs. ${invoiceData.total.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span></div>
+    </div>
+    <div class="guarantee">
+      <strong>&#10003; 100% Volumetric &amp; Quality Guarantee:</strong> All fuels sourced from licensed primary oil marketing depots. Calibrated digital flow meters prevent short-fueling. OGRA Euro-V compliant.
+    </div>
+    <div class="footer">Official Computerized Invoice &bull; Zyphuel Refueling Systems Pakistan</div>
+  </div>
+</body>
+</html>`
+
+    const blob = new Blob([html], { type: 'text/html' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `Zyphuel-Invoice-${invoiceData.orderId}.html`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+    showToast('Invoice downloaded successfully!', 'success')
   }
 
   return (
@@ -1338,8 +1505,40 @@ export default function OrderPage() {
               </div>
             ))}
           </div>
+          {/* View & Download Invoice Button */}
+          {invoiceData && (
+            <div style={{ marginTop: '14px', marginBottom: '8px' }}>
+              <button
+                type="button"
+                className="btn"
+                id="view-invoice-modal-btn"
+                onClick={() => setInvoiceOpen(true)}
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '10px',
+                  background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
+                  color: '#ffffff',
+                  fontWeight: 700,
+                  padding: '12px 20px',
+                  borderRadius: '10px',
+                  fontSize: '0.98rem',
+                  border: 'none',
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 14px rgba(2, 132, 199, 0.35)',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <i className="fa-solid fa-file-invoice-dollar" style={{ fontSize: '1.2rem' }}></i>
+                View &amp; Download Invoice (رسید دیکھیں / ڈاؤنلوڈ کریں)
+              </button>
+            </div>
+          )}
+
           {generatedWaUrl && (
-            <div style={{ marginTop: '18px', marginBottom: '6px' }}>
+            <div style={{ marginTop: '6px', marginBottom: '6px' }}>
               <a
                 href={generatedWaUrl}
                 target="_blank"
@@ -1373,6 +1572,194 @@ export default function OrderPage() {
           </div>
         </div>
       </div>
+
+      {/* Official Order Digital Invoice Modal */}
+      {invoiceData && (
+        <div
+          className={`modal-backdrop invoice-modal-backdrop${invoiceOpen ? ' open' : ''}`}
+          id="invoice-modal-backdrop"
+          onClick={e => e.target === e.currentTarget && setInvoiceOpen(false)}
+        >
+          <div className="invoice-modal-dialog">
+            {/* Modal Actions Header Bar (No-Print) */}
+            <div className="invoice-modal-actions no-print">
+              <div className="invoice-action-left">
+                <span className="invoice-badge"><i className="fa-solid fa-certificate"></i> Official Calibrated Receipt</span>
+              </div>
+              <div className="invoice-action-buttons">
+                <button
+                  type="button"
+                  className="btn-invoice-action btn-print"
+                  onClick={handlePrintInvoice}
+                  title="Print or Save as PDF"
+                >
+                  <i className="fa-solid fa-print"></i>
+                  <span>Download / Print PDF</span>
+                </button>
+                <button
+                  type="button"
+                  className="btn-invoice-action btn-download"
+                  onClick={handleDownloadInvoiceHTML}
+                  title="Download HTML Receipt File"
+                >
+                  <i className="fa-solid fa-download"></i>
+                  <span>Download File</span>
+                </button>
+                <button
+                  type="button"
+                  className="btn-invoice-action btn-close"
+                  onClick={() => setInvoiceOpen(false)}
+                  title="Close Invoice"
+                  aria-label="Close"
+                >
+                  <i className="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            </div>
+
+            {/* Printable & Viewable Invoice Document */}
+            <div className="invoice-printable" id="printable-order-invoice">
+              {/* Invoice Header */}
+              <div className="inv-header">
+                <div className="inv-brand-block">
+                  <div className="inv-logo-title">
+                    <span className="inv-logo-icon"><i className="fa-solid fa-gas-pump"></i></span>
+                    <h2 className="inv-title">ZYPHUEL</h2>
+                  </div>
+                  <p className="inv-subtitle">Certified On-Demand Energy &amp; Fuel Logistics</p>
+                  <p className="inv-address-line">Lahore Hub #01 &bull; 75-Main Boulevard, Gulberg III, Lahore, Pakistan</p>
+                  <p className="inv-contact-line">Helpline: +92 3230-112464 &bull; support@zyphuel.com</p>
+                </div>
+
+                <div className="inv-meta-block">
+                  <div className="inv-number-pill">INVOICE #{invoiceData.orderId}</div>
+                  <div className="inv-meta-row">
+                    <span>Date &amp; Time:</span> <strong>{invoiceData.date}</strong>
+                  </div>
+                  <div className="inv-meta-row">
+                    <span>Status:</span> <strong className="status-confirmed">&#10003; DISPATCH CONFIRMED</strong>
+                  </div>
+                  <div className="inv-meta-row">
+                    <span>Dispatch Mode:</span> <strong>{invoiceData.isUrgent ? 'Priority Urgent (10-20m)' : 'Standard Dispatch'}</strong>
+                  </div>
+                </div>
+              </div>
+
+              {/* Billed To & Logistics Grid */}
+              <div className="inv-parties-grid">
+                <div className="inv-party-card">
+                  <span className="inv-party-label">BILLED TO / DELIVERY SITE</span>
+                  <div className="inv-party-name">{invoiceData.customerName}</div>
+                  <div className="inv-party-detail"><i className="fa-solid fa-phone"></i> {invoiceData.phone}</div>
+                  {invoiceData.email && invoiceData.email !== 'Not provided' && (
+                    <div className="inv-party-detail"><i className="fa-solid fa-envelope"></i> {invoiceData.email}</div>
+                  )}
+                  <div className="inv-party-detail"><i className="fa-solid fa-location-dot"></i> {invoiceData.address}</div>
+                </div>
+
+                <div className="inv-party-card">
+                  <span className="inv-party-label">DISPATCH &amp; CALIBRATION TELEMETRY</span>
+                  <div className="inv-party-detail">
+                    <span>Payment Mode:</span> <strong>{invoiceData.paymentMethod}</strong>
+                  </div>
+                  <div className="inv-party-detail">
+                    <span>Delivery Speed:</span> <strong>{invoiceData.deliverySpeed}</strong>
+                  </div>
+                  <div className="inv-party-detail">
+                    <span>Metering System:</span> <strong>Positive Displacement (0.01L Accuracy)</strong>
+                  </div>
+                  <div className="inv-party-detail">
+                    <span>ATC Reference:</span> <strong>15&deg;C Automatic Temperature Compensation</strong>
+                  </div>
+                </div>
+              </div>
+
+              {/* Itemized Table */}
+              <div className="inv-table-wrapper">
+                <table className="inv-table">
+                  <thead>
+                    <tr>
+                      <th style={{ width: '45%' }}>Item Description &amp; Standards</th>
+                      <th style={{ textAlign: 'center', width: '15%' }}>Quantity</th>
+                      <th style={{ textAlign: 'right', width: '20%' }}>Unit Rate</th>
+                      <th style={{ textAlign: 'right', width: '20%' }}>Total (PKR)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {invoiceData.items.map((item, idx) => (
+                      <tr key={idx}>
+                        <td>
+                          <div className="inv-item-name">{item.title}</div>
+                          <div className="inv-item-spec">{item.detail}</div>
+                        </td>
+                        <td style={{ textAlign: 'center', fontWeight: 700 }}>{item.qty}</td>
+                        <td style={{ textAlign: 'right', fontFamily: 'monospace' }}>{item.rate}</td>
+                        <td style={{ textAlign: 'right', fontWeight: 800, fontFamily: 'monospace' }}>
+                          Rs. {item.cost.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Summary & Compliance Guarantee */}
+              <div className="inv-summary-container">
+                <div className="inv-compliance-badge">
+                  <div className="inv-stamp-box">
+                    <i className="fa-solid fa-shield-halved"></i>
+                    <div>
+                      <strong>OGRA COMPLIANT &bull; 100% CALIBRATED</strong>
+                      <p>Sourced directly from licensed primary oil marketing depots. Zero short-fueling guarantee with tamper-evident optical flow-meter calibration.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="inv-totals-card">
+                  <div className="inv-total-line">
+                    <span>Subtotal Items</span>
+                    <strong>Rs. {invoiceData.subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
+                  </div>
+                  <div className="inv-total-line">
+                    <span>Delivery Charges</span>
+                    <strong>
+                      {invoiceData.deliveryFee === 0 ? (
+                        <span style={{ color: '#10b981' }}>FREE (50L+ Bulk Offer)</span>
+                      ) : (
+                        `Rs. ${invoiceData.deliveryFee.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+                      )}
+                    </strong>
+                  </div>
+                  {invoiceData.isUrgent && (
+                    <div className="inv-total-line" style={{ color: '#ea580c', fontSize: '0.8rem' }}>
+                      <span>Urgent Priority Surcharge</span>
+                      <span>+Rs. 100.00 (Included)</span>
+                    </div>
+                  )}
+                  <div className="inv-total-line grand-total-line">
+                    <span>Grand Total Payable</span>
+                    <span className="grand-amount">
+                      Rs. {invoiceData.total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Invoice Footer Notice */}
+              <div className="inv-footer-note">
+                <div className="inv-note-text">
+                  Thank you for trusting Zyphuel. Fleet bowser dispatch is actively routed to your address.
+                  Helpline WhatsApp: <strong>+92 3230-112464</strong>.
+                </div>
+                <div className="inv-digital-sign">
+                  <span className="sign-line">Computerized Verified Invoice</span>
+                  <span className="sign-company">Zyphuel Refueling Systems PK</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Global AI & Search Engine Directory Index */}
 
@@ -1583,6 +1970,375 @@ export default function OrderPage() {
         .truck-button.animation.done { --rx: 0deg; --br: 15px; --br-d: .2s; }
         .truck-button.animation.done .success { --o: 1; --offset: 0; }
         .button-wrapper { display: flex; justify-content: center; width: 100%; margin-top: 8px; }
+
+        /* Official Order Invoice Modal Styles */
+        .invoice-modal-backdrop {
+          z-index: 1200;
+          background: rgba(15, 23, 42, 0.8);
+          backdrop-filter: blur(8px);
+          overflow-y: auto;
+          padding: 24px 12px;
+          display: none;
+        }
+        .invoice-modal-backdrop.open {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .invoice-modal-dialog {
+          background: #ffffff;
+          border-radius: 16px;
+          max-width: 720px;
+          width: 100%;
+          margin: auto;
+          box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+          overflow: hidden;
+          animation: modalScaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes modalScaleUp {
+          from { transform: scale(0.96); opacity: 0; }
+          to { transform: scale(1); opacity: 1; }
+        }
+        .invoice-modal-actions {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: #0f172a;
+          color: #ffffff;
+          padding: 12px 20px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        .invoice-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 0.76rem;
+          font-weight: 700;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          background: rgba(56, 189, 248, 0.15);
+          color: #38bdf8;
+          border: 1px solid rgba(56, 189, 248, 0.3);
+          padding: 4px 10px;
+          border-radius: 20px;
+        }
+        .invoice-action-buttons {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .btn-invoice-action {
+          padding: 7px 14px;
+          font-size: 0.82rem;
+          font-weight: 700;
+          border-radius: 8px;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          transition: all 0.2s;
+          border: none;
+        }
+        .btn-invoice-action.btn-print {
+          background: #0284c7;
+          color: #ffffff;
+        }
+        .btn-invoice-action.btn-print:hover {
+          background: #0369a1;
+        }
+        .btn-invoice-action.btn-download {
+          background: rgba(255, 255, 255, 0.12);
+          color: #f1f5f9;
+        }
+        .btn-invoice-action.btn-download:hover {
+          background: rgba(255, 255, 255, 0.22);
+        }
+        .btn-invoice-action.btn-close {
+          background: transparent;
+          color: #94a3b8;
+          font-size: 1.15rem;
+          padding: 6px 10px;
+        }
+        .btn-invoice-action.btn-close:hover {
+          color: #ffffff;
+        }
+
+        /* Printable Invoice Container */
+        .invoice-printable {
+          padding: 30px 32px;
+          background: #ffffff;
+          color: #0f172a;
+        }
+        .inv-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          border-bottom: 2px solid #0284c7;
+          padding-bottom: 18px;
+          margin-bottom: 20px;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+        .inv-logo-title {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .inv-logo-icon {
+          width: 30px;
+          height: 30px;
+          background: #0284c7;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 8px;
+          font-size: 0.95rem;
+        }
+        .inv-title {
+          margin: 0;
+          font-size: 1.45rem;
+          font-weight: 900;
+          color: #0f172a;
+          letter-spacing: 0.04em;
+        }
+        .inv-subtitle {
+          margin: 3px 0 0 0;
+          font-size: 0.8rem;
+          font-weight: 700;
+          color: #0284c7;
+        }
+        .inv-address-line, .inv-contact-line {
+          margin: 2px 0 0 0;
+          font-size: 0.75rem;
+          color: #64748b;
+        }
+        .inv-meta-block {
+          text-align: right;
+        }
+        .inv-number-pill {
+          font-size: 1.05rem;
+          font-weight: 900;
+          color: #0f172a;
+          font-family: monospace;
+        }
+        .inv-meta-row {
+          font-size: 0.76rem;
+          color: #64748b;
+          margin-top: 3px;
+        }
+        .inv-meta-row strong {
+          color: #0f172a;
+        }
+        .status-confirmed {
+          color: #10b981 !important;
+          background: #ecfdf5;
+          padding: 2px 8px;
+          border-radius: 6px;
+          display: inline-block;
+        }
+        .inv-parties-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+          margin-bottom: 22px;
+        }
+        .inv-party-card {
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 10px;
+          padding: 12px 16px;
+        }
+        .inv-party-label {
+          font-size: 0.67rem;
+          font-weight: 800;
+          color: #64748b;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          display: block;
+          margin-bottom: 5px;
+        }
+        .inv-party-name {
+          font-size: 0.95rem;
+          font-weight: 800;
+          color: #0f172a;
+          margin-bottom: 4px;
+        }
+        .inv-party-detail {
+          font-size: 0.76rem;
+          color: #475569;
+          margin-top: 3px;
+          line-height: 1.45;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+        .inv-party-detail i {
+          color: #0284c7;
+          width: 14px;
+        }
+        .inv-table-wrapper {
+          border: 1px solid #e2e8f0;
+          border-radius: 10px;
+          overflow: hidden;
+          margin-bottom: 20px;
+        }
+        .inv-table {
+          width: 100%;
+          border-collapse: collapse;
+          font-size: 0.82rem;
+        }
+        .inv-table th {
+          background: #f1f5f9;
+          padding: 10px 14px;
+          font-weight: 700;
+          color: #334155;
+          border-bottom: 1px solid #cbd5e1;
+        }
+        .inv-table td {
+          padding: 10px 14px;
+          border-bottom: 1px solid #e2e8f0;
+          color: #1e293b;
+        }
+        .inv-table tr:last-child td {
+          border-bottom: none;
+        }
+        .inv-item-name {
+          font-weight: 700;
+          color: #0f172a;
+        }
+        .inv-item-spec {
+          font-size: 0.72rem;
+          color: #64748b;
+          margin-top: 2px;
+        }
+        .inv-summary-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+          align-items: flex-start;
+          margin-bottom: 20px;
+        }
+        .inv-compliance-badge {
+          background: #f0fdf4;
+          border: 1px solid #bbf7d0;
+          border-radius: 10px;
+          padding: 12px 14px;
+        }
+        .inv-stamp-box {
+          display: flex;
+          gap: 10px;
+          align-items: flex-start;
+        }
+        .inv-stamp-box i {
+          font-size: 1.3rem;
+          color: #16a34a;
+          margin-top: 2px;
+        }
+        .inv-stamp-box strong {
+          font-size: 0.76rem;
+          color: #15803d;
+          display: block;
+          margin-bottom: 3px;
+        }
+        .inv-stamp-box p {
+          margin: 0;
+          font-size: 0.7rem;
+          color: #166534;
+          line-height: 1.4;
+        }
+        .inv-totals-card {
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 10px;
+          padding: 10px 14px;
+        }
+        .inv-total-line {
+          display: flex;
+          justify-content: space-between;
+          padding: 4px 0;
+          font-size: 0.78rem;
+          color: #475569;
+        }
+        .inv-total-line.grand-total-line {
+          border-top: 2px solid #0284c7;
+          margin-top: 6px;
+          padding-top: 8px;
+          font-size: 1rem;
+          font-weight: 900;
+          color: #0284c7;
+        }
+        .grand-amount {
+          font-size: 1.1rem;
+          color: #0284c7;
+        }
+        .inv-footer-note {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-top: 14px;
+          border-top: 1px dashed #cbd5e1;
+          font-size: 0.7rem;
+          color: #64748b;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        .inv-note-text {
+          max-width: 420px;
+          line-height: 1.4;
+        }
+        .inv-digital-sign {
+          text-align: right;
+        }
+        .sign-line {
+          display: block;
+          font-weight: 700;
+          color: #0f172a;
+        }
+        .sign-company {
+          font-size: 0.66rem;
+          color: #94a3b8;
+        }
+
+        /* Print Media Styles for PDF Export */
+        @media print {
+          body * {
+            visibility: hidden;
+          }
+          #printable-order-invoice, #printable-order-invoice * {
+            visibility: visible;
+          }
+          #printable-order-invoice {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 24px !important;
+            background: #ffffff !important;
+            color: #000000 !important;
+            box-shadow: none !important;
+            border: none !important;
+          }
+          .no-print {
+            display: none !important;
+          }
+          .inv-table th {
+            background: #e2e8f0 !important;
+            color: #000000 !important;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .inv-parties-grid, .inv-summary-container {
+            grid-template-columns: 1fr;
+          }
+          .invoice-printable {
+            padding: 18px 14px;
+          }
+        }
       `}</style>
     </div>
   )

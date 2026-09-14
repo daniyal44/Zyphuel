@@ -23,7 +23,7 @@
 1. **Hero Section**:
    - Headline: Certified Euro-V Fuel & Energy Logistics Delivered Directly to Your Doorstep in Lahore.
    - Live Telemetry Badges: `98% Calibrated Flow Meter`, `Active Dispatch GPS`, `Lahore Hub #01 (0.01L Meter Calibrated)`.
-   - **Startup Transparency Box**: Dedicated badge stating: *"Startup Transparency: Zyphuel is currently an early-stage startup operating in Lahore, not a large corporation. All orders receive personalized care and dedicated direct dispatch."*
+   - **Startup Transparency Box**: Appears strictly **once per calendar day** per user (`localStorage` date check `zyphuel_transparency_last_date`), equipped with an instant dismiss button (`×`). Once seen or dismissed for the current date, it will not reappear on subsequent page loads or reloads until the next calendar day.
    - CTA Buttons: Order Fuel Now (`/order/`), Download APK (`/download/`), Contact Helpline.
    - Interactive Hero Graphic (`src/components/HeroGraphic.jsx`).
 
@@ -58,13 +58,14 @@
 - **Delivery Service**: 24 hours / 7 days a week always active across Lahore.
 - **Office Operating Schedule**: Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm.
 - **Service Hub Location**: Gulberg III, Lahore.
-- **Transparency Policy**: Single persistent startup declaration in Hero; redundant copies on child pages avoided.
+- **Transparency Policy**: Displayed strictly once per calendar day on Home hero; never duplicated on child pages; auto-persisted via `localStorage` with manual dismiss.
 
 ---
 
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-15** | Configured Startup Transparency box to appear strictly once per day. | User requested: *"Startup Transparency... one time in a day show hona chaye bar bar nai"*. Added date-based `localStorage` check (`zyphuel_transparency_last_date`) and dismiss button (`×`). |
 | **2026-09-13** | Added dedicated Office Hours & 24/7 Delivery schedule box. | User requested explicit office timings (Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm, Delivery 24/7 Always Active) on Home page. |
 | **2026-09-13** | Maintained single Startup Transparency box exclusively on Home hero. | User instructed to keep startup transparency notice visible once without repeating across subsequent screens. |
 | **2026-09-13** | Left-to-Right price ticker animation added and synced. | User requested dynamic left-to-right marquee movement for fuel rates. |

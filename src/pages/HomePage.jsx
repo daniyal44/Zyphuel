@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import HeroGraphic from '../components/HeroGraphic'
@@ -11,6 +11,29 @@ import { APP_VERSION } from '../data/appVersion'
 export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All')
   const [selectedArticle, setSelectedArticle] = useState(null)
+  const [showStartupTransparency, setShowStartupTransparency] = useState(false)
+
+  // Show Startup Transparency notice strictly once per day
+  useEffect(() => {
+    try {
+      const today = new Date().toISOString().slice(0, 10);
+      const lastShownDate = localStorage.getItem('zyphuel_transparency_last_date');
+      if (lastShownDate !== today) {
+        setShowStartupTransparency(true);
+        localStorage.setItem('zyphuel_transparency_last_date', today);
+      }
+    } catch (e) {
+      // Fallback for SSR / restricted storage environments
+    }
+  }, [])
+
+  const handleDismissTransparency = () => {
+    setShowStartupTransparency(false)
+    try {
+      const today = new Date().toISOString().slice(0, 10)
+      localStorage.setItem('zyphuel_transparency_last_date', today)
+    } catch (e) {}
+  }
 
   useSEO({
     title: 'Doorstep Fuel Delivery in Lahore | Fast Petrol & Diesel | Zyphuel',
@@ -167,21 +190,49 @@ export default function HomePage() {
           <div className="hero-grid">
             {/* Left: Content */}
             <div className="hero-content fade-in-up">
-              <div style={{
-                background: 'rgba(2, 132, 199, 0.08)',
-                border: '1px solid rgba(2, 132, 199, 0.25)',
-                borderRadius: '10px',
-                padding: '8px 14px',
-                marginBottom: '16px',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                fontSize: '0.85rem',
-                color: 'var(--brand-primary, #0284c7)'
-              }}>
-                <i className="fa-solid fa-seedling"></i>
-                <span><strong>Startup Transparency:</strong> Zyphuel is currently an early-stage startup serving Lahore, Pakistan, not a large corporation.</span>
-              </div>
+              {showStartupTransparency && (
+                <div style={{
+                  background: 'rgba(2, 132, 199, 0.08)',
+                  border: '1px solid rgba(2, 132, 199, 0.25)',
+                  borderRadius: '10px',
+                  padding: '8px 14px',
+                  marginBottom: '16px',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  fontSize: '0.85rem',
+                  color: 'var(--brand-primary, #0284c7)',
+                  maxWidth: '100%',
+                  boxSizing: 'border-box'
+                }}>
+                  <i className="fa-solid fa-seedling"></i>
+                  <span style={{ flex: 1 }}>
+                    <strong>Startup Transparency:</strong> Zyphuel is currently an early-stage startup serving Lahore, Pakistan, not a large corporation.
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleDismissTransparency}
+                    style={{
+                      background: 'transparent',
+                      border: 'none',
+                      color: 'var(--brand-primary, #0284c7)',
+                      cursor: 'pointer',
+                      padding: '2px 6px',
+                      marginLeft: '6px',
+                      fontSize: '1rem',
+                      lineHeight: 1,
+                      opacity: 0.75,
+                      transition: 'opacity 0.2s',
+                      display: 'inline-flex',
+                      alignItems: 'center'
+                    }}
+                    title="Dismiss for today"
+                    aria-label="Dismiss startup transparency notice for today"
+                  >
+                    <i className="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+              )}
               <div className="hero-subtitle-badge">
                 <i className="fa-solid fa-gas-pump"></i>
                 <span>Fuel on Your Doorstep – Lahore</span>

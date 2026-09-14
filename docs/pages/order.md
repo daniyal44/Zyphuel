@@ -70,6 +70,13 @@
    - **Phase 4 (Delivered)**: Connected hose flow with 100% volumetric calibration seal badge.
 8. **Automated WhatsApp Dispatch Synchronization**:
    - Automated redirection to official WhatsApp Dispatch (`+92 3230-112464`) with preformatted, encoded order parameters.
+9. **Instant Digital Invoice & Receipt Generation**:
+   - **Automated Generation**: Instantly compiles a tamper-proof digital order invoice (`invoiceData`) upon order confirmation with unique sequential invoice ID (`ZYP-INV-...`), formatted local timestamp, customer profile, dispatch address, and payment terms.
+   - **Itemized Breakdown & Certification**: Formats fuel grade, volume, unit rate, fuel subtotal, delivery fee (with free delivery threshold status), urgent surcharge indicator, grand total in PKR, and an official **OGRA & 0.01L Digital Flow-Meter Calibration Compliance Stamp**.
+   - **On-Screen Modal Viewer**: Accessible anytime via the **"View & Download Invoice (رسید دیکھیں / ڈاؤنلوڈ کریں)"** button directly inside the active Refueling Lifecycle Tracker modal.
+   - **Dual Export Options**:
+     - **Print / Save as PDF**: Leverages browser `window.print()` coupled with dedicated `@media print` CSS rules to generate high-resolution, vector-crisp PDF documents stripped of navigation elements.
+     - **Standalone HTML Download**: Creates an offline `.html` digital receipt file via standard Blob and object URL download (`handleDownloadInvoiceHTML()`).
 
 ---
 
@@ -81,6 +88,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-15** | Added Instant Digital Invoice Generation with On-Screen Viewer, PDF Print, and HTML Receipt Download. | User requested: *"order karne ka bad ek invoice generate hone chaye take user us dekh sake or invoice ko download kar sake"*. Created printable invoice modal, OGRA compliance seal, itemized tax/pricing breakdown, PDF export via browser print dialog, and standalone HTML download. |
 | **2026-09-15** | Created root `github_push.bat` script for direct GitHub push automation. | User requested: *"is ma github_push.bat file banayo gis sa ma direct push kar sako code ko"*. Enables one-click staging, commit prompt with auto-fallback, and push to origin branch. |
 | **2026-09-15** | Added high-tech 3D Vector Animation Suite for **Awaiting Order** state in `RefuelingLifecycleTracker`. | User requested: *"Refueling Lifecycle Tracker Awaiting Order ya gaja per 3d vector animation add karna"*. Added 3D cyber docking pad, dual concentric sonar radar rings, autonomous 3D LiDAR drone with sweeping laser beam, rotating holographic HUD, live sine waveform vector, and standby telemetry strip. |
 | **2026-09-14** | Clamped fuel checkout strictly to **Min: 5L and Max: 15L** with volume chips `[5L, 7L, 10L, 12L, 15L]`. | User requested: *"minimum 5L max 15L is ko fix karo"*. Clamped stepper, range slider, state initializer, and presets to max 15L limit. |
@@ -93,4 +101,3 @@
 | **2026-09-13** | Removed redundant Startup Transparency box from Order page. | User requested: *"Startup Transparency... ya be ek diikna chaye bar bar nai"*. Retained exclusively on Home page hero. |
 | **2026-09-13** | Upgraded minimum fuel volume from 1L to **5 Litres**. | User requested: *"Min: 5 L, Quick Select: 5 L, 10 L..."*. Clamped stepper and inputs to minimum 5. |
 | **2026-09-13** | Automated instant WhatsApp order dispatch forwarding to `+92 3230-112464`. | Ensures immediate dispatcher coordination upon order completion. |
-
