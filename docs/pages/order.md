@@ -17,15 +17,15 @@
 
 ## Pricing, Products & Minimum Quantities
 
-| Fuel / Utility Grade | Unit Rate | Unit | Minimum Order | Increment Step | Volume Presets (Chips) |
+| Fuel / Utility Grade | Unit Rate | Unit | Order Range | Increment Step | Volume Presets (Chips) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Premier Euro-5 Super Petrol** | Rs. 345.87 | Litre | **5 Litres** | +1 L | 5, 10, 20, 50, 100, 250, 500, 1000 |
-| **Hi-Cetane Euro-5 Diesel** | Rs. 378.05 | Litre | **5 Litres** | +1 L | 5, 10, 20, 50, 100, 250, 500, 1000 |
-| **High-Octane (Euro-5 / HOBC 97)**| Rs. 365.00 | Litre | **5 Litres** | +1 L | 5, 10, 20, 50, 100, 250, 500, 1000 |
-| **LPG Commercial / Domestic Gas** | Rs. 258.65 | Kilogram | **5 Kilograms** | +1 kg | 5, 10, 20, 50, 100, 250, 500, 1000 |
-| **Bulk Potable Clean Water** | Rs. 100.00 | Gallon | **5 Gallons** | +1 gal | 5, 10, 20, 50, 100, 250, 500, 1000 |
+| **Premier Euro-5 Super Petrol** | Rs. 345.87 | Litre | **5L – 15 Litres** | +1 L | 5, 7, 10, 12, 15 |
+| **Hi-Cetane Euro-5 Diesel** | Rs. 378.05 | Litre | **5L – 15 Litres** | +1 L | 5, 7, 10, 12, 15 |
+| **High-Octane (Euro-5 / HOBC 97)**| Rs. 365.00 | Litre | **5L – 15 Litres** | +1 L | 5, 7, 10, 12, 15 |
+| **LPG Commercial / Domestic Gas** | Rs. 258.65 | Kilogram | **5 kg – 200 kg** | +1 kg | 5, 10, 20, 50, 100, 200 |
+| **Bulk Potable Clean Water** | Rs. 100.00 | Gallon | **5 gal – 500 gal** | +1 gal | 5, 10, 20, 50, 100, 250, 500 |
 
-> **Enforced Rule**: Absolute minimum volume is **5 Litres / kg / gal**. Sub-5 unit inputs are automatically clamped to 5.
+> **Enforced Rule**: Absolute minimum fuel volume is **5 Litres** and maximum fuel checkout volume is strictly **15 Litres**. Sub-5 unit inputs are automatically clamped to 5; inputs exceeding 15 are clamped to 15.
 
 ---
 
@@ -49,7 +49,7 @@
 2. **Item Selection (Step 1)**:
    - Visual radio tiles for Petrol, Diesel, High-Octane, and LPG Gas.
 3. **Quantity Configuration (Step 2)**:
-   - Stepper buttons (`-` and `+`) with live manual input, minimum 5L threshold, and quick volume chips `[5L, 10L, 20L, 50L ⚡ Free Delivery, 100L, 250L, 500L, 1000L]`.
+   - Stepper buttons (`-` and `+`) with live manual input, minimum 5L threshold, maximum 15L checkout cap, and quick volume chips `[5L, 7L, 10L, 12L, 15L]`.
 4. **Delivery Location & Speed (Step 3)**:
    - Clean single input: `Complete Delivery Address in Lahore *`.
    - Toggle buttons: Simple Delivery (20–45 mins) vs. Urgent Delivery (10–20 mins, +Rs. 100).
@@ -66,6 +66,7 @@
 
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
+| **2026-09-14** | Clamped fuel checkout strictly to **Min: 5L and Max: 15L** with volume chips `[5L, 7L, 10L, 12L, 15L]`. | User requested: *"minimum 5L max 15L is ko fix karo"*. Clamped stepper, range slider, state initializer, and presets to max 15L limit. |
 | **2026-09-13** | Set Simple Delivery charge to **Rs. 250** (<50L) with controlled Urgent surcharge (+Rs. 100). | User confirmed: *"simple delivery charges 250 ya save in ur memory, urgent delivery ma kudh he dekhlena za na ho"*. Total for urgent is Rs. 350 (<50L) and Rs. 100 (50L+). |
 | **2026-09-13** | Reduced Urgent delivery fee surcharge from Rs. 250 to **Rs. 100**. | User requested: *"urgent delivery ma 250 rs bhot zada ha thora kam kaor delivery price ko"*. Surcharge updated to Rs. 100, making sub-50L urgent total Rs. 250 and 50L+ urgent total Rs. 100. |
 | **2026-09-13** | Differentiated Simple vs Urgent delivery pricing in live calculation and UI summary. | User requested: *"dono sa price ma farak parna chaye delivery ma ahar kise ko urgent chaye"*. |

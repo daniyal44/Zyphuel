@@ -14,5 +14,8 @@
 /terms-of-use       /terms/             301
 /terms-of-use/      /terms/             301
 
+# Blog trailing-slash 301 redirects
+/blog/*             /blog/:splat/       301
+
 # Genuine 404 status for non-existent pages (Prevents Google Soft 404 penalty)
 /*                  /404.html           404

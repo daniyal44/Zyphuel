@@ -679,7 +679,7 @@ const ROUTES = [
               "name": "What is the minimum quantity for doorstep diesel delivery?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "You can order as little as 5 liters up to 2,000+ liters per order. Bulk orders of 50+ liters receive free delivery in covered zones in Lahore."
+                "text": "You can order as little as 5 liters up to 15 liters per doorstep fuel order on the checkout portal with calibrated flow metering."
               }
             },
             {

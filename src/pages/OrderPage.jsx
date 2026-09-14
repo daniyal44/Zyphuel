@@ -133,9 +133,9 @@ export default function OrderPage() {
   const [fuelQty, setFuelQty] = useState(() => {
     if (location.state && location.state.qty && ['petrol', 'diesel', 'highOctane'].includes(location.state.fuelType)) {
       const q = Number(location.state.qty)
-      return q >= 5 ? q : 5
+      return Math.min(15, Math.max(5, q || 5))
     }
-    return 50
+    return 5
   })
 
   const [orderGas, setOrderGas] = useState(false)
@@ -221,12 +221,12 @@ export default function OrderPage() {
         } else {
           setOrderFuel(true)
           setSelectedFuelType(parsed.fuelType)
-          setFuelQty(Math.max(5, Number(parsed.quantity) || 50))
+          setFuelQty(Math.min(15, Math.max(5, Number(parsed.quantity) || 5)))
         }
       }
 
       if (parsed.selectedFuelType) setSelectedFuelType(parsed.selectedFuelType)
-      if (parsed.fuelQty) setFuelQty(Math.max(5, Number(parsed.fuelQty) || 50))
+      if (parsed.fuelQty) setFuelQty(Math.min(15, Math.max(5, Number(parsed.fuelQty) || 5)))
       if (parsed.orderGas !== undefined) setOrderGas(parsed.orderGas)
       if (parsed.gasQty) setGasQty(Number(parsed.gasQty) || 5)
       if (parsed.orderWater !== undefined) setOrderWater(parsed.orderWater)
@@ -235,11 +235,11 @@ export default function OrderPage() {
     }
   }, []) // eslint-disable-line
 
-  // Quantity sync helpers (Increments default +1 unit, minimum fuel 5L)
+  // Quantity sync helpers (Increments default +1 unit, minimum fuel 5L, maximum fuel 15L)
   const syncFuelQty = (val) => {
     let v = parseInt(val) || 0
     if (v < 5) v = 5
-    if (v > 2000) v = 2000
+    if (v > 15) v = 15
     setFuelQty(v)
   }
 
@@ -710,12 +710,12 @@ export default function OrderPage() {
                                   onClick={() => syncFuelQty(fuelQty - 1)}
                                   disabled={fuelQty <= 5}>-</button>
                                 <input type="number" className="stepper-input"
-                                  value={fuelQty} min="5" max="2000" step="1"
+                                  value={fuelQty} min="5" max="15" step="1"
                                   onChange={e => syncFuelQty(e.target.value)}
                                   aria-label="Fuel quantity in Litres" />
                                 <button type="button" className="stepper-btn" aria-label="Increase fuel quantity"
                                   onClick={() => syncFuelQty(fuelQty + 1)}
-                                  disabled={fuelQty >= 2000}>+</button>
+                                  disabled={fuelQty >= 15}>+</button>
                               </div>
                               <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Litres</span>
                               <div style={{ marginLeft: 'auto' }}>
@@ -732,12 +732,12 @@ export default function OrderPage() {
                             </div>
                             
                             <input type="range" className="slider-control"
-                              min="5" max="2000" step="1" value={fuelQty}
+                              min="5" max="15" step="1" value={fuelQty}
                               onChange={e => syncFuelQty(e.target.value)}
                               aria-label="Fuel quantity slider" />
                             <div className="limits-row">
                               <span>Min: 5 L</span>
-                              <span>Max: 2000 L</span>
+                              <span>Max: 15 L</span>
                             </div>
 
                             {/* Quick Select Volume Buttons */}
@@ -746,7 +746,7 @@ export default function OrderPage() {
                                 Quick Select Volume:
                               </div>
                               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                                {[5, 10, 20, 50, 100, 250, 500, 1000].map(qty => (
+                                {[5, 7, 10, 12, 15].map(qty => (
                                   <button
                                     key={qty}
                                     type="button"
@@ -763,7 +763,7 @@ export default function OrderPage() {
                                       transition: 'all 0.15s ease'
                                     }}
                                   >
-                                    {qty} L {qty === 50 ? '⚡ Free Delivery' : ''}
+                                    {qty} L {qty === 5 ? '• Min' : qty === 15 ? '• Max' : ''}
                                   </button>
                                 ))}
                               </div>
