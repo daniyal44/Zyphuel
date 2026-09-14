@@ -141,6 +141,20 @@
   box-shadow: 0 0 14px rgba(14, 165, 233, 0.15);
 }
 
+.tab-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 2px;
+}
+
+.tab-pulse-dot.idle-pulse {
+  background: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+  animation: radarPing 1.6s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
 /* 3D Canvas SVG Container */
 .lifecycle-svg-stage {
   position: relative;
@@ -208,6 +222,114 @@
 .simulation-trigger-btn:hover {
   background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
   transform: translateY(-1px);
+}
+
+/* Awaiting Order 3D Vector & Live Standby Strip Styles */
+.awaiting-order-live-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.12) 0%, rgba(14, 165, 233, 0.08) 100%);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.25);
+  padding: 8px 18px;
+  gap: 12px;
+  font-size: 0.74rem;
+  color: #f1f5f9;
+  flex-wrap: wrap;
+}
+
+.awaiting-badge-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #fbbf24;
+}
+
+.awaiting-sonar-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f59e0b;
+  position: relative;
+  box-shadow: 0 0 8px #f59e0b;
+}
+
+.awaiting-sonar-dot::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  border: 1.5px solid #f59e0b;
+  animation: radarPing 1.6s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.awaiting-telemetry-text {
+  color: #cbd5e1;
+  font-size: 0.72rem;
+  flex: 1;
+}
+
+.awaiting-signal-wave {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 14px;
+}
+
+.wave-bar {
+  width: 3px;
+  height: 100%;
+  background: #38bdf8;
+  border-radius: 2px;
+  animation: waveBarPulse 1.2s ease-in-out infinite alternate;
+}
+
+.wave-bar:nth-child(1) { animation-delay: 0.1s; height: 40%; }
+.wave-bar:nth-child(2) { animation-delay: 0.3s; height: 80%; background: #f59e0b; }
+.wave-bar:nth-child(3) { animation-delay: 0.2s; height: 100%; }
+.wave-bar:nth-child(4) { animation-delay: 0.4s; height: 60%; background: #f59e0b; }
+.wave-bar:nth-child(5) { animation-delay: 0.15s; height: 35%; }
+
+@keyframes waveBarPulse {
+  0% { transform: scaleY(0.3); opacity: 0.5; }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+
+/* 3D SVG Drone & Scanner Keyframe Animations */
+.awaiting-drone-hover {
+  animation: droneFloat 3.2s ease-in-out infinite alternate;
+}
+
+@keyframes droneFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-4px) rotate(1.5deg); }
+  100% { transform: translateY(2px) rotate(-1.5deg); }
+}
+
+.drone-rotor-spin {
+  animation: rotorSpin 0.3s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes rotorSpin {
+  0% { opacity: 0.9; }
+  50% { opacity: 0.4; }
+  100% { opacity: 0.9; }
+}
+
+.awaiting-scan-cone {
+  animation: scanSweep 3.2s ease-in-out infinite alternate;
+  transform-origin: 0px 12px;
+}
+
+@keyframes scanSweep {
+  0% { transform: rotate(-7deg); opacity: 0.35; }
+  50% { transform: rotate(3deg); opacity: 0.65; }
+  100% { transform: rotate(8deg); opacity: 0.4; }
 }
 
 @media (max-width: 600px) {

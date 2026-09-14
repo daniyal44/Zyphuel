@@ -58,14 +58,31 @@
    - Payment method toggle: Cash on Delivery (COD) / Direct Bank Transfer.
 6. **Order Summary**:
    - Displays Selected Fuel, Litres, Fuel Subtotal, Dispatch Speed (+Rs. 100 indicator when urgent), Delivery Fee, and Grand Total.
-7. **Live GSAP Dispatch Tracking & WhatsApp Automation**:
-   - Interactive animated bowser truck simulation.
+7. **3D Refueling Lifecycle Tracker (`RefuelingLifecycleTracker.jsx`)**:
+   - **Phase 1 (Awaiting Order)**: Enhanced with a complete 3D vector animation suite:
+     - 3D Hexagonal Cyber Docking Pad with glowing circuit traces under Bowser 01.
+     - Expanding dual-frequency concentric sonar/radar waves radiating across the ground platform.
+     - Autonomous 3D Telemetry LiDAR Drone hovering with sweeping inspection laser cone and spinning rotor discs.
+     - Floating 3D Holographic "Awaiting Order" HUD with orbiting elliptical rings and live oscillating sinusoidal radio frequency waveform.
+     - Live Standby Telemetry Status Strip with animated audio/radio equalizer waveform bars.
+   - **Phase 2 (Depot Filling)**: Real-time volumetric nozzle dispensing simulation.
+   - **Phase 3 (In Transit)**: Active neon laser energy highway corridor tracking.
+   - **Phase 4 (Delivered)**: Connected hose flow with 100% volumetric calibration seal badge.
+8. **Automated WhatsApp Dispatch Synchronization**:
    - Automated redirection to official WhatsApp Dispatch (`+92 3230-112464`) with preformatted, encoded order parameters.
+
+---
+
+## Developer Tooling & Git Automation
+- **`github_push.bat`**: Root-level Windows batch automation script enabling one-click and interactive staging, committing (with custom or auto timestamped messages), and pushing directly to GitHub (`origin/main`).
 
 ---
 
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
+| :--- | :--- | :--- |
+| **2026-09-15** | Created root `github_push.bat` script for direct GitHub push automation. | User requested: *"is ma github_push.bat file banayo gis sa ma direct push kar sako code ko"*. Enables one-click staging, commit prompt with auto-fallback, and push to origin branch. |
+| **2026-09-15** | Added high-tech 3D Vector Animation Suite for **Awaiting Order** state in `RefuelingLifecycleTracker`. | User requested: *"Refueling Lifecycle Tracker Awaiting Order ya gaja per 3d vector animation add karna"*. Added 3D cyber docking pad, dual concentric sonar radar rings, autonomous 3D LiDAR drone with sweeping laser beam, rotating holographic HUD, live sine waveform vector, and standby telemetry strip. |
 | **2026-09-14** | Clamped fuel checkout strictly to **Min: 5L and Max: 15L** with volume chips `[5L, 7L, 10L, 12L, 15L]`. | User requested: *"minimum 5L max 15L is ko fix karo"*. Clamped stepper, range slider, state initializer, and presets to max 15L limit. |
 | **2026-09-13** | Set Simple Delivery charge to **Rs. 250** (<50L) with controlled Urgent surcharge (+Rs. 100). | User confirmed: *"simple delivery charges 250 ya save in ur memory, urgent delivery ma kudh he dekhlena za na ho"*. Total for urgent is Rs. 350 (<50L) and Rs. 100 (50L+). |
 | **2026-09-13** | Reduced Urgent delivery fee surcharge from Rs. 250 to **Rs. 100**. | User requested: *"urgent delivery ma 250 rs bhot zada ha thora kam kaor delivery price ko"*. Surcharge updated to Rs. 100, making sub-50L urgent total Rs. 250 and 50L+ urgent total Rs. 100. |
@@ -76,3 +93,4 @@
 | **2026-09-13** | Removed redundant Startup Transparency box from Order page. | User requested: *"Startup Transparency... ya be ek diikna chaye bar bar nai"*. Retained exclusively on Home page hero. |
 | **2026-09-13** | Upgraded minimum fuel volume from 1L to **5 Litres**. | User requested: *"Min: 5 L, Quick Select: 5 L, 10 L..."*. Clamped stepper and inputs to minimum 5. |
 | **2026-09-13** | Automated instant WhatsApp order dispatch forwarding to `+92 3230-112464`. | Ensures immediate dispatcher coordination upon order completion. |
+

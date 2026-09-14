@@ -117,6 +117,7 @@ export default function RefuelingLifecycleTracker({
           className={`step-tab-btn ${activeTab === 'idle' ? 'active' : ''}`}
           onClick={() => handleTabClick('idle')}
         >
+          {activeTab === 'idle' && <span className="tab-pulse-dot idle-pulse"></span>}
           <i className="fa-solid fa-hourglass-start"></i> 1. Awaiting Order
         </button>
         <button
@@ -142,6 +143,26 @@ export default function RefuelingLifecycleTracker({
         </button>
       </div>
 
+      {/* Awaiting Order Live Telemetry 3D Vector Status Strip */}
+      {activeTab === 'idle' && (
+        <div className="awaiting-order-live-strip">
+          <div className="awaiting-badge-pulse">
+            <span className="awaiting-sonar-dot"></span>
+            <span className="awaiting-label">3D Vector Telemetry: Standby Mode</span>
+          </div>
+          <div className="awaiting-telemetry-text">
+            <span>Bowser 01 on Standby at Hub • 100% Calibrated • Instant 15–45 min Dispatch upon Checkout</span>
+          </div>
+          <div className="awaiting-signal-wave" title="Live Standby Radio Dispatch Frequency">
+            <span className="wave-bar"></span>
+            <span className="wave-bar"></span>
+            <span className="wave-bar"></span>
+            <span className="wave-bar"></span>
+            <span className="wave-bar"></span>
+          </div>
+        </div>
+      )}
+
       {/* 3D Isometric SVG Stage */}
       <div className="lifecycle-svg-stage">
         <svg
@@ -155,6 +176,20 @@ export default function RefuelingLifecycleTracker({
               <path d="M 40 0 L 0 20 L 40 40 Z" fill="none" stroke="rgba(56, 189, 248, 0.04)" strokeWidth="1" />
               <path d="M 0 0 L 40 20 L 0 40 Z" fill="none" stroke="rgba(56, 189, 248, 0.04)" strokeWidth="1" />
             </pattern>
+
+            {/* Standby 3D Docking Pad Gradient */}
+            <linearGradient id="standbyHexPad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.4" />
+              <stop offset="50%" stopColor="#d97706" stopOpacity="0.15" />
+              <stop offset="100%" stopColor="#0f172a" stopOpacity="0.85" />
+            </linearGradient>
+
+            {/* Standby LiDAR Scanner Beam */}
+            <linearGradient id="standbyScannerBeam" x1="50%" y1="0%" x2="50%" y2="100%">
+              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.75" />
+              <stop offset="50%" stopColor="#f59e0b" stopOpacity="0.25" />
+              <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.02" />
+            </linearGradient>
 
             {/* Base Platform Shading */}
             <linearGradient id="dockingPad3D" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -235,6 +270,15 @@ export default function RefuelingLifecycleTracker({
             <filter id="vectorGlow" x="-30%" y="-30%" width="160%" height="160%">
               <feGaussianBlur stdDeviation="3.5" result="blur" />
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+
+            {/* Amber Pulse Glow Filter */}
+            <filter id="pulseGlowAmber" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
             </filter>
 
             {/* Strong Laser Glow */}
@@ -417,6 +461,50 @@ export default function RefuelingLifecycleTracker({
             </g>
 
             {/* ======================================================== */}
+            {/* AWAITING ORDER: 3D GROUND DOCKING PAD & SONAR MATRIX    */}
+            {/* ======================================================== */}
+            {activeTab === 'idle' && (
+              <g className="awaiting-order-ground-matrix" transform="translate(145, 146)">
+                {/* Concentric 3D Expanding Sonar Radar Pulses */}
+                <ellipse cx="0" cy="0" rx="36" ry="15" fill="none" stroke="#f59e0b" strokeWidth="1.8" opacity="0.8">
+                  <animate attributeName="rx" values="18;80" dur="2.4s" repeatCount="indefinite" />
+                  <animate attributeName="ry" values="7.5;34" dur="2.4s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.9;0" dur="2.4s" repeatCount="indefinite" />
+                </ellipse>
+                <ellipse cx="0" cy="0" rx="22" ry="9" fill="none" stroke="#38bdf8" strokeWidth="1.3" opacity="0.7">
+                  <animate attributeName="rx" values="10;58" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+                  <animate attributeName="ry" values="4.5;24" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.85;0" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+                </ellipse>
+
+                {/* 3D Isometric Standby Hexagonal Cyber Docking Pad */}
+                <polygon
+                  points="0,-20 40,-7 40,13 0,26 -40,13 -40,-7"
+                  fill="url(#standbyHexPad)"
+                  stroke="#f59e0b"
+                  strokeWidth="1.4"
+                  strokeDasharray="8,4"
+                  filter="url(#pulseGlowAmber)"
+                >
+                  <animate attributeName="stroke-dashoffset" values="0;24" dur="3s" repeatCount="indefinite" />
+                </polygon>
+
+                {/* Circuit Traces Radiating from Pad */}
+                <line x1="-40" y1="-7" x2="-62" y2="-17" stroke="#f59e0b" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.7" />
+                <line x1="40" y1="-7" x2="62" y2="-17" stroke="#f59e0b" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.7" />
+                <line x1="0" y1="26" x2="0" y2="42" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="4,2" opacity="0.8" />
+                <circle cx="-62" cy="-17" r="2.5" fill="#f59e0b" />
+                <circle cx="62" cy="-17" r="2.5" fill="#f59e0b" />
+                <circle cx="0" cy="42" r="2.5" fill="#38bdf8" />
+
+                {/* Ground Standby Marker Text */}
+                <text x="0" y="34" fill="#fbbf24" fontSize="5.5" fontWeight="800" textAnchor="middle" letterSpacing="0.08em">
+                  STANDBY BAY • HUB-01
+                </text>
+              </g>
+            )}
+
+            {/* ======================================================== */}
             {/* STAGE 2: 3D ZYPHUEL SMART BOWSER (TANKER TRUCK)          */}
             {/* ======================================================== */}
             <g
@@ -534,6 +622,97 @@ export default function RefuelingLifecycleTracker({
                 </text>
               </g>
             </g>
+
+            {/* ======================================================== */}
+            {/* AWAITING ORDER: 3D DRONE LiDAR & HOLOGRAPHIC RADAR SUITE */}
+            {/* ======================================================== */}
+            {activeTab === 'idle' && (
+              <g className="awaiting-order-aerial-suite">
+                {/* 3D Autonomous Telemetry LiDAR Drone */}
+                <g className="awaiting-order-drone-system" transform="translate(152, 40)">
+                  {/* Downward Sweeping LiDAR Scan Light Cone */}
+                  <polygon
+                    points="0,12 -42,102 42,102"
+                    fill="url(#standbyScannerBeam)"
+                    className="awaiting-scan-cone"
+                  />
+
+                  {/* Drone Assembly with Floating Animation */}
+                  <g className="awaiting-drone-hover">
+                    {/* 4 Carbon Struts */}
+                    <line x1="-16" y1="-5" x2="16" y2="5" stroke="#475569" strokeWidth="2.2" />
+                    <line x1="-16" y1="5" x2="16" y2="-5" stroke="#475569" strokeWidth="2.2" />
+
+                    {/* 4 Spinning Rotor Blades */}
+                    <ellipse cx="-16" cy="-5" rx="7.5" ry="2.2" fill="none" stroke="#38bdf8" strokeWidth="1" className="drone-rotor-spin" />
+                    <ellipse cx="16" cy="5" rx="7.5" ry="2.2" fill="none" stroke="#38bdf8" strokeWidth="1" className="drone-rotor-spin" />
+                    <ellipse cx="-16" cy="5" rx="7.5" ry="2.2" fill="none" stroke="#38bdf8" strokeWidth="1" className="drone-rotor-spin" />
+                    <ellipse cx="16" cy="-5" rx="7.5" ry="2.2" fill="none" stroke="#38bdf8" strokeWidth="1" className="drone-rotor-spin" />
+
+                    {/* Drone Pod Chassis */}
+                    <ellipse cx="0" cy="0" rx="10" ry="6" fill="#0f172a" stroke="#f59e0b" strokeWidth="1.2" />
+                    <ellipse cx="0" cy="-1.5" rx="6.5" ry="3.5" fill="#1e293b" />
+
+                    {/* Optical Sensor Eye */}
+                    <circle cx="0" cy="2" r="2.5" fill="#00f2fe" filter="url(#vectorGlow)">
+                      <animate attributeName="r" values="2;3.2;2" dur="1.2s" repeatCount="indefinite" />
+                    </circle>
+
+                    {/* Navigation Strobes */}
+                    <circle cx="-10" cy="0" r="1.5" fill="#ef4444">
+                      <animate attributeName="opacity" values="1;0.2;1" dur="0.8s" repeatCount="indefinite" />
+                    </circle>
+                    <circle cx="10" cy="0" r="1.5" fill="#10b981">
+                      <animate attributeName="opacity" values="1;0.2;1" dur="0.8s" repeatCount="indefinite" />
+                    </circle>
+                  </g>
+                </g>
+
+                {/* Floating 3D Holographic "Awaiting Order" Radar HUD */}
+                <g transform="translate(195, 66)" className="awaiting-order-hologram-hud">
+                  {/* Holographic Orbit Rings */}
+                  <ellipse cx="0" cy="0" rx="38" ry="13" fill="none" stroke="#f59e0b" strokeWidth="1" strokeDasharray="6,4" opacity="0.8">
+                    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="12s" repeatCount="indefinite" />
+                  </ellipse>
+                  <ellipse cx="0" cy="0" rx="26" ry="9" fill="none" stroke="#38bdf8" strokeWidth="0.8" strokeDasharray="8,4" opacity="0.65">
+                    <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="8s" repeatCount="indefinite" />
+                  </ellipse>
+
+                  {/* Isometric Hologram Card Banner */}
+                  <g transform="translate(0, -14)">
+                    <polygon
+                      points="-60,-11 60,-11 54,9 -66,9"
+                      fill="rgba(11, 17, 32, 0.94)"
+                      stroke="#f59e0b"
+                      strokeWidth="1.4"
+                      filter="url(#pulseGlowAmber)"
+                    />
+                    {/* Blinking Amber Signal Pulse Dot */}
+                    <circle cx="-48" cy="-1" r="3" fill="#f59e0b">
+                      <animate attributeName="opacity" values="1;0.2;1" dur="0.8s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="-38" y="2.5" fill="#fbbf24" fontSize="6.8" fontWeight="900" letterSpacing="0.07em">
+                      AWAITING ORDER
+                    </text>
+                    <text x="30" y="2.5" fill="#38bdf8" fontSize="5.5" fontWeight="bold" letterSpacing="0.04em">
+                      • READY
+                    </text>
+                  </g>
+
+                  {/* Live Oscillating Sinusoidal Vector Waveform */}
+                  <path
+                    d="M -32,16 Q -24,8 -16,16 T 0,16 T 16,16 T 32,16"
+                    fill="none"
+                    stroke="#38bdf8"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    filter="url(#vectorGlow)"
+                  >
+                    <animate attributeName="stroke-dashoffset" values="0;32" dur="1.2s" repeatCount="indefinite" />
+                  </path>
+                </g>
+              </g>
+            )}
 
             {/* ======================================================== */}
             {/* STAGE 3: DESTINATION DOCK & CUSTOMER TERMINAL (RIGHT)    */}
