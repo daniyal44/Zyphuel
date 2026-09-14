@@ -229,8 +229,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(90deg, rgba(245, 158, 11, 0.12) 0%, rgba(14, 165, 233, 0.08) 100%);
-  border-bottom: 1px solid rgba(245, 158, 11, 0.25);
+  background: linear-gradient(90deg, rgba(14, 165, 233, 0.12) 0%, rgba(16, 185, 129, 0.08) 100%);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
   padding: 8px 18px;
   gap: 12px;
   font-size: 0.74rem;
@@ -243,16 +243,16 @@
   align-items: center;
   gap: 8px;
   font-weight: 700;
-  color: #fbbf24;
+  color: #38bdf8;
 }
 
 .awaiting-sonar-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #f59e0b;
+  background: #00f2fe;
   position: relative;
-  box-shadow: 0 0 8px #f59e0b;
+  box-shadow: 0 0 10px #00f2fe;
 }
 
 .awaiting-sonar-dot::after {
@@ -263,7 +263,7 @@
   right: -3px;
   bottom: -3px;
   border-radius: 50%;
-  border: 1.5px solid #f59e0b;
+  border: 1.5px solid #00f2fe;
   animation: radarPing 1.6s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 
@@ -289,9 +289,9 @@
 }
 
 .wave-bar:nth-child(1) { animation-delay: 0.1s; height: 40%; }
-.wave-bar:nth-child(2) { animation-delay: 0.3s; height: 80%; background: #f59e0b; }
+.wave-bar:nth-child(2) { animation-delay: 0.3s; height: 80%; background: #10b981; }
 .wave-bar:nth-child(3) { animation-delay: 0.2s; height: 100%; }
-.wave-bar:nth-child(4) { animation-delay: 0.4s; height: 60%; background: #f59e0b; }
+.wave-bar:nth-child(4) { animation-delay: 0.4s; height: 60%; background: #10b981; }
 .wave-bar:nth-child(5) { animation-delay: 0.15s; height: 35%; }
 
 @keyframes waveBarPulse {
@@ -299,37 +299,98 @@
   100% { transform: scaleY(1); opacity: 1; }
 }
 
-/* 3D SVG Drone & Scanner Keyframe Animations */
-.awaiting-drone-hover {
-  animation: droneFloat 3.2s ease-in-out infinite alternate;
+/* Bowser 01 Idle Suspension Breathing Physics */
+.bowser-idle-breath {
+  animation: bowserIdleFloat 3.4s ease-in-out infinite alternate;
 }
 
-@keyframes droneFloat {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-4px) rotate(1.5deg); }
-  100% { transform: translateY(2px) rotate(-1.5deg); }
+@keyframes bowserIdleFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-3.5px); }
+  100% { transform: translateY(0px); }
 }
 
-.drone-rotor-spin {
-  animation: rotorSpin 0.3s linear infinite;
-  transform-origin: center;
+.bowser-shadow-breath {
+  animation: bowserShadowPulse 3.4s ease-in-out infinite alternate;
+  transform-origin: 36px 46px;
 }
 
-@keyframes rotorSpin {
-  0% { opacity: 0.9; }
-  50% { opacity: 0.4; }
-  100% { opacity: 0.9; }
+@keyframes bowserShadowPulse {
+  0% { transform: scale(1); opacity: 0.65; }
+  50% { transform: scale(0.92); opacity: 0.45; }
+  100% { transform: scale(1); opacity: 0.65; }
 }
 
-.awaiting-scan-cone {
-  animation: scanSweep 3.2s ease-in-out infinite alternate;
-  transform-origin: 0px 12px;
+/* Standby Bioluminescent Launch Pad & Radar Sweep */
+.pad-ground-glow {
+  animation: padGlowPulse 2.8s ease-in-out infinite alternate;
 }
 
-@keyframes scanSweep {
-  0% { transform: rotate(-7deg); opacity: 0.35; }
-  50% { transform: rotate(3deg); opacity: 0.65; }
-  100% { transform: rotate(8deg); opacity: 0.4; }
+@keyframes padGlowPulse {
+  0% { opacity: 0.6; }
+  100% { opacity: 0.95; }
+}
+
+.docking-compass-spin {
+  transform-origin: 0px 0px;
+  animation: compassSpin 18s linear infinite;
+}
+
+@keyframes compassSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.docking-radar-sweep {
+  transform-origin: 0px 0px;
+  animation: radarSweepRotate 3.6s linear infinite;
+}
+
+@keyframes radarSweepRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Bioluminescent Floating Micro-Orbs (Nano Particles) */
+.micro-orb {
+  opacity: 0;
+}
+
+.orb-1 {
+  animation: floatOrb 3.2s ease-in-out infinite;
+}
+
+.orb-2 {
+  animation: floatOrb 3.8s ease-in-out 0.8s infinite;
+}
+
+.orb-3 {
+  animation: floatOrb 4.2s ease-in-out 1.6s infinite;
+}
+
+.orb-4 {
+  animation: floatOrb 3.5s ease-in-out 0.4s infinite;
+}
+
+.orb-5 {
+  animation: floatOrb 4.6s ease-in-out 2.2s infinite;
+}
+
+@keyframes floatOrb {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-34px) scale(1.15);
+    opacity: 0;
+  }
 }
 
 @media (max-width: 600px) {

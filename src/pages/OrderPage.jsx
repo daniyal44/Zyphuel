@@ -168,10 +168,16 @@ export default function OrderPage() {
   const [trackerProgress, setTrackerProgress] = useState(0)
   const [generatedWaUrl, setGeneratedWaUrl] = useState('')
   const [trackerSteps, setTrackerSteps] = useState([
-    { status: 'active', title: 'Order Confirmed', desc: 'Your payment method and location are validated.' },
-    { status: '', title: 'Fuel Dispatched', desc: 'Tanker is routing to your address from the nearest hub.' },
+    { status: 'active', title: 'Order Confirmed & Depot Assigned', desc: 'Your payment method and location are validated.' },
+    { status: '', title: 'Fuel Dispatched & En Route', desc: 'Tanker is routing to your address from the nearest hub.' },
     { status: '', title: 'Delivered & Calibrated', desc: 'Fuel tank filled and calibrated flow receipt generated.' },
   ])
+
+  // Active Order Persistence, Anti-Spam Cooldown & Live Countdown Timer
+  const [activeOrder, setActiveOrder] = useState(null)
+  const [showCooldownModal, setShowCooldownModal] = useState(false)
+  const [remainingEtaSeconds, setRemainingEtaSeconds] = useState(0)
+  const [countdownText, setCountdownText] = useState('')
 
   // Official Digital Invoice Modal
   const [invoiceOpen, setInvoiceOpen] = useState(false)
@@ -239,6 +245,63 @@ export default function OrderPage() {
     }
   }, []) // eslint-disable-line
 
+  // Restore Active Order & Live Countdown from localStorage
+  useEffect(() => {
+    try {
+      const storedActive = localStorage.getItem('zyphuel_active_order')
+      if (storedActive) {
+        const order = JSON.parse(storedActive)
+        const elapsedSeconds = Math.floor((Date.now() - order.placedAt) / 1000)
+        const totalDurationSeconds = (order.durationMinutes || (order.deliverySpeed === 'urgent' ? 18 : 35)) * 60
+        const remaining = totalDurationSeconds - elapsedSeconds
+
+        if (order.status !== 'delivered' && remaining > 0) {
+          setActiveOrder(order)
+          setRemainingEtaSeconds(remaining)
+          if (order.invoiceData) setInvoiceData(order.invoiceData)
+          if (order.waUrl) setGeneratedWaUrl(order.waUrl)
+          setTrackerOrderId(`ORDER #${order.orderId}`)
+        } else if (order.status === 'delivered') {
+          setActiveOrder(order)
+          if (order.invoiceData) setInvoiceData(order.invoiceData)
+        }
+      }
+    } catch (e) {
+      console.warn('Could not restore zyphuel_active_order:', e)
+    }
+  }, [])
+
+  // Live Second-by-Second Countdown for Active Order
+  useEffect(() => {
+    if (!activeOrder || activeOrder.status === 'delivered') return
+    const timer = setInterval(() => {
+      const elapsedSeconds = Math.floor((Date.now() - activeOrder.placedAt) / 1000)
+      const totalDurationSeconds = (activeOrder.durationMinutes || (activeOrder.deliverySpeed === 'urgent' ? 18 : 35)) * 60
+      const remaining = Math.max(0, totalDurationSeconds - elapsedSeconds)
+      setRemainingEtaSeconds(remaining)
+
+      const mins = Math.floor(remaining / 60)
+      const secs = remaining % 60
+      const formattedEta = mins > 0 ? `${mins}m ${secs < 10 ? '0' : ''}${secs}s` : `${secs}s`
+      setCountdownText(formattedEta)
+
+      if (remaining > 0) {
+        setTrackerEta(`~${mins + 1} Mins Remaining (${activeOrder.deliverySpeed === 'urgent' ? 'Urgent 10-20 Min' : 'Standard 20-45 Min'})`)
+      } else {
+        setTrackerEta('Arrived at Destination!')
+        setTrackerProgress(100)
+        setDeliveryPhase('delivered')
+        const updated = { ...activeOrder, status: 'delivered' }
+        setActiveOrder(updated)
+        try {
+          localStorage.setItem('zyphuel_active_order', JSON.stringify(updated))
+        } catch (e) {}
+      }
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [activeOrder])
+
   // Quantity sync helpers (Increments default +1 unit, minimum fuel 5L, maximum fuel 15L)
   const syncFuelQty = (val) => {
     let v = parseInt(val) || 0
@@ -278,10 +341,12 @@ export default function OrderPage() {
   }
 
   // Tracker simulation & WhatsApp Redirect
-  const startTracking = (orderName) => {
+  const startTracking = (orderName, isAdditional = false) => {
     const id = 'ZYP-' + Math.floor(100000 + Math.random() * 900000)
     setTrackerOrderId(`ORDER #${id}`)
-    setTrackerEta(deliverySpeed === 'urgent' ? '15 Mins' : '45 Mins')
+    
+    const durationMinutes = deliverySpeed === 'urgent' ? 18 : 35
+    setTrackerEta(deliverySpeed === 'urgent' ? '15 Mins (Urgent Express)' : '35 Mins (Standard Dispatch)')
 
     const itemsList = []
     if (orderFuel) itemsList.push(`${fuelQty}L of ${FUEL_DISPLAY[selectedFuelType]} (@ Rs. ${fuelRate.toFixed(2)}/L = Rs. ${fuelCost.toLocaleString()})`)
@@ -294,12 +359,25 @@ export default function OrderPage() {
     else if (!orderFuel && orderGas && !orderWater) dispatchTitle = 'LPG Dispatched'
     else if (!orderFuel && !orderGas && orderWater) dispatchTitle = 'Water Dispatched'
 
+    // Initial Stage 1: Order Confirmed, loading depot
     setTrackerSteps([
-      { status: 'active', title: 'Order Confirmed', desc: `Validation complete for ${orderName || 'Customer'}. Payment Method: ${isCodEligible ? 'Cash on Delivery (COD)' : 'Advance Payment'}.` },
-      { status: '', title: dispatchTitle, desc: `Vehicle is carrying ${itemsDesc} to ${address || 'your address'}. Speed: ${deliverySpeed === 'urgent' ? 'Urgent' : 'Simple'}.` },
-      { status: '', title: 'Delivered & Calibrated', desc: `Delivery completed successfully at ${address || 'your address'}. Safe journey!` },
+      { 
+        status: 'active', 
+        title: 'Order Confirmed & Depot Assigned', 
+        desc: `Validation complete for ${orderName || name || 'Customer'}. Assigned to Lahore Hub #01. Bowser queue scheduled.` 
+      },
+      { 
+        status: '', 
+        title: `${dispatchTitle} En Route`, 
+        desc: `Vehicle is preparing to carry ${itemsDesc} to ${address || 'your address'}. Speed: ${deliverySpeed === 'urgent' ? 'Urgent Express (10-20 Mins)' : 'Simple Standard (20-45 Mins)'}.` 
+      },
+      { 
+        status: '', 
+        title: 'Delivered & Calibrated', 
+        desc: `Awaiting arrival at destination. 0.01L calibrated meter refueling and tamper-proof printed receipt.` 
+      },
     ])
-    setTrackerProgress(0)
+    setTrackerProgress(20)
     setTrackerOpen(true)
     setDeliveryPhase('loading')
 
@@ -385,46 +463,153 @@ export default function OrderPage() {
     } catch (err) {
       console.warn('Could not auto-open WhatsApp:', err)
     }
-    let step = 1
-    if (trackingIntervalRef.current) clearInterval(trackingIntervalRef.current)
-    trackingIntervalRef.current = setInterval(() => {
-      step++
-      if (step === 2) {
-        setTrackerSteps(prev => [
-          { ...prev[0], status: 'completed' },
-          { ...prev[1], status: 'active' },
-          prev[2],
-        ])
-        setTrackerProgress(50)
-        setTrackerEta(deliverySpeed === 'urgent' ? '8 Mins' : '24 Mins')
-        setDeliveryPhase('transit')
-        showToast('Your delivery has been dispatched!', 'success')
-      }
-      if (step === 3) {
-        setTrackerSteps(prev => [
-          prev[0],
-          { ...prev[1], status: 'completed' },
-          { ...prev[2], status: 'active' },
-        ])
-        setTrackerProgress(100)
-        setTrackerEta('Arrived at your site!')
-        setDeliveryPhase('delivered')
-        showToast('Vehicle has arrived at your address!', 'success')
-      }
-      if (step === 4) {
-        setTrackerSteps(prev => [prev[0], prev[1], { ...prev[2], status: 'completed' }])
-        clearInterval(trackingIntervalRef.current)
-      }
-    }, 4000)
+
+    // Persist new active order in state and localStorage
+    const newActiveOrder = {
+      orderId: id,
+      placedAt: Date.now(),
+      customerName: orderName || name || 'Valued Customer',
+      phone: phone || '',
+      email: email || '',
+      address: address || '',
+      itemsList,
+      itemsSummary: itemsDesc,
+      selectedFuelType,
+      fuelQty,
+      orderFuel,
+      orderGas,
+      gasQty,
+      orderWater,
+      waterQty,
+      deliverySpeed,
+      total,
+      durationMinutes,
+      status: 'loading',
+      invoiceData: inv,
+      waUrl: waUrl
+    }
+    setActiveOrder(newActiveOrder)
+    try {
+      localStorage.setItem('zyphuel_active_order', JSON.stringify(newActiveOrder))
+    } catch (e) {}
+
+    // Realistic Transition to En Route Dispatch:
+    // After ~10 seconds of depot preparation, transition to "Dispatched & En Route"
+    if (trackingIntervalRef.current) clearTimeout(trackingIntervalRef.current)
+    trackingIntervalRef.current = setTimeout(() => {
+      setTrackerSteps([
+        { 
+          status: 'completed', 
+          title: 'Order Confirmed & Depot Assigned', 
+          desc: `Validation complete for ${orderName || name || 'Customer'}. Assigned to Lahore Hub #01.` 
+        },
+        { 
+          status: 'active', 
+          title: `${dispatchTitle} En Route`, 
+          desc: `Bowser #04 dispatched with calibrated digital flow-meter. Live GPS telemetry active to ${address || 'your address'}.` 
+        },
+        { 
+          status: '', 
+          title: 'Delivered & Calibrated', 
+          desc: `Awaiting arrival at destination. 0.01L calibrated meter refueling and tamper-proof printed receipt.` 
+        },
+      ])
+      setTrackerProgress(60)
+      setDeliveryPhase('transit')
+      showToast('Bowser vehicle has been dispatched and is en route!', 'success')
+
+      setActiveOrder(prev => {
+        if (!prev) return prev
+        const updated = { ...prev, status: 'transit' }
+        try {
+          localStorage.setItem('zyphuel_active_order', JSON.stringify(updated))
+        } catch (e) {}
+        return updated
+      })
+    }, 10000)
   }
 
-  // Truck button submit
+  // Manual trigger for QA & verification of final delivery stage
+  const handleSimulateDelivery = () => {
+    setTrackerSteps(prev => [
+      { ...prev[0], status: 'completed' },
+      { ...prev[1], status: 'completed' },
+      { 
+        status: 'completed', 
+        title: 'Delivered & Calibrated', 
+        desc: `Delivery successfully completed at ${address || activeOrder?.address || 'your address'}. Calibrated flow receipt verified.` 
+      },
+    ])
+    setTrackerProgress(100)
+    setTrackerEta('Delivery Complete & Calibrated')
+    setDeliveryPhase('delivered')
+    showToast('Delivery completed and flow-meter calibrated!', 'success')
+
+    setActiveOrder(prev => {
+      if (!prev) return prev
+      const updated = { ...prev, status: 'delivered' }
+      try {
+        localStorage.setItem('zyphuel_active_order', JSON.stringify(updated))
+      } catch (e) {}
+      return updated
+    })
+  }
+
+  // Open existing active tracker from notification banner
+  const handleOpenActiveTracker = () => {
+    if (!activeOrder) return
+    setTrackerOrderId(`ORDER #${activeOrder.orderId}`)
+    const elapsedSeconds = Math.floor((Date.now() - activeOrder.placedAt) / 1000)
+    const isTransit = elapsedSeconds > 10 || activeOrder.status === 'transit'
+    const isDelivered = activeOrder.status === 'delivered'
+
+    setTrackerSteps([
+      {
+        status: 'completed',
+        title: 'Order Confirmed & Depot Assigned',
+        desc: `Validation complete for ${activeOrder.customerName || 'Customer'}. Assigned to Lahore Hub #01.`
+      },
+      {
+        status: isDelivered ? 'completed' : (isTransit ? 'active' : ''),
+        title: `${FUEL_DISPLAY[activeOrder.selectedFuelType] || 'Fuel'} Dispatched & En Route`,
+        desc: `Bowser #04 carrying ${activeOrder.itemsSummary || 'fuel'} to ${activeOrder.address}. Speed: ${activeOrder.deliverySpeed === 'urgent' ? 'Urgent Express (10-20 Mins)' : 'Standard (20-45 Mins)'}.`
+      },
+      {
+        status: isDelivered ? 'completed' : '',
+        title: 'Delivered & Calibrated',
+        desc: isDelivered
+          ? `Delivery completed successfully at ${activeOrder.address}. Safe journey!`
+          : `Awaiting arrival at ${activeOrder.address}. 0.01L calibrated meter refueling.`
+      }
+    ])
+    setTrackerProgress(isDelivered ? 100 : (isTransit ? 60 : 25))
+    setDeliveryPhase(isDelivered ? 'delivered' : (isTransit ? 'transit' : 'loading'))
+    if (activeOrder.invoiceData) setInvoiceData(activeOrder.invoiceData)
+    if (activeOrder.waUrl) setGeneratedWaUrl(activeOrder.waUrl)
+    setTrackerOpen(true)
+  }
+
+  // Truck button submit with anti-spam cooldown protection
   const handleTruckClick = () => {
     if (isSubmittingRef.current) return
     if (!validateForm()) {
       showToast('Please check form inputs for errors.', 'error')
       return
     }
+
+    // Anti-spam cooldown check: If an active order was placed within the last 15 minutes and is not delivered
+    if (activeOrder && activeOrder.status !== 'delivered') {
+      const elapsed = Date.now() - activeOrder.placedAt
+      if (elapsed < 15 * 60 * 1000) {
+        setShowCooldownModal(true)
+        return
+      }
+    }
+
+    proceedOrderSubmission(false)
+  }
+
+  const proceedOrderSubmission = (isAdditional = false) => {
     isSubmittingRef.current = true
 
     const orderPayload = { 
@@ -449,7 +634,7 @@ export default function OrderPage() {
     const gsap = window.gsap
     if (!gsap) {
       button.classList.add('animation', 'done')
-      startTracking(name)
+      startTracking(name, isAdditional)
       isSubmittingRef.current = false
       return
     }
@@ -471,7 +656,7 @@ export default function OrderPage() {
             gsap.timeline({
               onComplete: () => {
                 button.classList.add('done')
-                startTracking(name)
+                startTracking(name, isAdditional)
                 isSubmittingRef.current = false
               }
             })
@@ -491,17 +676,16 @@ export default function OrderPage() {
         gsap.set(box, { x: -24, y: -6 })
       }
       isSubmittingRef.current = false
+      startTracking(name, isAdditional)
     }
   }
 
   const closeTracker = () => {
     setTrackerOpen(false)
-    if (trackingIntervalRef.current) clearInterval(trackingIntervalRef.current)
   }
 
   const resetOrder = () => {
     closeTracker()
-    setDeliveryPhase('idle')
     const button = truckBtnRef.current
     if (button) {
       button.classList.remove('animation', 'done')
@@ -688,6 +872,119 @@ export default function OrderPage() {
               <h1 className="section-title">Order Petrol &amp; Diesel Online in Lahore</h1>
               <p className="section-subtitle">Select fuel, LPG Gas, or Water. Calculate rates in real time, customize quantities, and track your delivery.</p>
             </div>
+
+            {/* Active Dispatch Notification Card (Visible if an active order is in progress) */}
+            {activeOrder && (
+              <div className="active-dispatch-banner fade-in-up" style={{
+                background: activeOrder.status === 'delivered'
+                  ? 'linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(2, 132, 199, 0.08) 100%)'
+                  : 'linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(234, 88, 12, 0.08) 100%)',
+                border: activeOrder.status === 'delivered' ? '2px solid #10b981' : '2px solid #0284c7',
+                borderRadius: '16px',
+                padding: '16px 20px',
+                marginBottom: '26px',
+                boxShadow: '0 6px 20px rgba(2, 132, 199, 0.12)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '16px'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flex: '1 1 300px' }}>
+                  <div style={{
+                    width: '44px',
+                    height: '44px',
+                    borderRadius: '12px',
+                    background: activeOrder.status === 'delivered' ? '#10b981' : '#0284c7',
+                    color: '#ffffff',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1.25rem',
+                    flexShrink: 0
+                  }}>
+                    <i className={activeOrder.status === 'delivered' ? 'fa-solid fa-circle-check' : 'fa-solid fa-truck-fast'}></i>
+                  </div>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                      <span style={{ fontWeight: 800, color: '#0f172a', fontSize: '1.02rem' }}>
+                        Active Order: #{activeOrder.orderId}
+                      </span>
+                      <span style={{
+                        background: activeOrder.status === 'delivered' ? '#10b981' : (activeOrder.status === 'loading' ? '#f59e0b' : '#0284c7'),
+                        color: '#ffffff',
+                        fontSize: '0.72rem',
+                        fontWeight: 800,
+                        padding: '2px 9px',
+                        borderRadius: '20px',
+                        letterSpacing: '0.04em'
+                      }}>
+                        {activeOrder.status === 'delivered'
+                          ? 'DELIVERED & CALIBRATED'
+                          : (activeOrder.status === 'loading' ? 'DEPOT LOADING' : 'EN ROUTE / IN TRANSIT')}
+                      </span>
+                    </div>
+                    <p style={{ margin: '4px 0 0 0', fontSize: '0.86rem', color: '#475569' }}>
+                      {activeOrder.itemsSummary || `${activeOrder.fuelQty}L Fuel`} &bull; Destination: <strong>{activeOrder.address}</strong>
+                      {activeOrder.status !== 'delivered' && countdownText && (
+                        <span style={{ marginLeft: '8px', color: '#0284c7', fontWeight: 700 }}>
+                          &bull; ETA: {countdownText}
+                        </span>
+                      )}
+                    </p>
+                  </div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                  <button
+                    type="button"
+                    onClick={handleOpenActiveTracker}
+                    className="btn"
+                    style={{
+                      background: '#0284c7',
+                      color: '#ffffff',
+                      fontWeight: 700,
+                      fontSize: '0.86rem',
+                      padding: '8px 16px',
+                      borderRadius: '8px',
+                      border: 'none',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px'
+                    }}
+                  >
+                    <i className="fa-solid fa-location-crosshairs"></i>
+                    Track Live Fleet (ٹریک کریں)
+                  </button>
+                  {activeOrder.invoiceData && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setInvoiceData(activeOrder.invoiceData)
+                        setInvoiceOpen(true)
+                      }}
+                      className="btn"
+                      style={{
+                        background: 'rgba(2, 132, 199, 0.1)',
+                        color: '#0284c7',
+                        fontWeight: 700,
+                        fontSize: '0.86rem',
+                        padding: '8px 14px',
+                        borderRadius: '8px',
+                        border: '1px solid rgba(2, 132, 199, 0.3)',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px'
+                      }}
+                    >
+                      <i className="fa-solid fa-file-invoice"></i>
+                      View Invoice (رسید)
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
 
             <div className="order-container-grid">
 
@@ -1487,11 +1784,22 @@ export default function OrderPage() {
             <div className="success-checkmark-circle">
               <i className="fa-solid fa-check"></i>
             </div>
-            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)' }}>Order Placed Successfully!</h3>
+            <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+              {activeOrder?.status === 'delivered' ? 'Delivery Completed!' : 'Order Placed Successfully!'}
+            </h3>
             <span className="tracker-order-id" id="tracking-order-id-label">{trackerOrderId}</span>
           </div>
           <div className="tracker-eta-box">
-            Status: <span className="tracker-eta-val" id="tracking-eta-timer">Active Dispatch</span>
+            Status: <span className="tracker-eta-val" id="tracking-eta-timer">
+              {activeOrder?.status === 'delivered'
+                ? 'Delivered & Calibrated'
+                : (activeOrder?.status === 'loading' ? 'Depot Verification & Calibration' : 'Active Dispatch En Route')}
+            </span>
+            {activeOrder && activeOrder.status !== 'delivered' && countdownText && (
+              <span style={{ display: 'block', fontSize: '0.88rem', color: '#0284c7', marginTop: '6px', fontWeight: 700 }}>
+                ⏱️ Estimated Arrival: {countdownText} ({activeOrder.deliverySpeed === 'urgent' ? '10-20 Min Urgent' : '20-45 Min Standard'})
+              </span>
+            )}
           </div>
           <div className="tracker-timeline">
             <div className="tracker-progress-line" id="tracker-progress-bar" style={{ height: `${trackerProgress}%` }}></div>
@@ -1499,8 +1807,8 @@ export default function OrderPage() {
               <div key={i} className={`tracker-step${step.status ? ' ' + step.status : ''}`} id={`tracker-step-${i + 1}`}>
                 <div className="step-node">{i + 1}</div>
                 <div className="step-info">
-                  <span className="step-title">{step.title}</span>
-                  <span className="step-desc">{step.desc}</span>
+                  <span className="step-title" style={{ display: 'block', marginBottom: '3px' }}>{step.title}</span>
+                  <span className="step-desc" style={{ display: 'block', lineHeight: 1.45 }}>{step.desc}</span>
                 </div>
               </div>
             ))}
@@ -1566,12 +1874,145 @@ export default function OrderPage() {
               </a>
             </div>
           )}
-          <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end', marginTop: '15px' }}>
-            <button type="button" className="btn btn-ghost" id="close-tracker-btn" style={{ flex: 1 }} onClick={closeTracker}>Close Screen</button>
-            <button type="button" className="btn btn-primary" id="track-order-reset-btn" style={{ flex: 1 }} onClick={resetOrder}>Order Again</button>
+          <div style={{ display: 'flex', gap: '10px', justifyContent: 'space-between', alignItems: 'center', marginTop: '15px', flexWrap: 'wrap' }}>
+            <button
+              type="button"
+              className="btn btn-ghost"
+              id="close-tracker-btn"
+              style={{ flex: '1 1 140px', fontSize: '0.86rem' }}
+              onClick={closeTracker}
+            >
+              Keep Tracking in Background (بند کریں)
+            </button>
+
+            {/* Test Simulation Button: Allows manual testing of Step 3 arrival */}
+            {activeOrder && activeOrder.status !== 'delivered' && (
+              <button
+                type="button"
+                className="btn"
+                onClick={handleSimulateDelivery}
+                title="Test button to simulate delivery arrival"
+                style={{
+                  flex: '1 1 140px',
+                  background: 'rgba(16, 185, 129, 0.1)',
+                  color: '#10b981',
+                  border: '1px solid rgba(16, 185, 129, 0.3)',
+                  fontSize: '0.82rem',
+                  fontWeight: 600,
+                  padding: '8px 12px',
+                  borderRadius: '8px'
+                }}
+              >
+                <i className="fa-solid fa-flag-checkered" style={{ marginRight: '6px' }}></i>
+                Simulate Arrival (ٹیسٹ: آمد)
+              </button>
+            )}
+
+            <button
+              type="button"
+              className="btn btn-primary"
+              id="track-order-reset-btn"
+              style={{ flex: '1 1 140px', fontSize: '0.86rem' }}
+              onClick={() => {
+                closeTracker()
+                handleTruckClick()
+              }}
+            >
+              Place Additional Order (نیا آرڈر)
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Active Order Cooldown Warning Modal (Anti-Spam Time Gap Protection) */}
+      {showCooldownModal && activeOrder && (
+        <div
+          className="modal-backdrop open"
+          id="cooldown-modal-backdrop"
+          onClick={e => e.target === e.currentTarget && setShowCooldownModal(false)}
+        >
+          <div className="tracker-modal" style={{ maxWidth: '500px', textAlign: 'center', padding: '28px 22px' }}>
+            <div style={{
+              width: '56px',
+              height: '56px',
+              borderRadius: '50%',
+              background: 'rgba(234, 88, 12, 0.12)',
+              color: '#ea580c',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '1.75rem',
+              margin: '0 auto 14px auto'
+            }}>
+              <i className="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px' }}>
+              Active Fuel Dispatch In Progress!
+            </h3>
+            <span style={{
+              fontSize: '0.85rem',
+              fontWeight: 700,
+              color: '#0284c7',
+              background: 'rgba(2, 132, 199, 0.1)',
+              padding: '4px 12px',
+              borderRadius: '20px',
+              display: 'inline-block',
+              marginBottom: '14px'
+            }}>
+              Order #{activeOrder.orderId} &bull; {countdownText ? `ETA: ${countdownText}` : 'En Route'}
+            </span>
+            <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '20px' }}>
+              A fuel bowser is already en route to: <strong>{activeOrder.address}</strong>.
+              To avoid duplicate bowser dispatches and double billing, we maintain a safety time gap between orders.
+            </p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => {
+                  setShowCooldownModal(false)
+                  handleOpenActiveTracker()
+                }}
+                style={{ width: '100%', padding: '12px 18px', fontWeight: 700, fontSize: '0.95rem' }}
+              >
+                <i className="fa-solid fa-location-crosshairs" style={{ marginRight: '8px' }}></i>
+                Track Existing Dispatch (موجودہ آرڈر دیکھیں)
+              </button>
+
+              <button
+                type="button"
+                className="btn"
+                onClick={() => {
+                  setShowCooldownModal(false)
+                  proceedOrderSubmission(true)
+                }}
+                style={{
+                  width: '100%',
+                  padding: '10px 18px',
+                  fontWeight: 600,
+                  fontSize: '0.88rem',
+                  background: 'rgba(234, 88, 12, 0.1)',
+                  color: '#ea580c',
+                  border: '1px solid rgba(234, 88, 12, 0.3)'
+                }}
+              >
+                <i className="fa-solid fa-truck" style={{ marginRight: '6px' }}></i>
+                Confirm Additional Tanker (اضافی نیا آرڈر بھیجیں)
+              </button>
+
+              <button
+                type="button"
+                className="btn btn-ghost"
+                onClick={() => setShowCooldownModal(false)}
+                style={{ width: '100%', marginTop: '4px', fontSize: '0.85rem' }}
+              >
+                Close &amp; Wait (کینسل کریں)
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Official Order Digital Invoice Modal */}
       {invoiceData && (

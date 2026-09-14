@@ -77,6 +77,20 @@
    - **Dual Export Options**:
      - **Print / Save as PDF**: Leverages browser `window.print()` coupled with dedicated `@media print` CSS rules to generate high-resolution, vector-crisp PDF documents stripped of navigation elements.
      - **Standalone HTML Download**: Creates an offline `.html` digital receipt file via standard Blob and object URL download (`handleDownloadInvoiceHTML()`).
+10. **Realistic Dispatch Lifecycle & Anti-Spam Order Cooldown Guard**:
+    - **Elimination of Instant 8-Second Auto-Delivery**: Fixed the unrealistic simulation where orders automatically jumped through Confirmed -> Dispatched -> Delivered in 8 seconds. Orders now enter Depot Loading (~10s preparation), transition to **"En Route / In Transit"** with live second-by-second ETA countdown, and remain in active transit until arrival.
+    - **Active Order Persistence (`localStorage`)**: Saves active dispatch under `zyphuel_active_order` across browser refreshes and page visits.
+    - **Active Dispatch Banner on Checkout**: Renders a live telemetry card above the order form displaying order ID, fuel volume, destination address, live ETA countdown, and quick links to live tracking and digital invoice.
+    - **Anti-Spam Cooldown Guard & Duplicate Confirmation**: Prevents rapid back-to-back duplicate orders ("order pe order place karte rehna"). If an order was placed within 15 minutes, presents a safety confirmation modal asking the customer to track their existing tanker or explicitly confirm an additional bowser.
+    - **Manual QA Arrival Trigger**: Added a dedicated `Simulate Arrival (ٹیسٹ: آمد)` button in the tracker modal for testing the final calibrated delivery stage.
+
+11. **Satisfying Bioluminescent Vector Telemetry Overhaul in `RefuelingLifecycleTracker`**:
+    - **Elimination of Visual Clutter & Text Collisions**: Removed awkward polygon drone, rigid yellow scan cone, and 10+ scattered redundant SVG `<text>` elements (`DEPOT HUB-01`, `STANDBY BAY • HUB-01`, `AWAITING ORDER • READY`, `GPS TARGET`, `1. DEPOT DISPATCH`, `2. SMART ENERGY CORRIDOR`, `3. SITE CALIBRATION`).
+    - **Bioluminescent Launch & Docking Pad**: Added soft radial floor glow (`#00f2fe` into emerald `#10b981`) beneath Bowser 01 with three staggered expanding concentric ultrasonic ripple waves.
+    - **360° Rotating Cyber Compass & Sweeping Radar Beam**: High-precision rotating geometric ring with cardinal indicator notches and smooth 360° sweeping volumetric radar scan beam.
+    - **Suspension Breathing Physics on Bowser 01**: Smooth vertical sinusoidal breathing animation (`translateY(-3.5px)`) applied to Bowser's chassis with synchronized ground shadow expansion/contraction, bringing mechanical life to the vehicle.
+    - **Drifting Bioluminescent Micro-Orbs**: 5 organic nano particles floating gracefully upward from the docking pad into the atmosphere.
+    - **Minimalist Live HUD Beacon**: Crisp overhead status chip (`🟢 FLEET READY`) with pulsing cyan/emerald laser beacon dot.
 
 ---
 
@@ -88,6 +102,8 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-15** | Overhauled Refueling Lifecycle Tracker with Hypnotic Bioluminescent Vector Animation Suite & Zero Clutter. | User requested: *"ek achi se vector animation use karo jo dekhne ma satisfaction de users ko , abi wali bulkul be achi nai ha sara maza kharab kar dia ha order ka"*. Removed the clumsy polygon drone, yellow scan cone, and noisy text labels. Introduced smooth concentric ripple waves, 360° radar sweep, suspension breathing physics, drifting micro-orbs, and clean minimalist HUD. |
+| **2026-09-15** | Implemented Realistic Dispatch Lifecycle, Active Order Persistence, and 15-Min Anti-Spam Cooldown Guard. | User requested: *"is ko be theek karo foran order execute or dispatch or delivery ma karo, time gap be lo ya bus order pe order he place karte rahna ha"*. Fixed the 8-second auto-delivery bug, added live countdown ETA in transit, persisted active order banner on checkout, added cooldown duplicate prevention modal, and provided manual arrival simulation trigger. |
 | **2026-09-15** | Added Instant Digital Invoice Generation with On-Screen Viewer, PDF Print, and HTML Receipt Download. | User requested: *"order karne ka bad ek invoice generate hone chaye take user us dekh sake or invoice ko download kar sake"*. Created printable invoice modal, OGRA compliance seal, itemized tax/pricing breakdown, PDF export via browser print dialog, and standalone HTML download. |
 | **2026-09-15** | Created root `github_push.bat` script for direct GitHub push automation. | User requested: *"is ma github_push.bat file banayo gis sa ma direct push kar sako code ko"*. Enables one-click staging, commit prompt with auto-fallback, and push to origin branch. |
 | **2026-09-15** | Added high-tech 3D Vector Animation Suite for **Awaiting Order** state in `RefuelingLifecycleTracker`. | User requested: *"Refueling Lifecycle Tracker Awaiting Order ya gaja per 3d vector animation add karna"*. Added 3D cyber docking pad, dual concentric sonar radar rings, autonomous 3D LiDAR drone with sweeping laser beam, rotating holographic HUD, live sine waveform vector, and standby telemetry strip. |

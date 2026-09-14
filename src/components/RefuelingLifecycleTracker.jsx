@@ -266,6 +266,21 @@ export default function RefuelingLifecycleTracker({
               <stop offset="100%" stopColor="#312e81" />
             </linearGradient>
 
+            {/* Standby Luminous Ground Radial Aura */}
+            <radialGradient id="standbyGroundAura" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#00f2fe" stopOpacity="0.45" />
+              <stop offset="35%" stopColor="#0ea5e9" stopOpacity="0.2" />
+              <stop offset="70%" stopColor="#10b981" stopOpacity="0.06" />
+              <stop offset="100%" stopColor="#020617" stopOpacity="0" />
+            </radialGradient>
+
+            {/* Docking Radar Sweep Gradient */}
+            <linearGradient id="radarSweepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0" />
+              <stop offset="50%" stopColor="#00f2fe" stopOpacity="0.12" />
+              <stop offset="100%" stopColor="#00f2fe" stopOpacity="0.45" />
+            </linearGradient>
+
             {/* Glow Filter */}
             <filter id="vectorGlow" x="-30%" y="-30%" width="160%" height="160%">
               <feGaussianBlur stdDeviation="3.5" result="blur" />
@@ -275,6 +290,24 @@ export default function RefuelingLifecycleTracker({
             {/* Amber Pulse Glow Filter */}
             <filter id="pulseGlowAmber" x="-40%" y="-40%" width="180%" height="180%">
               <feGaussianBlur stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            {/* Docking Pad Glow Filter */}
+            <filter id="dockingPadGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+
+            {/* Soft Particle Glow Filter */}
+            <filter id="softParticleGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="2" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
@@ -451,56 +484,70 @@ export default function RefuelingLifecycleTracker({
                 )}
               </g>
 
-              {/* Depot Label Badge */}
-              <g transform="translate(5, 96)">
-                <rect x="0" y="0" width="85" height="18" rx="9" fill="#0f172a" stroke="rgba(56, 189, 248, 0.4)" strokeWidth="1" />
-                <text x="42" y="12" fill="#38bdf8" fontSize="8" fontWeight="800" textAnchor="middle" letterSpacing="0.05em">
-                  DEPOT HUB-01
+              {/* Sleek Depot Micro Badge */}
+              <g transform="translate(10, 96)">
+                <rect x="0" y="0" width="72" height="15" rx="7.5" fill="#090d16" stroke="rgba(56, 189, 248, 0.35)" strokeWidth="0.8" />
+                <circle cx="9" cy="7.5" r="2.2" fill="#0ea5e9">
+                  <animate attributeName="opacity" values="1;0.3;1" dur="1.4s" repeatCount="indefinite" />
+                </circle>
+                <text x="42" y="10.5" fill="#38bdf8" fontSize="6.5" fontWeight="800" textAnchor="middle" letterSpacing="0.06em">
+                  DEPOT HUB 01
                 </text>
               </g>
             </g>
 
             {/* ======================================================== */}
-            {/* AWAITING ORDER: 3D GROUND DOCKING PAD & SONAR MATRIX    */}
+            {/* AWAITING ORDER: 3D LUXURY LAUNCH PAD & BIOLUMINESCENT SONAR */}
             {/* ======================================================== */}
             {activeTab === 'idle' && (
               <g className="awaiting-order-ground-matrix" transform="translate(145, 146)">
-                {/* Concentric 3D Expanding Sonar Radar Pulses */}
-                <ellipse cx="0" cy="0" rx="36" ry="15" fill="none" stroke="#f59e0b" strokeWidth="1.8" opacity="0.8">
-                  <animate attributeName="rx" values="18;80" dur="2.4s" repeatCount="indefinite" />
-                  <animate attributeName="ry" values="7.5;34" dur="2.4s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.9;0" dur="2.4s" repeatCount="indefinite" />
+                {/* Deep Bioluminescent Radial Energy Floor Glow */}
+                <ellipse cx="0" cy="0" rx="90" ry="38" fill="url(#standbyGroundAura)" className="pad-ground-glow" />
+
+                {/* Staggered Concentric Luminous Halo Ripple Waves */}
+                <ellipse cx="0" cy="0" rx="18" ry="7.5" fill="none" stroke="#00f2fe" strokeWidth="1.8" filter="url(#dockingPadGlow)">
+                  <animate attributeName="rx" values="18;88" dur="3s" repeatCount="indefinite" />
+                  <animate attributeName="ry" values="7.5;36" dur="3s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.9;0" dur="3s" repeatCount="indefinite" />
                 </ellipse>
-                <ellipse cx="0" cy="0" rx="22" ry="9" fill="none" stroke="#38bdf8" strokeWidth="1.3" opacity="0.7">
-                  <animate attributeName="rx" values="10;58" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
-                  <animate attributeName="ry" values="4.5;24" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.85;0" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+                <ellipse cx="0" cy="0" rx="18" ry="7.5" fill="none" stroke="#38bdf8" strokeWidth="1.4" filter="url(#dockingPadGlow)">
+                  <animate attributeName="rx" values="18;88" dur="3s" begin="1s" repeatCount="indefinite" />
+                  <animate attributeName="ry" values="7.5;36" dur="3s" begin="1s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.85;0" dur="3s" begin="1s" repeatCount="indefinite" />
+                </ellipse>
+                <ellipse cx="0" cy="0" rx="18" ry="7.5" fill="none" stroke="#10b981" strokeWidth="1.2" filter="url(#dockingPadGlow)">
+                  <animate attributeName="rx" values="18;88" dur="3s" begin="2s" repeatCount="indefinite" />
+                  <animate attributeName="ry" values="7.5;36" dur="3s" begin="2s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.8;0" dur="3s" begin="2s" repeatCount="indefinite" />
                 </ellipse>
 
-                {/* 3D Isometric Standby Hexagonal Cyber Docking Pad */}
-                <polygon
-                  points="0,-20 40,-7 40,13 0,26 -40,13 -40,-7"
-                  fill="url(#standbyHexPad)"
-                  stroke="#f59e0b"
-                  strokeWidth="1.4"
-                  strokeDasharray="8,4"
-                  filter="url(#pulseGlowAmber)"
-                >
-                  <animate attributeName="stroke-dashoffset" values="0;24" dur="3s" repeatCount="indefinite" />
-                </polygon>
+                {/* Precision Isometric Cyber Platform */}
+                <ellipse cx="0" cy="0" rx="54" ry="22" fill="#090d16" stroke="rgba(56, 189, 248, 0.4)" strokeWidth="1.5" />
+                <ellipse cx="0" cy="0" rx="46" ry="19" fill="#0c1322" stroke="rgba(0, 242, 254, 0.3)" strokeWidth="1" strokeDasharray="6,4" />
 
-                {/* Circuit Traces Radiating from Pad */}
-                <line x1="-40" y1="-7" x2="-62" y2="-17" stroke="#f59e0b" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.7" />
-                <line x1="40" y1="-7" x2="62" y2="-17" stroke="#f59e0b" strokeWidth="1.2" strokeDasharray="3,2" opacity="0.7" />
-                <line x1="0" y1="26" x2="0" y2="42" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="4,2" opacity="0.8" />
-                <circle cx="-62" cy="-17" r="2.5" fill="#f59e0b" />
-                <circle cx="62" cy="-17" r="2.5" fill="#f59e0b" />
-                <circle cx="0" cy="42" r="2.5" fill="#38bdf8" />
+                {/* Rotating 360° Geometric Cyber Compass Ring */}
+                <g className="docking-compass-spin">
+                  <ellipse cx="0" cy="0" rx="38" ry="16" fill="none" stroke="#00f2fe" strokeWidth="1.2" strokeDasharray="14,6,4,6" opacity="0.85" />
+                  <line x1="-38" y1="0" x2="-34" y2="0" stroke="#00f2fe" strokeWidth="2" />
+                  <line x1="38" y1="0" x2="34" y2="0" stroke="#00f2fe" strokeWidth="2" />
+                  <line x1="0" y1="-16" x2="0" y2="-13" stroke="#00f2fe" strokeWidth="2" />
+                  <line x1="0" y1="16" x2="0" y2="13" stroke="#00f2fe" strokeWidth="2" />
+                </g>
 
-                {/* Ground Standby Marker Text */}
-                <text x="0" y="34" fill="#fbbf24" fontSize="5.5" fontWeight="800" textAnchor="middle" letterSpacing="0.08em">
-                  STANDBY BAY • HUB-01
-                </text>
+                {/* Sweeping 360° Radar Scan Beam */}
+                <g className="docking-radar-sweep">
+                  <path d="M 0,0 L 48,0 A 48,20 0 0,1 34,14 Z" fill="url(#radarSweepGrad)" />
+                  <line x1="0" y1="0" x2="48" y2="0" stroke="#00f2fe" strokeWidth="1.6" filter="url(#dockingPadGlow)" />
+                </g>
+
+                {/* Floating Bioluminescent Micro-Orbs Drifting Upward */}
+                <g className="drifting-micro-orbs">
+                  <circle cx="-28" cy="-6" r="1.8" fill="#00f2fe" filter="url(#softParticleGlow)" className="micro-orb orb-1" />
+                  <circle cx="24" cy="8" r="1.5" fill="#34d399" filter="url(#softParticleGlow)" className="micro-orb orb-2" />
+                  <circle cx="-12" cy="12" r="2.2" fill="#38bdf8" filter="url(#softParticleGlow)" className="micro-orb orb-3" />
+                  <circle cx="36" cy="-8" r="1.6" fill="#a7f3d0" filter="url(#softParticleGlow)" className="micro-orb orb-4" />
+                  <circle cx="6" cy="-14" r="2" fill="#00f2fe" filter="url(#softParticleGlow)" className="micro-orb orb-5" />
+                </g>
               </g>
             )}
 
@@ -514,205 +561,133 @@ export default function RefuelingLifecycleTracker({
               }}
             >
               {/* Truck Ground Shadow */}
-              <ellipse cx="36" cy="46" rx="42" ry="14" fill="#020617" opacity="0.65" />
+              <ellipse
+                cx="36"
+                cy="46"
+                rx="42"
+                ry="14"
+                fill="#020617"
+                opacity="0.65"
+                className={activeTab === 'idle' ? 'bowser-shadow-breath' : ''}
+              />
 
-              {/* Tanker Cylindrical Body (Rear Section) */}
-              <g transform="translate(0, 5)">
-                {/* Back end ellipse */}
-                <ellipse cx="14" cy="24" rx="13" ry="16" fill="#0284c7" stroke="#38bdf8" strokeWidth="1" />
-                {/* Middle fuselage */}
-                <polygon points="14,8 55,20 55,52 14,40" fill="url(#tankerBody)" />
-                {/* Front end ellipse */}
-                <ellipse cx="55" cy="36" rx="13" ry="16" fill="url(#siloChrome)" stroke="#7dd3fc" strokeWidth="1" />
+              {/* Truck Suspended Body with Idle Suspension Breathing */}
+              <g className={activeTab === 'idle' ? 'bowser-idle-breath' : ''}>
+                {/* Tanker Cylindrical Body (Rear Section) */}
+                <g transform="translate(0, 5)">
+                  {/* Back end ellipse */}
+                  <ellipse cx="14" cy="24" rx="13" ry="16" fill="#0284c7" stroke="#38bdf8" strokeWidth="1" />
+                  {/* Middle fuselage */}
+                  <polygon points="14,8 55,20 55,52 14,40" fill="url(#tankerBody)" />
+                  {/* Front end ellipse */}
+                  <ellipse cx="55" cy="36" rx="13" ry="16" fill="url(#siloChrome)" stroke="#7dd3fc" strokeWidth="1" />
 
-                {/* Chrome bands around tanker */}
-                <path d="M 28,12 C 34,16 38,28 38,36" fill="none" stroke="#7dd3fc" strokeWidth="1.2" opacity="0.8" />
-                <path d="M 42,16 C 48,20 52,32 52,40" fill="none" stroke="#7dd3fc" strokeWidth="1.2" opacity="0.8" />
+                  {/* Chrome bands around tanker */}
+                  <path d="M 28,12 C 34,16 38,28 38,36" fill="none" stroke="#7dd3fc" strokeWidth="1.2" opacity="0.8" />
+                  <path d="M 42,16 C 48,20 52,32 52,40" fill="none" stroke="#7dd3fc" strokeWidth="1.2" opacity="0.8" />
 
-                {/* ZYPHUEL High-Tech Livery Text */}
-                <text
-                  x="30"
-                  y="34"
-                  fill="#ffffff"
-                  fontSize="7.5"
-                  fontWeight="900"
-                  fontFamily="sans-serif"
-                  letterSpacing="0.08em"
-                  transform="rotate(16, 30, 34)"
-                >
-                  ZYPHUEL
-                </text>
+                  {/* ZYPHUEL High-Tech Livery Text */}
+                  <text
+                    x="30"
+                    y="34"
+                    fill="#ffffff"
+                    fontSize="7.5"
+                    fontWeight="900"
+                    fontFamily="sans-serif"
+                    letterSpacing="0.08em"
+                    transform="rotate(16, 30, 34)"
+                  >
+                    ZYPHUEL
+                  </text>
 
-                {/* HAZMAT Diamond Placard (Flammable Red) */}
-                <polygon points="15,22 19,19 23,22 19,25" fill="#ef4444" stroke="#ffffff" strokeWidth="0.5" />
-                <text x="19" y="23" fill="#ffffff" fontSize="3" fontWeight="bold" textAnchor="middle">3</text>
+                  {/* HAZMAT Diamond Placard (Flammable Red) */}
+                  <polygon points="15,22 19,19 23,22 19,25" fill="#ef4444" stroke="#ffffff" strokeWidth="0.5" />
+                  <text x="19" y="23" fill="#ffffff" fontSize="3" fontWeight="bold" textAnchor="middle">3</text>
 
-                {/* Digital Calibrated Meter LED on Side of Bowser */}
-                <rect x="36" y="32" width="14" height="7" rx="1.5" fill="#090d16" stroke="#38bdf8" strokeWidth="0.6" />
-                <text x="43" y="37" fill="#10b981" fontSize="4.5" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                  {activeTab === 'delivered' ? `${fuelQty}.0L` : '0.00L'}
-                </text>
-              </g>
-
-              {/* Truck Driver Cab (Front Section) */}
-              <g transform="translate(48, 14)">
-                {/* Cab Main 3D Shape */}
-                <polygon points="0,12 18,3 32,11 14,20" fill="url(#truckCab)" />
-                <polygon points="0,12 14,20 14,35 0,27" fill="#0369a1" />
-                <polygon points="14,20 32,11 32,26 14,35" fill="#075985" />
-
-                {/* Windshield Glass Tint */}
-                <polygon points="15,18 29,11 29,18 15,25" fill="#38bdf8" fillOpacity="0.8" />
-                <polygon points="3,15 12,20 12,27 3,22" fill="#38bdf8" fillOpacity="0.65" />
-
-                {/* Front Chrome Grille */}
-                <polygon points="30,22 32,21 32,25 30,26" fill="#cbd5e1" />
-                <polygon points="30,24 32,23 32,27 30,28" fill="#94a3b8" />
-
-                {/* Roof Amber Warning Strobe */}
-                <circle cx="15" cy="8" r="3" fill="#f59e0b" filter="url(#vectorGlow)">
-                  <animate attributeName="opacity" values="1;0.3;1" dur="0.8s" repeatCount="indefinite" />
-                </circle>
-
-                {/* Dual Xenon Headlight Projection Beams */}
-                <polygon points="32,23 75,32 65,55 32,28" fill="url(#xenonBeam)" />
-              </g>
-
-              {/* Heavy-Duty Isometric 3D Wheels (6 wheels) */}
-              {[
-                { cx: 18, cy: 45 },
-                { cx: 34, cy: 50 },
-                { cx: 65, cy: 42 },
-              ].map((w, idx) => (
-                <g key={idx}>
-                  {/* Outer Tyre */}
-                  <ellipse cx={w.cx} cy={w.cy} rx="5.5" ry="8" fill="#020617" stroke="#334155" strokeWidth="0.8" />
-                  {/* Alloy Rim */}
-                  <ellipse cx={w.cx} cy={w.cy} rx="2.5" ry="4" fill="#94a3b8" />
-                  <circle cx={w.cx} cy={w.cy} r="1" fill="#0f172a" />
+                  {/* Digital Calibrated Meter LED on Side of Bowser */}
+                  <rect x="36" y="32" width="14" height="7" rx="1.5" fill="#090d16" stroke="#38bdf8" strokeWidth="0.6" />
+                  <text x="43" y="37" fill="#10b981" fontSize="4" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                    {activeTab === 'delivered' ? `${fuelQty}.0L` : activeTab === 'loading' ? 'FILLING' : 'STANDBY'}
+                  </text>
                 </g>
-              ))}
 
-              {/* Floating Live Telemetry HUD Tag above Bowser */}
-              <g transform="translate(10, -18)">
-                <rect
-                  x="0"
-                  y="0"
-                  width="70"
-                  height="16"
-                  rx="8"
-                  fill="#0b1120"
-                  stroke={activeTab === 'delivered' ? '#10b981' : '#38bdf8'}
-                  strokeWidth="1"
-                  filter="url(#vectorGlow)"
-                />
-                <text
-                  x="35"
-                  y="11"
-                  fill={activeTab === 'delivered' ? '#34d399' : '#e0f2fe'}
-                  fontSize="7"
-                  fontWeight="bold"
-                  textAnchor="middle"
-                  letterSpacing="0.04em"
-                >
-                  {activeTab === 'idle' && 'READY • STANDBY'}
-                  {activeTab === 'loading' && 'CALIBRATING...'}
-                  {activeTab === 'transit' && 'EN ROUTE • LIVE'}
-                  {activeTab === 'delivered' && 'DISPATCH SUCCESS'}
-                </text>
+                {/* Truck Driver Cab (Front Section) */}
+                <g transform="translate(48, 14)">
+                  {/* Cab Main 3D Shape */}
+                  <polygon points="0,12 18,3 32,11 14,20" fill="url(#truckCab)" />
+                  <polygon points="0,12 14,20 14,35 0,27" fill="#0369a1" />
+                  <polygon points="14,20 32,11 32,26 14,35" fill="#075985" />
+
+                  {/* Windshield Glass Tint */}
+                  <polygon points="15,18 29,11 29,18 15,25" fill="#38bdf8" fillOpacity="0.8" />
+                  <polygon points="3,15 12,20 12,27 3,22" fill="#38bdf8" fillOpacity="0.65" />
+
+                  {/* Front Chrome Grille */}
+                  <polygon points="30,22 32,21 32,25 30,26" fill="#cbd5e1" />
+                  <polygon points="30,24 32,23 32,27 30,28" fill="#94a3b8" />
+
+                  {/* Roof Amber Warning Strobe */}
+                  <circle cx="15" cy="8" r="3" fill="#f59e0b" filter="url(#vectorGlow)">
+                    <animate attributeName="opacity" values="1;0.3;1" dur="0.8s" repeatCount="indefinite" />
+                  </circle>
+
+                  {/* Dual Xenon Headlight Projection Beams */}
+                  <polygon points="32,23 75,32 65,55 32,28" fill="url(#xenonBeam)" opacity="0.85" />
+                </g>
+
+                {/* Heavy-Duty Isometric 3D Wheels (6 wheels) */}
+                {[
+                  { cx: 18, cy: 45 },
+                  { cx: 34, cy: 50 },
+                  { cx: 65, cy: 42 },
+                ].map((w, idx) => (
+                  <g key={idx}>
+                    {/* Outer Tyre */}
+                    <ellipse cx={w.cx} cy={w.cy} rx="5.5" ry="8" fill="#020617" stroke="#334155" strokeWidth="0.8" />
+                    {/* Alloy Rim */}
+                    <ellipse cx={w.cx} cy={w.cy} rx="2.5" ry="4" fill="#94a3b8" />
+                    <circle cx={w.cx} cy={w.cy} r="1" fill="#0f172a" />
+                  </g>
+                ))}
+
+                {/* Floating Live Telemetry HUD Tag above Bowser */}
+                <g transform="translate(6, -20)">
+                  <rect
+                    x="0"
+                    y="0"
+                    width="78"
+                    height="16"
+                    rx="8"
+                    fill="rgba(11, 17, 32, 0.94)"
+                    stroke={activeTab === 'delivered' ? '#10b981' : activeTab === 'idle' ? '#00f2fe' : '#38bdf8'}
+                    strokeWidth="1"
+                    filter="url(#vectorGlow)"
+                  />
+                  <circle
+                    cx="10"
+                    cy="8"
+                    r="2.5"
+                    fill={activeTab === 'delivered' ? '#10b981' : activeTab === 'idle' ? '#00f2fe' : '#f59e0b'}
+                  >
+                    <animate attributeName="opacity" values="1;0.3;1" dur="0.9s" repeatCount="indefinite" />
+                  </circle>
+                  <text
+                    x="45"
+                    y="11"
+                    fill={activeTab === 'delivered' ? '#34d399' : activeTab === 'idle' ? '#a5f3fc' : '#e0f2fe'}
+                    fontSize="6.5"
+                    fontWeight="800"
+                    textAnchor="middle"
+                    letterSpacing="0.04em"
+                  >
+                    {activeTab === 'idle' && 'FLEET READY'}
+                    {activeTab === 'loading' && 'CALIBRATING'}
+                    {activeTab === 'transit' && 'EN ROUTE'}
+                    {activeTab === 'delivered' && 'DISPATCH SUCCESS'}
+                  </text>
+                </g>
               </g>
             </g>
-
-            {/* ======================================================== */}
-            {/* AWAITING ORDER: 3D DRONE LiDAR & HOLOGRAPHIC RADAR SUITE */}
-            {/* ======================================================== */}
-            {activeTab === 'idle' && (
-              <g className="awaiting-order-aerial-suite">
-                {/* 3D Autonomous Telemetry LiDAR Drone */}
-                <g className="awaiting-order-drone-system" transform="translate(152, 40)">
-                  {/* Downward Sweeping LiDAR Scan Light Cone */}
-                  <polygon
-                    points="0,12 -42,102 42,102"
-                    fill="url(#standbyScannerBeam)"
-                    className="awaiting-scan-cone"
-                  />
-
-                  {/* Drone Assembly with Floating Animation */}
-                  <g className="awaiting-drone-hover">
-                    {/* 4 Carbon Struts */}
-                    <line x1="-16" y1="-5" x2="16" y2="5" stroke="#475569" strokeWidth="2.2" />
-                    <line x1="-16" y1="5" x2="16" y2="-5" stroke="#475569" strokeWidth="2.2" />
-
-                    {/* 4 Spinning Rotor Blades */}
-                    <ellipse cx="-16" cy="-5" rx="7.5" ry="2.2" fill="none" stroke="#38bdf8" strokeWidth="1" className="drone-rotor-spin" />
-                    <ellipse cx="16" cy="5" rx="7.5" ry="2.2" fill="none" stroke="#38bdf8" strokeWidth="1" className="drone-rotor-spin" />
-                    <ellipse cx="-16" cy="5" rx="7.5" ry="2.2" fill="none" stroke="#38bdf8" strokeWidth="1" className="drone-rotor-spin" />
-                    <ellipse cx="16" cy="-5" rx="7.5" ry="2.2" fill="none" stroke="#38bdf8" strokeWidth="1" className="drone-rotor-spin" />
-
-                    {/* Drone Pod Chassis */}
-                    <ellipse cx="0" cy="0" rx="10" ry="6" fill="#0f172a" stroke="#f59e0b" strokeWidth="1.2" />
-                    <ellipse cx="0" cy="-1.5" rx="6.5" ry="3.5" fill="#1e293b" />
-
-                    {/* Optical Sensor Eye */}
-                    <circle cx="0" cy="2" r="2.5" fill="#00f2fe" filter="url(#vectorGlow)">
-                      <animate attributeName="r" values="2;3.2;2" dur="1.2s" repeatCount="indefinite" />
-                    </circle>
-
-                    {/* Navigation Strobes */}
-                    <circle cx="-10" cy="0" r="1.5" fill="#ef4444">
-                      <animate attributeName="opacity" values="1;0.2;1" dur="0.8s" repeatCount="indefinite" />
-                    </circle>
-                    <circle cx="10" cy="0" r="1.5" fill="#10b981">
-                      <animate attributeName="opacity" values="1;0.2;1" dur="0.8s" repeatCount="indefinite" />
-                    </circle>
-                  </g>
-                </g>
-
-                {/* Floating 3D Holographic "Awaiting Order" Radar HUD */}
-                <g transform="translate(195, 66)" className="awaiting-order-hologram-hud">
-                  {/* Holographic Orbit Rings */}
-                  <ellipse cx="0" cy="0" rx="38" ry="13" fill="none" stroke="#f59e0b" strokeWidth="1" strokeDasharray="6,4" opacity="0.8">
-                    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="12s" repeatCount="indefinite" />
-                  </ellipse>
-                  <ellipse cx="0" cy="0" rx="26" ry="9" fill="none" stroke="#38bdf8" strokeWidth="0.8" strokeDasharray="8,4" opacity="0.65">
-                    <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="8s" repeatCount="indefinite" />
-                  </ellipse>
-
-                  {/* Isometric Hologram Card Banner */}
-                  <g transform="translate(0, -14)">
-                    <polygon
-                      points="-60,-11 60,-11 54,9 -66,9"
-                      fill="rgba(11, 17, 32, 0.94)"
-                      stroke="#f59e0b"
-                      strokeWidth="1.4"
-                      filter="url(#pulseGlowAmber)"
-                    />
-                    {/* Blinking Amber Signal Pulse Dot */}
-                    <circle cx="-48" cy="-1" r="3" fill="#f59e0b">
-                      <animate attributeName="opacity" values="1;0.2;1" dur="0.8s" repeatCount="indefinite" />
-                    </circle>
-                    <text x="-38" y="2.5" fill="#fbbf24" fontSize="6.8" fontWeight="900" letterSpacing="0.07em">
-                      AWAITING ORDER
-                    </text>
-                    <text x="30" y="2.5" fill="#38bdf8" fontSize="5.5" fontWeight="bold" letterSpacing="0.04em">
-                      • READY
-                    </text>
-                  </g>
-
-                  {/* Live Oscillating Sinusoidal Vector Waveform */}
-                  <path
-                    d="M -32,16 Q -24,8 -16,16 T 0,16 T 16,16 T 32,16"
-                    fill="none"
-                    stroke="#38bdf8"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    filter="url(#vectorGlow)"
-                  >
-                    <animate attributeName="stroke-dashoffset" values="0;32" dur="1.2s" repeatCount="indefinite" />
-                  </path>
-                </g>
-              </g>
-            )}
 
             {/* ======================================================== */}
             {/* STAGE 3: DESTINATION DOCK & CUSTOMER TERMINAL (RIGHT)    */}
@@ -765,7 +740,7 @@ export default function RefuelingLifecycleTracker({
                 ))}
               </g>
 
-              {/* Floating Holographic GPS Laser Target Beacon */}
+              {/* Floating Holographic Laser Target Beacon */}
               <g transform="translate(60, -10)">
                 {/* Vertical Laser Beam Dropping to Ground */}
                 <line
@@ -780,12 +755,9 @@ export default function RefuelingLifecycleTracker({
                 >
                   <animate attributeName="stroke-dashoffset" values="0;20" dur="1s" repeatCount="indefinite" />
                 </line>
-                {/* Overhead Holographic GPS Satellite Badge */}
+                {/* Overhead Holographic Node Marker */}
                 <polygon points="0,-25 15,-15 0,-5 -15,-15" fill="#0b1120" stroke="#38bdf8" strokeWidth="1.5" filter="url(#vectorGlow)" />
                 <circle cx="0" cy="-15" r="3" fill="#38bdf8" />
-                <text x="0" y="-30" fill="#7dd3fc" fontSize="7" fontWeight="bold" textAnchor="middle">
-                  GPS TARGET
-                </text>
               </g>
 
               {/* Fueling Hose Connection in 'delivered' Phase */}
@@ -843,19 +815,6 @@ export default function RefuelingLifecycleTracker({
                   </text>
                 </g>
               )}
-            </g>
-
-            {/* Stage Progress Waypoint Markers */}
-            <g transform="translate(100, 240)">
-              <text x="0" y="0" fill="#64748b" fontSize="8" fontWeight="bold">
-                1. DEPOT DISPATCH
-              </text>
-              <text x="140" y="20" fill="#64748b" fontSize="8" fontWeight="bold">
-                2. SMART ENERGY CORRIDOR
-              </text>
-              <text x="310" y="0" fill="#64748b" fontSize="8" fontWeight="bold">
-                3. SITE CALIBRATION
-              </text>
             </g>
           </g>
         </svg>
