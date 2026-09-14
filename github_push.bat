@@ -57,8 +57,17 @@ echo.
 echo [INFO] Staging all changes...
 git add -A
 
-echo [INFO] Committing with message: "%COMMIT_MSG%"
-git commit -m "%COMMIT_MSG%"
+git diff --staged --quiet
+if %ERRORLEVEL% neq 0 (
+    echo [INFO] Committing with message: "%COMMIT_MSG%"
+    git commit -m "%COMMIT_MSG%"
+) else (
+    echo [INFO] No new changes to commit. Checking remote sync...
+)
+
+echo.
+echo [INFO] Syncing with remote GitHub repository (git pull --rebase)...
+git pull --rebase origin %CURRENT_BRANCH%
 
 echo.
 echo --------------------------------------------------------------
