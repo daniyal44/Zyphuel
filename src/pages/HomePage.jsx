@@ -6,6 +6,7 @@ import { articles } from '../data/articles'
 import BlogCard from '../components/BlogCard'
 import BlogModal from '../components/BlogModal'
 import Carousel3D from '../components/Carousel3D'
+import ScrollAnimationSection from '../components/ScrollAnimationSection'
 import { useSEO } from '../hooks/useSEO'
 import { APP_VERSION } from '../data/appVersion'
 export default function HomePage() {
@@ -183,9 +184,13 @@ export default function HomePage() {
   ]
 
   return (
+    
     <main id="main-content" ref={pageRef}>
+      {/* Scroll Sequence Animation Section */}
+      <ScrollAnimationSection />
+
       {/* Hero Section */}
-      <section id="home" className="hero" style={{ minHeight: 'calc(100vh - var(--nav-height))', display: 'flex', alignItems: 'center' }}>
+      <section id="home" className="hero" style={{ minHeight: 'calc(100vh - var(--nav-height))', display: 'flex', alignItems: 'center', paddingTop: '40px' }}>
         <div className="container">
           <div className="hero-grid">
             {/* Left: Content */}
@@ -233,6 +238,7 @@ export default function HomePage() {
                   </button>
                 </div>
               )}
+             
               <div className="hero-subtitle-badge">
                 <i className="fa-solid fa-gas-pump"></i>
                 <span>Fuel on Your Doorstep – Lahore</span>

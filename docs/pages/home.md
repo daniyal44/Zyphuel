@@ -20,6 +20,17 @@
 ---
 
 ## Key Sections & Components
+0. **Cinematic 3D Scrollytelling Section (Above Hero)**:
+   - Component: `src/components/ScrollAnimationSection.jsx` + `src/components/ScrollAnimationSection.css`.
+   - **Kinetic Lerp Interpolation**: 60fps RAF loop with gentler easing (`diff * 0.08`) prevents quick jumps and creates a slow-motion fluid glide.
+   - **Extended Slow-Pace Runway (`1050vh` Desktop / `850vh` Mobile)**: Expanded scroll track allowing the user to scrub slowly through the 300 frames without rushing past.
+   - **4 Narrative Milestones**:
+     - *Phase 1 (Purity)*: Amber glow, nozzle macro stream, Euro-V standards.
+     - *Phase 2 (Containment)*: Blue glow, canister refueling, specialized stainless steel storage.
+     - *Phase 3 (Calibration)*: Cyan glow, top-angle canister fill, 0.01L digital calibration guarantee.
+     - *Phase 4 (Delivery)*: Emerald glow, hermetically sealed canister, 15–30 min Lahore dispatch CTA.
+   - **Clean Fullscreen Presentation**: Technical top overlay bar (`Zyphuel 3D Refueling Sequence`, `001 / 300`, `Skip Intro`) and side phase dots (`Purity`, `Containment`, `Calibration`, `Delivery`) removed per user request for an immersive, distraction-free visual experience with zero impact on scroll performance.
+
 1. **Hero Section**:
    - Headline: Certified Euro-V Fuel & Energy Logistics Delivered Directly to Your Doorstep in Lahore.
    - Live Telemetry Badges: `98% Calibrated Flow Meter`, `Active Dispatch GPS`, `Lahore Hub #01 (0.01L Meter Calibrated)`.
@@ -65,6 +76,9 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-16** | Reduced scroll animation speed for slower, cinematic scrubbing. | User feedback: *"scroll animation bhot fast ho rahi ha , slow hone chaye thori se"*. Expanded runway to 1050vh (desktop) and 850vh (mobile), tuned RAF easing factor from 0.14 to 0.08 for slow-motion feel. |
+| **2026-09-16** | Removed top tech bar and vertical navigation dots overlay. | User requested: *"Zyphuel 3D Refueling Sequence, 001 / 300, Skip Intro, Purity, Containment, Calibration, Delivery ya show nai hone chaye... isko remove karne sa scroll animation per koi farak na pare"*. Kept scroll animation, 650vh track, lerp easing, and preloader 100% intact. |
+| **2026-09-16** | Upgraded Scroll Animation into full Apple-style Cinematic Scrollytelling build-up. | User requested proper pacing and presentation (*"proper build up do... ache se represent karo"*). Expanded track to 650vh with 60fps RAF lerp easing, 4 glassmorphic narrative stages (Purity, Containment, Calibration, Delivery), interactive milestone dots, and seamless gradient exit. |
 | **2026-09-15** | Configured Startup Transparency box to appear strictly once per day. | User requested: *"Startup Transparency... one time in a day show hona chaye bar bar nai"*. Added date-based `localStorage` check (`zyphuel_transparency_last_date`) and dismiss button (`×`). |
 | **2026-09-13** | Added dedicated Office Hours & 24/7 Delivery schedule box. | User requested explicit office timings (Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm, Delivery 24/7 Always Active) on Home page. |
 | **2026-09-13** | Maintained single Startup Transparency box exclusively on Home hero. | User instructed to keep startup transparency notice visible once without repeating across subsequent screens. |
