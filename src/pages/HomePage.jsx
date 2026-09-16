@@ -38,7 +38,7 @@ export default function HomePage() {
 
   useSEO({
     title: 'Doorstep Fuel Delivery in Lahore | Fast Petrol & Diesel | Zyphuel',
-    description: 'Order certified Euro-V petrol, diesel, and generator fuel delivered directly to your doorstep in Lahore within 15-45 minutes. Calibrated digital flow meters, OGRA rates, and live GPS tracking.',
+    description: 'Order certified Euro-V petrol, diesel, and generator fuel delivered directly to your doorstep in Lahore within 20-45 minutes. Calibrated digital flow meters, OGRA rates, and live GPS tracking.',
     keywords: [
       'fuel delivery Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
       'petrol pump near me Lahore', 'fuel station near me', 'petrol pump open now Lahore',

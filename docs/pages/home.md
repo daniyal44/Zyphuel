@@ -10,7 +10,7 @@
 
 ## SEO & Structured Data
 - **Page Title**: `Doorstep Fuel Delivery in Lahore | Fast Petrol & Diesel | Zyphuel`
-- **Meta Description**: `Order certified Euro-V petrol, diesel, and generator fuel delivered directly to your doorstep in Lahore within 15-45 minutes. Calibrated digital flow meters, OGRA rates, and live GPS tracking.`
+- **Meta Description**: `Order certified Euro-V petrol, diesel, and generator fuel delivered directly to your doorstep in Lahore within 20-45 minutes. Calibrated digital flow meters, OGRA rates, and live GPS tracking.`
 - **Schema Type**: `LocalBusiness` / `OfferCatalog` / `PostalAddress`
   - Address: 75-Main Boulevard, Gulberg III, Lahore, Punjab 54000, PK
   - Coordinates: Latitude `31.507534`, Longitude `74.334949`
@@ -47,7 +47,7 @@
 
 4. **Service Value Pillars**:
    - 0.01L Positive-Displacement Digital Flow Meter Calibration.
-   - Rapid 15–45 Minute Lahore Dispatch.
+   - Rapid 20–45 Minute Lahore Dispatch (10–20 min Urgent).
    - Certified Euro-V Low-Sulfur Quality.
    - 24/7 Generator & Emergency Support.
 
@@ -77,6 +77,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-16** | Comprehensive SEO, Technical SEO, Hreflang & Operational Claim Harmonization. | Implemented user SEO & technical blueprint: (1) Cleaned `canonicalAndHreflang` across `prerender.js`, `useSEO.js`, and `SeoHead.jsx` by retaining only `canonical`, `x-default`, and `en-PK` (preventing Google Search Console duplicate hreflang conflict error from invalid `en-US` and `ur-PK`), (2) Eliminated monolithic 30-term keyword stuffing in `<meta name="keywords">` in favor of targeted high-intent keywords per route, (3) Cleaned up schema `AggregateOffer` on `/order/` (replaced arbitrary fake static prices with valid `Offer` at official OGRA rates), (4) Standardized operational delivery windows (20–45 min standard, 10–20 min urgent), hose length (50-meter delivery hose), and COD eligibility range (5–10 Litres) across all pages, FAQs, and data structures. |
 | **2026-09-16** | 100% Exact Match to Reference zz.html Architecture. | User provided: `"D:\Games\New folder\zz.html"` reference and demanded: *"reference ka lia ma ne tume ek file de ha us ko open karo or dekho kia current home page ka hero section is sa match ho raha ha ka nai, aghar nai ho raha to match karo"*. Inspected `zz.html` and matched its exact architecture: (1) Canvas native 1:1 image rendering (`canvas.width = img.naturalWidth`, `canvas.height = img.naturalHeight`, `ctx.drawImage(img, 0, 0)`) without subpixel coordinate math or artificial zooming, (2) Centered responsive CSS layout (`top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100%; max-height: 100%`) on pure `#000` black background, (3) Direct RAF-throttled scroll-to-frame calculation (`Math.floor(fraction * 300)`), (4) Native pulsing scroll hint (`↓ Scroll to animate ↓`) that fades away on first scroll, (5) Consistent 2500vh runway on both mobile and laptop. Zero blue lines, zero clutter. SSG build passed (exit 0). |
 | **2026-09-16** | Zero-Artifact Pixel Smoothing & Elimination of Blue Line Artifact. | User demanded: *"usme blue line ki show ho rahi hai. Yeh frame ke pixels ki problem hai, yeh mujhe sahi karke dena zara... Itna hi lamba mobile mein bhi hona chahiye, aur itna hi lamba laptop mein bhi hona chahiye. Responsiveness isme har device ke mutabiq add honi chahiye"*. Completely removed progress bar and progress fill track (eliminated the blue line artifact entirely). Upgraded canvas rendering with `ctx.imageSmoothingEnabled = true`, `ctx.imageSmoothingQuality = 'high'`, and integer rounding (`Math.round`) for `dw, dh, dx, dy` to eliminate subpixel blurring, pixel tearing, and boundary seams. Kept 600vh runway uniform on mobile and laptop. Sitemaps and robots.txt updated and verified with green SSG build. |
 | **2026-09-16** | Mobile Responsiveness Fix + robots.txt & sitemap.xml Update. | User reported: *"mobile ma responsiveness nai ha, robots.txt or site map be update karna, is section mein jo tumne image di hai na, uske mutabiq bana dena achhe se... responsiveness isme har device ke mutabiq add honi chahiye"*. Fixed canvas not filling viewport on mobile (was tiny box in center). Changed sticky stage to `100vw × 100dvh` (was `var(--nav-height)` based — collapsed on mobile). Added `window.innerWidth/Height` fallback in `updateCanvasDimensions` for pre-layout mobile browsers. Added orientation change handler. Set **same 600vh runway on ALL devices** (mobile, tablet, desktop — user explicitly requested equal length). Updated robots.txt: added `Disallow: /ezgif-2f1a39c97e5b173b-jpg/`, added Gemini + Google-InspectionTool crawlers. Updated sitemap.xml: added `image:image` namespace with OG image. |

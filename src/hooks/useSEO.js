@@ -275,8 +275,6 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
     setLinkTag('canonical', fullUrl)
     setLinkTag('alternate', fullUrl, { hreflang: 'x-default' })
     setLinkTag('alternate', fullUrl, { hreflang: 'en-PK' })
-    setLinkTag('alternate', fullUrl, { hreflang: 'en-US' })
-    setLinkTag('alternate', fullUrl, { hreflang: 'ur-PK' })
 
     // 6. Dynamic Multi-Schema Graph Construction (AEO, GEO, VSO & Schema.org)
     const currentPath = window.location.pathname

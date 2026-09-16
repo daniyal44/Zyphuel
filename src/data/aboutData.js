@@ -50,7 +50,7 @@ export const aboutArticles = [
     external: false,
     summary: 'A deep-dive into how hospitals, IT plazas, manufacturing plants, and corporate offices eliminate blackout downtime through scheduled Euro-V generator diesel deliveries.',
     highlights: [
-      '100-foot high-reach hoses for rooftop and basement generator tanks',
+      '50-meter high-reach delivery hoses for rooftop and basement generator tanks',
       'Automated scheduled deliveries prior to load-shedding cycles',
       '100% low-emission Euro-V diesel with density certificates'
     ]
@@ -68,7 +68,7 @@ export const aboutArticles = [
     external: true,
     summary: 'Consumer guide on ordering on-demand fuel safely at home, avoiding dangerous open canister transportation, and verifying electronic flow-meter receipts.',
     highlights: [
-      'Cash on Delivery (COD) for household orders up to 10 Liters',
+      'Cash on Delivery (COD) for household orders from 5 to 10 Litres',
       'Weight-verified sealed LPG gas cylinders with safety checks',
       '24/7 customer support helpline (+92 323 0112464)'
     ]

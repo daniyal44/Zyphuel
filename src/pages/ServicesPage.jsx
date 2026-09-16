@@ -138,7 +138,7 @@ export default function ServicesPage() {
               "name": "Can I order diesel for commercial generator backup during load shedding?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. Zyphuel specializes in commercial standby generator diesel replenishment with 100-foot high-pressure hoses capable of fueling rooftop, basement, and ground-level generator tanks for corporate offices, hospitals, factories, and residential buildings."
+                "text": "Yes. Zyphuel specializes in commercial standby generator diesel replenishment with 50-meter high-pressure delivery hoses capable of fueling rooftop, basement, and ground-level generator tanks for corporate offices, hospitals, factories, and residential buildings."
               }
             },
             {
@@ -146,7 +146,7 @@ export default function ServicesPage() {
               "name": "Is Cash on Delivery (COD) supported for fuel orders?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders up to 10 liters of fuel, 10 kg LPG cylinder, or 20 gallons of water. For larger orders or corporate fleets, online bank transfers and 30-day billing accounts are available."
+                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel, 10 kg LPG cylinder, or 20 gallons of water. For larger orders or corporate fleets, online bank transfers and 30-day billing accounts are available."
               }
             }
           ]
@@ -509,7 +509,7 @@ export default function ServicesPage() {
                   <i className="fa-solid fa-circle-question" style={{ color: 'var(--accent-color, #0ea5e9)', marginRight: '8px' }}></i> Is Cash on Delivery (COD) supported?
                 </h3>
                 <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                  Yes! Cash on Delivery (COD) is available for domestic orders up to 10 liters of fuel, 10 kg LPG, or 20 gallons of water. For commercial orders and fleets, direct bank transfers and monthly billing accounts are supported.
+                  Yes! Cash on Delivery (COD) is available for domestic orders from 5 to 10 liters of fuel, 10 kg LPG, or 20 gallons of water. For commercial orders and fleets, direct bank transfers and monthly billing accounts are supported.
                 </p>
               </div>
             </div>

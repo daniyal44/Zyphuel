@@ -9,7 +9,7 @@ export const servicesB2C = [
     tag: 'B2C Consumer Refueling',
     desc: 'Pure, terminal-sourced Super Petrol (92 Octane) and High-Octane (97 Octane) delivered directly into your parked car or motorbike at home, office, or roadside in Lahore.',
     specs: [
-      '1 to 10 Litres: Cash on Delivery (COD) supported',
+      '5 to 10 Litres: Cash on Delivery (COD) supported',
       '10 to 200 Litres: Priority scheduled dispatch',
       'Electronic calibrated flow-meter digital receipt',
       'Zero petrol pump waiting time or nozzle short-fueling'
@@ -268,7 +268,7 @@ export const serviceArticles = [
     summary: 'How hospitals, IT data centers, banks, and factories in Lahore maintain 100% uptime with automated standby generator diesel delivery contracts.',
     paragraphs: [
       'During unexpected power grid interruptions and load-shedding cycles across Punjab, standby diesel generators serve as the primary lifeline for commercial plazas, production facilities, and healthcare institutions. However, manually transporting heavy diesel drums in open vehicles violates HAZMAT safety rules and creates severe fire hazards.',
-      'Zyphuel’s commercial generator diesel service provides specialized bowsers fitted with 100-foot high-pressure hoses capable of reaching rooftop generator sets, underground tanks, and acoustic enclosures. With automated recurring delivery schedules, facility managers never have to scramble for emergency fuel during sudden blackouts.',
+      'Zyphuel’s commercial generator diesel service provides specialized bowsers fitted with 50-meter high-pressure delivery hoses capable of reaching rooftop generator sets, underground tanks, and acoustic enclosures. With automated recurring delivery schedules, facility managers never have to scramble for emergency fuel during sudden blackouts.',
       'Our low-emission Euro-V diesel ensures clean combustion, preventing particulate filter clogging and maximizing alternator efficiency.'
     ]
   },

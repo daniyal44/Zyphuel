@@ -240,7 +240,7 @@ export default function DownloadPage() {
     },
     {
       question: 'Can I pay with Cash on Delivery (COD) for household fuel orders?',
-      answer: 'Yes! Smaller household orders from 1 to 10 Litres can be settled directly via Cash on Delivery (COD). For larger vehicle fills, commercial generator refueling, or corporate fleet accounts, we accept instant bank transfer, debit/credit cards, and structured 15/30-day corporate billing.'
+      answer: 'Yes! Smaller household orders from 5 to 10 Litres can be settled directly via Cash on Delivery (COD). For larger vehicle fills, commercial generator refueling, or corporate fleet accounts, we accept instant bank transfer, debit/credit cards, and structured 15/30-day corporate billing.'
     },
     {
       question: 'Why is the app distributed via direct APK instead of Google Play?',
@@ -575,7 +575,7 @@ export default function DownloadPage() {
                 <h3>Flexible Payment &amp; B2B Fleet Invoicing</h3>
                 <p>From individual household COD deliveries to multi-vehicle corporate accounts, Zyphuel provides frictionless financial management.</p>
                 <ul className="why-card-feature-list">
-                  <li><i className="fa-solid fa-check"></i> Cash on Delivery (COD) for 1–10 Litres</li>
+                  <li><i className="fa-solid fa-check"></i> Cash on Delivery (COD) for 5–10 Litres</li>
                   <li><i className="fa-solid fa-check"></i> Biometric 1-tap checkout (Fingerprint/Face)</li>
                   <li><i className="fa-solid fa-check"></i> 15/30-day consolidated corporate credit lines</li>
                 </ul>
@@ -610,7 +610,7 @@ export default function DownloadPage() {
               <div className="help-use-case-card fade-in-up" style={{ transitionDelay: '0.1s' }}>
                 <span className="help-card-tag">Power Continuity</span>
                 <h3>Standby Generator Owners</h3>
-                <p>Avoid emergency blackouts during unexpected Lahore load-shedding. Our micro-tankers pump clean Euro-V diesel directly into rooftop or basement generator tanks using 100ft high-reach hoses.</p>
+                <p>Avoid emergency blackouts during unexpected Lahore load-shedding. Our micro-tankers pump clean Euro-V diesel directly into rooftop or basement generator tanks using 50-meter high-reach delivery hoses.</p>
                 <ul className="help-card-perks">
                   <li><i className="fa-solid fa-check"></i> Essential for clinics, software houses &amp; homes</li>
                   <li><i className="fa-solid fa-check"></i> Scheduled weekly/monthly automated replenishment</li>

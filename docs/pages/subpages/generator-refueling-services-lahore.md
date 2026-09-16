@@ -16,7 +16,7 @@
 ## Article Synopsis & Core Concepts
 - Addresses enterprise operational risks caused by unscheduled urban power load-shedding and grid downtime across Lahore.
 - Explains the hazards, contamination risks, and municipal fire code violations associated with transporting loose fuel in jerry cans or plastic drums.
-- Details Zyphuel’s dedicated micro-refueler bowser fleet equipped with 100-foot industrial hoses, grounding clamps, and anti-spark nozzles for rooftop and basement generator tanks.
+- Details Zyphuel’s dedicated micro-refueler bowser fleet equipped with 50-meter industrial delivery hoses, grounding clamps, and anti-spark nozzles for rooftop and basement generator tanks.
 - Highlights recurring B2B corporate scheduling, centralized invoicing, and verified digital volumetric delivery receipts.
 
 ---

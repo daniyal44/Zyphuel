@@ -285,14 +285,14 @@ const ARTICLES_SCHEMA = [
   }
 ]
 
-const RELEVANT_KEYWORDS = "Zyphuel, fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore, petrol pump near me, fuel pump near me, nearest petrol pump, fuel station Lahore, petrol rate today Lahore, fuel agency Lahore, industrial diesel supplier, diesel pump near me, mobile refueling Pakistan, doorstep fuel delivery, doorstep petrol delivery, generator diesel delivery, generator refueling service, bulk diesel supplier Lahore, fleet refueling service, on-demand fuel delivery app, order fuel online Lahore, diesel delivery near me, petrol delivery at home, fuel delivery DHA Lahore, petrol delivery Gulberg, diesel delivery Johar Town, OGRA compliant fuel rates, calibrated flow meter fuel delivery, LPG gas cylinder delivery Lahore, water tanker Lahore"
+const RELEVANT_KEYWORDS = "fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore, generator refueling Lahore, mobile refueling Pakistan"
 
 const ROUTES = [
   {
     path: '/',
     outFile: 'dist/index.html',
     title: "Doorstep Fuel Delivery in Lahore | Fast Petrol & Diesel | Zyphuel",
-    description: "Order certified Euro-V petrol, diesel, LPG cylinders, and water delivered directly to your doorstep in Lahore within 45 minutes. Calibrated digital meters and Cash on Delivery.",
+    description: "Order certified Euro-V petrol, diesel, LPG cylinders, and water delivered directly to your doorstep in Lahore within 20-45 minutes. Calibrated digital meters and Cash on Delivery.",
     keywords: RELEVANT_KEYWORDS,
     canonical: `${DOMAIN}/`,
     ogImage: `${DOMAIN}/images/logo.png`,
@@ -349,7 +349,7 @@ const ROUTES = [
               "name": "Why choose Zyphuel instead of traditional petrol pumps in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel eliminates petrol pump queues and pump short-fueling with 0.01L calibrated digital flow meters, 100% OGRA compliant regulated pricing, genuine terminal-sourced Euro-V fuel, and doorstep delivery within 15-30 minutes."
+                "text": "Zyphuel eliminates petrol pump queues and pump short-fueling with 0.01L calibrated digital flow meters, 100% OGRA compliant regulated pricing, genuine terminal-sourced Euro-V fuel, and doorstep delivery within 20 to 45 minutes (10 to 20 minutes urgent dispatch)."
               }
             },
             {
@@ -365,7 +365,7 @@ const ROUTES = [
               "name": "What should I do if I run out of petrol or diesel on the road in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Simply open Zyphuel or send your live WhatsApp location to +92 323 0112464. Our rapid mobile bowsers dispatch emergency Euro-V petrol or diesel directly to your stranded vehicle within 15 to 30 minutes anywhere in Lahore."
+                "text": "Simply open Zyphuel or send your live WhatsApp location to +92 323 0112464. Our rapid mobile bowsers dispatch emergency Euro-V petrol or diesel directly to your stranded vehicle within 20 to 45 minutes (10 to 20 minutes urgent dispatch) anywhere in Lahore."
               }
             },
             {
@@ -373,7 +373,7 @@ const ROUTES = [
               "name": "How fast does Zyphuel deliver fuel to DHA, Gulberg, or Johar Town?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel operates decentralized mobile refueler hubs across Lahore, delivering within 15-25 minutes to Gulberg, 20-30 minutes to DHA Lahore, Model Town, and Johar Town, and 25-35 minutes to Bahria Town."
+                "text": "Zyphuel operates decentralized mobile refueler hubs across Lahore, delivering within 20-30 minutes to Gulberg, Model Town, Cantt, and Johar Town, 20-35 minutes to DHA Lahore, and 30-45 minutes to Bahria Town (10-20 minutes for urgent priority dispatch)."
               }
             }
           ]
@@ -387,7 +387,7 @@ const ROUTES = [
     outFile: 'dist/about/index.html',
     title: "About Zyphuel | On-Demand Fuel Delivery in Lahore",
     description: "Learn about Zyphuel's mission to deliver reliable on-demand petrol and diesel across Lahore. Founded by Muhammad Daniyal, bringing calibrated digital flow meters to doorstep refueling.",
-    keywords: RELEVANT_KEYWORDS,
+    keywords: "about Zyphuel, fuel delivery team Lahore, mobile refueling company Pakistan, Muhammad Daniyal Zyphuel",
     canonical: `${DOMAIN}/about/`,
     ogImage: `${DOMAIN}/images/daniyal.jpeg`,
     ogType: 'website',
@@ -420,8 +420,8 @@ const ROUTES = [
     path: '/services/',
     outFile: 'dist/services/index.html',
     title: "Fuel Delivery Services in Lahore | Petrol, Diesel & LPG | Zyphuel",
-    description: "On-demand fuel delivery in Lahore: Euro-V petrol, diesel for vehicles and standby generators, sealed LPG gas cylinders, and water tanker delivery. Fast 45-minute response.",
-    keywords: RELEVANT_KEYWORDS,
+    description: "On-demand fuel delivery in Lahore: Euro-V petrol, diesel for vehicles and standby generators, sealed LPG gas cylinders, and water tanker delivery. Fast 20-45 minute dispatch.",
+    keywords: "fuel delivery services Lahore, generator diesel delivery, bulk diesel supplier Lahore, LPG gas cylinder delivery Lahore, water tanker Lahore",
     canonical: `${DOMAIN}/services/`,
     ogImage: `${DOMAIN}/images/fuel.png`,
     ogType: 'website',
@@ -512,7 +512,7 @@ const ROUTES = [
               "name": "Can I order diesel for commercial generator backup during load shedding?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. Zyphuel specializes in commercial standby generator diesel replenishment with 100-foot high-pressure hoses capable of fueling rooftop, basement, and ground-level generator tanks for corporate offices, hospitals, factories, and residential buildings."
+                "text": "Yes. Zyphuel specializes in commercial standby generator diesel replenishment with 50-meter high-pressure delivery hoses capable of fueling rooftop, basement, and ground-level generator tanks for corporate offices, hospitals, factories, and residential buildings."
               }
             },
             {
@@ -520,7 +520,7 @@ const ROUTES = [
               "name": "Is Cash on Delivery (COD) supported for fuel orders?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders up to 10 liters of fuel, 10 kg LPG cylinder, or 20 gallons of water. For larger orders or corporate fleets, online bank transfers and 30-day billing accounts are available."
+                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel, 10 kg LPG cylinder, or 20 gallons of water. For larger orders or corporate fleets, online bank transfers and 30-day billing accounts are available."
               }
             }
           ]
@@ -653,11 +653,14 @@ const ROUTES = [
               "name": "Zyphuel"
             },
             "offers": {
-              "@type": "AggregateOffer",
+              "@type": "Offer",
               "priceCurrency": "PKR",
-              "lowPrice": "100.00",
-              "highPrice": "448.00",
-              "offerCount": "5"
+              "description": "Daily official OGRA regulated fuel pricing with calibrated 0.01L digital flow metering",
+              "availability": "https://schema.org/InStock",
+              "areaServed": {
+                "@type": "City",
+                "name": "Lahore"
+              }
             }
           },
           "agent": { "@id": `${DOMAIN}/#organization` }
@@ -687,7 +690,7 @@ const ROUTES = [
               "name": "Is Cash on Delivery (COD) supported?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders (up to 10 liters of fuel, 10 kg LPG, or 20 gallons of water). Bank transfers and corporate invoicing are available for commercial clients."
+                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders (5 to 10 liters of fuel, 10 kg LPG, or 20 gallons of water). Bank transfers and corporate invoicing are available for commercial clients."
               }
             },
             {
@@ -806,7 +809,7 @@ const ROUTES = [
     outFile: 'dist/blog/index.html',
     title: "Zyphuel Blog | Fuel Delivery, Energy & Vehicle Guides",
     description: "Read the latest articles about fuel delivery, generator refueling, LPG gas delivery, and mobile energy logistics in Lahore, Pakistan.",
-    keywords: RELEVANT_KEYWORDS,
+    keywords: "fuel delivery blog Lahore, energy guides Pakistan, generator refueling tips, petrol price insights, Zyphuel blog",
     canonical: `${DOMAIN}/blog/`,
     ogImage: `${DOMAIN}/images/logo.png`,
     ogType: 'website',
@@ -932,12 +935,10 @@ async function prerender() {
       `<meta name="keywords" content="${route.keywords.replace(/"/g, '&quot;')}" />`
     )
 
-    // Replace Canonical & Inject Static Hreflang Tags
+    // Replace Canonical & Inject Static Hreflang Tags (Canonical + x-default + en-PK)
     const canonicalAndHreflang = `<link rel="canonical" href="${route.canonical}" />
     <link rel="alternate" hreflang="x-default" href="${route.canonical}" />
-    <link rel="alternate" hreflang="en-PK" href="${route.canonical}" />
-    <link rel="alternate" hreflang="en-US" href="${route.canonical}" />
-    <link rel="alternate" hreflang="ur-PK" href="${route.canonical}" />`
+    <link rel="alternate" hreflang="en-PK" href="${route.canonical}" />`
 
     html = html.replace(
       /<link\s+rel=["']canonical["']\s+href=["'][\s\S]*?["']\s*\/?>/i,

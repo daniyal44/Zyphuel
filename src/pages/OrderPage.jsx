@@ -59,11 +59,14 @@ export default function OrderPage() {
               "name": "Zyphuel"
             },
             "offers": {
-              "@type": "AggregateOffer",
+              "@type": "Offer",
               "priceCurrency": "PKR",
-              "lowPrice": "100.00",
-              "highPrice": "448.00",
-              "offerCount": "5"
+              "description": "Daily official OGRA regulated fuel pricing with calibrated 0.01L digital flow metering",
+              "availability": "https://schema.org/InStock",
+              "areaServed": {
+                "@type": "City",
+                "name": "Lahore"
+              }
             }
           },
           "agent": {
@@ -97,7 +100,7 @@ export default function OrderPage() {
               "name": "Is Cash on Delivery (COD) supported?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders (up to 10 liters of fuel, 10 kg LPG, or 20 gallons of water). Bank transfers and corporate invoicing are available for commercial clients."
+                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders (5 to 10 liters of fuel, 10 kg LPG, or 20 gallons of water). Bank transfers and corporate invoicing are available for commercial clients."
               }
             },
             {
@@ -1788,7 +1791,7 @@ export default function OrderPage() {
                       3. Is Cash on Delivery (COD) supported?
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      Yes! Cash on Delivery (COD) is supported for domestic orders (up to 10 liters of fuel, 10 kg LPG, or 20 gallons of water). For commercial bulk refueling and fleet orders, we provide bank transfer, online payment, and corporate invoicing terms.
+                      Yes! Cash on Delivery (COD) is supported for domestic orders (5 to 10 liters of fuel, 10 kg LPG, or 20 gallons of water). For commercial bulk refueling and fleet orders, we provide bank transfer, online payment, and corporate invoicing terms.
                     </p>
                   </div>
 
