@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useSEO } from '../hooks/useSEO'
 import Breadcrumbs from '../components/Breadcrumbs'
@@ -148,7 +149,7 @@ export default function TermsOfUsePage() {
                 <ul>
                   <li><strong>Cash on Delivery:</strong> Our primary payment method is physical cash collected by the tanker operator at the delivery location.</li>
                   <li><strong>Bank Transfer:</strong> Pre-approved enterprise accounts may arrange advance bank transfers for scheduled deliveries.</li>
-                  <li><strong>Delivery Fee:</strong> A flat Rs. 250 delivery facilitation fee applies to all orders, irrespective of order size.</li>
+                  <li><strong>Delivery Fee:</strong> A nominal Rs. 250 delivery facilitation fee applies to fuel orders under 50 Litres. Orders of 50 Litres or more qualify for 100% Free Delivery (Rs. 0.00). Priority express dispatch is available for an additional flat surcharge of +Rs. 100.</li>
                   <li><strong>No Hidden Charges:</strong> All applicable fees are displayed in the Order Summary before confirmation. No additional charges will be applied post-delivery.</li>
                 </ul>
               </section>
@@ -190,6 +191,9 @@ export default function TermsOfUsePage() {
                   <strong>Location:</strong> 75-Main Boulevard, Gulberg III, Lahore, Pakistan <em>(Walk-in corporate meetings by appointment only)</em><br />
                   <strong>Office Hours:</strong> Monday – Thursday: 8:00 AM – 8:00 PM | Friday: 8:00 AM – 1:00 PM | Saturday – Sunday: 10:00 AM – 6:00 PM<br />
                   <strong>Fuel Delivery (24/7):</strong> Always Active
+                </p>
+                <p>
+                  To file a dispute, request dedicated corporate account terms, or inquire about logistics agreements, submit an inquiry via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Contact &amp; Support Page</Link> or review our <Link to="/services/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Fuel Services &amp; Delivery Terms</Link>.
                 </p>
               </section>
             </div>

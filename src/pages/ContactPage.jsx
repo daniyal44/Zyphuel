@@ -22,32 +22,98 @@ export default function ContactPage() {
     type: 'website',
     schema: {
       "@context": "https://schema.org",
-      "@type": "ContactPage",
-      "mainEntity": {
-        "@type": "LocalBusiness",
-        "name": "Zyphuel",
-        "telephone": "+923230112464",
-        "email": "m.daniyalkhan490@gmail.com",
-        "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
-        "areaServed": {
-          "@type": "City",
-          "name": "Lahore"
+      "@graph": [
+        {
+          "@type": "ContactPage",
+          "@id": "https://zyphuel.netlify.app/contact/#contactpage",
+          "url": "https://zyphuel.netlify.app/contact/",
+          "name": "Contact Zyphuel Helpline & Support",
+          "mainEntity": {
+            "@type": "LocalBusiness",
+            "name": "Zyphuel",
+            "telephone": "+923230112464",
+            "email": "m.daniyalkhan490@gmail.com",
+            "hasMap": "https://share.google/Nb4XGKYq5aU0nzLr3",
+            "areaServed": {
+              "@type": "City",
+              "name": "Lahore"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/zyphuel/",
+              "https://share.google/Nb4XGKYq5aU0nzLr3",
+              "https://www.facebook.com/muhammad.daniyal.522942/"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+923230112464",
+              "contactType": "Customer Support & Enterprise Inquiries",
+              "areaServed": "PK",
+              "availableLanguage": ["English", "Urdu"]
+            }
+          }
         },
-        "sameAs": [
-          "https://www.linkedin.com/company/zyphuel/",
-          "https://share.google/Nb4XGKYq5aU0nzLr3",
-          "https://www.facebook.com/muhammad.daniyal.522942/"
-        ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+923230112464",
-          "contactType": "Customer Support & Enterprise Inquiries",
-          "areaServed": "PK",
-          "availableLanguage": ["English", "Urdu"]
+        {
+          "@type": "FAQPage",
+          "@id": "https://zyphuel.netlify.app/contact/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I contact Zyphuel for urgent fuel dispatch in Lahore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For emergency fuel dispatch, message or call our 24/7 hotline at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app for 15–30 minute rapid bowser arrival."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are Zyphuel's customer support and delivery operating hours?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our doorstep mobile refueling fleet operates 24 hours a day, 7 days a week, 365 days a year across all Lahore sectors. Corporate office and billing desk hours are Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, and Saturday–Sunday 10:00 AM–6:00 PM."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where is Zyphuel's corporate office located in Lahore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zyphuel's registered headquarters is located at 75-Main Boulevard, Gulberg III, Lahore, Pakistan. Corporate client visits and supplier consultations are held by appointment."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can corporate clients setup bulk commercial credit accounts?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Commercial clients, fleet operators, and industrial generator owners can apply for corporate accounts featuring monthly consolidated billing, computerized consumption telemetry, and pre-scheduled emergency deliveries."
+              }
+            }
+          ]
         }
-      }
+      ]
     }
   })
+
+  const [openFaq, setOpenFaq] = useState(null)
+
+  const contactFaqs = [
+    {
+      q: "How do I contact Zyphuel for urgent fuel dispatch in Lahore?",
+      a: "For emergency fuel dispatch, message or call our 24/7 hotline at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app for 15–30 minute rapid bowser arrival."
+    },
+    {
+      q: "What are Zyphuel’s customer support and delivery operating hours?",
+      a: "Our doorstep mobile refueling fleet operates 24 hours a day, 7 days a week, 365 days a year across all Lahore sectors. Corporate office and billing desk hours are Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, and Saturday–Sunday 10:00 AM–6:00 PM."
+    },
+    {
+      q: "Where is Zyphuel’s corporate office located in Lahore?",
+      a: "Zyphuel’s registered headquarters is located at 75-Main Boulevard, Gulberg III, Lahore, Pakistan. Corporate client visits and supplier consultations are held by appointment."
+    },
+    {
+      q: "Can corporate clients setup bulk commercial credit accounts?",
+      a: "Yes! Commercial clients, fleet operators, and industrial generator owners can apply for corporate accounts featuring monthly consolidated billing, computerized consumption telemetry, and pre-scheduled emergency deliveries."
+    }
+  ]
 
   const [form, setForm] = useState({
     name: '',
@@ -388,6 +454,81 @@ ${form.message.trim()}`
                 </div>
                 <p className="map-caption"><i className="fa-solid fa-location-dot" style={{ color: 'var(--accent-color)' }}></i> 75-Main Boulevard, Gulberg III, Lahore</p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact & Support FAQs Section */}
+        <section className="section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-color, #e2e8f0)' }}>
+          <div className="container" style={{ maxWidth: '880px' }}>
+            <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '32px' }}>
+              <div className="section-badge-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '20px', background: 'rgba(2, 132, 199, 0.1)', color: '#0284c7', fontSize: '0.85rem', fontWeight: 700, marginBottom: '12px' }}>
+                <i className="fa-solid fa-circle-question"></i> Common Inquiries
+              </div>
+              <h2 className="section-title" style={{ fontSize: '1.8rem', margin: '0 0 10px 0' }}>Frequently Asked Questions</h2>
+              <p className="section-subtitle" style={{ margin: 0, color: 'var(--text-secondary)' }}>
+                Quick answers regarding doorstep fuel delivery, emergency dispatch, and corporate accounts in Lahore.
+              </p>
+            </div>
+
+            <div className="fade-in-up" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              {contactFaqs.map((faq, idx) => {
+                const isOpen = openFaq === idx
+                return (
+                  <div
+                    key={idx}
+                    style={{
+                      background: '#ffffff',
+                      border: '1px solid var(--border-color, #e2e8f0)',
+                      borderRadius: '12px',
+                      overflow: 'hidden',
+                      boxShadow: '0 2px 6px rgba(0,0,0,0.03)',
+                      transition: 'border-color 0.2s'
+                    }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(isOpen ? null : idx)}
+                      style={{
+                        width: '100%',
+                        padding: '18px 22px',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        background: 'transparent',
+                        border: 'none',
+                        textAlign: 'left',
+                        cursor: 'pointer',
+                        fontSize: '1rem',
+                        fontWeight: 700,
+                        color: 'var(--text-primary)',
+                        gap: '16px'
+                      }}
+                      aria-expanded={isOpen}
+                    >
+                      <span>{faq.q}</span>
+                      <i className="fa-solid fa-chevron-down" style={{
+                        transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                        transition: 'transform 0.2s',
+                        color: '#0284c7',
+                        fontSize: '0.9rem',
+                        flexShrink: 0
+                      }}></i>
+                    </button>
+                    {isOpen && (
+                      <div style={{
+                        padding: '0 22px 18px 22px',
+                        fontSize: '0.92rem',
+                        lineHeight: 1.6,
+                        color: 'var(--text-secondary)',
+                        borderTop: '1px solid #f1f5f9'
+                      }}>
+                        {faq.a}
+                      </div>
+                    )}
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>

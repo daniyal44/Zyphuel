@@ -29,8 +29,8 @@ const teamMembers = [
 
 export default function AboutPage() {
   useSEO({
-    title: 'About Zyphuel | Mobile Fuel Delivery in Lahore',
-    description: 'Learn about Zyphuel, a Lahore-focused mobile fuel delivery platform built to make fuel ordering, delivery and tracking simpler.',
+    title: 'About Zyphuel | On-Demand Fuel Delivery in Lahore',
+    description: "Learn about Zyphuel's mission to deliver reliable on-demand petrol and diesel across Lahore. Founded by Muhammad Daniyal, bringing calibrated digital flow meters to doorstep refueling.",
     keywords: [
       'about Zyphuel', 'fuel delivery company Lahore', 'mobile refueling Pakistan',
       'diesel delivery Lahore', 'generator fuel Pakistan', 'calibrated fuel metering',

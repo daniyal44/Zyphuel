@@ -33,14 +33,6 @@ export default function BlogListPage() {
               Read the latest updates about mobile fuel logistics, energy mobility,
               and fuel delivery innovations in Lahore.
             </p>
-            <div style={{ textAlign: 'center', marginTop: '12px' }}>
-              <div className="startup-slogan-pill">
-                <i className="fa-solid fa-rocket" style={{ color: '#0284c7' }}></i>
-                <span>
-                  <strong>Not a corporate giant — just an agile, passionate startup</strong> delivering doorstep energy with speed and honesty.
-                </span>
-              </div>
-            </div>
           </div>
 
           {/* Filters */}
@@ -79,6 +71,41 @@ export default function BlogListPage() {
                 </div>
               </Link>
             ))}
+          </div>
+
+          {/* Bottom Help & Refueling Dispatch Banner */}
+          <div className="fade-in-up" style={{
+            marginTop: '50px',
+            background: 'linear-gradient(135deg, #0b1329 0%, #0f172a 100%)',
+            borderRadius: '16px',
+            padding: '30px',
+            color: '#ffffff',
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '20px',
+            border: '1px solid rgba(56, 189, 248, 0.2)'
+          }}>
+            <div>
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '6px', color: '#ffffff' }}>
+                Need Fuel or Energy Logistics Advice?
+              </h3>
+              <p style={{ margin: 0, color: '#94a3b8', fontSize: '0.9rem', maxWidth: '560px', lineHeight: 1.5 }}>
+                Have questions about standby generator diesel logistics or need a custom corporate refueling proposal in Lahore? Reach out to our operational dispatch desk.
+              </p>
+            </div>
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+              <Link to="/order/" className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
+                <i className="fa-solid fa-gas-pump"></i> Order Fuel
+              </Link>
+              <Link to="/contact/" className="btn btn-ghost" style={{ padding: '10px 20px', fontSize: '0.9rem', color: '#38bdf8', borderColor: 'rgba(56, 189, 248, 0.3)' }}>
+                <i className="fa-solid fa-headset"></i> Contact Us
+              </Link>
+              <Link to="/services/" className="btn btn-ghost" style={{ padding: '10px 20px', fontSize: '0.9rem', color: '#cbd5e1', borderColor: 'rgba(255, 255, 255, 0.15)' }}>
+                <i className="fa-solid fa-list-check"></i> All Services
+              </Link>
+            </div>
           </div>
         </div>
       </section>

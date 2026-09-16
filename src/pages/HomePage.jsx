@@ -647,6 +647,13 @@ export default function HomePage() {
                 <Link to="/order/" className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
                   <i className="fa-solid fa-gas-pump"></i> Order Fuel Now
                 </Link>
+                <Link
+                  to="/contact/"
+                  className="btn btn-ghost"
+                  style={{ padding: '10px 20px', fontSize: '0.9rem', color: '#38bdf8', borderColor: 'rgba(56, 189, 248, 0.3)' }}
+                >
+                  <i className="fa-solid fa-headset"></i> Support &amp; Contact Desk
+                </Link>
                 <a
                   href="tel:+923230112464"
                   className="btn btn-ghost"

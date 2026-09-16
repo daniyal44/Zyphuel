@@ -9,9 +9,11 @@
 ---
 
 ## SEO & Structured Data
-- **Page Title**: `About Zyphuel | Mobile Fuel Delivery in Lahore`
-- **Meta Description**: `Learn about Zyphuel, a Lahore-focused mobile fuel delivery platform built to make fuel ordering, delivery and tracking simpler.`
+- **Page Title**: `About Zyphuel | On-Demand Fuel Delivery in Lahore`
+- **Meta Description**: `Learn about Zyphuel's mission to deliver reliable on-demand petrol and diesel across Lahore. Founded by Muhammad Daniyal, bringing calibrated digital flow meters to doorstep refueling.`
 - **Schema Type**: `AboutPage` with embedded `Organization` and `Person` (Muhammad Daniyal - Founder & CEO).
+- **Sitemap Priority**: `0.9` (`daily` change frequency).
+- **Canonical URL**: `https://zyphuel.netlify.app/about/`
 
 ---
 
@@ -51,6 +53,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-17** | Aligned runtime `useSEO` title and description with `prerender.js`, boosted sitemap priority to 0.9 daily, verified self-referential canonical tags. | Ensure absolute metadata consistency between SSG and client rendering; resolve GSC discovered status. |
 | **2026-09-12** | Integrated 3D Interactive Card Carousel with 6 leadership and equipment cards. | Modernize visual presentation of team, QR code, and calibrated bowser fleet. |
 | **2026-09-08** | Updated executive roles and verified Schema.org Organization metadata. | Strengthen local business trust signals and SEO indexing. |
 | **2026-09-05** | Linked dynamic app version references to `APP_VERSION` data constant. | Ensure version numbers stay synchronous across web and mobile downloads. |

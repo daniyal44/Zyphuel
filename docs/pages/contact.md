@@ -11,11 +11,14 @@
 ## SEO & Structured Data
 - **Page Title**: `Contact Zyphuel | Fuel Delivery Support in Lahore`
 - **Meta Description**: `Reach Zyphuel for fuel orders, generator diesel, and commercial fleet accounts in Lahore. Call, WhatsApp, or send an enquiry — support available 24/7 in English and Urdu.`
-- **Schema Type**: `ContactPage` / `LocalBusiness`
+- **Schema Type**: `ContactPage` / `LocalBusiness` / `FAQPage`
   - Telephone: `+92 3230-112464`
   - Email: `m.daniyalkhan490@gmail.com`
   - Address: `75-Main Boulevard, Gulberg III, Lahore`
   - Available Languages: `English`, `Urdu`
+  - FAQ Entities: 4 key questions covering urgent dispatch, office & delivery hours, Gulberg location, and bulk commercial credit accounts.
+- **Sitemap Priority**: `0.9` (`daily` change frequency).
+- **Self-referential Canonical**: `https://zyphuel.netlify.app/contact/`
 
 ---
 
@@ -41,6 +44,15 @@
 
 ---
 
+## Frequently Asked Questions (FAQ) Section
+Added interactive 4-item accordion addressing core user intent and eliminating thin content signals for search engines:
+1. *How do I contact Zyphuel for urgent fuel dispatch in Lahore?* (WhatsApp +92 3230-112464 or web/app dispatch in 15–30 mins).
+2. *What are Zyphuel's customer support and delivery operating hours?* (Fleet 24/7/365; office Monday–Thursday 8am–8pm, Friday 8am–1pm, weekends 10am–6pm).
+3. *Where is Zyphuel's corporate office located in Lahore?* (75-Main Boulevard, Gulberg III, Lahore).
+4. *Can corporate clients setup bulk commercial credit accounts?* (Yes, monthly consolidated invoicing and telemetry).
+
+---
+
 ## Contact Form Architecture
 - **Fields**:
   - Full Name (required)
@@ -62,6 +74,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-17** | Added interactive FAQ accordion, added `FAQPage` schema in `useSEO` & `prerender.js`, boosted sitemap priority to 0.9 daily, added in-body referring links from Home, Order, Privacy, Terms, and Blog subpages. | Resolve Google Search Console "Discovered – currently not indexed" & "Referring page: None detected". |
 | **2026-09-13** | Standardized office hours table to match Home and Legal disclosures. | Consistent operating hours across all contact channels. |
 | **2026-09-08** | Enhanced WhatsApp dispatch priority routing in contact form. | Accelerate customer response speed for urgent fuel orders. |
 | **2026-09-01** | Implemented interactive validation and Toast feedback alerts. | Improve UX and prevent empty/malformed enquiry submissions. |

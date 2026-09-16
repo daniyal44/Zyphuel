@@ -740,6 +740,44 @@ const ROUTES = [
             "areaServed": "PK",
             "availableLanguage": ["English", "Urdu"]
           }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": `${DOMAIN}/contact/#faq`,
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I contact Zyphuel for urgent fuel dispatch in Lahore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "For emergency fuel dispatch, message or call our 24/7 hotline at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app for 15–30 minute rapid bowser arrival."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are Zyphuel's customer support and delivery operating hours?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Our doorstep mobile refueling fleet operates 24 hours a day, 7 days a week, 365 days a year across all Lahore sectors. Corporate office and billing desk hours are Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, and Saturday–Sunday 10:00 AM–6:00 PM."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where is Zyphuel's corporate office located in Lahore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zyphuel's registered headquarters is located at 75-Main Boulevard, Gulberg III, Lahore, Pakistan. Corporate client visits and supplier consultations are held by appointment."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can corporate clients setup bulk commercial credit accounts?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Commercial clients, fleet operators, and industrial generator owners can apply for corporate accounts featuring monthly consolidated billing, computerized consumption telemetry, and pre-scheduled emergency deliveries."
+              }
+            }
+          ]
         }
       ]
     }
@@ -1045,10 +1083,13 @@ async function prerender() {
       if (r.path === '/') {
         priority = '1.0'
         changefreq = 'daily'
-      } else if (r.path === '/order/' || r.path === '/services/') {
+      } else if (['/order/', '/services/', '/contact/', '/about/', '/download/', '/blog/'].includes(r.path)) {
         priority = '0.9'
         changefreq = 'daily'
       } else if (r.path.startsWith('/blog/') && r.path !== '/blog/') {
+        priority = '0.8'
+        changefreq = 'weekly'
+      } else if (r.path === '/privacy/' || r.path === '/terms/') {
         priority = '0.7'
         changefreq = 'monthly'
       }

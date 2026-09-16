@@ -23,12 +23,15 @@
 
 ## Interactive Elements & Related Actions
 - **Primary CTA**: Order Fuel Now (`/order/`) before impending price adjustments.
-- **Secondary CTA**: Download Zyphuel APK (`/download/`) to activate the 2-hour notification daemon.
-- **Related Articles**: Connected to IoT Telemetry and Calibrated Bowser Fleet guides.
+- **Secondary CTA**: Contact Helpline (`/contact/`) for commercial fuel inquiries.
+- **Tertiary CTA**: Explore Services (`/services/`).
+- **Related Fuel Guides Cluster**: Interactive 3-card mesh linking directly to other blog subpages (`/blog/download-zyphuel-apk-guide/`, `/blog/generator-refueling-services-lahore/`, etc.).
+- **Sitemap Priority**: `0.8` (`weekly` crawl frequency).
 
 ---
 
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-17** | Added "Related Fuel Guides & Energy Insights" internal link cluster; removed redundant startup slogans per single-hero memory rule; added Contact Helpline CTA; boosted sitemap priority to 0.8 weekly. | Create internal crawl mesh between all 6 blog articles and resolve GSC discovery delays. |
 | **2026-09-05** | Initial publication of daily fuel pricing analysis and OGRA reform guide. | Educate consumers on market volatility and app price alerts. |

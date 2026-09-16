@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
@@ -1791,7 +1791,7 @@ export default function OrderPage() {
                       3. Is Cash on Delivery (COD) supported?
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      Yes! Cash on Delivery (COD) is supported for domestic orders (5 to 10 liters of fuel, 10 kg LPG, or 20 gallons of water). For commercial bulk refueling and fleet orders, we provide bank transfer, online payment, and corporate invoicing terms.
+                      Yes! Cash on Delivery (COD) is supported for domestic orders (5 to 10 liters of fuel, 10 kg LPG, or 20 gallons of water). For commercial bulk refueling and fleet orders, we provide bank transfer, online payment, and corporate invoicing terms — <Link to="/contact/" style={{ color: '#0284c7', fontWeight: 600 }}>contact our corporate sales team</Link> or explore our <Link to="/services/#b2b" style={{ color: '#0284c7', fontWeight: 600 }}>commercial services</Link>.
                     </p>
                   </div>
 
@@ -1803,6 +1803,38 @@ export default function OrderPage() {
                       100% of Zyphuel fuel supplies are sourced directly from licensed primary oil marketing depots, compliant with official OGRA regulations and Euro-V environmental standards. Our team conducts regular density, flashpoint, and purity checks.
                     </p>
                   </div>
+                </div>
+              </div>
+
+              {/* Commercial Inquiries & Helpline Banner */}
+              <div style={{
+                marginTop: '32px',
+                padding: '24px 28px',
+                background: '#ffffff',
+                borderRadius: '12px',
+                border: '1px solid var(--border-color)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: '16px'
+              }}>
+                <div>
+                  <h4 style={{ margin: '0 0 6px 0', fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+                    Need Bulk Fuel Supply or Corporate Fleet Refueling?
+                  </h4>
+                  <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.5, maxWidth: '600px' }}>
+                    Explore our dedicated commercial fueling packages with 50-meter long-reach hoses, consolidated monthly billing, and lab-tested Euro-V diesel.
+                  </p>
+                </div>
+                <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                  <Link to="/services/#b2b" className="btn btn-secondary" style={{ padding: '9px 18px', fontSize: '0.88rem' }}>
+                    <i className="fa-solid fa-briefcase"></i> Commercial Services
+                  </Link>
+                  <Link to="/contact/" className="btn btn-ghost" style={{ padding: '9px 18px', fontSize: '0.88rem', color: '#0284c7', borderColor: 'rgba(2, 132, 199, 0.3)' }}>
+                    <i className="fa-solid fa-headset"></i> Contact Support
+                  </Link>
                 </div>
               </div>
 

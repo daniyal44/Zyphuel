@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useSEO } from '../hooks/useSEO'
 import Breadcrumbs from '../components/Breadcrumbs'
@@ -182,6 +183,9 @@ export default function PrivacyPolicyPage() {
                   <strong>Location:</strong> 75-Main Boulevard, Gulberg III, Lahore, Pakistan <em>(Walk-in corporate meetings by appointment only)</em><br />
                   <strong>Office Hours:</strong> Monday – Thursday: 8:00 AM – 8:00 PM | Friday: 8:00 AM – 1:00 PM | Saturday – Sunday: 10:00 AM – 6:00 PM<br />
                   <strong>Fuel Delivery (24/7):</strong> Always Active
+                </p>
+                <p>
+                  Reach out directly via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Zyphuel Contact &amp; Support Desk</Link> or order doorstep fuel online at our <Link to="/order/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Refueling Portal</Link>.
                 </p>
               </section>
             </div>

@@ -94,19 +94,6 @@ export default function BlogArticlePage() {
           <span>{article.readTime}</span>
         </div>
 
-        {/* Startup Visitor Slogan Banner */}
-        <div className="startup-slogan-box fade-in-up">
-          <div className="startup-slogan-icon">
-            <i className="fa-solid fa-rocket"></i>
-          </div>
-          <div className="startup-slogan-content">
-            <span className="startup-slogan-tag">Our Startup Slogan</span>
-            <p className="startup-slogan-text">
-              <strong>Not a corporate giant — just an agile, passionate startup</strong> built to serve you with honesty, speed, and real care. Every order fuels our mission to modernize doorstep fuel in Lahore.
-            </p>
-          </div>
-        </div>
-
         {/* Hero Image */}
         <div className="fade-in-up" style={{ marginBottom: '2rem', borderRadius: '12px', overflow: 'hidden' }}>
           <img
@@ -126,19 +113,6 @@ export default function BlogArticlePage() {
           ))}
         </div>
 
-        {/* Startup Note for Visitors */}
-        <div className="startup-slogan-box fade-in-up" style={{ marginTop: '2.5rem', background: '#f8fafc' }}>
-          <div className="startup-slogan-icon" style={{ background: '#10b981' }}>
-            <i className="fa-solid fa-heart"></i>
-          </div>
-          <div className="startup-slogan-content">
-            <span className="startup-slogan-tag" style={{ color: '#059669' }}>Built for Visitors &amp; Motorists</span>
-            <p className="startup-slogan-text">
-              <strong>We’re not an impersonal corporate bureaucracy — we’re a hungry, local startup.</strong> When you order or contact us, you connect directly with founders and engineers obsessed with delivering every single drop accurately and reliably.
-            </p>
-          </div>
-        </div>
-
         {/* Tags */}
         <div className="fade-in-up" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border-color, #e0e0e0)' }}>
           {article.tags.map(tag => (
@@ -146,10 +120,48 @@ export default function BlogArticlePage() {
           ))}
         </div>
 
-        {/* CTA */}
+        {/* Related Articles & Fuel Guides Internal Web */}
+        <div className="fade-in-up" style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--border-color, #e0e0e0)' }}>
+          <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '1.2rem', color: 'var(--text-primary)' }}>
+            Related Fuel Guides &amp; Energy Insights
+          </h3>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '16px' }}>
+            {articles
+              .filter(a => a.id !== article.id)
+              .slice(0, 3)
+              .map(rel => (
+                <Link
+                  to={`/blog/${rel.slug}/`}
+                  key={rel.id}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    background: '#f8fafc',
+                    borderRadius: '10px',
+                    overflow: 'hidden',
+                    border: '1px solid #e2e8f0',
+                    transition: 'transform 0.2s, box-shadow 0.2s'
+                  }}
+                >
+                  <img src={rel.image} alt={rel.title} loading="lazy" style={{ width: '100%', height: '120px', objectFit: 'cover' }} />
+                  <div style={{ padding: '12px' }}>
+                    <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#0284c7', textTransform: 'uppercase' }}>{rel.category}</span>
+                    <h4 style={{ fontSize: '0.88rem', fontWeight: 700, margin: '6px 0 0 0', lineHeight: 1.4, color: '#0f172a' }}>{rel.title}</h4>
+                  </div>
+                </Link>
+              ))}
+          </div>
+        </div>
+
+        {/* CTAs */}
         <div className="fade-in-up" style={{ marginTop: '3rem', textAlign: 'center', display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
           <Link to="/order/" className="btn btn-primary">
             <i className="fa-solid fa-gas-pump"></i> Order Fuel Now
+          </Link>
+          <Link to="/contact/" className="btn btn-secondary">
+            <i className="fa-solid fa-headset"></i> Contact Helpline
           </Link>
           <Link to="/services/" className="btn btn-outline">
             <i className="fa-solid fa-truck-droplet"></i> Explore Services
