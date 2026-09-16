@@ -1,560 +1,96 @@
 /* ==========================================================================
-   PREMIUM CINEMATIC SCROLL ANIMATION (Apple / Scrollytelling Experience)
+   SCROLL ANIMATION SECTION — 100% MATCHED TO REFERENCE zz.html
+   Pure #000 background, native 1:1 canvas scaling, pulse scroll-hint.
+   Equal height (2500vh) across mobile, tablet, laptop, and desktop.
    ========================================================================== */
 
-.scroll-anim-container {
+/* Outer Scroll Track: 2500vh runway matching zz.html scroll pacing */
+.cinematic-scroll-hero {
   position: relative;
-  height: 1050vh; /* Extended cinematic runway for slow, deliberate pacing */
-  background: #050811;
+  height: 2500vh;
   width: 100%;
+  background: #000;
 }
 
-.scroll-anim-sticky {
+/* Sticky Stage: Pinned in viewport below header, pure #000 background */
+.cinematic-sticky-stage {
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: var(--nav-height, 0px);
+  left: 0;
   width: 100%;
+  height: calc(100vh - var(--nav-height, 0px));
+  height: calc(100dvh - var(--nav-height, 0px));
   overflow: hidden;
-  background: radial-gradient(circle at 50% 50%, #0d1527 0%, #050811 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #000;
+  z-index: 10;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Background ambient glow matching fuel amber and Zyphuel cyan */
-.scroll-anim-glow {
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  filter: blur(140px);
-  pointer-events: none;
-  opacity: 0.15;
-  transition: all 0.8s ease;
-  z-index: 1;
-}
-
-.scroll-anim-glow.phase-1 {
-  background: #f59e0b; /* Amber */
-  top: 10%;
-  left: 20%;
-}
-
-.scroll-anim-glow.phase-2 {
-  background: #0284c7; /* Brand Blue */
-  top: 30%;
-  right: 15%;
-}
-
-.scroll-anim-glow.phase-3 {
-  background: #00e5ff; /* Cyan */
-  bottom: 20%;
-  left: 25%;
-}
-
-.scroll-anim-glow.phase-4 {
-  background: #10b981; /* Emerald */
-  bottom: 10%;
-  right: 20%;
-}
-
-/* Canvas Viewport */
-.scroll-anim-canvas {
+/* Canvas matching zz.html: perfectly centered, max-width/height 100% */
+.reference-canvas {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  max-width: 100vw;
-  max-height: 100vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
   display: block;
-  z-index: 2;
-  filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.8));
-}
-
-/* Soft Vignette Overlay */
-.scroll-anim-vignette {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(circle at 50% 50%, transparent 60%, rgba(5, 8, 17, 0.85) 100%);
-  z-index: 3;
-}
-
-/* Bottom fade to seamlessly blend into HomePage Hero */
-.scroll-anim-bottom-fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 120px;
-  background: linear-gradient(to bottom, transparent, rgba(5, 8, 17, 0.95) 80%, #050811 100%);
-  pointer-events: none;
-  z-index: 4;
-}
-
-/* Top Navigation Bar Clearance / Header Overlay */
-.scroll-anim-top-bar {
-  position: absolute;
-  top: calc(var(--nav-height, 80px) + 12px);
-  left: 24px;
-  right: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 10;
   pointer-events: none;
 }
 
-.scroll-anim-badge-tech {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 6px 14px;
-  border-radius: 999px;
-  color: #94a3b8;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-.scroll-anim-badge-tech .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 10px #10b981;
-  animation: pulseDot 1.8s infinite;
-}
-
-@keyframes pulseDot {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.6; }
-}
-
-.scroll-anim-controls-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  pointer-events: auto;
-}
-
-.scroll-anim-counter {
-  color: #cbd5e1;
-  font-family: 'Courier New', monospace;
-  font-size: 0.85rem;
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 6px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  letter-spacing: 1px;
-}
-
-.scroll-anim-skip-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  padding: 6px 16px;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(8px);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.scroll-anim-skip-btn:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-1px);
-}
-
-/* ==========================================================================
-   STORYTELLING CAPTIONS & PHASES (Apple style narrative)
-   ========================================================================== */
-
-.scroll-story-stage {
+/* Scroll Hint matching zz.html */
+.reference-scroll-hint {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.scroll-story-card {
-  max-width: 520px;
-  background: rgba(11, 17, 32, 0.78);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 20px;
-  padding: 28px 32px;
-  color: #ffffff;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(2, 132, 199, 0.15);
-  opacity: 0;
-  transform: translateY(28px) scale(0.95);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-  text-align: left;
-}
-
-.scroll-story-card.active {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  pointer-events: auto;
-}
-
-/* Alternate positions for dynamic visual pacing */
-.scroll-story-card.pos-left {
-  position: absolute;
-  left: clamp(20px, 8vw, 100px);
-  bottom: clamp(60px, 15vh, 140px);
-}
-
-.scroll-story-card.pos-right {
-  position: absolute;
-  right: clamp(20px, 8vw, 100px);
-  bottom: clamp(60px, 15vh, 140px);
-}
-
-.scroll-story-card.pos-center {
-  position: absolute;
-  left: 50%;
-  bottom: clamp(60px, 12vh, 120px);
-  transform: translateX(-50%) translateY(28px) scale(0.95);
-  text-align: center;
-}
-
-.scroll-story-card.pos-center.active {
-  transform: translateX(-50%) translateY(0) scale(1);
-}
-
-.scroll-story-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 5px 12px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.scroll-story-pill.pill-amber {
-  background: rgba(245, 158, 11, 0.15);
-  color: #fbbf24;
-  border: 1px solid rgba(245, 158, 11, 0.3);
-}
-
-.scroll-story-pill.pill-blue {
-  background: rgba(2, 132, 199, 0.15);
-  color: #38bdf8;
-  border: 1px solid rgba(2, 132, 199, 0.3);
-}
-
-.scroll-story-pill.pill-cyan {
-  background: rgba(6, 182, 212, 0.15);
-  color: #22d3ee;
-  border: 1px solid rgba(6, 182, 212, 0.3);
-}
-
-.scroll-story-pill.pill-emerald {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.3);
-}
-
-.scroll-story-title {
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  font-weight: 700;
-  line-height: 1.25;
-  margin: 0 0 10px 0;
-  color: #f8fafc;
-  letter-spacing: -0.02em;
-}
-
-.scroll-story-title span {
-  background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.scroll-story-desc {
-  font-size: clamp(0.88rem, 1.5vw, 1rem);
-  line-height: 1.6;
-  color: #94a3b8;
-  margin: 0;
-}
-
-/* Phase 4 Call to action */
-.scroll-story-action {
-  margin-top: 18px;
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  align-items: center;
-}
-
-.scroll-story-btn {
-  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-  color: #ffffff;
-  border: none;
-  padding: 10px 22px;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.4);
-  transition: all 0.25s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-}
-
-.scroll-story-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 25px rgba(2, 132, 199, 0.6);
-  background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
-}
-
-/* ==========================================================================
-   VERTICAL STEP PROGRESS DOTS (Desktop)
-   ========================================================================== */
-
-.scroll-anim-progress-dots {
-  position: absolute;
-  right: 28px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  z-index: 8;
-}
-
-.scroll-dot-item {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
-  cursor: pointer;
-  opacity: 0.4;
-  transition: all 0.3s ease;
-}
-
-.scroll-dot-item.active {
-  opacity: 1;
-}
-
-.scroll-dot-label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #ffffff;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  display: none; /* revealed on hover or large screens */
-}
-
-@media (min-width: 1024px) {
-  .scroll-dot-label {
-    display: inline-block;
-  }
-}
-
-.scroll-dot-indicator {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.scroll-dot-item.active .scroll-dot-indicator {
-  width: 12px;
-  height: 12px;
-  background: #00e5ff;
-  border-color: #00e5ff;
-  box-shadow: 0 0 12px #00e5ff;
-}
-
-/* ==========================================================================
-   SCROLL HINT & INTERACTIVE PROMPTS
-   ========================================================================== */
-
-.scroll-anim-hint {
-  position: absolute;
-  bottom: 35px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 8;
-  color: rgba(255, 255, 255, 0.85);
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  font-size: 0.82rem;
-  letter-spacing: 2px;
+  z-index: 15;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  animation: scrollAnimPulse 2s ease-in-out infinite;
+  animation: scrollHintPulse 2s ease-in-out infinite;
   transition: opacity 0.5s ease;
   pointer-events: none;
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 8px 20px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  white-space: nowrap;
 }
 
-.scroll-anim-hint.hidden {
+.reference-scroll-hint.hidden {
   opacity: 0;
   pointer-events: none;
 }
 
-.scroll-anim-hint i {
-  color: #00e5ff;
-  font-size: 0.9rem;
-}
-
-@keyframes scrollAnimPulse {
+@keyframes scrollHintPulse {
   0%, 100% {
-    opacity: 0.45;
-    transform: translateX(-50%) translateY(0);
+    opacity: 0.4;
   }
   50% {
     opacity: 1;
-    transform: translateX(-50%) translateY(4px);
   }
 }
 
 /* ==========================================================================
-   PRELOADER
+   Responsive Breakpoints — EQUAL runway length across ALL devices
    ========================================================================== */
 
-.scroll-anim-loader {
-  position: absolute;
-  inset: 0;
-  z-index: 20;
-  background: #050811;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  transition: opacity 0.8s ease;
+@media (max-width: 992px) {
+  .cinematic-scroll-hero {
+    height: 2500vh;
+  }
 }
 
-.scroll-anim-loader.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.scroll-loader-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.scroll-loader-brand i {
-  font-size: 2.2rem;
-  color: #00e5ff;
-  filter: drop-shadow(0 0 12px rgba(0, 229, 255, 0.6));
-}
-
-.scroll-loader-brand span {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #f8fafc;
-}
-
-.scroll-anim-loader h3 {
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 16px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #94a3b8;
-}
-
-.scroll-anim-progress-bar-bg {
-  width: 320px;
-  max-width: 80vw;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 999px;
-  overflow: hidden;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6);
-}
-
-.scroll-anim-progress-bar {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, #0284c7, #00e5ff 70%, #f59e0b);
-  border-radius: 999px;
-  transition: width 0.2s ease;
-  box-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
-}
-
-.scroll-anim-progress-text {
-  margin-top: 14px;
-  font-size: 0.82rem;
-  color: #64748b;
-  font-family: 'Courier New', monospace;
-}
-
-/* ==========================================================================
-   RESPONSIVE OPTIMIZATIONS
-   ========================================================================== */
-
-@media (max-width: 768px) {
-  .scroll-anim-container {
-    height: 850vh; /* Smooth, controlled mobile thumb scrubbing */
+@media (max-width: 576px) {
+  .cinematic-scroll-hero {
+    height: 2500vh;
   }
 
-  .scroll-story-card {
-    padding: 20px 22px;
-    border-radius: 16px;
-    max-width: 90vw;
-  }
-
-  .scroll-story-card.pos-left,
-  .scroll-story-card.pos-right {
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%) translateY(20px) scale(0.96);
-    bottom: 80px;
-    text-align: center;
-  }
-
-  .scroll-story-card.pos-left.active,
-  .scroll-story-card.pos-right.active {
-    transform: translateX(-50%) translateY(0) scale(1);
-  }
-
-  .scroll-anim-progress-dots {
-    display: none;
+  .reference-scroll-hint {
+    bottom: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
   }
 }

@@ -1051,17 +1051,19 @@ async function prerender() {
         priority = '0.7'
         changefreq = 'monthly'
       }
+      const imageTag = r.path === '/' ? `\n    <image:image>\n      <image:loc>${DOMAIN}/images/zyphuel-og.png</image:loc>\n      <image:title>Zyphuel - Doorstep Fuel Delivery in Lahore</image:title>\n    </image:image>` : ''
       return `  <url>
     <loc>${DOMAIN}${r.path}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
+    <priority>${priority}</priority>${imageTag}
   </url>`
     })
     .join('\n')
 
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${sitemapUrls}
 </urlset>`
 

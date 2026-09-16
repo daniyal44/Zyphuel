@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
-import HeroGraphic from '../components/HeroGraphic'
 import { articles } from '../data/articles'
 import BlogCard from '../components/BlogCard'
 import BlogModal from '../components/BlogModal'
 import Carousel3D from '../components/Carousel3D'
 import ScrollAnimationSection from '../components/ScrollAnimationSection'
+import HeroGraphic from '../components/HeroGraphic'
 import { useSEO } from '../hooks/useSEO'
 import { APP_VERSION } from '../data/appVersion'
 export default function HomePage() {
@@ -186,17 +186,17 @@ export default function HomePage() {
   return (
     
     <main id="main-content" ref={pageRef}>
-      {/* Scroll Sequence Animation Section */}
+      {/* New Cinematic 3D Scroll Refueling Hero (300 Frames with Hello Everyone Greeting) */}
       <ScrollAnimationSection />
 
-      {/* Hero Section */}
-      <section id="home" className="hero" style={{ minHeight: 'calc(100vh - var(--nav-height))', display: 'flex', alignItems: 'center', paddingTop: '40px' }}>
+      {/* Main Home Hero Section with Doorstep Fuel Delivery CTAs */}
+      <section id="home" className="hero" style={{ scrollMarginTop: 'var(--nav-height)' }}>
         <div className="container">
           <div className="hero-grid">
             {/* Left: Content */}
             <div className="hero-content fade-in-up">
               {showStartupTransparency && (
-                <div style={{
+                <div className="hero-transparency-banner" style={{
                   background: 'rgba(2, 132, 199, 0.08)',
                   border: '1px solid rgba(2, 132, 199, 0.25)',
                   borderRadius: '10px',

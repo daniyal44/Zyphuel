@@ -7,15 +7,18 @@ Allow: /manifest.json
 Allow: /llms.txt
 Allow: /sitemap.xml
 Disallow: /404.html
+Disallow: /ezgif-2f1a39c97e5b173b-jpg/
 
 # Image Crawlers
 User-agent: Googlebot-Image
 Allow: /
 Allow: /images/
+Disallow: /ezgif-2f1a39c97e5b173b-jpg/
 
 User-agent: MSNBOT-Media
 Allow: /
 Allow: /images/
+Disallow: /ezgif-2f1a39c97e5b173b-jpg/
 
 # Major Search Engine Crawlers
 User-agent: Googlebot
@@ -86,6 +89,12 @@ User-agent: cohere-ai
 Allow: /
 
 User-agent: Amazonbot
+Allow: /
+
+User-agent: Gemini
+Allow: /
+
+User-agent: Google-InspectionTool
 Allow: /
 
 Sitemap: https://zyphuel.netlify.app/sitemap.xml

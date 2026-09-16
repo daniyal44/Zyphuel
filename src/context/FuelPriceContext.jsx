@@ -6,16 +6,53 @@ const FuelPriceContext = createContext();
 const DEFAULT_PRICES = FUEL_PRICES;
 
 export function FuelPriceProvider({ children }) {
-  const [prices, setPrices] = useState(DEFAULT_PRICES);
+  // Initialize state with sessionStorage cache if available to prevent flash of fallback values
+  const [prices, setPrices] = useState(() => {
+    try {
+      const cached = sessionStorage.getItem('zyphuel_live_prices');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (parsed?.prices && Date.now() - (parsed.timestamp || 0) < 15 * 60 * 1000) {
+          return { ...DEFAULT_PRICES, ...parsed.prices };
+        }
+      }
+    } catch (e) {}
+    return DEFAULT_PRICES;
+  });
+
   const [loading, setLoading] = useState(true);
+  const [isLive, setIsLive] = useState(() => {
+    try {
+      const cached = sessionStorage.getItem('zyphuel_live_prices');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        return Boolean(parsed?.isLive && Date.now() - (parsed.timestamp || 0) < 15 * 60 * 1000);
+      }
+    } catch (e) {}
+    return false;
+  });
+  const [effectiveDate, setEffectiveDate] = useState(() => {
+    try {
+      const cached = sessionStorage.getItem('zyphuel_live_prices');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        return parsed?.effectiveDate || null;
+      }
+    } catch (e) {}
+    return null;
+  });
+  const [lastUpdated, setLastUpdated] = useState(null);
 
   useEffect(() => {
     let isMounted = true;
 
     async function loadPrices() {
-      // Step 1: Try Direct Fetch
+      // Step 1: Try Direct Fetch (API supports CORS: Access-Control-Allow-Origin: *)
       try {
-        const response = await fetch('https://fuel.trackmate.page/api/prices');
+        const response = await fetch('https://fuel.trackmate.page/api/prices', {
+          headers: { 'Accept': 'application/json' },
+          cache: 'no-cache'
+        });
         if (response.ok) {
           const data = await response.json();
           if (data && Array.isArray(data.prices) && isMounted) {
@@ -25,7 +62,7 @@ export function FuelPriceProvider({ children }) {
           }
         }
       } catch (err) {
-        console.warn('Direct fetch failed, trying CORS proxy fallback...', err);
+        console.warn('Direct fetch to trackmate API failed, trying CORS proxy fallback...', err);
       }
 
       // Step 2: Try CORS Proxy Fallback (AllOrigins)
@@ -52,29 +89,52 @@ export function FuelPriceProvider({ children }) {
 
     function updatePricesFromData(priceList) {
       // Find products
-      const petrolItem = priceList.find(p => p.product === 'petrol');
-      const dieselItem = priceList.find(p => p.product === 'hsd');
+      const petrolItem = priceList.find(p => p.product === 'petrol' && (p.source === 'pso' || !p.source)) ||
+                         priceList.find(p => p.product === 'petrol');
+      const dieselItem = priceList.find(p => p.product === 'hsd' && (p.source === 'pso' || !p.source)) ||
+                         priceList.find(p => p.product === 'hsd');
       const lpgItem = priceList.find(p => p.product === 'lpg');
       
       // Look for octane_plus (prefer Lahore, otherwise first available)
-      const octaneItem = priceList.find(p => p.product === 'octane_plus' && p.city === 'Lahore') || 
-                          priceList.find(p => p.product === 'octane_plus');
+      const octaneItem = priceList.find(p => p.product === 'octane_plus' && p.city?.toLowerCase() === 'lahore') || 
+                         priceList.find(p => p.product === 'octane_plus');
+
+      // Find effective_date from any item that has it
+      const dateItem = priceList.find(p => p.effective_date);
+      const foundDate = dateItem ? dateItem.effective_date : null;
+      const scrapedAt = petrolItem?.scraped_at || dieselItem?.scraped_at || new Date().toISOString();
 
       const updated = { ...DEFAULT_PRICES };
       
-      if (DEFAULT_PRICES.petrol) updated.petrol = DEFAULT_PRICES.petrol;
-      else if (petrolItem) updated.petrol = Number(petrolItem.price_pkr);
-
-      if (DEFAULT_PRICES.diesel) updated.diesel = DEFAULT_PRICES.diesel;
-      else if (dieselItem) updated.diesel = Number(dieselItem.price_pkr);
-
-      if (DEFAULT_PRICES.lpg) updated.lpg = DEFAULT_PRICES.lpg;
-      else if (lpgItem) updated.lpg = Number(lpgItem.price_pkr);
-
-      if (DEFAULT_PRICES.highOctane) updated.highOctane = DEFAULT_PRICES.highOctane;
-      else if (octaneItem) updated.highOctane = Number(octaneItem.price_pkr);
+      // Override default prices with live verified market rates from API
+      if (petrolItem && !isNaN(Number(petrolItem.price_pkr))) {
+        updated.petrol = Number(petrolItem.price_pkr);
+      }
+      if (dieselItem && !isNaN(Number(dieselItem.price_pkr))) {
+        updated.diesel = Number(dieselItem.price_pkr);
+      }
+      if (lpgItem && !isNaN(Number(lpgItem.price_pkr))) {
+        updated.lpg = Number(lpgItem.price_pkr);
+      }
+      if (octaneItem && !isNaN(Number(octaneItem.price_pkr))) {
+        updated.highOctane = Number(octaneItem.price_pkr);
+      }
 
       setPrices(updated);
+      setIsLive(true);
+      if (foundDate) setEffectiveDate(foundDate);
+      setLastUpdated(scrapedAt);
+
+      // Cache in sessionStorage so navigation across pages is instantaneous and preserves rate limits
+      try {
+        sessionStorage.setItem('zyphuel_live_prices', JSON.stringify({
+          prices: updated,
+          isLive: true,
+          effectiveDate: foundDate,
+          lastUpdated: scrapedAt,
+          timestamp: Date.now()
+        }));
+      } catch (e) {}
     }
 
     loadPrices();
@@ -85,7 +145,7 @@ export function FuelPriceProvider({ children }) {
   }, []);
 
   return (
-    <FuelPriceContext.Provider value={{ prices, loading }}>
+    <FuelPriceContext.Provider value={{ prices, loading, isLive, effectiveDate, lastUpdated }}>
       {children}
     </FuelPriceContext.Provider>
   );
