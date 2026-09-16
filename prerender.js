@@ -419,7 +419,7 @@ const ROUTES = [
   {
     path: '/services/',
     outFile: 'dist/services/index.html',
-    title: "Fuel Delivery Services in Lahore | Petrol, Diesel & LPG | Zyphuel",
+    title: "Fuel Delivery Services in Lahore | Petrol, Diesel & High-Octane | Zyphuel",
     description: "On-demand fuel delivery in Lahore: Euro-V petrol, diesel for vehicles and standby generators, sealed LPG gas cylinders, and water tanker delivery. Fast 20-45 minute dispatch.",
     keywords: "fuel delivery services Lahore, generator diesel delivery, bulk diesel supplier Lahore, LPG gas cylinder delivery Lahore, water tanker Lahore",
     canonical: `${DOMAIN}/services/`,
@@ -1035,8 +1035,8 @@ async function prerender() {
     console.log(`✅ Saved ${route.outFile} (${Buffer.byteLength(html, 'utf-8')} bytes)`)
   }
 
-  // Dynamically generate XML sitemap from canonical routes
-  const today = new Date().toISOString().split('T')[0]
+  // Dynamically generate XML sitemap from canonical routes (Pakistan local date UTC+5)
+  const today = new Date(Date.now() + 5 * 3600 * 1000).toISOString().split('T')[0]
   const sitemapUrls = ROUTES
     .filter(r => !r.noIndex)
     .map(r => {
@@ -1045,7 +1045,7 @@ async function prerender() {
       if (r.path === '/') {
         priority = '1.0'
         changefreq = 'daily'
-      } else if (r.path === '/order/') {
+      } else if (r.path === '/order/' || r.path === '/services/') {
         priority = '0.9'
         changefreq = 'daily'
       } else if (r.path.startsWith('/blog/') && r.path !== '/blog/') {

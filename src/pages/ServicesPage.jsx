@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import ServicesGraphic from '../components/ServicesGraphic'
 import ServiceCard from '../components/ServiceCard'
@@ -22,10 +22,23 @@ export default function ServicesPage() {
   const { prices: livePrices } = useFuelPrices()
   const pageRef = useScrollReveal([activeTab])
   const navigate = useNavigate()
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash === '#b2b' || location.hash === '#enterprise') {
+      setActiveTab('enterprise')
+      const target = document.getElementById('b2b') || document.getElementById('catalog')
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: 'smooth' })
+        }, 100)
+      }
+    }
+  }, [location.hash])
 
   useSEO({
     title: 'Fuel Delivery Services in Lahore | Petrol, Diesel & High-Octane | Zyphuel',
-    description: 'Explore Zyphuel\'s fuel delivery services in Lahore, including petrol, diesel, high-octane fuel, generator refueling and utility delivery.',
+    description: 'On-demand fuel delivery in Lahore: Euro-V petrol, diesel for vehicles and standby generators, sealed LPG gas cylinders, and water tanker delivery. Fast 20-45 minute dispatch.',
     keywords: [
       'fuel delivery services Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
       'generator diesel refueling Lahore', 'commercial diesel supply Lahore', 'fleet refueling Pakistan',
@@ -242,7 +255,8 @@ export default function ServicesPage() {
         </section>
 
         {/* Services Catalog (Consumer vs Enterprise) */}
-        <section id="catalog" className="section-padding" style={{ backgroundColor: '#ffffff' }}>
+        <section id="catalog" className="section-padding" style={{ backgroundColor: '#ffffff', scrollMarginTop: 'calc(var(--nav-height) + 20px)' }}>
+          <div id="b2b" style={{ position: 'relative', top: '-100px' }}></div>
           <div className="container">
             <div className="section-header fade-in-up">
               <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0284c7)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>

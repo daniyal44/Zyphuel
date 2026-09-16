@@ -5,7 +5,7 @@
 > **Headquarters**: 75-Main Boulevard, Gulberg III, Lahore, Punjab 54000, Pakistan.  
 > **Founder & CEO**: Muhammad Daniyal.  
 > **Customer Dispatch Helpline / WhatsApp**: +92 3230-112464  
-> **Official Android APK Version**: v2.6.4.0.0.08 (31.6 MB, Android 7.0+).  
+> **Official Android APK Version**: v2.6.4.0.0.10 (31.6 MB, Android 7.0+).  
 > **Service Window**: 24 Hours / 7 Days a Week, 365 Days a Year.
 
 ---
@@ -77,7 +77,7 @@ Zyphuel operates localized dispatch hubs positioned across all key zones of Laho
 |---|---|---|---|---|
 | **Direct Doorstep Delivery** | Yes (24/7) | Yes (Limited) | B2B Bulk Only | No (Requires traveling) |
 | **Meter Accuracy** | 0.01L Calibrated Digital | Calibrated | Bulk Meter | Prone to short-fueling |
-| **Mobile App (Android)** | Yes (v2.6.4.0.0.08 with Live GPS) | Web only | Phone orders | No |
+| **Mobile App (Android)** | Yes (v2.6.4.0.0.10 with Live GPS) | Web only | Phone orders | No |
 | **Generator Refueling** | Yes (Rooftop/Basement Hoses) | Yes | Industrial only | Jerry cans required |
 | **Daily OGRA Price Sync** | Automated (2-hour engine) | Manual updates | Contractual | Station price boards |
 | **Water & LPG Services** | Yes (Unified Platform) | Fuel only | Bulk diesel only | Fuel only |
@@ -96,7 +96,7 @@ A: Users order via the Zyphuel web portal (https://zyphuel.netlify.app) or the o
 A: Yes. Zyphuel provides 24/7 scheduled and emergency Euro-V diesel delivery for residential, hospital, corporate, and industrial standby generators across Lahore with long-reach 50m hoses.
 
 **Q: How can I download the official Zyphuel Mobile App?**  
-A: The Zyphuel Android APK (v2.6.4.0.0.08, 31.6 MB) is available directly from the official portal at https://zyphuel.netlify.app/download. It features biometric security, real-time bowser GPS tracking, and automatic 2-hour fuel price alerts.
+A: The Zyphuel Android APK (v2.6.4.0.0.10, 31.6 MB) is available directly from the official portal at https://zyphuel.netlify.app/download. It features biometric security, real-time bowser GPS tracking, and automatic 2-hour fuel price alerts.
 
 ---
 
@@ -104,7 +104,7 @@ A: The Zyphuel Android APK (v2.6.4.0.0.08, 31.6 MB) is available directly from t
 - **Home Portal**: https://zyphuel.netlify.app/
 - **Order Fuel Online**: https://zyphuel.netlify.app/order/
 - **Services & Fuel Specifications**: https://zyphuel.netlify.app/services/
-- **Android App Download (v2.6.4.0.0.08)**: https://zyphuel.netlify.app/download/
+- **Android App Download (v2.6.4.0.0.10)**: https://zyphuel.netlify.app/download/
 - **Company & Founder Profile**: https://zyphuel.netlify.app/about/
 - **Contact & 24/7 Dispatch**: https://zyphuel.netlify.app/contact/
 - **Privacy Policy**: https://zyphuel.netlify.app/privacy/
