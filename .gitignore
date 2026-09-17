@@ -5,4 +5,8 @@ dist-ssr/
 .claude/
 .agents/
 AITMPL_CATALOG.json
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
