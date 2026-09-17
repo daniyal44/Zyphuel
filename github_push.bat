@@ -27,10 +27,20 @@ if %ERRORLEVEL% neq 0 (
 )
 
 :: 3. Detect current Git branch
-for /f "delims=" %%i in ('git rev-parse --abbrev-ref HEAD') do set CURRENT_BRANCH=%%i
+set "CURRENT_BRANCH="
+for /f "delims=" %%i in ('git branch --show-current 2^>nul') do set CURRENT_BRANCH=%%i
+if "%CURRENT_BRANCH%"=="" (
+    for /f "delims=" %%i in ('git rev-parse --abbrev-ref HEAD 2^>nul') do set CURRENT_BRANCH=%%i
+)
+:: If in detached HEAD or empty, force default to main
 if "%CURRENT_BRANCH%"=="" set CURRENT_BRANCH=main
+if /i "%CURRENT_BRANCH%"=="HEAD" (
+    echo [WARN] Detached HEAD detected. Reattaching to branch 'main'...
+    git checkout main 2>nul
+    set CURRENT_BRANCH=main
+)
 
-echo [INFO] Current Branch: %CURRENT_BRANCH%
+echo [INFO] Target Branch: %CURRENT_BRANCH%
 echo [INFO] Remote Origin:
 git remote -v
 echo.
@@ -73,7 +83,7 @@ echo.
 echo --------------------------------------------------------------
 echo [INFO] Pushing commits to GitHub (origin/%CURRENT_BRANCH%)...
 echo --------------------------------------------------------------
-git push origin %CURRENT_BRANCH%
+git push origin HEAD:%CURRENT_BRANCH%
 
 if %ERRORLEVEL% equ 0 (
     echo.
