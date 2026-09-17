@@ -285,7 +285,7 @@ function generateSvg() {
   </defs>
 
   <!-- TERMINAL FRAME BACKGROUND -->
-  <rect width="${width}" height="${height}" rx="12" fill="url(#tradingBg)" stroke="#1e293b" stroke-width="1.2" filter="url(#cardShadow)" />
+  <rect width="${width}" height="${height}" rx="12" fill="url(#tradingBg)" stroke="#1e293b" stroke-width="1.2" />
 
   <!-- BACKGROUND WATERMARK -->
   <text x="${width / 2}" y="280" fill="#ffffff" fill-opacity="0.02" font-family="system-ui, -apple-system, sans-serif" font-size="96" font-weight="900" text-anchor="middle" letter-spacing="12">ZYPHUEL</text>
@@ -377,8 +377,10 @@ function generateSvg() {
   <!-- EMA 9 Moving Average Trendline (Amber) -->
   <path d="${emaPath}" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="4 3" opacity="0.85" />
 
-  <!-- Primary Price Line (Glowing Emerald Neon) -->
-  <path d="${pricePath}" fill="none" stroke="#10b981" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" filter="url(#neonGlow)" />
+  <!-- Primary Price Line (Layered Emerald Neon Vector Glow) -->
+  <path d="${pricePath}" fill="none" stroke="#10b981" stroke-width="6" stroke-opacity="0.2" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="${pricePath}" fill="none" stroke="#10b981" stroke-width="4" stroke-opacity="0.4" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="${pricePath}" fill="none" stroke="#34d399" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
 
   <!-- Genesis Point Marker -->
   <circle cx="${firstPt.x.toFixed(1)}" cy="${firstPt.y.toFixed(1)}" r="3.5" fill="#047857" stroke="#10b981" stroke-width="1.5" />

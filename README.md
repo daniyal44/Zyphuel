@@ -21,7 +21,9 @@ A high-performance React.js + Vite platform for Zyphuel — on-demand doorstep f
 ### 📊 Real-Time Engineering Velocity & Activity Dashboard (Auto-Updates on Push)
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/daniyal44/Zyphuel/main/.github/assets/repo-activity-chart.svg" alt="Zyphuel Engineering Velocity & Git Activity Chart" width="100%" />
+  <a href="https://github.com/daniyal44/Zyphuel">
+    <img src=".github/assets/repo-activity-chart.svg" alt="Zyphuel Engineering Velocity & Git Activity Chart" width="100%" />
+  </a>
 </p>
 
 
