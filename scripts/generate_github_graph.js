@@ -441,40 +441,339 @@ function generateSvg(variant = 'activity') {
   return { svgContent, closePrice, dayChangePct, cleanSha, cleanMessage }
 }
 
-function main() {
-  const activity = generateSvg('activity')
-  const changes = generateSvg('changes')
+// ----------------------------------------------------------------------
+// 2. Enhanced GitHub Contribution Heatmap Grid & Changes Report Generator
+// ----------------------------------------------------------------------
+function generateContributionGraph(commits) {
+  const width = 960
+  const height = 620
 
-  // 1. Save to assets/ directory (Standard visible directory for GitHub README)
+  const totalCommits = commits.length
+  const latest = commits[0] || { sha: 'main', date: 'Today', message: 'Active Development' }
+
+  // Map daily commit counts
+  const dailyMap = new Map()
+  commits.forEach(c => {
+    if (c.date) {
+      dailyMap.set(c.date, (dailyMap.get(c.date) || 0) + 1)
+    }
+  })
+
+  const activeDays = dailyMap.size
+  let maxDaily = 0
+  dailyMap.forEach(v => {
+    if (v > maxDaily) maxDaily = v
+  })
+
+  // Date calculation: rolling 50 weeks ending on current day
+  const today = new Date()
+  const todayDay = today.getDay() // 0 = Sun ... 6 = Sat
+  const numWeeks = 50
+
+  // Start date: Sunday, (numWeeks - 1) weeks ago
+  const startDate = new Date(today)
+  startDate.setDate(today.getDate() - (numWeeks * 7) + (6 - todayDay))
+
+  const cellSize = 11.5
+  const cellGap = 3.5
+  const gridStartX = 75
+  const gridStartY = 195
+
+  let cellsSvg = ''
+  const monthLabels = []
+  let lastMonth = -1
+
+  for (let w = 0; w < numWeeks; w++) {
+    for (let d = 0; d < 7; d++) {
+      const cellDate = new Date(startDate)
+      cellDate.setDate(startDate.getDate() + (w * 7) + d)
+      const dateStr = cellDate.toISOString().split('T')[0]
+      const count = dailyMap.get(dateStr) || 0
+
+      // Month marker
+      const m = cellDate.getMonth()
+      if (d === 0 && m !== lastMonth && w < numWeeks - 1) {
+        lastMonth = m
+        monthLabels.push({
+          x: gridStartX + (w * (cellSize + cellGap)),
+          name: MONTH_NAMES[m]
+        })
+      }
+
+      // Heatmap level colors
+      let fillColor = '#161b22'
+      let strokeColor = 'rgba(255, 255, 255, 0.04)'
+      if (count === 1) {
+        fillColor = '#0e4429'
+        strokeColor = 'rgba(16, 185, 129, 0.25)'
+      } else if (count >= 2 && count <= 4) {
+        fillColor = '#006d32'
+        strokeColor = 'rgba(16, 185, 129, 0.45)'
+      } else if (count >= 5 && count <= 9) {
+        fillColor = '#26a641'
+        strokeColor = 'rgba(52, 211, 153, 0.7)'
+      } else if (count >= 10) {
+        fillColor = '#39d353'
+        strokeColor = '#a7f3d0'
+      }
+
+      const cx = gridStartX + (w * (cellSize + cellGap))
+      const cy = gridStartY + (d * (cellSize + cellGap))
+
+      cellsSvg += `      <rect x="${cx.toFixed(1)}" y="${cy.toFixed(1)}" width="${cellSize}" height="${cellSize}" rx="2.5" fill="${fillColor}" stroke="${strokeColor}" stroke-width="0.6">`
+      cellsSvg += `<title>${dateStr}: ${count} commits</title></rect>\n`
+    }
+  }
+
+  const monthLabelsSvg = monthLabels.map(ml => 
+    `    <text x="${ml.x.toFixed(1)}" y="185" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">${ml.name}</text>`
+  ).join('\n')
+
+  // Top 5 Recent Commits Table
+  const recentCommits = commits.slice(0, 5)
+  let commitsTableRows = ''
+  const tableStartY = 370
+  const rowHeight = 36
+
+  recentCommits.forEach((c, idx) => {
+    const rowY = tableStartY + (idx * rowHeight)
+    let type = 'FEAT'
+    let badgeBg = 'rgba(2, 132, 199, 0.18)'
+    let badgeBorder = 'rgba(2, 132, 199, 0.4)'
+    let badgeText = '#38bdf8'
+
+    const lowerMsg = c.message.toLowerCase()
+    if (lowerMsg.startsWith('fix')) {
+      type = 'FIX'
+      badgeBg = 'rgba(245, 158, 11, 0.18)'
+      badgeBorder = 'rgba(245, 158, 11, 0.4)'
+      badgeText = '#fbbf24'
+    } else if (lowerMsg.startsWith('chore')) {
+      type = 'CHORE'
+      badgeBg = 'rgba(100, 116, 139, 0.18)'
+      badgeBorder = 'rgba(100, 116, 139, 0.4)'
+      badgeText = '#94a3b8'
+    } else if (lowerMsg.startsWith('perf')) {
+      type = 'PERF'
+      badgeBg = 'rgba(168, 85, 247, 0.18)'
+      badgeBorder = 'rgba(168, 85, 247, 0.4)'
+      badgeText = '#c084fc'
+    } else if (lowerMsg.startsWith('seo') || lowerMsg.includes('seo')) {
+      type = 'SEO'
+      badgeBg = 'rgba(16, 185, 129, 0.18)'
+      badgeBorder = 'rgba(16, 185, 129, 0.4)'
+      badgeText = '#34d399'
+    }
+
+    const cleanMsg = escapeXml(c.message.length > 60 ? c.message.substring(0, 60) + '...' : c.message)
+    const rowBg = idx % 2 === 0 ? 'rgba(255, 255, 255, 0.015)' : 'transparent'
+
+    commitsTableRows += `
+    <g transform="translate(45, ${rowY})">
+      <rect width="870" height="${rowHeight - 4}" rx="6" fill="${rowBg}" />
+      
+      <!-- Type Badge -->
+      <rect x="12" y="5" width="50" height="20" rx="4" fill="${badgeBg}" stroke="${badgeBorder}" stroke-width="1" />
+      <text x="37" y="19" fill="${badgeText}" font-family="monospace, sans-serif" font-size="10" font-weight="800" text-anchor="middle">${type}</text>
+
+      <!-- Commit SHA -->
+      <text x="78" y="19" fill="#38bdf8" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="11" font-weight="700">${escapeXml(c.sha)}</text>
+
+      <!-- Commit Message -->
+      <text x="150" y="19" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500">${cleanMsg}</text>
+
+      <!-- Date -->
+      <text x="755" y="19" fill="#94a3b8" font-family="monospace, sans-serif" font-size="10.5">${escapeXml(c.date)}</text>
+
+      <!-- Verified Checkmark Badge -->
+      <g transform="translate(830, 7)">
+        <rect width="28" height="16" rx="8" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="0.8" />
+        <text x="14" y="12" fill="#34d399" font-family="system-ui, sans-serif" font-size="9" font-weight="800" text-anchor="middle">✓</text>
+      </g>
+    </g>`
+  })
+
+  const cleanLatestSha = escapeXml(latest.sha)
+  const cleanLatestMsg = escapeXml(latest.message.length > 42 ? latest.message.substring(0, 42) + '...' : latest.message)
+
+  const svgContent = `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Dark Slate GitHub Terminal Background -->
+    <linearGradient id="contribBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c14" />
+      <stop offset="50%" stop-color="#0b101b" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+
+    <!-- Card Background Gradient -->
+    <linearGradient id="cardBgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#151d2f" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#0e1524" stop-opacity="0.95" />
+    </linearGradient>
+  </defs>
+
+  <!-- FRAME BACKGROUND -->
+  <rect width="${width}" height="${height}" rx="12" fill="url(#contribBg)" stroke="#1e293b" stroke-width="1.2" />
+
+  <!-- WATERMARK -->
+  <text x="${width / 2}" y="330" fill="#ffffff" fill-opacity="0.015" font-family="system-ui, -apple-system, sans-serif" font-size="78" font-weight="900" text-anchor="middle" letter-spacing="12">CONTRIBUTIONS</text>
+
+  <!-- TOP HEADER -->
+  <g transform="translate(45, 20)">
+    <rect width="28" height="28" rx="6" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.35)" stroke-width="1" />
+    <text x="14" y="19" fill="#10b981" font-family="system-ui, sans-serif" font-size="14" font-weight="900" text-anchor="middle">🟩</text>
+    
+    <text x="38" y="14" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" letter-spacing="0.5">ZYPHUEL / CONTRIBUTION MATRIX</text>
+    <text x="355" y="14" fill="#64748b" font-family="system-ui, sans-serif" font-size="12" font-weight="600">• GIT CHANGES REPORT</text>
+    <text x="38" y="27" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10.5">Verified Repository Commit Cadence • Live Development Activity Heatmap</text>
+
+    <!-- Header Badges (Right) -->
+    <g transform="translate(620, 3)">
+      <rect width="78" height="22" rx="11" fill="rgba(2, 132, 199, 0.15)" stroke="rgba(56, 189, 248, 0.35)" stroke-width="1" />
+      <text x="39" y="15" fill="#38bdf8" font-family="monospace, sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">main</text>
+
+      <rect x="85" y="0" width="165" height="22" rx="11" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.35)" stroke-width="1" />
+      <text x="167" y="15" fill="#34d399" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">● ${totalCommits} Commits Logged</text>
+    </g>
+  </g>
+
+  <!-- 4 KPI SUMMARY CARDS (Y: 65) -->
+  <g transform="translate(45, 65)">
+    <!-- Card 1: Total Commits -->
+    <g transform="translate(0, 0)">
+      <rect width="202" height="66" rx="8" fill="url(#cardBgGrad)" stroke="#1e293b" stroke-width="1" />
+      <text x="16" y="22" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">TOTAL COMMITS</text>
+      <text x="16" y="47" fill="#ffffff" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="22" font-weight="800">${totalCommits}</text>
+      <text x="75" y="47" fill="#34d399" font-family="system-ui, sans-serif" font-size="11" font-weight="700">▲ 100% Synced</text>
+    </g>
+
+    <!-- Card 2: Active Commit Days -->
+    <g transform="translate(222, 0)">
+      <rect width="202" height="66" rx="8" fill="url(#cardBgGrad)" stroke="#1e293b" stroke-width="1" />
+      <text x="16" y="22" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">ACTIVE WORK DAYS</text>
+      <text x="16" y="47" fill="#ffffff" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="22" font-weight="800">${activeDays}</text>
+      <text x="65" y="47" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Days Active</text>
+    </g>
+
+    <!-- Card 3: Peak Daily Velocity -->
+    <g transform="translate(444, 0)">
+      <rect width="202" height="66" rx="8" fill="url(#cardBgGrad)" stroke="#1e293b" stroke-width="1" />
+      <text x="16" y="22" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">PEAK BURST (24H)</text>
+      <text x="16" y="47" fill="#ffffff" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="22" font-weight="800">${maxDaily}</text>
+      <text x="65" y="47" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Commits / Day</text>
+    </g>
+
+    <!-- Card 4: Codebase Release -->
+    <g transform="translate(666, 0)">
+      <rect width="204" height="66" rx="8" fill="url(#cardBgGrad)" stroke="#1e293b" stroke-width="1" />
+      <text x="16" y="22" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">PRODUCTION RELEASE</text>
+      <text x="16" y="47" fill="#a78bfa" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="16" font-weight="800">v${APP_VERSION}</text>
+      <text x="135" y="47" fill="#34d399" font-family="system-ui, sans-serif" font-size="10" font-weight="700">● Live</text>
+    </g>
+  </g>
+
+  <!-- SECTION 1: HEATMAP HEADER & LEGEND (Y: 155) -->
+  <g transform="translate(45, 155)">
+    <text x="0" y="0" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12" font-weight="800" letter-spacing="0.5">2026 CONTRIBUTION ACTIVITY (ROLLING 50 WEEKS)</text>
+    
+    <!-- Legend -->
+    <g transform="translate(710, -10)">
+      <text x="0" y="10" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">Less</text>
+      <rect x="30" y="1" width="10" height="10" rx="2" fill="#161b22" stroke="rgba(255,255,255,0.05)" />
+      <rect x="44" y="1" width="10" height="10" rx="2" fill="#0e4429" />
+      <rect x="58" y="1" width="10" height="10" rx="2" fill="#006d32" />
+      <rect x="72" y="1" width="10" height="10" rx="2" fill="#26a641" />
+      <rect x="86" y="1" width="10" height="10" rx="2" fill="#39d353" />
+      <text x="104" y="10" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">More</text>
+    </g>
+  </g>
+
+  <!-- HEATMAP MONTH LABELS -->
+${monthLabelsSvg}
+
+  <!-- HEATMAP DAY OF WEEK LABELS -->
+  <g transform="translate(45, 195)">
+    <text x="0" y="26" fill="#64748b" font-family="system-ui, sans-serif" font-size="9.5" font-weight="600">Mon</text>
+    <text x="0" y="56" fill="#64748b" font-family="system-ui, sans-serif" font-size="9.5" font-weight="600">Wed</text>
+    <text x="0" y="86" fill="#64748b" font-family="system-ui, sans-serif" font-size="9.5" font-weight="600">Fri</text>
+  </g>
+
+  <!-- HEATMAP TILES -->
+  <g>
+${cellsSvg}
+  </g>
+
+  <!-- SECTION 2: CHANGES REPORT / RECENT COMMITS (Y: 345) -->
+  <g transform="translate(45, 345)">
+    <text x="0" y="0" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12" font-weight="800" letter-spacing="0.5">RECENT COMMITS &amp; CHANGES REPORT (VERIFIED TELEMETRY)</text>
+    
+    <!-- Table Header Row -->
+    <g transform="translate(0, 10)">
+      <rect width="870" height="22" rx="4" fill="rgba(15, 23, 42, 0.75)" />
+      <text x="24" y="15" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="700">TYPE</text>
+      <text x="80" y="15" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="700">HASH</text>
+      <text x="150" y="15" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="700">COMMIT MESSAGE &amp; CHANGE SCOPE</text>
+      <text x="755" y="15" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="700">DATE</text>
+      <text x="830" y="15" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="700">STATUS</text>
+    </g>
+  </g>
+
+  <!-- Commits Table Rows -->
+  ${commitsTableRows}
+
+  <!-- FOOTER STATUS BAR (Y: 575) -->
+  <line x1="45" y1="585" x2="915" y2="585" stroke="rgba(255, 255, 255, 0.08)" />
+  
+  <g transform="translate(45, 603)">
+    <circle cx="4" cy="-3" r="3" fill="#10b981" />
+    <text x="14" y="0" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10.5">
+      <tspan font-weight="700" fill="#cbd5e1">BRANCH:</tspan> <tspan font-family="monospace" fill="#38bdf8">origin/main</tspan> &bull; 
+      <tspan font-weight="700" fill="#cbd5e1">LATEST HASH:</tspan> <tspan font-family="monospace" fill="#38bdf8">${cleanLatestSha}</tspan> &bull; 
+      <tspan font-weight="700" fill="#cbd5e1">LATEST CHANGE:</tspan> ${cleanLatestMsg}
+    </text>
+
+    <!-- Right Brand Badge -->
+    <text x="870" y="0" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700" text-anchor="end">github.com/daniyal44/Zyphuel</text>
+  </g>
+</svg>`
+
+  return svgContent
+}
+
+function main() {
+  const commits = getGitCommits()
+  const activity = generateSvg('activity')
+  const contribution = generateContributionGraph(commits)
+
+  // 1. Save to assets/ directory
   const assetsDir = path.resolve(__dirname, '../assets')
   if (!fs.existsSync(assetsDir)) fs.mkdirSync(assetsDir, { recursive: true })
   fs.writeFileSync(path.join(assetsDir, 'repo-activity-chart.svg'), activity.svgContent, 'utf8')
-  fs.writeFileSync(path.join(assetsDir, 'github-changes-graph.svg'), changes.svgContent, 'utf8')
+  fs.writeFileSync(path.join(assetsDir, 'github-changes-graph.svg'), contribution, 'utf8')
 
   // 2. Save to .github/assets/
   const githubAssetsDir = path.resolve(__dirname, '../.github/assets')
   if (!fs.existsSync(githubAssetsDir)) fs.mkdirSync(githubAssetsDir, { recursive: true })
   fs.writeFileSync(path.join(githubAssetsDir, 'repo-activity-chart.svg'), activity.svgContent, 'utf8')
-  fs.writeFileSync(path.join(githubAssetsDir, 'github-changes-graph.svg'), changes.svgContent, 'utf8')
+  fs.writeFileSync(path.join(githubAssetsDir, 'github-changes-graph.svg'), contribution, 'utf8')
 
   // 3. Save to public/images/
   const publicDir = path.resolve(__dirname, '../public/images')
   if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true })
-  fs.writeFileSync(path.join(publicDir, 'github-changes-graph.svg'), changes.svgContent, 'utf8')
+  fs.writeFileSync(path.join(publicDir, 'github-changes-graph.svg'), contribution, 'utf8')
   fs.writeFileSync(path.join(publicDir, 'repo-activity-chart.svg'), activity.svgContent, 'utf8')
 
   // 4. Save to dist/images/ if dist exists
   const distDir = path.resolve(__dirname, '../dist/images')
   if (fs.existsSync(path.resolve(__dirname, '../dist'))) {
     if (!fs.existsSync(distDir)) fs.mkdirSync(distDir, { recursive: true })
-    fs.writeFileSync(path.join(distDir, 'github-changes-graph.svg'), changes.svgContent, 'utf8')
+    fs.writeFileSync(path.join(distDir, 'github-changes-graph.svg'), contribution, 'utf8')
     fs.writeFileSync(path.join(distDir, 'repo-activity-chart.svg'), activity.svgContent, 'utf8')
   }
 
-  console.log(`[GraphGen] ✅ Both SVGs Successfully generated in Trading Terminal Format!`)
-  console.log(`           - Activity Chart: repo-activity-chart.svg (ZYP/GIT @ ${activity.closePrice}.00)`)
-  console.log(`           - Changes Graph:  github-changes-graph.svg (ZYP/CHANGES @ ${changes.closePrice}.00)`)
-  console.log(`           - Latest Commit:  ${activity.cleanSha} (${activity.cleanMessage})`)
+  console.log(`[GraphGen] ✅ Both Enhanced SVGs Successfully generated!`)
+  console.log(`           - 📊 Activity Chart: repo-activity-chart.svg (ZYP/GIT @ ${activity.closePrice}.00)`)
+  console.log(`           - 🟩 Contribution Matrix: github-changes-graph.svg (${commits.length} commits logged)`)
 }
 
 main()

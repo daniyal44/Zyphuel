@@ -1,308 +1,611 @@
-<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="960" height="620" viewBox="0 0 960 620" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Trading Background Gradient -->
-    <linearGradient id="tradingBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#070a12" />
-      <stop offset="50%" stop-color="#0b0f19" />
-      <stop offset="100%" stop-color="#080c14" />
+    <!-- Dark Slate GitHub Terminal Background -->
+    <linearGradient id="contribBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c14" />
+      <stop offset="50%" stop-color="#0b101b" />
+      <stop offset="100%" stop-color="#090d16" />
     </linearGradient>
 
-    <!-- Glowing Emerald Area Gradient -->
-    <linearGradient id="tradingAreaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#10b981" stop-opacity="0.35" />
-      <stop offset="40%" stop-color="#059669" stop-opacity="0.12" />
-      <stop offset="90%" stop-color="#047857" stop-opacity="0.02" />
-      <stop offset="100%" stop-color="#022c22" stop-opacity="0.0" />
-    </linearGradient>
-
-    <!-- Volume Bar Gradients -->
-    <linearGradient id="volGreenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#10b981" stop-opacity="0.85" />
-      <stop offset="100%" stop-color="#059669" stop-opacity="0.25" />
-    </linearGradient>
-    <linearGradient id="volCyanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.85" />
-      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.2" />
+    <!-- Card Background Gradient -->
+    <linearGradient id="cardBgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#151d2f" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#0e1524" stop-opacity="0.95" />
     </linearGradient>
   </defs>
 
-  <!-- TERMINAL FRAME BACKGROUND -->
-  <rect width="960" height="540" rx="12" fill="url(#tradingBg)" stroke="#1e293b" stroke-width="1.2" />
+  <!-- FRAME BACKGROUND -->
+  <rect width="960" height="620" rx="12" fill="url(#contribBg)" stroke="#1e293b" stroke-width="1.2" />
 
-  <!-- BACKGROUND WATERMARK -->
-  <text x="480" y="280" fill="#ffffff" fill-opacity="0.02" font-family="system-ui, -apple-system, sans-serif" font-size="96" font-weight="900" text-anchor="middle" letter-spacing="12">ZYPHUEL</text>
-  <text x="480" y="325" fill="#ffffff" fill-opacity="0.015" font-family="monospace, sans-serif" font-size="20" font-weight="700" text-anchor="middle" letter-spacing="8">GIT CHANGES STREAM</text>
+  <!-- WATERMARK -->
+  <text x="480" y="330" fill="#ffffff" fill-opacity="0.015" font-family="system-ui, -apple-system, sans-serif" font-size="78" font-weight="900" text-anchor="middle" letter-spacing="12">CONTRIBUTIONS</text>
 
-  <!-- TOP TRADING TICKER HEADER -->
+  <!-- TOP HEADER -->
   <g transform="translate(45, 20)">
-    <!-- Ticker Symbol & Exchange Identity -->
+    <rect width="28" height="28" rx="6" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.35)" stroke-width="1" />
+    <text x="14" y="19" fill="#10b981" font-family="system-ui, sans-serif" font-size="14" font-weight="900" text-anchor="middle">🟩</text>
+    
+    <text x="38" y="14" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" letter-spacing="0.5">ZYPHUEL / CONTRIBUTION MATRIX</text>
+    <text x="355" y="14" fill="#64748b" font-family="system-ui, sans-serif" font-size="12" font-weight="600">• GIT CHANGES REPORT</text>
+    <text x="38" y="27" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10.5">Verified Repository Commit Cadence • Live Development Activity Heatmap</text>
+
+    <!-- Header Badges (Right) -->
+    <g transform="translate(620, 3)">
+      <rect width="78" height="22" rx="11" fill="rgba(2, 132, 199, 0.15)" stroke="rgba(56, 189, 248, 0.35)" stroke-width="1" />
+      <text x="39" y="15" fill="#38bdf8" font-family="monospace, sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">main</text>
+
+      <rect x="85" y="0" width="165" height="22" rx="11" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.35)" stroke-width="1" />
+      <text x="167" y="15" fill="#34d399" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700" text-anchor="middle">● 123 Commits Logged</text>
+    </g>
+  </g>
+
+  <!-- 4 KPI SUMMARY CARDS (Y: 65) -->
+  <g transform="translate(45, 65)">
+    <!-- Card 1: Total Commits -->
     <g transform="translate(0, 0)">
-      <rect width="28" height="28" rx="6" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.35)" stroke-width="1" />
-      <text x="14" y="19" fill="#10b981" font-family="system-ui, sans-serif" font-size="14" font-weight="900" text-anchor="middle">⚡</text>
+      <rect width="202" height="66" rx="8" fill="url(#cardBgGrad)" stroke="#1e293b" stroke-width="1" />
+      <text x="16" y="22" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">TOTAL COMMITS</text>
+      <text x="16" y="47" fill="#ffffff" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="22" font-weight="800">123</text>
+      <text x="75" y="47" fill="#34d399" font-family="system-ui, sans-serif" font-size="11" font-weight="700">▲ 100% Synced</text>
+    </g>
+
+    <!-- Card 2: Active Commit Days -->
+    <g transform="translate(222, 0)">
+      <rect width="202" height="66" rx="8" fill="url(#cardBgGrad)" stroke="#1e293b" stroke-width="1" />
+      <text x="16" y="22" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">ACTIVE WORK DAYS</text>
+      <text x="16" y="47" fill="#ffffff" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="22" font-weight="800">33</text>
+      <text x="65" y="47" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Days Active</text>
+    </g>
+
+    <!-- Card 3: Peak Daily Velocity -->
+    <g transform="translate(444, 0)">
+      <rect width="202" height="66" rx="8" fill="url(#cardBgGrad)" stroke="#1e293b" stroke-width="1" />
+      <text x="16" y="22" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">PEAK BURST (24H)</text>
+      <text x="16" y="47" fill="#ffffff" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="22" font-weight="800">11</text>
+      <text x="65" y="47" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Commits / Day</text>
+    </g>
+
+    <!-- Card 4: Codebase Release -->
+    <g transform="translate(666, 0)">
+      <rect width="204" height="66" rx="8" fill="url(#cardBgGrad)" stroke="#1e293b" stroke-width="1" />
+      <text x="16" y="22" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">PRODUCTION RELEASE</text>
+      <text x="16" y="47" fill="#a78bfa" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="16" font-weight="800">v2.6.4.0.0.10</text>
+      <text x="135" y="47" fill="#34d399" font-family="system-ui, sans-serif" font-size="10" font-weight="700">● Live</text>
+    </g>
+  </g>
+
+  <!-- SECTION 1: HEATMAP HEADER & LEGEND (Y: 155) -->
+  <g transform="translate(45, 155)">
+    <text x="0" y="0" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12" font-weight="800" letter-spacing="0.5">2026 CONTRIBUTION ACTIVITY (ROLLING 50 WEEKS)</text>
+    
+    <!-- Legend -->
+    <g transform="translate(710, -10)">
+      <text x="0" y="10" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">Less</text>
+      <rect x="30" y="1" width="10" height="10" rx="2" fill="#161b22" stroke="rgba(255,255,255,0.05)" />
+      <rect x="44" y="1" width="10" height="10" rx="2" fill="#0e4429" />
+      <rect x="58" y="1" width="10" height="10" rx="2" fill="#006d32" />
+      <rect x="72" y="1" width="10" height="10" rx="2" fill="#26a641" />
+      <rect x="86" y="1" width="10" height="10" rx="2" fill="#39d353" />
+      <text x="104" y="10" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">More</text>
+    </g>
+  </g>
+
+  <!-- HEATMAP MONTH LABELS -->
+    <text x="75.0" y="185" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">Oct</text>
+    <text x="135.0" y="185" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">Nov</text>
+    <text x="210.0" y="185" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">Dec</text>
+    <text x="270.0" y="185" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">Jan</text>
+    <text x="345.0" y="185" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">Feb</text>
+    <text x="405.0" y="185" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">Mar</text>
+    <text x="465.0" y="185" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">Apr</text>
+    <text x="525.0" y="185" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">May</text>
+    <text x="600.0" y="185" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">Jun</text>
+    <text x="660.0" y="185" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">Jul</text>
+    <text x="720.0" y="185" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">Aug</text>
+    <text x="795.0" y="185" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600">Sep</text>
+
+  <!-- HEATMAP DAY OF WEEK LABELS -->
+  <g transform="translate(45, 195)">
+    <text x="0" y="26" fill="#64748b" font-family="system-ui, sans-serif" font-size="9.5" font-weight="600">Mon</text>
+    <text x="0" y="56" fill="#64748b" font-family="system-ui, sans-serif" font-size="9.5" font-weight="600">Wed</text>
+    <text x="0" y="86" fill="#64748b" font-family="system-ui, sans-serif" font-size="9.5" font-weight="600">Fri</text>
+  </g>
+
+  <!-- HEATMAP TILES -->
+  <g>
+      <rect x="75.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-03: 0 commits</title></rect>
+      <rect x="75.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-04: 0 commits</title></rect>
+      <rect x="75.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-05: 0 commits</title></rect>
+      <rect x="75.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-06: 0 commits</title></rect>
+      <rect x="75.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-07: 0 commits</title></rect>
+      <rect x="75.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-08: 0 commits</title></rect>
+      <rect x="75.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-09: 0 commits</title></rect>
+      <rect x="90.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-10: 0 commits</title></rect>
+      <rect x="90.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-11: 0 commits</title></rect>
+      <rect x="90.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-12: 0 commits</title></rect>
+      <rect x="90.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-13: 0 commits</title></rect>
+      <rect x="90.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-14: 0 commits</title></rect>
+      <rect x="90.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-15: 0 commits</title></rect>
+      <rect x="90.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-16: 0 commits</title></rect>
+      <rect x="105.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-17: 0 commits</title></rect>
+      <rect x="105.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-18: 0 commits</title></rect>
+      <rect x="105.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-19: 0 commits</title></rect>
+      <rect x="105.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-20: 0 commits</title></rect>
+      <rect x="105.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-21: 0 commits</title></rect>
+      <rect x="105.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-22: 0 commits</title></rect>
+      <rect x="105.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-23: 0 commits</title></rect>
+      <rect x="120.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-24: 0 commits</title></rect>
+      <rect x="120.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-25: 0 commits</title></rect>
+      <rect x="120.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-26: 0 commits</title></rect>
+      <rect x="120.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-27: 0 commits</title></rect>
+      <rect x="120.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-28: 0 commits</title></rect>
+      <rect x="120.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-29: 0 commits</title></rect>
+      <rect x="120.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-30: 0 commits</title></rect>
+      <rect x="135.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-10-31: 0 commits</title></rect>
+      <rect x="135.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-01: 0 commits</title></rect>
+      <rect x="135.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-02: 0 commits</title></rect>
+      <rect x="135.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-03: 0 commits</title></rect>
+      <rect x="135.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-04: 0 commits</title></rect>
+      <rect x="135.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-05: 0 commits</title></rect>
+      <rect x="135.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-06: 0 commits</title></rect>
+      <rect x="150.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-07: 0 commits</title></rect>
+      <rect x="150.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-08: 0 commits</title></rect>
+      <rect x="150.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-09: 0 commits</title></rect>
+      <rect x="150.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-10: 0 commits</title></rect>
+      <rect x="150.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-11: 0 commits</title></rect>
+      <rect x="150.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-12: 0 commits</title></rect>
+      <rect x="150.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-13: 0 commits</title></rect>
+      <rect x="165.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-14: 0 commits</title></rect>
+      <rect x="165.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-15: 0 commits</title></rect>
+      <rect x="165.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-16: 0 commits</title></rect>
+      <rect x="165.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-17: 0 commits</title></rect>
+      <rect x="165.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-18: 0 commits</title></rect>
+      <rect x="165.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-19: 0 commits</title></rect>
+      <rect x="165.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-20: 0 commits</title></rect>
+      <rect x="180.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-21: 0 commits</title></rect>
+      <rect x="180.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-22: 0 commits</title></rect>
+      <rect x="180.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-23: 0 commits</title></rect>
+      <rect x="180.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-24: 0 commits</title></rect>
+      <rect x="180.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-25: 0 commits</title></rect>
+      <rect x="180.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-26: 0 commits</title></rect>
+      <rect x="180.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-27: 0 commits</title></rect>
+      <rect x="195.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-28: 0 commits</title></rect>
+      <rect x="195.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-29: 0 commits</title></rect>
+      <rect x="195.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-11-30: 0 commits</title></rect>
+      <rect x="195.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-01: 0 commits</title></rect>
+      <rect x="195.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-02: 0 commits</title></rect>
+      <rect x="195.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-03: 0 commits</title></rect>
+      <rect x="195.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-04: 0 commits</title></rect>
+      <rect x="210.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-05: 0 commits</title></rect>
+      <rect x="210.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-06: 0 commits</title></rect>
+      <rect x="210.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-07: 0 commits</title></rect>
+      <rect x="210.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-08: 0 commits</title></rect>
+      <rect x="210.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-09: 0 commits</title></rect>
+      <rect x="210.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-10: 0 commits</title></rect>
+      <rect x="210.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-11: 0 commits</title></rect>
+      <rect x="225.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-12: 0 commits</title></rect>
+      <rect x="225.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-13: 0 commits</title></rect>
+      <rect x="225.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-14: 0 commits</title></rect>
+      <rect x="225.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-15: 0 commits</title></rect>
+      <rect x="225.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-16: 0 commits</title></rect>
+      <rect x="225.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-17: 0 commits</title></rect>
+      <rect x="225.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-18: 0 commits</title></rect>
+      <rect x="240.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-19: 0 commits</title></rect>
+      <rect x="240.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-20: 0 commits</title></rect>
+      <rect x="240.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-21: 0 commits</title></rect>
+      <rect x="240.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-22: 0 commits</title></rect>
+      <rect x="240.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-23: 0 commits</title></rect>
+      <rect x="240.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-24: 0 commits</title></rect>
+      <rect x="240.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-25: 0 commits</title></rect>
+      <rect x="255.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-26: 0 commits</title></rect>
+      <rect x="255.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-27: 0 commits</title></rect>
+      <rect x="255.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-28: 0 commits</title></rect>
+      <rect x="255.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-29: 0 commits</title></rect>
+      <rect x="255.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-30: 0 commits</title></rect>
+      <rect x="255.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2025-12-31: 0 commits</title></rect>
+      <rect x="255.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-01: 0 commits</title></rect>
+      <rect x="270.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-02: 0 commits</title></rect>
+      <rect x="270.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-03: 0 commits</title></rect>
+      <rect x="270.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-04: 0 commits</title></rect>
+      <rect x="270.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-05: 0 commits</title></rect>
+      <rect x="270.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-06: 0 commits</title></rect>
+      <rect x="270.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-07: 0 commits</title></rect>
+      <rect x="270.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-08: 0 commits</title></rect>
+      <rect x="285.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-09: 0 commits</title></rect>
+      <rect x="285.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-10: 0 commits</title></rect>
+      <rect x="285.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-11: 0 commits</title></rect>
+      <rect x="285.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-12: 0 commits</title></rect>
+      <rect x="285.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-13: 0 commits</title></rect>
+      <rect x="285.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-14: 0 commits</title></rect>
+      <rect x="285.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-15: 0 commits</title></rect>
+      <rect x="300.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-16: 0 commits</title></rect>
+      <rect x="300.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-17: 0 commits</title></rect>
+      <rect x="300.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-18: 0 commits</title></rect>
+      <rect x="300.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-19: 0 commits</title></rect>
+      <rect x="300.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-20: 0 commits</title></rect>
+      <rect x="300.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-21: 0 commits</title></rect>
+      <rect x="300.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-22: 0 commits</title></rect>
+      <rect x="315.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-23: 0 commits</title></rect>
+      <rect x="315.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-24: 0 commits</title></rect>
+      <rect x="315.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-25: 0 commits</title></rect>
+      <rect x="315.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-26: 0 commits</title></rect>
+      <rect x="315.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-27: 0 commits</title></rect>
+      <rect x="315.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-28: 0 commits</title></rect>
+      <rect x="315.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-29: 0 commits</title></rect>
+      <rect x="330.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-30: 0 commits</title></rect>
+      <rect x="330.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-01-31: 0 commits</title></rect>
+      <rect x="330.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-01: 0 commits</title></rect>
+      <rect x="330.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-02: 0 commits</title></rect>
+      <rect x="330.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-03: 0 commits</title></rect>
+      <rect x="330.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-04: 0 commits</title></rect>
+      <rect x="330.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-05: 0 commits</title></rect>
+      <rect x="345.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-06: 0 commits</title></rect>
+      <rect x="345.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-07: 0 commits</title></rect>
+      <rect x="345.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-08: 0 commits</title></rect>
+      <rect x="345.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-09: 0 commits</title></rect>
+      <rect x="345.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-10: 0 commits</title></rect>
+      <rect x="345.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-11: 0 commits</title></rect>
+      <rect x="345.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-12: 0 commits</title></rect>
+      <rect x="360.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-13: 0 commits</title></rect>
+      <rect x="360.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-14: 0 commits</title></rect>
+      <rect x="360.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-15: 0 commits</title></rect>
+      <rect x="360.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-16: 0 commits</title></rect>
+      <rect x="360.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-17: 0 commits</title></rect>
+      <rect x="360.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-18: 0 commits</title></rect>
+      <rect x="360.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-19: 0 commits</title></rect>
+      <rect x="375.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-20: 0 commits</title></rect>
+      <rect x="375.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-21: 0 commits</title></rect>
+      <rect x="375.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-22: 0 commits</title></rect>
+      <rect x="375.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-23: 0 commits</title></rect>
+      <rect x="375.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-24: 0 commits</title></rect>
+      <rect x="375.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-25: 0 commits</title></rect>
+      <rect x="375.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-26: 0 commits</title></rect>
+      <rect x="390.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-27: 0 commits</title></rect>
+      <rect x="390.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-02-28: 0 commits</title></rect>
+      <rect x="390.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-01: 0 commits</title></rect>
+      <rect x="390.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-02: 0 commits</title></rect>
+      <rect x="390.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-03: 0 commits</title></rect>
+      <rect x="390.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-04: 0 commits</title></rect>
+      <rect x="390.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-05: 0 commits</title></rect>
+      <rect x="405.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-06: 0 commits</title></rect>
+      <rect x="405.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-07: 0 commits</title></rect>
+      <rect x="405.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-08: 0 commits</title></rect>
+      <rect x="405.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-09: 0 commits</title></rect>
+      <rect x="405.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-10: 0 commits</title></rect>
+      <rect x="405.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-11: 0 commits</title></rect>
+      <rect x="405.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-12: 0 commits</title></rect>
+      <rect x="420.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-13: 0 commits</title></rect>
+      <rect x="420.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-14: 0 commits</title></rect>
+      <rect x="420.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-15: 0 commits</title></rect>
+      <rect x="420.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-16: 0 commits</title></rect>
+      <rect x="420.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-17: 0 commits</title></rect>
+      <rect x="420.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-18: 0 commits</title></rect>
+      <rect x="420.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-19: 0 commits</title></rect>
+      <rect x="435.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-20: 0 commits</title></rect>
+      <rect x="435.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-21: 0 commits</title></rect>
+      <rect x="435.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-22: 0 commits</title></rect>
+      <rect x="435.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-23: 0 commits</title></rect>
+      <rect x="435.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-24: 0 commits</title></rect>
+      <rect x="435.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-25: 0 commits</title></rect>
+      <rect x="435.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-26: 0 commits</title></rect>
+      <rect x="450.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-27: 0 commits</title></rect>
+      <rect x="450.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-28: 0 commits</title></rect>
+      <rect x="450.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-29: 0 commits</title></rect>
+      <rect x="450.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-30: 0 commits</title></rect>
+      <rect x="450.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-03-31: 0 commits</title></rect>
+      <rect x="450.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-01: 0 commits</title></rect>
+      <rect x="450.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-02: 0 commits</title></rect>
+      <rect x="465.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-03: 0 commits</title></rect>
+      <rect x="465.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-04: 0 commits</title></rect>
+      <rect x="465.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-05: 0 commits</title></rect>
+      <rect x="465.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-06: 0 commits</title></rect>
+      <rect x="465.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-07: 0 commits</title></rect>
+      <rect x="465.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-08: 0 commits</title></rect>
+      <rect x="465.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-09: 0 commits</title></rect>
+      <rect x="480.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-10: 0 commits</title></rect>
+      <rect x="480.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-11: 0 commits</title></rect>
+      <rect x="480.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-12: 0 commits</title></rect>
+      <rect x="480.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-13: 0 commits</title></rect>
+      <rect x="480.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-14: 0 commits</title></rect>
+      <rect x="480.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-15: 0 commits</title></rect>
+      <rect x="480.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-16: 0 commits</title></rect>
+      <rect x="495.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-17: 0 commits</title></rect>
+      <rect x="495.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-18: 0 commits</title></rect>
+      <rect x="495.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-19: 0 commits</title></rect>
+      <rect x="495.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-20: 0 commits</title></rect>
+      <rect x="495.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-21: 0 commits</title></rect>
+      <rect x="495.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-22: 0 commits</title></rect>
+      <rect x="495.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-23: 0 commits</title></rect>
+      <rect x="510.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-24: 0 commits</title></rect>
+      <rect x="510.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-25: 0 commits</title></rect>
+      <rect x="510.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-26: 0 commits</title></rect>
+      <rect x="510.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-27: 0 commits</title></rect>
+      <rect x="510.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-28: 0 commits</title></rect>
+      <rect x="510.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-29: 0 commits</title></rect>
+      <rect x="510.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-04-30: 0 commits</title></rect>
+      <rect x="525.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-01: 0 commits</title></rect>
+      <rect x="525.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-02: 0 commits</title></rect>
+      <rect x="525.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-03: 0 commits</title></rect>
+      <rect x="525.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-04: 0 commits</title></rect>
+      <rect x="525.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-05: 0 commits</title></rect>
+      <rect x="525.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-06: 0 commits</title></rect>
+      <rect x="525.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-07: 0 commits</title></rect>
+      <rect x="540.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-08: 0 commits</title></rect>
+      <rect x="540.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-09: 0 commits</title></rect>
+      <rect x="540.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-10: 0 commits</title></rect>
+      <rect x="540.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-11: 0 commits</title></rect>
+      <rect x="540.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-12: 0 commits</title></rect>
+      <rect x="540.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-13: 0 commits</title></rect>
+      <rect x="540.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-14: 0 commits</title></rect>
+      <rect x="555.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-15: 0 commits</title></rect>
+      <rect x="555.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-16: 0 commits</title></rect>
+      <rect x="555.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-17: 0 commits</title></rect>
+      <rect x="555.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-18: 0 commits</title></rect>
+      <rect x="555.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-19: 0 commits</title></rect>
+      <rect x="555.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-20: 0 commits</title></rect>
+      <rect x="555.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-21: 0 commits</title></rect>
+      <rect x="570.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-22: 0 commits</title></rect>
+      <rect x="570.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-23: 0 commits</title></rect>
+      <rect x="570.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-24: 0 commits</title></rect>
+      <rect x="570.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-25: 0 commits</title></rect>
+      <rect x="570.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-26: 0 commits</title></rect>
+      <rect x="570.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-27: 0 commits</title></rect>
+      <rect x="570.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-28: 0 commits</title></rect>
+      <rect x="585.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-29: 0 commits</title></rect>
+      <rect x="585.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-30: 0 commits</title></rect>
+      <rect x="585.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-05-31: 0 commits</title></rect>
+      <rect x="585.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-01: 0 commits</title></rect>
+      <rect x="585.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-02: 0 commits</title></rect>
+      <rect x="585.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-03: 0 commits</title></rect>
+      <rect x="585.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-04: 0 commits</title></rect>
+      <rect x="600.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-05: 0 commits</title></rect>
+      <rect x="600.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-06: 0 commits</title></rect>
+      <rect x="600.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-07: 0 commits</title></rect>
+      <rect x="600.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-08: 0 commits</title></rect>
+      <rect x="600.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-09: 0 commits</title></rect>
+      <rect x="600.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-10: 0 commits</title></rect>
+      <rect x="600.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-11: 0 commits</title></rect>
+      <rect x="615.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-12: 0 commits</title></rect>
+      <rect x="615.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-13: 0 commits</title></rect>
+      <rect x="615.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-14: 0 commits</title></rect>
+      <rect x="615.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-15: 0 commits</title></rect>
+      <rect x="615.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-16: 0 commits</title></rect>
+      <rect x="615.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-17: 0 commits</title></rect>
+      <rect x="615.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-18: 0 commits</title></rect>
+      <rect x="630.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-19: 0 commits</title></rect>
+      <rect x="630.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-20: 0 commits</title></rect>
+      <rect x="630.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-21: 0 commits</title></rect>
+      <rect x="630.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-22: 0 commits</title></rect>
+      <rect x="630.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-23: 0 commits</title></rect>
+      <rect x="630.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-24: 0 commits</title></rect>
+      <rect x="630.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-25: 0 commits</title></rect>
+      <rect x="645.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-26: 0 commits</title></rect>
+      <rect x="645.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-27: 0 commits</title></rect>
+      <rect x="645.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-28: 0 commits</title></rect>
+      <rect x="645.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-29: 0 commits</title></rect>
+      <rect x="645.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-06-30: 0 commits</title></rect>
+      <rect x="645.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-01: 0 commits</title></rect>
+      <rect x="645.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-02: 0 commits</title></rect>
+      <rect x="660.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-03: 0 commits</title></rect>
+      <rect x="660.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-04: 0 commits</title></rect>
+      <rect x="660.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-05: 0 commits</title></rect>
+      <rect x="660.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-06: 0 commits</title></rect>
+      <rect x="660.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-07: 0 commits</title></rect>
+      <rect x="660.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-08: 0 commits</title></rect>
+      <rect x="660.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-09: 0 commits</title></rect>
+      <rect x="675.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-10: 0 commits</title></rect>
+      <rect x="675.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#006d32" stroke="rgba(16, 185, 129, 0.45)" stroke-width="0.6"><title>2026-07-11: 4 commits</title></rect>
+      <rect x="675.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-12: 0 commits</title></rect>
+      <rect x="675.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#0e4429" stroke="rgba(16, 185, 129, 0.25)" stroke-width="0.6"><title>2026-07-13: 1 commits</title></rect>
+      <rect x="675.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-14: 0 commits</title></rect>
+      <rect x="675.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-15: 0 commits</title></rect>
+      <rect x="675.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-16: 0 commits</title></rect>
+      <rect x="690.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-17: 0 commits</title></rect>
+      <rect x="690.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-18: 0 commits</title></rect>
+      <rect x="690.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-19: 0 commits</title></rect>
+      <rect x="690.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#006d32" stroke="rgba(16, 185, 129, 0.45)" stroke-width="0.6"><title>2026-07-20: 2 commits</title></rect>
+      <rect x="690.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#0e4429" stroke="rgba(16, 185, 129, 0.25)" stroke-width="0.6"><title>2026-07-21: 1 commits</title></rect>
+      <rect x="690.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-22: 0 commits</title></rect>
+      <rect x="690.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-23: 0 commits</title></rect>
+      <rect x="705.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-24: 0 commits</title></rect>
+      <rect x="705.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#0e4429" stroke="rgba(16, 185, 129, 0.25)" stroke-width="0.6"><title>2026-07-25: 1 commits</title></rect>
+      <rect x="705.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-26: 0 commits</title></rect>
+      <rect x="705.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#006d32" stroke="rgba(16, 185, 129, 0.45)" stroke-width="0.6"><title>2026-07-27: 3 commits</title></rect>
+      <rect x="705.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-28: 0 commits</title></rect>
+      <rect x="705.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#0e4429" stroke="rgba(16, 185, 129, 0.25)" stroke-width="0.6"><title>2026-07-29: 1 commits</title></rect>
+      <rect x="705.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#39d353" stroke="#a7f3d0" stroke-width="0.6"><title>2026-07-30: 11 commits</title></rect>
+      <rect x="720.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-07-31: 0 commits</title></rect>
+      <rect x="720.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#0e4429" stroke="rgba(16, 185, 129, 0.25)" stroke-width="0.6"><title>2026-08-01: 1 commits</title></rect>
+      <rect x="720.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-02: 0 commits</title></rect>
+      <rect x="720.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#006d32" stroke="rgba(16, 185, 129, 0.45)" stroke-width="0.6"><title>2026-08-03: 2 commits</title></rect>
+      <rect x="720.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#006d32" stroke="rgba(16, 185, 129, 0.45)" stroke-width="0.6"><title>2026-08-04: 4 commits</title></rect>
+      <rect x="720.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#006d32" stroke="rgba(16, 185, 129, 0.45)" stroke-width="0.6"><title>2026-08-05: 3 commits</title></rect>
+      <rect x="720.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-06: 0 commits</title></rect>
+      <rect x="735.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-07: 0 commits</title></rect>
+      <rect x="735.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-08: 0 commits</title></rect>
+      <rect x="735.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-09: 0 commits</title></rect>
+      <rect x="735.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-10: 0 commits</title></rect>
+      <rect x="735.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-11: 0 commits</title></rect>
+      <rect x="735.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-12: 0 commits</title></rect>
+      <rect x="735.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-13: 0 commits</title></rect>
+      <rect x="750.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-14: 0 commits</title></rect>
+      <rect x="750.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-15: 0 commits</title></rect>
+      <rect x="750.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-16: 0 commits</title></rect>
+      <rect x="750.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-17: 0 commits</title></rect>
+      <rect x="750.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#0e4429" stroke="rgba(16, 185, 129, 0.25)" stroke-width="0.6"><title>2026-08-18: 1 commits</title></rect>
+      <rect x="750.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-19: 0 commits</title></rect>
+      <rect x="750.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-20: 0 commits</title></rect>
+      <rect x="765.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-21: 0 commits</title></rect>
+      <rect x="765.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-22: 0 commits</title></rect>
+      <rect x="765.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-23: 0 commits</title></rect>
+      <rect x="765.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#26a641" stroke="rgba(52, 211, 153, 0.7)" stroke-width="0.6"><title>2026-08-24: 5 commits</title></rect>
+      <rect x="765.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-25: 0 commits</title></rect>
+      <rect x="765.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#0e4429" stroke="rgba(16, 185, 129, 0.25)" stroke-width="0.6"><title>2026-08-26: 1 commits</title></rect>
+      <rect x="765.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#006d32" stroke="rgba(16, 185, 129, 0.45)" stroke-width="0.6"><title>2026-08-27: 3 commits</title></rect>
+      <rect x="780.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-28: 0 commits</title></rect>
+      <rect x="780.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-29: 0 commits</title></rect>
+      <rect x="780.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-08-30: 0 commits</title></rect>
+      <rect x="780.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#0e4429" stroke="rgba(16, 185, 129, 0.25)" stroke-width="0.6"><title>2026-08-31: 1 commits</title></rect>
+      <rect x="780.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#0e4429" stroke="rgba(16, 185, 129, 0.25)" stroke-width="0.6"><title>2026-09-01: 1 commits</title></rect>
+      <rect x="780.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#006d32" stroke="rgba(16, 185, 129, 0.45)" stroke-width="0.6"><title>2026-09-02: 2 commits</title></rect>
+      <rect x="780.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#006d32" stroke="rgba(16, 185, 129, 0.45)" stroke-width="0.6"><title>2026-09-03: 2 commits</title></rect>
+      <rect x="795.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-09-04: 0 commits</title></rect>
+      <rect x="795.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#161b22" stroke="rgba(255, 255, 255, 0.04)" stroke-width="0.6"><title>2026-09-05: 0 commits</title></rect>
+      <rect x="795.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#006d32" stroke="rgba(16, 185, 129, 0.45)" stroke-width="0.6"><title>2026-09-06: 2 commits</title></rect>
+      <rect x="795.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#26a641" stroke="rgba(52, 211, 153, 0.7)" stroke-width="0.6"><title>2026-09-07: 7 commits</title></rect>
+      <rect x="795.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#26a641" stroke="rgba(52, 211, 153, 0.7)" stroke-width="0.6"><title>2026-09-08: 7 commits</title></rect>
+      <rect x="795.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#39d353" stroke="#a7f3d0" stroke-width="0.6"><title>2026-09-09: 11 commits</title></rect>
+      <rect x="795.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#0e4429" stroke="rgba(16, 185, 129, 0.25)" stroke-width="0.6"><title>2026-09-10: 1 commits</title></rect>
+      <rect x="810.0" y="195.0" width="11.5" height="11.5" rx="2.5" fill="#26a641" stroke="rgba(52, 211, 153, 0.7)" stroke-width="0.6"><title>2026-09-11: 8 commits</title></rect>
+      <rect x="810.0" y="210.0" width="11.5" height="11.5" rx="2.5" fill="#006d32" stroke="rgba(16, 185, 129, 0.45)" stroke-width="0.6"><title>2026-09-12: 3 commits</title></rect>
+      <rect x="810.0" y="225.0" width="11.5" height="11.5" rx="2.5" fill="#006d32" stroke="rgba(16, 185, 129, 0.45)" stroke-width="0.6"><title>2026-09-13: 4 commits</title></rect>
+      <rect x="810.0" y="240.0" width="11.5" height="11.5" rx="2.5" fill="#26a641" stroke="rgba(52, 211, 153, 0.7)" stroke-width="0.6"><title>2026-09-14: 7 commits</title></rect>
+      <rect x="810.0" y="255.0" width="11.5" height="11.5" rx="2.5" fill="#26a641" stroke="rgba(52, 211, 153, 0.7)" stroke-width="0.6"><title>2026-09-15: 6 commits</title></rect>
+      <rect x="810.0" y="270.0" width="11.5" height="11.5" rx="2.5" fill="#006d32" stroke="rgba(16, 185, 129, 0.45)" stroke-width="0.6"><title>2026-09-16: 4 commits</title></rect>
+      <rect x="810.0" y="285.0" width="11.5" height="11.5" rx="2.5" fill="#26a641" stroke="rgba(52, 211, 153, 0.7)" stroke-width="0.6"><title>2026-09-17: 7 commits</title></rect>
+
+  </g>
+
+  <!-- SECTION 2: CHANGES REPORT / RECENT COMMITS (Y: 345) -->
+  <g transform="translate(45, 345)">
+    <text x="0" y="0" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="12" font-weight="800" letter-spacing="0.5">RECENT COMMITS &amp; CHANGES REPORT (VERIFIED TELEMETRY)</text>
+    
+    <!-- Table Header Row -->
+    <g transform="translate(0, 10)">
+      <rect width="870" height="22" rx="4" fill="rgba(15, 23, 42, 0.75)" />
+      <text x="24" y="15" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="700">TYPE</text>
+      <text x="80" y="15" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="700">HASH</text>
+      <text x="150" y="15" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="700">COMMIT MESSAGE &amp; CHANGE SCOPE</text>
+      <text x="755" y="15" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="700">DATE</text>
+      <text x="830" y="15" fill="#64748b" font-family="system-ui, sans-serif" font-size="10" font-weight="700">STATUS</text>
+    </g>
+  </g>
+
+  <!-- Commits Table Rows -->
+  
+    <g transform="translate(45, 370)">
+      <rect width="870" height="32" rx="6" fill="rgba(255, 255, 255, 0.015)" />
       
-      <text x="38" y="14" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" letter-spacing="0.5">ZYP / CHANGES</text>
-      <text x="152" y="14" fill="#64748b" font-family="system-ui, sans-serif" font-size="12" font-weight="600">• GITHUB LIVE COMMITS</text>
-      <text x="38" y="27" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10.5">Zyphuel Real-Time Commit Stream • Code Changes Telemetry</text>
-    </g>
+      <!-- Type Badge -->
+      <rect x="12" y="5" width="50" height="20" rx="4" fill="rgba(2, 132, 199, 0.18)" stroke="rgba(2, 132, 199, 0.4)" stroke-width="1" />
+      <text x="37" y="19" fill="#38bdf8" font-family="monospace, sans-serif" font-size="10" font-weight="800" text-anchor="middle">FEAT</text>
 
-    <!-- Big Price Level & 24H Return -->
-    <g transform="translate(360, 0)">
-      <text x="0" y="22" fill="#ffffff" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="26" font-weight="800">122.00</text>
-      <text x="110" y="22" fill="#64748b" font-family="monospace, sans-serif" font-size="13" font-weight="500">COMMITS</text>
+      <!-- Commit SHA -->
+      <text x="78" y="19" fill="#38bdf8" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="11" font-weight="700">7015b96</text>
+
+      <!-- Commit Message -->
+      <text x="150" y="19" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500">feat(update): automated push on Fri 09/18/2026 at  0:55:19.0...</text>
+
+      <!-- Date -->
+      <text x="755" y="19" fill="#94a3b8" font-family="monospace, sans-serif" font-size="10.5">2026-09-18</text>
+
+      <!-- Verified Checkmark Badge -->
+      <g transform="translate(830, 7)">
+        <rect width="28" height="16" rx="8" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="0.8" />
+        <text x="14" y="12" fill="#34d399" font-family="system-ui, sans-serif" font-size="9" font-weight="800" text-anchor="middle">✓</text>
+      </g>
+    </g>
+    <g transform="translate(45, 406)">
+      <rect width="870" height="32" rx="6" fill="transparent" />
       
-      <!-- Bullish Change Badge -->
-      <rect x="185" y="3" width="135" height="24" rx="12" fill="rgba(16, 185, 129, 0.16)" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1" />
-      <text x="252" y="19" fill="#34d399" font-family="system-ui, monospace, sans-serif" font-size="11.5" font-weight="800" text-anchor="middle">▲ +4.3% (24H)</text>
+      <!-- Type Badge -->
+      <rect x="12" y="5" width="50" height="20" rx="4" fill="rgba(100, 116, 139, 0.18)" stroke="rgba(100, 116, 139, 0.4)" stroke-width="1" />
+      <text x="37" y="19" fill="#94a3b8" font-family="monospace, sans-serif" font-size="10" font-weight="800" text-anchor="middle">CHORE</text>
+
+      <!-- Commit SHA -->
+      <text x="78" y="19" fill="#38bdf8" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="11" font-weight="700">ecc8c88</text>
+
+      <!-- Commit Message -->
+      <text x="150" y="19" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500">chore(git): ignore *.log and debug log files in .gitignore</text>
+
+      <!-- Date -->
+      <text x="755" y="19" fill="#94a3b8" font-family="monospace, sans-serif" font-size="10.5">2026-09-18</text>
+
+      <!-- Verified Checkmark Badge -->
+      <g transform="translate(830, 7)">
+        <rect width="28" height="16" rx="8" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="0.8" />
+        <text x="14" y="12" fill="#34d399" font-family="system-ui, sans-serif" font-size="9" font-weight="800" text-anchor="middle">✓</text>
+      </g>
+    </g>
+    <g transform="translate(45, 442)">
+      <rect width="870" height="32" rx="6" fill="rgba(255, 255, 255, 0.015)" />
+      
+      <!-- Type Badge -->
+      <rect x="12" y="5" width="50" height="20" rx="4" fill="rgba(16, 185, 129, 0.18)" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1" />
+      <text x="37" y="19" fill="#34d399" font-family="monospace, sans-serif" font-size="10" font-weight="800" text-anchor="middle">SEO</text>
+
+      <!-- Commit SHA -->
+      <text x="78" y="19" fill="#38bdf8" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="11" font-weight="700">66d0f03</text>
+
+      <!-- Commit Message -->
+      <text x="150" y="19" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500">feat(seo): update robots.txt with 2026 crawl directives &amp; Go...</text>
+
+      <!-- Date -->
+      <text x="755" y="19" fill="#94a3b8" font-family="monospace, sans-serif" font-size="10.5">2026-09-18</text>
+
+      <!-- Verified Checkmark Badge -->
+      <g transform="translate(830, 7)">
+        <rect width="28" height="16" rx="8" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="0.8" />
+        <text x="14" y="12" fill="#34d399" font-family="system-ui, sans-serif" font-size="9" font-weight="800" text-anchor="middle">✓</text>
+      </g>
+    </g>
+    <g transform="translate(45, 478)">
+      <rect width="870" height="32" rx="6" fill="transparent" />
+      
+      <!-- Type Badge -->
+      <rect x="12" y="5" width="50" height="20" rx="4" fill="rgba(2, 132, 199, 0.18)" stroke="rgba(2, 132, 199, 0.4)" stroke-width="1" />
+      <text x="37" y="19" fill="#38bdf8" font-family="monospace, sans-serif" font-size="10" font-weight="800" text-anchor="middle">FEAT</text>
+
+      <!-- Commit SHA -->
+      <text x="78" y="19" fill="#38bdf8" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="11" font-weight="700">de3ab5f</text>
+
+      <!-- Commit Message -->
+      <text x="150" y="19" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500">feat(graph): automate real-time git telemetry on push, gener...</text>
+
+      <!-- Date -->
+      <text x="755" y="19" fill="#94a3b8" font-family="monospace, sans-serif" font-size="10.5">2026-09-18</text>
+
+      <!-- Verified Checkmark Badge -->
+      <g transform="translate(830, 7)">
+        <rect width="28" height="16" rx="8" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="0.8" />
+        <text x="14" y="12" fill="#34d399" font-family="system-ui, sans-serif" font-size="9" font-weight="800" text-anchor="middle">✓</text>
+      </g>
+    </g>
+    <g transform="translate(45, 514)">
+      <rect width="870" height="32" rx="6" fill="rgba(255, 255, 255, 0.015)" />
+      
+      <!-- Type Badge -->
+      <rect x="12" y="5" width="50" height="20" rx="4" fill="rgba(245, 158, 11, 0.18)" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1" />
+      <text x="37" y="19" fill="#fbbf24" font-family="monospace, sans-serif" font-size="10" font-weight="800" text-anchor="middle">FIX</text>
+
+      <!-- Commit SHA -->
+      <text x="78" y="19" fill="#38bdf8" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="11" font-weight="700">69c9ef1</text>
+
+      <!-- Commit Message -->
+      <text x="150" y="19" fill="#e2e8f0" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500">fix(graph): remove blocked animate/filter tags, use standard...</text>
+
+      <!-- Date -->
+      <text x="755" y="19" fill="#94a3b8" font-family="monospace, sans-serif" font-size="10.5">2026-09-18</text>
+
+      <!-- Verified Checkmark Badge -->
+      <g transform="translate(830, 7)">
+        <rect width="28" height="16" rx="8" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="0.8" />
+        <text x="14" y="12" fill="#34d399" font-family="system-ui, sans-serif" font-size="9" font-weight="800" text-anchor="middle">✓</text>
+      </g>
     </g>
 
-    <!-- Timeframe Chips & Live Status -->
-    <g transform="translate(735, 2)">
-      <!-- Interval selector pills -->
-      <rect x="0" y="0" width="28" height="22" rx="4" fill="rgba(255,255,255,0.04)" />
-      <text x="14" y="15" fill="#64748b" font-family="monospace, sans-serif" font-size="10" font-weight="700" text-anchor="middle">1D</text>
-
-      <rect x="32" y="0" width="28" height="22" rx="4" fill="rgba(255,255,255,0.04)" />
-      <text x="46" y="15" fill="#64748b" font-family="monospace, sans-serif" font-size="10" font-weight="700" text-anchor="middle">1W</text>
-
-      <rect x="64" y="0" width="28" height="22" rx="4" fill="rgba(255,255,255,0.04)" />
-      <text x="78" y="15" fill="#64748b" font-family="monospace, sans-serif" font-size="10" font-weight="700" text-anchor="middle">1M</text>
-
-      <rect x="96" y="0" width="28" height="22" rx="4" fill="rgba(255,255,255,0.04)" />
-      <text x="110" y="15" fill="#64748b" font-family="monospace, sans-serif" font-size="10" font-weight="700" text-anchor="middle">1Y</text>
-
-      <!-- Active ALL Pill -->
-      <rect x="128" y="0" width="38" height="22" rx="4" fill="#10b981" />
-      <text x="147" y="15" fill="#ffffff" font-family="monospace, sans-serif" font-size="10" font-weight="800" text-anchor="middle">ALL</text>
-    </g>
-  </g>
-
-  <!-- TRADING STATS RIBBON (OHLC + Volume + RSI + Sprints) -->
-  <g transform="translate(45, 66)">
-    <rect width="875" height="28" rx="6" fill="rgba(15, 23, 42, 0.65)" stroke="rgba(255,255,255,0.05)" />
-    
-    <text x="14" y="18" fill="#94a3b8" font-family="monospace, sans-serif" font-size="10.5">
-      <tspan fill="#64748b">O: </tspan><tspan fill="#e2e8f0" font-weight="700">1.00</tspan>
-      <tspan fill="#64748b">   H: </tspan><tspan fill="#34d399" font-weight="700">122.00</tspan>
-      <tspan fill="#64748b">   L: </tspan><tspan fill="#f87171" font-weight="700">1.00</tspan>
-      <tspan fill="#64748b">   C: </tspan><tspan fill="#34d399" font-weight="700">122.00</tspan>
-      <tspan fill="#475569">   │   </tspan>
-      <tspan fill="#64748b">24H VOL: </tspan><tspan fill="#38bdf8" font-weight="700">5 Commits</tspan>
-      <tspan fill="#475569">   │   </tspan>
-      <tspan fill="#64748b">EMA(9): </tspan><tspan fill="#fbbf24" font-weight="700">100.7</tspan>
-      <tspan fill="#475569">   │   </tspan>
-      <tspan fill="#64748b">RSI(14): </tspan><tspan fill="#34d399" font-weight="800">78.4 (BULLISH)</tspan>
-      <tspan fill="#475569">   │   </tspan>
-      <tspan fill="#64748b">APP: </tspan><tspan fill="#a78bfa" font-weight="700">v2.6.4.0.0.10</tspan>
-    </text>
-
-    <!-- Market Live Pulse -->
-    <g transform="translate(770, 8)">
-      <circle cx="0" cy="6" r="6.5" fill="#10b981" fill-opacity="0.25" />
-      <circle cx="0" cy="6" r="3.5" fill="#10b981" />
-      <text x="12" y="10" fill="#34d399" font-family="system-ui, sans-serif" font-size="10" font-weight="700">MARKET OPEN</text>
-    </g>
-  </g>
-
-  <!-- MAIN TRADING CANVAS AREA -->
-  <!-- Horizontal Price Gridlines & Right Scale -->
+  <!-- FOOTER STATUS BAR (Y: 575) -->
+  <line x1="45" y1="585" x2="915" y2="585" stroke="rgba(255, 255, 255, 0.08)" />
   
-      <line x1="55" y1="115.0" x2="865" y2="115.0" stroke="rgba(255, 255, 255, 0.06)" stroke-dasharray="4 4" />
-      <text x="877" y="118.5" fill="#64748b" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="10" font-weight="600">140.00</text>
-    
-      <line x1="55" y1="150.0" x2="865" y2="150.0" stroke="rgba(255, 255, 255, 0.06)" stroke-dasharray="4 4" />
-      <text x="877" y="153.5" fill="#64748b" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="10" font-weight="600">120.00</text>
-    
-      <line x1="55" y1="185.0" x2="865" y2="185.0" stroke="rgba(255, 255, 255, 0.06)" stroke-dasharray="4 4" />
-      <text x="877" y="188.5" fill="#64748b" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="10" font-weight="600">100.00</text>
-    
-      <line x1="55" y1="220.0" x2="865" y2="220.0" stroke="rgba(255, 255, 255, 0.06)" stroke-dasharray="4 4" />
-      <text x="877" y="223.5" fill="#64748b" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="10" font-weight="600">80.00</text>
-    
-      <line x1="55" y1="255.0" x2="865" y2="255.0" stroke="rgba(255, 255, 255, 0.06)" stroke-dasharray="4 4" />
-      <text x="877" y="258.5" fill="#64748b" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="10" font-weight="600">60.00</text>
-    
-      <line x1="55" y1="290.0" x2="865" y2="290.0" stroke="rgba(255, 255, 255, 0.06)" stroke-dasharray="4 4" />
-      <text x="877" y="293.5" fill="#64748b" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="10" font-weight="600">40.00</text>
-    
-      <line x1="55" y1="325.0" x2="865" y2="325.0" stroke="rgba(255, 255, 255, 0.06)" stroke-dasharray="4 4" />
-      <text x="877" y="328.5" fill="#64748b" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="10" font-weight="600">20.00</text>
-    
-      <line x1="55" y1="360.0" x2="865" y2="360.0" stroke="rgba(255, 255, 255, 0.06)" stroke-dasharray="4 4" />
-      <text x="877" y="363.5" fill="#64748b" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="10" font-weight="600">0.00</text>
-    
-
-  <!-- Vertical Time Gridlines -->
-  
-      <line x1="55.0" y1="115" x2="55.0" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
-    
-      <line x1="181.6" y1="115" x2="181.6" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
-    
-      <line x1="308.1" y1="115" x2="308.1" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
-    
-      <line x1="434.7" y1="115" x2="434.7" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
-    
-      <line x1="561.3" y1="115" x2="561.3" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
-    
-      <line x1="687.8" y1="115" x2="687.8" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
-    
-      <line x1="814.4" y1="115" x2="814.4" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
-    
-
-  <!-- Area Chart Underlay Gradient -->
-  <path d="M 55.0 353.0 C 59.2 352.7, 71.9 352.1, 80.3 351.3 C 88.8 350.4, 97.2 348.6, 105.6 347.8 C 114.1 346.9, 122.5 346.6, 130.9 346.0 C 139.4 345.4, 147.8 345.4, 156.3 344.3 C 164.7 343.1, 173.1 340.2, 181.6 339.0 C 190.0 337.8, 198.4 340.8, 206.9 337.3 C 215.3 333.8, 223.8 321.5, 232.2 318.0 C 240.6 314.5, 249.1 317.1, 257.5 316.3 C 265.9 315.4, 274.4 314.5, 282.8 312.8 C 291.3 311.0, 299.7 307.8, 308.1 305.8 C 316.6 303.7, 325.0 301.7, 333.4 300.5 C 341.9 299.3, 350.3 300.5, 358.8 298.8 C 367.2 297.0, 375.6 291.8, 384.1 290.0 C 392.5 288.3, 400.9 289.4, 409.4 288.3 C 417.8 287.1, 426.3 284.2, 434.7 283.0 C 443.1 281.8, 451.6 281.8, 460.0 281.3 C 468.4 280.7, 476.9 280.4, 485.3 279.5 C 493.8 278.6, 502.2 277.2, 510.6 276.0 C 519.1 274.8, 527.5 273.7, 535.9 272.5 C 544.4 271.3, 552.8 271.6, 561.3 269.0 C 569.7 266.4, 578.1 260.8, 586.6 256.8 C 595.0 252.7, 603.4 249.8, 611.9 244.5 C 620.3 239.3, 628.8 228.8, 637.2 225.3 C 645.6 221.8, 654.1 226.1, 662.5 223.5 C 670.9 220.9, 679.4 212.7, 687.8 209.5 C 696.3 206.3, 704.7 206.3, 713.1 204.3 C 721.6 202.2, 730.0 200.5, 738.4 197.3 C 746.9 194.0, 755.3 188.8, 763.8 185.0 C 772.2 181.2, 780.6 177.4, 789.1 174.5 C 797.5 171.6, 805.9 170.7, 814.4 167.5 C 822.8 164.3, 831.3 158.8, 839.7 155.3 C 848.1 151.8, 860.8 148.0, 865.0 146.5 L 865.0 360.0 L 55.0 360.0 Z" fill="url(#tradingAreaGrad)" />
-
-  <!-- EMA 9 Moving Average Trendline (Amber) -->
-  <path d="M 55.0 353.0 C 59.2 352.9, 71.9 352.9, 80.3 352.6 C 88.8 352.4, 97.2 352.0, 105.6 351.7 C 114.1 351.3, 122.5 350.9, 130.9 350.5 C 139.4 350.1, 147.8 349.8, 156.3 349.3 C 164.7 348.7, 173.1 347.9, 181.6 347.2 C 190.0 346.5, 198.4 346.5, 206.9 345.2 C 215.3 344.0, 223.8 341.5, 232.2 339.8 C 240.6 338.1, 249.1 336.6, 257.5 335.1 C 265.9 333.5, 274.4 332.2, 282.8 330.6 C 291.3 329.0, 299.7 327.3, 308.1 325.6 C 316.6 324.0, 325.0 322.2, 333.4 320.6 C 341.9 319.0, 350.3 317.8, 358.8 316.2 C 367.2 314.6, 375.6 312.6, 384.1 311.0 C 392.5 309.4, 400.9 308.0, 409.4 306.4 C 417.8 304.9, 426.3 303.2, 434.7 301.8 C 443.1 300.3, 451.6 298.9, 460.0 297.7 C 468.4 296.4, 476.9 295.2, 485.3 294.0 C 493.8 292.8, 502.2 291.6, 510.6 290.4 C 519.1 289.2, 527.5 288.0, 535.9 286.8 C 544.4 285.6, 552.8 284.7, 561.3 283.3 C 569.7 281.8, 578.1 280.0, 586.6 278.0 C 595.0 276.0, 603.4 273.9, 611.9 271.3 C 620.3 268.6, 628.8 264.9, 637.2 262.1 C 645.6 259.2, 654.1 257.1, 662.5 254.4 C 670.9 251.6, 679.4 248.2, 687.8 245.4 C 696.3 242.5, 704.7 239.9, 713.1 237.2 C 721.6 234.5, 730.0 232.0, 738.4 229.2 C 746.9 226.4, 755.3 223.3, 763.8 220.3 C 772.2 217.3, 780.6 214.2, 789.1 211.2 C 797.5 208.2, 805.9 205.5, 814.4 202.4 C 822.8 199.4, 831.3 196.1, 839.7 193.0 C 848.1 189.9, 860.8 185.3, 865.0 183.7" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="4 3" opacity="0.85" />
-
-  <!-- Primary Price Line (Layered Emerald Neon Vector Glow) -->
-  <path d="M 55.0 353.0 C 59.2 352.7, 71.9 352.1, 80.3 351.3 C 88.8 350.4, 97.2 348.6, 105.6 347.8 C 114.1 346.9, 122.5 346.6, 130.9 346.0 C 139.4 345.4, 147.8 345.4, 156.3 344.3 C 164.7 343.1, 173.1 340.2, 181.6 339.0 C 190.0 337.8, 198.4 340.8, 206.9 337.3 C 215.3 333.8, 223.8 321.5, 232.2 318.0 C 240.6 314.5, 249.1 317.1, 257.5 316.3 C 265.9 315.4, 274.4 314.5, 282.8 312.8 C 291.3 311.0, 299.7 307.8, 308.1 305.8 C 316.6 303.7, 325.0 301.7, 333.4 300.5 C 341.9 299.3, 350.3 300.5, 358.8 298.8 C 367.2 297.0, 375.6 291.8, 384.1 290.0 C 392.5 288.3, 400.9 289.4, 409.4 288.3 C 417.8 287.1, 426.3 284.2, 434.7 283.0 C 443.1 281.8, 451.6 281.8, 460.0 281.3 C 468.4 280.7, 476.9 280.4, 485.3 279.5 C 493.8 278.6, 502.2 277.2, 510.6 276.0 C 519.1 274.8, 527.5 273.7, 535.9 272.5 C 544.4 271.3, 552.8 271.6, 561.3 269.0 C 569.7 266.4, 578.1 260.8, 586.6 256.8 C 595.0 252.7, 603.4 249.8, 611.9 244.5 C 620.3 239.3, 628.8 228.8, 637.2 225.3 C 645.6 221.8, 654.1 226.1, 662.5 223.5 C 670.9 220.9, 679.4 212.7, 687.8 209.5 C 696.3 206.3, 704.7 206.3, 713.1 204.3 C 721.6 202.2, 730.0 200.5, 738.4 197.3 C 746.9 194.0, 755.3 188.8, 763.8 185.0 C 772.2 181.2, 780.6 177.4, 789.1 174.5 C 797.5 171.6, 805.9 170.7, 814.4 167.5 C 822.8 164.3, 831.3 158.8, 839.7 155.3 C 848.1 151.8, 860.8 148.0, 865.0 146.5" fill="none" stroke="#10b981" stroke-width="6" stroke-opacity="0.2" stroke-linecap="round" stroke-linejoin="round" />
-  <path d="M 55.0 353.0 C 59.2 352.7, 71.9 352.1, 80.3 351.3 C 88.8 350.4, 97.2 348.6, 105.6 347.8 C 114.1 346.9, 122.5 346.6, 130.9 346.0 C 139.4 345.4, 147.8 345.4, 156.3 344.3 C 164.7 343.1, 173.1 340.2, 181.6 339.0 C 190.0 337.8, 198.4 340.8, 206.9 337.3 C 215.3 333.8, 223.8 321.5, 232.2 318.0 C 240.6 314.5, 249.1 317.1, 257.5 316.3 C 265.9 315.4, 274.4 314.5, 282.8 312.8 C 291.3 311.0, 299.7 307.8, 308.1 305.8 C 316.6 303.7, 325.0 301.7, 333.4 300.5 C 341.9 299.3, 350.3 300.5, 358.8 298.8 C 367.2 297.0, 375.6 291.8, 384.1 290.0 C 392.5 288.3, 400.9 289.4, 409.4 288.3 C 417.8 287.1, 426.3 284.2, 434.7 283.0 C 443.1 281.8, 451.6 281.8, 460.0 281.3 C 468.4 280.7, 476.9 280.4, 485.3 279.5 C 493.8 278.6, 502.2 277.2, 510.6 276.0 C 519.1 274.8, 527.5 273.7, 535.9 272.5 C 544.4 271.3, 552.8 271.6, 561.3 269.0 C 569.7 266.4, 578.1 260.8, 586.6 256.8 C 595.0 252.7, 603.4 249.8, 611.9 244.5 C 620.3 239.3, 628.8 228.8, 637.2 225.3 C 645.6 221.8, 654.1 226.1, 662.5 223.5 C 670.9 220.9, 679.4 212.7, 687.8 209.5 C 696.3 206.3, 704.7 206.3, 713.1 204.3 C 721.6 202.2, 730.0 200.5, 738.4 197.3 C 746.9 194.0, 755.3 188.8, 763.8 185.0 C 772.2 181.2, 780.6 177.4, 789.1 174.5 C 797.5 171.6, 805.9 170.7, 814.4 167.5 C 822.8 164.3, 831.3 158.8, 839.7 155.3 C 848.1 151.8, 860.8 148.0, 865.0 146.5" fill="none" stroke="#10b981" stroke-width="4" stroke-opacity="0.4" stroke-linecap="round" stroke-linejoin="round" />
-  <path d="M 55.0 353.0 C 59.2 352.7, 71.9 352.1, 80.3 351.3 C 88.8 350.4, 97.2 348.6, 105.6 347.8 C 114.1 346.9, 122.5 346.6, 130.9 346.0 C 139.4 345.4, 147.8 345.4, 156.3 344.3 C 164.7 343.1, 173.1 340.2, 181.6 339.0 C 190.0 337.8, 198.4 340.8, 206.9 337.3 C 215.3 333.8, 223.8 321.5, 232.2 318.0 C 240.6 314.5, 249.1 317.1, 257.5 316.3 C 265.9 315.4, 274.4 314.5, 282.8 312.8 C 291.3 311.0, 299.7 307.8, 308.1 305.8 C 316.6 303.7, 325.0 301.7, 333.4 300.5 C 341.9 299.3, 350.3 300.5, 358.8 298.8 C 367.2 297.0, 375.6 291.8, 384.1 290.0 C 392.5 288.3, 400.9 289.4, 409.4 288.3 C 417.8 287.1, 426.3 284.2, 434.7 283.0 C 443.1 281.8, 451.6 281.8, 460.0 281.3 C 468.4 280.7, 476.9 280.4, 485.3 279.5 C 493.8 278.6, 502.2 277.2, 510.6 276.0 C 519.1 274.8, 527.5 273.7, 535.9 272.5 C 544.4 271.3, 552.8 271.6, 561.3 269.0 C 569.7 266.4, 578.1 260.8, 586.6 256.8 C 595.0 252.7, 603.4 249.8, 611.9 244.5 C 620.3 239.3, 628.8 228.8, 637.2 225.3 C 645.6 221.8, 654.1 226.1, 662.5 223.5 C 670.9 220.9, 679.4 212.7, 687.8 209.5 C 696.3 206.3, 704.7 206.3, 713.1 204.3 C 721.6 202.2, 730.0 200.5, 738.4 197.3 C 746.9 194.0, 755.3 188.8, 763.8 185.0 C 772.2 181.2, 780.6 177.4, 789.1 174.5 C 797.5 171.6, 805.9 170.7, 814.4 167.5 C 822.8 164.3, 831.3 158.8, 839.7 155.3 C 848.1 151.8, 860.8 148.0, 865.0 146.5" fill="none" stroke="#34d399" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
-
-  <!-- Genesis Point Marker -->
-  <circle cx="55.0" cy="353.0" r="3.5" fill="#047857" stroke="#10b981" stroke-width="1.5" />
-  <text x="55.0" y="343.0" fill="#64748b" font-family="monospace, sans-serif" font-size="9" font-weight="700">Genesis</text>
-
-  <!-- Active Latest Point Marker (Clean Bullseye Rings) -->
-  <circle cx="865.0" cy="146.5" r="10" fill="#10b981" fill-opacity="0.15" />
-  <circle cx="865.0" cy="146.5" r="7" fill="#10b981" fill-opacity="0.35" />
-  <circle cx="865.0" cy="146.5" r="4.5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
-
-  <!-- All-Time High (ATH) Milestone Pill -->
-  <g transform="translate(823.0, 114.5)">
-    <rect width="84" height="20" rx="10" fill="#065f46" stroke="#10b981" stroke-width="1.2" />
-    <text x="42" y="13.5" fill="#a7f3d0" font-family="monospace, sans-serif" font-size="9.5" font-weight="800" text-anchor="middle">ATH: 122.00</text>
-    <polygon points="42,24 38,20 46,20" fill="#10b981" />
-  </g>
-
-  <!-- Crosshair Dashed Line (Drawn from Price Point to Right Axis) -->
-  <line x1="55" y1="146.5" x2="870" y2="146.5" stroke="#10b981" stroke-width="1" stroke-dasharray="3 3" opacity="0.65" />
-
-  <!-- Pinned Active Price Tag (Right Y-Axis) -->
-  <g transform="translate(871, 135.5)">
-    <rect width="66" height="22" rx="4" fill="#10b981" />
-    <polygon points="-5,11 0,6 0,16" fill="#10b981" />
-    <text x="33" y="15" fill="#ffffff" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="11" font-weight="800" text-anchor="middle">122.00 ▲</text>
-  </g>
-
-  <!-- TRADING LEGEND (Inline Upper Left of Chart) -->
-  <g transform="translate(65, 130)">
-    <line x1="0" y1="5" x2="16" y2="5" stroke="#10b981" stroke-width="2.5" />
-    <text x="22" y="9" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">ZYP/GIT Price (122.00)</text>
-
-    <line x1="150" y1="5" x2="166" y2="5" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="3 2" />
-    <text x="172" y="9" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">EMA(9) Trendline</text>
-
-    <rect x="280" y="1" width="8" height="8" rx="1.5" fill="#10b981" />
-    <text x="294" y="9" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Vol: Daily Commit Bursts</text>
-  </g>
-
-  <!-- SUB-PANEL: TRADING VOLUME HISTOGRAM -->
-  <line x1="55" y1="387" x2="865" y2="387" stroke="rgba(255, 255, 255, 0.08)" />
-  <text x="55" y="399" fill="#64748b" font-family="monospace, sans-serif" font-size="10" font-weight="700">VOL (Commit Velocity &amp; Code Delivery)</text>
-  <text x="877" y="399" fill="#64748b" font-family="monospace, sans-serif" font-size="9.5">11 max</text>
-  <text x="877" y="470" fill="#475569" font-family="monospace, sans-serif" font-size="9.5">0</text>
-
-  <!-- Volume Histogram Bars -->
-  
-      <rect x="47.0" y="445.6" width="16.0" height="24.4" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="72.3" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="97.6" y="457.8" width="16.0" height="12.2" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="123.0" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="148.3" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="173.6" y="451.7" width="16.0" height="18.3" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="198.9" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="224.2" y="403.0" width="16.0" height="67.0" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="249.5" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="274.8" y="457.8" width="16.0" height="12.2" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="300.1" y="445.6" width="16.0" height="24.4" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="325.5" y="451.7" width="16.0" height="18.3" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="350.8" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="376.1" y="439.5" width="16.0" height="30.5" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="401.4" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="426.7" y="451.7" width="16.0" height="18.3" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="452.0" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="477.3" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="502.6" y="457.8" width="16.0" height="12.2" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="528.0" y="457.8" width="16.0" height="12.2" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="553.3" y="457.8" width="16.0" height="12.2" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="578.6" y="427.4" width="16.0" height="42.6" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="603.9" y="427.4" width="16.0" height="42.6" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="629.2" y="403.0" width="16.0" height="67.0" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="654.5" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="679.8" y="421.3" width="16.0" height="48.7" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="705.1" y="451.7" width="16.0" height="18.3" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="730.5" y="445.6" width="16.0" height="24.4" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="755.8" y="427.4" width="16.0" height="42.6" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="781.1" y="433.5" width="16.0" height="36.5" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="806.4" y="445.6" width="16.0" height="24.4" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="831.7" y="427.4" width="16.0" height="42.6" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
-    
-      <rect x="857.0" y="439.5" width="16.0" height="30.5" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
-    
-
-  <!-- Time Axis Labels -->
-  
-      <text x="55.0" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Jul 11</text>
-    
-      <text x="181.6" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Jul 27</text>
-    
-      <text x="308.1" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Aug 04</text>
-    
-      <text x="434.7" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Aug 27</text>
-    
-      <text x="561.3" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Sep 06</text>
-    
-      <text x="687.8" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Sep 11</text>
-    
-      <text x="814.4" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Sep 16</text>
-    
-    <text x="865.0" y="492" fill="#38bdf8" font-family="monospace, sans-serif" font-size="10" font-weight="700" text-anchor="end">Sep 18 (Today)</text>
-  
-
-  <!-- FOOTER TRADING STATUS BAR -->
-  <line x1="45" y1="508" x2="915" y2="508" stroke="rgba(255, 255, 255, 0.08)" />
-  
-  <g transform="translate(45, 524)">
+  <g transform="translate(45, 603)">
     <circle cx="4" cy="-3" r="3" fill="#10b981" />
     <text x="14" y="0" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10.5">
-      <tspan font-weight="700" fill="#cbd5e1">ORDER TYPE:</tspan> Active Changeset Delivery &bull; 
-      <tspan font-weight="700" fill="#cbd5e1">LATEST HASH:</tspan> <tspan font-family="monospace" fill="#38bdf8">ecc8c88</tspan> &bull; 
-      <tspan font-weight="700" fill="#cbd5e1">MSG:</tspan> chore(git): ignore *.log and debug log...
+      <tspan font-weight="700" fill="#cbd5e1">BRANCH:</tspan> <tspan font-family="monospace" fill="#38bdf8">origin/main</tspan> &bull; 
+      <tspan font-weight="700" fill="#cbd5e1">LATEST HASH:</tspan> <tspan font-family="monospace" fill="#38bdf8">7015b96</tspan> &bull; 
+      <tspan font-weight="700" fill="#cbd5e1">LATEST CHANGE:</tspan> feat(update): automated push on Fri 09/18/...
     </text>
 
     <!-- Right Brand Badge -->
-    <text x="875" y="0" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700" text-anchor="end">github.com/daniyal44/Zyphuel</text>
+    <text x="870" y="0" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700" text-anchor="end">github.com/daniyal44/Zyphuel</text>
   </g>
 </svg>

@@ -18,19 +18,19 @@ A high-performance React.js + Vite platform for Zyphuel — on-demand doorstep f
 | **Minimum OS** | Android 7.0 (Nougat) or newer |
 | **Portal Download** | [https://zyphuel.netlify.app/download](https://zyphuel.netlify.app/download) |
 
-### 📊 Real-Time Engineering Velocity & Activity Dashboard (Auto-Updates on Push)
+### 📊 Real-Time Engineering Velocity & Trading Activity Chart (Auto-Updates on Push)
 
 <p align="center">
   <a href="https://github.com/daniyal44/Zyphuel">
-    <img src="https://raw.githubusercontent.com/daniyal44/Zyphuel/main/assets/repo-activity-chart.svg?v=2.6.4.1" alt="Zyphuel Engineering Velocity & Git Activity Chart" width="100%" />
+    <img src="https://raw.githubusercontent.com/daniyal44/Zyphuel/main/assets/repo-activity-chart.svg?v=2.6.4.3" alt="Zyphuel Engineering Velocity & Git Activity Chart" width="100%" />
   </a>
 </p>
 
-### 📈 Real-Time Git Changes & Code Telemetry Stream
+### 🟩 Live GitHub Contribution Heatmap Matrix & Changes Report (Auto-Updates on Push)
 
 <p align="center">
   <a href="https://github.com/daniyal44/Zyphuel">
-    <img src="https://raw.githubusercontent.com/daniyal44/Zyphuel/main/assets/github-changes-graph.svg?v=2.6.4.1" alt="Zyphuel Git Changes Graph" width="100%" />
+    <img src="https://raw.githubusercontent.com/daniyal44/Zyphuel/main/assets/github-changes-graph.svg?v=2.6.4.3" alt="Zyphuel GitHub Contribution Matrix & Changes Report" width="100%" />
   </a>
 </p>
 
