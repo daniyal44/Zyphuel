@@ -29,7 +29,7 @@
 4. **Pricing, Surcharges & Payments**:
    - Liquid fuels priced strictly per official OGRA ex-depot notifications.
    - Delivery Fees:
-     - Sub-50L Orders: Rs. 250 standard delivery fee.
+     - Sub-50L Orders: Rs. 280 standard delivery fee (revised from Rs. 250 due to nationwide fuel price hikes).
      - 50L+ Orders: Free delivery (Rs. 0).
      - Urgent Dispatch: Flat +Rs. 100 priority surcharge (reasonable controlled fee).
    - Payment Methods: Cash on Delivery (COD) and approved direct bank transfers.
@@ -47,6 +47,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-17** | Updated standard delivery fee term from Rs. 250 to **Rs. 280** for sub-50L fuel orders. | Reflected nationwide fuel price increase in legal terms of use and checkout disclosure. |
 | **2026-09-13** | Synchronized delivery pricing terms (min 5L, Rs. 150 standard fee, Rs. 100 urgent surcharge). | Align legal agreement with live checkout pricing and fee rules. |
 | **2026-09-13** | Added standardized Office Hours and 24/7 Delivery disclosures to Section 8. | Complete schedule transparency across legal pages. |
 | **2026-08-25** | Initial publication of the Terms of Use. | Establish contractual baseline for Lahore fuel delivery. |

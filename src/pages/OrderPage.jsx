@@ -197,9 +197,9 @@ export default function OrderPage() {
   const baseCost = fuelCost + gasCost + waterCost
 
   // Delivery Charges:
-  // Standard Delivery: Free for bulk fuel (>=50L), or Rs. 250 for small fuel orders (<50L)
+  // Standard Delivery: Free for bulk fuel (>=50L), or Rs. 280 for small fuel orders (<50L) due to fuel price increases
   // Urgent Delivery: Adds Rs. 100 express priority dispatch fee (controlled, reasonable fee)
-  const standardFee = (orderFuel && fuelQty < 50) ? 250 : 0
+  const standardFee = (orderFuel && fuelQty < 50) ? 280 : 0
   const urgentFee = deliverySpeed === 'urgent' ? 100 : 0
   const deliveryFee = standardFee + urgentFee
   const total = baseCost + deliveryFee
@@ -863,6 +863,11 @@ export default function OrderPage() {
                   Water Refill: <strong>Rs. {prices.water.toFixed(2)}</strong>/Gal
                   <span className="price-up">Live <i className="fa-solid fa-caret-up"></i></span>
                 </div>
+                <div className="ticker-item">
+                  <span className="ticker-bullet"></span>
+                  Doorstep Delivery: <strong>Rs. 280</strong> (&lt;50L) &bull; <strong>FREE</strong> (&ge;50L)
+                  <span className="price-up" style={{ color: '#ea580c' }}>Fuel Rate Adj. <i className="fa-solid fa-bell"></i></span>
+                </div>
               </div>
             ))}
           </div>
@@ -1024,6 +1029,101 @@ export default function OrderPage() {
               </div>
             )}
 
+            {/* Delivery Rate Adjustment Notice Banner (Due to Fuel Prices Increase) */}
+            <div className="delivery-rate-notice-banner fade-in-up" style={{
+              background: 'linear-gradient(135deg, rgba(234, 88, 12, 0.08) 0%, rgba(2, 132, 199, 0.05) 100%)',
+              border: '1.5px solid rgba(234, 88, 12, 0.35)',
+              borderRadius: '16px',
+              padding: '16px 20px',
+              marginBottom: '24px',
+              boxShadow: '0 4px 18px rgba(234, 88, 12, 0.08)',
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: '16px',
+              position: 'relative'
+            }}>
+              <div style={{
+                width: '44px',
+                height: '44px',
+                borderRadius: '12px',
+                background: 'linear-gradient(135deg, #ea580c 0%, #c2410c 100%)',
+                color: '#ffffff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '1.25rem',
+                flexShrink: 0,
+                boxShadow: '0 4px 12px rgba(234, 88, 12, 0.35)',
+                marginTop: '2px'
+              }}>
+                <i className="fa-solid fa-bullhorn"></i>
+              </div>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px' }}>
+                  <span style={{
+                    background: '#ea580c',
+                    color: '#ffffff',
+                    fontSize: '0.72rem',
+                    fontWeight: 800,
+                    padding: '2px 9px',
+                    borderRadius: '20px',
+                    letterSpacing: '0.04em',
+                    textTransform: 'uppercase'
+                  }}>
+                    Price Notice &bull; ریٹ اپ ڈیٹ
+                  </span>
+                  <span style={{ fontWeight: 800, color: 'var(--text-primary, #0f172a)', fontSize: '1.02rem' }}>
+                    Delivery Fee Adjustment Due to Fuel Prices Increase
+                  </span>
+                </div>
+                <p style={{ margin: '0 0 10px 0', fontSize: '0.88rem', color: 'var(--text-secondary, #475569)', lineHeight: 1.55 }}>
+                  Due to recent nationwide petroleum and fuel price increases across Pakistan, standard doorstep delivery charges for fuel orders under 50 Litres have been updated from <span style={{ textDecoration: 'line-through', color: '#94a3b8' }}>Rs. 250</span> to <strong style={{ color: '#ea580c', fontWeight: 800 }}>Rs. 280</strong>. Orders of <strong>50 Litres or more</strong> continue to qualify for <strong style={{ color: '#16a34a' }}>100% Free Doorstep Delivery (Rs. 0.00)</strong>.
+                </p>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  flexWrap: 'wrap',
+                  fontSize: '0.8rem',
+                  fontWeight: 600
+                }}>
+                  <span style={{
+                    background: 'rgba(234, 88, 12, 0.12)',
+                    color: '#c2410c',
+                    padding: '4px 10px',
+                    borderRadius: '8px',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}>
+                    <i className="fa-solid fa-truck"></i> Standard (&lt;50L): <strong>Rs. 280</strong> (Previously Rs. 250)
+                  </span>
+                  <span style={{
+                    background: 'rgba(22, 163, 74, 0.12)',
+                    color: '#15803d',
+                    padding: '4px 10px',
+                    borderRadius: '8px',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}>
+                    <i className="fa-solid fa-circle-check"></i> Bulk Orders (&ge;50L): <strong>FREE (Rs. 0)</strong>
+                  </span>
+                  <span style={{
+                    background: 'rgba(2, 132, 199, 0.12)',
+                    color: '#0369a1',
+                    padding: '4px 10px',
+                    borderRadius: '8px',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}>
+                    <i className="fa-solid fa-bolt"></i> Urgent Dispatch: <strong>+Rs. 100 Surcharge</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
             <div className="order-container-grid">
 
               {/* Left: Order Form */}
@@ -1083,6 +1183,25 @@ export default function OrderPage() {
                         )}
                       </div>
                     ))}
+                  </div>
+
+                  {/* Delivery Price Adjustment Highlight Note */}
+                  <div style={{
+                    background: 'rgba(234, 88, 12, 0.07)',
+                    borderLeft: '4px solid #ea580c',
+                    padding: '10px 14px',
+                    borderRadius: '0 8px 8px 0',
+                    marginBottom: '18px',
+                    fontSize: '0.84rem',
+                    color: 'var(--text-secondary, #475569)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '10px'
+                  }}>
+                    <i className="fa-solid fa-triangle-exclamation" style={{ color: '#ea580c', fontSize: '1rem', flexShrink: 0 }}></i>
+                    <span>
+                      <strong>Notice Before Ordering:</strong> Due to fuel price increases, standard delivery for fuel orders under 50 Litres is <strong>Rs. 280</strong> (previously Rs. 250). Orders of <strong>50 Litres or more receive 100% FREE Delivery</strong>.
+                    </span>
                   </div>
 
                   {/* 1. Select Items (Category Toggles) */}
@@ -1223,7 +1342,7 @@ export default function OrderPage() {
                               <div style={{ marginLeft: 'auto' }}>
                                 {fuelQty < 50 ? (
                                   <span style={{ fontSize: '0.8rem', color: '#ea580c', fontWeight: 600 }}>
-                                    <i className="fa-solid fa-circle-info"></i> Nominal Rs. 250 fee applies (&lt;50L)
+                                    <i className="fa-solid fa-circle-info"></i> Nominal Rs. 280 fee applies (&lt;50L)
                                   </span>
                                 ) : (
                                   <span style={{ fontSize: '0.8rem', color: '#16a34a', fontWeight: 600 }}>
@@ -1412,7 +1531,7 @@ export default function OrderPage() {
                             Delivery within 20-45 mins
                           </span>
                           <span style={{ fontSize: '0.78rem', color: 'var(--brand-primary, #0284c7)', fontWeight: 700, marginTop: '4px' }}>
-                            Standard Rate {orderFuel && fuelQty >= 50 ? '(FREE)' : (orderFuel ? '(Rs. 250)' : '(Included)')}
+                            Standard Rate {orderFuel && fuelQty >= 50 ? '(FREE)' : (orderFuel ? '(Rs. 280)' : '(Included)')}
                           </span>
                         </div>
                       </div>

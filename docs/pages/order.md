@@ -32,21 +32,24 @@
 ## Delivery Charges & Speed Options
 
 ### 1. Simple / Standard Dispatch (20–45 Mins)
-- **Orders < 50 Litres**: **Rs. 250.00** nominal delivery fee.
+- **Orders < 50 Litres**: **Rs. 280.00** nominal delivery fee (revised from Rs. 250.00 due to nationwide fuel price increases).
 - **Orders ≥ 50 Litres**: **Free Delivery (Rs. 0.00)**.
 
 ### 2. Urgent / Priority Dispatch (10–20 Mins)
 - **Urgent Priority Surcharge**: **+Rs. 100.00 flat surcharge** (kept deliberately reasonable) applied to both sub-50L and 50L+ orders.
-- **Orders < 50 Litres**: Rs. 250 base + Rs. 100 urgent = **Rs. 350.00**.
+- **Orders < 50 Litres**: Rs. 280 base + Rs. 100 urgent = **Rs. 380.00**.
 - **Orders ≥ 50 Litres**: Rs. 0 base + Rs. 100 urgent = **Rs. 100.00**.
 
 
 ---
 
 ## Form Flow & Checkout Architecture
-1. **Live Marquee Price Ticker**:
-   - Left-to-Right infinite continuous animation (`tickerSlideLTR`) featuring live rates with pause-on-hover.
-2. **Item Selection (Step 1)**:
+1. **Live Marquee Price Ticker & Rate Alerts**:
+   - Left-to-Right infinite continuous animation (`tickerSlideLTR`) featuring live fuel rates with pause-on-hover and real-time delivery fee adjustment indicator (`Doorstep Delivery: Rs. 280 (<50L) • FREE (≥50L)`).
+2. **Delivery Price Adjustment Notice Banner & Pre-Order Highlighting**:
+   - High-visibility amber/orange alert banner positioned directly above the checkout grid (`delivery-rate-notice-banner`), explaining that due to nationwide petroleum and fuel price hikes, the standard delivery fee for fuel orders <50L has been adjusted from Rs. 250 to Rs. 280 (with 50L+ remaining 100% Free).
+   - Inline highlight warning note displayed inside the order form panel before Step 1 to inform customers prior to finalizing item selections.
+3. **Item Selection (Step 1)**:
    - Visual radio tiles for Petrol, Diesel, High-Octane, and LPG Gas.
 3. **Quantity Configuration (Step 2)**:
    - Stepper buttons (`-` and `+`) with live manual input, minimum 5L threshold, maximum 15L checkout cap, and quick volume chips `[5L, 7L, 10L, 12L, 15L]`.
@@ -102,6 +105,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-17** | Updated Simple Delivery fee from Rs. 250 to **Rs. 280** (<50L) due to nationwide fuel price increases; added prominent pre-order notice banner & inline form highlight. | User requested: *"order page ma delivery price ma change karo due to fuel prices increase , delivery price increases 250 to 280 before order mention in wesbite as message or as main point"*. Updated calculation logic (`standardFee = 280`), Simple Delivery schedule rate label, live ticker (`Doorstep Delivery: Rs. 280 (<50L) • FREE (≥50L)`), and deployed a bilingual notice banner directly above checkout grid plus inline alert before Step 1. Sub-50L urgent total is now Rs. 380 (280 + 100); 50L+ remains Free standard / Rs. 100 urgent. |
 | **2026-09-17** | Added contextual internal linking to `/contact/` and `/services/#b2b` within the on-page FAQ section and added dedicated commercial inquiry CTA banner; boosted sitemap priority to 0.9 daily. | Eliminate orphan signals, reinforce Googlebot crawl paths, and resolve GSC discovery status. |
 | **2026-09-16** | Integrated Live OGRA Market Fuel Prices from `https://fuel.trackmate.page/api/prices` into Order checkout & context. | User requested: *"https://fuel.trackmate.page/api/prices is ko use Karo order page ma live prices update ma"*. Fixed `FuelPriceContext.jsx` parsing bug where static fallback values previously overrode fetched rates. Implemented direct fetch + CORS proxy fallback, 15-minute `sessionStorage` caching (respecting 30 req/min rate limits), live sync indicator badge in Order section header (`● Live Market Rates Active: Petrol Rs. 384.34/L • Diesel Rs. 415.83/L • High-Octane Rs. 400.00/L`), and real-time computation in cost summaries and computerized invoices. |
 | **2026-09-15** | Overhauled Refueling Lifecycle Tracker with Hypnotic Bioluminescent Vector Animation Suite & Zero Clutter. | User requested: *"ek achi se vector animation use karo jo dekhne ma satisfaction de users ko , abi wali bulkul be achi nai ha sara maza kharab kar dia ha order ka"*. Removed the clumsy polygon drone, yellow scan cone, and noisy text labels. Introduced smooth concentric ripple waves, 360° radar sweep, suspension breathing physics, drifting micro-orbs, and clean minimalist HUD. |

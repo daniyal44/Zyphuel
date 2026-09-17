@@ -16,8 +16,8 @@ This project has access to **425 specialized subagents** across 28 functional do
 
 ## Core Business Logic & Pricing Rules (Permanent Memory)
 - **Minimum Fuel Volume**: Strictly **5 Litres** (sub-5L clamped to 5L; step: +1L; chips: `[5, 10, 20, 50, 100, 250, 500, 1000]`).
-- **Simple Delivery Charges**: **Rs. 250.00** nominal fee for fuel orders <50 Litres. **Free Delivery (Rs. 0.00)** for fuel orders ≥50 Litres.
-- **Urgent Delivery Surcharge**: Controlled, reasonable priority fee of **+Rs. 100.00** flat (Sub-50L Urgent = Rs. 350 total; 50L+ Urgent = Rs. 100 total). Always keep this surcharge reasonable.
+- **Simple Delivery Charges**: **Rs. 280.00** nominal fee for fuel orders <50 Litres (revised from Rs. 250 due to nationwide fuel price hikes). **Free Delivery (Rs. 0.00)** for fuel orders ≥50 Litres.
+- **Urgent Delivery Surcharge**: Controlled, reasonable priority fee of **+Rs. 100.00** flat (Sub-50L Urgent = Rs. 380 total; 50L+ Urgent = Rs. 100 total). Always keep this surcharge reasonable.
 - **Delivery Windows**:
   - Simple Dispatch: 20–45 Mins
   - Urgent Dispatch: 10–20 Mins

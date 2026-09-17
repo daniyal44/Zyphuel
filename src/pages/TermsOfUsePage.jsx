@@ -149,7 +149,7 @@ export default function TermsOfUsePage() {
                 <ul>
                   <li><strong>Cash on Delivery:</strong> Our primary payment method is physical cash collected by the tanker operator at the delivery location.</li>
                   <li><strong>Bank Transfer:</strong> Pre-approved enterprise accounts may arrange advance bank transfers for scheduled deliveries.</li>
-                  <li><strong>Delivery Fee:</strong> A nominal Rs. 250 delivery facilitation fee applies to fuel orders under 50 Litres. Orders of 50 Litres or more qualify for 100% Free Delivery (Rs. 0.00). Priority express dispatch is available for an additional flat surcharge of +Rs. 100.</li>
+                  <li><strong>Delivery Fee:</strong> A nominal Rs. 280 delivery facilitation fee applies to fuel orders under 50 Litres (revised from Rs. 250 due to nationwide fuel price increases). Orders of 50 Litres or more qualify for 100% Free Delivery (Rs. 0.00). Priority express dispatch is available for an additional flat surcharge of +Rs. 100.</li>
                   <li><strong>No Hidden Charges:</strong> All applicable fees are displayed in the Order Summary before confirmation. No additional charges will be applied post-delivery.</li>
                 </ul>
               </section>

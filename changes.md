@@ -14,7 +14,7 @@ timeline
     Phase 3 : Hardware Simulation & Telemetry : 0.01L Digital Meters : GSAP Truck Animation
     Phase 4 : SEO, SSG & Structured Data : Vite SSG Pre-rendering : Schema.org Integration
     Phase 5 : 3D Assets & Mobile App : Three.js Bowser Model : APK v2.0.4 Distribution
-    Phase 6 : Production Refinement & Docs : 5L Min Fuel : Rs. 250 Simple / +Rs. 100 Urgent Fee : Dedicated Markdown Registry
+    Phase 6 : Production Refinement & Docs : 5L Min Fuel : Rs. 280 Simple / +Rs. 100 Urgent Fee : Dedicated Markdown Registry
 ```
 
 ---
@@ -111,11 +111,11 @@ timeline
 
 ### 6.6 Calibrated Delivery Fee Architecture
 - **Simple / Standard Delivery (20–45 mins)**:
-  - Sub-50L orders: **Rs. 250.00** nominal delivery fee.
+  - Sub-50L orders: **Rs. 280.00** nominal delivery fee (revised from Rs. 250 due to fuel price increases).
   - 50L+ orders: **Free Delivery (Rs. 0.00)**.
 - **Urgent / Priority Delivery (10–20 mins)**:
   - Controlled, reasonable express priority surcharge of **+Rs. 100.00** flat.
-  - Sub-50L urgent orders: Rs. 250 + Rs. 100 = **Rs. 350.00**.
+  - Sub-50L urgent orders: Rs. 280 + Rs. 100 = **Rs. 380.00**.
   - 50L+ urgent orders: Rs. 0 + Rs. 100 = **Rs. 100.00**.
 - Live UI synchronization across schedule cards, summary sidebar, and checkout total.
 

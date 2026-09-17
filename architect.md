@@ -127,7 +127,7 @@ zyphuel-react/
 - **Minimum Volume Constraint**: Enforces a strict **5 Litres / kg / gal** threshold. Sub-5 inputs are automatically clamped to 5.
 - **Delivery Fee Logic**:
   $$\text{Delivery Fee} = \text{Standard Fee} + \text{Urgent Surcharge}$$
-  - Where $\text{Standard Fee} = \text{Rs. 250.00}$ if fuel volume $< 50\text{L}$, or $\text{Rs. 0.00}$ if fuel volume $\ge 50\text{L}$.
+  - Where $\text{Standard Fee} = \text{Rs. 280.00}$ if fuel volume $< 50\text{L}$ (adjusted due to nationwide fuel price hikes), or $\text{Rs. 0.00}$ if fuel volume $\ge 50\text{L}$.
   - Where $\text{Urgent Surcharge} = \text{Rs. 100.00}$ if dispatch speed is selected as `urgent`, else $\text{Rs. 0.00}$.
 - **Payment Mode Guard**:
   - Small orders ($\le 10\text{L}$ fuel, $\le 10\text{kg}$ gas, $\le 20\text{gal}$ water) are eligible for **Cash on Delivery (COD)**.
