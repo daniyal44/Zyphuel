@@ -64,6 +64,10 @@ if "%USER_MSG%"=="" (
 )
 
 echo.
+echo [INFO] Updating real-time Git graphs with latest telemetry...
+node scripts/generate_github_graph.js
+
+echo.
 echo [INFO] Staging all changes...
 git add -A
 

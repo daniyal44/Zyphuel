@@ -20,15 +20,19 @@ A high-performance React.js + Vite platform for Zyphuel — on-demand doorstep f
 
 ### 📊 Real-Time Engineering Velocity & Activity Dashboard (Auto-Updates on Push)
 
-[![Zyphuel Engineering Velocity & Git Activity Chart](assets/repo-activity-chart.svg)](https://github.com/daniyal44/Zyphuel)
+<p align="center">
+  <a href="https://github.com/daniyal44/Zyphuel">
+    <img src="https://raw.githubusercontent.com/daniyal44/Zyphuel/main/assets/repo-activity-chart.svg?v=2.6.4.1" alt="Zyphuel Engineering Velocity & Git Activity Chart" width="100%" />
+  </a>
+</p>
 
-<details>
-<summary>📈 <b>View Git Changes & Commit Velocity Graph</b></summary>
-<br />
+### 📈 Real-Time Git Changes & Code Telemetry Stream
 
-[![Zyphuel Git Changes Graph](public/images/github-changes-graph.svg)](https://github.com/daniyal44/Zyphuel)
-
-</details>
+<p align="center">
+  <a href="https://github.com/daniyal44/Zyphuel">
+    <img src="https://raw.githubusercontent.com/daniyal44/Zyphuel/main/assets/github-changes-graph.svg?v=2.6.4.1" alt="Zyphuel Git Changes Graph" width="100%" />
+  </a>
+</p>
 
 
 ## Project Structure

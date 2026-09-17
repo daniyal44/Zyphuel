@@ -71,7 +71,14 @@ function generateSmoothPath(points) {
   return d
 }
 
-function generateSvg() {
+function generateSvg(variant = 'activity') {
+  const isChanges = variant === 'changes'
+  const tickerSymbol = isChanges ? 'ZYP / CHANGES' : 'ZYP / GIT'
+  const tickerExchange = isChanges ? '• GITHUB LIVE COMMITS' : '• GITHUB MAINNET'
+  const tickerDesc = isChanges ? 'Zyphuel Real-Time Commit Stream • Code Changes Telemetry' : 'Zyphuel Engineering Velocity • Verified Commit Stream'
+  const watermarkText = isChanges ? 'GIT CHANGES STREAM' : 'GIT REPOSITORY INDEX'
+  const orderType = isChanges ? 'Active Changeset Delivery' : 'Continuous Integration'
+
   const commits = getGitCommits()
   const totalCommits = commits.length
   const latest = commits[0] || { sha: 'main', date: 'Today', message: 'Active Development' }
@@ -275,7 +282,7 @@ function generateSvg() {
 
   <!-- BACKGROUND WATERMARK -->
   <text x="${width / 2}" y="280" fill="#ffffff" fill-opacity="0.02" font-family="system-ui, -apple-system, sans-serif" font-size="96" font-weight="900" text-anchor="middle" letter-spacing="12">ZYPHUEL</text>
-  <text x="${width / 2}" y="325" fill="#ffffff" fill-opacity="0.015" font-family="monospace, sans-serif" font-size="20" font-weight="700" text-anchor="middle" letter-spacing="8">GIT REPOSITORY INDEX</text>
+  <text x="${width / 2}" y="325" fill="#ffffff" fill-opacity="0.015" font-family="monospace, sans-serif" font-size="20" font-weight="700" text-anchor="middle" letter-spacing="8">${watermarkText}</text>
 
   <!-- TOP TRADING TICKER HEADER -->
   <g transform="translate(45, 20)">
@@ -284,9 +291,9 @@ function generateSvg() {
       <rect width="28" height="28" rx="6" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.35)" stroke-width="1" />
       <text x="14" y="19" fill="#10b981" font-family="system-ui, sans-serif" font-size="14" font-weight="900" text-anchor="middle">⚡</text>
       
-      <text x="38" y="14" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" letter-spacing="0.5">ZYP / GIT</text>
-      <text x="115" y="14" fill="#64748b" font-family="system-ui, sans-serif" font-size="12" font-weight="600">• GITHUB MAINNET</text>
-      <text x="38" y="27" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10.5">Zyphuel Engineering Velocity • Verified Commit Stream</text>
+      <text x="38" y="14" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" letter-spacing="0.5">${tickerSymbol}</text>
+      <text x="${isChanges ? 152 : 115}" y="14" fill="#64748b" font-family="system-ui, sans-serif" font-size="12" font-weight="600">${tickerExchange}</text>
+      <text x="38" y="27" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10.5">${tickerDesc}</text>
     </g>
 
     <!-- Big Price Level & 24H Return -->
@@ -421,7 +428,7 @@ function generateSvg() {
   <g transform="translate(45, 524)">
     <circle cx="4" cy="-3" r="3" fill="#10b981" />
     <text x="14" y="0" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10.5">
-      <tspan font-weight="700" fill="#cbd5e1">ORDER TYPE:</tspan> Continuous Integration &bull; 
+      <tspan font-weight="700" fill="#cbd5e1">ORDER TYPE:</tspan> ${orderType} &bull; 
       <tspan font-weight="700" fill="#cbd5e1">LATEST HASH:</tspan> <tspan font-family="monospace" fill="#38bdf8">${cleanSha}</tspan> &bull; 
       <tspan font-weight="700" fill="#cbd5e1">MSG:</tspan> ${cleanMessage}
     </text>
@@ -431,34 +438,43 @@ function generateSvg() {
   </g>
 </svg>`
 
+  return { svgContent, closePrice, dayChangePct, cleanSha, cleanMessage }
+}
+
+function main() {
+  const activity = generateSvg('activity')
+  const changes = generateSvg('changes')
+
   // 1. Save to assets/ directory (Standard visible directory for GitHub README)
   const assetsDir = path.resolve(__dirname, '../assets')
   if (!fs.existsSync(assetsDir)) fs.mkdirSync(assetsDir, { recursive: true })
-  fs.writeFileSync(path.join(assetsDir, 'repo-activity-chart.svg'), svgContent, 'utf8')
-  fs.writeFileSync(path.join(assetsDir, 'github-changes-graph.svg'), svgContent, 'utf8')
+  fs.writeFileSync(path.join(assetsDir, 'repo-activity-chart.svg'), activity.svgContent, 'utf8')
+  fs.writeFileSync(path.join(assetsDir, 'github-changes-graph.svg'), changes.svgContent, 'utf8')
 
   // 2. Save to .github/assets/
   const githubAssetsDir = path.resolve(__dirname, '../.github/assets')
   if (!fs.existsSync(githubAssetsDir)) fs.mkdirSync(githubAssetsDir, { recursive: true })
-  fs.writeFileSync(path.join(githubAssetsDir, 'repo-activity-chart.svg'), svgContent, 'utf8')
-  fs.writeFileSync(path.join(githubAssetsDir, 'github-changes-graph.svg'), svgContent, 'utf8')
+  fs.writeFileSync(path.join(githubAssetsDir, 'repo-activity-chart.svg'), activity.svgContent, 'utf8')
+  fs.writeFileSync(path.join(githubAssetsDir, 'github-changes-graph.svg'), changes.svgContent, 'utf8')
 
   // 3. Save to public/images/
   const publicDir = path.resolve(__dirname, '../public/images')
   if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true })
-  fs.writeFileSync(path.join(publicDir, 'github-changes-graph.svg'), svgContent, 'utf8')
-  fs.writeFileSync(path.join(publicDir, 'repo-activity-chart.svg'), svgContent, 'utf8')
+  fs.writeFileSync(path.join(publicDir, 'github-changes-graph.svg'), changes.svgContent, 'utf8')
+  fs.writeFileSync(path.join(publicDir, 'repo-activity-chart.svg'), activity.svgContent, 'utf8')
 
   // 4. Save to dist/images/ if dist exists
   const distDir = path.resolve(__dirname, '../dist/images')
   if (fs.existsSync(path.resolve(__dirname, '../dist'))) {
     if (!fs.existsSync(distDir)) fs.mkdirSync(distDir, { recursive: true })
-    fs.writeFileSync(path.join(distDir, 'github-changes-graph.svg'), svgContent, 'utf8')
+    fs.writeFileSync(path.join(distDir, 'github-changes-graph.svg'), changes.svgContent, 'utf8')
+    fs.writeFileSync(path.join(distDir, 'repo-activity-chart.svg'), activity.svgContent, 'utf8')
   }
 
-  console.log(`[GraphGen] ✅ SVG Successfully generated in Trading Terminal Format!`)
-  console.log(`           - Ticker:  ZYP/GIT @ ${closePrice}.00 ▲ (+${dayChangePct}% 24H)`)
-  console.log(`           - Latest:  ${cleanSha} (${cleanMessage})`)
+  console.log(`[GraphGen] ✅ Both SVGs Successfully generated in Trading Terminal Format!`)
+  console.log(`           - Activity Chart: repo-activity-chart.svg (ZYP/GIT @ ${activity.closePrice}.00)`)
+  console.log(`           - Changes Graph:  github-changes-graph.svg (ZYP/CHANGES @ ${changes.closePrice}.00)`)
+  console.log(`           - Latest Commit:  ${activity.cleanSha} (${activity.cleanMessage})`)
 }
 
-generateSvg()
+main()
