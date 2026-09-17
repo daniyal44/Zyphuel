@@ -24,20 +24,6 @@
       <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.85" />
       <stop offset="100%" stop-color="#0284c7" stop-opacity="0.2" />
     </linearGradient>
-
-    <!-- Neon Glow Filter -->
-    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="2.5" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-
-    <!-- Subtle Drop Shadow -->
-    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6" />
-    </filter>
   </defs>
 
   <!-- TERMINAL FRAME BACKGROUND -->
@@ -61,12 +47,12 @@
 
     <!-- Big Price Level & 24H Return -->
     <g transform="translate(360, 0)">
-      <text x="0" y="22" fill="#ffffff" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="26" font-weight="800">117.00</text>
+      <text x="0" y="22" fill="#ffffff" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="26" font-weight="800">118.00</text>
       <text x="110" y="22" fill="#64748b" font-family="monospace, sans-serif" font-size="13" font-weight="500">COMMITS</text>
       
       <!-- Bullish Change Badge -->
       <rect x="185" y="3" width="135" height="24" rx="12" fill="rgba(16, 185, 129, 0.16)" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1" />
-      <text x="252" y="19" fill="#34d399" font-family="system-ui, monospace, sans-serif" font-size="11.5" font-weight="800" text-anchor="middle">▲ +6.4% (24H)</text>
+      <text x="252" y="19" fill="#34d399" font-family="system-ui, monospace, sans-serif" font-size="11.5" font-weight="800" text-anchor="middle">▲ +0.9% (24H)</text>
     </g>
 
     <!-- Timeframe Chips & Live Status -->
@@ -96,13 +82,13 @@
     
     <text x="14" y="18" fill="#94a3b8" font-family="monospace, sans-serif" font-size="10.5">
       <tspan fill="#64748b">O: </tspan><tspan fill="#e2e8f0" font-weight="700">1.00</tspan>
-      <tspan fill="#64748b">   H: </tspan><tspan fill="#34d399" font-weight="700">117.00</tspan>
+      <tspan fill="#64748b">   H: </tspan><tspan fill="#34d399" font-weight="700">118.00</tspan>
       <tspan fill="#64748b">   L: </tspan><tspan fill="#f87171" font-weight="700">1.00</tspan>
-      <tspan fill="#64748b">   C: </tspan><tspan fill="#34d399" font-weight="700">117.00</tspan>
+      <tspan fill="#64748b">   C: </tspan><tspan fill="#34d399" font-weight="700">118.00</tspan>
       <tspan fill="#475569">   │   </tspan>
-      <tspan fill="#64748b">24H VOL: </tspan><tspan fill="#38bdf8" font-weight="700">7 Commits</tspan>
+      <tspan fill="#64748b">24H VOL: </tspan><tspan fill="#38bdf8" font-weight="700">1 Commits</tspan>
       <tspan fill="#475569">   │   </tspan>
-      <tspan fill="#64748b">EMA(9): </tspan><tspan fill="#fbbf24" font-weight="700">95.4</tspan>
+      <tspan fill="#64748b">EMA(9): </tspan><tspan fill="#fbbf24" font-weight="700">99.9</tspan>
       <tspan fill="#475569">   │   </tspan>
       <tspan fill="#64748b">RSI(14): </tspan><tspan fill="#34d399" font-weight="800">78.4 (BULLISH)</tspan>
       <tspan fill="#475569">   │   </tspan>
@@ -111,11 +97,8 @@
 
     <!-- Market Live Pulse -->
     <g transform="translate(770, 8)">
+      <circle cx="0" cy="6" r="6.5" fill="#10b981" fill-opacity="0.25" />
       <circle cx="0" cy="6" r="3.5" fill="#10b981" />
-      <circle cx="0" cy="6" r="6" fill="none" stroke="#10b981" stroke-width="1" stroke-opacity="0.6">
-        <animate attributeName="r" values="3.5;8;3.5" dur="2s" repeatCount="indefinite" />
-        <animate attributeName="stroke-opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite" />
-      </circle>
       <text x="12" y="10" fill="#34d399" font-family="system-ui, sans-serif" font-size="10" font-weight="700">MARKET OPEN</text>
     </g>
   </g>
@@ -152,62 +135,60 @@
   
       <line x1="55.0" y1="115" x2="55.0" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
     
-      <line x1="185.6" y1="115" x2="185.6" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
+      <line x1="181.6" y1="115" x2="181.6" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
     
-      <line x1="316.3" y1="115" x2="316.3" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
+      <line x1="308.1" y1="115" x2="308.1" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
     
-      <line x1="446.9" y1="115" x2="446.9" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
+      <line x1="434.7" y1="115" x2="434.7" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
     
-      <line x1="577.6" y1="115" x2="577.6" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
+      <line x1="561.3" y1="115" x2="561.3" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
     
-      <line x1="708.2" y1="115" x2="708.2" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
+      <line x1="687.8" y1="115" x2="687.8" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
     
-      <line x1="838.9" y1="115" x2="838.9" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
+      <line x1="814.4" y1="115" x2="814.4" y2="475" stroke="rgba(255, 255, 255, 0.04)" stroke-dasharray="3 4" />
     
 
   <!-- Area Chart Underlay Gradient -->
-  <path d="M 55.0 353.0 C 59.4 352.7, 72.4 352.1, 81.1 351.3 C 89.8 350.4, 98.5 348.6, 107.3 347.8 C 116.0 346.9, 124.7 346.6, 133.4 346.0 C 142.1 345.4, 150.8 345.4, 159.5 344.3 C 168.2 343.1, 176.9 340.2, 185.6 339.0 C 194.4 337.8, 203.1 340.8, 211.8 337.3 C 220.5 333.8, 229.2 321.5, 237.9 318.0 C 246.6 314.5, 255.3 317.1, 264.0 316.3 C 272.7 315.4, 281.5 314.5, 290.2 312.8 C 298.9 311.0, 307.6 307.8, 316.3 305.8 C 325.0 303.7, 333.7 301.7, 342.4 300.5 C 351.1 299.3, 359.8 300.5, 368.5 298.8 C 377.3 297.0, 386.0 291.8, 394.7 290.0 C 403.4 288.3, 412.1 289.4, 420.8 288.3 C 429.5 287.1, 438.2 284.2, 446.9 283.0 C 455.6 281.8, 464.4 281.8, 473.1 281.3 C 481.8 280.7, 490.5 280.4, 499.2 279.5 C 507.9 278.6, 516.6 277.2, 525.3 276.0 C 534.0 274.8, 542.7 273.7, 551.5 272.5 C 560.2 271.3, 568.9 271.6, 577.6 269.0 C 586.3 266.4, 595.0 260.8, 603.7 256.8 C 612.4 252.7, 621.1 249.8, 629.8 244.5 C 638.5 239.3, 647.3 228.8, 656.0 225.3 C 664.7 221.8, 673.4 226.1, 682.1 223.5 C 690.8 220.9, 699.5 212.7, 708.2 209.5 C 716.9 206.3, 725.6 206.3, 734.4 204.3 C 743.1 202.2, 751.8 200.5, 760.5 197.3 C 769.2 194.0, 777.9 188.8, 786.6 185.0 C 795.3 181.2, 804.0 177.4, 812.7 174.5 C 821.5 171.6, 830.2 170.7, 838.9 167.5 C 847.6 164.3, 860.6 157.3, 865.0 155.3 L 865.0 360.0 L 55.0 360.0 Z" fill="url(#tradingAreaGrad)" />
+  <path d="M 55.0 353.0 C 59.2 352.7, 71.9 352.1, 80.3 351.3 C 88.8 350.4, 97.2 348.6, 105.6 347.8 C 114.1 346.9, 122.5 346.6, 130.9 346.0 C 139.4 345.4, 147.8 345.4, 156.3 344.3 C 164.7 343.1, 173.1 340.2, 181.6 339.0 C 190.0 337.8, 198.4 340.8, 206.9 337.3 C 215.3 333.8, 223.8 321.5, 232.2 318.0 C 240.6 314.5, 249.1 317.1, 257.5 316.3 C 265.9 315.4, 274.4 314.5, 282.8 312.8 C 291.3 311.0, 299.7 307.8, 308.1 305.8 C 316.6 303.7, 325.0 301.7, 333.4 300.5 C 341.9 299.3, 350.3 300.5, 358.8 298.8 C 367.2 297.0, 375.6 291.8, 384.1 290.0 C 392.5 288.3, 400.9 289.4, 409.4 288.3 C 417.8 287.1, 426.3 284.2, 434.7 283.0 C 443.1 281.8, 451.6 281.8, 460.0 281.3 C 468.4 280.7, 476.9 280.4, 485.3 279.5 C 493.8 278.6, 502.2 277.2, 510.6 276.0 C 519.1 274.8, 527.5 273.7, 535.9 272.5 C 544.4 271.3, 552.8 271.6, 561.3 269.0 C 569.7 266.4, 578.1 260.8, 586.6 256.8 C 595.0 252.7, 603.4 249.8, 611.9 244.5 C 620.3 239.3, 628.8 228.8, 637.2 225.3 C 645.6 221.8, 654.1 226.1, 662.5 223.5 C 670.9 220.9, 679.4 212.7, 687.8 209.5 C 696.3 206.3, 704.7 206.3, 713.1 204.3 C 721.6 202.2, 730.0 200.5, 738.4 197.3 C 746.9 194.0, 755.3 188.8, 763.8 185.0 C 772.2 181.2, 780.6 177.4, 789.1 174.5 C 797.5 171.6, 805.9 170.7, 814.4 167.5 C 822.8 164.3, 831.3 157.6, 839.7 155.3 C 848.1 152.9, 860.8 153.8, 865.0 153.5 L 865.0 360.0 L 55.0 360.0 Z" fill="url(#tradingAreaGrad)" />
 
   <!-- EMA 9 Moving Average Trendline (Amber) -->
-  <path d="M 55.0 353.0 C 59.4 352.9, 72.4 352.9, 81.1 352.6 C 89.8 352.4, 98.5 352.0, 107.3 351.7 C 116.0 351.3, 124.7 350.9, 133.4 350.5 C 142.1 350.1, 150.8 349.8, 159.5 349.3 C 168.2 348.7, 176.9 347.9, 185.6 347.2 C 194.4 346.5, 203.1 346.5, 211.8 345.2 C 220.5 344.0, 229.2 341.5, 237.9 339.8 C 246.6 338.1, 255.3 336.6, 264.0 335.1 C 272.7 333.5, 281.5 332.2, 290.2 330.6 C 298.9 329.0, 307.6 327.3, 316.3 325.6 C 325.0 324.0, 333.7 322.2, 342.4 320.6 C 351.1 319.0, 359.8 317.8, 368.5 316.2 C 377.3 314.6, 386.0 312.6, 394.7 311.0 C 403.4 309.4, 412.1 308.0, 420.8 306.4 C 429.5 304.9, 438.2 303.2, 446.9 301.8 C 455.6 300.3, 464.4 298.9, 473.1 297.7 C 481.8 296.4, 490.5 295.2, 499.2 294.0 C 507.9 292.8, 516.6 291.6, 525.3 290.4 C 534.0 289.2, 542.7 288.0, 551.5 286.8 C 560.2 285.6, 568.9 284.7, 577.6 283.3 C 586.3 281.8, 595.0 280.0, 603.7 278.0 C 612.4 276.0, 621.1 273.9, 629.8 271.3 C 638.5 268.6, 647.3 264.9, 656.0 262.1 C 664.7 259.2, 673.4 257.1, 682.1 254.4 C 690.8 251.6, 699.5 248.2, 708.2 245.4 C 716.9 242.5, 725.6 239.9, 734.4 237.2 C 743.1 234.5, 751.8 232.0, 760.5 229.2 C 769.2 226.4, 777.9 223.3, 786.6 220.3 C 795.3 217.3, 804.0 214.2, 812.7 211.2 C 821.5 208.2, 830.2 205.5, 838.9 202.4 C 847.6 199.4, 860.6 194.6, 865.0 193.0" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="4 3" opacity="0.85" />
+  <path d="M 55.0 353.0 C 59.2 352.9, 71.9 352.9, 80.3 352.6 C 88.8 352.4, 97.2 352.0, 105.6 351.7 C 114.1 351.3, 122.5 350.9, 130.9 350.5 C 139.4 350.1, 147.8 349.8, 156.3 349.3 C 164.7 348.7, 173.1 347.9, 181.6 347.2 C 190.0 346.5, 198.4 346.5, 206.9 345.2 C 215.3 344.0, 223.8 341.5, 232.2 339.8 C 240.6 338.1, 249.1 336.6, 257.5 335.1 C 265.9 333.5, 274.4 332.2, 282.8 330.6 C 291.3 329.0, 299.7 327.3, 308.1 325.6 C 316.6 324.0, 325.0 322.2, 333.4 320.6 C 341.9 319.0, 350.3 317.8, 358.8 316.2 C 367.2 314.6, 375.6 312.6, 384.1 311.0 C 392.5 309.4, 400.9 308.0, 409.4 306.4 C 417.8 304.9, 426.3 303.2, 434.7 301.8 C 443.1 300.3, 451.6 298.9, 460.0 297.7 C 468.4 296.4, 476.9 295.2, 485.3 294.0 C 493.8 292.8, 502.2 291.6, 510.6 290.4 C 519.1 289.2, 527.5 288.0, 535.9 286.8 C 544.4 285.6, 552.8 284.7, 561.3 283.3 C 569.7 281.8, 578.1 280.0, 586.6 278.0 C 595.0 276.0, 603.4 273.9, 611.9 271.3 C 620.3 268.6, 628.8 264.9, 637.2 262.1 C 645.6 259.2, 654.1 257.1, 662.5 254.4 C 670.9 251.6, 679.4 248.2, 687.8 245.4 C 696.3 242.5, 704.7 239.9, 713.1 237.2 C 721.6 234.5, 730.0 232.0, 738.4 229.2 C 746.9 226.4, 755.3 223.3, 763.8 220.3 C 772.2 217.3, 780.6 214.2, 789.1 211.2 C 797.5 208.2, 805.9 205.5, 814.4 202.4 C 822.8 199.4, 831.3 195.9, 839.7 193.0 C 848.1 190.1, 860.8 186.4, 865.0 185.1" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="4 3" opacity="0.85" />
 
   <!-- Primary Price Line (Layered Emerald Neon Vector Glow) -->
-  <path d="M 55.0 353.0 C 59.4 352.7, 72.4 352.1, 81.1 351.3 C 89.8 350.4, 98.5 348.6, 107.3 347.8 C 116.0 346.9, 124.7 346.6, 133.4 346.0 C 142.1 345.4, 150.8 345.4, 159.5 344.3 C 168.2 343.1, 176.9 340.2, 185.6 339.0 C 194.4 337.8, 203.1 340.8, 211.8 337.3 C 220.5 333.8, 229.2 321.5, 237.9 318.0 C 246.6 314.5, 255.3 317.1, 264.0 316.3 C 272.7 315.4, 281.5 314.5, 290.2 312.8 C 298.9 311.0, 307.6 307.8, 316.3 305.8 C 325.0 303.7, 333.7 301.7, 342.4 300.5 C 351.1 299.3, 359.8 300.5, 368.5 298.8 C 377.3 297.0, 386.0 291.8, 394.7 290.0 C 403.4 288.3, 412.1 289.4, 420.8 288.3 C 429.5 287.1, 438.2 284.2, 446.9 283.0 C 455.6 281.8, 464.4 281.8, 473.1 281.3 C 481.8 280.7, 490.5 280.4, 499.2 279.5 C 507.9 278.6, 516.6 277.2, 525.3 276.0 C 534.0 274.8, 542.7 273.7, 551.5 272.5 C 560.2 271.3, 568.9 271.6, 577.6 269.0 C 586.3 266.4, 595.0 260.8, 603.7 256.8 C 612.4 252.7, 621.1 249.8, 629.8 244.5 C 638.5 239.3, 647.3 228.8, 656.0 225.3 C 664.7 221.8, 673.4 226.1, 682.1 223.5 C 690.8 220.9, 699.5 212.7, 708.2 209.5 C 716.9 206.3, 725.6 206.3, 734.4 204.3 C 743.1 202.2, 751.8 200.5, 760.5 197.3 C 769.2 194.0, 777.9 188.8, 786.6 185.0 C 795.3 181.2, 804.0 177.4, 812.7 174.5 C 821.5 171.6, 830.2 170.7, 838.9 167.5 C 847.6 164.3, 860.6 157.3, 865.0 155.3" fill="none" stroke="#10b981" stroke-width="6" stroke-opacity="0.2" stroke-linecap="round" stroke-linejoin="round" />
-  <path d="M 55.0 353.0 C 59.4 352.7, 72.4 352.1, 81.1 351.3 C 89.8 350.4, 98.5 348.6, 107.3 347.8 C 116.0 346.9, 124.7 346.6, 133.4 346.0 C 142.1 345.4, 150.8 345.4, 159.5 344.3 C 168.2 343.1, 176.9 340.2, 185.6 339.0 C 194.4 337.8, 203.1 340.8, 211.8 337.3 C 220.5 333.8, 229.2 321.5, 237.9 318.0 C 246.6 314.5, 255.3 317.1, 264.0 316.3 C 272.7 315.4, 281.5 314.5, 290.2 312.8 C 298.9 311.0, 307.6 307.8, 316.3 305.8 C 325.0 303.7, 333.7 301.7, 342.4 300.5 C 351.1 299.3, 359.8 300.5, 368.5 298.8 C 377.3 297.0, 386.0 291.8, 394.7 290.0 C 403.4 288.3, 412.1 289.4, 420.8 288.3 C 429.5 287.1, 438.2 284.2, 446.9 283.0 C 455.6 281.8, 464.4 281.8, 473.1 281.3 C 481.8 280.7, 490.5 280.4, 499.2 279.5 C 507.9 278.6, 516.6 277.2, 525.3 276.0 C 534.0 274.8, 542.7 273.7, 551.5 272.5 C 560.2 271.3, 568.9 271.6, 577.6 269.0 C 586.3 266.4, 595.0 260.8, 603.7 256.8 C 612.4 252.7, 621.1 249.8, 629.8 244.5 C 638.5 239.3, 647.3 228.8, 656.0 225.3 C 664.7 221.8, 673.4 226.1, 682.1 223.5 C 690.8 220.9, 699.5 212.7, 708.2 209.5 C 716.9 206.3, 725.6 206.3, 734.4 204.3 C 743.1 202.2, 751.8 200.5, 760.5 197.3 C 769.2 194.0, 777.9 188.8, 786.6 185.0 C 795.3 181.2, 804.0 177.4, 812.7 174.5 C 821.5 171.6, 830.2 170.7, 838.9 167.5 C 847.6 164.3, 860.6 157.3, 865.0 155.3" fill="none" stroke="#10b981" stroke-width="4" stroke-opacity="0.4" stroke-linecap="round" stroke-linejoin="round" />
-  <path d="M 55.0 353.0 C 59.4 352.7, 72.4 352.1, 81.1 351.3 C 89.8 350.4, 98.5 348.6, 107.3 347.8 C 116.0 346.9, 124.7 346.6, 133.4 346.0 C 142.1 345.4, 150.8 345.4, 159.5 344.3 C 168.2 343.1, 176.9 340.2, 185.6 339.0 C 194.4 337.8, 203.1 340.8, 211.8 337.3 C 220.5 333.8, 229.2 321.5, 237.9 318.0 C 246.6 314.5, 255.3 317.1, 264.0 316.3 C 272.7 315.4, 281.5 314.5, 290.2 312.8 C 298.9 311.0, 307.6 307.8, 316.3 305.8 C 325.0 303.7, 333.7 301.7, 342.4 300.5 C 351.1 299.3, 359.8 300.5, 368.5 298.8 C 377.3 297.0, 386.0 291.8, 394.7 290.0 C 403.4 288.3, 412.1 289.4, 420.8 288.3 C 429.5 287.1, 438.2 284.2, 446.9 283.0 C 455.6 281.8, 464.4 281.8, 473.1 281.3 C 481.8 280.7, 490.5 280.4, 499.2 279.5 C 507.9 278.6, 516.6 277.2, 525.3 276.0 C 534.0 274.8, 542.7 273.7, 551.5 272.5 C 560.2 271.3, 568.9 271.6, 577.6 269.0 C 586.3 266.4, 595.0 260.8, 603.7 256.8 C 612.4 252.7, 621.1 249.8, 629.8 244.5 C 638.5 239.3, 647.3 228.8, 656.0 225.3 C 664.7 221.8, 673.4 226.1, 682.1 223.5 C 690.8 220.9, 699.5 212.7, 708.2 209.5 C 716.9 206.3, 725.6 206.3, 734.4 204.3 C 743.1 202.2, 751.8 200.5, 760.5 197.3 C 769.2 194.0, 777.9 188.8, 786.6 185.0 C 795.3 181.2, 804.0 177.4, 812.7 174.5 C 821.5 171.6, 830.2 170.7, 838.9 167.5 C 847.6 164.3, 860.6 157.3, 865.0 155.3" fill="none" stroke="#34d399" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 55.0 353.0 C 59.2 352.7, 71.9 352.1, 80.3 351.3 C 88.8 350.4, 97.2 348.6, 105.6 347.8 C 114.1 346.9, 122.5 346.6, 130.9 346.0 C 139.4 345.4, 147.8 345.4, 156.3 344.3 C 164.7 343.1, 173.1 340.2, 181.6 339.0 C 190.0 337.8, 198.4 340.8, 206.9 337.3 C 215.3 333.8, 223.8 321.5, 232.2 318.0 C 240.6 314.5, 249.1 317.1, 257.5 316.3 C 265.9 315.4, 274.4 314.5, 282.8 312.8 C 291.3 311.0, 299.7 307.8, 308.1 305.8 C 316.6 303.7, 325.0 301.7, 333.4 300.5 C 341.9 299.3, 350.3 300.5, 358.8 298.8 C 367.2 297.0, 375.6 291.8, 384.1 290.0 C 392.5 288.3, 400.9 289.4, 409.4 288.3 C 417.8 287.1, 426.3 284.2, 434.7 283.0 C 443.1 281.8, 451.6 281.8, 460.0 281.3 C 468.4 280.7, 476.9 280.4, 485.3 279.5 C 493.8 278.6, 502.2 277.2, 510.6 276.0 C 519.1 274.8, 527.5 273.7, 535.9 272.5 C 544.4 271.3, 552.8 271.6, 561.3 269.0 C 569.7 266.4, 578.1 260.8, 586.6 256.8 C 595.0 252.7, 603.4 249.8, 611.9 244.5 C 620.3 239.3, 628.8 228.8, 637.2 225.3 C 645.6 221.8, 654.1 226.1, 662.5 223.5 C 670.9 220.9, 679.4 212.7, 687.8 209.5 C 696.3 206.3, 704.7 206.3, 713.1 204.3 C 721.6 202.2, 730.0 200.5, 738.4 197.3 C 746.9 194.0, 755.3 188.8, 763.8 185.0 C 772.2 181.2, 780.6 177.4, 789.1 174.5 C 797.5 171.6, 805.9 170.7, 814.4 167.5 C 822.8 164.3, 831.3 157.6, 839.7 155.3 C 848.1 152.9, 860.8 153.8, 865.0 153.5" fill="none" stroke="#10b981" stroke-width="6" stroke-opacity="0.2" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 55.0 353.0 C 59.2 352.7, 71.9 352.1, 80.3 351.3 C 88.8 350.4, 97.2 348.6, 105.6 347.8 C 114.1 346.9, 122.5 346.6, 130.9 346.0 C 139.4 345.4, 147.8 345.4, 156.3 344.3 C 164.7 343.1, 173.1 340.2, 181.6 339.0 C 190.0 337.8, 198.4 340.8, 206.9 337.3 C 215.3 333.8, 223.8 321.5, 232.2 318.0 C 240.6 314.5, 249.1 317.1, 257.5 316.3 C 265.9 315.4, 274.4 314.5, 282.8 312.8 C 291.3 311.0, 299.7 307.8, 308.1 305.8 C 316.6 303.7, 325.0 301.7, 333.4 300.5 C 341.9 299.3, 350.3 300.5, 358.8 298.8 C 367.2 297.0, 375.6 291.8, 384.1 290.0 C 392.5 288.3, 400.9 289.4, 409.4 288.3 C 417.8 287.1, 426.3 284.2, 434.7 283.0 C 443.1 281.8, 451.6 281.8, 460.0 281.3 C 468.4 280.7, 476.9 280.4, 485.3 279.5 C 493.8 278.6, 502.2 277.2, 510.6 276.0 C 519.1 274.8, 527.5 273.7, 535.9 272.5 C 544.4 271.3, 552.8 271.6, 561.3 269.0 C 569.7 266.4, 578.1 260.8, 586.6 256.8 C 595.0 252.7, 603.4 249.8, 611.9 244.5 C 620.3 239.3, 628.8 228.8, 637.2 225.3 C 645.6 221.8, 654.1 226.1, 662.5 223.5 C 670.9 220.9, 679.4 212.7, 687.8 209.5 C 696.3 206.3, 704.7 206.3, 713.1 204.3 C 721.6 202.2, 730.0 200.5, 738.4 197.3 C 746.9 194.0, 755.3 188.8, 763.8 185.0 C 772.2 181.2, 780.6 177.4, 789.1 174.5 C 797.5 171.6, 805.9 170.7, 814.4 167.5 C 822.8 164.3, 831.3 157.6, 839.7 155.3 C 848.1 152.9, 860.8 153.8, 865.0 153.5" fill="none" stroke="#10b981" stroke-width="4" stroke-opacity="0.4" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 55.0 353.0 C 59.2 352.7, 71.9 352.1, 80.3 351.3 C 88.8 350.4, 97.2 348.6, 105.6 347.8 C 114.1 346.9, 122.5 346.6, 130.9 346.0 C 139.4 345.4, 147.8 345.4, 156.3 344.3 C 164.7 343.1, 173.1 340.2, 181.6 339.0 C 190.0 337.8, 198.4 340.8, 206.9 337.3 C 215.3 333.8, 223.8 321.5, 232.2 318.0 C 240.6 314.5, 249.1 317.1, 257.5 316.3 C 265.9 315.4, 274.4 314.5, 282.8 312.8 C 291.3 311.0, 299.7 307.8, 308.1 305.8 C 316.6 303.7, 325.0 301.7, 333.4 300.5 C 341.9 299.3, 350.3 300.5, 358.8 298.8 C 367.2 297.0, 375.6 291.8, 384.1 290.0 C 392.5 288.3, 400.9 289.4, 409.4 288.3 C 417.8 287.1, 426.3 284.2, 434.7 283.0 C 443.1 281.8, 451.6 281.8, 460.0 281.3 C 468.4 280.7, 476.9 280.4, 485.3 279.5 C 493.8 278.6, 502.2 277.2, 510.6 276.0 C 519.1 274.8, 527.5 273.7, 535.9 272.5 C 544.4 271.3, 552.8 271.6, 561.3 269.0 C 569.7 266.4, 578.1 260.8, 586.6 256.8 C 595.0 252.7, 603.4 249.8, 611.9 244.5 C 620.3 239.3, 628.8 228.8, 637.2 225.3 C 645.6 221.8, 654.1 226.1, 662.5 223.5 C 670.9 220.9, 679.4 212.7, 687.8 209.5 C 696.3 206.3, 704.7 206.3, 713.1 204.3 C 721.6 202.2, 730.0 200.5, 738.4 197.3 C 746.9 194.0, 755.3 188.8, 763.8 185.0 C 772.2 181.2, 780.6 177.4, 789.1 174.5 C 797.5 171.6, 805.9 170.7, 814.4 167.5 C 822.8 164.3, 831.3 157.6, 839.7 155.3 C 848.1 152.9, 860.8 153.8, 865.0 153.5" fill="none" stroke="#34d399" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
 
   <!-- Genesis Point Marker -->
   <circle cx="55.0" cy="353.0" r="3.5" fill="#047857" stroke="#10b981" stroke-width="1.5" />
   <text x="55.0" y="343.0" fill="#64748b" font-family="monospace, sans-serif" font-size="9" font-weight="700">Genesis</text>
 
-  <!-- Active Latest Point Marker (Pulsing Bullseye) -->
-  <circle cx="865.0" cy="155.3" r="7" fill="rgba(16, 185, 129, 0.25)">
-    <animate attributeName="r" values="5;11;5" dur="1.8s" repeatCount="indefinite" />
-    <animate attributeName="fill-opacity" values="0.4;0.05;0.4" dur="1.8s" repeatCount="indefinite" />
-  </circle>
-  <circle cx="865.0" cy="155.3" r="4.5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
+  <!-- Active Latest Point Marker (Clean Bullseye Rings) -->
+  <circle cx="865.0" cy="153.5" r="10" fill="#10b981" fill-opacity="0.15" />
+  <circle cx="865.0" cy="153.5" r="7" fill="#10b981" fill-opacity="0.35" />
+  <circle cx="865.0" cy="153.5" r="4.5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
 
   <!-- All-Time High (ATH) Milestone Pill -->
-  <g transform="translate(823.0, 123.3)">
+  <g transform="translate(823.0, 121.5)">
     <rect width="84" height="20" rx="10" fill="#065f46" stroke="#10b981" stroke-width="1.2" />
-    <text x="42" y="13.5" fill="#a7f3d0" font-family="monospace, sans-serif" font-size="9.5" font-weight="800" text-anchor="middle">ATH: 117.00</text>
+    <text x="42" y="13.5" fill="#a7f3d0" font-family="monospace, sans-serif" font-size="9.5" font-weight="800" text-anchor="middle">ATH: 118.00</text>
     <polygon points="42,24 38,20 46,20" fill="#10b981" />
   </g>
 
   <!-- Crosshair Dashed Line (Drawn from Price Point to Right Axis) -->
-  <line x1="55" y1="155.3" x2="870" y2="155.3" stroke="#10b981" stroke-width="1" stroke-dasharray="3 3" opacity="0.65" />
+  <line x1="55" y1="153.5" x2="870" y2="153.5" stroke="#10b981" stroke-width="1" stroke-dasharray="3 3" opacity="0.65" />
 
   <!-- Pinned Active Price Tag (Right Y-Axis) -->
-  <g transform="translate(871, 144.3)">
+  <g transform="translate(871, 142.5)">
     <rect width="66" height="22" rx="4" fill="#10b981" />
     <polygon points="-5,11 0,6 0,16" fill="#10b981" />
-    <text x="33" y="15" fill="#ffffff" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="11" font-weight="800" text-anchor="middle">117.00 ▲</text>
+    <text x="33" y="15" fill="#ffffff" font-family="monospace, 'SF Mono', Consolas, sans-serif" font-size="11" font-weight="800" text-anchor="middle">118.00 ▲</text>
   </g>
 
   <!-- TRADING LEGEND (Inline Upper Left of Chart) -->
   <g transform="translate(65, 130)">
     <line x1="0" y1="5" x2="16" y2="5" stroke="#10b981" stroke-width="2.5" />
-    <text x="22" y="9" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">ZYP/GIT Price (117.00)</text>
+    <text x="22" y="9" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">ZYP/GIT Price (118.00)</text>
 
     <line x1="150" y1="5" x2="166" y2="5" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="3 2" />
     <text x="172" y="9" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10" font-weight="600">EMA(9) Trendline</text>
@@ -226,86 +207,88 @@
   
       <rect x="47.0" y="445.6" width="16.0" height="24.4" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="73.1" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="72.3" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="99.3" y="457.8" width="16.0" height="12.2" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="97.6" y="457.8" width="16.0" height="12.2" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="125.4" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="123.0" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="151.5" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="148.3" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="177.6" y="451.7" width="16.0" height="18.3" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="173.6" y="451.7" width="16.0" height="18.3" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="203.8" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="198.9" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="229.9" y="403.0" width="16.0" height="67.0" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="224.2" y="403.0" width="16.0" height="67.0" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="256.0" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="249.5" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="282.2" y="457.8" width="16.0" height="12.2" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="274.8" y="457.8" width="16.0" height="12.2" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="308.3" y="445.6" width="16.0" height="24.4" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="300.1" y="445.6" width="16.0" height="24.4" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="334.4" y="451.7" width="16.0" height="18.3" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="325.5" y="451.7" width="16.0" height="18.3" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="360.5" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="350.8" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="386.7" y="439.5" width="16.0" height="30.5" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="376.1" y="439.5" width="16.0" height="30.5" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="412.8" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="401.4" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="438.9" y="451.7" width="16.0" height="18.3" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="426.7" y="451.7" width="16.0" height="18.3" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="465.1" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="452.0" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="491.2" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="477.3" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="517.3" y="457.8" width="16.0" height="12.2" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="502.6" y="457.8" width="16.0" height="12.2" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="543.5" y="457.8" width="16.0" height="12.2" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="528.0" y="457.8" width="16.0" height="12.2" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="569.6" y="457.8" width="16.0" height="12.2" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="553.3" y="457.8" width="16.0" height="12.2" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="595.7" y="427.4" width="16.0" height="42.6" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="578.6" y="427.4" width="16.0" height="42.6" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="621.8" y="427.4" width="16.0" height="42.6" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="603.9" y="427.4" width="16.0" height="42.6" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="648.0" y="403.0" width="16.0" height="67.0" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="629.2" y="403.0" width="16.0" height="67.0" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="674.1" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="654.5" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="700.2" y="421.3" width="16.0" height="48.7" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="679.8" y="421.3" width="16.0" height="48.7" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="726.4" y="451.7" width="16.0" height="18.3" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="705.1" y="451.7" width="16.0" height="18.3" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="752.5" y="445.6" width="16.0" height="24.4" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="730.5" y="445.6" width="16.0" height="24.4" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="778.6" y="427.4" width="16.0" height="42.6" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="755.8" y="427.4" width="16.0" height="42.6" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="804.7" y="433.5" width="16.0" height="36.5" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="781.1" y="433.5" width="16.0" height="36.5" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="830.9" y="445.6" width="16.0" height="24.4" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="806.4" y="445.6" width="16.0" height="24.4" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
     
-      <rect x="857.0" y="427.4" width="16.0" height="42.6" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+      <rect x="831.7" y="427.4" width="16.0" height="42.6" rx="2" fill="url(#volGreenGrad)" stroke="#10b981" stroke-opacity="0.3" stroke-width="0.8" />
+    
+      <rect x="857.0" y="463.9" width="16.0" height="6.1" rx="2" fill="url(#volCyanGrad)" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="0.8" />
     
 
   <!-- Time Axis Labels -->
   
       <text x="55.0" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Jul 11</text>
     
-      <text x="185.6" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Jul 27</text>
+      <text x="181.6" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Jul 27</text>
     
-      <text x="316.3" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Aug 04</text>
+      <text x="308.1" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Aug 04</text>
     
-      <text x="446.9" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Aug 27</text>
+      <text x="434.7" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Aug 27</text>
     
-      <text x="577.6" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Sep 06</text>
+      <text x="561.3" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Sep 06</text>
     
-      <text x="708.2" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Sep 11</text>
+      <text x="687.8" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Sep 11</text>
     
-      <text x="838.9" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Sep 16</text>
+      <text x="814.4" y="492" fill="#64748b" font-family="monospace, sans-serif" font-size="10" text-anchor="middle">Sep 16</text>
     
-    <text x="865.0" y="492" fill="#38bdf8" font-family="monospace, sans-serif" font-size="10" font-weight="700" text-anchor="end">Sep 17 (Today)</text>
+    <text x="865.0" y="492" fill="#38bdf8" font-family="monospace, sans-serif" font-size="10" font-weight="700" text-anchor="end">Sep 18 (Today)</text>
   
 
   <!-- FOOTER TRADING STATUS BAR -->
@@ -315,8 +298,8 @@
     <circle cx="4" cy="-3" r="3" fill="#10b981" />
     <text x="14" y="0" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10.5">
       <tspan font-weight="700" fill="#cbd5e1">ORDER TYPE:</tspan> Continuous Integration &bull; 
-      <tspan font-weight="700" fill="#cbd5e1">LATEST HASH:</tspan> <tspan font-family="monospace" fill="#38bdf8">bd610bd</tspan> &bull; 
-      <tspan font-weight="700" fill="#cbd5e1">MSG:</tspan> chore(graph): update trading activity ...
+      <tspan font-weight="700" fill="#cbd5e1">LATEST HASH:</tspan> <tspan font-family="monospace" fill="#38bdf8">62dd16a</tspan> &bull; 
+      <tspan font-weight="700" fill="#cbd5e1">MSG:</tspan> fix(readme): use relative asset path f...
     </text>
 
     <!-- Right Brand Badge -->

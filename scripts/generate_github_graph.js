@@ -268,20 +268,6 @@ function generateSvg() {
       <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.85" />
       <stop offset="100%" stop-color="#0284c7" stop-opacity="0.2" />
     </linearGradient>
-
-    <!-- Neon Glow Filter -->
-    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="2.5" result="blur" />
-      <feMerge>
-        <feMergeNode in="blur" />
-        <feMergeNode in="SourceGraphic" />
-      </feMerge>
-    </filter>
-
-    <!-- Subtle Drop Shadow -->
-    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.6" />
-    </filter>
   </defs>
 
   <!-- TERMINAL FRAME BACKGROUND -->
@@ -355,11 +341,8 @@ function generateSvg() {
 
     <!-- Market Live Pulse -->
     <g transform="translate(${chartW - 40}, 8)">
+      <circle cx="0" cy="6" r="6.5" fill="#10b981" fill-opacity="0.25" />
       <circle cx="0" cy="6" r="3.5" fill="#10b981" />
-      <circle cx="0" cy="6" r="6" fill="none" stroke="#10b981" stroke-width="1" stroke-opacity="0.6">
-        <animate attributeName="r" values="3.5;8;3.5" dur="2s" repeatCount="indefinite" />
-        <animate attributeName="stroke-opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite" />
-      </circle>
       <text x="12" y="10" fill="#34d399" font-family="system-ui, sans-serif" font-size="10" font-weight="700">MARKET OPEN</text>
     </g>
   </g>
@@ -386,11 +369,9 @@ function generateSvg() {
   <circle cx="${firstPt.x.toFixed(1)}" cy="${firstPt.y.toFixed(1)}" r="3.5" fill="#047857" stroke="#10b981" stroke-width="1.5" />
   <text x="${firstPt.x.toFixed(1)}" y="${(firstPt.y - 10).toFixed(1)}" fill="#64748b" font-family="monospace, sans-serif" font-size="9" font-weight="700">Genesis</text>
 
-  <!-- Active Latest Point Marker (Pulsing Bullseye) -->
-  <circle cx="${lastPt.x.toFixed(1)}" cy="${lastPt.y.toFixed(1)}" r="7" fill="rgba(16, 185, 129, 0.25)">
-    <animate attributeName="r" values="5;11;5" dur="1.8s" repeatCount="indefinite" />
-    <animate attributeName="fill-opacity" values="0.4;0.05;0.4" dur="1.8s" repeatCount="indefinite" />
-  </circle>
+  <!-- Active Latest Point Marker (Clean Bullseye Rings) -->
+  <circle cx="${lastPt.x.toFixed(1)}" cy="${lastPt.y.toFixed(1)}" r="10" fill="#10b981" fill-opacity="0.15" />
+  <circle cx="${lastPt.x.toFixed(1)}" cy="${lastPt.y.toFixed(1)}" r="7" fill="#10b981" fill-opacity="0.35" />
   <circle cx="${lastPt.x.toFixed(1)}" cy="${lastPt.y.toFixed(1)}" r="4.5" fill="#10b981" stroke="#ffffff" stroke-width="2" />
 
   <!-- All-Time High (ATH) Milestone Pill -->
@@ -450,17 +431,30 @@ function generateSvg() {
   </g>
 </svg>`
 
-  // Save to .github/assets/repo-activity-chart.svg
+  // 1. Save to assets/ directory (Standard visible directory for GitHub README)
+  const assetsDir = path.resolve(__dirname, '../assets')
+  if (!fs.existsSync(assetsDir)) fs.mkdirSync(assetsDir, { recursive: true })
+  fs.writeFileSync(path.join(assetsDir, 'repo-activity-chart.svg'), svgContent, 'utf8')
+  fs.writeFileSync(path.join(assetsDir, 'github-changes-graph.svg'), svgContent, 'utf8')
+
+  // 2. Save to .github/assets/
   const githubAssetsDir = path.resolve(__dirname, '../.github/assets')
   if (!fs.existsSync(githubAssetsDir)) fs.mkdirSync(githubAssetsDir, { recursive: true })
-  const githubAssetFile = path.join(githubAssetsDir, 'repo-activity-chart.svg')
-  fs.writeFileSync(githubAssetFile, svgContent, 'utf8')
+  fs.writeFileSync(path.join(githubAssetsDir, 'repo-activity-chart.svg'), svgContent, 'utf8')
+  fs.writeFileSync(path.join(githubAssetsDir, 'github-changes-graph.svg'), svgContent, 'utf8')
 
-  // Also save to public/images/github-changes-graph.svg for backward compatibility
+  // 3. Save to public/images/
   const publicDir = path.resolve(__dirname, '../public/images')
   if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true })
-  const publicFile = path.join(publicDir, 'github-changes-graph.svg')
-  fs.writeFileSync(publicFile, svgContent, 'utf8')
+  fs.writeFileSync(path.join(publicDir, 'github-changes-graph.svg'), svgContent, 'utf8')
+  fs.writeFileSync(path.join(publicDir, 'repo-activity-chart.svg'), svgContent, 'utf8')
+
+  // 4. Save to dist/images/ if dist exists
+  const distDir = path.resolve(__dirname, '../dist/images')
+  if (fs.existsSync(path.resolve(__dirname, '../dist'))) {
+    if (!fs.existsSync(distDir)) fs.mkdirSync(distDir, { recursive: true })
+    fs.writeFileSync(path.join(distDir, 'github-changes-graph.svg'), svgContent, 'utf8')
+  }
 
   console.log(`[GraphGen] ✅ SVG Successfully generated in Trading Terminal Format!`)
   console.log(`           - Ticker:  ZYP/GIT @ ${closePrice}.00 ▲ (+${dayChangePct}% 24H)`)
