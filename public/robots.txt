@@ -1,39 +1,78 @@
+# ==============================================================================
+# Zyphuel Robots Exclusion Protocol (robots.txt)
+# Website: https://zyphuel.netlify.app/
+# Last Updated: 2026-09-18
+# ==============================================================================
+
+# Default Crawl Rules for All User-Agents
 User-agent: *
 Allow: /
+Allow: /about/
+Allow: /services/
+Allow: /download/
+Allow: /order/
+Allow: /contact/
+Allow: /privacy/
+Allow: /terms/
+Allow: /blog/
 Allow: /images/
 Allow: /assets/
 Allow: /APK/
 Allow: /manifest.json
 Allow: /llms.txt
 Allow: /sitemap.xml
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.ico$
 Disallow: /404.html
 Disallow: /ezgif-2f1a39c97e5b173b-jpg/
 
-# Image Crawlers
-User-agent: Googlebot-Image
-Allow: /
-Allow: /images/
-Disallow: /ezgif-2f1a39c97e5b173b-jpg/
-
-User-agent: MSNBOT-Media
-Allow: /
-Allow: /images/
-Disallow: /ezgif-2f1a39c97e5b173b-jpg/
-
-# Major Search Engine Crawlers
+# Google Search & Inspection Tooling
 User-agent: Googlebot
 Allow: /
+Allow: /assets/
+Allow: /images/
+Disallow: /404.html
+Disallow: /ezgif-2f1a39c97e5b173b-jpg/
+
+User-agent: Google-InspectionTool
+Allow: /
+Allow: /assets/
+Allow: /images/
+Disallow: /ezgif-2f1a39c97e5b173b-jpg/
 
 User-agent: GoogleOther
 Allow: /
 
+User-agent: Googlebot-Image
+Allow: /
+Allow: /images/
+Allow: /assets/
+Disallow: /ezgif-2f1a39c97e5b173b-jpg/
+
+# Major Search Engine Crawlers
 User-agent: bingbot
+Allow: /
+Allow: /assets/
+Allow: /images/
+Disallow: /404.html
+Disallow: /ezgif-2f1a39c97e5b173b-jpg/
+
+User-agent: Applebot
+Allow: /
+Allow: /assets/
+Allow: /images/
+Disallow: /404.html
+
+User-agent: DuckDuckBot
 Allow: /
 
 User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
 Allow: /
 
 User-agent: Baiduspider
@@ -42,10 +81,7 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
-User-agent: Applebot
-Allow: /
-
-# AI & LLM Search Crawlers
+# AI & LLM Search Engine Agents (Direct GEO Optimization)
 User-agent: GPTBot
 Allow: /
 
@@ -65,6 +101,9 @@ User-agent: Anthropic-AI
 Allow: /
 
 User-agent: Google-Extended
+Allow: /
+
+User-agent: Gemini
 Allow: /
 
 User-agent: PerplexityBot
@@ -91,10 +130,6 @@ Allow: /
 User-agent: Amazonbot
 Allow: /
 
-User-agent: Gemini
-Allow: /
-
-User-agent: Google-InspectionTool
-Allow: /
-
+# Host Declaration & Canonical Sitemap
+Host: https://zyphuel.netlify.app
 Sitemap: https://zyphuel.netlify.app/sitemap.xml
