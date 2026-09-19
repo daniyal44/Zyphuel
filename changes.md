@@ -209,3 +209,19 @@ timeline
 - **`netlify.toml`**: Standardized `X-Robots-Tag` from `all, ...` to `index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1`. Added 301 redirect for `/sitemap` -> `/sitemap/`.
 - **`public/_redirects`**: Added 301 redirect `/sitemap /sitemap/ 301`.
 - **Documentation**: Created `docs/pages/sitemap.md` and updated `docs/README.md`.
+
+---
+
+## [Phase 9] — International & Global Standards SEO Overhaul (2026-09-20)
+### 9.1 Multi-Locale `hreflang` Triad Implementation
+- **Global Standards Compliance**: Injected multi-locale hreflang tags across all 16 canonical routes:
+  - `x-default`: Fallback for all global, international, and unmatched crawlers.
+  - `en`: Generic English standard for global search engines.
+  - `en-PK`: Regional geographic targeting for Pakistan.
+- **Implementation**: Updated [`index.html`](file:///d:/Games/New%20folder-web/zyphuel-react/index.html) and [`prerender.js`](file:///d:/Games/New%20folder-web/zyphuel-react/prerender.js) SSG build engine to dynamically inject self-referencing canonical and 3-part hreflang cluster for every page.
+
+### 9.2 Global OpenGraph & Crawl Metadata
+- Added `og:locale` (`en_PK`) with international alternate locales `og:locale:alternate` (`en_US`, `en_GB`) to support global social graph indexing and search previews.
+- Added international search directives: `distribution: global`, `coverage: Worldwide`, `rating: general`, `revisit-after: 2 days`.
+- Fully verified via Static Site Generation (SSG) across all 17 output HTML files in `dist/`.
+

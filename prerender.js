@@ -1004,13 +1004,14 @@ async function prerender() {
       `<meta name="keywords" content="${route.keywords.replace(/"/g, '&quot;')}" />`
     )
 
-    // Replace Canonical & Inject Static Hreflang Tags (Canonical + x-default + en-PK)
+    // Replace Canonical & Inject Static Hreflang Tags (Canonical + x-default + en + en-PK)
     const canonicalAndHreflang = `<link rel="canonical" href="${route.canonical}" />
     <link rel="alternate" hreflang="x-default" href="${route.canonical}" />
+    <link rel="alternate" hreflang="en" href="${route.canonical}" />
     <link rel="alternate" hreflang="en-PK" href="${route.canonical}" />`
 
     html = html.replace(
-      /<link\s+rel=["']canonical["']\s+href=["'][\s\S]*?["']\s*\/?>/i,
+      /<link\s+rel=["']canonical["'][\s\S]*?<link\s+rel=["']alternate["']\s+hreflang=["']en-PK["']\s+href=["'][^"']*["']\s*\/?>/i,
       canonicalAndHreflang
     )
 
