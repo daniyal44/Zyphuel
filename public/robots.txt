@@ -26,6 +26,7 @@ Allow: /assets/
 Allow: /APK/
 Allow: /manifest.json
 Allow: /llms.txt
+Allow: /llms-full.txt
 Allow: /sitemap.xml
 Allow: /*.css$
 Allow: /*.js$

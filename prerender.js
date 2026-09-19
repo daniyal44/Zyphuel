@@ -322,6 +322,22 @@ const ROUTES = [
             },
             {
               "@type": "Question",
+              "name": "What is the minimum fuel delivery quantity on Zyphuel?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The minimum fuel delivery volume is strictly 5 Litres for both petrol and diesel. Customers can choose from volume chips (5, 10, 20, 50, 100, 250, 500, 1000L) or input custom amounts above 5 Litres in 1-Litre increments."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are Zyphuel delivery charges for petrol and diesel in Lahore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zyphuel charges a simple nominal fee of Rs. 280.00 for orders under 50 Litres. Orders of 50 Litres and above qualify for 100% Free Delivery (Rs. 0.00). Urgent priority dispatch carries a flat surcharge of +Rs. 100.00."
+              }
+            },
+            {
+              "@type": "Question",
               "name": "How do I order fuel from Zyphuel?",
               "acceptedAnswer": {
                 "@type": "Answer",
@@ -1157,6 +1173,13 @@ ${sitemapUrls}
   if (fs.existsSync(llmsSrc)) {
     fs.copyFileSync(llmsSrc, llmsDist)
     console.log('📄 Synced llms.txt to dist/')
+  }
+
+  const llmsFullSrc = toAbsolute('public/llms-full.txt')
+  const llmsFullDist = toAbsolute('dist/llms-full.txt')
+  if (fs.existsSync(llmsFullSrc)) {
+    fs.copyFileSync(llmsFullSrc, llmsFullDist)
+    console.log('📄 Synced llms-full.txt to dist/')
   }
 
   const gscSrc = toAbsolute('public/google1ab7400cf65ca469.html')

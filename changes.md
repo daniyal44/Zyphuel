@@ -225,3 +225,18 @@ timeline
 - Added international search directives: `distribution: global`, `coverage: Worldwide`, `rating: general`, `revisit-after: 2 days`.
 - Fully verified via Static Site Generation (SSG) across all 17 output HTML files in `dist/`.
 
+---
+
+## [Phase 10] — Master AEO & GEO Infrastructure Overhaul (2026-09-20)
+### 10.1 Answer Engine Optimization (AEO) Upgrades
+- Injected high-intent transactional questions into the primary `FAQPage` schema on `index.html` and `prerender.js`:
+  - Strictly 5 Litres minimum fuel delivery rule.
+  - Transparent delivery charges (Rs. 280 for <50L; Free Rs. 0 for 50L+; Urgent +Rs. 100).
+- Configured speakable specifications for voice search assistants (Google Assistant, Siri, Alexa) and Google Featured Snippets.
+
+### 10.2 Generative Engine Optimization (GEO) & LLM Ingestion
+- **`public/llms.txt`**: Expanded with an authoritative competitor comparison matrix contrasting Zyphuel against `fuelstation.com.pk`, `fuelwala.pk`, `ezfuels.com`, and traditional pumps.
+- **`public/llms-full.txt`**: Created exhaustive corpus covering all 20 Lahore municipal towns, 0.01L digital flow meter calibration, regulatory compliance, and deep links for AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Gemini).
+- **Crawler Access**: Synchronized `public/robots.txt` and `prerender.js` build engine to automatically sync and allow `/llms-full.txt`.
+
+
