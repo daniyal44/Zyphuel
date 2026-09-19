@@ -127,3 +127,45 @@ timeline
 - Created 10 primary page documentation files under `docs/pages/` (`home.md`, `order.md`, `about.md`, `services.md`, `download.md`, `contact.md`, `blog.md`, `privacy-policy.md`, `terms-of-use.md`, `not-found.md`).
 - Created 6 technical subpage documentation files under `docs/pages/subpages/` (`future-of-fuel-delivery-lahore.md`, `download-zyphuel-apk-guide.md`, `generator-refueling-services-lahore.md`, `generator-diesel-lpg-delivery-lahore.md`, `iot-telemetry-fuel-delivery.md`, `zyphuel-calibrated-telemetry-fleet.md`).
 - Updated `AGENTS.md` and `GEMINI.md` with mandatory auto-update protocols for all future changes.
+
+---
+
+## Phase 7: Retail Petrol Pump Rate Calibration, Order Page Polish & Vibe-Coding Context Registry
+
+### 7.1 Retail Petrol Pump Rate Markup (+Rs. 2.50 / Litre)
+- **Business Rule Established**: Retail fuel stations in Lahore operate with an inland transport / dealer margin over base OGRA ex-depot notifications.
+- **Formula**: `Retail Petrol Pump Rate = Base Price + Rs. 2.50 / Litre`.
+- **Applicability**: Applied uniformly to **Petrol**, **Diesel**, and **High-Octane**.
+- **Dynamic Invariance**: Whether market rates increase, decrease, or remain constant ("jab bhi price kam ho ya zada ho ya same rahe"), the +Rs. 2.50/L retail pump tariff is consistently calculated.
+- **LPG & Water**: Retain verified market rates without pump tariff.
+- **Implementation**:
+  - `src/data/fuelPrices.js`: Defined `PUMP_RATE_MARKUP = 2.50`, exported `FUEL_BASE_PRICES` and calculated `FUEL_PRICES`.
+  - `src/context/FuelPriceContext.jsx`: Dynamically applied `PUMP_RATE_MARKUP` to live scraped Trackmate API rates and exposed `basePrices`, `prices`, and `pumpMarkup`.
+
+### 7.2 Order Page UI & Live Rates Integration
+- **Engine Calculation**: The +Rs. 2.50 markup is factored directly into `prices.petrol`, `prices.diesel`, and `prices.highOctane`.
+- **Pure & Clean User Interface**: All explicit `Pump Rate (+Rs. 2.50)` formula labels, suffixes, and breakdown texts were purged so users view only the final clean rates.
+- **Price Ticker**: Shows clean, live commodities:
+  - `Petrol (Premier Euro 5): Rs. {prices.petrol.toFixed(2)}/L`
+  - `Diesel (Hi-Cetane Euro 5): Rs. {prices.diesel.toFixed(2)}/L`
+  - `High-Octane (Euro 5): Rs. {prices.highOctane.toFixed(2)}/L`
+  - `Doorstep Delivery: Rs. 280 • Urgent Express: +Rs. 100`
+- **Market Rates Indicator Banner**: Cleanly presents `Live Market Rates Active: Petrol Rs. {rate}/L • Diesel Rs. {rate}/L • High-Octane Rs. {rate}/L`.
+- **Mini Fuel Cards & Summary**: Display clean `Rs. {rate}/L` and standard `Unit Rate` without technical markup annotations.
+- **Digital Invoice & WhatsApp**: Synchronized with verified prices smoothly.
+
+### 7.3 Consumer Order Flow De-cluttering & UI Deletions
+- Removed confusing `Orders of 50 Litres or more receive 100% FREE Delivery` text from consumer order checkout.
+- Removed redundant `Notice Before Ordering: Due to nationwide fuel price increases...` banner above Step 1 form items.
+- Removed all visible `Pump Rate (+Rs. 2.50)` formula badges across `OrderPage.jsx` and `ServicesPage.jsx`.
+
+### 7.4 Vibe-Coding Context Files Integration
+- Integrated all 8 core context markdown files from `D:\Games\vibe-coding-context-files\vibe-coding-context-files` into `docs/vibe-coding/`:
+  - `README.md`, `architecture.md`, `phases.md`, `database.md`, `prompts.md`, `security.md`, `error-handling.md`, `generator-prompt.md`.
+- Tailored each file to specifically document the Zyphuel web application.
+
+### 7.5 Master Documentation Logs
+- Created `remove.md` in repository root logging deprecated features and superseded pricing logic.
+- Created `delete.md` in repository root logging purged notices and dead code removals.
+- Updated `docs/pages/order.md` and `docs/pages/services.md` with latest parameter calibrations.
+- Updated `docs/README.md` master index.

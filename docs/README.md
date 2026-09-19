@@ -37,3 +37,31 @@ This directory contains dedicated, up-to-date documentation (`.md`) files for ev
 | **Generator Diesel & LPG Cylinder Delivery** | `/blog/generator-diesel-lpg-delivery-lahore/` | `src/data/articles.js` (ID: 4) | [`docs/pages/subpages/generator-diesel-lpg-delivery-lahore.md`](./pages/subpages/generator-diesel-lpg-delivery-lahore.md) |
 | **IoT Telemetry & Smart Fuel Calibration** | `/blog/iot-telemetry-fuel-delivery/` | `src/data/articles.js` (ID: 5) | [`docs/pages/subpages/iot-telemetry-fuel-delivery.md`](./pages/subpages/iot-telemetry-fuel-delivery.md) |
 | **Calibrated Telemetry Bowser Fleet** | `/blog/zyphuel-calibrated-telemetry-fleet/` | `src/data/articles.js` (ID: 6) | [`docs/pages/subpages/zyphuel-calibrated-telemetry-fleet.md`](./pages/subpages/zyphuel-calibrated-telemetry-fleet.md) |
+
+---
+
+## Core System Architecture & Vibe-Coding Context Directory
+
+The 6 context files give AI assistants persistent source-of-truth knowledge for architecture, data modeling, and security:
+
+| Document | Purpose | File Link |
+| :--- | :--- | :--- |
+| **Vibe Coding Guide** | Context files guide & golden rules | [`docs/vibe-coding/README.md`](./vibe-coding/README.md) |
+| **Architecture** | High-level solution design, tech stack & data flow | [`docs/vibe-coding/architecture.md`](./vibe-coding/architecture.md) |
+| **Phases** | Product milestones and build phases (Phase 1–7) | [`docs/vibe-coding/phases.md`](./vibe-coding/phases.md) |
+| **Database & Storage**| Client schemas, SessionStorage & LocalStorage contracts | [`docs/vibe-coding/database.md`](./vibe-coding/database.md) |
+| **Prompts** | AI system prompts and WhatsApp dispatch templates | [`docs/vibe-coding/prompts.md`](./vibe-coding/prompts.md) |
+| **Security** | Input sanitization, CORS proxies, rate limits & anti-spam | [`docs/vibe-coding/security.md`](./vibe-coding/security.md) |
+| **Error Handling** | Failover strategy, toast bus & validation error states | [`docs/vibe-coding/error-handling.md`](./vibe-coding/error-handling.md) |
+| **Generator Prompt** | Meta-prompt for feature expansions | [`docs/vibe-coding/generator-prompt.md`](./vibe-coding/generator-prompt.md) |
+
+---
+
+## Master Changelog & Deprecation Registries
+
+| Document | Description | File Link |
+| :--- | :--- | :--- |
+| **Master Changelog** | Complete chronological log of all phases from prototype to Phase 7 | [`changes.md`](../changes.md) |
+| **Removed Features Log** | Deprecated pricing models, old delivery fees & superseded features | [`remove.md`](../remove.md) |
+| **Deletion & Cleanup Log** | Purged banners, deleted notices, cleaned dead code & build artifacts | [`delete.md`](../delete.md) |
+

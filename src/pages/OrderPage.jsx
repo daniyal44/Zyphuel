@@ -154,12 +154,14 @@ export default function OrderPage() {
   const [email, setEmail] = useState('')
   const [deliverySpeed, setDeliverySpeed] = useState('simple') // 'simple' or 'urgent'
   
-  const { prices: livePrices, isLive, effectiveDate } = useFuelPrices()
+  const { prices: livePrices, basePrices: liveBasePrices, pumpMarkup = 2.50, isLive, effectiveDate } = useFuelPrices()
   const [prices, setPrices] = useState({ ...livePrices })
+  const [basePrices, setBasePrices] = useState(liveBasePrices ? { ...liveBasePrices } : null)
 
   useEffect(() => {
     setPrices(livePrices)
-  }, [livePrices])
+    if (liveBasePrices) setBasePrices(liveBasePrices)
+  }, [livePrices, liveBasePrices])
 
   // Error state
   const [errors, setErrors] = useState({})
@@ -865,7 +867,7 @@ export default function OrderPage() {
                 </div>
                 <div className="ticker-item">
                   <span className="ticker-bullet"></span>
-                  Doorstep Delivery: <strong>Rs. 280</strong> (&lt;50L) &bull; <strong>FREE</strong> (&ge;50L)
+                  Doorstep Delivery: <strong>Rs. 280</strong> &bull; Urgent Express: <strong>+Rs. 100</strong>
                   <span className="price-up" style={{ color: '#ea580c' }}>Fuel Rate Adj. <i className="fa-solid fa-bell"></i></span>
                 </div>
               </div>
@@ -880,7 +882,7 @@ export default function OrderPage() {
               <h1 className="section-title">Order Petrol &amp; Diesel Online in Lahore</h1>
               <p className="section-subtitle">Select fuel, LPG Gas, or Water. Calculate rates in real time, customize quantities, and track your delivery.</p>
               
-              {/* Live OGRA Market Rates Indicator */}
+              {/* Live Market Rates Indicator */}
               <div style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -1077,7 +1079,7 @@ export default function OrderPage() {
                   </span>
                 </div>
                 <p style={{ margin: '0 0 10px 0', fontSize: '0.88rem', color: 'var(--text-secondary, #475569)', lineHeight: 1.55 }}>
-                  Due to recent nationwide petroleum and fuel price increases across Pakistan, standard doorstep delivery charges for fuel orders under 50 Litres have been updated from <span style={{ textDecoration: 'line-through', color: '#94a3b8' }}>Rs. 250</span> to <strong style={{ color: '#ea580c', fontWeight: 800 }}>Rs. 280</strong>. Orders of <strong>50 Litres or more</strong> continue to qualify for <strong style={{ color: '#16a34a' }}>100% Free Doorstep Delivery (Rs. 0.00)</strong>.
+                  Due to recent nationwide petroleum and fuel price increases across Pakistan, standard doorstep delivery charges for fuel orders have been updated from <span style={{ textDecoration: 'line-through', color: '#94a3b8' }}>Rs. 250</span> to <strong style={{ color: '#ea580c', fontWeight: 800 }}>Rs. 280</strong>.
                 </p>
                 <div style={{
                   display: 'flex',
@@ -1096,18 +1098,7 @@ export default function OrderPage() {
                     alignItems: 'center',
                     gap: '6px'
                   }}>
-                    <i className="fa-solid fa-truck"></i> Standard (&lt;50L): <strong>Rs. 280</strong> (Previously Rs. 250)
-                  </span>
-                  <span style={{
-                    background: 'rgba(22, 163, 74, 0.12)',
-                    color: '#15803d',
-                    padding: '4px 10px',
-                    borderRadius: '8px',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px'
-                  }}>
-                    <i className="fa-solid fa-circle-check"></i> Bulk Orders (&ge;50L): <strong>FREE (Rs. 0)</strong>
+                    <i className="fa-solid fa-truck"></i> Standard Delivery: <strong>Rs. 280</strong> (Previously Rs. 250)
                   </span>
                   <span style={{
                     background: 'rgba(2, 132, 199, 0.12)',
@@ -1183,25 +1174,6 @@ export default function OrderPage() {
                         )}
                       </div>
                     ))}
-                  </div>
-
-                  {/* Delivery Price Adjustment Highlight Note */}
-                  <div style={{
-                    background: 'rgba(234, 88, 12, 0.07)',
-                    borderLeft: '4px solid #ea580c',
-                    padding: '10px 14px',
-                    borderRadius: '0 8px 8px 0',
-                    marginBottom: '18px',
-                    fontSize: '0.84rem',
-                    color: 'var(--text-secondary, #475569)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '10px'
-                  }}>
-                    <i className="fa-solid fa-triangle-exclamation" style={{ color: '#ea580c', fontSize: '1rem', flexShrink: 0 }}></i>
-                    <span>
-                      <strong>Notice Before Ordering:</strong> Due to fuel price increases, standard delivery for fuel orders under 50 Litres is <strong>Rs. 280</strong> (previously Rs. 250). Orders of <strong>50 Litres or more receive 100% FREE Delivery</strong>.
-                    </span>
                   </div>
 
                   {/* 1. Select Items (Category Toggles) */}
@@ -1340,15 +1312,9 @@ export default function OrderPage() {
                               </div>
                               <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Litres</span>
                               <div style={{ marginLeft: 'auto' }}>
-                                {fuelQty < 50 ? (
-                                  <span style={{ fontSize: '0.8rem', color: '#ea580c', fontWeight: 600 }}>
-                                    <i className="fa-solid fa-circle-info"></i> Nominal Rs. 280 fee applies (&lt;50L)
-                                  </span>
-                                ) : (
-                                  <span style={{ fontSize: '0.8rem', color: '#16a34a', fontWeight: 600 }}>
-                                    <i className="fa-solid fa-circle-check"></i> Free Delivery Qualified
-                                  </span>
-                                )}
+                                <span style={{ fontSize: '0.8rem', color: '#ea580c', fontWeight: 600 }}>
+                                  <i className="fa-solid fa-circle-info"></i> Nominal Rs. 280 delivery fee applies
+                                </span>
                               </div>
                             </div>
                             

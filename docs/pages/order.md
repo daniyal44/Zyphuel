@@ -17,46 +17,43 @@
 
 ## Pricing, Products & Minimum Quantities
 
-| Fuel / Utility Grade | Unit Rate | Unit | Order Range | Increment Step | Volume Presets (Chips) |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Premier Euro-5 Super Petrol** | Rs. 345.87 | Litre | **5L – 15 Litres** | +1 L | 5, 7, 10, 12, 15 |
-| **Hi-Cetane Euro-5 Diesel** | Rs. 378.05 | Litre | **5L – 15 Litres** | +1 L | 5, 7, 10, 12, 15 |
-| **High-Octane (Euro-5 / HOBC 97)**| Rs. 365.00 | Litre | **5L – 15 Litres** | +1 L | 5, 7, 10, 12, 15 |
-| **LPG Commercial / Domestic Gas** | Rs. 258.65 | Kilogram | **5 kg – 200 kg** | +1 kg | 5, 10, 20, 50, 100, 200 |
-| **Bulk Potable Clean Water** | Rs. 100.00 | Gallon | **5 gal – 500 gal** | +1 gal | 5, 10, 20, 50, 100, 250, 500 |
+| Fuel / Utility Grade | Retail Pump Unit Rate | OGRA Base Rate | Pump Tariff Markup | Order Range | Increment Step | Volume Presets (Chips) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Premier Euro-5 Super Petrol** | Live + Rs. 2.50 | Live Scraped | **+Rs. 2.50 / L** | **5L – 15 Litres** | +1 L | 5, 7, 10, 12, 15 |
+| **Hi-Cetane Euro-5 Diesel** | Live + Rs. 2.50 | Live Scraped | **+Rs. 2.50 / L** | **5L – 15 Litres** | +1 L | 5, 7, 10, 12, 15 |
+| **High-Octane (Euro-5 / HOBC 97)**| Live + Rs. 2.50 | Live Scraped | **+Rs. 2.50 / L** | **5L – 15 Litres** | +1 L | 5, 7, 10, 12, 15 |
+| **LPG Commercial / Domestic Gas** | Rs. 258.65 | Standard | No Markup | **5 kg – 200 kg** | +1 kg | 5, 10, 20, 50, 100, 200 |
+| **Bulk Potable Clean Water** | Rs. 100.00 | Standard | No Markup | **5 gal – 500 gal** | +1 gal | 5, 10, 20, 50, 100, 250, 500 |
 
-> **Enforced Rule**: Absolute minimum fuel volume is **5 Litres** and maximum fuel checkout volume is strictly **15 Litres**. Sub-5 unit inputs are automatically clamped to 5; inputs exceeding 15 are clamped to 15.
+> **Retail Petrol Pump Rate Rule**: Petrol, Diesel, and High-Octane rates include the verified **+Rs. 2.50 / Litre** petrol pump rate over the OGRA base ex-depot price, maintaining dynamic invariance across price drops, hikes, or steady states ("jab bhi price kam ho ya zada ho ya same rahe").
+> **Enforced Volume Rule**: Absolute minimum fuel volume is **5 Litres** and maximum fuel checkout volume is strictly **15 Litres**. Sub-5 unit inputs are automatically clamped to 5; inputs exceeding 15 are clamped to 15.
 
 ---
 
 ## Delivery Charges & Speed Options
 
 ### 1. Simple / Standard Dispatch (20–45 Mins)
-- **Orders < 50 Litres**: **Rs. 280.00** nominal delivery fee (revised from Rs. 250.00 due to nationwide fuel price increases).
-- **Orders ≥ 50 Litres**: **Free Delivery (Rs. 0.00)**.
+- **Standard Doorstep Delivery**: **Rs. 280.00** nominal delivery fee (revised from Rs. 250.00 due to nationwide fuel price increases).
 
 ### 2. Urgent / Priority Dispatch (10–20 Mins)
-- **Urgent Priority Surcharge**: **+Rs. 100.00 flat surcharge** (kept deliberately reasonable) applied to both sub-50L and 50L+ orders.
-- **Orders < 50 Litres**: Rs. 280 base + Rs. 100 urgent = **Rs. 380.00**.
-- **Orders ≥ 50 Litres**: Rs. 0 base + Rs. 100 urgent = **Rs. 100.00**.
-
+- **Urgent Priority Surcharge**: **+Rs. 100.00 flat surcharge** (kept deliberately reasonable).
+- **Total Urgent Delivery Fee**: Rs. 280 base + Rs. 100 urgent = **Rs. 380.00**.
 
 ---
 
 ## Form Flow & Checkout Architecture
 1. **Live Marquee Price Ticker & Rate Alerts**:
-   - Left-to-Right infinite continuous animation (`tickerSlideLTR`) featuring live fuel rates with pause-on-hover and real-time delivery fee adjustment indicator (`Doorstep Delivery: Rs. 280 (<50L) • FREE (≥50L)`).
-2. **Delivery Price Adjustment Notice Banner & Pre-Order Highlighting**:
-   - High-visibility amber/orange alert banner positioned directly above the checkout grid (`delivery-rate-notice-banner`), explaining that due to nationwide petroleum and fuel price hikes, the standard delivery fee for fuel orders <50L has been adjusted from Rs. 250 to Rs. 280 (with 50L+ remaining 100% Free).
-   - Inline highlight warning note displayed inside the order form panel before Step 1 to inform customers prior to finalizing item selections.
+   - Left-to-Right infinite continuous animation (`tickerSlideLTR`) featuring live retail petrol pump rates (`Petrol Euro 5 - Pump Rate: Rs. {rate}/L`, `Doorstep Delivery: Rs. 280 • Urgent Express: +Rs. 100`).
+2. **Retail Pump Rates Indicator Banner**:
+   - Clean, transparent banner indicating active retail pump rates (+Rs. 2.50/L) alongside ex-depot base benchmarks.
 3. **Item Selection (Step 1)**:
-   - Visual radio tiles for Petrol, Diesel, High-Octane, and LPG Gas.
-3. **Quantity Configuration (Step 2)**:
+   - Visual radio tiles for Petrol, Diesel, High-Octane, and LPG Gas with inline `Pump Rate (+Rs. 2.50)` indicator badges.
+4. **Quantity Configuration (Step 2)**:
    - Stepper buttons (`-` and `+`) with live manual input, minimum 5L threshold, maximum 15L checkout cap, and quick volume chips `[5L, 7L, 10L, 12L, 15L]`.
-4. **Delivery Location & Speed (Step 3)**:
+5. **Delivery Location & Speed (Step 3)**:
    - Clean single input: `Complete Delivery Address in Lahore *`.
    - Toggle buttons: Simple Delivery (20–45 mins) vs. Urgent Delivery (10–20 mins, +Rs. 100).
-5. **Contact & Payment (Step 4)**:
+6. **Contact & Payment (Step 4)**:
    - Customer Full Name and Active Contact Number.
    - Payment method toggle: Cash on Delivery (COD) / Direct Bank Transfer.
 6. **Order Summary**:
@@ -105,6 +102,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-19** | Applied **+Rs. 2.50 / Litre** Retail Petrol Pump Rate Markup to Petrol, Diesel, and High-Octane; removed 50L+ Free delivery text and redundant pre-order notice banner; updated invoice and WhatsApp dispatch. | User requested: *"petrol , desil & high-octane Rs.2.5 add hone chaye as per petrol pump rate , jab be price kab ho ya zada ho ya same he raha chaye example acutal price 289.14 petrol pump price 291.88 as sa desil & high-octane, order page ma update karna zad ya"*, *"Orders of 50 Litres or more receive 100% FREE Delivery. is ko remove karo"*, and *"Notice Before Ordering... is ko be remove karo"*. Implemented `PUMP_RATE_MARKUP = 2.50` across `fuelPrices.js` and `FuelPriceContext.jsx`, updated ticker labels to show retail pump rates, added pump rate indicator badges on fuel selector cards, updated order summary with explicit base + markup breakdown, and purged confusing 50L bulk notices. |
 | **2026-09-17** | Updated Simple Delivery fee from Rs. 250 to **Rs. 280** (<50L) due to nationwide fuel price increases; added prominent pre-order notice banner & inline form highlight. | User requested: *"order page ma delivery price ma change karo due to fuel prices increase , delivery price increases 250 to 280 before order mention in wesbite as message or as main point"*. Updated calculation logic (`standardFee = 280`), Simple Delivery schedule rate label, live ticker (`Doorstep Delivery: Rs. 280 (<50L) • FREE (≥50L)`), and deployed a bilingual notice banner directly above checkout grid plus inline alert before Step 1. Sub-50L urgent total is now Rs. 380 (280 + 100); 50L+ remains Free standard / Rs. 100 urgent. |
 | **2026-09-17** | Added contextual internal linking to `/contact/` and `/services/#b2b` within the on-page FAQ section and added dedicated commercial inquiry CTA banner; boosted sitemap priority to 0.9 daily. | Eliminate orphan signals, reinforce Googlebot crawl paths, and resolve GSC discovery status. |
 | **2026-09-16** | Integrated Live OGRA Market Fuel Prices from `https://fuel.trackmate.page/api/prices` into Order checkout & context. | User requested: *"https://fuel.trackmate.page/api/prices is ko use Karo order page ma live prices update ma"*. Fixed `FuelPriceContext.jsx` parsing bug where static fallback values previously overrode fetched rates. Implemented direct fetch + CORS proxy fallback, 15-minute `sessionStorage` caching (respecting 30 req/min rate limits), live sync indicator badge in Order section header (`● Live Market Rates Active: Petrol Rs. 384.34/L • Diesel Rs. 415.83/L • High-Octane Rs. 400.00/L`), and real-time computation in cost summaries and computerized invoices. |

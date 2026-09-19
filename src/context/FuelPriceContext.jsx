@@ -1,9 +1,10 @@
 import { createContext, useContext, useState, useEffect } from 'react';
-import { FUEL_PRICES } from '../data/fuelPrices.js';
+import { FUEL_PRICES, FUEL_BASE_PRICES, PUMP_RATE_MARKUP } from '../data/fuelPrices.js';
 
 const FuelPriceContext = createContext();
 
 const DEFAULT_PRICES = FUEL_PRICES;
+const DEFAULT_BASE_PRICES = FUEL_BASE_PRICES;
 
 export function FuelPriceProvider({ children }) {
   // Initialize state with sessionStorage cache if available to prevent flash of fallback values
@@ -18,6 +19,19 @@ export function FuelPriceProvider({ children }) {
       }
     } catch (e) {}
     return DEFAULT_PRICES;
+  });
+
+  const [basePrices, setBasePrices] = useState(() => {
+    try {
+      const cached = sessionStorage.getItem('zyphuel_live_prices');
+      if (cached) {
+        const parsed = JSON.parse(cached);
+        if (parsed?.basePrices && Date.now() - (parsed.timestamp || 0) < 15 * 60 * 1000) {
+          return { ...DEFAULT_BASE_PRICES, ...parsed.basePrices };
+        }
+      }
+    } catch (e) {}
+    return DEFAULT_BASE_PRICES;
   });
 
   const [loading, setLoading] = useState(true);
@@ -104,23 +118,33 @@ export function FuelPriceProvider({ children }) {
       const foundDate = dateItem ? dateItem.effective_date : null;
       const scrapedAt = petrolItem?.scraped_at || dieselItem?.scraped_at || new Date().toISOString();
 
-      const updated = { ...DEFAULT_PRICES };
+      const baseUpdated = { ...DEFAULT_BASE_PRICES };
       
-      // Override default prices with live verified market rates from API
+      // Override default base prices with live verified market rates from API
       if (petrolItem && !isNaN(Number(petrolItem.price_pkr))) {
-        updated.petrol = Number(petrolItem.price_pkr);
+        baseUpdated.petrol = Number(petrolItem.price_pkr);
       }
       if (dieselItem && !isNaN(Number(dieselItem.price_pkr))) {
-        updated.diesel = Number(dieselItem.price_pkr);
+        baseUpdated.diesel = Number(dieselItem.price_pkr);
       }
       if (lpgItem && !isNaN(Number(lpgItem.price_pkr))) {
-        updated.lpg = Number(lpgItem.price_pkr);
+        baseUpdated.lpg = Number(lpgItem.price_pkr);
       }
       if (octaneItem && !isNaN(Number(octaneItem.price_pkr))) {
-        updated.highOctane = Number(octaneItem.price_pkr);
+        baseUpdated.highOctane = Number(octaneItem.price_pkr);
       }
 
-      setPrices(updated);
+      // Calculate effective retail petrol pump rate: Base + Rs. 2.50/L for liquid fuels (petrol, diesel, high-octane)
+      const pumpUpdated = {
+        petrol: +(baseUpdated.petrol + PUMP_RATE_MARKUP).toFixed(2),
+        diesel: +(baseUpdated.diesel + PUMP_RATE_MARKUP).toFixed(2),
+        highOctane: +(baseUpdated.highOctane + PUMP_RATE_MARKUP).toFixed(2),
+        lpg: baseUpdated.lpg,
+        water: baseUpdated.water,
+      };
+
+      setBasePrices(baseUpdated);
+      setPrices(pumpUpdated);
       setIsLive(true);
       if (foundDate) setEffectiveDate(foundDate);
       setLastUpdated(scrapedAt);
@@ -128,7 +152,9 @@ export function FuelPriceProvider({ children }) {
       // Cache in sessionStorage so navigation across pages is instantaneous and preserves rate limits
       try {
         sessionStorage.setItem('zyphuel_live_prices', JSON.stringify({
-          prices: updated,
+          prices: pumpUpdated,
+          basePrices: baseUpdated,
+          pumpMarkup: PUMP_RATE_MARKUP,
           isLive: true,
           effectiveDate: foundDate,
           lastUpdated: scrapedAt,
@@ -145,7 +171,7 @@ export function FuelPriceProvider({ children }) {
   }, []);
 
   return (
-    <FuelPriceContext.Provider value={{ prices, loading, isLive, effectiveDate, lastUpdated }}>
+    <FuelPriceContext.Provider value={{ prices, basePrices, pumpMarkup: PUMP_RATE_MARKUP, loading, isLive, effectiveDate, lastUpdated }}>
       {children}
     </FuelPriceContext.Provider>
   );
