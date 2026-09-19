@@ -7,6 +7,7 @@
 /privacy            /privacy/           301
 /terms              /terms/             301
 /blog               /blog/              301
+/sitemap            /sitemap/           301
 
 # Legacy URL 301 redirects to canonical legal pages
 /privacy-policy     /privacy/           301

@@ -15,7 +15,7 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(self), camera=(), microphone=()"
     Cache-Control = "public, max-age=0, must-revalidate"
-    X-Robots-Tag = "all, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 
 # 404 error page header - tell search engines not to index error pages
 [[headers]]
@@ -99,6 +99,11 @@
 [[redirects]]
   from = "/blog/:splat"
   to = "/blog/:splat/"
+  status = 301
+
+[[redirects]]
+  from = "/sitemap"
+  to = "/sitemap/"
   status = 301
 
 # Genuine 404 status for missing paths (prevents Google Soft 404 penalty)

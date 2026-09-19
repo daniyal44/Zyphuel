@@ -1,10 +1,14 @@
 # ==============================================================================
 # Zyphuel Robots Exclusion Protocol (robots.txt)
 # Website: https://zyphuel.netlify.app/
+# Canonical Sitemap & Host Declaration (Top Priority for Crawlers)
 # Last Updated: 2026-09-19
 # ==============================================================================
 
-# Default Crawl Rules for All User-Agents
+Sitemap: https://zyphuel.netlify.app/sitemap.xml
+Host: https://zyphuel.netlify.app
+
+# Default Crawl Rules for All Search Engine Bots
 User-agent: *
 Allow: /
 Allow: /about/
@@ -15,6 +19,8 @@ Allow: /contact/
 Allow: /privacy/
 Allow: /terms/
 Allow: /blog/
+Allow: /blog/*
+Allow: /sitemap/
 Allow: /images/
 Allow: /assets/
 Allow: /APK/
@@ -35,6 +41,16 @@ Disallow: /ezgif-2f1a39c97e5b173b-jpg/
 # Google Search & Inspection Tooling
 User-agent: Googlebot
 Allow: /
+Allow: /about/
+Allow: /services/
+Allow: /download/
+Allow: /order/
+Allow: /contact/
+Allow: /privacy/
+Allow: /terms/
+Allow: /blog/
+Allow: /blog/*
+Allow: /sitemap/
 Allow: /assets/
 Allow: /images/
 Disallow: /404.html
@@ -58,6 +74,16 @@ Disallow: /ezgif-2f1a39c97e5b173b-jpg/
 # Major Search Engine Crawlers
 User-agent: bingbot
 Allow: /
+Allow: /about/
+Allow: /services/
+Allow: /download/
+Allow: /order/
+Allow: /contact/
+Allow: /privacy/
+Allow: /terms/
+Allow: /blog/
+Allow: /blog/*
+Allow: /sitemap/
 Allow: /assets/
 Allow: /images/
 Disallow: /404.html
@@ -129,7 +155,3 @@ Allow: /
 
 User-agent: Amazonbot
 Allow: /
-
-# Host Declaration & Canonical Sitemap
-Host: https://zyphuel.netlify.app
-Sitemap: https://zyphuel.netlify.app/sitemap.xml

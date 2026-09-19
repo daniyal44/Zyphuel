@@ -80,7 +80,7 @@ export default function Footer() {
   const [logoError, setLogoError] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const { brand, contact, socialLinks, quickLinks, lahoreTowns, expansion, bottomLinks, copyright } =
+  const { brand, contact, socialLinks, quickLinks, fuelGuides, lahoreTowns, expansion, bottomLinks, copyright } =
     useMemo(() => footerData, []);
 
   return (
@@ -181,13 +181,24 @@ export default function Footer() {
             </button>
           </div>
 
-          {/* Column 4: Expansion Alert */}
+          {/* Column 4: Fuel Guides & Regional Expansion */}
           <div>
+            <h3 className="footer-title">Fuel &amp; Energy Guides</h3>
+            <ul className="footer-links" style={{ marginBottom: '20px' }}>
+              {fuelGuides && fuelGuides.map((guide) => (
+                <li key={guide.to}>
+                  <Link to={guide.to} title={`${guide.label} - Zyphuel`}>
+                    {guide.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
             {expansion.showAlert && (
               <div>
-                <h3 className="footer-title">Expansion Alert</h3>
+                <h4 className="footer-title" style={{ fontSize: '0.88rem', marginBottom: '8px' }}>Regional Expansion</h4>
                 <div className="expansion-card">
-                  <p className="footer-about-text" style={{ marginBottom: '14px', fontSize: '0.85rem' }}>
+                  <p className="footer-about-text" style={{ marginBottom: '12px', fontSize: '0.82rem' }}>
                     {expansion.text}
                   </p>
                   <span className="badge-pill badge-upcoming">

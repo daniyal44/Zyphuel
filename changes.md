@@ -169,3 +169,43 @@ timeline
 - Created `delete.md` in repository root logging purged notices and dead code removals.
 - Updated `docs/pages/order.md` and `docs/pages/services.md` with latest parameter calibrations.
 - Updated `docs/README.md` master index.
+
+---
+
+## Phase 8: Search Engine Indexing, Internal Linking Overhaul & HTML Sitemap
+
+### 8.1 Resolution of Non-Indexing for Deep Pages & Subpages
+- **Problem Diagnosed**: Search engines (Googlebot) had indexed only Home (`/`) and Services (`/services/`), while deep pages (`/about/`, `/order/`, `/download/`, `/contact/`, `/privacy/`, `/terms/`) and all 6 blog fuel guides (`/blog/.../`) remained unindexed or queued.
+- **Root Cause**:
+  1. Subdomain crawl quota limits on free hosting (`*.netlify.app`).
+  2. Weak internal link architecture to subpages (subpages were not linked from site-wide headers or footers, rendering them near-orphan pages).
+  3. Lack of an accessible HTML Sitemap directory.
+  4. Non-standard `X-Robots-Tag: all` instead of `index, follow`.
+
+### 8.2 Footer Internal Linking Architecture Overhaul
+- **File Modified**: `src/components/footerData.js` and `src/components/Footer.jsx`.
+- Added dedicated **"Fuel & Energy Guides"** column to the footer with direct internal links to all 6 subpages:
+  1. `OGRA Daily Fuel Pricing Reform` (`/blog/future-of-fuel-delivery-lahore/`)
+  2. `Zyphuel APK Setup & Install Guide` (`/blog/download-zyphuel-apk-guide/`)
+  3. `Industrial Generator Diesel Logistics` (`/blog/generator-refueling-services-lahore/`)
+  4. `Commercial Diesel & LPG Safety Standards` (`/blog/generator-diesel-lpg-delivery-lahore/`)
+  5. `Calibrated Flow Meters & IoT Telemetry` (`/blog/iot-telemetry-fuel-delivery/`)
+  6. `Mobile Refueling Fleet in Lahore` (`/blog/zyphuel-calibrated-telemetry-fleet/`)
+- Result: Every single URL across the entire website now provides Googlebot direct, do-follow links to every blog subpage, dramatically multiplying internal PageRank.
+
+### 8.3 Dedicated HTML Sitemap Page (`/sitemap/`)
+- **File Created**: `src/pages/HtmlSitemapPage.jsx`.
+- Complete 3-category directory indexing all 16 canonical public URLs:
+  - Core Navigation & Commercial Services (6 URLs)
+  - Fuel & Energy Knowledge Guides / Subpages (7 URLs)
+  - Legal, Privacy & Compliance (2 URLs)
+  - Links to raw XML sitemap and robots.txt.
+- **Routing**: Added `/sitemap` and `/sitemap/` in `src/App.jsx`.
+- **SSG Pre-rendering**: Integrated into `prerender.js` to generate static `dist/sitemap/index.html`.
+- **XML Sitemap Sync**: Added `/sitemap/` with Priority `0.9` and `daily` change frequency.
+
+### 8.4 Crawler Directives & Header Standardization
+- **`public/robots.txt`**: Moved `Sitemap: https://zyphuel.netlify.app/sitemap.xml` to top priority, added explicit `Allow: /sitemap/` and `Allow: /blog/*`, consolidated user-agent rules to eliminate Googlebot block discarding.
+- **`netlify.toml`**: Standardized `X-Robots-Tag` from `all, ...` to `index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1`. Added 301 redirect for `/sitemap` -> `/sitemap/`.
+- **`public/_redirects`**: Added 301 redirect `/sitemap /sitemap/ 301`.
+- **Documentation**: Created `docs/pages/sitemap.md` and updated `docs/README.md`.

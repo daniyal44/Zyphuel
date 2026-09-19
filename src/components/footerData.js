@@ -81,9 +81,18 @@ export const footerData = {
     text: 'Launching micro-hubs in Rawalpindi, Islamabad, and Karachi shortly.',
     badge: 'Islamabad Coming Soon',
   },
+  fuelGuides: [
+    { label: 'OGRA Daily Fuel Pricing Reform', to: '/blog/future-of-fuel-delivery-lahore/' },
+    { label: 'Zyphuel APK Setup & Install Guide', to: '/blog/download-zyphuel-apk-guide/' },
+    { label: 'Industrial Generator Diesel Logistics', to: '/blog/generator-refueling-services-lahore/' },
+    { label: 'Commercial Diesel & LPG Safety Standards', to: '/blog/generator-diesel-lpg-delivery-lahore/' },
+    { label: 'Calibrated Flow Meters & IoT Telemetry', to: '/blog/iot-telemetry-fuel-delivery/' },
+    { label: 'Mobile Refueling Fleet in Lahore', to: '/blog/zyphuel-calibrated-telemetry-fleet/' },
+  ],
   bottomLinks: [
     { label: 'Privacy Policy', to: '/privacy/' },
     { label: 'Terms of Use', to: '/terms/' },
+    { label: 'HTML Sitemap', to: '/sitemap/' },
   ],
   copyright: `© ${new Date().getFullYear()} Zyphuel Pakistan. All rights reserved.`,
 };

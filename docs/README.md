@@ -23,6 +23,7 @@ This directory contains dedicated, up-to-date documentation (`.md`) files for ev
 | **Blog Listing** | `/blog/` | `src/pages/BlogListPage.jsx` | [`docs/pages/blog.md`](./pages/blog.md) |
 | **Privacy Policy** | `/privacy/` | `src/pages/PrivacyPolicyPage.jsx` | [`docs/pages/privacy-policy.md`](./pages/privacy-policy.md) |
 | **Terms of Use** | `/terms/` | `src/pages/TermsOfUsePage.jsx` | [`docs/pages/terms-of-use.md`](./pages/terms-of-use.md) |
+| **HTML Sitemap** | `/sitemap/` | `src/pages/HtmlSitemapPage.jsx` | [`docs/pages/sitemap.md`](./pages/sitemap.md) |
 | **404 Not Found** | `/404.html` | `src/pages/NotFoundPage.jsx` | [`docs/pages/not-found.md`](./pages/not-found.md) |
 
 ---
