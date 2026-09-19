@@ -65,3 +65,12 @@ The 6 context files give AI assistants persistent source-of-truth knowledge for 
 | **Removed Features Log** | Deprecated pricing models, old delivery fees & superseded features | [`remove.md`](../remove.md) |
 | **Deletion & Cleanup Log** | Purged banners, deleted notices, cleaned dead code & build artifacts | [`delete.md`](../delete.md) |
 
+---
+
+## Real-Time Development & Chat Session Logs
+
+| Session Date | Scope & Key Focus | File Link |
+| :--- | :--- | :--- |
+| **2026-09-19** | Retail Pump Markup (+Rs. 2.50), UI De-cluttering, Vibe-Coding Context Files & Robots.txt Protocol | [`docs/chat/chat-history-2026-09-19.md`](./chat/chat-history-2026-09-19.md) |
+
+

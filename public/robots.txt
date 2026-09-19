@@ -1,7 +1,7 @@
 # ==============================================================================
 # Zyphuel Robots Exclusion Protocol (robots.txt)
 # Website: https://zyphuel.netlify.app/
-# Last Updated: 2026-09-18
+# Last Updated: 2026-09-19
 # ==============================================================================
 
 # Default Crawl Rules for All User-Agents
