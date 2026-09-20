@@ -6,6 +6,7 @@ import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
 import { FUEL_PRICES } from '../data/fuelPrices'
 import RefuelingLifecycleTracker from '../components/RefuelingLifecycleTracker'
+import { generateInvoicePdf } from '../utils/generateInvoicePdf'
 
 const FUEL_DISPLAY = {
   petrol: 'Petrol',
@@ -742,63 +743,22 @@ export default function OrderPage() {
     document.getElementById('order')?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  // Dynamic html2pdf loader (with SSR and CDN fallback protection)
-  const loadHtml2Pdf = () => {
-    if (typeof window === 'undefined') return Promise.reject(new Error('SSR'))
-    if (window.html2pdf) return Promise.resolve(window.html2pdf)
-    return new Promise((resolve, reject) => {
-      const existing = document.querySelector('script[src*="html2pdf"]')
-      if (existing && window.html2pdf) return resolve(window.html2pdf)
-      const script = document.createElement('script')
-      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js'
-      script.async = true
-      script.onload = () => {
-        if (window.html2pdf) resolve(window.html2pdf)
-        else reject(new Error('html2pdf not found on window'))
-      }
-      script.onerror = () => reject(new Error('Failed to load html2pdf script'))
-      document.head.appendChild(script)
-    })
-  }
-
-  // Invoice Direct PDF Generation & Download
+  // Invoice Direct PDF Generation & Download (Pure Vector PDF via jsPDF)
   const handleDownloadInvoicePDF = async (triggerRedirectAfter = true) => {
     if (!invoiceData) return
     setIsGeneratingPdf(true)
     showToast('Generating official PDF invoice...', 'info')
 
     try {
-      const html2pdf = await loadHtml2Pdf()
-      const element = document.getElementById('printable-order-invoice')
-
-      if (element && html2pdf) {
-        const opt = {
-          margin: [8, 8, 8, 8],
-          filename: `Zyphuel-Invoice-${invoiceData.orderId}.pdf`,
-          image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: {
-            scale: 2,
-            useCORS: true,
-            logging: false,
-            letterRendering: true,
-            scrollY: 0
-          },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        }
-
-        await html2pdf().set(opt).from(element).save()
-        showToast('Official PDF invoice downloaded successfully!', 'success')
-      } else {
-        // Fallback to print
-        window.print()
-      }
+      await generateInvoicePdf(invoiceData)
+      showToast('Official PDF invoice downloaded successfully!', 'success')
 
       // Smoothly trigger WhatsApp redirect countdown if requested
       if (triggerRedirectAfter && generatedWaUrl) {
         setWaRedirectCountdown(3)
       }
     } catch (err) {
-      console.warn('PDF generation encountered an issue, falling back to print dialog:', err)
+      console.error('Vector PDF generation error, trying print fallback:', err)
       window.print()
       if (triggerRedirectAfter && generatedWaUrl) {
         setWaRedirectCountdown(3)
