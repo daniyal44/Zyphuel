@@ -184,9 +184,12 @@ export default function OrderPage() {
   const [remainingEtaSeconds, setRemainingEtaSeconds] = useState(0)
   const [countdownText, setCountdownText] = useState('')
 
-  // Official Digital Invoice Modal
+  // Official Digital Invoice Modal & PDF Download Flow
   const [invoiceOpen, setInvoiceOpen] = useState(false)
   const [invoiceData, setInvoiceData] = useState(null)
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false)
+  const [waRedirectCountdown, setWaRedirectCountdown] = useState(null)
+  const [isNewOrderJustPlaced, setIsNewOrderJustPlaced] = useState(false)
 
   // Computed summary
   const fuelRate = prices[selectedFuelType]
@@ -306,6 +309,41 @@ export default function OrderPage() {
 
     return () => clearInterval(timer)
   }, [activeOrder])
+
+  // Smooth WhatsApp auto-redirect countdown after PDF download
+  useEffect(() => {
+    if (waRedirectCountdown === null) return
+    if (waRedirectCountdown > 0) {
+      const t = setTimeout(() => {
+        setWaRedirectCountdown(prev => (prev > 0 ? prev - 1 : 0))
+      }, 1000)
+      return () => clearTimeout(t)
+    } else if (waRedirectCountdown === 0) {
+      if (generatedWaUrl) {
+        try {
+          window.open(generatedWaUrl, '_blank')
+        } catch (err) {
+          console.warn('Could not auto-open WhatsApp:', err)
+        }
+      }
+      setWaRedirectCountdown(null)
+    }
+  }, [waRedirectCountdown, generatedWaUrl])
+
+  const handleCancelWaRedirect = () => {
+    setWaRedirectCountdown(null)
+  }
+
+  const handleOpenWhatsAppNow = () => {
+    setWaRedirectCountdown(null)
+    if (generatedWaUrl) {
+      try {
+        window.open(generatedWaUrl, '_blank')
+      } catch (err) {
+        console.warn('Could not open WhatsApp:', err)
+      }
+    }
+  }
 
   // Quantity sync helpers (Increments default +1 unit, minimum fuel 5L, maximum fuel 15L)
   const syncFuelQty = (val) => {
@@ -463,11 +501,9 @@ export default function OrderPage() {
     const waUrl = `https://wa.me/923230112464?text=${encodeURIComponent(waLines)}`
     setGeneratedWaUrl(waUrl)
 
-    try {
-      window.open(waUrl, '_blank')
-    } catch (err) {
-      console.warn('Could not auto-open WhatsApp:', err)
-    }
+    // Open Official Digital Invoice modal first so customer can review and download PDF before WhatsApp redirection
+    setIsNewOrderJustPlaced(true)
+    setInvoiceOpen(true)
 
     // Persist new active order in state and localStorage
     const newActiveOrder = {
@@ -704,6 +740,72 @@ export default function OrderPage() {
       }
     }
     document.getElementById('order')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  // Dynamic html2pdf loader (with SSR and CDN fallback protection)
+  const loadHtml2Pdf = () => {
+    if (typeof window === 'undefined') return Promise.reject(new Error('SSR'))
+    if (window.html2pdf) return Promise.resolve(window.html2pdf)
+    return new Promise((resolve, reject) => {
+      const existing = document.querySelector('script[src*="html2pdf"]')
+      if (existing && window.html2pdf) return resolve(window.html2pdf)
+      const script = document.createElement('script')
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js'
+      script.async = true
+      script.onload = () => {
+        if (window.html2pdf) resolve(window.html2pdf)
+        else reject(new Error('html2pdf not found on window'))
+      }
+      script.onerror = () => reject(new Error('Failed to load html2pdf script'))
+      document.head.appendChild(script)
+    })
+  }
+
+  // Invoice Direct PDF Generation & Download
+  const handleDownloadInvoicePDF = async (triggerRedirectAfter = true) => {
+    if (!invoiceData) return
+    setIsGeneratingPdf(true)
+    showToast('Generating official PDF invoice...', 'info')
+
+    try {
+      const html2pdf = await loadHtml2Pdf()
+      const element = document.getElementById('printable-order-invoice')
+
+      if (element && html2pdf) {
+        const opt = {
+          margin: [8, 8, 8, 8],
+          filename: `Zyphuel-Invoice-${invoiceData.orderId}.pdf`,
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: {
+            scale: 2,
+            useCORS: true,
+            logging: false,
+            letterRendering: true,
+            scrollY: 0
+          },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        }
+
+        await html2pdf().set(opt).from(element).save()
+        showToast('Official PDF invoice downloaded successfully!', 'success')
+      } else {
+        // Fallback to print
+        window.print()
+      }
+
+      // Smoothly trigger WhatsApp redirect countdown if requested
+      if (triggerRedirectAfter && generatedWaUrl) {
+        setWaRedirectCountdown(3)
+      }
+    } catch (err) {
+      console.warn('PDF generation encountered an issue, falling back to print dialog:', err)
+      window.print()
+      if (triggerRedirectAfter && generatedWaUrl) {
+        setWaRedirectCountdown(3)
+      }
+    } finally {
+      setIsGeneratingPdf(false)
+    }
   }
 
   // Invoice Print / PDF Export
@@ -1963,8 +2065,8 @@ export default function OrderPage() {
                   transition: 'all 0.2s ease'
                 }}
               >
-                <i className="fa-solid fa-file-invoice-dollar" style={{ fontSize: '1.2rem' }}></i>
-                View &amp; Download Invoice (رسید دیکھیں / ڈاؤنلوڈ کریں)
+                <i className="fa-solid fa-file-pdf" style={{ fontSize: '1.2rem' }}></i>
+                Download Invoice (PDF) / رسید دیکھیں
               </button>
             </div>
           )}
@@ -2146,6 +2248,72 @@ export default function OrderPage() {
           onClick={e => e.target === e.currentTarget && setInvoiceOpen(false)}
         >
           <div className="invoice-modal-dialog">
+            {/* Post-Order Dispatch & PDF Download Hero Banner (Shown right after order submission) */}
+            {isNewOrderJustPlaced && (
+              <div className="post-order-dispatch-banner no-print">
+                <div className="post-order-badge">
+                  <i className="fa-solid fa-circle-check"></i> Order Placed Successfully! (آرڈر درج کر دیا گیا ہے)
+                </div>
+                <h3 className="post-order-heading">
+                  Order #{invoiceData.orderId} Confirmed &bull; Rs. {invoiceData.total.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                </h3>
+                <p className="post-order-sub">
+                  Pehle apni official calibrated PDF invoice download karein, phir hamare live WhatsApp dispatch agent se rabta karein.
+                </p>
+
+                <div className="post-order-cta-grid">
+                  {/* Step 1: Download PDF */}
+                  <button
+                    type="button"
+                    className="btn-order-flow btn-flow-pdf"
+                    onClick={() => handleDownloadInvoicePDF(true)}
+                    disabled={isGeneratingPdf}
+                  >
+                    <i className={isGeneratingPdf ? 'fa-solid fa-spinner fa-spin' : 'fa-solid fa-file-pdf'}></i>
+                    <span>{isGeneratingPdf ? 'Generating PDF...' : '1. Download Invoice (PDF)'}</span>
+                  </button>
+
+                  {/* Step 2: Proceed to WhatsApp */}
+                  <button
+                    type="button"
+                    className="btn-order-flow btn-flow-wa"
+                    onClick={handleOpenWhatsAppNow}
+                  >
+                    <i className="fa-brands fa-whatsapp"></i>
+                    <span>2. Proceed to WhatsApp Dispatch</span>
+                  </button>
+                </div>
+
+                {/* Active Redirect Countdown Notice */}
+                {waRedirectCountdown !== null && (
+                  <div className="wa-redirect-notice">
+                    <div className="wa-redirect-content">
+                      <i className="fa-solid fa-clock-rotate-left"></i>
+                      <span>
+                        PDF downloaded! Redirecting to WhatsApp Dispatch in <strong>{waRedirectCountdown}s</strong>...
+                      </span>
+                    </div>
+                    <div className="wa-redirect-actions">
+                      <button
+                        type="button"
+                        className="btn-wa-redirect-now"
+                        onClick={handleOpenWhatsAppNow}
+                      >
+                        Open WhatsApp Now <i className="fa-solid fa-arrow-right"></i>
+                      </button>
+                      <button
+                        type="button"
+                        className="btn-wa-redirect-cancel"
+                        onClick={handleCancelWaRedirect}
+                      >
+                        Cancel Auto-Redirect
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* Modal Actions Header Bar (No-Print) */}
             <div className="invoice-modal-actions no-print">
               <div className="invoice-action-left">
@@ -2154,21 +2322,33 @@ export default function OrderPage() {
               <div className="invoice-action-buttons">
                 <button
                   type="button"
+                  className="btn-invoice-action btn-pdf"
+                  onClick={() => handleDownloadInvoicePDF(false)}
+                  disabled={isGeneratingPdf}
+                  title="Download Official PDF Invoice"
+                >
+                  <i className={isGeneratingPdf ? 'fa-solid fa-spinner fa-spin' : 'fa-solid fa-file-pdf'}></i>
+                  <span>Download PDF</span>
+                </button>
+                {generatedWaUrl && (
+                  <button
+                    type="button"
+                    className="btn-invoice-action btn-wa"
+                    onClick={handleOpenWhatsAppNow}
+                    title="Open Live WhatsApp Dispatch Chat"
+                  >
+                    <i className="fa-brands fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                  </button>
+                )}
+                <button
+                  type="button"
                   className="btn-invoice-action btn-print"
                   onClick={handlePrintInvoice}
                   title="Print or Save as PDF"
                 >
                   <i className="fa-solid fa-print"></i>
-                  <span>Download / Print PDF</span>
-                </button>
-                <button
-                  type="button"
-                  className="btn-invoice-action btn-download"
-                  onClick={handleDownloadInvoiceHTML}
-                  title="Download HTML Receipt File"
-                >
-                  <i className="fa-solid fa-download"></i>
-                  <span>Download File</span>
+                  <span>Print</span>
                 </button>
                 <button
                   type="button"
@@ -2321,6 +2501,29 @@ export default function OrderPage() {
                   <span className="sign-company">Zyphuel Refueling Systems PK</span>
                 </div>
               </div>
+            </div>
+
+            {/* Modal Bottom Actions Bar (No-Print) */}
+            <div className="invoice-modal-bottom-actions no-print">
+              <button
+                type="button"
+                className="btn-order-flow btn-flow-pdf"
+                onClick={() => handleDownloadInvoicePDF(true)}
+                disabled={isGeneratingPdf}
+              >
+                <i className={isGeneratingPdf ? 'fa-solid fa-spinner fa-spin' : 'fa-solid fa-file-pdf'}></i>
+                <span>{isGeneratingPdf ? 'Generating PDF...' : 'Download Invoice (PDF)'}</span>
+              </button>
+              {generatedWaUrl && (
+                <button
+                  type="button"
+                  className="btn-order-flow btn-flow-wa"
+                  onClick={handleOpenWhatsAppNow}
+                >
+                  <i className="fa-brands fa-whatsapp"></i>
+                  <span>Proceed to WhatsApp Dispatch</span>
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -2557,13 +2760,152 @@ export default function OrderPage() {
           width: 100%;
           margin: auto;
           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-          overflow: hidden;
+          overflow-y: auto;
+          max-height: 92vh;
           animation: modalScaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         @keyframes modalScaleUp {
           from { transform: scale(0.96); opacity: 0; }
           to { transform: scale(1); opacity: 1; }
         }
+
+        /* Post-Order Dispatch & PDF Download Hero Banner */
+        .post-order-dispatch-banner {
+          background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+          color: #ffffff;
+          padding: 22px 24px;
+          border-bottom: 2px solid #0284c7;
+          position: relative;
+        }
+        .post-order-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: rgba(16, 185, 129, 0.15);
+          color: #10b981;
+          border: 1px solid rgba(16, 185, 129, 0.35);
+          padding: 4px 12px;
+          border-radius: 20px;
+          font-size: 0.78rem;
+          font-weight: 800;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          margin-bottom: 8px;
+        }
+        .post-order-heading {
+          font-size: 1.3rem;
+          font-weight: 900;
+          color: #ffffff;
+          margin: 0 0 6px 0;
+          letter-spacing: -0.01em;
+        }
+        .post-order-sub {
+          font-size: 0.86rem;
+          color: #94a3b8;
+          margin: 0 0 16px 0;
+          line-height: 1.5;
+        }
+        .post-order-cta-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+        }
+        @media (max-width: 600px) {
+          .post-order-cta-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+        .btn-order-flow {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          padding: 12px 18px;
+          border-radius: 10px;
+          font-weight: 700;
+          font-size: 0.92rem;
+          cursor: pointer;
+          border: none;
+          transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          text-decoration: none;
+        }
+        .btn-flow-pdf {
+          background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+          color: #ffffff;
+          box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+        }
+        .btn-flow-pdf:hover:not(:disabled) {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(2, 132, 199, 0.5);
+          background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+        }
+        .btn-flow-pdf:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+        .btn-flow-wa {
+          background: linear-gradient(135deg, #25D366 0%, #1ea952 100%);
+          color: #ffffff;
+          box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+        }
+        .btn-flow-wa:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+          background: linear-gradient(135deg, #1ea952 0%, #15803d 100%);
+        }
+        .wa-redirect-notice {
+          margin-top: 14px;
+          background: rgba(37, 211, 102, 0.12);
+          border: 1px solid rgba(37, 211, 102, 0.35);
+          border-radius: 10px;
+          padding: 10px 14px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        .wa-redirect-content {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 0.85rem;
+          color: #a7f3d0;
+          font-weight: 600;
+        }
+        .wa-redirect-actions {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .btn-wa-redirect-now {
+          background: #25D366;
+          color: #0f172a;
+          border: none;
+          font-weight: 800;
+          font-size: 0.78rem;
+          padding: 6px 12px;
+          border-radius: 6px;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+        }
+        .btn-wa-redirect-cancel {
+          background: transparent;
+          color: #cbd5e1;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          font-weight: 600;
+          font-size: 0.76rem;
+          padding: 5px 10px;
+          border-radius: 6px;
+          cursor: pointer;
+        }
+        .btn-wa-redirect-cancel:hover {
+          color: #ffffff;
+          border-color: rgba(255, 255, 255, 0.4);
+        }
+
         .invoice-modal-actions {
           display: flex;
           align-items: center;
@@ -2606,18 +2948,26 @@ export default function OrderPage() {
           transition: all 0.2s;
           border: none;
         }
-        .btn-invoice-action.btn-print {
-          background: #0284c7;
+        .btn-invoice-action.btn-pdf {
+          background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+          color: #ffffff;
+          box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
+        }
+        .btn-invoice-action.btn-pdf:hover:not(:disabled) {
+          background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+        }
+        .btn-invoice-action.btn-wa {
+          background: #25D366;
           color: #ffffff;
         }
-        .btn-invoice-action.btn-print:hover {
-          background: #0369a1;
+        .btn-invoice-action.btn-wa:hover {
+          background: #1ea952;
         }
-        .btn-invoice-action.btn-download {
+        .btn-invoice-action.btn-print {
           background: rgba(255, 255, 255, 0.12);
           color: #f1f5f9;
         }
-        .btn-invoice-action.btn-download:hover {
+        .btn-invoice-action.btn-print:hover {
           background: rgba(255, 255, 255, 0.22);
         }
         .btn-invoice-action.btn-close {
@@ -2628,6 +2978,20 @@ export default function OrderPage() {
         }
         .btn-invoice-action.btn-close:hover {
           color: #ffffff;
+        }
+
+        .invoice-modal-bottom-actions {
+          background: #0f172a;
+          padding: 16px 24px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 12px;
+        }
+        @media (max-width: 600px) {
+          .invoice-modal-bottom-actions {
+            grid-template-columns: 1fr;
+          }
         }
 
         /* Printable Invoice Container */
