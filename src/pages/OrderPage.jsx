@@ -154,7 +154,7 @@ export default function OrderPage() {
   const [email, setEmail] = useState('')
   const [deliverySpeed, setDeliverySpeed] = useState('simple') // 'simple' or 'urgent'
   
-  const { prices: livePrices, basePrices: liveBasePrices, pumpMarkup = 2.50, isLive, effectiveDate } = useFuelPrices()
+  const { prices: livePrices, basePrices: liveBasePrices, pumpMarkup = 2.50 } = useFuelPrices()
   const [prices, setPrices] = useState({ ...livePrices })
   const [basePrices, setBasePrices] = useState(liveBasePrices ? { ...liveBasePrices } : null)
 
@@ -880,42 +880,6 @@ export default function OrderPage() {
           <div className="container">
             <div className="section-header fade-in-up">
               <h1 className="section-title">Order Petrol &amp; Diesel Online in Lahore</h1>
-              <p className="section-subtitle">Select fuel, LPG Gas, or Water. Calculate rates in real time, customize quantities, and track your delivery.</p>
-              
-              {/* Live Market Rates Indicator */}
-              <div style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                background: 'rgba(2, 132, 199, 0.08)',
-                border: '1px solid rgba(2, 132, 199, 0.22)',
-                borderRadius: '30px',
-                padding: '6px 14px',
-                marginTop: '12px',
-                fontSize: '0.84rem',
-                color: 'var(--brand-primary, #0284c7)',
-                fontWeight: 600,
-                flexWrap: 'wrap',
-                justifyContent: 'center'
-              }}>
-                <span style={{
-                  display: 'inline-block',
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '50%',
-                  background: '#10b981',
-                  boxShadow: '0 0 8px #10b981'
-                }}></span>
-                <span>Live Market Rates Active:</span>
-                <span style={{ color: '#0f172a', fontWeight: 700 }}>
-                  Petrol Rs. {prices.petrol.toFixed(2)}/L &bull; Diesel Rs. {prices.diesel.toFixed(2)}/L &bull; High-Octane Rs. {prices.highOctane.toFixed(2)}/L
-                </span>
-                {effectiveDate && (
-                  <span style={{ color: '#64748b', fontSize: '0.78rem', fontWeight: 500 }}>
-                    (OGRA Notified: {effectiveDate})
-                  </span>
-                )}
-              </div>
             </div>
 
             {/* Active Dispatch Notification Card (Visible if an active order is in progress) */}
