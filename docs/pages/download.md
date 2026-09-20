@@ -38,12 +38,6 @@
    - Real-time GPS stream of approaching micro-refueler bowsers via Rider Foreground Service.
 5. **BLE Flow Meter Invoicing**:
    - Real-time synchronization with 0.01L positive-displacement flow meters during fuel delivery.
-6. **Code-Based Engineering & Git Activity Dashboard (`GitActivityDashboard.jsx`)**:
-   - 100% native React code-based telemetry dashboard replacing static `.svg` images.
-   - **Interactive Velocity Chart**: SVG-based financial-style trading chart with live cursor tracking, crosshairs, and volume histogram.
-   - **52-Week Contribution Matrix**: 364-cell interactive DOM heatmap with hover tooltips displaying date and commit volume.
-   - **Searchable Commits Ledger**: Real-time keyword filter, type chips (`feat`, `fix`, `chore`, `release`), author tags, and direct clickable links to GitHub commits.
-   - **Unified Cockpit Layout**: 4 KPI cards (Total Commits, Active Days, Peak Daily Burst, Release Version) and multi-timeframe toggles (`1M`, `3M`, `ALL`).
 
 ---
 
@@ -57,7 +51,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
-| **2026-09-21** | Built and integrated 100% code-based Git Activity & Changes Dashboard (`GitActivityDashboard.jsx`); generated structured telemetry (`src/data/gitTelemetry.json`); eliminated static `.svg` image popups; integrated interactive TradingView velocity chart, 52-week contribution matrix, and searchable commit ledger. | User requested: *"repo changes chart,graphs,activities and changes why these not not showing and when user click on its show on .svg image , that's not looks real it current show as image , kindly fix this"*, *"graph chnages chart code base hona chaye na ka image base ok"*. Replaced static `.svg` image links with fully interactive React component with live crosshairs, hover tooltips, timeframe filters, and direct links to GitHub commits. |
+| **2026-09-21** | Ensured git activity graphs, charts, and repository commit changes remain strictly internal to the GitHub repository (`README.md`) and are never exposed on the public customer-facing website. | User requested: *"public nai hona chaye graph only show oon github repository not on a website"*. Removed all engineering telemetry UI from customer-facing portal and streamlined GitHub repository README with native markdown code-based tables. |
 | **2026-09-17** | Synchronized app version to `v2.6.4.0.0.10` (`31.6 MB`, Android 7.0+) across website metadata, documentation, and download endpoints. | User request: align website app version with latest compiled APK release `v2.6.4.0.0.10`. |
 | **2026-09-14** | Synchronized app version to `v2.6.4.0.0.08` (`31.6 MB`, Android 7.0+) across website metadata, documentation, and download endpoints. | User request: align website app version with latest compiled APK release `v2.6.4.0.0.08`. |
 | **2026-09-12** | Centralized version variables (`APP_VERSION`, `APP_SIZE`, `RELEASE_DATE`) from `src/data/appVersion.js`. | Prevent version drift across downloads, articles, and SEO tags. |
