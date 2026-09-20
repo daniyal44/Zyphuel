@@ -4,12 +4,23 @@ import react from '@vitejs/plugin-react'
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react()],
   build: {
+    target: 'es2020',
+    cssCodeSplit: true,
+    minify: 'esbuild',
     rollupOptions: isSsrBuild
       ? {}
       : {
           output: {
-            manualChunks: {
-              'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+            manualChunks(id) {
+              if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/') || id.includes('node_modules/react-router-dom/')) {
+                return 'vendor-react';
+              }
+              if (id.includes('birdsData')) {
+                return 'birds-data';
+              }
+              if (id.includes('articles')) {
+                return 'articles-data';
+              }
             },
           },
         },

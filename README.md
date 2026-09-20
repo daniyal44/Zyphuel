@@ -22,7 +22,7 @@ A high-performance React.js + Vite platform for Zyphuel — on-demand doorstep f
 
 <p align="center">
   <a href="https://github.com/daniyal44/Zyphuel">
-    <img src="https://raw.githubusercontent.com/daniyal44/Zyphuel/main/assets/repo-activity-chart.svg?v=2.6.4.3" alt="Zyphuel Engineering Velocity & Git Activity Chart" width="100%" />
+    <img src="./assets/repo-activity-chart.svg" alt="Zyphuel Engineering Velocity & Git Activity Chart" width="100%" />
   </a>
 </p>
 
@@ -30,7 +30,7 @@ A high-performance React.js + Vite platform for Zyphuel — on-demand doorstep f
 
 <p align="center">
   <a href="https://github.com/daniyal44/Zyphuel">
-    <img src="https://raw.githubusercontent.com/daniyal44/Zyphuel/main/assets/github-changes-graph.svg?v=2.6.4.3" alt="Zyphuel GitHub Contribution Matrix & Changes Report" width="100%" />
+    <img src="./assets/github-changes-graph.svg" alt="Zyphuel GitHub Contribution Matrix & Changes Report" width="100%" />
   </a>
 </p>
 

@@ -1328,7 +1328,12 @@ export default function OrderPage() {
                         <div className="quantity-config-card animated fadeIn" style={{ marginBottom: '20px' }}>
                           <div className="quantity-config-header">
                             <span className="config-title"><i className="fa-solid fa-fire-burner"></i> LPG Gas Cylinder Refill</span>
-                            <span className="config-unit">Kilograms / Cylinders</span>
+                            <span className="config-unit" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                              <span style={{ background: 'rgba(249, 115, 22, 0.12)', color: '#ea580c', border: '1px solid rgba(249, 115, 22, 0.3)', borderRadius: '20px', padding: '2px 10px', fontSize: '0.76rem', fontWeight: 700 }}>
+                                Market Rate: Rs. {prices.lpg.toFixed(2)}/Kg
+                              </span>
+                              Kilograms / Cylinders
+                            </span>
                           </div>
                           
                           <div className="form-group">

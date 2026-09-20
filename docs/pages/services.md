@@ -55,6 +55,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-20** | Updated LPG Gas price to actual market rate of **Rs. 450.00 / kg**; updated fallback display, context provider, and order form highlights. | User requested: *"gas actual market price is 450 pkr per kg is ko be price ma adjust karo mention"*. Adjusted centralized pricing in `fuelPrices.js`, `FuelPriceContext.jsx`, `ServicesPage.jsx`, and added market rate badge on checkout configuration. |
 | **2026-09-19** | Synchronized live service preview rates with the **+Rs. 2.50 / Litre** Retail Petrol Pump Rate Markup on Petrol, Diesel, and High-Octane; updated category rate pill labels. | Reflect verified retail pump prices consistently across services catalog and link directly to updated Order Page checkout. |
 | **2026-09-17** | Fixed Google Search Console canonical exclusion (`Alternative page with proper canonical tag`), synchronized SEO title & description between `ServicesPage.jsx` and `prerender.js`, boosted sitemap priority to 0.9 daily, added `#b2b` anchor and automated tab activation for commercial links. | Resolve GSC indexing issue from 2026-08-20 crawl drilldown report and eliminate canonical conflict. |
 | **2026-09-16** | Harmonized Hose Reach (50m) and COD Domestic Order Window (5–10L). | Standardized generator refueling hose specifications to 50-meter high-reach delivery hoses and domestic COD eligibility to 5–10 Litres across ServicesPage.jsx, schema FAQs, and servicesData.js. |

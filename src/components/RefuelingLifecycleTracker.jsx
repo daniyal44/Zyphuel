@@ -143,26 +143,6 @@ export default function RefuelingLifecycleTracker({
         </button>
       </div>
 
-      {/* Awaiting Order Live Telemetry 3D Vector Status Strip */}
-      {activeTab === 'idle' && (
-        <div className="awaiting-order-live-strip">
-          <div className="awaiting-badge-pulse">
-            <span className="awaiting-sonar-dot"></span>
-            <span className="awaiting-label">3D Vector Telemetry: Standby Mode</span>
-          </div>
-          <div className="awaiting-telemetry-text">
-            <span>Bowser 01 on Standby at Hub • 100% Calibrated • Instant 15–45 min Dispatch upon Checkout</span>
-          </div>
-          <div className="awaiting-signal-wave" title="Live Standby Radio Dispatch Frequency">
-            <span className="wave-bar"></span>
-            <span className="wave-bar"></span>
-            <span className="wave-bar"></span>
-            <span className="wave-bar"></span>
-            <span className="wave-bar"></span>
-          </div>
-        </div>
-      )}
-
       {/* 3D Isometric SVG Stage */}
       <div className="lifecycle-svg-stage">
         <svg
@@ -176,20 +156,6 @@ export default function RefuelingLifecycleTracker({
               <path d="M 40 0 L 0 20 L 40 40 Z" fill="none" stroke="rgba(56, 189, 248, 0.04)" strokeWidth="1" />
               <path d="M 0 0 L 40 20 L 0 40 Z" fill="none" stroke="rgba(56, 189, 248, 0.04)" strokeWidth="1" />
             </pattern>
-
-            {/* Standby 3D Docking Pad Gradient */}
-            <linearGradient id="standbyHexPad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.4" />
-              <stop offset="50%" stopColor="#d97706" stopOpacity="0.15" />
-              <stop offset="100%" stopColor="#0f172a" stopOpacity="0.85" />
-            </linearGradient>
-
-            {/* Standby LiDAR Scanner Beam */}
-            <linearGradient id="standbyScannerBeam" x1="50%" y1="0%" x2="50%" y2="100%">
-              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.75" />
-              <stop offset="50%" stopColor="#f59e0b" stopOpacity="0.25" />
-              <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.02" />
-            </linearGradient>
 
             {/* Base Platform Shading */}
             <linearGradient id="dockingPad3D" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -266,20 +232,12 @@ export default function RefuelingLifecycleTracker({
               <stop offset="100%" stopColor="#312e81" />
             </linearGradient>
 
-            {/* Standby Luminous Ground Radial Aura */}
+            {/* Standby Soft Ground Glow */}
             <radialGradient id="standbyGroundAura" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#00f2fe" stopOpacity="0.45" />
-              <stop offset="35%" stopColor="#0ea5e9" stopOpacity="0.2" />
-              <stop offset="70%" stopColor="#10b981" stopOpacity="0.06" />
+              <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0.3" />
+              <stop offset="45%" stopColor="#0284c7" stopOpacity="0.1" />
               <stop offset="100%" stopColor="#020617" stopOpacity="0" />
             </radialGradient>
-
-            {/* Docking Radar Sweep Gradient */}
-            <linearGradient id="radarSweepGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0" />
-              <stop offset="50%" stopColor="#00f2fe" stopOpacity="0.12" />
-              <stop offset="100%" stopColor="#00f2fe" stopOpacity="0.45" />
-            </linearGradient>
 
             {/* Glow Filter */}
             <filter id="vectorGlow" x="-30%" y="-30%" width="160%" height="160%">
@@ -287,27 +245,9 @@ export default function RefuelingLifecycleTracker({
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
 
-            {/* Amber Pulse Glow Filter */}
-            <filter id="pulseGlowAmber" x="-40%" y="-40%" width="180%" height="180%">
-              <feGaussianBlur stdDeviation="4" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-
-            {/* Docking Pad Glow Filter */}
-            <filter id="dockingPadGlow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="4" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-
-            {/* Soft Particle Glow Filter */}
-            <filter id="softParticleGlow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="2" result="blur" />
+            {/* Soft Glow Filter */}
+            <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="2.5" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
@@ -497,57 +437,27 @@ export default function RefuelingLifecycleTracker({
             </g>
 
             {/* ======================================================== */}
-            {/* AWAITING ORDER: 3D LUXURY LAUNCH PAD & BIOLUMINESCENT SONAR */}
+            {/* AWAITING ORDER: CLEAN AMBIENT STANDBY GLOW               */}
             {/* ======================================================== */}
             {activeTab === 'idle' && (
-              <g className="awaiting-order-ground-matrix" transform="translate(145, 146)">
-                {/* Deep Bioluminescent Radial Energy Floor Glow */}
-                <ellipse cx="0" cy="0" rx="90" ry="38" fill="url(#standbyGroundAura)" className="pad-ground-glow" />
+              <g transform="translate(145, 146)">
+                {/* Soft ambient radial ground glow beneath bowser */}
+                <ellipse cx="0" cy="0" rx="80" ry="32" fill="url(#standbyGroundAura)" className="idle-ground-pulse" />
 
-                {/* Staggered Concentric Luminous Halo Ripple Waves */}
-                <ellipse cx="0" cy="0" rx="18" ry="7.5" fill="none" stroke="#00f2fe" strokeWidth="1.8" filter="url(#dockingPadGlow)">
-                  <animate attributeName="rx" values="18;88" dur="3s" repeatCount="indefinite" />
-                  <animate attributeName="ry" values="7.5;36" dur="3s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.9;0" dur="3s" repeatCount="indefinite" />
+                {/* Single clean concentric pulse ring */}
+                <ellipse cx="0" cy="0" rx="16" ry="7" fill="none" stroke="#0ea5e9" strokeWidth="1.2" opacity="0.7">
+                  <animate attributeName="rx" values="16;70" dur="3.5s" repeatCount="indefinite" />
+                  <animate attributeName="ry" values="7;28" dur="3.5s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.7;0" dur="3.5s" repeatCount="indefinite" />
                 </ellipse>
-                <ellipse cx="0" cy="0" rx="18" ry="7.5" fill="none" stroke="#38bdf8" strokeWidth="1.4" filter="url(#dockingPadGlow)">
-                  <animate attributeName="rx" values="18;88" dur="3s" begin="1s" repeatCount="indefinite" />
-                  <animate attributeName="ry" values="7.5;36" dur="3s" begin="1s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.85;0" dur="3s" begin="1s" repeatCount="indefinite" />
-                </ellipse>
-                <ellipse cx="0" cy="0" rx="18" ry="7.5" fill="none" stroke="#10b981" strokeWidth="1.2" filter="url(#dockingPadGlow)">
-                  <animate attributeName="rx" values="18;88" dur="3s" begin="2s" repeatCount="indefinite" />
-                  <animate attributeName="ry" values="7.5;36" dur="3s" begin="2s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.8;0" dur="3s" begin="2s" repeatCount="indefinite" />
+                <ellipse cx="0" cy="0" rx="16" ry="7" fill="none" stroke="#0ea5e9" strokeWidth="1" opacity="0.5">
+                  <animate attributeName="rx" values="16;70" dur="3.5s" begin="1.75s" repeatCount="indefinite" />
+                  <animate attributeName="ry" values="7;28" dur="3.5s" begin="1.75s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.5;0" dur="3.5s" begin="1.75s" repeatCount="indefinite" />
                 </ellipse>
 
-                {/* Precision Isometric Cyber Platform */}
-                <ellipse cx="0" cy="0" rx="54" ry="22" fill="#090d16" stroke="rgba(56, 189, 248, 0.4)" strokeWidth="1.5" />
-                <ellipse cx="0" cy="0" rx="46" ry="19" fill="#0c1322" stroke="rgba(0, 242, 254, 0.3)" strokeWidth="1" strokeDasharray="6,4" />
-
-                {/* Rotating 360° Geometric Cyber Compass Ring */}
-                <g className="docking-compass-spin">
-                  <ellipse cx="0" cy="0" rx="38" ry="16" fill="none" stroke="#00f2fe" strokeWidth="1.2" strokeDasharray="14,6,4,6" opacity="0.85" />
-                  <line x1="-38" y1="0" x2="-34" y2="0" stroke="#00f2fe" strokeWidth="2" />
-                  <line x1="38" y1="0" x2="34" y2="0" stroke="#00f2fe" strokeWidth="2" />
-                  <line x1="0" y1="-16" x2="0" y2="-13" stroke="#00f2fe" strokeWidth="2" />
-                  <line x1="0" y1="16" x2="0" y2="13" stroke="#00f2fe" strokeWidth="2" />
-                </g>
-
-                {/* Sweeping 360° Radar Scan Beam */}
-                <g className="docking-radar-sweep">
-                  <path d="M 0,0 L 48,0 A 48,20 0 0,1 34,14 Z" fill="url(#radarSweepGrad)" />
-                  <line x1="0" y1="0" x2="48" y2="0" stroke="#00f2fe" strokeWidth="1.6" filter="url(#dockingPadGlow)" />
-                </g>
-
-                {/* Floating Bioluminescent Micro-Orbs Drifting Upward */}
-                <g className="drifting-micro-orbs">
-                  <circle cx="-28" cy="-6" r="1.8" fill="#00f2fe" filter="url(#softParticleGlow)" className="micro-orb orb-1" />
-                  <circle cx="24" cy="8" r="1.5" fill="#34d399" filter="url(#softParticleGlow)" className="micro-orb orb-2" />
-                  <circle cx="-12" cy="12" r="2.2" fill="#38bdf8" filter="url(#softParticleGlow)" className="micro-orb orb-3" />
-                  <circle cx="36" cy="-8" r="1.6" fill="#a7f3d0" filter="url(#softParticleGlow)" className="micro-orb orb-4" />
-                  <circle cx="6" cy="-14" r="2" fill="#00f2fe" filter="url(#softParticleGlow)" className="micro-orb orb-5" />
-                </g>
+                {/* Clean isometric standby platform outline */}
+                <ellipse cx="0" cy="0" rx="48" ry="20" fill="none" stroke="rgba(14, 165, 233, 0.25)" strokeWidth="1" strokeDasharray="6,4" />
               </g>
             )}
 
@@ -659,28 +569,28 @@ export default function RefuelingLifecycleTracker({
                     height="16"
                     rx="8"
                     fill="rgba(11, 17, 32, 0.94)"
-                    stroke={activeTab === 'delivered' ? '#10b981' : activeTab === 'idle' ? '#00f2fe' : '#38bdf8'}
+                    stroke={activeTab === 'delivered' ? '#10b981' : activeTab === 'idle' ? '#0ea5e9' : '#38bdf8'}
                     strokeWidth="1"
-                    filter="url(#vectorGlow)"
+                    filter="url(#softGlow)"
                   />
                   <circle
                     cx="10"
                     cy="8"
                     r="2.5"
-                    fill={activeTab === 'delivered' ? '#10b981' : activeTab === 'idle' ? '#00f2fe' : '#f59e0b'}
+                    fill={activeTab === 'delivered' ? '#10b981' : activeTab === 'idle' ? '#0ea5e9' : '#f59e0b'}
                   >
                     <animate attributeName="opacity" values="1;0.3;1" dur="0.9s" repeatCount="indefinite" />
                   </circle>
                   <text
                     x="45"
                     y="11"
-                    fill={activeTab === 'delivered' ? '#34d399' : activeTab === 'idle' ? '#a5f3fc' : '#e0f2fe'}
+                    fill={activeTab === 'delivered' ? '#34d399' : activeTab === 'idle' ? '#bae6fd' : '#e0f2fe'}
                     fontSize="6.5"
                     fontWeight="800"
                     textAnchor="middle"
                     letterSpacing="0.04em"
                   >
-                    {activeTab === 'idle' && 'FLEET READY'}
+                    {activeTab === 'idle' && 'STANDBY'}
                     {activeTab === 'loading' && 'CALIBRATING'}
                     {activeTab === 'transit' && 'EN ROUTE'}
                     {activeTab === 'delivered' && 'DISPATCH SUCCESS'}
@@ -845,7 +755,7 @@ export default function RefuelingLifecycleTracker({
             disabled={isSimulating}
           >
             <i className={`fa-solid ${isSimulating ? 'fa-spinner fa-spin' : 'fa-play'}`}></i>
-            {isSimulating ? 'Simulating 3D Flow...' : '⚡ Test 3D Simulation'}
+            {isSimulating ? 'Simulating...' : '⚡ Test Simulation'}
           </button>
         </div>
       </div>

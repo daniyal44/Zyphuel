@@ -249,7 +249,8 @@ function generateSvg(variant = 'activity') {
   const cleanMessage = escapeXml(latest.message.length > 38 ? latest.message.substring(0, 38) + '...' : latest.message)
   const cleanSha = escapeXml(latest.sha)
 
-  const svgContent = `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
+  const svgContent = `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zyphuel Git Velocity Trading Chart">
   <defs>
     <!-- Trading Background Gradient -->
     <linearGradient id="tradingBg" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -487,7 +488,10 @@ function generateContributionGraph(commits) {
     for (let d = 0; d < 7; d++) {
       const cellDate = new Date(startDate)
       cellDate.setDate(startDate.getDate() + (w * 7) + d)
-      const dateStr = cellDate.toISOString().split('T')[0]
+      const yr = cellDate.getFullYear()
+      const mo = String(cellDate.getMonth() + 1).padStart(2, '0')
+      const dy = String(cellDate.getDate()).padStart(2, '0')
+      const dateStr = `${yr}-${mo}-${dy}`
       const count = dailyMap.get(dateStr) || 0
 
       // Month marker
@@ -596,7 +600,8 @@ function generateContributionGraph(commits) {
   const cleanLatestSha = escapeXml(latest.sha)
   const cleanLatestMsg = escapeXml(latest.message.length > 42 ? latest.message.substring(0, 42) + '...' : latest.message)
 
-  const svgContent = `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg">
+  const svgContent = `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Zyphuel GitHub Contribution Matrix & Changes Report">
   <defs>
     <!-- Dark Slate GitHub Terminal Background -->
     <linearGradient id="contribBg" x1="0%" y1="0%" x2="100%" y2="100%">

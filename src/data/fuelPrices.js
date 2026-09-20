@@ -6,7 +6,7 @@ export const FUEL_BASE_PRICES = {
   petrol: 384.34,
   diesel: 415.83,
   highOctane: 400.00,
-  lpg: 258.65,
+  lpg: 450.00,
   water: 100.00, // Rs. 100.00 per gallon refill
 };
 

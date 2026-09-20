@@ -14,7 +14,7 @@ export function FuelPriceProvider({ children }) {
       if (cached) {
         const parsed = JSON.parse(cached);
         if (parsed?.prices && Date.now() - (parsed.timestamp || 0) < 15 * 60 * 1000) {
-          return { ...DEFAULT_PRICES, ...parsed.prices };
+          return { ...DEFAULT_PRICES, ...parsed.prices, lpg: 450.00 };
         }
       }
     } catch (e) {}
@@ -27,7 +27,7 @@ export function FuelPriceProvider({ children }) {
       if (cached) {
         const parsed = JSON.parse(cached);
         if (parsed?.basePrices && Date.now() - (parsed.timestamp || 0) < 15 * 60 * 1000) {
-          return { ...DEFAULT_BASE_PRICES, ...parsed.basePrices };
+          return { ...DEFAULT_BASE_PRICES, ...parsed.basePrices, lpg: 450.00 };
         }
       }
     } catch (e) {}
@@ -127,9 +127,8 @@ export function FuelPriceProvider({ children }) {
       if (dieselItem && !isNaN(Number(dieselItem.price_pkr))) {
         baseUpdated.diesel = Number(dieselItem.price_pkr);
       }
-      if (lpgItem && !isNaN(Number(lpgItem.price_pkr))) {
-        baseUpdated.lpg = Number(lpgItem.price_pkr);
-      }
+      // LPG Gas: Fixed at actual retail market rate in Lahore (Rs. 450.00/Kg)
+      baseUpdated.lpg = 450.00;
       if (octaneItem && !isNaN(Number(octaneItem.price_pkr))) {
         baseUpdated.highOctane = Number(octaneItem.price_pkr);
       }
@@ -139,7 +138,7 @@ export function FuelPriceProvider({ children }) {
         petrol: +(baseUpdated.petrol + PUMP_RATE_MARKUP).toFixed(2),
         diesel: +(baseUpdated.diesel + PUMP_RATE_MARKUP).toFixed(2),
         highOctane: +(baseUpdated.highOctane + PUMP_RATE_MARKUP).toFixed(2),
-        lpg: baseUpdated.lpg,
+        lpg: 450.00,
         water: baseUpdated.water,
       };
 
