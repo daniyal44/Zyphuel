@@ -7,6 +7,7 @@ import { useFuelPrices } from '../context/FuelPriceContext'
 import { FUEL_PRICES } from '../data/fuelPrices'
 import RefuelingLifecycleTracker from '../components/RefuelingLifecycleTracker'
 import { generateInvoicePdf, numberToWords } from '../utils/generateInvoicePdf'
+import { generateBarcodeSvg } from '../utils/barcode128'
 
 const FUEL_DISPLAY = {
   petrol: 'Petrol',
@@ -914,6 +915,22 @@ export default function OrderPage() {
           <div class="t-row"><span>Doorstep Bowser Delivery</span><strong>${invoiceData.deliveryFee === 0 ? 'FREE (50L+ Bulk Offer)' : `Rs. ${invoiceData.deliveryFee.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</strong></div>
           ${invoiceData.isUrgent ? '<div class="t-row" style="color:#ea580c; font-size:11px;"><span>Urgent Priority Surcharge</span><span>+Rs. 100.00 (Included)</span></div>' : ''}
           <div class="t-row t-grand"><span>Total Payable (PKR)</span><span>Rs. ${invoiceData.total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; align-items: stretch;">
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+          <div style="font-size: 10px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">Official Dispatch Barcode • Code 128</div>
+          <div style="display: flex; justify-content: center; width: 100%; max-width: 280px; margin: 4px auto; background: #fff; padding: 4px; border-radius: 4px; border: 1px solid #e2e8f0;">
+            ${generateBarcodeSvg(invoiceData.orderId, { moduleWidth: 1.6, height: 42, quietZone: 10, color: '#0f172a', showText: true, fontSize: 11 })}
+          </div>
+          <div style="font-size: 9px; color: #64748b; margin-top: 5px;">Scan with mobile camera or laser scanner to verify order</div>
+        </div>
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 6px 10px; font-size: 11px; font-weight: 800; color: #166534; margin-bottom: 8px;">★ ZYPHUEL PAKISTAN • CERTIFIED DISPATCH ★</div>
+          <div style="font-size: 12px; font-weight: 800; color: #0f172a; margin-bottom: 3px;">Computerized Verified Commercial Invoice</div>
+          <div style="font-size: 10px; color: #64748b; margin-bottom: 4px;">Automated Depots Dispatch Gateway • Lahore Hub #01</div>
+          <div style="font-size: 9px; color: #94a3b8;">Valid without physical signature under Electronic Transactions Ordinance 2002</div>
         </div>
       </div>
 
@@ -2555,15 +2572,34 @@ export default function OrderPage() {
 
               {/* Invoice Footer Security & Signatory Notice */}
               <div className="inv-footer-note">
-                <div className="inv-barcode-block">
-                  <div className="inv-simulated-barcode">
-                    <span>||| | | |||| | || ||| |||| | | ||| || |||| | ||| | ||||</span>
+                <div className="inv-barcode-card">
+                  <div className="inv-barcode-header">
+                    <i className="fa-solid fa-barcode"></i> OFFICIAL DISPATCH BARCODE &bull; CODE 128
                   </div>
-                  <span className="barcode-caption">SERIAL REF: ZYP-VERIFIED-AUTH-PK</span>
+                  <div
+                    className="inv-barcode-svg-wrap"
+                    dangerouslySetInnerHTML={{
+                      __html: generateBarcodeSvg(invoiceData.orderId, {
+                        moduleWidth: 1.8,
+                        height: 44,
+                        quietZone: 10,
+                        color: '#0f172a',
+                        showText: true,
+                        fontSize: 11
+                      })
+                    }}
+                  />
+                  <div className="barcode-caption">
+                    Scan with phone camera to verify order authenticity
+                  </div>
                 </div>
                 <div className="inv-digital-sign">
+                  <div className="inv-cert-badge">
+                    ★ ZYPHUEL PAKISTAN &bull; CERTIFIED DISPATCH ★
+                  </div>
                   <span className="sign-line">&#10003; Computerized Verified Commercial Invoice</span>
                   <span className="sign-company">Zyphuel Energy Logistics Pakistan (Pvt) Ltd.</span>
+                  <span className="sign-depot">Automated Depots Dispatch Gateway &bull; Lahore Hub #01</span>
                   <span className="sign-legal">Valid without physical signature under Electronic Transactions Ordinance 2002</span>
                 </div>
               </div>
@@ -3380,29 +3416,66 @@ export default function OrderPage() {
           font-size: 0.7rem;
           color: #64748b;
           flex-wrap: wrap;
-          gap: 10px;
+          gap: 14px;
         }
-        .inv-barcode-block {
+        .inv-barcode-card {
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          padding: 8px 12px;
           display: flex;
           flex-direction: column;
-          gap: 2px;
+          align-items: center;
+          text-align: center;
+          min-width: 220px;
+          max-width: 280px;
         }
-        .inv-simulated-barcode {
-          font-family: monospace;
-          font-size: 0.95rem;
-          letter-spacing: 2px;
-          color: #1e293b;
-          font-weight: 900;
-          line-height: 1;
+        .inv-barcode-header {
+          font-size: 0.62rem;
+          font-weight: 800;
+          color: #0284c7;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          margin-bottom: 5px;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+        .inv-barcode-svg-wrap {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          background: #ffffff;
+          padding: 3px 6px;
+          border-radius: 4px;
+          border: 1px solid #cbd5e1;
+        }
+        .inv-barcode-svg-wrap svg {
+          max-width: 100%;
+          height: auto;
+          display: block;
         }
         .barcode-caption {
-          font-size: 0.62rem;
-          color: #94a3b8;
-          font-family: monospace;
-          letter-spacing: 0.05em;
+          font-size: 0.58rem;
+          color: #64748b;
+          margin-top: 4px;
+          letter-spacing: 0.01em;
         }
         .inv-digital-sign {
           text-align: right;
+          max-width: 320px;
+        }
+        .inv-cert-badge {
+          background: #f0fdf4;
+          border: 1px solid #bbf7d0;
+          border-radius: 4px;
+          padding: 3px 8px;
+          font-size: 0.65rem;
+          font-weight: 800;
+          color: #166534;
+          margin-bottom: 5px;
+          display: inline-block;
         }
         .sign-line {
           display: block;
@@ -3413,9 +3486,15 @@ export default function OrderPage() {
           font-size: 0.66rem;
           color: #64748b;
         }
-        .sign-legal {
+        .sign-depot {
           display: block;
           font-size: 0.6rem;
+          color: #64748b;
+          margin-top: 2px;
+        }
+        .sign-legal {
+          display: block;
+          font-size: 0.58rem;
           color: #94a3b8;
           margin-top: 2px;
         }

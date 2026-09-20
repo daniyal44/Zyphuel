@@ -18,21 +18,21 @@ const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Se
 
 function getGitCommits() {
   try {
-    const raw = execSync('git log --pretty=format:"%h|%ad|%s" --date=short', { encoding: 'utf8' })
+    const raw = execSync('git log --pretty=format:"%h|%ad|%an|%s" --date=short', { encoding: 'utf8' })
     const lines = raw.trim().split('\n').filter(Boolean)
     return lines.map(line => {
-      const [sha, date, ...msg] = line.split('|')
-      return { sha, date, message: (msg.join('|') || '').trim() }
+      const [sha, date, author, ...msg] = line.split('|')
+      return { sha, date, author: author || 'daniyal44', message: (msg.join('|') || '').trim() }
     })
   } catch (err) {
     console.warn('[GraphGen] Git command failed, using fallback:', err.message)
     return [
-      { sha: '6ef0a9d', date: '2026-09-17', message: 'feat(seo): internal linking and FAQ schemas' },
-      { sha: '1bef65a', date: '2026-09-17', message: 'feat(release): update app to v2.6.4.0.0.10' },
-      { sha: '83b70ad', date: '2026-09-17', message: 'feat(update): automated push' },
-      { sha: 'bf525b7', date: '2026-09-16', message: 'feat(update): automated push' },
-      { sha: '60e426a', date: '2026-09-16', message: 'chore(graph): auto-update commit graph' },
-      { sha: '4bb56bd', date: '2026-09-16', message: 'feat(home): add cinematic scroll animation' }
+      { sha: '6ef0a9d', date: '2026-09-17', author: 'daniyal44', message: 'feat(seo): internal linking and FAQ schemas' },
+      { sha: '1bef65a', date: '2026-09-17', author: 'daniyal44', message: 'feat(release): update app to v2.6.4.0.0.10' },
+      { sha: '83b70ad', date: '2026-09-17', author: 'daniyal44', message: 'feat(update): automated push' },
+      { sha: 'bf525b7', date: '2026-09-16', author: 'daniyal44', message: 'feat(update): automated push' },
+      { sha: '60e426a', date: '2026-09-16', author: 'daniyal44', message: 'chore(graph): auto-update commit graph' },
+      { sha: '4bb56bd', date: '2026-09-16', author: 'daniyal44', message: 'feat(home): add cinematic scroll animation' }
     ]
   }
 }
@@ -745,10 +745,129 @@ ${cellsSvg}
   return svgContent
 }
 
+function generateTelemetryData(commits) {
+  const totalCommits = commits.length
+  const chronCommits = [...commits].reverse()
+  const dailyMap = new Map()
+  chronCommits.forEach(c => {
+    if (c.date) {
+      dailyMap.set(c.date, (dailyMap.get(c.date) || 0) + 1)
+    }
+  })
+
+  const dates = Array.from(dailyMap.keys())
+  let runningTotal = 0
+  const chartData = dates.map(date => {
+    const vol = dailyMap.get(date) || 0
+    runningTotal += vol
+    const parts = date.split('-')
+    const month = MONTH_NAMES[parseInt(parts[1], 10) - 1] || 'Sep'
+    const day = parts[2] || '01'
+    return {
+      date,
+      volume: vol,
+      cumulative: runningTotal,
+      label: `${month} ${day}`
+    }
+  })
+
+  // 52 weeks heatmap
+  const totalWeeks = 52
+  const today = new Date('2026-09-21T00:00:00')
+  const weeks = []
+  const monthLabels = []
+  let lastMonth = -1
+
+  const startDate = new Date(today)
+  startDate.setDate(startDate.getDate() - (totalWeeks * 7) + 1)
+  const startDay = startDate.getDay()
+  startDate.setDate(startDate.getDate() - startDay)
+
+  const curDate = new Date(startDate)
+  let maxDaily = 0
+  let activeDays = 0
+
+  for (let w = 0; w < totalWeeks; w++) {
+    const weekDays = []
+    for (let d = 0; d < 7; d++) {
+      const y = curDate.getFullYear()
+      const m = String(curDate.getMonth() + 1).padStart(2, '0')
+      const dayStr = String(curDate.getDate()).padStart(2, '0')
+      const dateStr = `${y}-${m}-${dayStr}`
+      const count = dailyMap.get(dateStr) || 0
+
+      if (count > 0) {
+        activeDays++
+        if (count > maxDaily) maxDaily = count
+      }
+
+      if (d === 0) {
+        const curM = curDate.getMonth()
+        if (curM !== lastMonth) {
+          lastMonth = curM
+          monthLabels.push({
+            weekIndex: w,
+            name: MONTH_NAMES[curM]
+          })
+        }
+      }
+
+      let level = 0
+      if (count === 1) level = 1
+      else if (count >= 2 && count <= 4) level = 2
+      else if (count >= 5 && count <= 9) level = 3
+      else if (count >= 10) level = 4
+
+      weekDays.push({
+        date: dateStr,
+        count,
+        level,
+        dayOfWeek: d
+      })
+
+      curDate.setDate(curDate.getDate() + 1)
+    }
+    weeks.push(weekDays)
+  }
+
+  const enhancedCommits = commits.map(c => {
+    let type = 'feat'
+    const lower = c.message.toLowerCase()
+    if (lower.startsWith('fix')) type = 'fix'
+    else if (lower.startsWith('chore')) type = 'chore'
+    else if (lower.startsWith('docs')) type = 'docs'
+    else if (lower.startsWith('perf')) type = 'perf'
+    else if (lower.includes('release') || lower.startsWith('release')) type = 'release'
+
+    return {
+      ...c,
+      type,
+      commitUrl: `https://github.com/daniyal44/Zyphuel/commit/${c.sha}`
+    }
+  })
+
+  return {
+    totalCommits,
+    activeDays,
+    maxDaily,
+    latestCommit: enhancedCommits[0] || null,
+    branch: 'origin/main',
+    repo: 'daniyal44/Zyphuel',
+    repoUrl: 'https://github.com/daniyal44/Zyphuel',
+    appVersion: APP_VERSION,
+    generatedAt: new Date().toISOString(),
+    chartData,
+    heatmapWeeks: weeks,
+    monthLabels,
+    commits: enhancedCommits
+  }
+}
+
 function main() {
   const commits = getGitCommits()
   const activity = generateSvg('activity')
   const contribution = generateContributionGraph(commits)
+  const telemetryData = generateTelemetryData(commits)
 
   // 1. Save to assets/ directory
   const assetsDir = path.resolve(__dirname, '../assets')
@@ -776,9 +895,15 @@ function main() {
     fs.writeFileSync(path.join(distDir, 'repo-activity-chart.svg'), activity.svgContent, 'utf8')
   }
 
-  console.log(`[GraphGen] ✅ Both Enhanced SVGs Successfully generated!`)
+  // 5. Save structured telemetry JSON to src/data/gitTelemetry.json for code-based React components
+  const dataDir = path.resolve(__dirname, '../src/data')
+  if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true })
+  fs.writeFileSync(path.join(dataDir, 'gitTelemetry.json'), JSON.stringify(telemetryData, null, 2), 'utf8')
+
+  console.log(`[GraphGen] ✅ Both Enhanced SVGs & JSON Telemetry Successfully generated!`)
   console.log(`           - 📊 Activity Chart: repo-activity-chart.svg (ZYP/GIT @ ${activity.closePrice}.00)`)
   console.log(`           - 🟩 Contribution Matrix: github-changes-graph.svg (${commits.length} commits logged)`)
+  console.log(`           - ⚡ Structured Code Telemetry: src/data/gitTelemetry.json (${telemetryData.totalCommits} commits)`)
 }
 
 main()

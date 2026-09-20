@@ -1,0 +1,3726 @@
+{
+  "totalCommits": 143,
+  "activeDays": 34,
+  "maxDaily": 11,
+  "latestCommit": {
+    "sha": "88d5310",
+    "date": "2026-09-21",
+    "author": "daniyal44",
+    "message": "feat(update): automated push on Mon 09/21/2026 at  1:24:26.82",
+    "type": "feat",
+    "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/88d5310"
+  },
+  "branch": "origin/main",
+  "repo": "daniyal44/Zyphuel",
+  "repoUrl": "https://github.com/daniyal44/Zyphuel",
+  "appVersion": "2.6.4.0.0.10",
+  "generatedAt": "2026-09-20T20:46:53.567Z",
+  "chartData": [
+    {
+      "date": "2026-07-11",
+      "volume": 4,
+      "cumulative": 4,
+      "label": "Jul 11"
+    },
+    {
+      "date": "2026-07-13",
+      "volume": 1,
+      "cumulative": 5,
+      "label": "Jul 13"
+    },
+    {
+      "date": "2026-07-20",
+      "volume": 2,
+      "cumulative": 7,
+      "label": "Jul 20"
+    },
+    {
+      "date": "2026-07-21",
+      "volume": 1,
+      "cumulative": 8,
+      "label": "Jul 21"
+    },
+    {
+      "date": "2026-07-25",
+      "volume": 1,
+      "cumulative": 9,
+      "label": "Jul 25"
+    },
+    {
+      "date": "2026-07-27",
+      "volume": 3,
+      "cumulative": 12,
+      "label": "Jul 27"
+    },
+    {
+      "date": "2026-07-29",
+      "volume": 1,
+      "cumulative": 13,
+      "label": "Jul 29"
+    },
+    {
+      "date": "2026-07-30",
+      "volume": 11,
+      "cumulative": 24,
+      "label": "Jul 30"
+    },
+    {
+      "date": "2026-08-01",
+      "volume": 1,
+      "cumulative": 25,
+      "label": "Aug 01"
+    },
+    {
+      "date": "2026-08-03",
+      "volume": 2,
+      "cumulative": 27,
+      "label": "Aug 03"
+    },
+    {
+      "date": "2026-08-04",
+      "volume": 4,
+      "cumulative": 31,
+      "label": "Aug 04"
+    },
+    {
+      "date": "2026-08-05",
+      "volume": 3,
+      "cumulative": 34,
+      "label": "Aug 05"
+    },
+    {
+      "date": "2026-08-18",
+      "volume": 1,
+      "cumulative": 35,
+      "label": "Aug 18"
+    },
+    {
+      "date": "2026-08-24",
+      "volume": 5,
+      "cumulative": 40,
+      "label": "Aug 24"
+    },
+    {
+      "date": "2026-08-26",
+      "volume": 1,
+      "cumulative": 41,
+      "label": "Aug 26"
+    },
+    {
+      "date": "2026-08-27",
+      "volume": 3,
+      "cumulative": 44,
+      "label": "Aug 27"
+    },
+    {
+      "date": "2026-08-31",
+      "volume": 1,
+      "cumulative": 45,
+      "label": "Aug 31"
+    },
+    {
+      "date": "2026-09-01",
+      "volume": 1,
+      "cumulative": 46,
+      "label": "Sep 01"
+    },
+    {
+      "date": "2026-09-02",
+      "volume": 2,
+      "cumulative": 48,
+      "label": "Sep 02"
+    },
+    {
+      "date": "2026-09-03",
+      "volume": 2,
+      "cumulative": 50,
+      "label": "Sep 03"
+    },
+    {
+      "date": "2026-09-06",
+      "volume": 2,
+      "cumulative": 52,
+      "label": "Sep 06"
+    },
+    {
+      "date": "2026-09-07",
+      "volume": 7,
+      "cumulative": 59,
+      "label": "Sep 07"
+    },
+    {
+      "date": "2026-09-08",
+      "volume": 7,
+      "cumulative": 66,
+      "label": "Sep 08"
+    },
+    {
+      "date": "2026-09-09",
+      "volume": 11,
+      "cumulative": 77,
+      "label": "Sep 09"
+    },
+    {
+      "date": "2026-09-10",
+      "volume": 1,
+      "cumulative": 78,
+      "label": "Sep 10"
+    },
+    {
+      "date": "2026-09-11",
+      "volume": 8,
+      "cumulative": 86,
+      "label": "Sep 11"
+    },
+    {
+      "date": "2026-09-12",
+      "volume": 3,
+      "cumulative": 89,
+      "label": "Sep 12"
+    },
+    {
+      "date": "2026-09-13",
+      "volume": 4,
+      "cumulative": 93,
+      "label": "Sep 13"
+    },
+    {
+      "date": "2026-09-14",
+      "volume": 7,
+      "cumulative": 100,
+      "label": "Sep 14"
+    },
+    {
+      "date": "2026-09-15",
+      "volume": 6,
+      "cumulative": 106,
+      "label": "Sep 15"
+    },
+    {
+      "date": "2026-09-16",
+      "volume": 4,
+      "cumulative": 110,
+      "label": "Sep 16"
+    },
+    {
+      "date": "2026-09-17",
+      "volume": 7,
+      "cumulative": 117,
+      "label": "Sep 17"
+    },
+    {
+      "date": "2026-09-18",
+      "volume": 8,
+      "cumulative": 125,
+      "label": "Sep 18"
+    },
+    {
+      "date": "2026-09-19",
+      "volume": 5,
+      "cumulative": 130,
+      "label": "Sep 19"
+    },
+    {
+      "date": "2026-09-20",
+      "volume": 9,
+      "cumulative": 139,
+      "label": "Sep 20"
+    },
+    {
+      "date": "2026-09-21",
+      "volume": 4,
+      "cumulative": 143,
+      "label": "Sep 21"
+    }
+  ],
+  "heatmapWeeks": [
+    [
+      {
+        "date": "2025-09-21",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2025-09-22",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2025-09-23",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2025-09-24",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2025-09-25",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2025-09-26",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2025-09-27",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2025-09-28",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2025-09-29",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2025-09-30",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2025-10-01",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2025-10-02",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2025-10-03",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2025-10-04",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2025-10-05",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2025-10-06",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2025-10-07",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2025-10-08",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2025-10-09",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2025-10-10",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2025-10-11",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2025-10-12",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2025-10-13",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2025-10-14",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2025-10-15",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2025-10-16",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2025-10-17",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2025-10-18",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2025-10-19",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2025-10-20",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2025-10-21",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2025-10-22",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2025-10-23",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2025-10-24",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2025-10-25",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2025-10-26",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2025-10-27",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2025-10-28",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2025-10-29",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2025-10-30",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2025-10-31",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2025-11-01",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2025-11-02",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2025-11-03",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2025-11-04",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2025-11-05",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2025-11-06",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2025-11-07",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2025-11-08",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2025-11-09",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2025-11-10",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2025-11-11",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2025-11-12",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2025-11-13",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2025-11-14",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2025-11-15",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2025-11-16",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2025-11-17",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2025-11-18",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2025-11-19",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2025-11-20",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2025-11-21",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2025-11-22",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2025-11-23",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2025-11-24",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2025-11-25",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2025-11-26",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2025-11-27",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2025-11-28",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2025-11-29",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2025-11-30",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2025-12-01",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2025-12-02",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2025-12-03",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2025-12-04",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2025-12-05",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2025-12-06",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2025-12-07",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2025-12-08",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2025-12-09",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2025-12-10",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2025-12-11",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2025-12-12",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2025-12-13",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2025-12-14",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2025-12-15",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2025-12-16",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2025-12-17",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2025-12-18",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2025-12-19",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2025-12-20",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2025-12-21",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2025-12-22",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2025-12-23",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2025-12-24",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2025-12-25",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2025-12-26",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2025-12-27",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2025-12-28",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2025-12-29",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2025-12-30",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2025-12-31",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-01-01",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-01-02",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-01-03",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-01-04",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-01-05",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-01-06",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-01-07",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-01-08",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-01-09",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-01-10",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-01-11",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-01-12",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-01-13",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-01-14",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-01-15",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-01-16",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-01-17",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-01-18",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-01-19",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-01-20",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-01-21",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-01-22",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-01-23",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-01-24",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-01-25",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-01-26",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-01-27",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-01-28",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-01-29",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-01-30",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-01-31",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-02-01",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-02-02",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-02-03",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-02-04",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-02-05",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-02-06",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-02-07",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-02-08",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-02-09",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-02-10",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-02-11",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-02-12",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-02-13",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-02-14",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-02-15",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-02-16",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-02-17",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-02-18",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-02-19",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-02-20",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-02-21",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-02-22",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-02-23",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-02-24",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-02-25",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-02-26",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-02-27",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-02-28",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-03-01",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-03-02",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-03-03",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-03-04",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-03-05",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-03-06",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-03-07",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-03-08",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-03-09",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-03-10",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-03-11",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-03-12",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-03-13",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-03-14",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-03-15",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-03-16",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-03-17",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-03-18",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-03-19",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-03-20",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-03-21",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-03-22",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-03-23",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-03-24",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-03-25",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-03-26",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-03-27",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-03-28",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-03-29",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-03-30",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-03-31",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-04-01",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-04-02",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-04-03",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-04-04",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-04-05",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-04-06",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-04-07",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-04-08",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-04-09",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-04-10",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-04-11",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-04-12",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-04-13",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-04-14",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-04-15",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-04-16",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-04-17",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-04-18",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-04-19",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-04-20",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-04-21",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-04-22",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-04-23",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-04-24",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-04-25",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-04-26",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-04-27",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-04-28",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-04-29",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-04-30",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-05-01",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-05-02",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-05-03",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-05-04",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-05-05",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-05-06",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-05-07",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-05-08",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-05-09",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-05-10",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-05-11",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-05-12",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-05-13",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-05-14",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-05-15",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-05-16",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-05-17",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-05-18",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-05-19",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-05-20",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-05-21",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-05-22",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-05-23",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-05-24",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-05-25",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-05-26",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-05-27",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-05-28",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-05-29",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-05-30",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-05-31",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-06-01",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-06-02",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-06-03",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-06-04",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-06-05",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-06-06",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-06-07",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-06-08",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-06-09",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-06-10",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-06-11",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-06-12",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-06-13",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-06-14",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-06-15",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-06-16",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-06-17",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-06-18",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-06-19",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-06-20",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-06-21",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-06-22",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-06-23",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-06-24",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-06-25",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-06-26",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-06-27",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-06-28",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-06-29",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-06-30",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-07-01",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-07-02",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-07-03",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-07-04",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-07-05",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-07-06",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-07-07",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-07-08",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-07-09",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-07-10",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-07-11",
+        "count": 4,
+        "level": 2,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-07-12",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-07-13",
+        "count": 1,
+        "level": 1,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-07-14",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-07-15",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-07-16",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-07-17",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-07-18",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-07-19",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-07-20",
+        "count": 2,
+        "level": 2,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-07-21",
+        "count": 1,
+        "level": 1,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-07-22",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-07-23",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-07-24",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-07-25",
+        "count": 1,
+        "level": 1,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-07-26",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-07-27",
+        "count": 3,
+        "level": 2,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-07-28",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-07-29",
+        "count": 1,
+        "level": 1,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-07-30",
+        "count": 11,
+        "level": 4,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-07-31",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-08-01",
+        "count": 1,
+        "level": 1,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-08-02",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-08-03",
+        "count": 2,
+        "level": 2,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-08-04",
+        "count": 4,
+        "level": 2,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-08-05",
+        "count": 3,
+        "level": 2,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-08-06",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-08-07",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-08-08",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-08-09",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-08-10",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-08-11",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-08-12",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-08-13",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-08-14",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-08-15",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-08-16",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-08-17",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-08-18",
+        "count": 1,
+        "level": 1,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-08-19",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-08-20",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-08-21",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-08-22",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-08-23",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-08-24",
+        "count": 5,
+        "level": 3,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-08-25",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-08-26",
+        "count": 1,
+        "level": 1,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-08-27",
+        "count": 3,
+        "level": 2,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-08-28",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-08-29",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-08-30",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-08-31",
+        "count": 1,
+        "level": 1,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-09-01",
+        "count": 1,
+        "level": 1,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-09-02",
+        "count": 2,
+        "level": 2,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-09-03",
+        "count": 2,
+        "level": 2,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-09-04",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-09-05",
+        "count": 0,
+        "level": 0,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-09-06",
+        "count": 2,
+        "level": 2,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-09-07",
+        "count": 7,
+        "level": 3,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-09-08",
+        "count": 7,
+        "level": 3,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-09-09",
+        "count": 11,
+        "level": 4,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-09-10",
+        "count": 1,
+        "level": 1,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-09-11",
+        "count": 8,
+        "level": 3,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-09-12",
+        "count": 3,
+        "level": 2,
+        "dayOfWeek": 6
+      }
+    ],
+    [
+      {
+        "date": "2026-09-13",
+        "count": 4,
+        "level": 2,
+        "dayOfWeek": 0
+      },
+      {
+        "date": "2026-09-14",
+        "count": 7,
+        "level": 3,
+        "dayOfWeek": 1
+      },
+      {
+        "date": "2026-09-15",
+        "count": 6,
+        "level": 3,
+        "dayOfWeek": 2
+      },
+      {
+        "date": "2026-09-16",
+        "count": 4,
+        "level": 2,
+        "dayOfWeek": 3
+      },
+      {
+        "date": "2026-09-17",
+        "count": 7,
+        "level": 3,
+        "dayOfWeek": 4
+      },
+      {
+        "date": "2026-09-18",
+        "count": 8,
+        "level": 3,
+        "dayOfWeek": 5
+      },
+      {
+        "date": "2026-09-19",
+        "count": 5,
+        "level": 3,
+        "dayOfWeek": 6
+      }
+    ]
+  ],
+  "monthLabels": [
+    {
+      "weekIndex": 0,
+      "name": "Sep"
+    },
+    {
+      "weekIndex": 2,
+      "name": "Oct"
+    },
+    {
+      "weekIndex": 6,
+      "name": "Nov"
+    },
+    {
+      "weekIndex": 11,
+      "name": "Dec"
+    },
+    {
+      "weekIndex": 15,
+      "name": "Jan"
+    },
+    {
+      "weekIndex": 19,
+      "name": "Feb"
+    },
+    {
+      "weekIndex": 23,
+      "name": "Mar"
+    },
+    {
+      "weekIndex": 28,
+      "name": "Apr"
+    },
+    {
+      "weekIndex": 32,
+      "name": "May"
+    },
+    {
+      "weekIndex": 37,
+      "name": "Jun"
+    },
+    {
+      "weekIndex": 41,
+      "name": "Jul"
+    },
+    {
+      "weekIndex": 45,
+      "name": "Aug"
+    },
+    {
+      "weekIndex": 50,
+      "name": "Sep"
+    }
+  ],
+  "commits": [
+    {
+      "sha": "88d5310",
+      "date": "2026-09-21",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Mon 09/21/2026 at  1:24:26.82",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/88d5310"
+    },
+    {
+      "sha": "f4a7a20",
+      "date": "2026-09-21",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Mon 09/21/2026 at  1:00:09.50",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/f4a7a20"
+    },
+    {
+      "sha": "919e07e",
+      "date": "2026-09-21",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Mon 09/21/2026 at  0:49:56.93",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/919e07e"
+    },
+    {
+      "sha": "6b67b4c",
+      "date": "2026-09-21",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Mon 09/21/2026 at  0:49:14.22",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/6b67b4c"
+    },
+    {
+      "sha": "804444f",
+      "date": "2026-09-20",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Sun 09/20/2026 at 23:22:32.76",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/804444f"
+    },
+    {
+      "sha": "17086b2",
+      "date": "2026-09-20",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Sun 09/20/2026 at 22:36:15.40",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/17086b2"
+    },
+    {
+      "sha": "0790b0d",
+      "date": "2026-09-20",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/0790b0d"
+    },
+    {
+      "sha": "96a6eac",
+      "date": "2026-09-20",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Sun 09/20/2026 at  0:43:07.38",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/96a6eac"
+    },
+    {
+      "sha": "3c385f9",
+      "date": "2026-09-20",
+      "author": "daniyal44",
+      "message": "fix(robots): remove non-standard Host directive to eliminate Googlebot line 9 warning",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/3c385f9"
+    },
+    {
+      "sha": "947a7e7",
+      "date": "2026-09-20",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Sun 09/20/2026 at  0:35:20.19",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/947a7e7"
+    },
+    {
+      "sha": "86388eb",
+      "date": "2026-09-20",
+      "author": "daniyal44",
+      "message": "feat(geo): deploy full AEO/GEO infrastructure, llms-full.txt corpus, and competitor comparison matrix",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/86388eb"
+    },
+    {
+      "sha": "e4c5a1a",
+      "date": "2026-09-20",
+      "author": "daniyal44",
+      "message": "feat(seo): implement international multi-locale hreflang triad and global crawl metadata",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/e4c5a1a"
+    },
+    {
+      "sha": "7a5c262",
+      "date": "2026-09-20",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Sun 09/20/2026 at  0:08:01.13",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/7a5c262"
+    },
+    {
+      "sha": "d102e01",
+      "date": "2026-09-19",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Sat 09/19/2026 at 23:50:54.67",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/d102e01"
+    },
+    {
+      "sha": "750db14",
+      "date": "2026-09-19",
+      "author": "daniyal44",
+      "message": "feat(seo): update robots.txt to 2026-09-19, archive real-time session chat log, update activity graphs",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/750db14"
+    },
+    {
+      "sha": "c786d7b",
+      "date": "2026-09-19",
+      "author": "daniyal44",
+      "message": "chore: merge remote updates",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/c786d7b"
+    },
+    {
+      "sha": "4451019",
+      "date": "2026-09-19",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Sat 09/19/2026 at 22:40:14.01",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/4451019"
+    },
+    {
+      "sha": "d7dfc62",
+      "date": "2026-09-19",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/d7dfc62"
+    },
+    {
+      "sha": "f2f9ed2",
+      "date": "2026-09-18",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/f2f9ed2"
+    },
+    {
+      "sha": "0bcc66c",
+      "date": "2026-09-18",
+      "author": "daniyal44",
+      "message": "feat(graph): add authentic 50-week GitHub contribution heatmap matrix & real-time changes report table",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/0bcc66c"
+    },
+    {
+      "sha": "7015b96",
+      "date": "2026-09-18",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Fri 09/18/2026 at  0:55:19.03",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/7015b96"
+    },
+    {
+      "sha": "ecc8c88",
+      "date": "2026-09-18",
+      "author": "daniyal44",
+      "message": "chore(git): ignore *.log and debug log files in .gitignore",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/ecc8c88"
+    },
+    {
+      "sha": "66d0f03",
+      "date": "2026-09-18",
+      "author": "daniyal44",
+      "message": "feat(seo): update robots.txt with 2026 crawl directives & Google-InspectionTool permissions, bump sitemap lastmod to 2026-09-18",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/66d0f03"
+    },
+    {
+      "sha": "de3ab5f",
+      "date": "2026-09-18",
+      "author": "daniyal44",
+      "message": "feat(graph): automate real-time git telemetry on push, generate distinct changes & activity graphs with cache-busting README display",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/de3ab5f"
+    },
+    {
+      "sha": "69c9ef1",
+      "date": "2026-09-18",
+      "author": "daniyal44",
+      "message": "fix(graph): remove blocked animate/filter tags, use standard markdown image links, and update both changes & chart graphs",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/69c9ef1"
+    },
+    {
+      "sha": "62dd16a",
+      "date": "2026-09-18",
+      "author": "daniyal44",
+      "message": "fix(readme): use relative asset path for graph and optimize SVG vector rendering for GitHub",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/62dd16a"
+    },
+    {
+      "sha": "bd610bd",
+      "date": "2026-09-17",
+      "author": "daniyal44",
+      "message": "chore(graph): update trading activity chart with latest commit telemetry",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/bd610bd"
+    },
+    {
+      "sha": "481914c",
+      "date": "2026-09-17",
+      "author": "daniyal44",
+      "message": "fix(git): resolve detached HEAD and explicit refspec in github_push.bat",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/481914c"
+    },
+    {
+      "sha": "f13b35e",
+      "date": "2026-09-17",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Thu 09/17/2026 at 23:53:32.09",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/f13b35e"
+    },
+    {
+      "sha": "e83bb40",
+      "date": "2026-09-17",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/e83bb40"
+    },
+    {
+      "sha": "6ef0a9d",
+      "date": "2026-09-17",
+      "author": "daniyal44",
+      "message": "feat(seo): establish internal linking mesh, add Contact FAQ schema, align metadata and boost sitemap priority for all pages",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/6ef0a9d"
+    },
+    {
+      "sha": "1bef65a",
+      "date": "2026-09-17",
+      "author": "daniyal44",
+      "message": "feat(release): update app to v2.6.4.0.0.10 and resolve GSC services canonical indexing issue",
+      "type": "release",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/1bef65a"
+    },
+    {
+      "sha": "83b70ad",
+      "date": "2026-09-17",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Thu 09/17/2026 at  1:38:13.17",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/83b70ad"
+    },
+    {
+      "sha": "bf525b7",
+      "date": "2026-09-16",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Wed 09/16/2026 at 23:59:07.33",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/bf525b7"
+    },
+    {
+      "sha": "f96a454",
+      "date": "2026-09-16",
+      "author": "daniyal44",
+      "message": "feat(update): automated push on Wed 09/16/2026 at 22:33:50.87",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/f96a454"
+    },
+    {
+      "sha": "60e426a",
+      "date": "2026-09-16",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/60e426a"
+    },
+    {
+      "sha": "4bb56bd",
+      "date": "2026-09-16",
+      "author": "daniyal44",
+      "message": "feat(home): add cinematic 3D frame sequence scroll animation section",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/4bb56bd"
+    },
+    {
+      "sha": "742742c",
+      "date": "2026-09-15",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/742742c"
+    },
+    {
+      "sha": "34199d1",
+      "date": "2026-09-15",
+      "author": "daniyal44",
+      "message": "feat(order): overhaul refueling tracker with bioluminescent vector animation and realistic dispatch lifecycle",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/34199d1"
+    },
+    {
+      "sha": "cb645cd",
+      "date": "2026-09-15",
+      "author": "daniyal44",
+      "message": "feat(order): add digital invoice generation and download support",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/cb645cd"
+    },
+    {
+      "sha": "fee75c1",
+      "date": "2026-09-15",
+      "author": "daniyal44",
+      "message": "chore: sync activity chart",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/fee75c1"
+    },
+    {
+      "sha": "bccc7b7",
+      "date": "2026-09-15",
+      "author": "daniyal44",
+      "message": "fix(git): resolve push rejection and schedule activity graph",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/bccc7b7"
+    },
+    {
+      "sha": "b6ab9c9",
+      "date": "2026-09-14",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/b6ab9c9"
+    },
+    {
+      "sha": "0efc917",
+      "date": "2026-09-15",
+      "author": "daniyal44",
+      "message": "latest",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/0efc917"
+    },
+    {
+      "sha": "238c49c",
+      "date": "2026-09-14",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/238c49c"
+    },
+    {
+      "sha": "665ef80",
+      "date": "2026-09-14",
+      "author": "daniyal44",
+      "message": "feat(order): restrict fuel quantity to min 5L and max 15L with updated volume presets",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/665ef80"
+    },
+    {
+      "sha": "c1c1ec4",
+      "date": "2026-09-13",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/c1c1ec4"
+    },
+    {
+      "sha": "5035c72",
+      "date": "2026-09-14",
+      "author": "daniyal44",
+      "message": "docs(download): update technical specifications to v2.6.4.0.0.08 and sync sitemap and activity chart",
+      "type": "docs",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/5035c72"
+    },
+    {
+      "sha": "6c717c7",
+      "date": "2026-09-14",
+      "author": "daniyal44",
+      "message": "chore(release): update mobile app specifications to v2.6.4.0.0.08 in README and llms.txt",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/6c717c7"
+    },
+    {
+      "sha": "c5988ca",
+      "date": "2026-09-14",
+      "author": "daniyal44",
+      "message": "chore(version): bump app version to v2.6.4.0.0.08 to match latest release",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/c5988ca"
+    },
+    {
+      "sha": "1ae26e8",
+      "date": "2026-09-14",
+      "author": "daniyal44",
+      "message": "latest version",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/1ae26e8"
+    },
+    {
+      "sha": "90ad312",
+      "date": "2026-09-13",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/90ad312"
+    },
+    {
+      "sha": "7a64718",
+      "date": "2026-09-13",
+      "author": "daniyal44",
+      "message": "feat: implement documentation registry, system architecture, and calibrate delivery pricing",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/7a64718"
+    },
+    {
+      "sha": "7073a51",
+      "date": "2026-09-12",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/7073a51"
+    },
+    {
+      "sha": "65e0035",
+      "date": "2026-09-13",
+      "author": "daniyal44",
+      "message": "chore(version): unify and dynamically sync app version v2.6.2 across all pages",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/65e0035"
+    },
+    {
+      "sha": "6425e03",
+      "date": "2026-09-12",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/6425e03"
+    },
+    {
+      "sha": "b89c95a",
+      "date": "2026-09-12",
+      "author": "daniyal44",
+      "message": "refactor(home): remove live fuel price calculator section",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/b89c95a"
+    },
+    {
+      "sha": "d922c6b",
+      "date": "2026-09-11",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/d922c6b"
+    },
+    {
+      "sha": "52f9962",
+      "date": "2026-09-11",
+      "author": "daniyal44",
+      "message": "fix(seo): convert CTAs to crawlable links and connect internal pages for GSC indexing",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/52f9962"
+    },
+    {
+      "sha": "944f8d5",
+      "date": "2026-09-11",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/944f8d5"
+    },
+    {
+      "sha": "233fedf",
+      "date": "2026-09-11",
+      "author": "daniyal44",
+      "message": "chore: sync activity graph and sitemap after build",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/233fedf"
+    },
+    {
+      "sha": "f282cc1",
+      "date": "2026-09-11",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/f282cc1"
+    },
+    {
+      "sha": "7ad4b05",
+      "date": "2026-09-11",
+      "author": "daniyal44",
+      "message": "feat(ai): integrate aitmpl component ecosystem and persistent agent memory",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/7ad4b05"
+    },
+    {
+      "sha": "93d4228",
+      "date": "2026-09-11",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/93d4228"
+    },
+    {
+      "sha": "dd76d47",
+      "date": "2026-09-11",
+      "author": "daniyal44",
+      "message": "latest version",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/dd76d47"
+    },
+    {
+      "sha": "f04c141",
+      "date": "2026-09-09",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/f04c141"
+    },
+    {
+      "sha": "56cb50f",
+      "date": "2026-09-10",
+      "author": "daniyal44",
+      "message": "feat(seo): target competitor keywords, petrol pump alternatives, B2B fuel agency schema, and interactive calculator",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/56cb50f"
+    },
+    {
+      "sha": "e87fbf6",
+      "date": "2026-09-09",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/e87fbf6"
+    },
+    {
+      "sha": "c63116a",
+      "date": "2026-09-09",
+      "author": "daniyal44",
+      "message": "feat(homepage): add competitive edge pillars, interactive fuel calculator, and Lahore sector matrix",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/c63116a"
+    },
+    {
+      "sha": "0022aba",
+      "date": "2026-09-09",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/0022aba"
+    },
+    {
+      "sha": "8559f89",
+      "date": "2026-09-09",
+      "author": "daniyal44",
+      "message": "feat(seo): enhance GEO knowledge graph, competitor keywords, llms.txt and GSC indexing tools",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/8559f89"
+    },
+    {
+      "sha": "56a4c9c",
+      "date": "2026-09-09",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/56a4c9c"
+    },
+    {
+      "sha": "b80386f",
+      "date": "2026-09-09",
+      "author": "daniyal44",
+      "message": "feat(release): sync app version 2.6.2, add release badges and graph telemetry",
+      "type": "release",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/b80386f"
+    },
+    {
+      "sha": "4e263dd",
+      "date": "2026-09-09",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/4e263dd"
+    },
+    {
+      "sha": "8da3a02",
+      "date": "2026-09-09",
+      "author": "daniyal44",
+      "message": "feat(version): bump app version to 2.6.2 and update site build",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/8da3a02"
+    },
+    {
+      "sha": "70313d6",
+      "date": "2026-09-09",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/70313d6"
+    },
+    {
+      "sha": "0710244",
+      "date": "2026-09-09",
+      "author": "daniyal44",
+      "message": "feat: update app version, APK build, and site pages",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/0710244"
+    },
+    {
+      "sha": "c6839fc",
+      "date": "2026-09-08",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/c6839fc"
+    },
+    {
+      "sha": "c0645c0",
+      "date": "2026-09-08",
+      "author": "daniyal44",
+      "message": "feat: add professional real-time git velocity chart and startup visitor slogan in articles",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/c0645c0"
+    },
+    {
+      "sha": "f4e51ff",
+      "date": "2026-09-08",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/f4e51ff"
+    },
+    {
+      "sha": "d2f027e",
+      "date": "2026-09-08",
+      "author": "daniyal44",
+      "message": "feat: add automated git activity and changes graph to repository",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/d2f027e"
+    },
+    {
+      "sha": "75b2a29",
+      "date": "2026-09-08",
+      "author": "daniyal44",
+      "message": "feat(ui): upgrade visual systems on non-home pages and add web agent script",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/75b2a29"
+    },
+    {
+      "sha": "4f4c521",
+      "date": "2026-09-08",
+      "author": "daniyal44",
+      "message": "feat: add IndexNow protocol for instant Bing/Yandex indexing - Add IndexNow API key verification file - Add auto-submit script that runs after every build - Notifies Bing, Yandex, Seznam, Naver of all 15 pages",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/4f4c521"
+    },
+    {
+      "sha": "3cfae3a",
+      "date": "2026-09-08",
+      "author": "daniyal44",
+      "message": "fix(seo): overhaul technical seo, indexing, routing, and structured data",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/3cfae3a"
+    },
+    {
+      "sha": "95c2192",
+      "date": "2026-09-07",
+      "author": "daniyal44",
+      "message": "feat(ui): add 3D refueling lifecycle tracker and remove wiki dossier",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/95c2192"
+    },
+    {
+      "sha": "b3f953c",
+      "date": "2026-09-07",
+      "author": "daniyal44",
+      "message": "fix(seo): standardize trailing slashes, crawlable blog links, and high-CTR metadata",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/b3f953c"
+    },
+    {
+      "sha": "bf5832e",
+      "date": "2026-09-07",
+      "author": "daniyal44",
+      "message": "perf: optimize mobile PageSpeed, accessibility, SEO, and add llms.txt",
+      "type": "perf",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/bf5832e"
+    },
+    {
+      "sha": "1cda28d",
+      "date": "2026-09-07",
+      "author": "daniyal44",
+      "message": "fix(build): disable Netlify Next.js plugin and normalize SSR import URL",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/1cda28d"
+    },
+    {
+      "sha": "b66d6f0",
+      "date": "2026-09-07",
+      "author": "daniyal44",
+      "message": "chore: add Google Search Console verification meta tag",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/b66d6f0"
+    },
+    {
+      "sha": "2984956",
+      "date": "2026-09-07",
+      "author": "daniyal44",
+      "message": "chore: add Google Search Console verification file",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/2984956"
+    },
+    {
+      "sha": "51c4344",
+      "date": "2026-09-07",
+      "author": "daniyal44",
+      "message": "fix(seo): remove unsupported Crawl-delay directive from robots.txt",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/51c4344"
+    },
+    {
+      "sha": "34c4ad2",
+      "date": "2026-09-06",
+      "author": "daniyal44",
+      "message": "feat: update download page, refresh articles and sync 2026 fuel rates",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/34c4ad2"
+    },
+    {
+      "sha": "0b8c305",
+      "date": "2026-09-06",
+      "author": "daniyal44",
+      "message": "build: update Zyphuel.apk",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/0b8c305"
+    },
+    {
+      "sha": "f61ccee",
+      "date": "2026-09-03",
+      "author": "daniyal44",
+      "message": "fix(seo): clean up legal page schemas and standardize breadcrumb formatting",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/f61ccee"
+    },
+    {
+      "sha": "a34dbf5",
+      "date": "2026-09-03",
+      "author": "daniyal44",
+      "message": "fix(seo): enrich product schema with ratings and prevent duplicate ld+json tags",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/a34dbf5"
+    },
+    {
+      "sha": "55d706c",
+      "date": "2026-09-02",
+      "author": "daniyal44",
+      "message": "feat(seo,pricing): update latest fuel rates, sitemap, robots.txt, and metadata",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/55d706c"
+    },
+    {
+      "sha": "987f2dc",
+      "date": "2026-09-02",
+      "author": "daniyal44",
+      "message": "Update app to v2.3.0.1, update download page, and set Play Store to Launch Soon",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/987f2dc"
+    },
+    {
+      "sha": "242d129",
+      "date": "2026-09-01",
+      "author": "daniyal44",
+      "message": "fix(seo): remove spam keywords, add crawlable blog routes, optimize scripts and sitemap",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/242d129"
+    },
+    {
+      "sha": "a9ff69e",
+      "date": "2026-08-31",
+      "author": "daniyal44",
+      "message": "build(apk): update Zyphuel Android APK release build",
+      "type": "release",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/a9ff69e"
+    },
+    {
+      "sha": "931486c",
+      "date": "2026-08-27",
+      "author": "daniyal44",
+      "message": "fix(seo): resolve Discovered currently not indexed issue with static route maps, updated sitemap and Netlify redirects",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/931486c"
+    },
+    {
+      "sha": "3f04b31",
+      "date": "2026-08-27",
+      "author": "daniyal44",
+      "message": "fix: resolve usability, layout, accessibility, and UI bugs across all pages",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/3f04b31"
+    },
+    {
+      "sha": "f3e7c17",
+      "date": "2026-08-27",
+      "author": "daniyal44",
+      "message": "docs(about): update brand story copy on About page",
+      "type": "docs",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/f3e7c17"
+    },
+    {
+      "sha": "78a41ee",
+      "date": "2026-08-26",
+      "author": "daniyal44",
+      "message": "fix(about): resolve usability heuristics and accessibility issues on About page",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/78a41ee"
+    },
+    {
+      "sha": "839b008",
+      "date": "2026-08-24",
+      "author": "daniyal44",
+      "message": "feat(telemetry): integrate real-time tracker script into head for live analytics",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/839b008"
+    },
+    {
+      "sha": "ab06a4e",
+      "date": "2026-08-24",
+      "author": "daniyal44",
+      "message": "feat(about): add social media articles, publications, encyclopedic Wikipedia dossier, and verified citations",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/ab06a4e"
+    },
+    {
+      "sha": "3683f58",
+      "date": "2026-08-24",
+      "author": "daniyal44",
+      "message": "feat(services): enrich Services page with full service scope matrix, 6-stage delivery lifecycle and engineering articles",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/3683f58"
+    },
+    {
+      "sha": "0ac7661",
+      "date": "2026-08-24",
+      "author": "daniyal44",
+      "message": "feat(seo): update sitemap, add global geopolitics, cricket fixtures and tech trending keywords",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/0ac7661"
+    },
+    {
+      "sha": "9c88c26",
+      "date": "2026-08-24",
+      "author": "daniyal44",
+      "message": "feat: optimize GSC indexing and add trending fuel and sports SEO keywords",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/9c88c26"
+    },
+    {
+      "sha": "070d9c8",
+      "date": "2026-08-18",
+      "author": "daniyal44",
+      "message": "feat(seo): fix GSC discovered indexing with SSG pre-rendering, update app v1.5.0 and add 3 animated articles",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/070d9c8"
+    },
+    {
+      "sha": "3874e11",
+      "date": "2026-08-05",
+      "author": "daniyal44",
+      "message": "chore(seo): update sitemap.xml timestamps, robots.txt directives, and sync website information",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/3874e11"
+    },
+    {
+      "sha": "3ee8055",
+      "date": "2026-08-05",
+      "author": "daniyal44",
+      "message": "fix: update cardImages path references in AboutPage.jsx",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/3ee8055"
+    },
+    {
+      "sha": "7e39e79",
+      "date": "2026-08-05",
+      "author": "daniyal44",
+      "message": "fix: make DownloadPage fully responsive for mobile, replace ScaleVerse articles with high-intent Zyphuel articles, and update product quantity increment to +1 default step",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/7e39e79"
+    },
+    {
+      "sha": "0ce40cd",
+      "date": "2026-08-04",
+      "author": "daniyal44",
+      "message": "feat(seo): upgrade useSEO.js with full Master Prompt SEO, AEO, GEO, VSO, Local SEO & dynamic JSON-LD multi-schema graph engine",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/0ce40cd"
+    },
+    {
+      "sha": "214e85a",
+      "date": "2026-08-04",
+      "author": "daniyal44",
+      "message": "feat(pwa): add web application manifest for PWA installability and mobile indexing",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/214e85a"
+    },
+    {
+      "sha": "a204bd8",
+      "date": "2026-08-04",
+      "author": "daniyal44",
+      "message": "feat(seo): integrate full master prompt SEO, AEO, GEO, VSO, Local SEO & Speakable schema architecture",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/a204bd8"
+    },
+    {
+      "sha": "0ddd352",
+      "date": "2026-08-04",
+      "author": "daniyal44",
+      "message": "feat: add platform availability section under Smart Mobile Refueling on download page",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/0ddd352"
+    },
+    {
+      "sha": "e349525",
+      "date": "2026-08-03",
+      "author": "daniyal44",
+      "message": "Complete SEO, AEO, and GEO optimization overhaul across all pages and schemas",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/e349525"
+    },
+    {
+      "sha": "6ded6c7",
+      "date": "2026-08-03",
+      "author": "daniyal44",
+      "message": "Clean up partner and collaboration sections on About page",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/6ded6c7"
+    },
+    {
+      "sha": "fa763d1",
+      "date": "2026-08-01",
+      "author": "daniyal44",
+      "message": "SEO_optimization_and_keyword_updates",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/fa763d1"
+    },
+    {
+      "sha": "6fbb329",
+      "date": "2026-07-30",
+      "author": "daniyal44",
+      "message": "Master E2E SEO overhaul, robots.txt, sitemap.xml locs, index.html image_src, LinkedIn profile and company sameAs schema",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/6fbb329"
+    },
+    {
+      "sha": "9977b90",
+      "date": "2026-07-30",
+      "author": "daniyal44",
+      "message": "Update app version to v1.4.0 and refactor DownloadPage info to strictly match 1.jpeg 2.jpeg 3.jpeg screenshot content",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/9977b90"
+    },
+    {
+      "sha": "b59051a",
+      "date": "2026-07-30",
+      "author": "daniyal44",
+      "message": "Fix 1.jpeg 2.jpeg 3.jpeg full screen fit and smooth cross-fade animation inside phone mockup",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/b59051a"
+    },
+    {
+      "sha": "e26b300",
+      "date": "2026-07-30",
+      "author": "daniyal44",
+      "message": "Fix 1.jpeg 2.jpeg 3.jpeg display with object-fit contain and move slider controls outside phone display",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/e26b300"
+    },
+    {
+      "sha": "3e3d0c6",
+      "date": "2026-07-30",
+      "author": "daniyal44",
+      "message": "Update 1.jpeg 2.jpeg 3.jpeg fit-to-frame display, sitemap.xml locs, and robots.txt AI crawlers",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/3e3d0c6"
+    },
+    {
+      "sha": "de487ca",
+      "date": "2026-07-30",
+      "author": "daniyal44",
+      "message": "Refactor DownloadPage whole page layout, glassmorphic hero, active mockup slide badges and responsive styling",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/de487ca"
+    },
+    {
+      "sha": "614a760",
+      "date": "2026-07-30",
+      "author": "daniyal44",
+      "message": "Update phone mockup background to seamlessly frame 1.jpeg 2.jpeg 3.jpeg images",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/614a760"
+    },
+    {
+      "sha": "a6f2ea8",
+      "date": "2026-07-30",
+      "author": "daniyal44",
+      "message": "Fit 1.jpeg 2.jpeg 3.jpeg images completely inside phone mockup with object-fit contain",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/a6f2ea8"
+    },
+    {
+      "sha": "d74ac0b",
+      "date": "2026-07-30",
+      "author": "daniyal44",
+      "message": "Refactor DownloadPage mobile screen mockup to fit-to-frame app screenshots and complete A-to-Z SEO audit",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/d74ac0b"
+    },
+    {
+      "sha": "71e1508",
+      "date": "2026-07-30",
+      "author": "daniyal44",
+      "message": "Replace SVG QR code with Qr-code.png image",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/71e1508"
+    },
+    {
+      "sha": "3b679cf",
+      "date": "2026-07-30",
+      "author": "daniyal44",
+      "message": "SEO overhaul and contact sync",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/3b679cf"
+    },
+    {
+      "sha": "10a9f08",
+      "date": "2026-07-29",
+      "author": "daniyal44",
+      "message": "Update app version to v1.2.0 on Download page and add centralized versioning",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/10a9f08"
+    },
+    {
+      "sha": "52570a5",
+      "date": "2026-07-27",
+      "author": "daniyal44",
+      "message": "feat: embed personal and company LinkedIn profiles into SEO/AEO/GEO schemas, brand index, and UI",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/52570a5"
+    },
+    {
+      "sha": "1c16238",
+      "date": "2026-07-27",
+      "author": "daniyal44",
+      "message": "feat: complete global per-word SEO, AEO, GEO, hreflang, and 100% PageSpeed optimizations",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/1c16238"
+    },
+    {
+      "sha": "4feb3e4",
+      "date": "2026-07-27",
+      "author": "daniyal44",
+      "message": "build: track APK with Git LFS and update binary",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/4feb3e4"
+    },
+    {
+      "sha": "02bd9fe",
+      "date": "2026-07-25",
+      "author": "daniyal44",
+      "message": "feat: add Google Search Console verification meta tag",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/02bd9fe"
+    },
+    {
+      "sha": "f1c3cda",
+      "date": "2026-07-21",
+      "author": "daniyal44",
+      "message": "feat: implement live fuel pricing API, optimize sitemaps/metadata, and hide SEO glossaries",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/f1c3cda"
+    },
+    {
+      "sha": "cd2424a",
+      "date": "2026-07-20",
+      "author": "daniyal44",
+      "message": "feat: Add App Download page with slide carousel, floating Viral Share Hub, and highlighted GMB footer row; update oil prices",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/cd2424a"
+    },
+    {
+      "sha": "fb7a557",
+      "date": "2026-07-20",
+      "author": "daniyal44",
+      "message": "fix: resolve undefined download function in header, fix active link condition, and format APK download pill",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/fb7a557"
+    },
+    {
+      "sha": "5c3bfbb",
+      "date": "2026-07-13",
+      "author": "daniyal44",
+      "message": "Optimize browser tab titles and implement global SEO improvements",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/5c3bfbb"
+    },
+    {
+      "sha": "f99408a",
+      "date": "2026-07-11",
+      "author": "daniyal44",
+      "message": "feat: implement SEO, GEO, AEO optimizations and backlink registry",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/f99408a"
+    },
+    {
+      "sha": "5dae207",
+      "date": "2026-07-11",
+      "author": "daniyal44",
+      "message": "seo: implement LLM / Generative Engine Optimization (GEO) with JSON-LD schema markup & bots configuration",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/5dae207"
+    },
+    {
+      "sha": "daaa3d5",
+      "date": "2026-07-11",
+      "author": "daniyal44",
+      "message": "seo: configure dynamic page title, description, and keywords to rank brand typos and query terms",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/daaa3d5"
+    },
+    {
+      "sha": "229f084",
+      "date": "2026-07-11",
+      "author": "daniyal44",
+      "message": "feat: add multi-item order selection and update domain to zyphuel.netlify.app",
+      "type": "feat",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/229f084"
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { APP_VERSION, RELEASE_DATE, APP_SIZE, MIN_ANDROID, CHANGELOG } from '../data/appVersion'
 import Breadcrumbs from '../components/Breadcrumbs'
+import GitActivityDashboard from '../components/GitActivityDashboard'
 import './styles.css'
 
 const appArticles = [
@@ -676,6 +677,23 @@ export default function DownloadPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Real-Time Codebase Telemetry & Engineering Velocity Dashboard (100% Code-Based React Component) */}
+        <section id="engineering-telemetry" className="section-padding" style={{ background: '#070b14', borderTop: '1px solid #1e293b' }}>
+          <div className="container">
+            <div className="section-header fade-in-up">
+              <div className="version-header-badge" style={{ background: 'rgba(2, 132, 199, 0.15)', borderColor: 'rgba(56, 189, 248, 0.35)', color: '#38bdf8' }}>
+                <i className="fa-solid fa-microchip"></i> Real-Time Engineering Telemetry
+              </div>
+              <h2 className="section-title">Codebase Velocity &amp; Live Git Activity</h2>
+              <p className="section-subtitle">
+                Explore real-time commit cadence, 52-week contribution density, and engineering velocity for the Zyphuel platform. 100% code-driven and directly synchronized with our GitHub repository.
+              </p>
+            </div>
+
+            <GitActivityDashboard defaultView="unified" showHeader={true} />
           </div>
         </section>
 
