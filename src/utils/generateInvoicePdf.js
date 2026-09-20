@@ -2,7 +2,7 @@
  * Zyphuel Official Calibrated Commercial Invoice - Pure Vector PDF Generator
  * Powered by jsPDF (100% Client-Side Vector Rendering, Zero-CORS, Zero-External-Font Issues)
  */
-import { drawBarcodeToPdf } from './barcode128.js'
+import { drawBarcodeToPdf, drawQrToPdf } from './barcode128.js'
 
 export function numberToWords(num) {
   if (isNaN(num) || num <= 0) return 'Pakistani Rupees Zero Only'
@@ -398,58 +398,82 @@ export async function generateInvoicePdf(data) {
     : String(data.total)
   doc.text('Rs. ' + totalFmt, totalsX + totalsW - 6, summaryY + 30.5, { align: 'right' })
 
-  // 7. Official Scannable Barcode & Digital Verification Signatory Block
-  const stampY = summaryY + 41
-  
-  // Left: Genuine Scannable Code 128 Barcode Card (ISO/IEC 15417 Standard)
-  const barcodeCardW = 82
-  const barcodeCardH = 24.5
+  // 7. Official Dual Verification (Camera QR & Code 128 Barcode) & Certified Seal
+  const stampY = summaryY + 40
+  const blockH = 26
+
+  // Block 1: Instant Mobile Camera Scannable QR Code (100% iOS & Android Native Camera)
+  const qrCardX = margin + 5
+  const qrCardW = 34
   doc.setFillColor(248, 250, 252)
   doc.setDrawColor(226, 232, 240)
-  doc.roundedRect(margin + 5, stampY, barcodeCardW, barcodeCardH, 2, 2, 'FD')
+  doc.roundedRect(qrCardX, stampY, qrCardW, blockH, 1.5, 1.5, 'FD')
 
   doc.setFont('helvetica', 'bold')
-  doc.setFontSize(6.2)
+  doc.setFontSize(5.3)
   doc.setTextColor(2, 132, 199)
-  doc.text('OFFICIAL DISPATCH BARCODE • CODE 128', margin + 9, stampY + 4.2)
+  doc.text('CAMERA SCAN (QR)', qrCardX + (qrCardW / 2), stampY + 4, { align: 'center' })
 
-  // Real Vector Barcode (100% camera & scanner scannable)
-  drawBarcodeToPdf(doc, data.orderId || 'ZYP-ORDER', margin + 9, stampY + 5.5, barcodeCardW - 8, 13, {
-    showText: true,
-    color: [15, 23, 42],
+  const verifyUrl = `https://zyphuel.netlify.app/order/?verify=${data.orderId || 'ORDER'}`
+  drawQrToPdf(doc, verifyUrl, qrCardX + 8, stampY + 5.2, 18, {
+    margin: 1,
+    color: [0, 0, 0],
     background: [255, 255, 255]
   })
 
   doc.setFont('helvetica', 'normal')
-  doc.setFontSize(5.4)
+  doc.setFontSize(4.6)
   doc.setTextColor(100, 116, 139)
-  doc.text('Scan with phone camera to verify order authenticity', margin + 9, stampY + 23.2)
+  doc.text('Point phone camera to verify', qrCardX + (qrCardW / 2), stampY + 24.5, { align: 'center' })
 
-  // Right: Computerized Signatory & Official Certified Dispatch Seal
-  const signX = margin + 5 + barcodeCardW + 5
-  const signW = contentWidth - 10 - barcodeCardW - 5
+  // Block 2: Industrial Dispatch Barcode (Code 128 - Laser Scanners & Google Lens)
+  const barCardX = qrCardX + qrCardW + 3
+  const barCardW = 68
   doc.setFillColor(248, 250, 252)
   doc.setDrawColor(226, 232, 240)
-  doc.roundedRect(signX, stampY, signW, barcodeCardH, 2, 2, 'FD')
+  doc.roundedRect(barCardX, stampY, barCardW, blockH, 1.5, 1.5, 'FD')
+
+  doc.setFont('helvetica', 'bold')
+  doc.setFontSize(5.5)
+  doc.setTextColor(2, 132, 199)
+  doc.text('OFFICIAL DISPATCH BARCODE • CODE 128', barCardX + 5, stampY + 4)
+
+  drawBarcodeToPdf(doc, data.orderId || 'ZYP-ORDER', barCardX + 4, stampY + 5.2, barCardW - 8, 13.5, {
+    showText: true,
+    color: [0, 0, 0],
+    background: [255, 255, 255]
+  })
+
+  doc.setFont('helvetica', 'normal')
+  doc.setFontSize(4.6)
+  doc.setTextColor(100, 116, 139)
+  doc.text('Compatible with handheld laser guns & Google Lens', barCardX + (barCardW / 2), stampY + 24.5, { align: 'center' })
+
+  // Block 3: Computerized Signatory & Official Certified Dispatch Seal
+  const signX = barCardX + barCardW + 3
+  const signW = contentWidth - 10 - qrCardW - 3 - barCardW - 3
+  doc.setFillColor(248, 250, 252)
+  doc.setDrawColor(226, 232, 240)
+  doc.roundedRect(signX, stampY, signW, blockH, 1.5, 1.5, 'FD')
 
   doc.setFillColor(240, 253, 244)
   doc.setDrawColor(187, 247, 208)
   doc.roundedRect(signX + 3, stampY + 2.5, signW - 6, 7.5, 1, 1, 'FD')
   doc.setFont('helvetica', 'bold')
-  doc.setFontSize(6.6)
+  doc.setFontSize(6.4)
   doc.setTextColor(22, 101, 52)
   doc.text('★ ZYPHUEL PAKISTAN • CERTIFIED DISPATCH ★', signX + (signW / 2), stampY + 6.8, { align: 'center' })
 
   doc.setFont('helvetica', 'bold')
-  doc.setFontSize(7.2)
+  doc.setFontSize(7)
   doc.setTextColor(15, 23, 42)
   doc.text('Computerized Verified Commercial Invoice', signX + (signW / 2), stampY + 14, { align: 'center' })
 
   doc.setFont('helvetica', 'normal')
-  doc.setFontSize(5.8)
+  doc.setFontSize(5.5)
   doc.setTextColor(100, 116, 139)
-  doc.text('Automated Depots Dispatch Gateway • Lahore Hub #01', signX + (signW / 2), stampY + 18, { align: 'center' })
-  doc.text('Valid without physical signature under Electronic Transactions Ordinance 2002', signX + (signW / 2), stampY + 22, { align: 'center' })
+  doc.text('Automated Depots Dispatch Gateway • Lahore Hub #01', signX + (signW / 2), stampY + 18.2, { align: 'center' })
+  doc.text('Valid without physical signature under Electronic Transactions Ordinance 2002', signX + (signW / 2), stampY + 22.4, { align: 'center' })
 
   // 8. Footer Legal Bar & Helpline Hotline
   const footY = pageHeight - margin - 12

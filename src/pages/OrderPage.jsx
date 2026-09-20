@@ -7,7 +7,7 @@ import { useFuelPrices } from '../context/FuelPriceContext'
 import { FUEL_PRICES } from '../data/fuelPrices'
 import RefuelingLifecycleTracker from '../components/RefuelingLifecycleTracker'
 import { generateInvoicePdf, numberToWords } from '../utils/generateInvoicePdf'
-import { generateBarcodeSvg } from '../utils/barcode128'
+import { generateBarcodeSvg, generateQrSvg } from '../utils/barcode128'
 
 const FUEL_DISPLAY = {
   petrol: 'Petrol',
@@ -192,6 +192,20 @@ export default function OrderPage() {
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false)
   const [waRedirectCountdown, setWaRedirectCountdown] = useState(null)
   const [isNewOrderJustPlaced, setIsNewOrderJustPlaced] = useState(false)
+  const [verifiedOrderParam, setVerifiedOrderParam] = useState(null)
+
+  // Listen for QR code verification scan URL (?verify=ZYP-XXXXXX or ?order=ZYP-XXXXXX)
+  useEffect(() => {
+    try {
+      if (location.search) {
+        const params = new URLSearchParams(location.search)
+        const v = params.get('verify') || params.get('order')
+        if (v) {
+          setVerifiedOrderParam(v.trim().toUpperCase())
+        }
+      }
+    } catch (e) {}
+  }, [location.search])
 
   // Computed summary
   const fuelRate = prices[selectedFuelType]
@@ -918,19 +932,26 @@ export default function OrderPage() {
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; align-items: stretch;">
-        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-          <div style="font-size: 10px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">Official Dispatch Barcode • Code 128</div>
-          <div style="display: flex; justify-content: center; width: 100%; max-width: 280px; margin: 4px auto; background: #fff; padding: 4px; border-radius: 4px; border: 1px solid #e2e8f0;">
-            ${generateBarcodeSvg(invoiceData.orderId, { moduleWidth: 1.6, height: 42, quietZone: 10, color: '#0f172a', showText: true, fontSize: 11 })}
+      <div style="display: grid; grid-template-columns: 130px 1fr 1.2fr; gap: 14px; margin-bottom: 20px; align-items: stretch;">
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+          <div style="font-size: 9px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px;">📱 Camera Scan (QR)</div>
+          <div style="display: flex; justify-content: center; width: 100%; margin: 2px auto; background: #fff; padding: 3px; border-radius: 4px; border: 1px solid #e2e8f0;">
+            ${generateQrSvg(`https://zyphuel.netlify.app/order/?verify=${invoiceData.orderId}`, { size: 84, margin: 2 })}
           </div>
-          <div style="font-size: 9px; color: #64748b; margin-top: 5px;">Scan with mobile camera or laser scanner to verify order</div>
+          <div style="font-size: 8px; color: #64748b; margin-top: 4px;">Point phone camera</div>
+        </div>
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+          <div style="font-size: 9px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px;">Dispatch Barcode • Code 128</div>
+          <div style="display: flex; justify-content: center; width: 100%; margin: 2px auto; background: #fff; padding: 4px; border-radius: 4px; border: 1px solid #e2e8f0;">
+            ${generateBarcodeSvg(invoiceData.orderId, { moduleWidth: 2.2, height: 46, quietZone: 16, color: '#000000', showText: true, fontSize: 11 })}
+          </div>
+          <div style="font-size: 8px; color: #64748b; margin-top: 4px;">Laser gun & Google Lens compatible</div>
         </div>
         <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
           <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 6px 10px; font-size: 11px; font-weight: 800; color: #166534; margin-bottom: 8px;">★ ZYPHUEL PAKISTAN • CERTIFIED DISPATCH ★</div>
           <div style="font-size: 12px; font-weight: 800; color: #0f172a; margin-bottom: 3px;">Computerized Verified Commercial Invoice</div>
           <div style="font-size: 10px; color: #64748b; margin-bottom: 4px;">Automated Depots Dispatch Gateway • Lahore Hub #01</div>
-          <div style="font-size: 9px; color: #94a3b8;">Valid without physical signature under Electronic Transactions Ordinance 2002</div>
+          <div style="font-size: 8.5px; color: #94a3b8;">Valid without physical signature under Electronic Transactions Ordinance 2002</div>
         </div>
       </div>
 
@@ -1018,6 +1039,33 @@ export default function OrderPage() {
             <div className="section-header fade-in-up">
               <h1 className="section-title">Order Petrol &amp; Diesel Online in Lahore</h1>
             </div>
+
+            {/* Official Scanned Order Authenticity Verification Banner */}
+            {verifiedOrderParam && (
+              <div className="order-verified-banner fade-in-up" role="alert">
+                <div className="verified-banner-inner">
+                  <div className="verified-banner-icon">
+                    <i className="fa-solid fa-circle-check"></i>
+                  </div>
+                  <div className="verified-banner-text">
+                    <div className="verified-banner-title">
+                      OFFICIAL DISPATCH INVOICE VERIFIED &bull; #{verifiedOrderParam}
+                    </div>
+                    <div className="verified-banner-desc">
+                      Certified Authentic Zyphuel Delivery Order &bull; Calibrated 0.01L Digital Flow Meter &bull; OGRA Euro-V Compliant Supply &bull; Lahore Hub #01
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    className="verified-banner-close"
+                    onClick={() => setVerifiedOrderParam(null)}
+                    aria-label="Dismiss verification banner"
+                  >
+                    <i className="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+              </div>
+            )}
 
             {/* Active Dispatch Notification Card (Visible if an active order is in progress) */}
             {activeOrder && (
@@ -2572,25 +2620,49 @@ export default function OrderPage() {
 
               {/* Invoice Footer Security & Signatory Notice */}
               <div className="inv-footer-note">
-                <div className="inv-barcode-card">
-                  <div className="inv-barcode-header">
-                    <i className="fa-solid fa-barcode"></i> OFFICIAL DISPATCH BARCODE &bull; CODE 128
+                <div className="inv-dual-verify-card">
+                  {/* Left: Instant Camera Scannable QR Code */}
+                  <div className="inv-verify-subcard inv-qr-card">
+                    <div className="inv-barcode-header">
+                      <i className="fa-solid fa-qrcode"></i> CAMERA SCAN (QR)
+                    </div>
+                    <div
+                      className="inv-qr-svg-wrap"
+                      dangerouslySetInnerHTML={{
+                        __html: generateQrSvg(`https://zyphuel.netlify.app/order/?verify=${invoiceData.orderId}`, {
+                          size: 88,
+                          margin: 2,
+                          color: '#000000',
+                          background: '#ffffff'
+                        })
+                      }}
+                    />
+                    <div className="barcode-caption">
+                      Point phone camera
+                    </div>
                   </div>
-                  <div
-                    className="inv-barcode-svg-wrap"
-                    dangerouslySetInnerHTML={{
-                      __html: generateBarcodeSvg(invoiceData.orderId, {
-                        moduleWidth: 1.8,
-                        height: 44,
-                        quietZone: 10,
-                        color: '#0f172a',
-                        showText: true,
-                        fontSize: 11
-                      })
-                    }}
-                  />
-                  <div className="barcode-caption">
-                    Scan with phone camera to verify order authenticity
+
+                  {/* Center: Industrial Code 128 Barcode */}
+                  <div className="inv-verify-subcard inv-barcode-subcard">
+                    <div className="inv-barcode-header">
+                      <i className="fa-solid fa-barcode"></i> DISPATCH BARCODE &bull; CODE 128
+                    </div>
+                    <div
+                      className="inv-barcode-svg-wrap"
+                      dangerouslySetInnerHTML={{
+                        __html: generateBarcodeSvg(invoiceData.orderId, {
+                          moduleWidth: 2.2,
+                          height: 46,
+                          quietZone: 16,
+                          color: '#000000',
+                          showText: true,
+                          fontSize: 11
+                        })
+                      }}
+                    />
+                    <div className="barcode-caption">
+                      Laser guns & Google Lens
+                    </div>
                   </div>
                 </div>
                 <div className="inv-digital-sign">
@@ -3418,6 +3490,81 @@ export default function OrderPage() {
           flex-wrap: wrap;
           gap: 14px;
         }
+        .order-verified-banner {
+          background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+          color: #ffffff;
+          border-radius: 12px;
+          padding: 14px 18px;
+          margin-bottom: 24px;
+          box-shadow: 0 6px 22px rgba(6, 78, 59, 0.25);
+          border: 1px solid #10b981;
+          animation: fadeIn 0.3s ease;
+        }
+        .verified-banner-inner {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+        }
+        .verified-banner-icon {
+          font-size: 1.8rem;
+          color: #34d399;
+          flex-shrink: 0;
+        }
+        .verified-banner-text {
+          flex: 1;
+        }
+        .verified-banner-title {
+          font-size: 0.95rem;
+          font-weight: 800;
+          letter-spacing: 0.03em;
+          color: #ecfdf5;
+        }
+        .verified-banner-desc {
+          font-size: 0.78rem;
+          color: #a7f3d0;
+          margin-top: 3px;
+          line-height: 1.4;
+        }
+        .verified-banner-close {
+          background: rgba(255, 255, 255, 0.15);
+          border: none;
+          color: #ffffff;
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: background 0.2s;
+        }
+        .verified-banner-close:hover {
+          background: rgba(255, 255, 255, 0.3);
+        }
+        .inv-dual-verify-card {
+          display: flex;
+          align-items: stretch;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+        .inv-verify-subcard {
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          padding: 8px 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+        .inv-qr-card {
+          width: 108px;
+        }
+        .inv-barcode-subcard {
+          min-width: 220px;
+          max-width: 270px;
+          flex: 1;
+        }
         .inv-barcode-card {
           background: #f8fafc;
           border: 1px solid #e2e8f0;
@@ -3440,6 +3587,22 @@ export default function OrderPage() {
           display: flex;
           align-items: center;
           gap: 5px;
+        }
+        .inv-qr-svg-wrap {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: #ffffff;
+          padding: 3px;
+          border-radius: 4px;
+          border: 1px solid #cbd5e1;
+          width: 88px;
+          height: 88px;
+        }
+        .inv-qr-svg-wrap svg {
+          width: 100%;
+          height: 100%;
+          display: block;
         }
         .inv-barcode-svg-wrap {
           display: flex;
