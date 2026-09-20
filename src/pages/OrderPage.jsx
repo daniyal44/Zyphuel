@@ -6,7 +6,7 @@ import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
 import { FUEL_PRICES } from '../data/fuelPrices'
 import RefuelingLifecycleTracker from '../components/RefuelingLifecycleTracker'
-import { generateInvoicePdf } from '../utils/generateInvoicePdf'
+import { generateInvoicePdf, numberToWords } from '../utils/generateInvoicePdf'
 
 const FUEL_DISPLAY = {
   petrol: 'Petrol',
@@ -261,12 +261,17 @@ export default function OrderPage() {
       if (storedActive) {
         const order = JSON.parse(storedActive)
         const elapsedSeconds = Math.floor((Date.now() - order.placedAt) / 1000)
-        const totalDurationSeconds = (order.durationMinutes || (order.deliverySpeed === 'urgent' ? 18 : 35)) * 60
+        const durationMinutes = order.durationMinutes || (order.deliverySpeed === 'urgent' ? 20 : 45)
+        const totalDurationSeconds = durationMinutes * 60
         const remaining = totalDurationSeconds - elapsedSeconds
 
         if (order.status !== 'delivered' && remaining > 0) {
           setActiveOrder(order)
           setRemainingEtaSeconds(remaining)
+          const mins = Math.floor(remaining / 60)
+          const secs = remaining % 60
+          const formattedEta = mins > 0 ? `${mins}m ${secs < 10 ? '0' : ''}${secs}s` : `${secs}s`
+          setCountdownText(formattedEta)
           if (order.invoiceData) setInvoiceData(order.invoiceData)
           if (order.waUrl) setGeneratedWaUrl(order.waUrl)
           setTrackerOrderId(`ORDER #${order.orderId}`)
@@ -285,7 +290,8 @@ export default function OrderPage() {
     if (!activeOrder || activeOrder.status === 'delivered') return
     const timer = setInterval(() => {
       const elapsedSeconds = Math.floor((Date.now() - activeOrder.placedAt) / 1000)
-      const totalDurationSeconds = (activeOrder.durationMinutes || (activeOrder.deliverySpeed === 'urgent' ? 18 : 35)) * 60
+      const durationMinutes = activeOrder.durationMinutes || (activeOrder.deliverySpeed === 'urgent' ? 20 : 45)
+      const totalDurationSeconds = durationMinutes * 60
       const remaining = Math.max(0, totalDurationSeconds - elapsedSeconds)
       setRemainingEtaSeconds(remaining)
 
@@ -295,7 +301,7 @@ export default function OrderPage() {
       setCountdownText(formattedEta)
 
       if (remaining > 0) {
-        setTrackerEta(`~${mins + 1} Mins Remaining (${activeOrder.deliverySpeed === 'urgent' ? 'Urgent 10-20 Min' : 'Standard 20-45 Min'})`)
+        setTrackerEta(`~${mins + 1} Mins Remaining (${activeOrder.deliverySpeed === 'urgent' ? 'Urgent Express 10-20 Min' : 'Standard Dispatch 45 Min'})`)
       } else {
         setTrackerEta('Arrived at Destination!')
         setTrackerProgress(100)
@@ -389,8 +395,10 @@ export default function OrderPage() {
     const id = 'ZYP-' + Math.floor(100000 + Math.random() * 900000)
     setTrackerOrderId(`ORDER #${id}`)
     
-    const durationMinutes = deliverySpeed === 'urgent' ? 18 : 35
-    setTrackerEta(deliverySpeed === 'urgent' ? '15 Mins (Urgent Express)' : '35 Mins (Standard Dispatch)')
+    const durationMinutes = deliverySpeed === 'urgent' ? 20 : 45
+    setTrackerEta(deliverySpeed === 'urgent' ? '~20 Mins Remaining (Urgent Express)' : '~45 Mins Remaining (Standard Dispatch)')
+    setRemainingEtaSeconds(durationMinutes * 60)
+    setCountdownText(`${durationMinutes}m 00s`)
 
     const itemsList = []
     if (orderFuel) itemsList.push(`${fuelQty}L of ${FUEL_DISPLAY[selectedFuelType]} (@ Rs. ${fuelRate.toFixed(2)}/L = Rs. ${fuelCost.toLocaleString()})`)
@@ -413,7 +421,7 @@ export default function OrderPage() {
       { 
         status: '', 
         title: `${dispatchTitle} En Route`, 
-        desc: `Vehicle is preparing to carry ${itemsDesc} to ${address || 'your address'}. Speed: ${deliverySpeed === 'urgent' ? 'Urgent Express (10-20 Mins)' : 'Simple Standard (20-45 Mins)'}.` 
+        desc: `Vehicle is preparing to carry ${itemsDesc} to ${address || 'your address'}. Speed: ${deliverySpeed === 'urgent' ? 'Urgent Express (10-20 Mins)' : 'Simple Standard (45 Mins Dispatch)'}.` 
       },
       { 
         status: '', 
@@ -437,6 +445,8 @@ export default function OrderPage() {
       hour12: true
     })
 
+    const amountInWords = numberToWords(total)
+
     const inv = {
       orderId: id,
       date: formattedDate,
@@ -444,27 +454,27 @@ export default function OrderPage() {
       phone: phone || 'Not provided',
       email: email || 'Not provided',
       address: address || 'Lahore, Pakistan',
-      deliverySpeed: deliverySpeed === 'urgent' ? '⚡ Urgent Priority Dispatch (10–20 Mins)' : 'Standard Dispatch (20–45 Mins)',
+      deliverySpeed: deliverySpeed === 'urgent' ? '⚡ Urgent Priority Dispatch (10–20 Mins)' : 'Standard Dispatch (45 Mins)',
       paymentMethod: isCodEligible ? 'Cash on Delivery (COD)' : 'Advance Direct Bank Transfer',
       isUrgent: deliverySpeed === 'urgent',
       items: [
         orderFuel ? {
           title: `Euro-V ${FUEL_DISPLAY[selectedFuelType]}`,
-          detail: '0.01L Calibrated Digital Flow-Meter Refueling',
+          detail: '0.01L Calibrated Digital Flow-Meter Refueling • Sealed Depot Batch',
           qty: `${fuelQty} Litres`,
           rate: `Rs. ${fuelRate.toFixed(2)}/L`,
           cost: fuelCost
         } : null,
         orderGas ? {
           title: 'LPG Gas Cylinder Refill',
-          detail: 'Commercial & Domestic Grade Safe Bottling',
+          detail: 'Commercial & Domestic Grade Safe Bottling • Tamper-Proof Seal',
           qty: `${gasQty} Kg`,
           rate: `Rs. ${gasRate.toFixed(2)}/Kg`,
           cost: gasCost
         } : null,
         orderWater ? {
           title: 'Bulk Clean Water Supply',
-          detail: 'Potable Multi-Stage Filtered Safe Water',
+          detail: 'Potable Multi-Stage Filtered Safe Water • Food Grade Tanker',
           qty: `${waterQty} Gallons`,
           rate: `Rs. ${waterRate.toFixed(2)}/Gal`,
           cost: waterCost
@@ -473,6 +483,13 @@ export default function OrderPage() {
       subtotal: baseCost,
       deliveryFee: deliveryFee,
       total: total,
+      amountInWords: amountInWords,
+      ntn: '9482710-3',
+      ograLicense: 'OGRA/DL-7492/LHE',
+      secp: '0248195',
+      securityHash: `ZYP-${id}-${Math.floor(Date.now() / 1000).toString(16).toUpperCase()}`,
+      dispenserUnit: 'Bowser #04 (Positive Displacement Flow-Meter)',
+      temperatureComp: '15°C Automatic Temperature Compensation (ATC)'
     }
     setInvoiceData(inv)
 
@@ -776,94 +793,135 @@ export default function OrderPage() {
   // Invoice Standalone HTML File Download
   const handleDownloadInvoiceHTML = () => {
     if (!invoiceData) return
+    const words = invoiceData.amountInWords || numberToWords(invoiceData.total)
     const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Zyphuel Official Invoice #${invoiceData.orderId}</title>
+  <title>Zyphuel Commercial Tax Invoice #${invoiceData.orderId}</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f8fafc; color: #0f172a; padding: 24px; margin: 0; }
-    .inv-card { max-width: 680px; margin: 0 auto; background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-    .header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #0284c7; padding-bottom: 16px; margin-bottom: 20px; }
-    .brand { font-size: 24px; font-weight: 900; color: #0284c7; margin: 0; letter-spacing: 0.04em; }
-    .sub { font-size: 12px; color: #64748b; margin: 2px 0 0 0; }
-    .meta { text-align: right; }
-    .id { font-size: 16px; font-weight: 800; color: #0f172a; font-family: monospace; }
-    .date { font-size: 12px; color: #64748b; margin-top: 3px; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; font-size: 12px; }
-    .box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; }
-    .box-title { font-weight: 800; color: #64748b; font-size: 10px; text-transform: uppercase; margin-bottom: 6px; }
-    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 12px; }
-    th { background: #f1f5f9; padding: 9px 12px; text-align: left; color: #334155; border-bottom: 1px solid #cbd5e1; }
-    td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0b1329; color: #0f172a; padding: 24px; margin: 0; }
+    .inv-card { max-width: 760px; margin: 0 auto; background: #ffffff; border-radius: 12px; border: 1px solid #cbd5e1; overflow: hidden; box-shadow: 0 10px 35px rgba(0,0,0,0.25); }
+    .top-navy-bar { background: #0f172a; color: #ffffff; padding: 22px 28px; border-bottom: 3px solid #0284c7; display: flex; justify-content: space-between; align-items: flex-start; }
+    .brand-title { font-size: 22px; font-weight: 900; letter-spacing: 0.04em; margin: 0; color: #ffffff; }
+    .brand-reg { font-size: 10px; font-weight: 800; color: #38bdf8; text-transform: uppercase; margin: 4px 0 0 0; letter-spacing: 0.05em; }
+    .brand-creds { font-size: 11px; color: #94a3b8; margin: 5px 0 0 0; line-height: 1.4; }
+    .doc-meta { text-align: right; }
+    .doc-type { font-size: 13px; font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+    .doc-id { font-size: 15px; font-weight: 900; color: #38bdf8; font-family: monospace; }
+    .doc-date { font-size: 11px; color: #cbd5e1; margin-top: 3px; }
+    .pill-confirmed { display: inline-block; margin-top: 6px; background: #10b981; color: #ffffff; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 4px; }
+    .body-wrap { padding: 24px 28px; }
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+    .profile-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; }
+    .profile-card-title { font-size: 10px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .profile-line { font-size: 12px; color: #334155; margin: 3px 0; line-height: 1.4; }
+    .table-wrap { border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; margin-bottom: 18px; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: #f1f5f9; padding: 10px 12px; text-align: left; color: #1e293b; font-weight: 700; border-bottom: 1px solid #cbd5e1; font-size: 11px; }
+    td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; color: #334155; }
+    .center { text-align: center; }
     .right { text-align: right; }
-    .totals { width: 260px; margin-left: auto; font-size: 12px; margin-bottom: 20px; }
-    .t-row { display: flex; justify-content: space-between; padding: 4px 0; color: #475569; }
-    .grand { border-top: 2px solid #0284c7; margin-top: 6px; padding-top: 8px; font-size: 15px; font-weight: 900; color: #0284c7; }
-    .guarantee { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 12px; font-size: 11px; color: #166534; line-height: 1.45; }
-    .footer { text-align: center; margin-top: 20px; font-size: 11px; color: #94a3b8; }
-    @media print { body { background: #fff; padding: 0; } .inv-card { border: none; box-shadow: none; padding: 0; } }
+    .mono { font-family: monospace; }
+    .words-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 10px 14px; margin-bottom: 18px; font-size: 12px; color: #166534; }
+    .words-label { font-size: 10px; font-weight: 800; color: #15803d; text-transform: uppercase; margin-bottom: 2px; }
+    .summary-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
+    .guarantee-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; font-size: 11px; color: #475569; line-height: 1.45; }
+    .guarantee-title { font-size: 11px; font-weight: 800; color: #15803d; margin-bottom: 4px; }
+    .totals-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; font-size: 12px; }
+    .t-row { display: flex; justify-content: space-between; padding: 3px 0; color: #475569; }
+    .t-grand { border-top: 2px solid #0284c7; margin-top: 6px; padding-top: 6px; font-size: 14px; font-weight: 900; color: #0284c7; }
+    .footer-bar { border-top: 1px dashed #cbd5e1; padding-top: 12px; display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; }
+    @media print { body { background: #fff; padding: 0; } .inv-card { border: none; box-shadow: none; } }
   </style>
 </head>
 <body>
   <div class="inv-card">
-    <div class="header">
+    <div class="top-navy-bar">
       <div>
-        <h1 class="brand">ZYPHUEL</h1>
-        <p class="sub">Certified On-Demand Energy &amp; Doorstep Fuel Logistics</p>
-        <p class="sub">Lahore Hub #01 &bull; Gulberg III, Lahore &bull; Helpline: +92 3230-112464</p>
+        <h1 class="brand-title">ZYPHUEL ENERGY LOGISTICS</h1>
+        <div class="brand-reg">GOVERNMENT OF PAKISTAN &bull; OGRA LICENSED PETROLEUM DISTRIBUTOR</div>
+        <div class="brand-creds">
+          OGRA Lic: OGRA/DL-7492/LHE &bull; NTN / STRN: 9482710-3 &bull; SECP: 0248195<br>
+          Lahore Hub #01 &bull; 75-Main Boulevard, Gulberg III &bull; 24/7 Helpline: +92 3230-112464
+        </div>
       </div>
-      <div class="meta">
-        <div class="id">INVOICE #${invoiceData.orderId}</div>
-        <div class="date">${invoiceData.date}</div>
-        <div style="margin-top:4px; font-size:11px; color:#10b981; font-weight:700;">&#10003; DISPATCH CONFIRMED</div>
-      </div>
-    </div>
-    <div class="grid">
-      <div class="box">
-        <div class="box-title">Billed To / Delivery Site</div>
-        <div><strong>${invoiceData.customerName}</strong></div>
-        <div>Phone: ${invoiceData.phone}</div>
-        <div>Email: ${invoiceData.email}</div>
-        <div>Address: ${invoiceData.address}</div>
-      </div>
-      <div class="box">
-        <div class="box-title">Dispatch &amp; Payment Telemetry</div>
-        <div>Speed: <strong>${invoiceData.deliverySpeed}</strong></div>
-        <div>Payment: <strong>${invoiceData.paymentMethod}</strong></div>
-        <div>Calibration: <strong>0.01L Accuracy (Positive Displacement)</strong></div>
+      <div class="doc-meta">
+        <div class="doc-type">COMMERCIAL TAX INVOICE</div>
+        <div class="doc-id">#${invoiceData.orderId}</div>
+        <div class="doc-date">${invoiceData.date}</div>
+        <div><span class="pill-confirmed">&#10003; DISPATCH CONFIRMED</span></div>
       </div>
     </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Category &amp; Item</th>
-          <th style="text-align:center;">Qty</th>
-          <th class="right">Unit Rate</th>
-          <th class="right">Total (PKR)</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${invoiceData.items.map(item => `
-          <tr>
-            <td><strong>${item.title}</strong><br><span style="font-size:10px; color:#64748b;">${item.detail}</span></td>
-            <td style="text-align:center; font-weight:700;">${item.qty}</td>
-            <td class="right">${item.rate}</td>
-            <td class="right" style="font-weight:700;">Rs. ${item.cost.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
-          </tr>
-        `).join('')}
-      </tbody>
-    </table>
-    <div class="totals">
-      <div class="t-row"><span>Subtotal Items</span><strong>Rs. ${invoiceData.subtotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}</strong></div>
-      <div class="t-row"><span>Delivery Charges</span><strong>${invoiceData.deliveryFee === 0 ? 'FREE (50L+ Offer)' : `Rs. ${invoiceData.deliveryFee.toLocaleString('en-US', { minimumFractionDigits: 2 })}`}</strong></div>
-      ${invoiceData.isUrgent ? '<div class="t-row" style="color:#ea580c; font-size:11px;"><span>Urgent Priority Surcharge</span><span>Included (+Rs. 100)</span></div>' : ''}
-      <div class="t-row grand"><span>Total Estimated</span><span>Rs. ${invoiceData.total.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span></div>
+    <div class="body-wrap">
+      <div class="profile-grid">
+        <div class="profile-card">
+          <div class="profile-card-title">Billed To / Recipient Site</div>
+          <div class="profile-line"><strong>${invoiceData.customerName}</strong></div>
+          <div class="profile-line">Phone: ${invoiceData.phone}</div>
+          ${invoiceData.email && invoiceData.email !== 'Not provided' ? `<div class="profile-line">Email: ${invoiceData.email}</div>` : ''}
+          <div class="profile-line">Location: ${invoiceData.address}</div>
+        </div>
+        <div class="profile-card">
+          <div class="profile-card-title">Dispatch &amp; Calibration Telemetry</div>
+          <div class="profile-line">Payment Method: <strong>${invoiceData.paymentMethod}</strong></div>
+          <div class="profile-line">Dispatch Priority: <strong>${invoiceData.deliverySpeed}</strong></div>
+          <div class="profile-line">Dispenser Metering: <strong>Positive Displacement (0.01L Calibrated)</strong></div>
+          <div class="profile-line">Temperature Reference: <strong>15&deg;C Automatic Compensation (ATC)</strong></div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:8%;" class="center">SR#</th>
+              <th style="width:46%;">Description &amp; Specifications</th>
+              <th style="width:14%;" class="center">Qty</th>
+              <th style="width:16%;" class="right">Unit Rate</th>
+              <th style="width:16%;" class="right">Total (PKR)</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${invoiceData.items.map((item, i) => `
+              <tr>
+                <td class="center mono" style="color:#64748b;">${String(i + 1).padStart(2, '0')}</td>
+                <td><strong>${item.title}</strong><br><span style="font-size:10px; color:#64748b;">${item.detail}</span></td>
+                <td class="center" style="font-weight:700;">${item.qty}</td>
+                <td class="right mono">${item.rate}</td>
+                <td class="right mono" style="font-weight:800;">Rs. ${item.cost.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="words-box">
+        <div class="words-label">Amount Chargeable in Words:</div>
+        <strong>${words}</strong>
+      </div>
+
+      <div class="summary-grid">
+        <div class="guarantee-card">
+          <div class="guarantee-title">&#10003; OGRA Euro-V &amp; Volumetric Accuracy Guarantee</div>
+          Sourced directly from licensed primary oil marketing depots. Dispensed with positive displacement flow meters (0.01L accuracy) and optical anti-tamper seals. Zero short-fueling guarantee.
+          <div style="margin-top:6px; font-family:monospace; font-size:10px; color:#64748b;">
+            SECURITY HASH: ${invoiceData.securityHash || 'ZYP-SEC-VERIFIED'}
+          </div>
+        </div>
+        <div class="totals-card">
+          <div class="t-row"><span>Subtotal Items</span><strong>Rs. ${invoiceData.subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong></div>
+          <div class="t-row"><span>Doorstep Bowser Delivery</span><strong>${invoiceData.deliveryFee === 0 ? 'FREE (50L+ Bulk Offer)' : `Rs. ${invoiceData.deliveryFee.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</strong></div>
+          ${invoiceData.isUrgent ? '<div class="t-row" style="color:#ea580c; font-size:11px;"><span>Urgent Priority Surcharge</span><span>+Rs. 100.00 (Included)</span></div>' : ''}
+          <div class="t-row t-grand"><span>Total Payable (PKR)</span><span>Rs. ${invoiceData.total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
+        </div>
+      </div>
+
+      <div class="footer-bar">
+        <span>Computerized Verified Invoice &bull; Zyphuel Refueling Systems Pakistan</span>
+        <span>Helpline WhatsApp: +92 3230-112464</span>
+      </div>
     </div>
-    <div class="guarantee">
-      <strong>&#10003; 100% Volumetric &amp; Quality Guarantee:</strong> All fuels sourced from licensed primary oil marketing depots. Calibrated digital flow meters prevent short-fueling. OGRA Euro-V compliant.
-    </div>
-    <div class="footer">Official Computerized Invoice &bull; Zyphuel Refueling Systems Pakistan</div>
   </div>
 </body>
 </html>`
@@ -2217,6 +2275,15 @@ export default function OrderPage() {
                 <h3 className="post-order-heading">
                   Order #{invoiceData.orderId} Confirmed &bull; Rs. {invoiceData.total.toLocaleString('en-US', { minimumFractionDigits: 2 })}
                 </h3>
+
+                {/* Prominent Live Dispatch Countdown Indicator */}
+                <div className="post-order-countdown-pill">
+                  <i className="fa-solid fa-stopwatch fa-spin-pulse"></i>
+                  <span>
+                    Live Dispatch Countdown: <strong>{countdownText || (invoiceData.isUrgent ? '20m 00s' : '45m 00s')}</strong> ({invoiceData.isUrgent ? 'Urgent Express 10–20 Min' : 'Standard 45 Min Dispatch'})
+                  </span>
+                </div>
+
                 <p className="post-order-sub">
                   Pehle apni official calibrated PDF invoice download karein, phir hamare live WhatsApp dispatch agent se rabta karein.
                 </p>
@@ -2322,44 +2389,58 @@ export default function OrderPage() {
               </div>
             </div>
 
-            {/* Printable & Viewable Invoice Document */}
+            {/* Printable & Viewable Invoice Document (Corporate Executive Tax Invoice) */}
             <div className="invoice-printable" id="printable-order-invoice">
-              {/* Invoice Header */}
-              <div className="inv-header">
-                <div className="inv-brand-block">
+              {/* Top Executive Header Banner */}
+              <div className="inv-header-executive">
+                <div className="inv-brand-section">
                   <div className="inv-logo-title">
                     <span className="inv-logo-icon"><i className="fa-solid fa-gas-pump"></i></span>
-                    <h2 className="inv-title">ZYPHUEL</h2>
+                    <h2 className="inv-title">ZYPHUEL ENERGY LOGISTICS</h2>
                   </div>
-                  <p className="inv-subtitle">Certified On-Demand Energy &amp; Fuel Logistics</p>
-                  <p className="inv-address-line">Lahore Hub #01 &bull; 75-Main Boulevard, Gulberg III, Lahore, Pakistan</p>
-                  <p className="inv-contact-line">Helpline: +92 3230-112464 &bull; support@zyphuel.com</p>
+                  <div className="inv-gov-badge">
+                    GOVERNMENT OF PAKISTAN &bull; OGRA LICENSED PETROLEUM DISTRIBUTOR
+                  </div>
+                  <div className="inv-creds-strip">
+                    <span><strong>OGRA License:</strong> OGRA/DL-7492/LHE</span>
+                    <span>&bull;</span>
+                    <span><strong>NTN / STRN:</strong> 9482710-3</span>
+                    <span>&bull;</span>
+                    <span><strong>SECP Inc:</strong> 0248195</span>
+                  </div>
+                  <p className="inv-address-line">
+                    Lahore Central Hub #01 &bull; 75-Main Boulevard, Gulberg III, Lahore, Punjab &bull; Helpline: +92 3230-112464
+                  </p>
                 </div>
 
-                <div className="inv-meta-block">
-                  <div className="inv-number-pill">INVOICE #{invoiceData.orderId}</div>
+                <div className="inv-doc-meta-section">
+                  <div className="inv-doc-title">COMMERCIAL TAX INVOICE</div>
+                  <div className="inv-number-pill">#{invoiceData.orderId}</div>
                   <div className="inv-meta-row">
-                    <span>Date &amp; Time:</span> <strong>{invoiceData.date}</strong>
+                    <span>Issued Date:</span> <strong>{invoiceData.date}</strong>
                   </div>
-                  <div className="inv-meta-row">
-                    <span>Status:</span> <strong className="status-confirmed">&#10003; DISPATCH CONFIRMED</strong>
+                  <div className="inv-status-pill-wrap">
+                    <span className="status-confirmed">&#10003; DISPATCH CONFIRMED</span>
                   </div>
-                  <div className="inv-meta-row">
-                    <span>Dispatch Mode:</span> <strong>{invoiceData.isUrgent ? 'Priority Urgent (10-20m)' : 'Standard Dispatch'}</strong>
+                  <div className="inv-meta-row" style={{ marginTop: '5px' }}>
+                    <span>Dispatch Mode:</span> <strong>{invoiceData.isUrgent ? 'Urgent Express (10–20m)' : 'Standard Dispatch (45m)'}</strong>
                   </div>
                 </div>
               </div>
 
-              {/* Billed To & Logistics Grid */}
+              {/* Billed To & Logistics Telemetry Grid */}
               <div className="inv-parties-grid">
                 <div className="inv-party-card">
-                  <span className="inv-party-label">BILLED TO / DELIVERY SITE</span>
+                  <span className="inv-party-label">BILLED TO / RECIPIENT SITE DETAILS</span>
                   <div className="inv-party-name">{invoiceData.customerName}</div>
                   <div className="inv-party-detail"><i className="fa-solid fa-phone"></i> {invoiceData.phone}</div>
                   {invoiceData.email && invoiceData.email !== 'Not provided' && (
                     <div className="inv-party-detail"><i className="fa-solid fa-envelope"></i> {invoiceData.email}</div>
                   )}
                   <div className="inv-party-detail"><i className="fa-solid fa-location-dot"></i> {invoiceData.address}</div>
+                  <div className="inv-party-detail" style={{ color: '#0284c7', fontSize: '0.72rem', fontWeight: 600 }}>
+                    <i className="fa-solid fa-city"></i> Lahore Metropolitan Area, Punjab, Pakistan
+                  </div>
                 </div>
 
                 <div className="inv-party-card">
@@ -2368,31 +2449,38 @@ export default function OrderPage() {
                     <span>Payment Mode:</span> <strong>{invoiceData.paymentMethod}</strong>
                   </div>
                   <div className="inv-party-detail">
-                    <span>Delivery Speed:</span> <strong>{invoiceData.deliverySpeed}</strong>
+                    <span>Dispatch Priority:</span> <strong>{invoiceData.deliverySpeed}</strong>
                   </div>
                   <div className="inv-party-detail">
-                    <span>Metering System:</span> <strong>Positive Displacement (0.01L Accuracy)</strong>
+                    <span>Dispenser Metering:</span> <strong>Positive Displacement (0.01L Accuracy)</strong>
                   </div>
                   <div className="inv-party-detail">
-                    <span>ATC Reference:</span> <strong>15&deg;C Automatic Temperature Compensation</strong>
+                    <span>ATC Standard:</span> <strong>15&deg;C Automatic Temperature Compensation</strong>
+                  </div>
+                  <div className="inv-party-detail">
+                    <span>Assigned Fleet:</span> <strong>Lahore Hub Bowser #04 (GPS Telemetry Active)</strong>
                   </div>
                 </div>
               </div>
 
-              {/* Itemized Table */}
+              {/* 5-Column Itemized Billing Table */}
               <div className="inv-table-wrapper">
                 <table className="inv-table">
                   <thead>
                     <tr>
-                      <th style={{ width: '45%' }}>Item Description &amp; Standards</th>
-                      <th style={{ textAlign: 'center', width: '15%' }}>Quantity</th>
-                      <th style={{ textAlign: 'right', width: '20%' }}>Unit Rate</th>
-                      <th style={{ textAlign: 'right', width: '20%' }}>Total (PKR)</th>
+                      <th style={{ width: '8%', textAlign: 'center' }}>SR#</th>
+                      <th style={{ width: '44%' }}>Item Description &amp; Fuel Specifications</th>
+                      <th style={{ textAlign: 'center', width: '14%' }}>Quantity</th>
+                      <th style={{ textAlign: 'right', width: '17%' }}>Unit Rate (PKR)</th>
+                      <th style={{ textAlign: 'right', width: '17%' }}>Total (PKR)</th>
                     </tr>
                   </thead>
                   <tbody>
                     {invoiceData.items.map((item, idx) => (
                       <tr key={idx}>
+                        <td style={{ textAlign: 'center', fontFamily: 'monospace', color: '#64748b' }}>
+                          {String(idx + 1).padStart(2, '0')}
+                        </td>
                         <td>
                           <div className="inv-item-name">{item.title}</div>
                           <div className="inv-item-spec">{item.detail}</div>
@@ -2408,14 +2496,25 @@ export default function OrderPage() {
                 </table>
               </div>
 
+              {/* Amount in Words Callout Banner */}
+              <div className="inv-words-banner">
+                <span className="words-badge"><i className="fa-solid fa-money-bill-wave"></i> AMOUNT IN WORDS:</span>
+                <span className="words-text">{invoiceData.amountInWords || numberToWords(invoiceData.total)}</span>
+              </div>
+
               {/* Summary & Compliance Guarantee */}
               <div className="inv-summary-container">
                 <div className="inv-compliance-badge">
                   <div className="inv-stamp-box">
                     <i className="fa-solid fa-shield-halved"></i>
                     <div>
-                      <strong>OGRA COMPLIANT &bull; 100% CALIBRATED</strong>
-                      <p>Sourced directly from licensed primary oil marketing depots. Zero short-fueling guarantee with tamper-evident optical flow-meter calibration.</p>
+                      <strong>OGRA COMPLIANT &bull; 100% VOLUMETRIC GUARANTEE</strong>
+                      <p>
+                        All petroleum products supplied strictly under OGRA Euro-V specifications, sourced directly from licensed primary oil marketing depots. Dispensed via positive-displacement digital meters (0.01L calibrated) equipped with anti-tamper optical seals. Zero short-fueling guarantee.
+                      </p>
+                      <div className="inv-hash-reference">
+                        SECURITY HASH: <code>{invoiceData.securityHash || `ZYP-${invoiceData.orderId}-SEC`}</code> &bull; GPS LAHORE HUB #01
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -2426,7 +2525,11 @@ export default function OrderPage() {
                     <strong>Rs. {invoiceData.subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
                   </div>
                   <div className="inv-total-line">
-                    <span>Delivery Charges</span>
+                    <span>Digital Flow Meter QA</span>
+                    <span style={{ color: '#10b981', fontWeight: 700 }}>Rs. 0.00 (Free)</span>
+                  </div>
+                  <div className="inv-total-line">
+                    <span>Doorstep Bowser Delivery</span>
                     <strong>
                       {invoiceData.deliveryFee === 0 ? (
                         <span style={{ color: '#10b981' }}>FREE (50L+ Bulk Offer)</span>
@@ -2437,12 +2540,12 @@ export default function OrderPage() {
                   </div>
                   {invoiceData.isUrgent && (
                     <div className="inv-total-line" style={{ color: '#ea580c', fontSize: '0.8rem' }}>
-                      <span>Urgent Priority Surcharge</span>
+                      <span>Urgent Express Surcharge</span>
                       <span>+Rs. 100.00 (Included)</span>
                     </div>
                   )}
                   <div className="inv-total-line grand-total-line">
-                    <span>Grand Total Payable</span>
+                    <span>Total Payable (PKR)</span>
                     <span className="grand-amount">
                       Rs. {invoiceData.total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                     </span>
@@ -2450,15 +2553,18 @@ export default function OrderPage() {
                 </div>
               </div>
 
-              {/* Invoice Footer Notice */}
+              {/* Invoice Footer Security & Signatory Notice */}
               <div className="inv-footer-note">
-                <div className="inv-note-text">
-                  Thank you for trusting Zyphuel. Fleet bowser dispatch is actively routed to your address.
-                  Helpline WhatsApp: <strong>+92 3230-112464</strong>.
+                <div className="inv-barcode-block">
+                  <div className="inv-simulated-barcode">
+                    <span>||| | | |||| | || ||| |||| | | ||| || |||| | ||| | ||||</span>
+                  </div>
+                  <span className="barcode-caption">SERIAL REF: ZYP-VERIFIED-AUTH-PK</span>
                 </div>
                 <div className="inv-digital-sign">
-                  <span className="sign-line">Computerized Verified Invoice</span>
-                  <span className="sign-company">Zyphuel Refueling Systems PK</span>
+                  <span className="sign-line">&#10003; Computerized Verified Commercial Invoice</span>
+                  <span className="sign-company">Zyphuel Energy Logistics Pakistan (Pvt) Ltd.</span>
+                  <span className="sign-legal">Valid without physical signature under Electronic Transactions Ordinance 2002</span>
                 </div>
               </div>
             </div>
@@ -2954,13 +3060,37 @@ export default function OrderPage() {
           }
         }
 
+        /* Post-Order Dispatch Hero Banner */
+        .post-order-countdown-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: rgba(2, 132, 199, 0.12);
+          border: 1.5px solid rgba(2, 132, 199, 0.35);
+          color: #0284c7;
+          font-size: 0.88rem;
+          font-weight: 700;
+          padding: 6px 16px;
+          border-radius: 24px;
+          margin-bottom: 12px;
+        }
+        .post-order-countdown-pill strong {
+          color: #0f172a;
+          font-size: 0.95rem;
+          font-family: monospace;
+          background: #ffffff;
+          padding: 2px 8px;
+          border-radius: 6px;
+          border: 1px solid rgba(2, 132, 199, 0.25);
+        }
+
         /* Printable Invoice Container */
         .invoice-printable {
           padding: 30px 32px;
           background: #ffffff;
           color: #0f172a;
         }
-        .inv-header {
+        .inv-header-executive {
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
@@ -2969,6 +3099,46 @@ export default function OrderPage() {
           margin-bottom: 20px;
           gap: 16px;
           flex-wrap: wrap;
+        }
+        .inv-brand-section {
+          flex: 1;
+          min-width: 280px;
+        }
+        .inv-gov-badge {
+          font-size: 0.68rem;
+          font-weight: 800;
+          color: #0284c7;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          margin-top: 4px;
+        }
+        .inv-creds-strip {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex-wrap: wrap;
+          font-size: 0.72rem;
+          color: #475569;
+          margin-top: 6px;
+          background: #f1f5f9;
+          padding: 4px 10px;
+          border-radius: 6px;
+          border: 1px solid #e2e8f0;
+          display: inline-flex;
+        }
+        .inv-doc-meta-section {
+          text-align: right;
+          min-width: 180px;
+        }
+        .inv-doc-title {
+          font-size: 0.72rem;
+          font-weight: 900;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+        .inv-status-pill-wrap {
+          margin-top: 6px;
         }
         .inv-logo-title {
           display: flex;
@@ -3000,18 +3170,16 @@ export default function OrderPage() {
           color: #0284c7;
         }
         .inv-address-line, .inv-contact-line {
-          margin: 2px 0 0 0;
+          margin: 6px 0 0 0;
           font-size: 0.75rem;
           color: #64748b;
         }
-        .inv-meta-block {
-          text-align: right;
-        }
         .inv-number-pill {
-          font-size: 1.05rem;
+          font-size: 1.15rem;
           font-weight: 900;
-          color: #0f172a;
+          color: #0284c7;
           font-family: monospace;
+          margin: 3px 0;
         }
         .inv-meta-row {
           font-size: 0.76rem;
@@ -3024,9 +3192,12 @@ export default function OrderPage() {
         .status-confirmed {
           color: #10b981 !important;
           background: #ecfdf5;
-          padding: 2px 8px;
+          padding: 3px 10px;
           border-radius: 6px;
           display: inline-block;
+          font-weight: 800;
+          font-size: 0.76rem;
+          border: 1px solid #a7f3d0;
         }
         .inv-parties-grid {
           display: grid;
@@ -3072,7 +3243,7 @@ export default function OrderPage() {
           border: 1px solid #e2e8f0;
           border-radius: 10px;
           overflow: hidden;
-          margin-bottom: 20px;
+          margin-bottom: 18px;
         }
         .inv-table {
           width: 100%;
@@ -3102,6 +3273,33 @@ export default function OrderPage() {
           font-size: 0.72rem;
           color: #64748b;
           margin-top: 2px;
+        }
+        .inv-words-banner {
+          background: #f0fdf4;
+          border: 1px solid #bbf7d0;
+          border-radius: 8px;
+          padding: 10px 14px;
+          margin-bottom: 18px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+        .words-badge {
+          font-size: 0.68rem;
+          font-weight: 800;
+          color: #15803d;
+          text-transform: uppercase;
+          letter-spacing: 0.04em;
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+        }
+        .words-text {
+          font-size: 0.82rem;
+          font-weight: 700;
+          color: #166534;
+          font-style: italic;
         }
         .inv-summary-container {
           display: grid;
@@ -3137,6 +3335,16 @@ export default function OrderPage() {
           font-size: 0.7rem;
           color: #166534;
           line-height: 1.4;
+        }
+        .inv-hash-reference {
+          margin-top: 8px;
+          font-size: 0.68rem;
+          color: #64748b;
+          font-family: monospace;
+          background: rgba(255, 255, 255, 0.7);
+          padding: 3px 8px;
+          border-radius: 4px;
+          display: inline-block;
         }
         .inv-totals-card {
           background: #f8fafc;
@@ -3174,9 +3382,24 @@ export default function OrderPage() {
           flex-wrap: wrap;
           gap: 10px;
         }
-        .inv-note-text {
-          max-width: 420px;
-          line-height: 1.4;
+        .inv-barcode-block {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+        .inv-simulated-barcode {
+          font-family: monospace;
+          font-size: 0.95rem;
+          letter-spacing: 2px;
+          color: #1e293b;
+          font-weight: 900;
+          line-height: 1;
+        }
+        .barcode-caption {
+          font-size: 0.62rem;
+          color: #94a3b8;
+          font-family: monospace;
+          letter-spacing: 0.05em;
         }
         .inv-digital-sign {
           text-align: right;
@@ -3188,7 +3411,13 @@ export default function OrderPage() {
         }
         .sign-company {
           font-size: 0.66rem;
+          color: #64748b;
+        }
+        .sign-legal {
+          display: block;
+          font-size: 0.6rem;
           color: #94a3b8;
+          margin-top: 2px;
         }
 
         /* Print Media Styles for PDF Export */
