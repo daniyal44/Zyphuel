@@ -259,7 +259,7 @@ export default function AboutPage() {
                     title="Muhammad Daniyal LinkedIn Profile"
                     style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
-                    <i className="fa-brands fa-linkedin" style={{ color: '#0077b5' }}></i> CEO LinkedIn Profile
+                    <i className="fa-brands fa-linkedin" style={{ color: '#0077b5' }}></i>LinkedIn Profile
                   </a>
                   <a
                     href="https://www.linkedin.com/company/zyphuel/"
@@ -289,7 +289,7 @@ export default function AboutPage() {
                     title="Muhammad Daniyal & Zyphuel Facebook Page"
                     style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
-                    <i className="fa-brands fa-facebook" style={{ color: '#1877f2' }}></i> Facebook Profile
+                    <i className="fa-brands fa-facebook" style={{ color: '#1877f2' }}></i> Facebook
                   </a>
                   <a
                     href="https://share.google/Nb4XGKYq5aU0nzLr3"
@@ -299,7 +299,7 @@ export default function AboutPage() {
                     title="Google Maps Verified Location for Zyphuel Headquarters"
                     style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
                   >
-                    <i className="fa-brands fa-google" style={{ color: '#ea4335' }}></i> Google Maps Hub
+                    <i className="fa-brands fa-google" style={{ color: '#ea4335' }}></i> Google Maps
                   </a>
                 </div>
               </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useToast } from '../context/ToastContext'
 
 // Fuel-specific SVG micro-illustrations
 const ServiceSvgIcon = ({ fuelTypeKey, fallbackIcon }) => {
@@ -62,6 +63,8 @@ const ServiceSvgIcon = ({ fuelTypeKey, fallbackIcon }) => {
 
 export default function ServiceCard({ svc, index, activeTab, onOrder }) {
   const isConsumer = activeTab === 'consumer'
+  const { showToast } = useToast()
+  const isUnavailable = svc.fuelTypeKey === 'lpg' || svc.fuelTypeKey === 'water' || svc.isUnavailable
 
   return (
     <div
@@ -70,15 +73,33 @@ export default function ServiceCard({ svc, index, activeTab, onOrder }) {
         transitionDelay: `${0.05 + index * 0.05}s`,
         position: 'relative',
         transformStyle: 'preserve-3d',
-        transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease'
+        transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease',
+        opacity: isUnavailable ? 0.88 : 1
       }}
       itemScope
       itemType="https://schema.org/Service"
     >
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
-        <span className={`service-card-tag ${isConsumer ? 'b2c' : 'b2b'}`}>
-          {svc.tag}
-        </span>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <span className={`service-card-tag ${isConsumer ? 'b2c' : 'b2b'}`}>
+            {svc.tag}
+          </span>
+          {isUnavailable && (
+            <span style={{
+              background: 'rgba(239, 68, 68, 0.12)',
+              color: '#dc2626',
+              padding: '2px 8px',
+              borderRadius: '6px',
+              fontSize: '0.72rem',
+              fontWeight: 700,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}>
+              <i className="fa-solid fa-ban"></i> Unavailable
+            </span>
+          )}
+        </div>
         <ServiceSvgIcon fuelTypeKey={svc.fuelTypeKey} fallbackIcon={svc.icon} />
       </div>
 
@@ -94,15 +115,39 @@ export default function ServiceCard({ svc, index, activeTab, onOrder }) {
         ))}
       </ul>
 
-      <Link
-        to={`/order/?fuel=${svc.fuelTypeKey || 'petrol'}&qty=50`}
-        className={`service-card-cta ${isConsumer ? 'b2c-cta' : 'b2b-cta'}`}
-        title={`Order ${svc.title} - Zyphuel Pakistan`}
-        aria-label={`Order ${svc.title} service from Zyphuel`}
-        style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
-      >
-        Order Service <i className="fa-solid fa-arrow-right-long" style={{ marginLeft: '4px' }}></i>
-      </Link>
+      {isUnavailable ? (
+        <button
+          type="button"
+          className={`service-card-cta ${isConsumer ? 'b2c-cta' : 'b2b-cta'}`}
+          onClick={() => showToast(`${svc.title} is currently unavailable. Petrol & Diesel delivery is actively operational 24/7.`, 'warning')}
+          title={`${svc.title} is currently unavailable`}
+          aria-label={`${svc.title} is currently unavailable`}
+          style={{
+            textDecoration: 'none',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: '#64748b',
+            borderColor: '#64748b',
+            color: '#ffffff',
+            cursor: 'not-allowed',
+            opacity: 0.88,
+            width: '100%'
+          }}
+        >
+          <i className="fa-solid fa-ban" style={{ marginRight: '6px' }}></i> Currently Unavailable
+        </button>
+      ) : (
+        <Link
+          to={`/order/?fuel=${svc.fuelTypeKey || 'petrol'}&qty=50`}
+          className={`service-card-cta ${isConsumer ? 'b2c-cta' : 'b2b-cta'}`}
+          title={`Order ${svc.title} - Zyphuel Pakistan`}
+          aria-label={`Order ${svc.title} service from Zyphuel`}
+          style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+        >
+          Order Service <i className="fa-solid fa-arrow-right-long" style={{ marginLeft: '4px' }}></i>
+        </Link>
+      )}
     </div>
   )
 }

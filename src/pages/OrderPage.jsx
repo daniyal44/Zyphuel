@@ -5,7 +5,6 @@ import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
 import { FUEL_PRICES } from '../data/fuelPrices'
-import RefuelingLifecycleTracker from '../components/RefuelingLifecycleTracker'
 import { generateInvoicePdf, numberToWords } from '../utils/generateInvoicePdf'
 import { generateBarcodeSvg, generateQrSvg } from '../utils/barcode128'
 
@@ -122,7 +121,6 @@ export default function OrderPage() {
   const pageRef = useScrollReveal()
   const { showToast } = useToast()
   const location = useLocation()
-  const [deliveryPhase, setDeliveryPhase] = useState('idle') // 'idle', 'loading', 'transit', 'delivered'
   const trackingIntervalRef = useRef(null)
   const isSubmittingRef = useRef(false)
   const truckBtnRef = useRef(null)
@@ -218,9 +216,14 @@ export default function OrderPage() {
   const baseCost = fuelCost + gasCost + waterCost
 
   // Delivery Charges:
-  // Standard Delivery: Free for bulk fuel (>=50L), or Rs. 280 for small fuel orders (<50L) due to fuel price increases
-  // Urgent Delivery: Adds Rs. 100 express priority dispatch fee (controlled, reasonable fee)
-  const standardFee = (orderFuel && fuelQty < 50) ? 280 : 0
+  // Volume-based Standard Delivery: 5L = Rs. 250, 10L = Rs. 300, 15L = Rs. 350
+  // Formula: 200 + (qty * 10) for orders up to 15L; bulk (>=50L) qualifies for Free Delivery
+  const calculateStandardFee = (qty) => {
+    if (qty >= 50) return 0
+    if (qty <= 15) return 200 + qty * 10
+    return Math.min(450, 200 + qty * 10)
+  }
+  const standardFee = orderFuel ? calculateStandardFee(fuelQty) : 0
   const urgentFee = deliverySpeed === 'urgent' ? 100 : 0
   const deliveryFee = standardFee + urgentFee
   const total = baseCost + deliveryFee
@@ -241,30 +244,25 @@ export default function OrderPage() {
       setEmail(parsed.email || '')
       setAddress(parsed.address || '')
       
-      if (parsed.orderFuel !== undefined) {
-        setOrderFuel(parsed.orderFuel)
-      } else if (parsed.fuelType) {
-        if (parsed.fuelType === 'lpg') {
-          setOrderFuel(false)
-          setOrderGas(true)
-          setGasQty(Number(parsed.quantity) || 5)
-        } else if (parsed.fuelType === 'water') {
-          setOrderFuel(false)
-          setOrderWater(true)
-          setWaterQty(Number(parsed.quantity) || 10)
+      setOrderFuel(true)
+      setOrderGas(false)
+      setOrderWater(false)
+
+      if (parsed.fuelType) {
+        if (parsed.fuelType === 'lpg' || parsed.fuelType === 'water') {
+          setSelectedFuelType('petrol')
+          setFuelQty(5)
+          showToast(`Gas Delivery & Water Refill are currently unavailable. Switched to Fuel Delivery.`, 'warning')
         } else {
-          setOrderFuel(true)
           setSelectedFuelType(parsed.fuelType)
           setFuelQty(Math.min(15, Math.max(5, Number(parsed.quantity) || 5)))
         }
       }
 
-      if (parsed.selectedFuelType) setSelectedFuelType(parsed.selectedFuelType)
+      if (parsed.selectedFuelType && ['petrol', 'diesel', 'highOctane'].includes(parsed.selectedFuelType)) {
+        setSelectedFuelType(parsed.selectedFuelType)
+      }
       if (parsed.fuelQty) setFuelQty(Math.min(15, Math.max(5, Number(parsed.fuelQty) || 5)))
-      if (parsed.orderGas !== undefined) setOrderGas(parsed.orderGas)
-      if (parsed.gasQty) setGasQty(Number(parsed.gasQty) || 5)
-      if (parsed.orderWater !== undefined) setOrderWater(parsed.orderWater)
-      if (parsed.waterQty) setWaterQty(Number(parsed.waterQty) || 10)
       if (parsed.deliverySpeed) setDeliverySpeed(parsed.deliverySpeed)
     }
   }, []) // eslint-disable-line
@@ -446,7 +444,6 @@ export default function OrderPage() {
     ])
     setTrackerProgress(20)
     setTrackerOpen(true)
-    setDeliveryPhase('loading')
 
     // Generate Official Digital Invoice
     const now = new Date()
@@ -1016,17 +1013,17 @@ export default function OrderPage() {
                 <div className="ticker-item">
                   <span className="ticker-bullet"></span>
                   LPG Gas: <strong>Rs. {prices.lpg.toFixed(2)}</strong>/Kg
-                  <span className="price-up">Live <i className="fa-solid fa-caret-up"></i></span>
+                  <span className="price-up" style={{ color: '#ef4444' }}>Unavailable</span>
                 </div>
                 <div className="ticker-item">
                   <span className="ticker-bullet"></span>
                   Water Refill: <strong>Rs. {prices.water.toFixed(2)}</strong>/Gal
-                  <span className="price-up">Live <i className="fa-solid fa-caret-up"></i></span>
+                  <span className="price-up" style={{ color: '#ef4444' }}>Unavailable</span>
                 </div>
                 <div className="ticker-item">
                   <span className="ticker-bullet"></span>
-                  Doorstep Delivery: <strong>Rs. 280</strong> &bull; Urgent Express: <strong>+Rs. 100</strong>
-                  <span className="price-up" style={{ color: '#ea580c' }}>Fuel Rate Adj. <i className="fa-solid fa-bell"></i></span>
+                  Doorstep Delivery: <strong>Rs. 250 (5L) &bull; Rs. 300 (10L) &bull; Rs. 350 (15L)</strong> &bull; Urgent Express: <strong>+Rs. 100</strong>
+                  <span className="price-up" style={{ color: '#ea580c' }}>Tiered Rate <i className="fa-solid fa-bell"></i></span>
                 </div>
               </div>
             ))}
@@ -1224,11 +1221,11 @@ export default function OrderPage() {
                     Price Notice &bull; ریٹ اپ ڈیٹ
                   </span>
                   <span style={{ fontWeight: 800, color: 'var(--text-primary, #0f172a)', fontSize: '1.02rem' }}>
-                    Delivery Fee Adjustment Due to Fuel Prices Increase
+                    Delivery Fee Adjustment &bull; Volume-Based Rates
                   </span>
                 </div>
                 <p style={{ margin: '0 0 10px 0', fontSize: '0.88rem', color: 'var(--text-secondary, #475569)', lineHeight: 1.55 }}>
-                  Due to recent nationwide petroleum and fuel price increases across Pakistan, standard doorstep delivery charges for fuel orders have been updated from <span style={{ textDecoration: 'line-through', color: '#94a3b8' }}>Rs. 250</span> to <strong style={{ color: '#ea580c', fontWeight: 800 }}>Rs. 280</strong>.
+                  Standard doorstep delivery charges for fuel orders are volume-based: <strong style={{ color: '#ea580c', fontWeight: 800 }}>Rs. 250 (5L)</strong> &bull; <strong style={{ color: '#ea580c', fontWeight: 800 }}>Rs. 300 (10L)</strong> &bull; <strong style={{ color: '#ea580c', fontWeight: 800 }}>Rs. 350 (15L)</strong>.
                 </p>
                 <div style={{
                   display: 'flex',
@@ -1247,7 +1244,7 @@ export default function OrderPage() {
                     alignItems: 'center',
                     gap: '6px'
                   }}>
-                    <i className="fa-solid fa-truck"></i> Standard Delivery: <strong>Rs. 280</strong> (Previously Rs. 250)
+                    <i className="fa-solid fa-truck"></i> Standard Delivery: <strong>Rs. {standardFee}</strong> ({fuelQty}L volume)
                   </span>
                   <span style={{
                     background: 'rgba(2, 132, 199, 0.12)',
@@ -1377,56 +1374,72 @@ export default function OrderPage() {
                       )}
                     </div>
 
-                    {/* Category 2: Gas */}
-                    <div className={`category-card${orderGas ? ' active' : ''}`}>
-                      <div className="category-header" onClick={() => {
-                        if (orderGas && !orderFuel && !orderWater) {
-                          showToast("At least one item category must be selected.", "error")
-                          return
-                        }
-                        setOrderGas(!orderGas)
-                      }}>
-                        <div className="category-checkbox">
-                          <i className={`fa-solid ${orderGas ? 'fa-square-check' : 'fa-square'}`}></i>
+                    {/* Category 2: Gas (Unavailable) */}
+                    <div
+                      className="category-card disabled unavailable"
+                      style={{ opacity: 0.72, cursor: 'not-allowed', position: 'relative' }}
+                      onClick={() => {
+                        showToast("Gas Delivery is currently unavailable. Petrol & Diesel delivery is actively operational 24/7.", "warning")
+                      }}
+                    >
+                      <div className="category-header">
+                        <div className="category-checkbox" style={{ color: '#ef4444' }}>
+                          <i className="fa-solid fa-ban"></i>
                         </div>
                         <div className="category-title-area">
-                          <span className="category-name"><i className="fa-solid fa-fire icon-spacing"></i> Gas Delivery</span>
-                          <span className="category-desc">Gas Cylinder & Refill / Exchange (Delivery Included)</span>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                            <span className="category-name"><i className="fa-solid fa-fire icon-spacing"></i> Gas Delivery</span>
+                            <span style={{
+                              background: 'rgba(239, 68, 68, 0.12)',
+                              color: '#dc2626',
+                              fontSize: '0.72rem',
+                              fontWeight: 700,
+                              padding: '2px 8px',
+                              borderRadius: '4px',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '4px'
+                            }}>
+                              <i className="fa-solid fa-ban"></i> Currently Unavailable
+                            </span>
+                          </div>
+                          <span className="category-desc">Gas Cylinder & Refill / Exchange (Temporarily paused in your sector)</span>
                         </div>
                       </div>
-                      {orderGas && (
-                        <div className="category-body animated fadeIn">
-                          <div className="info-badge success">
-                            <i className="fa-solid fa-truck-fast"></i> Delivery Charges Free/Included in Gas rate
-                          </div>
-                        </div>
-                      )}
                     </div>
 
-                    {/* Category 3: Water */}
-                    <div className={`category-card${orderWater ? ' active' : ''}`}>
-                      <div className="category-header" onClick={() => {
-                        if (orderWater && !orderFuel && !orderGas) {
-                          showToast("At least one item category must be selected.", "error")
-                          return
-                        }
-                        setOrderWater(!orderWater)
-                      }}>
-                        <div className="category-checkbox">
-                          <i className={`fa-solid ${orderWater ? 'fa-square-check' : 'fa-square'}`}></i>
+                    {/* Category 3: Water (Unavailable) */}
+                    <div
+                      className="category-card disabled unavailable"
+                      style={{ opacity: 0.72, cursor: 'not-allowed', position: 'relative' }}
+                      onClick={() => {
+                        showToast("Water Refill service is currently unavailable. Petrol & Diesel delivery is actively operational 24/7.", "warning")
+                      }}
+                    >
+                      <div className="category-header">
+                        <div className="category-checkbox" style={{ color: '#ef4444' }}>
+                          <i className="fa-solid fa-ban"></i>
                         </div>
                         <div className="category-title-area">
-                          <span className="category-name"><i className="fa-solid fa-droplet icon-spacing"></i> Water Refill</span>
-                          <span className="category-desc">Gallon refilling (Rs. 100/Gallon, Delivery Included)</span>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                            <span className="category-name"><i className="fa-solid fa-droplet icon-spacing"></i> Water Refill</span>
+                            <span style={{
+                              background: 'rgba(239, 68, 68, 0.12)',
+                              color: '#dc2626',
+                              fontSize: '0.72rem',
+                              fontWeight: 700,
+                              padding: '2px 8px',
+                              borderRadius: '4px',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '4px'
+                            }}>
+                              <i className="fa-solid fa-ban"></i> Currently Unavailable
+                            </span>
+                          </div>
+                          <span className="category-desc">Bulk Gallon Refilling (Temporarily paused in your sector)</span>
                         </div>
                       </div>
-                      {orderWater && (
-                        <div className="category-body animated fadeIn">
-                          <div className="info-badge success">
-                            <i className="fa-solid fa-glass-water"></i> Flat Rate: Rs. 100.00 / Gallon
-                          </div>
-                        </div>
-                      )}
                     </div>
                   </div>
 
@@ -1461,8 +1474,8 @@ export default function OrderPage() {
                               </div>
                               <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Litres</span>
                               <div style={{ marginLeft: 'auto' }}>
-                                <span style={{ fontSize: '0.8rem', color: '#ea580c', fontWeight: 600 }}>
-                                  <i className="fa-solid fa-circle-info"></i> Nominal Rs. 280 delivery fee applies
+                                <span style={{ fontSize: '0.82rem', color: '#ea580c', fontWeight: 600 }}>
+                                  <i className="fa-solid fa-truck"></i> Delivery: <strong>Rs. {standardFee}</strong> ({fuelQty}L)
                                 </span>
                               </div>
                             </div>
@@ -1651,7 +1664,7 @@ export default function OrderPage() {
                             Delivery within 20-45 mins
                           </span>
                           <span style={{ fontSize: '0.78rem', color: 'var(--brand-primary, #0284c7)', fontWeight: 700, marginTop: '4px' }}>
-                            Standard Rate {orderFuel && fuelQty >= 50 ? '(FREE)' : (orderFuel ? '(Rs. 280)' : '(Included)')}
+                            Standard Rate {orderFuel ? (fuelQty >= 50 ? '(FREE)' : `(Rs. ${standardFee})`) : '(Included)'}
                           </span>
                         </div>
                       </div>
@@ -1943,16 +1956,6 @@ export default function OrderPage() {
                     <span className="total-amount" id="summary-total-cost">{fmt(total)}</span>
                   </div>
                 </div>
-
-                {/* 3D Delivery Confirmation Vector Animation */}
-                <RefuelingLifecycleTracker
-                  deliveryPhase={deliveryPhase}
-                  setDeliveryPhase={setDeliveryPhase}
-                  selectedFuelType={selectedFuelType}
-                  fuelQty={fuelQty}
-                  address={address}
-                  deliverySpeed={deliverySpeed}
-                />
               </div>
             </div>
           </div>

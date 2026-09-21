@@ -53,7 +53,8 @@ export const servicesB2C = [
       'Pre-tested brass safety valve and rubber ring seals',
       'Old cylinder exchange or new connection installation'
     ],
-    fuelTypeKey: 'lpg'
+    fuelTypeKey: 'lpg',
+    isUnavailable: true
   },
   {
     icon: 'fa-droplet',
@@ -66,7 +67,8 @@ export const servicesB2C = [
       'High-pressure pump hose for rooftop overhead tanks',
       'Same-day express dispatch across Lahore'
     ],
-    fuelTypeKey: 'water'
+    fuelTypeKey: 'water',
+    isUnavailable: true
   }
 ];
 
