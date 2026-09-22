@@ -81,11 +81,11 @@ graph TD
     - Delivery (24/7): Always Active
   - **Left-to-Right Price Ticker**: Deployed continuous infinite marquee (`tickerSlideLTR`) moving smoothly across 4 cloned tracks.
   - **Order Form Streamlining**:
-    - Enforced strict **5 Litres** minimum fuel threshold (stepper + quick chips `[5, 10, 20, 50, 100, 250, 500, 1000]`).
+    - Enforced strict **5 Litres** minimum and **15 Litres** maximum fuel threshold (stepper + quick chips `[5, 7, 10, 12, 15]` with 15L Max capacity indicator).
     - Removed redundant breadcrumbs, quick sector chips, and optional address notes to eliminate checkout friction.
   - **Calibrated Delivery Economics**:
-    - Simple Delivery: **Rs. 280.00** (<50L, updated from Rs. 250 due to fuel price increases); **Free** (≥50L).
-    - Urgent Delivery: Controlled **+Rs. 100.00** priority surcharge (Sub-50L = Rs. 380; 50L+ = Rs. 100).
+    - Simple Delivery: Flat **Rs. 280.00** across doorstep orders.
+    - Urgent Delivery: Controlled **+Rs. 100.00** priority surcharge (Total **Rs. 380.00**).
   - **WhatsApp Direct Dispatch**: Instant order routing to `+92 3230-112464` with structured, URL-encoded payload.
   - **Automated Documentation Registry**:
     - Created `docs/README.md` master directory.

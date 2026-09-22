@@ -231,7 +231,7 @@ timeline
 ### 10.1 Answer Engine Optimization (AEO) Upgrades
 - Injected high-intent transactional questions into the primary `FAQPage` schema on `index.html` and `prerender.js`:
   - Strictly 5 Litres minimum fuel delivery rule.
-  - Transparent delivery charges (Rs. 280 for <50L; Free Rs. 0 for 50L+; Urgent +Rs. 100).
+  - Transparent delivery charges (Flat Rs. 280.00 standard; +Rs. 100 Urgent Surcharge, Total Rs. 380.00).
 - Configured speakable specifications for voice search assistants (Google Assistant, Siri, Alexa) and Google Featured Snippets.
 
 ### 10.2 Generative Engine Optimization (GEO) & LLM Ingestion
@@ -242,6 +242,28 @@ timeline
 ### 10.3 Robots.txt Googlebot Compliance (Line 9 Warning Fix)
 - **Warning Resolved**: Removed unsupported non-standard `Host: https://zyphuel.netlify.app` directive from line 9 in `public/robots.txt` and `dist/robots.txt`.
 - **Outcome**: Google Search Console's robots.txt tester flags 0 warnings, ensuring 100% clean crawler interpretation without rule discarding.
+
+---
+
+## [Phase 11] — Delivery Pricing Calibration, Complete 50L Purge, "• Min" Removal & 15L Max Order Limit Integration (2026-09-22)
+### 11.1 Flat Delivery Pricing Calibration
+- **Standard Simple Delivery**: Unified to flat **Rs. 280.00** across all active doorstep orders in `src/pages/OrderPage.jsx`, replacing the variable `200 + qty * 10` formula.
+- **Urgent Priority Delivery**: Maintained at flat **+Rs. 100.00** surcharge (Total **Rs. 380.00**).
+- **Invoice & WhatsApp Payloads**: Updated WhatsApp dispatch payload and PDF generator (`src/utils/generateInvoicePdf.js`) to display clean flat delivery amounts.
+
+### 11.2 Complete Purge of "50L" and Obsolete Bulk References
+- **Codebase & UI Purged**: Removed all mentions of `50L`, `50 Litres`, `50L+ Bulk Offer`, and `FREE (50L+ Offer)` from `OrderPage.jsx`, `generateInvoicePdf.js`, `TermsOfUsePage.jsx`, `public/llms.txt`, `public/llms-full.txt`, and system documentation.
+
+### 11.3 Quick Select Volume Chips & "• Min" Removal
+- **"• Min" Tag Removed**: Purged `'• Min'` badge label from the 5L button as explicitly requested by user (*"• Min is ko be remove karo"*). Chips now render cleanly as `5 L`, `7 L`, `10 L`, `12 L`, and `15 L • Max`.
+
+### 11.4 15 Litres Maximum Order Limit Integration
+- **Capacity Definition**: Explicitly documented and presented the strict **5 Litres Minimum to 15 Litres Maximum** capacity for rapid mobile doorstep delivery.
+- **Website & Documentation Integration**:
+  - `OrderPage.jsx`: Added `5L – 15L Max per Order` header badge and `Max: 15 L (Doorstep Limit)` slider note.
+  - `TermsOfUsePage.jsx`: Updated legal terms Section 3 to specify the 5L–15L order bounds.
+  - `servicesData.js`: Updated B2C specs to state `5 to 15 Litres: Standard Doorstep Delivery (Max 15L capacity)`.
+  - `articles.js` & `docs/pages/subpages/`: Updated knowledge articles 1, 4, 5, and 6 to detail the 15 Litre limit, explaining rapid transit and safety benefits.
 
 
 

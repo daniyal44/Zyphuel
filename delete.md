@@ -21,6 +21,16 @@ This document records all deleted files, purged assets, pruned legacy code block
 - **Reason for Deletion**: User requested: *"Pump Rate (+Rs. 2.50) ya users ko nai show hona chaye ya text , gaha per be lika ha"*. The +Rs. 2.50 calculation operates quietly in the background without revealing internal margin formulas or cluttering UI cards.
 - **Action Taken**: Removed all visible `Pump Rate (+Rs. 2.50)` tags, `[Petrol Pump Rate]` suffixes, `(Pump)` service chip labels, and the `(OGRA Base: ... + Rs. 2.50 Pump Rate)` summary breakdown. Consumers see pure, clean fuel rates.
 
+### 1.4 "• Min" Tag on Volume Chip Selector
+- **Deleted From**: `src/pages/OrderPage.jsx` (Quick Select Volume chip 5L).
+- **Reason for Deletion**: User explicitly requested: *"• Min is ko be remove karo"*. The chip now cleanly reads `5 L`.
+- **Action Taken**: Removed `{qty === 5 ? '• Min' : ...}` conditional label from the quick volume selector buttons.
+
+### 1.5 Purge of All "50L" References & Obsolete Bulk Offers
+- **Deleted From**: `OrderPage.jsx`, `generateInvoicePdf.js`, `TermsOfUsePage.jsx`, `servicesData.js`, `articles.js`, `public/llms.txt`, `public/llms-full.txt`, and system documentation.
+- **Reason for Deletion**: User requested: *"50L gaha per be lika ha us ko remove karo har gaja sa"*. The service is strictly 5L–15L for agile mobile doorstep delivery, making 50L bulk notices obsolete.
+- **Action Taken**: Purged all occurrences of `50L`, `50 Litres`, `50L+ Bulk Offer`, and `FREE (50L+ Offer)`. Standardized flat delivery charges to Rs. 280.00 standard and Rs. 380.00 urgent.
+
 ---
 
 ## 2. Deleted Legacy Files & Scripts

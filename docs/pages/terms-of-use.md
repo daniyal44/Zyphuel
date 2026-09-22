@@ -22,17 +22,16 @@
    - Minimum age 18 years.
    - Prohibits fraudulent bookings, hazardous tank access, or illegal reselling of fuel.
 3. **Orders, Volumes & Delivery Speed**:
-   - **Minimum Order Volume**: Strictly **5 Litres** for liquid fuels / **5 kg** for LPG.
+   - **Order Volume Limits**: Strictly **5 Litres minimum** up to **15 Litres maximum** for liquid fuel doorstep delivery / **5 kg** for LPG.
    - **Delivery Windows**:
      - Simple/Standard: Estimated 20–45 minutes across central Lahore sectors.
      - Urgent/Priority: Estimated 10–20 minutes with priority routing.
 4. **Pricing, Surcharges & Payments**:
    - Liquid fuels priced strictly per official OGRA ex-depot notifications.
    - Delivery Fees:
-     - Sub-50L Orders: Rs. 280 standard delivery fee (revised from Rs. 250 due to nationwide fuel price hikes).
-     - 50L+ Orders: Free delivery (Rs. 0).
-     - Urgent Dispatch: Flat +Rs. 100 priority surcharge (reasonable controlled fee).
-   - Payment Methods: Cash on Delivery (COD) and approved direct bank transfers.
+     - Standard Delivery: Flat **Rs. 280.00** delivery fee for doorstep fuel orders (5L–15L range).
+     - Urgent Priority Dispatch: Flat **+Rs. 100.00** priority surcharge (Total **Rs. 380.00**).
+   - Payment Methods: Cash on Delivery (COD) for small volumes (≤10L fuel) and approved direct bank transfers.
 5. **Cancellations & Safety Refusals**:
    - Orders can be cancelled prior to bowser departure without penalty.
    - Riders reserve the right to refuse dispensing into damaged, non-grounded, leaking, or plastic domestic containers that violate fire safety standards.
@@ -47,6 +46,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-22** | Unified delivery fee to flat **Rs. 280.00** (+Rs. 100 urgent surcharge, Total Rs. 380), defined strict **5L Min to 15L Max** doorstep capacity limit, and purged all 50L references. | User requested delivery fee update, complete purge of 50L mentions, removal of • Min tag, and 15L max volume documentation. |
 | **2026-09-17** | Updated standard delivery fee term from Rs. 250 to **Rs. 280** for sub-50L fuel orders. | Reflected nationwide fuel price increase in legal terms of use and checkout disclosure. |
 | **2026-09-13** | Synchronized delivery pricing terms (min 5L, Rs. 150 standard fee, Rs. 100 urgent surcharge). | Align legal agreement with live checkout pricing and fee rules. |
 | **2026-09-13** | Added standardized Office Hours and 24/7 Delivery disclosures to Section 8. | Complete schedule transparency across legal pages. |

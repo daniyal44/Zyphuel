@@ -25,4 +25,5 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-22** | Updated article text emphasizing calibrated precision from the minimum 5L to the 15L maximum doorstep order limit. | Align telemetry article with newly unified 5L–15L order bounds. |
 | **2026-09-01** | Published engineering analysis of positive-displacement meters and BLE cloud telemetry. | Educate consumers on hardware-level protections against short-fueling. |

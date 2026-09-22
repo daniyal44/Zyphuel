@@ -37,8 +37,8 @@
 ## Phase 6 — Operational Office Hours & Delivery Fee Calibration
 **Goal:** Transparent business operations and realistic delivery unit economics.
 - [x] Office operating hours schedule card added to Home, Contact, Privacy, and Terms pages.
-- [x] Simple delivery fee calibrated to Rs. 280 (for orders <50L) due to nationwide fuel price hikes; free for 50L+.
-- [x] Urgent delivery priority fee calibrated to a controlled, reasonable +Rs. 100.
+- [x] Simple delivery fee calibrated to flat Rs. 280 for doorstep orders due to nationwide fuel price hikes.
+- [x] Urgent delivery priority fee calibrated to a controlled, reasonable +Rs. 100 (Total Rs. 380).
 - [x] Dedicated markdown documentation registry in `docs/pages/`.
 
 ## Phase 7 — Retail Petrol Pump Rate Markup (+Rs. 2.50/L)
@@ -48,3 +48,10 @@
 - [x] Invariant across price increases, decreases, or steady states ("jab bhi price kam ho ya zada ho ya same rahe").
 - [x] OrderPage ticker, live indicator banner, fuel cards, summary breakdown, digital invoice, and WhatsApp payloads updated.
 - [x] Master logs created: `changes.md`, `remove.md`, `delete.md`.
+
+## Phase 8 — Delivery Pricing Calibration & 15L Max Limit Integration
+**Goal:** Unified flat delivery pricing, 5L–15L strict capacity constraints, and complete purge of obsolete 50L bulk references.
+- [x] Simple delivery fee set to flat Rs. 280.00 across all doorstep orders.
+- [x] Urgent delivery surcharge maintained at flat +Rs. 100.00 (Total Rs. 380.00).
+- [x] Strict 5L Minimum to 15L Maximum capacity enforced and communicated across Order Page, Terms, and Knowledge Articles.
+- [x] Purged all '50L' / '50 Litres' bulk references and '• Min' tag from volume quick select chips.

@@ -24,4 +24,5 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-22** | Updated delivery window specifications, standard Rs. 280 fee, and 5L–15L single order fuel limits. | Synchronize article with unified flat delivery pricing and 15L doorstep volume caps. |
 | **2026-09-03** | Published safety and volumetric verification protocols for LPG cylinder and bulk water delivery. | Establish industry-leading consumer safety and weight transparency standards. |

@@ -371,7 +371,7 @@ export async function generateInvoicePdf(data) {
   const deliveryIsFree = data.deliveryFee === 0
   doc.setTextColor(deliveryIsFree ? 16 : 15, deliveryIsFree ? 185 : 23, deliveryIsFree ? 129 : 42)
   const deliveryFmt = deliveryIsFree
-    ? 'FREE (50L+ Offer)'
+    ? 'Free'
     : (typeof data.deliveryFee === 'number' ? 'Rs. ' + data.deliveryFee.toLocaleString('en-US', { minimumFractionDigits: 2 }) : String(data.deliveryFee))
   doc.text(deliveryFmt, totalsX + totalsW - 5, summaryY + 16.5, { align: 'right' })
 

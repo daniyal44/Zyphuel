@@ -45,10 +45,10 @@
 | `localStorage: zyphuel_active_order` | Client Web Storage | Active order tracking, status & cooldown | Cleared upon order completion |
 
 ## 5. Non-Negotiables & Business Rules
-1. **Minimum Fuel Volume**: Strictly **5 Litres** (sub-5L clamped to 5L; max consumer checkout 15L).
+1. **Minimum & Maximum Fuel Volume**: Strictly **5 Litres minimum** up to **15 Litres maximum** per doorstep delivery order (sub-5L clamped to 5L, capped at 15L max).
 2. **Retail Petrol Pump Rate Markup**: Flat **+Rs. 2.50 / Litre** added to OGRA base price for Petrol, Diesel, and High-Octane.
-3. **Simple Delivery Fee**: **Rs. 280.00** for fuel orders <50 Litres; **FREE (Rs. 0.00)** for fuel orders ≥50 Litres.
-4. **Urgent Delivery Fee**: Controlled, reasonable priority fee of **+Rs. 100.00** flat.
+3. **Simple Delivery Fee**: Flat **Rs. 280.00** nominal delivery fee for doorstep fuel orders.
+4. **Urgent Delivery Fee**: Controlled, reasonable priority fee of **+Rs. 100.00** flat (Total Rs. 380.00).
 5. **Operating Hours**:
    - Monday – Thursday: 8:00 AM – 8:00 PM
    - Friday: 8:00 AM – 1:00 PM

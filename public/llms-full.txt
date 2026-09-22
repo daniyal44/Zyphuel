@@ -20,9 +20,9 @@ Zyphuel deploys purpose-built, double-walled micro-refueling tankers equipped wi
 ---
 
 ## 2. Core Business Logic, Pricing & Rules (System Invariants)
-- **Minimum Fuel Volume**: Strictly 5 Litres. All automated systems, sliders, and input fields clamp sub-5L requests to 5 Litres. Increment step: +1 Litre. Volume chips provided: `[5, 10, 20, 50, 100, 250, 500, 1000]`.
-- **Simple Delivery Charges**: Rs. 280.00 nominal dispatch fee for fuel volumes strictly below 50 Litres. Free Delivery (Rs. 0.00) for orders of 50 Litres and above.
-- **Urgent Priority Surcharge**: Controlled priority surcharge of +Rs. 100.00 flat (Sub-50L Urgent = Rs. 380 total; 50L+ Urgent = Rs. 100 total).
+- **Fuel Volume Range**: Strictly 5 Litres minimum up to 15 Litres maximum per mobile doorstep delivery dispatch. All input fields clamp requests within 5L–15L. Increment step: +1 Litre. Volume chips provided: `[5, 7, 10, 12, 15]` with 15L Max capacity indicator.
+- **Simple Delivery Charges**: Flat Rs. 280.00 nominal dispatch fee for doorstep fuel orders.
+- **Urgent Priority Surcharge**: Controlled priority surcharge of +Rs. 100.00 flat (Standard Rs. 280 + Rs. 100 Urgent Surcharge = Rs. 380.00 total).
 - **Delivery Windows**:
   - Simple Dispatch: 20 to 45 Minutes across Lahore.
   - Urgent Priority Dispatch: 10 to 20 Minutes across Lahore.
@@ -91,8 +91,8 @@ Zyphuel maintains localized refueling nodes covering all 20 municipal zones and 
 | **Dispensing Technology** | 0.01L Calibrated Digital Flow Meters | Mechanical Nozzle | Standard Meter | Industrial Bulk Hose | Portable Cans / Basic Nozzle |
 | **Mobile App Available** | Yes (Android APK v2.6.4.0.0.10) | None | None | None | Multi-service App |
 | **Delivery Speeds** | Simple: 20-45m; Urgent: 10-20m | Scheduled | Scheduled | Next-Day | Scheduled |
-| **Minimum Order** | Strictly 5 Litres | High B2B Min | Car Tank Min | 500L+ Industrial | Varies |
-| **Delivery Pricing** | Rs. 280 (<50L) / Free (≥50L); Urgent +Rs. 100 | Unlisted / Phone Quote | Flat Fee | Bulk Contract | App Fee |
+| **Order Volume Limits** | Strictly 5L Min – 15L Max per Order | High B2B Min | Car Tank Min | 500L+ Industrial | Varies |
+| **Delivery Pricing** | Standard: Rs. 280; Urgent: +Rs. 100 (Total Rs. 380) | Unlisted / Phone Quote | Flat Fee | Bulk Contract | App Fee |
 | **Generator Refueling** | 50-Meter Hoses (Rooftops & Basements) | Standard Hoses | Jerry Cans | Bulk Tanks Only | Not Supported |
 | **Pricing Transparency** | Real-Time Official OGRA Synced Rate Engine | Unlisted | Fixed OGRA | Commercial Bid | Packaged Rate |
 | **Multimodal Utilities** | Euro-V Fuel, Potable Water, Sealed LPG | Fuel Only | Fuel Only | Diesel Only | Fuel + Car Wash Bundle |

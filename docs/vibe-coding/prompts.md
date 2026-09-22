@@ -6,10 +6,10 @@
 - **Tone:** Professional, agile, transparent, and respectful.
 - **Brand Ethos:** *"Not a corporate giant — just an agile, passionate startup delivering doorstep energy with speed and honesty."*
 - **Absolute Pricing Rules:**
-  - Minimum fuel volume: 5 Litres.
+  - Fuel Volume Limits: Strictly 5 Litres Min to 15 Litres Max per doorstep order.
   - Retail Petrol Pump Rate: Always Base Price + Rs. 2.50 / Litre for Petrol, Diesel, and High-Octane.
-  - Simple Delivery: Rs. 280 for orders <50L; Free for ≥50L.
-  - Urgent Delivery: Flat +Rs. 100 priority fee.
+  - Simple Delivery: Flat Rs. 280.00 for doorstep dispatches.
+  - Urgent Delivery: Flat +Rs. 100 priority fee (Total Rs. 380).
   - Fleet Dispatch Phone: `+92 3230-112464`.
 
 ---

@@ -80,8 +80,8 @@ Zyphuel operates localized dispatch hubs positioned across all key zones of Laho
 | **Meter Calibration Accuracy** | 0.01L Positive-Displacement Digital Meter | Mechanical / Metered | CNIC Metered Rider | Bulk Bulk Flow | Prone to nozzle short-fueling |
 | **Mobile App Support** | Android APK v2.6.4.0.0.10 (Live GPS Tracking) | None (Website Only) | Web Portal Only | None (Phone Orders) | None |
 | **Delivery Speed & Windows** | Simple: 20–45 Mins; Urgent: 10–20 Mins | Scheduled Hours | Variable | Next-Day Dispatch | Long queues during price revisions |
-| **Minimum Order Quantity** | 5 Litres (Strict Minimum) | High Commercial Min | Car Tank Min | 500L+ Bulk | 1 Litre at pump |
-| **Delivery Charges** | Rs. 280 (<50L) / Free Rs. 0 (≥50L); Urgent +Rs. 100 | Quoted on call | Variable delivery | Contractual freight | Fuel cost only (plus travel expense) |
+| **Order Volume Limits** | 5L Min – 15L Max per Doorstep Order | High Commercial Min | Car Tank Min | 500L+ Bulk | 1 Litre at pump |
+| **Delivery Charges** | Standard: Rs. 280 (20–45 mins); Urgent: +Rs. 100 flat (Total Rs. 380, 10–20 mins) | Quoted on call | Variable delivery | Contractual freight | Fuel cost only (plus travel expense) |
 | **Generator Refueling Hoses** | 50-Meter Long-Reach Hose (Rooftops & Basements) | Standard Hoses | Jerry Cans | Industrial Camlock | Manual Jerry Cans Required |
 | **Pricing Engine** | Real-Time Official OGRA Synced Rate Engine | Manual | Fixed OGRA | B2B Index | Static price boards |
 | **Utility Services** | Fuel, Potable Water Tankers & Sealed LPG Cylinders | Fuel Only | Fuel Only | Diesel Only | Petrol & Diesel Only |
@@ -94,13 +94,13 @@ Zyphuel operates localized dispatch hubs positioned across all key zones of Laho
 A: Zyphuel is Lahore's leading on-demand mobile fuel delivery and energy logistics platform. Founded by Muhammad Daniyal, Zyphuel provides doorstep delivery of certified Euro-V petrol, diesel, sealed LPG cylinders, and clean water tankers using calibrated digital micro-bowsers accurate to 0.01 Litres.
 
 **Q: How do I order fuel delivery in Lahore with Zyphuel?**  
-A: Customers can order online in 60 seconds at https://zyphuel.netlify.app/order/ or via the Zyphuel Android APK (v2.6.4.0.0.10). Pin your GPS location in Lahore, select fuel type (Petrol or Diesel) and volume (min 5L), choose delivery speed (Simple or Urgent), and track dispatch in real-time.
+A: Customers can order online in 60 seconds at https://zyphuel.netlify.app/order/ or via the Zyphuel Android APK (v2.6.4.0.0.10). Pin your GPS location in Lahore, select fuel type (Petrol or Diesel) and volume (min 5L, max 15L), choose delivery speed (Simple or Urgent), and track dispatch in real-time.
 
-**Q: What is the minimum fuel delivery quantity on Zyphuel?**  
-A: The minimum fuel volume is strictly 5 Litres. All inputs below 5L are clamped to 5L with a 1-Litre increment step, and quick-select volume chips available for 5L, 10L, 20L, 50L, 100L, 250L, 500L, and 1000L.
+**Q: What is the fuel delivery volume range on Zyphuel?**  
+A: Doorstep fuel orders are strictly structured between a minimum of 5 Litres and a maximum of 15 Litres per delivery dispatch (quick-select volume chips: 5L, 7L, 10L, 12L, and 15L Max). All inputs are clamped within 5L–15L with a 1-Litre increment step to guarantee rapid transit and road safety.
 
 **Q: What are Zyphuel's delivery charges in Lahore?**  
-A: Zyphuel charges a nominal Simple Delivery fee of Rs. 280.00 for orders under 50 Litres. Orders of 50 Litres and above qualify for 100% Free Delivery (Rs. 0.00). Urgent priority delivery carries a controlled surcharge of +Rs. 100.00 flat.
+A: Zyphuel charges a flat Simple Delivery fee of Rs. 280.00 for doorstep dispatches (20–45 minutes). Urgent express priority delivery carries a controlled surcharge of +Rs. 100.00 flat (Total Rs. 380.00, 10–20 minutes).
 
 **Q: How fast does Zyphuel deliver fuel in Lahore?**  
 A: Zyphuel offers two dispatch windows: Simple Delivery takes 20 to 45 minutes; Urgent Priority Delivery takes 10 to 20 minutes across major Lahore sectors.

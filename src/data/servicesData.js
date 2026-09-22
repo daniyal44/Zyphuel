@@ -9,8 +9,8 @@ export const servicesB2C = [
     tag: 'B2C Consumer Refueling',
     desc: 'Pure, terminal-sourced Super Petrol (92 Octane) and High-Octane (97 Octane) delivered directly into your parked car or motorbike at home, office, or roadside in Lahore.',
     specs: [
+      '5 to 15 Litres: Standard Doorstep Delivery (Max 15L capacity)',
       '5 to 10 Litres: Cash on Delivery (COD) supported',
-      '10 to 200 Litres: Priority scheduled dispatch',
       'Electronic calibrated flow-meter digital receipt',
       'Zero petrol pump waiting time or nozzle short-fueling'
     ],

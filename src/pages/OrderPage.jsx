@@ -216,14 +216,8 @@ export default function OrderPage() {
   const baseCost = fuelCost + gasCost + waterCost
 
   // Delivery Charges:
-  // Volume-based Standard Delivery: 5L = Rs. 250, 10L = Rs. 300, 15L = Rs. 350
-  // Formula: 200 + (qty * 10) for orders up to 15L; bulk (>=50L) qualifies for Free Delivery
-  const calculateStandardFee = (qty) => {
-    if (qty >= 50) return 0
-    if (qty <= 15) return 200 + qty * 10
-    return Math.min(450, 200 + qty * 10)
-  }
-  const standardFee = orderFuel ? calculateStandardFee(fuelQty) : 0
+  // Flat Standard Delivery: Rs. 280.00 for doorstep dispatches (5L Min - 15L Max per order)
+  const standardFee = (orderFuel || orderGas || orderWater) ? 280 : 0
   const urgentFee = deliverySpeed === 'urgent' ? 100 : 0
   const deliveryFee = standardFee + urgentFee
   const total = baseCost + deliveryFee
@@ -521,7 +515,7 @@ export default function OrderPage() {
       ...itemsList.map(item => `  • ${item}`),
       ``,
       `💵 *Subtotal:* Rs. ${baseCost.toLocaleString()}`,
-      `🚚 *Delivery Charges:* ${deliveryFee > 0 ? `Rs. ${deliveryFee}${deliverySpeed === 'urgent' ? ' (incl. Rs. 100 Urgent Surcharge)' : ''}` : 'FREE (Standard 50L+ Offer)'}`,
+      `🚚 *Delivery Charges:* Rs. ${deliveryFee}${deliverySpeed === 'urgent' ? ' (incl. Rs. 100 Urgent Surcharge)' : ''}`,
       `💰 *TOTAL BILL:* Rs. ${total.toLocaleString()}`,
       `--------------------------------`,
       `📍 *Central Dispatch:* Lahore Hub #01, Pakistan`,
@@ -923,7 +917,7 @@ export default function OrderPage() {
         </div>
         <div class="totals-card">
           <div class="t-row"><span>Subtotal Items</span><strong>Rs. ${invoiceData.subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong></div>
-          <div class="t-row"><span>Doorstep Bowser Delivery</span><strong>${invoiceData.deliveryFee === 0 ? 'FREE (50L+ Bulk Offer)' : `Rs. ${invoiceData.deliveryFee.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</strong></div>
+          <div class="t-row"><span>Doorstep Bowser Delivery</span><strong>${invoiceData.deliveryFee === 0 ? 'FREE' : `Rs. ${invoiceData.deliveryFee.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</strong></div>
           ${invoiceData.isUrgent ? '<div class="t-row" style="color:#ea580c; font-size:11px;"><span>Urgent Priority Surcharge</span><span>+Rs. 100.00 (Included)</span></div>' : ''}
           <div class="t-row t-grand"><span>Total Payable (PKR)</span><span>Rs. ${invoiceData.total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
         </div>
@@ -1244,7 +1238,7 @@ export default function OrderPage() {
                     alignItems: 'center',
                     gap: '6px'
                   }}>
-                    <i className="fa-solid fa-truck"></i> Standard Delivery: <strong>Rs. {standardFee}</strong> ({fuelQty}L volume)
+                    <i className="fa-solid fa-truck"></i> Standard Delivery: <strong>Rs. {standardFee}</strong>
                   </span>
                   <span style={{
                     background: 'rgba(2, 132, 199, 0.12)',
@@ -1455,7 +1449,7 @@ export default function OrderPage() {
                         <div className="quantity-config-card animated fadeIn" style={{ marginBottom: '20px' }}>
                           <div className="quantity-config-header">
                             <span className="config-title"><i className="fa-solid fa-gas-pump"></i> Fuel Quantity ({FUEL_DISPLAY[selectedFuelType]})</span>
-                            <span className="config-unit">Litres</span>
+                            <span className="config-unit">5L – 15L Max per Order</span>
                           </div>
                           
                           <div className="form-group">
@@ -1475,7 +1469,7 @@ export default function OrderPage() {
                               <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Litres</span>
                               <div style={{ marginLeft: 'auto' }}>
                                 <span style={{ fontSize: '0.82rem', color: '#ea580c', fontWeight: 600 }}>
-                                  <i className="fa-solid fa-truck"></i> Delivery: <strong>Rs. {standardFee}</strong> ({fuelQty}L)
+                                  <i className="fa-solid fa-truck"></i> Standard Delivery: <strong>Rs. {standardFee}</strong>
                                 </span>
                               </div>
                             </div>
@@ -1486,7 +1480,7 @@ export default function OrderPage() {
                               aria-label="Fuel quantity slider" />
                             <div className="limits-row">
                               <span>Min: 5 L</span>
-                              <span>Max: 15 L</span>
+                              <span>Max: 15 L (Doorstep Limit)</span>
                             </div>
 
                             {/* Quick Select Volume Buttons */}
@@ -1512,7 +1506,7 @@ export default function OrderPage() {
                                       transition: 'all 0.15s ease'
                                     }}
                                   >
-                                    {qty} L {qty === 5 ? '• Min' : qty === 15 ? '• Max' : ''}
+                                    {qty} L {qty === 15 ? '• Max' : ''}
                                   </button>
                                 ))}
                               </div>
@@ -1664,7 +1658,7 @@ export default function OrderPage() {
                             Delivery within 20-45 mins
                           </span>
                           <span style={{ fontSize: '0.78rem', color: 'var(--brand-primary, #0284c7)', fontWeight: 700, marginTop: '4px' }}>
-                            Standard Rate {orderFuel ? (fuelQty >= 50 ? '(FREE)' : `(Rs. ${standardFee})`) : '(Included)'}
+                            Standard Rate {standardFee > 0 ? `(Rs. ${standardFee})` : '(Included)'}
                           </span>
                         </div>
                       </div>
@@ -2600,7 +2594,7 @@ export default function OrderPage() {
                     <span>Doorstep Bowser Delivery</span>
                     <strong>
                       {invoiceData.deliveryFee === 0 ? (
-                        <span style={{ color: '#10b981' }}>FREE (50L+ Bulk Offer)</span>
+                        <span style={{ color: '#10b981' }}>Free</span>
                       ) : (
                         `Rs. ${invoiceData.deliveryFee.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
                       )}

@@ -24,4 +24,5 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-22** | Updated article text highlighting 5L–15L Max capacity calibration and Rs. 280 standard delivery fee. | Synchronize CEO perspective article with active business constraints and delivery pricing. |
 | **2026-08-28** | Published Founder & CEO article on the founding mission and fleet scaling in Lahore. | Humanize the startup journey and highlight leadership commitment to quality. |

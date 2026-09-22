@@ -33,5 +33,6 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-22** | Updated article text with strict 5L–15L Max doorstep volume limit and flat Rs. 280 standard delivery fee. | User requested to mention order max liters in articles and update delivery pricing. |
 | **2026-09-17** | Added "Related Fuel Guides & Energy Insights" internal link cluster; removed redundant startup slogans per single-hero memory rule; added Contact Helpline CTA; boosted sitemap priority to 0.8 weekly. | Create internal crawl mesh between all 6 blog articles and resolve GSC discovery delays. |
 | **2026-09-05** | Initial publication of daily fuel pricing analysis and OGRA reform guide. | Educate consumers on market volatility and app price alerts. |

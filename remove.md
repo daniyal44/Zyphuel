@@ -11,10 +11,15 @@ This document records all deprecated, phased-out, or removed features, legacy pr
 - **Why Removed**: Physical petrol pump stations in Lahore charge a retail rate including dealer margin and inland freight equalization margin (+Rs. 2.50/L). Charging raw ex-depot rates created a discrepancy between physical petrol station receipts and app pricing.
 - **Replacement**: Automated calculation of `Retail Petrol Pump Rate = Base OGRA Rate + Rs. 2.50 / Litre` across Petrol, Diesel, and High-Octane in `src/data/fuelPrices.js`, `src/context/FuelPriceContext.jsx`, and `src/pages/OrderPage.jsx`.
 
-### 1.2 Outdated Delivery Fee Threshold (Rs. 250 Old Standard Fee)
-- **What Was Removed**: The old Rs. 250.00 simple delivery fee for sub-50L orders.
-- **Why Removed**: High nationwide fuel price inflation required calibrating delivery logistics fees to sustain micro-bowser operating costs.
-- **Replacement**: Calibrated Rs. 280.00 standard delivery fee for fuel orders <50L (Free for ≥50L).
+### 1.2 Outdated Delivery Fee Threshold (Rs. 250 Old Standard Fee & Volume Scaling Formula)
+- **What Was Removed**: The old Rs. 250.00 simple delivery fee and the volume scaling formula `200 + qty * 10`.
+- **Why Removed**: High nationwide fuel price inflation required calibrating delivery logistics fees to sustain micro-bowser operating costs, while variable formulas created pricing confusion.
+- **Replacement**: Calibrated flat Rs. 280.00 standard delivery fee across all doorstep fuel orders (and flat +Rs. 100 urgent priority surcharge, Total Rs. 380.00).
+
+### 1.3 Obsolete "50L+" Bulk Free Delivery Concept
+- **What Was Removed**: All marketing, invoice, and UI references to 50L bulk orders, "50L+ Free Delivery", and "sub-50L" fee brackets.
+- **Why Removed**: Doorstep consumer mobile bowser delivery is strictly structured between 5 Litres minimum and 15 Litres maximum per single order to guarantee rapid transit (20–45 mins) and comply with metropolitan fire & road safety protocols.
+- **Replacement**: Explicit 5L Min – 15L Max capacity limits integrated across Order Page, Terms of Use, service data, and educational articles.
 
 ---
 

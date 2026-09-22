@@ -134,9 +134,9 @@ export default function TermsOfUsePage() {
                 <p>All fuel orders are subject to availability and delivery feasibility within your requested area. Zyphuel reserves the right to decline any order if your location falls outside the current active delivery radius or if demand exceeds current tanker capacity.</p>
                 <ul>
                   <li><strong>Dispatch Timing:</strong> Dispatch and arrival schedules are approximate and subject to urban traffic conditions, weather, safety inspections, and queue priorities.</li>
-                  <li><strong>Minimum Order:</strong> The minimum fuel order quantity is 5 litres. Bulk commercial orders must be pre-approved by our logistics team.</li>
+                  <li><strong>Order Limits:</strong> Fuel orders are strictly structured between a <strong>minimum of 5 Litres</strong> and a <strong>maximum of 15 Litres</strong> per doorstep mobile delivery dispatch to ensure transit safety and rapid routing across Lahore.</li>
                   <li><strong>Delivery Zones:</strong> Active delivery zones are limited to designated Lahore postal codes. Expansion alerts are communicated via our website and badge notifications.</li>
-                  <li><strong>Emergency Deliveries:</strong> Emergency priority orders carry an additional flat surcharge of PKR 500 and cannot be guaranteed in terms of delivery timing.</li>
+                  <li><strong>Urgent Express Deliveries:</strong> Priority express dispatch carries a reasonable flat surcharge of +Rs. 100 (10–20 minute delivery target).</li>
                 </ul>
                 <div className="legal-highlight-box">
                   <p>All delivery quantities are verified at the point of delivery using tamper-evident, calibrated metering equipment. Receipt documentation is issued post-delivery.</p>
@@ -149,7 +149,7 @@ export default function TermsOfUsePage() {
                 <ul>
                   <li><strong>Cash on Delivery:</strong> Our primary payment method is physical cash collected by the tanker operator at the delivery location.</li>
                   <li><strong>Bank Transfer:</strong> Pre-approved enterprise accounts may arrange advance bank transfers for scheduled deliveries.</li>
-                  <li><strong>Delivery Fee:</strong> A volume-based delivery facilitation fee applies to fuel orders under 50 Litres: Rs. 250 for 5L, Rs. 300 for 10L, and Rs. 350 for 15L (scaled at Rs. 200 base + Rs. 10 per Litre). Orders of 50 Litres or more qualify for 100% Free Delivery (Rs. 0.00). Priority express dispatch is available for an additional flat surcharge of +Rs. 100.</li>
+                  <li><strong>Delivery Fee:</strong> Standard doorstep fuel delivery carries a flat nominal dispatch fee of <strong>Rs. 280.00</strong> (for orders within the 5L–15L range). Priority express dispatch is available for an additional flat surcharge of <strong>+Rs. 100.00</strong> (Total Rs. 380.00).</li>
                   <li><strong>No Hidden Charges:</strong> All applicable fees are displayed in the Order Summary before confirmation. No additional charges will be applied post-delivery.</li>
                 </ul>
               </section>
