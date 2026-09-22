@@ -9,9 +9,10 @@
 ---
 
 ## Technical Specifications & Constants
-- **Current Version**: `v2.6.4.0.0.10` (dynamically imported from `src/data/appVersion.js`)
+- **Current Version**: `v2.6.4.0.0.16 (Build 44)` (dynamically imported from `src/data/appVersion.js`)
 - **File Size**: `31.6 MB`
 - **Minimum OS Requirement**: Android 7.0 (Nougat) and above (API level 24+)
+- **Target OS Requirement**: Android 15/16 Ready (API level 36)
 - **Architecture**: Native Android with Jetpack Compose & Material 3 UI
 - **Direct APK Endpoint**: `/APK/Zyphuel.apk`
 - **Security Check**: SHA-256 signed, zero malware/adware, direct release build.
@@ -19,8 +20,8 @@
 ---
 
 ## SEO & Structured Data
-- **Page Title**: `Download Zyphuel APK v2.6.4.0.0.10 | Lahore On-Demand Fuel App`
-- **Meta Description**: `Download official Zyphuel Android APK (v2.6.4.0.0.10, 31.6 MB). Order certified Euro-V petrol & diesel in Lahore with live GPS tracking, 2-hour rate alerts, and biometric security.`
+- **Page Title**: `Download Zyphuel APK v2.6.4.0.0.16 | Lahore On-Demand Fuel App`
+- **Meta Description**: `Download official Zyphuel Android APK (v2.6.4.0.0.16, 31.6 MB). Order certified Euro-V petrol & diesel in Lahore with live GPS tracking, 2-hour rate alerts, and biometric security.`
 - **Schema Type**: `SoftwareApplication` / `MobileApplication`
   - Operating System: `Android 7.0+`
   - Application Category: `UtilitiesApplication` / `BusinessApplication`
@@ -51,6 +52,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-23** | Synchronized app version to `v2.6.4.0.0.16` (`31.6 MB`, Android 7.0+, AGP 9.1.1) across website metadata, documentation, and download endpoints. | User request: align website app version with latest compiled APK release `v2.6.4.0.0.16`. |
 | **2026-09-21** | Ensured git activity graphs, charts, and repository commit changes remain strictly internal to the GitHub repository (`README.md`) and are never exposed on the public customer-facing website. | User requested: *"public nai hona chaye graph only show oon github repository not on a website"*. Removed all engineering telemetry UI from customer-facing portal and streamlined GitHub repository README with native markdown code-based tables. |
 | **2026-09-17** | Synchronized app version to `v2.6.4.0.0.10` (`31.6 MB`, Android 7.0+) across website metadata, documentation, and download endpoints. | User request: align website app version with latest compiled APK release `v2.6.4.0.0.10`. |
 | **2026-09-14** | Synchronized app version to `v2.6.4.0.0.08` (`31.6 MB`, Android 7.0+) across website metadata, documentation, and download endpoints. | User request: align website app version with latest compiled APK release `v2.6.4.0.0.08`. |

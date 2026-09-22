@@ -28,7 +28,7 @@
      1. **Muhammad Daniyal**: Founder & CEO of Zyphuel.
      2. **Adil Farooq**: Zyphuel Sales Manager.
      3. **Zyphuel Executive Team**: Mobile Energy Logistics.
-     4. **Zyphuel QR Code**: Mobile Application v2.0.4.
+     4. **Zyphuel QR Code**: Mobile Application v2.6.4.0.0.16 (dynamically linked to `APP_VERSION`).
      5. **Accurate Measurement**: Calibrated Fuel Tanker & Flow Meter.
      6. **Rider Identity**: HAZMAT Certified Safety Uniform.
 4. **Our Story & Engineering Ethos**:
@@ -53,6 +53,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-23** | Synchronized leadership carousel QR card app version to `v2.6.4.0.0.16`. | Match latest compiled production release `v2.6.4.0.0.16`. |
 | **2026-09-17** | Aligned runtime `useSEO` title and description with `prerender.js`, boosted sitemap priority to 0.9 daily, verified self-referential canonical tags. | Ensure absolute metadata consistency between SSG and client rendering; resolve GSC discovered status. |
 | **2026-09-12** | Integrated 3D Interactive Card Carousel with 6 leadership and equipment cards. | Modernize visual presentation of team, QR code, and calibrated bowser fleet. |
 | **2026-09-08** | Updated executive roles and verified Schema.org Organization metadata. | Strengthen local business trust signals and SEO indexing. |

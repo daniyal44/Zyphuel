@@ -918,7 +918,7 @@ function updateReadmeWithCodeTelemetry(telemetryData) {
   const totalCommits = telemetryData.totalCommits || 143
   const activeDays = telemetryData.activeDays || 34
   const maxDaily = telemetryData.maxDaily || 11
-  const appVersion = telemetryData.appVersion || 'v2.6.4.0.0.10'
+  const appVersion = telemetryData.appVersion ? (telemetryData.appVersion.startsWith('v') ? telemetryData.appVersion : `v${telemetryData.appVersion}`) : `v${APP_VERSION}`
   const commits = telemetryData.commits || []
   const chartData = telemetryData.chartData || []
 

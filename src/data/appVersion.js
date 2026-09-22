@@ -1,12 +1,27 @@
 // Centralized Zyphuel Mobile App Version Configuration
 // Update this file on every application release to dynamically sync versions across the platform.
 
-export const APP_VERSION = '2.6.4.0.0.10';
-export const RELEASE_DATE = 'September 17, 2026';
+export const APP_VERSION = '2.6.4.0.0.16';
+export const BUILD_NUMBER = '44';
+export const RELEASE_DATE = 'September 23, 2026';
 export const APP_SIZE = '31.6 MB';
 export const MIN_ANDROID = '7.0 (Nougat)+';
+export const TARGET_SDK = '36 (Android 15/16 Ready)';
 
 export const CHANGELOG = [
+  {
+    version: '2.6.4.0.0.16',
+    build: '44',
+    date: 'September 23, 2026',
+    title: 'Startup Crash Fix, Zero Data Leak Safeguards, Real-Time Rider GPS & 15L Capacity Cap (Build 44)',
+    features: [
+      'Compiled production release v2.6.4.0.0.16 (Build 44) with Android Gradle Plugin 9.1.1 and Target SDK 36 (Android 15/16 Ready)',
+      'Startup Crash Resolution: Eliminated launch-time NullPointerException on security/biometric state initialization for instant crash-free opening',
+      'Zero Data Leak & Anti-Breach Safeguards: Enforced automated credential, token, and API key redaction in logging and anti-breach telemetry',
+      'Live Rider GPS Tracking & Smooth Interpolation: Real-time driver coordinates published to Firestore with smooth map marker motion and camera lock prevention',
+      'Doorstep Delivery Pricing Alignment: 5L (Rs. 280), 10L (Rs. 300), and 15L Max capacity cap (Rs. 350) with Cash on Delivery (COD) method integration'
+    ]
+  },
   {
     version: '2.6.4.0.0.10',
     date: 'September 17, 2026',

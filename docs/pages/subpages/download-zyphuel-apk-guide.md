@@ -23,13 +23,14 @@
 
 ## Technical Specifications
 - Package: `com.zyphuel.app`
-- Current Version: Linked to `APP_VERSION` (`v2.0.4`)
-- Target SDK: Android 14 (API 34), Min SDK: Android 8.0 (API 26)
+- Current Version: Linked to `APP_VERSION` (`v2.6.4.0.0.16`)
+- Target SDK: Android 14 (API 34), Min SDK: Android 7.0 (API 24)
 
 ---
 
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-23** | Synchronized version references to `APP_VERSION` (`v2.6.4.0.0.16`) and updated Min SDK alignment. | Match latest compiled production release `v2.6.4.0.0.16`. |
 | **2026-09-12** | Synchronized version references to `APP_VERSION` and `APP_SIZE`. | Dynamic variable synchronization across app setup guides. |
 | **2026-09-02** | Initial publication of the step-by-step APK installation walkthrough. | Support direct Android user onboarding and troubleshooting. |

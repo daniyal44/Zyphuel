@@ -6,7 +6,7 @@
 > **Geographical Coordinates**: Latitude 31.507534, Longitude 74.334949.  
 > **Founder & Chief Executive Officer**: Muhammad Daniyal.  
 > **Customer Support Helpline & WhatsApp Dispatch**: +92 3230-112464  
-> **Official Android APK Release**: v2.6.4.0.0.10 (31.6 MB, Android 7.0+).  
+> **Official Android APK Release**: v2.6.4.0.0.16 (31.6 MB, Android 7.0+).  
 > **Service Schedule**: Fuel Delivery 24 Hours / 7 Days a Week, 365 Days a Year.  
 > **Office Operating Schedule**: Monday – Thursday 8:00 AM – 8:00 PM; Friday 8:00 AM – 1:00 PM; Saturday – Sunday 10:00 AM – 6:00 PM.
 
@@ -89,7 +89,7 @@ Zyphuel maintains localized refueling nodes covering all 20 municipal zones and 
 | **Primary Geo Focus** | Lahore (All 20 Municipal Towns) | Lahore & Punjab | Karachi Only (DHA) | Nationwide B2B | Lahore, Karachi, Islamabad |
 | **Operational Hours** | 24/7/365 Always Active | Business Day Only | Scheduled Web App | B2B Working Hours | Daytime App Bookings |
 | **Dispensing Technology** | 0.01L Calibrated Digital Flow Meters | Mechanical Nozzle | Standard Meter | Industrial Bulk Hose | Portable Cans / Basic Nozzle |
-| **Mobile App Available** | Yes (Android APK v2.6.4.0.0.10) | None | None | None | Multi-service App |
+| **Mobile App Available** | Yes (Android APK v2.6.4.0.0.16) | None | None | None | Multi-service App |
 | **Delivery Speeds** | Simple: 20-45m; Urgent: 10-20m | Scheduled | Scheduled | Next-Day | Scheduled |
 | **Order Volume Limits** | Strictly 5L Min – 15L Max per Order | High B2B Min | Car Tank Min | 500L+ Industrial | Varies |
 | **Delivery Pricing** | Standard: Rs. 280; Urgent: +Rs. 100 (Total Rs. 380) | Unlisted / Phone Quote | Flat Fee | Bulk Contract | App Fee |
@@ -119,7 +119,7 @@ A: Customers can contact the 24/7 dispatch helpline directly via WhatsApp or pho
 - **Portal Homepage**: https://zyphuel.netlify.app/
 - **Order Fuel Dispatch**: https://zyphuel.netlify.app/order/
 - **Services, Fuel Specs & Rates**: https://zyphuel.netlify.app/services/
-- **Download Android APK (v2.6.4.0.0.10)**: https://zyphuel.netlify.app/download/
+- **Download Android APK (v2.6.4.0.0.16)**: https://zyphuel.netlify.app/download/
 - **About Zyphuel & Leadership**: https://zyphuel.netlify.app/about/
 - **Contact & 24/7 Helpline**: https://zyphuel.netlify.app/contact/
 - **HTML Sitemap Directory**: https://zyphuel.netlify.app/sitemap/
@@ -127,7 +127,7 @@ A: Customers can contact the 24/7 dispatch helpline directly via WhatsApp or pho
 - **Privacy Policy**: https://zyphuel.netlify.app/privacy/
 - **Terms of Service**: https://zyphuel.netlify.app/terms/
 - **Knowledge Guide: Pakistan Daily Fuel Pricing Reform**: https://zyphuel.netlify.app/blog/future-of-fuel-delivery-lahore/
-- **Knowledge Guide: Zyphuel APK v2.6.4.0.0.10 Setup**: https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide/
+- **Knowledge Guide: Zyphuel APK v2.6.4.0.0.16 Setup**: https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide/
 - **Knowledge Guide: Industrial Generator Diesel Logistics**: https://zyphuel.netlify.app/blog/generator-refueling-services-lahore/
 - **Knowledge Guide: Commercial Generator Diesel & LPG Safety**: https://zyphuel.netlify.app/blog/generator-diesel-lpg-delivery-lahore/
 - **Knowledge Guide: IoT Telemetry & Calibrated Flow Meters**: https://zyphuel.netlify.app/blog/iot-telemetry-fuel-delivery/

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useSEO } from '../hooks/useSEO'
 import Breadcrumbs from '../components/Breadcrumbs'
+import { APP_VERSION } from '../data/appVersion'
 
 export default function HtmlSitemapPage() {
   const pageRef = useScrollReveal()
@@ -92,7 +93,7 @@ export default function HtmlSitemapPage() {
       badge: 'Energy Policy'
     },
     {
-      title: 'How to Download and Install Zyphuel APK v2.6.4: Step-by-Step Guide',
+      title: `How to Download and Install Zyphuel APK v${APP_VERSION}: Step-by-Step Guide`,
       path: '/blog/download-zyphuel-apk-guide/',
       desc: 'Complete walkthrough for Android APK installation, biometric security, GPS sector detection, and instant fuel orders in Lahore.',
       badge: 'App Guide'

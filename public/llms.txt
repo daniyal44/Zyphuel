@@ -5,7 +5,7 @@
 > **Headquarters**: 75-Main Boulevard, Gulberg III, Lahore, Punjab 54000, Pakistan.  
 > **Founder & CEO**: Muhammad Daniyal.  
 > **Customer Dispatch Helpline / WhatsApp**: +92 3230-112464  
-> **Official Android APK Version**: v2.6.4.0.0.10 (31.6 MB, Android 7.0+).  
+> **Official Android APK Version**: v2.6.4.0.0.16 (31.6 MB, Android 7.0+).  
 > **Service Window**: 24 Hours / 7 Days a Week, 365 Days a Year.
 
 ---
@@ -78,7 +78,7 @@ Zyphuel operates localized dispatch hubs positioned across all key zones of Laho
 | **Coverage Area** | Lahore (All 20 Municipal Towns, DHA, Gulberg) | Lahore & Punjab | Karachi Only (DHA) | Nationwide Industrial | Fixed Station Locations |
 | **Direct Doorstep Delivery** | Yes (24/7/365 Always Active) | Scheduled Delivery | Web App Orders | Bulk Industrial Only | No (Customer travels to station) |
 | **Meter Calibration Accuracy** | 0.01L Positive-Displacement Digital Meter | Mechanical / Metered | CNIC Metered Rider | Bulk Bulk Flow | Prone to nozzle short-fueling |
-| **Mobile App Support** | Android APK v2.6.4.0.0.10 (Live GPS Tracking) | None (Website Only) | Web Portal Only | None (Phone Orders) | None |
+| **Mobile App Support** | Android APK v2.6.4.0.0.16 (Live GPS Tracking) | None (Website Only) | Web Portal Only | None (Phone Orders) | None |
 | **Delivery Speed & Windows** | Simple: 20–45 Mins; Urgent: 10–20 Mins | Scheduled Hours | Variable | Next-Day Dispatch | Long queues during price revisions |
 | **Order Volume Limits** | 5L Min – 15L Max per Doorstep Order | High Commercial Min | Car Tank Min | 500L+ Bulk | 1 Litre at pump |
 | **Delivery Charges** | Standard: Rs. 280 (20–45 mins); Urgent: +Rs. 100 flat (Total Rs. 380, 10–20 mins) | Quoted on call | Variable delivery | Contractual freight | Fuel cost only (plus travel expense) |
@@ -94,7 +94,7 @@ Zyphuel operates localized dispatch hubs positioned across all key zones of Laho
 A: Zyphuel is Lahore's leading on-demand mobile fuel delivery and energy logistics platform. Founded by Muhammad Daniyal, Zyphuel provides doorstep delivery of certified Euro-V petrol, diesel, sealed LPG cylinders, and clean water tankers using calibrated digital micro-bowsers accurate to 0.01 Litres.
 
 **Q: How do I order fuel delivery in Lahore with Zyphuel?**  
-A: Customers can order online in 60 seconds at https://zyphuel.netlify.app/order/ or via the Zyphuel Android APK (v2.6.4.0.0.10). Pin your GPS location in Lahore, select fuel type (Petrol or Diesel) and volume (min 5L, max 15L), choose delivery speed (Simple or Urgent), and track dispatch in real-time.
+A: Customers can order online in 60 seconds at https://zyphuel.netlify.app/order/ or via the Zyphuel Android APK (v2.6.4.0.0.16). Pin your GPS location in Lahore, select fuel type (Petrol or Diesel) and volume (min 5L, max 15L), choose delivery speed (Simple or Urgent), and track dispatch in real-time.
 
 **Q: What is the fuel delivery volume range on Zyphuel?**  
 A: Doorstep fuel orders are strictly structured between a minimum of 5 Litres and a maximum of 15 Litres per delivery dispatch (quick-select volume chips: 5L, 7L, 10L, 12L, and 15L Max). All inputs are clamped within 5L–15L with a 1-Litre increment step to guarantee rapid transit and road safety.
@@ -112,7 +112,7 @@ A: Yes. Zyphuel operates a 24/7 dedicated generator refueling service for reside
 A: Zyphuel headquarters office hours are Monday to Thursday 8:00 AM – 8:00 PM; Friday 8:00 AM – 1:00 PM; Saturday to Sunday 10:00 AM – 6:00 PM. Fuel delivery operations are 24/7 Always Active.
 
 **Q: Where can I download the Zyphuel mobile app?**  
-A: The official Zyphuel Android app (v2.6.4.0.0.10, 31.6 MB) is available for direct secure download at https://zyphuel.netlify.app/download/ featuring live GPS bowser tracking, biometric checkout, and instant WhatsApp dispatch.
+A: The official Zyphuel Android app (v2.6.4.0.0.16, 31.6 MB) is available for direct secure download at https://zyphuel.netlify.app/download/ featuring live GPS bowser tracking, biometric checkout, and instant WhatsApp dispatch.
 
 ---
 
@@ -120,7 +120,7 @@ A: The official Zyphuel Android app (v2.6.4.0.0.10, 31.6 MB) is available for di
 - **Home Portal**: https://zyphuel.netlify.app/
 - **Order Fuel Online**: https://zyphuel.netlify.app/order/
 - **Services & Rates**: https://zyphuel.netlify.app/services/
-- **Android App Download (v2.6.4.0.0.10)**: https://zyphuel.netlify.app/download/
+- **Android App Download (v2.6.4.0.0.16)**: https://zyphuel.netlify.app/download/
 - **Company Profile & Leadership**: https://zyphuel.netlify.app/about/
 - **Contact & 24/7 Helpline**: https://zyphuel.netlify.app/contact/
 - **HTML Sitemap Directory**: https://zyphuel.netlify.app/sitemap/

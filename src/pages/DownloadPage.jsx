@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
-import { APP_VERSION, RELEASE_DATE, APP_SIZE, MIN_ANDROID, CHANGELOG } from '../data/appVersion'
+import { APP_VERSION, BUILD_NUMBER, TARGET_SDK, RELEASE_DATE, APP_SIZE, MIN_ANDROID, CHANGELOG } from '../data/appVersion'
 import Breadcrumbs from '../components/Breadcrumbs'
 import './styles.css'
 
@@ -335,7 +335,7 @@ export default function DownloadPage() {
                 {/* Metadata Pills */}
                 <div className="app-meta-tags">
                   <span className="version-meta-highlight">
-                    <i className="fa-solid fa-code-branch"></i> <strong>Version:</strong> v{APP_VERSION} <span className="version-tag-badge">Latest</span>
+                    <i className="fa-solid fa-code-branch"></i> <strong>Version:</strong> v{APP_VERSION} <span className="version-tag-badge">Build {BUILD_NUMBER}</span>
                   </span>
                   <span className="separator">•</span>
                   <span><strong>Size:</strong> {APP_SIZE}</span>
@@ -739,7 +739,7 @@ export default function DownloadPage() {
                 <div className="spec-item-icon"><i className="fa-solid fa-code-branch"></i></div>
                 <div className="spec-item-content">
                   <h4>Application Version</h4>
-                  <div className="spec-value">v{APP_VERSION} (Production)</div>
+                  <div className="spec-value">v{APP_VERSION} (Build {BUILD_NUMBER} • Production)</div>
                   <div className="spec-subtext">Updated {RELEASE_DATE}</div>
                 </div>
               </div>
