@@ -3,6 +3,11 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react()],
+  server: {
+    watch: {
+      ignored: ['**/dist/**', '**/dist-ssr/**', '**/APK/**', '**/*.apk']
+    }
+  },
   build: {
     target: 'es2020',
     cssCodeSplit: true,

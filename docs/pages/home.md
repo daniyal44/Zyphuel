@@ -21,16 +21,16 @@
 
 0. **Cinematic 3D Scroll Refueling Hero Section (Top Hero)**:
    - Component: `src/components/ScrollAnimationSection.jsx` + `src/components/ScrollAnimationSection.css`.
-   - **Full-Bleed Edge-to-Edge Canvas — Zero Text Overlays**:
-     - The 3D frames fill 100% of the viewport using cover-mode aspect scaling (`Math.max(cw/iw, ch/ih)`).
-     - No boxed cards, no story stages, no greeting badges, no phase badges — pure cinematic visual experience only.
-     - Subtle ambient vignette overlays (top gradient, bottom gradient, radial) provide depth.
+   - **Full-Bleed Responsive Cover Canvas — Zero Black Side Boxes**:
+     - The canvas fills 100% of the viewport stage across all screens (Mobile, Tablet, Laptop, Desktop, Ultrawide) using `width: 100%; height: 100%; min-width: 100%; min-height: 100%; object-fit: cover; object-position: center center;`.
+     - Eliminates all side black pillarboxing and top/bottom letterboxing bars.
+     - Preserves the central focus of the fuel nozzle and Euro-V canister on all aspect ratios.
+     - 1920x1080 native resolution initialized directly in JSX to eliminate initial 300x150 layout shifts.
    - **300 High-Definition Frames**: Full sequence from `/ezgif-2f1a39c97e5b173b-jpg/` in 3D motion.
-   - **Lerp-Based Smooth Animation**: Frame interpolation uses lerp (linear interpolation at 0.08 speed factor) via a continuous `requestAnimationFrame` loop. Scroll sets target frame; animation smoothly eases toward it. No instant jumps.
-   - **Extended Runway for Slow Scroll**: `600vh` desktop / `480vh` tablet / `400vh` mobile — frames advance gradually and cinematically.
-   - **Minimal HUD Only**: Thin glowing progress bar at bottom + subtle "Scroll to explore" hint pill. "Continue to Doorstep Fuel Delivery" link appears near frame 290+.
-   - **Strictly No Frame Numbers or Text Overlays**: Zero story cards, zero stage descriptions, zero greeting banners, zero phase badges.
-   - **Seamless Transition**: When scrolling past the 300-frame runway, the next `#home` section naturally appears.
+   - **Direct 1:1 RAF-Throttled Scroll Scrubbing**: Smooth scrolling with high-quality smoothing enabled (`ctx.imageSmoothingQuality = 'high'`).
+   - **Consistent Runway Length**: 2500vh runway across all devices for uniform pacing.
+   - **Minimal HUD Only**: Subtle pulsing scroll hint pill (`↓ Scroll to animate ↓`) that fades away smoothly upon first scroll.
+   - **Seamless Transition**: When scrolling past the runway, naturally scrolls into `#home`.
 
 1. **Main Home Hero Section (`#home`)**:
    - Headline: `Doorstep Fuel Delivery in Lahore`.
@@ -77,6 +77,9 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-25** | Zero Pixel Tearing, Integer Alignment & Background GPU Async Frame Decoding. | User demanded: *"scroll karte hove pixel na phate ek be frame ka, is ka khas khayal rakhna zara"*. Eliminated subpixel `.5px` raster jitter by removing `transform: translate(-50%, -50%)` in favor of integer `(0, 0)` alignment with `transform: translateZ(0)` hardware acceleration and `image-rendering: high-quality`. Upgraded image preloader with immediate 30-frame async streaming and `img.decode()` background GPU texture decoding. Added `lastDrawnImgRef` frame persistence to prevent blank clear flashes and updated RAF loop to strictly render the latest target frame index, ensuring zero pixel tearing across all 300 frames. |
+| **2026-09-25** | Full-Bleed Edge-to-Edge Responsive Canvas Sizing (Eliminated Side Black Boxes). | User reported: *"home page ma jo sab sa uper hero section ha us ka side black box bana hova ha hero section fill nai ha scroll animation ko us pore section ma fit karo or responvive hona chaye har deveice kadevice mutabiq"*. Upgraded `.reference-canvas` in `ScrollAnimationSection.css` from restrictive `max-width: 100%; max-height: 100%` (which caused pillarboxing black bars on desktop and letterboxing on mobile) to `width: 100%; height: 100%; min-width: 100%; min-height: 100%; object-fit: cover; object-position: center center;`. Initialized 1920x1080 dimensions in JSX to avoid 300x150 layout shifts, enabled high-quality context smoothing (`imageSmoothingQuality = 'high'`), and completely filled the entire hero stage edge-to-edge across all mobile, tablet, laptop, desktop, and ultrawide screens. |
+| **2026-09-25** | Removed Mobile Application Preference Notice Box from Hero Section. | User requested: *"is wale section ko remove karo"*. Removed the `.hero-app-preference-box` element and associated styling from `HomePage.jsx` and `src/index.css`, restoring the clean hero grid layout. |
 | **2026-09-24** | Comprehensive Performance, SEO, Schema & Fixed 'Within 45 Mins' Delivery Standardization. | (1) Removed dead Anime.js and global GSAP CDN scripts from `<head>`, (2) Standardized doorstep delivery time strictly to fixed **within 45 minutes** across Home metadata, OpenGraph, Twitter, and Schema.org FAQ graphs, (3) Corrected Schema.org FAQ to enforce 5–15L volume cap and flat Rs. 280 fee, (4) Enriched dynamic `sitemap.xml` with Google Image tags (`zyphuel-og.png`) and updated lastmod. |
 | **2026-09-20** | International & Global Standards SEO Overhaul. | Added multi-locale `hreflang` triad (`x-default`, `en`, `en-PK`), OpenGraph locales (`en_PK`, `en_US`, `en_GB`), and global distribution metadata (`distribution: global`, `coverage: Worldwide`, `rating: general`, `revisit-after: 2 days`) to `index.html` and `prerender.js` for universal crawler and global browser compatibility. |
 | **2026-09-16** | Comprehensive SEO, Technical SEO, Hreflang & Operational Claim Harmonization. | Implemented user SEO & technical blueprint: (1) Cleaned `canonicalAndHreflang` across `prerender.js`, `useSEO.js`, and `SeoHead.jsx` by retaining only `canonical`, `x-default`, and `en-PK` (preventing Google Search Console duplicate hreflang conflict error from invalid `en-US` and `ur-PK`), (2) Eliminated monolithic 30-term keyword stuffing in `<meta name="keywords">` in favor of targeted high-intent keywords per route, (3) Cleaned up schema `AggregateOffer` on `/order/` (replaced arbitrary fake static prices with valid `Offer` at official OGRA rates), (4) Standardized operational delivery windows (20–45 min standard, 10–20 min urgent), hose length (50-meter delivery hose), and COD eligibility range (5–10 Litres) across all pages, FAQs, and data structures. |

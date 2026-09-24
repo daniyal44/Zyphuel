@@ -142,7 +142,7 @@ export default function ServicesPage() {
               "name": "Is Cash on Delivery (COD) supported for fuel orders?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel. For larger orders or corporate fleets, online bank transfers and 30-day billing accounts are available."
+                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel. If you don't have cash, instant on-spot digital wallet payments via JazzCash, Easypaisa, NayaPay, and Raast are also accepted. For larger orders or corporate fleets, online bank transfers and 30-day billing accounts are available."
               }
             }
           ]
@@ -208,7 +208,7 @@ export default function ServicesPage() {
                   </div>
                   <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm, 6px)', padding: '8px 12px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.03)' }}>
                     <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#16a34a', flexShrink: 0 }}></span>
-                    <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>Dispatch: Within 45 Mins</span>
+                    <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>Delivered: Within 45 Mins</span>
                   </div>
                 </div>
 
@@ -499,10 +499,10 @@ export default function ServicesPage() {
 
               <div style={{ background: '#f8fafc', borderRadius: '10px', padding: '20px', border: '1px solid var(--border-color)' }}>
                 <h3 style={{ margin: '0 0 8px 0', fontSize: '1.05rem', color: 'var(--text-primary)', fontWeight: 700 }}>
-                  <i className="fa-solid fa-circle-question" style={{ color: 'var(--accent-color, #0ea5e9)', marginRight: '8px' }}></i> Is Cash on Delivery (COD) supported?
+                  <i className="fa-solid fa-circle-question" style={{ color: 'var(--accent-color, #0ea5e9)', marginRight: '8px' }}></i> Is Cash on Delivery (COD) or digital payment supported?
                 </h3>
                 <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                  Yes! Cash on Delivery (COD) is available for domestic orders from 5 to 10 liters of fuel. For commercial orders and fleets, direct bank transfers and monthly billing accounts are supported.
+                  Yes! Cash on Delivery (COD) is available for domestic orders from 5 to 10 liters of fuel. If you do not have cash ready, our delivery pilots carry instant QR codes for on-spot mobile wallet transfers via JazzCash, Easypaisa, NayaPay, and Raast / Bank transfer. For commercial orders and fleets, direct bank transfers and monthly billing accounts are supported.
                 </p>
               </div>
             </div>

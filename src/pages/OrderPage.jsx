@@ -143,7 +143,7 @@ export default function OrderPage() {
               "name": "Is Cash on Delivery (COD) supported?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel. Orders above 10 Litres require advance payment for safety compliance."
+                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel. If you do not have cash, instant on-spot digital wallet payments via JazzCash, Easypaisa, NayaPay, and Raast are also accepted. Orders above 10 Litres require advance payment for safety compliance."
               }
             },
             {
@@ -272,10 +272,9 @@ export default function OrderPage() {
   const baseCost = fuelCost + gasCost + waterCost
 
   // Delivery Charges:
-  // Flat Standard Delivery: Rs. 280.00 for doorstep dispatches (5L Min - 15L Max per order)
+  // Flat Standard Delivery: Rs. 280.00 for doorstep dispatches (Within 45 Mins, 5L Min - 15L Max per order)
   const standardFee = (orderFuel || orderGas || orderWater) ? 280 : 0
-  const urgentFee = deliverySpeed === 'urgent' ? 100 : 0
-  const deliveryFee = standardFee + urgentFee
+  const deliveryFee = standardFee
   const total = baseCost + deliveryFee
 
   // COD is enabled for small orders
@@ -330,7 +329,7 @@ export default function OrderPage() {
       if (storedActive) {
         const order = JSON.parse(storedActive)
         const elapsedSeconds = Math.floor((Date.now() - order.placedAt) / 1000)
-        const durationMinutes = order.durationMinutes || (order.deliverySpeed === 'urgent' ? 20 : 45)
+        const durationMinutes = order.durationMinutes || 45
         const totalDurationSeconds = durationMinutes * 60
         const remaining = totalDurationSeconds - elapsedSeconds
 
@@ -359,7 +358,7 @@ export default function OrderPage() {
     if (!activeOrder || activeOrder.status === 'delivered') return
     const timer = setInterval(() => {
       const elapsedSeconds = Math.floor((Date.now() - activeOrder.placedAt) / 1000)
-      const durationMinutes = activeOrder.durationMinutes || (activeOrder.deliverySpeed === 'urgent' ? 20 : 45)
+      const durationMinutes = activeOrder.durationMinutes || 45
       const totalDurationSeconds = durationMinutes * 60
       const remaining = Math.max(0, totalDurationSeconds - elapsedSeconds)
       setRemainingEtaSeconds(remaining)
@@ -370,7 +369,7 @@ export default function OrderPage() {
       setCountdownText(formattedEta)
 
       if (remaining > 0) {
-        setTrackerEta(`~${mins + 1} Mins Remaining (${activeOrder.deliverySpeed === 'urgent' ? 'Urgent Priority (Within 45 Mins)' : 'Standard Dispatch (Within 45 Mins)'})`)
+        setTrackerEta(`~${mins + 1} Mins Remaining (Within 45 Mins)`)
       } else {
         setTrackerEta('Arrived at Destination!')
         setTrackerProgress(100)
@@ -465,7 +464,7 @@ export default function OrderPage() {
     setTrackerOrderId(`ORDER #${id}`)
     
     const durationMinutes = 45
-    setTrackerEta(deliverySpeed === 'urgent' ? '~45 Mins Remaining (Urgent Priority)' : '~45 Mins Remaining (Standard Dispatch)')
+    setTrackerEta('~45 Mins Remaining (Within 45 Mins)')
     setRemainingEtaSeconds(durationMinutes * 60)
     setCountdownText(`${durationMinutes}m 00s`)
 
@@ -489,7 +488,7 @@ export default function OrderPage() {
       { 
         status: '', 
         title: `${dispatchTitle} En Route`, 
-        desc: `Bowser carrying ${fuelQty}L of ${FUEL_DISPLAY[selectedFuelType]} for ${appLabel} to ${address || 'your address'}. Speed: ${deliverySpeed === 'urgent' ? 'Urgent Priority (Within 45 Mins)' : 'Simple Standard (Within 45 Mins)'}.` 
+        desc: `Bowser carrying ${fuelQty}L of ${FUEL_DISPLAY[selectedFuelType]} for ${appLabel} to ${address || 'your address'}. Dispatch Window: Within 45 Mins.` 
       },
       { 
         status: '', 
@@ -521,9 +520,11 @@ export default function OrderPage() {
       phone: phone || 'Not provided',
       email: email || 'Not provided',
       address: address || 'Lahore, Pakistan',
-      deliverySpeed: deliverySpeed === 'urgent' ? '⚡ Urgent Priority Dispatch (Within 45 Mins)' : 'Standard Dispatch (Within 45 Mins)',
-      paymentMethod: isCodEligible ? 'Cash on Delivery (COD)' : 'Advance Direct Bank Transfer',
-      isUrgent: deliverySpeed === 'urgent',
+      deliverySpeed: 'Standard Dispatch (Within 45 Mins)',
+      paymentMethod: isCodEligible
+        ? 'Cash on Delivery (COD) / Instant Wallet (JazzCash, Easypaisa, NayaPay)'
+        : 'Advance Digital Payment (JazzCash, Easypaisa, NayaPay, Bank)',
+      isUrgent: false,
       deliveryApplication: appConfig.label,
       assetIdentifier: assetIdentifier || 'Standard Direct Fill',
       items: [
@@ -558,14 +559,14 @@ export default function OrderPage() {
       `📍 *Delivery Address:* ${address}`,
       `🎯 *Refueling Target:* ${appConfig.label}${assetIdentifier ? ` (${assetIdentifier})` : ''}`,
       notes ? `📝 *Special Instructions:* ${notes}` : null,
-      `🚀 *Dispatch Speed:* ${deliverySpeed === 'urgent' ? '⚡ Urgent Priority Dispatch (Within 45 mins) [+Rs. 100]' : 'Standard Dispatch (Within 45 mins)'}`,
-      `💳 *Payment Method:* ${isCodEligible ? 'Cash on Delivery (COD)' : 'Bank Transfer / Advance'}`,
+      `🚀 *Dispatch Speed:* Within 45 Mins (Doorstep Delivery)`,
+      `💳 *Payment Method:* ${isCodEligible ? 'Cash on Delivery (COD) / Instant Wallet (JazzCash, Easypaisa, NayaPay)' : 'Advance Digital Payment (JazzCash, Easypaisa, NayaPay, Bank)'}`,
       ``,
       `📦 *Items Ordered:*`,
       ...itemsList.map(item => `  • ${item}`),
       ``,
       `💵 *Subtotal:* Rs. ${baseCost.toLocaleString()}`,
-      `🚚 *Delivery Charges:* Rs. ${deliveryFee}${deliverySpeed === 'urgent' ? ' (incl. Rs. 100 Urgent Surcharge)' : ''}`,
+      `🚚 *Delivery Charges:* Rs. ${deliveryFee}`,
       `💰 *TOTAL BILL:* Rs. ${total.toLocaleString()}`,
       `--------------------------------`,
       `📍 *Central Dispatch:* Lahore Hub #01, Pakistan`,
@@ -686,7 +687,7 @@ export default function OrderPage() {
       {
         status: isDelivered ? 'completed' : (isTransit ? 'active' : ''),
         title: `${FUEL_DISPLAY[activeOrder.selectedFuelType] || 'Fuel'} Dispatched & En Route`,
-        desc: `Bowser #04 carrying ${activeOrder.itemsSummary || 'fuel'} to ${activeOrder.address}. Speed: ${activeOrder.deliverySpeed === 'urgent' ? 'Urgent Priority (Within 45 Mins)' : 'Standard (Within 45 Mins)'}.`
+        desc: `Bowser #04 carrying ${activeOrder.itemsSummary || 'fuel'} to ${activeOrder.address}. Dispatch Window: Within 45 Mins.`
       },
       {
         status: isDelivered ? 'completed' : '',
@@ -965,7 +966,6 @@ export default function OrderPage() {
         <div class="totals-card">
           <div class="t-row"><span>Subtotal Items</span><strong>Rs. ${invoiceData.subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong></div>
           <div class="t-row"><span>Doorstep Bowser Delivery</span><strong>${invoiceData.deliveryFee === 0 ? 'FREE' : `Rs. ${invoiceData.deliveryFee.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</strong></div>
-          ${invoiceData.isUrgent ? '<div class="t-row" style="color:#ea580c; font-size:11px;"><span>Urgent Priority Surcharge</span><span>+Rs. 100.00 (Included)</span></div>' : ''}
           <div class="t-row t-grand"><span>Total Payable (PKR)</span><span>Rs. ${invoiceData.total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
         </div>
       </div>
@@ -1063,8 +1063,8 @@ export default function OrderPage() {
                 </div>
                 <div className="ticker-item">
                   <span className="ticker-bullet"></span>
-                  Doorstep Delivery: <strong>Rs. 250 (5L) &bull; Rs. 300 (10L) &bull; Rs. 350 (15L)</strong> &bull; Urgent Express: <strong>+Rs. 100</strong>
-                  <span className="price-up" style={{ color: '#ea580c' }}>Tiered Rate <i className="fa-solid fa-bell"></i></span>
+                  Doorstep Delivery: <strong>Rs. 280.00</strong> (Within 45 Mins)
+                  <span className="price-up" style={{ color: '#10b981' }}>Flat Rate <i className="fa-solid fa-truck-fast"></i></span>
                 </div>
               </div>
             ))}
@@ -1217,90 +1217,6 @@ export default function OrderPage() {
                 </div>
               </div>
             )}
-
-            {/* Delivery Rate Adjustment Notice Banner (Due to Fuel Prices Increase) */}
-            <div className="delivery-rate-notice-banner fade-in-up" style={{
-              background: 'linear-gradient(135deg, rgba(234, 88, 12, 0.08) 0%, rgba(2, 132, 199, 0.05) 100%)',
-              border: '1.5px solid rgba(234, 88, 12, 0.35)',
-              borderRadius: '16px',
-              padding: '16px 20px',
-              marginBottom: '24px',
-              boxShadow: '0 4px 18px rgba(234, 88, 12, 0.08)',
-              display: 'flex',
-              alignItems: 'flex-start',
-              gap: '16px',
-              position: 'relative'
-            }}>
-              <div style={{
-                width: '44px',
-                height: '44px',
-                borderRadius: '12px',
-                background: 'linear-gradient(135deg, #ea580c 0%, #c2410c 100%)',
-                color: '#ffffff',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '1.25rem',
-                flexShrink: 0,
-                boxShadow: '0 4px 12px rgba(234, 88, 12, 0.35)',
-                marginTop: '2px'
-              }}>
-                <i className="fa-solid fa-bullhorn"></i>
-              </div>
-              <div style={{ flex: 1 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '6px' }}>
-                  <span style={{
-                    background: '#ea580c',
-                    color: '#ffffff',
-                    fontSize: '0.72rem',
-                    fontWeight: 800,
-                    padding: '2px 9px',
-                    borderRadius: '20px',
-                    letterSpacing: '0.04em',
-                    textTransform: 'uppercase'
-                  }}>
-                    Price Notice &bull; ریٹ اپ ڈیٹ
-                  </span>
-                  <span style={{ fontWeight: 800, color: 'var(--text-primary, #0f172a)', fontSize: '1.02rem' }}>
-                    Delivery Fee Adjustment &bull; Volume-Based Rates
-                  </span>
-                </div>
-                <p style={{ margin: '0 0 10px 0', fontSize: '0.88rem', color: 'var(--text-secondary, #475569)', lineHeight: 1.55 }}>
-                  Standard doorstep delivery charges for fuel orders are volume-based: <strong style={{ color: '#ea580c', fontWeight: 800 }}>Rs. 250 (5L)</strong> &bull; <strong style={{ color: '#ea580c', fontWeight: 800 }}>Rs. 300 (10L)</strong> &bull; <strong style={{ color: '#ea580c', fontWeight: 800 }}>Rs. 350 (15L)</strong>.
-                </p>
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '10px',
-                  flexWrap: 'wrap',
-                  fontSize: '0.8rem',
-                  fontWeight: 600
-                }}>
-                  <span style={{
-                    background: 'rgba(234, 88, 12, 0.12)',
-                    color: '#c2410c',
-                    padding: '4px 10px',
-                    borderRadius: '8px',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px'
-                  }}>
-                    <i className="fa-solid fa-truck"></i> Standard Delivery: <strong>Rs. {standardFee}</strong>
-                  </span>
-                  <span style={{
-                    background: 'rgba(2, 132, 199, 0.12)',
-                    color: '#0369a1',
-                    padding: '4px 10px',
-                    borderRadius: '8px',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px'
-                  }}>
-                    <i className="fa-solid fa-bolt"></i> Urgent Dispatch: <strong>+Rs. 100 Surcharge</strong>
-                  </span>
-                </div>
-              </div>
-            </div>
 
             <div className="order-container-grid">
 
@@ -1468,21 +1384,6 @@ export default function OrderPage() {
                     })}
                   </div>
 
-                  {/* Target Asset Identifier / Registration Field */}
-                  <div className="form-group" style={{ marginBottom: '24px' }}>
-                    <label className="form-label" htmlFor="asset-id-input" style={{ fontSize: '0.85rem' }}>
-                      <i className="fa-solid fa-id-card"></i> {DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.fieldLabel || 'Vehicle / Equipment Identifier'} <span style={{ fontWeight: 400, color: 'var(--text-secondary)' }}>(Optional for driver dispatch)</span>
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      id="asset-id-input"
-                      placeholder={DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.placeholder || 'e.g. LEA-2024'}
-                      value={assetIdentifier}
-                      onChange={(e) => setAssetIdentifier(e.target.value)}
-                    />
-                  </div>
-
                   {/* 3. Configure Fuel Quantity */}
                   <div className="form-block-title" style={{ marginTop: '10px' }}>
                     <i className="fa-solid fa-scale-balanced"></i> 3. Configure Fuel Quantity
@@ -1568,40 +1469,27 @@ export default function OrderPage() {
                     {errors.address && <div className="validation-error-label" style={{ display: 'block' }}>{errors.address}</div>}
                   </div>
 
-                  {/* Delivery Speed */}
+                  {/* Delivery Speed Option */}
                   <div className="form-group" style={{ marginBottom: '25px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                      <label className="form-label" style={{ margin: 0 }}>
-                        <i className="fa-solid fa-truck-fast"></i> Delivery Speed Option
-                      </label>
-                      <span style={{
-                        fontSize: '0.8rem',
-                        fontWeight: 700,
-                        padding: '3px 10px',
-                        borderRadius: '6px',
-                        backgroundColor: deliverySpeed === 'urgent' ? 'rgba(234, 88, 12, 0.12)' : 'rgba(2, 132, 199, 0.1)',
-                        color: deliverySpeed === 'urgent' ? '#ea580c' : 'var(--brand-primary, #0284c7)'
-                      }}>
-                        {deliverySpeed === 'urgent' ? '⚡ Urgent Dispatch Selected (+Rs. 100)' : '✓ Standard Dispatch Selected (Within 45 Mins)'}
-                      </span>
-                    </div>
+                    <label className="form-label" style={{ marginBottom: '8px' }}>
+                      <i className="fa-solid fa-truck-fast"></i> Delivery Speed Option
+                    </label>
 
-                    <div className="schedule-options" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+                    <div className="schedule-options">
                       <div
                         id="option-speed-simple"
-                        className={`schedule-card${deliverySpeed === 'simple' ? ' active' : ''}`}
-                        onClick={() => setDeliverySpeed('simple')}
+                        className="schedule-card active"
                         style={{
                           cursor: 'pointer',
                           userSelect: 'none',
                           borderRadius: '12px',
-                          border: deliverySpeed === 'simple' ? '2px solid var(--brand-primary, #0284c7)' : '2px solid var(--border-color, #cbd5e1)',
-                          background: deliverySpeed === 'simple' ? 'rgba(2, 132, 199, 0.08)' : 'var(--bg-primary, #ffffff)',
+                          border: '2px solid var(--brand-primary, #0284c7)',
+                          background: 'rgba(2, 132, 199, 0.08)',
                           padding: '16px 18px',
                           display: 'flex',
                           alignItems: 'center',
                           gap: '14px',
-                          boxShadow: deliverySpeed === 'simple' ? '0 4px 14px rgba(2, 132, 199, 0.15)' : '0 1px 3px rgba(0,0,0,0.04)',
+                          boxShadow: '0 4px 14px rgba(2, 132, 199, 0.15)',
                           transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
                         }}
                       >
@@ -1609,60 +1497,20 @@ export default function OrderPage() {
                           width: '22px',
                           height: '22px',
                           borderRadius: '50%',
-                          border: deliverySpeed === 'simple' ? '6px solid var(--brand-primary, #0284c7)' : '2px solid #94a3b8',
+                          border: '6px solid var(--brand-primary, #0284c7)',
                           backgroundColor: '#ffffff',
                           flexShrink: 0,
                           transition: 'all 0.2s ease'
                         }}></div>
                         <div className="schedule-info" style={{ display: 'flex', flexDirection: 'column' }}>
-                          <span className="schedule-title" style={{ fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-primary)' }}>
-                            Simple Delivery
+                          <span className="schedule-title" style={{ fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                            <i className="fa-solid fa-clock" style={{ color: 'var(--brand-primary, #0284c7)' }}></i> Standard Doorstep Dispatch
                           </span>
                           <span className="schedule-desc" style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
-                            Delivery within 45 mins
+                            Guaranteed delivery within 45 mins on doorstep across Lahore
                           </span>
                           <span style={{ fontSize: '0.78rem', color: 'var(--brand-primary, #0284c7)', fontWeight: 700, marginTop: '4px' }}>
-                            Standard Rate {standardFee > 0 ? `(Rs. ${standardFee})` : '(Included)'}
-                          </span>
-                        </div>
-                      </div>
-
-                      <div
-                        id="option-speed-urgent"
-                        className={`schedule-card${deliverySpeed === 'urgent' ? ' active' : ''}`}
-                        onClick={() => setDeliverySpeed('urgent')}
-                        style={{
-                          cursor: 'pointer',
-                          userSelect: 'none',
-                          borderRadius: '12px',
-                          border: deliverySpeed === 'urgent' ? '2px solid #ea580c' : '2px solid var(--border-color, #cbd5e1)',
-                          background: deliverySpeed === 'urgent' ? 'rgba(234, 88, 12, 0.08)' : 'var(--bg-primary, #ffffff)',
-                          padding: '16px 18px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '14px',
-                          boxShadow: deliverySpeed === 'urgent' ? '0 4px 14px rgba(234, 88, 12, 0.18)' : '0 1px 3px rgba(0,0,0,0.04)',
-                          transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
-                        }}
-                      >
-                        <div style={{
-                          width: '22px',
-                          height: '22px',
-                          borderRadius: '50%',
-                          border: deliverySpeed === 'urgent' ? '6px solid #ea580c' : '2px solid #94a3b8',
-                          backgroundColor: '#ffffff',
-                          flexShrink: 0,
-                          transition: 'all 0.2s ease'
-                        }}></div>
-                        <div className="schedule-info" style={{ display: 'flex', flexDirection: 'column' }}>
-                          <span className="schedule-title" style={{ fontWeight: 800, fontSize: '0.98rem', color: deliverySpeed === 'urgent' ? '#ea580c' : 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                            <i className="fa-solid fa-bolt" style={{ color: '#ea580c' }}></i> Urgent Delivery
-                          </span>
-                          <span className="schedule-desc" style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
-                            Delivery within 45 mins (Priority Queue)
-                          </span>
-                          <span style={{ fontSize: '0.78rem', color: '#ea580c', fontWeight: 700, marginTop: '4px' }}>
-                            +Rs. 100 Express Priority Surcharge
+                            Standard Nominal Fee: Rs. 280.00
                           </span>
                         </div>
                       </div>
@@ -1697,73 +1545,264 @@ export default function OrderPage() {
                     </div>
                   </div>
 
-                  {/* 6. Payment Policy Selection */}
+                  {/* 6. Payment Mode: Cash on Delivery & Instant Online Wallets */}
                   <div className="form-block-title" style={{ marginTop: '25px' }}>
-                    <i className="fa-solid fa-money-check-dollar"></i> 6. Payment Policy
+                    <i className="fa-solid fa-wallet"></i> 6. Payment Options
                   </div>
-                  <div className="form-group" style={{ marginBottom: '30px' }}>
+                  <div className="form-group" style={{ marginBottom: '28px' }}>
                     {isCodEligible ? (
-                      <div className="payment-card-notice cod" style={{
-                        padding: '16px 20px',
-                        borderRadius: 'var(--radius-sm)',
-                        border: '1px solid var(--success-mint)',
-                        backgroundColor: 'var(--success-mint-light)',
+                      <div className="payment-summary-card cod" style={{
+                        padding: '16px 18px',
+                        borderRadius: '12px',
+                        border: '1px solid #10b981',
+                        backgroundColor: '#f0fdf4',
+                        boxShadow: '0 2px 8px rgba(16, 185, 129, 0.07)',
                         display: 'flex',
-                        gap: '14px',
-                        alignItems: 'center'
+                        flexDirection: 'column',
+                        gap: '11px'
                       }}>
-                        <div style={{
-                          fontSize: '1.3rem',
-                          color: 'var(--success-mint)',
-                          backgroundColor: '#ffffff',
-                          width: '38px',
-                          height: '38px',
-                          borderRadius: '50%',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          boxShadow: 'var(--shadow-sm)',
-                          flexShrink: 0
-                        }}>
-                          <i className="fa-solid fa-money-bill-wave"></i>
+                        {/* Header Row */}
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
+                            <div style={{
+                              width: '32px',
+                              height: '32px',
+                              borderRadius: '8px',
+                              backgroundColor: '#10b981',
+                              color: '#ffffff',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              fontSize: '0.95rem',
+                              flexShrink: 0
+                            }}>
+                              <i className="fa-solid fa-money-bill-wave"></i>
+                            </div>
+                            <h5 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 800, color: '#064e3b' }}>
+                              Payment Mode: Cash on Delivery (COD) Enabled
+                            </h5>
+                          </div>
+                          <span style={{
+                            fontSize: '0.72rem',
+                            fontWeight: 700,
+                            padding: '3px 9px',
+                            borderRadius: '999px',
+                            backgroundColor: '#dcfce7',
+                            color: '#15803d',
+                            border: '1px solid #86efac'
+                          }}>
+                            ✓ 5L – 10L Orders
+                          </span>
                         </div>
-                        <div>
-                          <h5 style={{ margin: '0 0 2px 0', fontSize: '0.92rem', fontWeight: 800, color: '#064e3b' }}>Payment Mode: Cash on Delivery (COD)</h5>
-                          <p style={{ margin: 0, fontSize: '0.8rem', color: '#065f46', lineHeight: 1.45 }}>
-                            Cash on Delivery is enabled for fuel orders up to 10 Litres. Please keep exact change ready.
-                          </p>
+
+                        {/* Summarized Key Info Points */}
+                        <div style={{
+                          display: 'grid',
+                          gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
+                          gap: '10px',
+                          background: '#ffffff',
+                          borderRadius: '10px',
+                          padding: '11px 14px',
+                          border: '1px solid #e2e8f0'
+                        }}>
+                          <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                            <i className="fa-solid fa-hand-holding-dollar" style={{ color: '#10b981', marginTop: '3px', fontSize: '0.9rem' }}></i>
+                            <div>
+                              <strong style={{ fontSize: '0.82rem', color: '#0f172a', display: 'block' }}>Cash on Delivery</strong>
+                              <span style={{ fontSize: '0.78rem', color: '#64748b' }}>Please keep exact change ready upon bowser arrival.</span>
+                            </div>
+                          </div>
+
+                          <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                            <i className="fa-solid fa-qrcode" style={{ color: '#0284c7', marginTop: '3px', fontSize: '0.9rem' }}></i>
+                            <div>
+                              <strong style={{ fontSize: '0.82rem', color: '#0f172a', display: 'block' }}>No Cash? Pay via QR Code</strong>
+                              <span style={{ fontSize: '0.78rem', color: '#64748b' }}>Rider carries instant QR for on-the-spot mobile wallet transfer.</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Branded Instant Payment Chips */}
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', paddingTop: '2px' }}>
+                          <span style={{ fontSize: '0.74rem', fontWeight: 700, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                            Accepted On-Spot:
+                          </span>
+                          <span style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '5px',
+                            padding: '3px 9px',
+                            borderRadius: '6px',
+                            fontSize: '0.76rem',
+                            fontWeight: 700,
+                            background: '#fee2e2',
+                            color: '#b91c1c',
+                            border: '1px solid #fca5a5'
+                          }}>
+                            <i className="fa-solid fa-bolt" style={{ fontSize: '0.7rem' }}></i> JazzCash
+                          </span>
+                          <span style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '5px',
+                            padding: '3px 9px',
+                            borderRadius: '6px',
+                            fontSize: '0.76rem',
+                            fontWeight: 700,
+                            background: '#dcfce7',
+                            color: '#15803d',
+                            border: '1px solid #86efac'
+                          }}>
+                            <i className="fa-solid fa-circle-check" style={{ fontSize: '0.7rem' }}></i> Easypaisa
+                          </span>
+                          <span style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '5px',
+                            padding: '3px 9px',
+                            borderRadius: '6px',
+                            fontSize: '0.76rem',
+                            fontWeight: 700,
+                            background: '#ffedd5',
+                            color: '#c2410c',
+                            border: '1px solid #fdba74'
+                          }}>
+                            <i className="fa-solid fa-wallet" style={{ fontSize: '0.7rem' }}></i> NayaPay
+                          </span>
+                          <span style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '5px',
+                            padding: '3px 9px',
+                            borderRadius: '6px',
+                            fontSize: '0.76rem',
+                            fontWeight: 700,
+                            background: '#f1f5f9',
+                            color: '#334155',
+                            border: '1px solid #cbd5e1'
+                          }}>
+                            <i className="fa-solid fa-building-columns" style={{ fontSize: '0.7rem' }}></i> Raast / Bank
+                          </span>
                         </div>
                       </div>
                     ) : (
-                      <div className="payment-card-notice advance" style={{
-                        padding: '16px 20px',
-                        borderRadius: 'var(--radius-sm)',
-                        border: '1px solid rgba(14, 165, 233, 0.3)',
-                        backgroundColor: 'var(--brand-petrol)',
+                      <div className="payment-summary-card advance" style={{
+                        padding: '16px 18px',
+                        borderRadius: '12px',
+                        border: '1px solid rgba(14, 165, 233, 0.4)',
+                        backgroundColor: '#f0f9ff',
+                        boxShadow: '0 2px 8px rgba(14, 165, 233, 0.08)',
                         display: 'flex',
-                        gap: '14px',
-                        alignItems: 'center'
+                        flexDirection: 'column',
+                        gap: '11px'
                       }}>
-                        <div style={{
-                          fontSize: '1.3rem',
-                          color: 'var(--accent-color)',
-                          backgroundColor: '#ffffff',
-                          width: '38px',
-                          height: '38px',
-                          borderRadius: '50%',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          boxShadow: 'var(--shadow-sm)',
-                          flexShrink: 0
-                        }}>
-                          <i className="fa-solid fa-building-columns"></i>
+                        {/* Header Row */}
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '9px' }}>
+                            <div style={{
+                              width: '32px',
+                              height: '32px',
+                              borderRadius: '8px',
+                              backgroundColor: '#0284c7',
+                              color: '#ffffff',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              fontSize: '0.95rem',
+                              flexShrink: 0
+                            }}>
+                              <i className="fa-solid fa-building-columns"></i>
+                            </div>
+                            <h5 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 800, color: '#0369a1' }}>
+                              Advance Digital Payment Required
+                            </h5>
+                          </div>
+                          <span style={{
+                            fontSize: '0.72rem',
+                            fontWeight: 700,
+                            padding: '3px 9px',
+                            borderRadius: '999px',
+                            backgroundColor: '#e0f2fe',
+                            color: '#0284c7',
+                            border: '1px solid #7dd3fc'
+                          }}>
+                            11L – 15L Max Orders
+                          </span>
                         </div>
-                        <div>
-                          <h5 style={{ margin: '0 0 2px 0', fontSize: '0.92rem', fontWeight: 800, color: 'var(--accent-color-hover)' }}>Payment Mode: Advance Payment Required</h5>
-                          <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: 1.45 }}>
-                            Orders exceeding 10 Litres of Fuel (11L to 15L Max) require advance bank transfer due to high-volume safety dispatch operations.
+
+                        {/* Summarized Key Info Points */}
+                        <div style={{
+                          background: '#ffffff',
+                          borderRadius: '10px',
+                          padding: '11px 14px',
+                          border: '1px solid #e2e8f0'
+                        }}>
+                          <p style={{ margin: 0, fontSize: '0.8rem', color: '#475569', lineHeight: 1.5 }}>
+                            Safety compliance mandates advance confirmation for dispatches exceeding 10L. Transfer instantly via your preferred channel prior to bowser departure:
                           </p>
+                        </div>
+
+                        {/* Branded Instant Payment Chips */}
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', paddingTop: '2px' }}>
+                          <span style={{ fontSize: '0.74rem', fontWeight: 700, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                            Supported Channels:
+                          </span>
+                          <span style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '5px',
+                            padding: '3px 9px',
+                            borderRadius: '6px',
+                            fontSize: '0.76rem',
+                            fontWeight: 700,
+                            background: '#fee2e2',
+                            color: '#b91c1c',
+                            border: '1px solid #fca5a5'
+                          }}>
+                            <i className="fa-solid fa-bolt" style={{ fontSize: '0.7rem' }}></i> JazzCash
+                          </span>
+                          <span style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '5px',
+                            padding: '3px 9px',
+                            borderRadius: '6px',
+                            fontSize: '0.76rem',
+                            fontWeight: 700,
+                            background: '#dcfce7',
+                            color: '#15803d',
+                            border: '1px solid #86efac'
+                          }}>
+                            <i className="fa-solid fa-circle-check" style={{ fontSize: '0.7rem' }}></i> Easypaisa
+                          </span>
+                          <span style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '5px',
+                            padding: '3px 9px',
+                            borderRadius: '6px',
+                            fontSize: '0.76rem',
+                            fontWeight: 700,
+                            background: '#ffedd5',
+                            color: '#c2410c',
+                            border: '1px solid #fdba74'
+                          }}>
+                            <i className="fa-solid fa-wallet" style={{ fontSize: '0.7rem' }}></i> NayaPay
+                          </span>
+                          <span style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '5px',
+                            padding: '3px 9px',
+                            borderRadius: '6px',
+                            fontSize: '0.76rem',
+                            fontWeight: 700,
+                            background: '#f1f5f9',
+                            color: '#334155',
+                            border: '1px solid #cbd5e1'
+                          }}>
+                            <i className="fa-solid fa-building-columns" style={{ fontSize: '0.7rem' }}></i> Raast / Bank
+                          </span>
                         </div>
                       </div>
                     )}
@@ -1843,17 +1882,11 @@ export default function OrderPage() {
                   </div>
                   
                   <div className="summary-row">
-                    <span>Dispatch Speed</span>
+                    <span>Dispatch Window</span>
                     <strong>
-                      {deliverySpeed === 'urgent' ? (
-                        <span style={{ color: '#ea580c', fontWeight: 800, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                          <i className="fa-solid fa-bolt"></i> Urgent (+Rs. 100)
-                        </span>
-                      ) : (
-                        <span style={{ color: 'var(--text-primary)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                          <i className="fa-solid fa-clock"></i> Standard
-                        </span>
-                      )}
+                      <span style={{ color: 'var(--text-primary)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                        <i className="fa-solid fa-clock" style={{ color: '#0284c7' }}></i> Within 45 Mins
+                      </span>
                     </strong>
                   </div>
 
@@ -1863,15 +1896,17 @@ export default function OrderPage() {
                       {deliveryFee === 0 ? (
                         <span style={{ color: 'var(--success-mint)' }}>Free (Included)</span>
                       ) : (
-                        <span>
-                          {fmt(deliveryFee)}
-                          {deliverySpeed === 'urgent' && (
-                            <span style={{ fontSize: '0.74rem', color: '#ea580c', display: 'block', fontWeight: 600 }}>
-                              (incl. Rs. 100 Urgent Surcharge)
-                            </span>
-                          )}
-                        </span>
+                        <span>{fmt(deliveryFee)}</span>
                       )}
+                    </strong>
+                  </div>
+
+                  <div className="summary-row">
+                    <span>Payment Mode</span>
+                    <strong>
+                      <span style={{ color: isCodEligible ? '#059669' : '#0284c7', fontWeight: 700, fontSize: '0.82rem' }}>
+                        {isCodEligible ? 'COD / Digital Wallet' : 'Advance Digital Transfer'}
+                      </span>
                     </strong>
                   </div>
 
@@ -1948,7 +1983,7 @@ export default function OrderPage() {
                       2. What is the minimum and maximum quantity for doorstep delivery?
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      Doorstep consumer delivery is strictly <strong>5 Litres minimum</strong> up to <strong>15 Litres maximum</strong> per order (with a flat nominal delivery fee of Rs. 280, or Rs. 380 for Urgent Priority dispatch within 45 mins). For commercial bulk requirements exceeding 15 Litres (generators, plazas, commercial machinery), our B2B specialized bowsers provide scheduled bulk supply via corporate inquiry.
+                      Doorstep consumer delivery is strictly <strong>5 Litres minimum</strong> up to <strong>15 Litres maximum</strong> per order (with a flat nominal delivery fee of Rs. 280, dispatched within 45 mins). For commercial bulk requirements exceeding 15 Litres (generators, plazas, commercial machinery), our B2B specialized bowsers provide scheduled bulk supply via corporate inquiry.
                     </p>
                   </div>
 
@@ -1957,7 +1992,7 @@ export default function OrderPage() {
                       3. Is Cash on Delivery (COD) supported?
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      Yes! Cash on Delivery (COD) is supported for orders between 5 and 10 Litres of fuel. For orders exceeding 10 Litres (11L to 15L Max), advance payment via bank transfer is required for high-volume safety and dispatch verification. For commercial bulk refueling and corporate fleet accounts, we provide bank transfer, online payment, and corporate invoicing terms — <Link to="/contact/" style={{ color: '#0284c7', fontWeight: 600 }}>contact our corporate sales team</Link> or explore our <Link to="/services/#b2b" style={{ color: '#0284c7', fontWeight: 600 }}>commercial services</Link>.
+                      Yes! Cash on Delivery (COD) is supported for orders between 5 and 10 Litres of fuel. If you don't have cash on hand upon delivery, our riders and bowser pilots also support instant on-spot digital transfers via <strong>JazzCash</strong>, <strong>Easypaisa</strong>, <strong>NayaPay</strong>, and <strong>Raast</strong> via QR code. For orders exceeding 10 Litres (11L to 15L Max), advance digital payment or online bank transfer is required for high-volume safety and dispatch verification. For commercial bulk refueling and corporate fleet accounts, we provide bank transfer, online payment, and corporate invoicing terms — <Link to="/contact/" style={{ color: '#0284c7', fontWeight: 600 }}>contact our corporate sales team</Link> or explore our <Link to="/services/#b2b" style={{ color: '#0284c7', fontWeight: 600 }}>commercial services</Link>.
                     </p>
                   </div>
 
@@ -2033,7 +2068,7 @@ export default function OrderPage() {
             </span>
             {activeOrder && activeOrder.status !== 'delivered' && countdownText && (
               <span style={{ display: 'block', fontSize: '0.88rem', color: '#0284c7', marginTop: '6px', fontWeight: 700 }}>
-                ⏱️ Estimated Arrival: {countdownText} ({activeOrder.deliverySpeed === 'urgent' ? 'Urgent Priority (Within 45 Mins)' : 'Standard Dispatch (Within 45 Mins)'})
+                ⏱️ Estimated Arrival: {countdownText} (Within 45 Mins)
               </span>
             )}
           </div>
@@ -2272,7 +2307,7 @@ export default function OrderPage() {
                 <div className="post-order-countdown-pill">
                   <i className="fa-solid fa-stopwatch fa-spin-pulse"></i>
                   <span>
-                    Live Dispatch Countdown: <strong>{countdownText || '45m 00s'}</strong> ({invoiceData.isUrgent ? 'Urgent Priority (Within 45 Mins)' : 'Standard Dispatch (Within 45 Mins)'})
+                    Live Dispatch Countdown: <strong>{countdownText || '45m 00s'}</strong> (Within 45 Mins)
                   </span>
                 </div>
 
@@ -2415,7 +2450,7 @@ export default function OrderPage() {
                     <span className="status-confirmed">&#10003; DISPATCH CONFIRMED</span>
                   </div>
                   <div className="inv-meta-row" style={{ marginTop: '5px' }}>
-                    <span>Dispatch Mode:</span> <strong>{invoiceData.isUrgent ? 'Urgent Priority (Within 45m)' : 'Standard Dispatch (Within 45m)'}</strong>
+                    <span>Dispatch Mode:</span> <strong>Doorstep Dispatch (Within 45m)</strong>
                   </div>
                 </div>
               </div>
@@ -2535,12 +2570,6 @@ export default function OrderPage() {
                       )}
                     </strong>
                   </div>
-                  {invoiceData.isUrgent && (
-                    <div className="inv-total-line" style={{ color: '#ea580c', fontSize: '0.8rem' }}>
-                      <span>Urgent Express Surcharge</span>
-                      <span>+Rs. 100.00 (Included)</span>
-                    </div>
-                  )}
                   <div className="inv-total-line grand-total-line">
                     <span>Total Payable (PKR)</span>
                     <span className="grand-amount">

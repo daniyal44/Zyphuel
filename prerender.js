@@ -529,7 +529,7 @@ const ROUTES = [
               "name": "Is Cash on Delivery (COD) supported for fuel orders?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for doorstep orders from 5 to 10 liters of fuel. For orders exceeding 10 liters (up to 15L Max) or commercial fleets, advance payment and billing accounts are available."
+                "text": "Yes! Cash on Delivery (COD) is supported for doorstep orders from 5 to 10 liters of fuel. If you don't have cash, instant on-spot digital wallet payments via JazzCash, Easypaisa, NayaPay, and Raast are accepted. For orders exceeding 10 liters (up to 15L Max) or commercial fleets, advance payment and billing accounts are available."
               }
             }
           ]
@@ -624,13 +624,8 @@ const ROUTES = [
     path: '/order/',
     outFile: 'dist/order/index.html',
     title: "Order Petrol & Diesel Online in Lahore | Zyphuel",
-<<<<<<< HEAD
-    description: "Order diesel, petrol, LPG gas cylinders, and water delivery online with Zyphuel in Lahore. Express doorstep dispatch within 45 minutes with digital calibration meter.",
-    keywords: "order diesel Lahore, order petrol Lahore, diesel delivery Lahore, petrol delivery Lahore, generator diesel order, order fuel online Pakistan, LPG gas cylinder order Lahore, water refill delivery Lahore, fuel cash on delivery Lahore, Zyphuel order",
-=======
     description: "Order diesel, petrol, and high-octane fuel delivery online with Zyphuel in Lahore. Express doorstep dispatch within 45 minutes with calibrated digital flow meter.",
     keywords: "order diesel Lahore, order petrol Lahore, diesel delivery Lahore, petrol delivery Lahore, generator diesel order, order fuel online Pakistan, fuel cash on delivery Lahore, Zyphuel order",
->>>>>>> e2bf20b (feat: remove unavailable utilities, implement refueling target selection, and overhaul GitHub repo SEO/AEO/GEO)
     canonical: `${DOMAIN}/order/`,
     ogImage: `${DOMAIN}/images/tank.png`,
     ogType: 'website',
@@ -704,11 +699,7 @@ const ROUTES = [
               "name": "Is Cash on Delivery (COD) supported?",
               "acceptedAnswer": {
                 "@type": "Answer",
-<<<<<<< HEAD
-                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders (5 to 15 liters of fuel, 10 kg LPG, or 20 gallons of water). Bank transfers and corporate invoicing are available for commercial clients."
-=======
-                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel. Orders from 11L to 15L require advance payment, and corporate invoicing is available for commercial clients."
->>>>>>> e2bf20b (feat: remove unavailable utilities, implement refueling target selection, and overhaul GitHub repo SEO/AEO/GEO)
+                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel. If you don't have cash ready, riders carry instant QR codes for mobile wallets (JazzCash, Easypaisa, NayaPay, Raast). Orders from 11L to 15L require advance payment, and corporate invoicing is available for commercial clients."
               }
             },
             {

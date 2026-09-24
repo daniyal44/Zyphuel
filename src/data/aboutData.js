@@ -68,7 +68,7 @@ export const aboutArticles = [
     external: true,
     summary: 'Consumer guide on ordering on-demand fuel safely at home, avoiding dangerous open canister transportation, and verifying electronic flow-meter receipts.',
     highlights: [
-      'Cash on Delivery (COD) for household orders from 5 to 10 Litres',
+      'Cash on Delivery (5L–10L) & instant digital wallet payments (JazzCash, Easypaisa, NayaPay, Raast)',
       'Weight-verified sealed LPG gas cylinders with safety checks',
       '24/7 customer support helpline (+92 323 0112464)'
     ]

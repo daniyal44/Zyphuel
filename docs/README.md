@@ -1,16 +1,43 @@
-# Zyphuel Web Application — Documentation & Changelog Registry
+# Zyphuel Web Application — Unified Documentation Hub (`docs/`)
 
-This directory contains dedicated, up-to-date documentation (`.md`) files for every single page and subpage of the Zyphuel web application.
-
-## Mandatory Maintenance Rule for AI Agents & Developers
-> Whenever any page or subpage in `src/pages/`, `src/data/`, or `src/components/` is updated, you **MUST** immediately update the corresponding markdown file in `docs/pages/` with:
-> 1. Exact nature of changes made.
-> 2. Updated parameters, pricing, conditions, or logic.
-> 3. Date, author/model, and user requirements fulfilled.
+This directory serves as the centralized, comprehensive documentation suite for the Zyphuel web application. It includes dedicated operational references, architecture breakdowns, master changelogs, and individual page/subpage specifications from project inception ("start") to the present ("now").
 
 ---
 
-## Page Documentation Directory
+## Mandatory Maintenance Rule for AI Agents & Developers
+
+> Whenever ANY page, subpage, component, pricing rule, delivery SLA, or data file is modified or created, you **MUST ALWAYS** immediately update:
+> 1. The corresponding page documentation file in `docs/pages/` or `docs/pages/subpages/`.
+> 2. The centralized master files (`docs/changes.md`, `docs/memory.md`, `docs/task.md`).
+> 3. The master table of contents in `docs/README.md`.
+
+---
+
+## 1. Master Documentation Suite (13 Core Files)
+
+All 13 core documentation files are consolidated directly in this directory (`docs/`):
+
+| # | Document | File Path | Scope & Description |
+|---|---|---|---|
+| 1 | **Master Changelog** | [`docs/changes.md`](./changes.md) | Chronological log of all phases, sprints, and feature refactors (Phase 1 to Phase 8). |
+| 2 | **Deletion & Cleanup Log** | [`docs/delete.md`](./delete.md) | Permanent deletions, purged UI banners, removed formula tags, and dead code cleanup. |
+| 3 | **Removed & Deprecated Features** | [`docs/remove.md`](./remove.md) | Superseded pricing models, deprecated APIs, outdated fees, and legacy business logic. |
+| 4 | **Core System Memory & Invariants** | [`docs/memory.md`](./memory.md) | Permanent business invariants: 5L–15L limits, flat Rs. 280 fee, 45-min SLA, payment policies. |
+| 5 | **Codebase Architecture & Structure**| [`docs/structure.md`](./structure.md) | Complete directory tree, component hierarchy, state flow, and SSG build pipeline. |
+| 6 | **Product Vision & Origin Story** | [`docs/idea.md`](./idea.md) | Problem statement, solution design, value pillars, founder story, and product roadmap. |
+| 7 | **Master Task Registry** | [`docs/task.md`](./task.md) | Completed engineering milestones, active tasks, and upcoming backlog. |
+| 8 | **Primary Pages Breakdown** | [`docs/pages.md`](./pages.md) | Comprehensive functional and technical catalog of all 11 primary pages. |
+| 9 | **Subpages & Articles Scope** | [`docs/subpages.md`](./subpages.md) | Routing architecture, schema markup, and technical specifications for all 6 subpages. |
+| 10 | **Corporate & Operational Intel** | [`docs/informtion.md`](./informtion.md) | Regulatory credentials (OGRA, SECP, NTN), fleet hardware, fuel specs, and hours. |
+| 11 | **Editorial Knowledge Index** | [`docs/articles.md`](./articles.md) | Master editorial registry, SEO target keywords, search intents, and article sync logs. |
+| 12 | **Executive Retrospective** | [`docs/conclusion.md`](./conclusion.md) | Executive synthesis, engineering achievements, business validation, and future horizons. |
+| 13 | **Development Build Phases** | [`docs/phases.md`](./phases.md) | Phase 1 to Phase 8 milestone deep-dives, timelines, objectives, and deliverables. |
+
+*(Note: [`docs/information.md`](./information.md) is provided as an exact alias for [`docs/informtion.md`](./informtion.md)).*
+
+---
+
+## 2. Primary Page Documentation Directory (`docs/pages/`)
 
 | Page Name | Route | Source Component | Documentation File |
 | :--- | :--- | :--- | :--- |
@@ -28,7 +55,7 @@ This directory contains dedicated, up-to-date documentation (`.md`) files for ev
 
 ---
 
-## Subpages & Blog Articles Directory
+## 3. Subpages & Blog Articles Directory (`docs/pages/subpages/`)
 
 | Subpage Title | Route | Source Data / Component | Documentation File |
 | :--- | :--- | :--- | :--- |
@@ -41,9 +68,7 @@ This directory contains dedicated, up-to-date documentation (`.md`) files for ev
 
 ---
 
-## Core System Architecture & Vibe-Coding Context Directory
-
-The 6 context files give AI assistants persistent source-of-truth knowledge for architecture, data modeling, and security:
+## 4. Core System Architecture & Vibe-Coding Context Directory (`docs/vibe-coding/`)
 
 | Document | Purpose | File Link |
 | :--- | :--- | :--- |
@@ -58,20 +83,8 @@ The 6 context files give AI assistants persistent source-of-truth knowledge for 
 
 ---
 
-## Master Changelog & Deprecation Registries
-
-| Document | Description | File Link |
-| :--- | :--- | :--- |
-| **Master Changelog** | Complete chronological log of all phases from prototype to Phase 7 | [`changes.md`](../changes.md) |
-| **Removed Features Log** | Deprecated pricing models, old delivery fees & superseded features | [`remove.md`](../remove.md) |
-| **Deletion & Cleanup Log** | Purged banners, deleted notices, cleaned dead code & build artifacts | [`delete.md`](../delete.md) |
-
----
-
-## Real-Time Development & Chat Session Logs
+## 5. Real-Time Development & Chat Session Logs (`docs/chat/`)
 
 | Session Date | Scope & Key Focus | File Link |
 | :--- | :--- | :--- |
 | **2026-09-19** | Retail Pump Markup (+Rs. 2.50), UI De-cluttering, Vibe-Coding Context Files & Robots.txt Protocol | [`docs/chat/chat-history-2026-09-19.md`](./chat/chat-history-2026-09-19.md) |
-
-

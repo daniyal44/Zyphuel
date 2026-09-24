@@ -239,8 +239,8 @@ export default function DownloadPage() {
       answer: 'The Zyphuel app features automated GPS coordinate detection covering all major Lahore zones including DHA Phase 1–9, Gulberg, Johar Town, Model Town, Green Town, Bahria Town, Faisal Town, Cantt, and surrounding industrial corridors with average 45-minute dispatch.'
     },
     {
-      question: 'Can I pay with Cash on Delivery (COD) for household fuel orders?',
-      answer: 'Yes! Smaller household orders from 5 to 10 Litres can be settled directly via Cash on Delivery (COD). For larger vehicle fills, commercial generator refueling, or corporate fleet accounts, we accept instant bank transfer, debit/credit cards, and structured 15/30-day corporate billing.'
+      question: 'Can I pay with Cash on Delivery (COD) or mobile digital wallets?',
+      answer: 'Yes! Household fuel orders from 5 to 10 Litres can be paid via Cash on Delivery (COD). If you do not have cash ready, our delivery pilots carry instant QR codes for on-spot digital wallet transfers via JazzCash, Easypaisa, NayaPay, and Raast / Bank transfer. For larger commercial generator refueling or corporate fleet accounts, we support direct bank transfers and structured 15/30-day corporate billing.'
     },
     {
       question: 'Why is the app distributed via direct APK instead of Google Play?',
@@ -575,7 +575,7 @@ export default function DownloadPage() {
                 <h3>Flexible Payment &amp; B2B Fleet Invoicing</h3>
                 <p>From individual household COD deliveries to multi-vehicle corporate accounts, Zyphuel provides frictionless financial management.</p>
                 <ul className="why-card-feature-list">
-                  <li><i className="fa-solid fa-check"></i> Cash on Delivery (COD) for 5–10 Litres</li>
+                  <li><i className="fa-solid fa-check"></i> Cash on Delivery (5L–10L) &amp; Digital Wallets (JazzCash, Easypaisa, NayaPay)</li>
                   <li><i className="fa-solid fa-check"></i> Biometric 1-tap checkout (Fingerprint/Face)</li>
                   <li><i className="fa-solid fa-check"></i> 15/30-day consolidated corporate credit lines</li>
                 </ul>
@@ -603,7 +603,7 @@ export default function DownloadPage() {
                 <ul className="help-card-perks">
                   <li><i className="fa-solid fa-check"></i> Refuel parked at your porch or carport</li>
                   <li><i className="fa-solid fa-check"></i> Biometric fingerprint order confirmation</li>
-                  <li><i className="fa-solid fa-check"></i> Cash on Delivery supported for small top-ups</li>
+                  <li><i className="fa-solid fa-check"></i> Cash on Delivery (5L–10L) &amp; QR mobile wallets (JazzCash, Easypaisa, NayaPay)</li>
                 </ul>
               </div>
 

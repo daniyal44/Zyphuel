@@ -53,6 +53,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-25** | **Updated Consumer Safety Article Highlights with COD (5L–10L) & Instant Digital Wallets (JazzCash, Easypaisa, NayaPay, Raast)**. | Synchronized Facebook & community channel article highlights in `aboutData.js` with instant digital payment methods. |
 | **2026-09-23** | Synchronized leadership carousel QR card app version to `v2.6.4.0.0.16`. | Match latest compiled production release `v2.6.4.0.0.16`. |
 | **2026-09-17** | Aligned runtime `useSEO` title and description with `prerender.js`, boosted sitemap priority to 0.9 daily, verified self-referential canonical tags. | Ensure absolute metadata consistency between SSG and client rendering; resolve GSC discovered status. |
 | **2026-09-12** | Integrated 3D Interactive Card Carousel with 6 leadership and equipment cards. | Modernize visual presentation of team, QR code, and calibrated bowser fleet. |

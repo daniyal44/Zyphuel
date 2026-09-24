@@ -52,6 +52,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-25** | **Updated FAQ & Feature List with Cash on Delivery (5L–10L) & Instant Digital Wallets (JazzCash, Easypaisa, NayaPay, Raast)**. | Synchronized Download Page FAQ accordion, Why Choose Us card, and Personal Mobility perks with instant mobile wallet alternatives. |
 | **2026-09-23** | Synchronized app version to `v2.6.4.0.0.16` (`31.6 MB`, Android 7.0+, AGP 9.1.1) across website metadata, documentation, and download endpoints. | User request: align website app version with latest compiled APK release `v2.6.4.0.0.16`. |
 | **2026-09-21** | Ensured git activity graphs, charts, and repository commit changes remain strictly internal to the GitHub repository (`README.md`) and are never exposed on the public customer-facing website. | User requested: *"public nai hona chaye graph only show oon github repository not on a website"*. Removed all engineering telemetry UI from customer-facing portal and streamlined GitHub repository README with native markdown code-based tables. |
 | **2026-09-17** | Synchronized app version to `v2.6.4.0.0.10` (`31.6 MB`, Android 7.0+) across website metadata, documentation, and download endpoints. | User request: align website app version with latest compiled APK release `v2.6.4.0.0.10`. |

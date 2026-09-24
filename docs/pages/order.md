@@ -31,24 +31,14 @@
 
 ## Delivery Charges & Speed Options
 
-### 1. Simple / Standard Dispatch (Strict 45-Min SLA Window)
+### 1. Standard Dispatch (Strict 45-Min SLA Window)
 - **Standard Doorstep Delivery**: Flat **Rs. 280.00** nominal delivery fee.
-- **Delivery Arrival Window**: Fixed strictly **Within 45 Mins** on doorstep.
-- **Live Dispatch Countdown**: Strictly starts at **45 minutes (`45m 00s`, 2,700 seconds)** immediately upon order placement, decrementing second-by-second across checkout, tracking banner, and active invoice modal.
-
-### 2. Urgent / Priority Dispatch (Fixed Within 45-Min SLA with Priority Queue)
-- **Urgent Priority Surcharge**: **+Rs. 100.00 flat surcharge** (kept deliberately reasonable).
-- **Total Urgent Delivery Fee**: Rs. 280 base + Rs. 100 urgent = **Rs. 380.00**.
-<<<<<<< HEAD
-- **Delivery Window**: Fixed strictly **Within 45 Mins** on doorstep with priority queue routing.
-=======
-- **Delivery Window**: Fixed strictly **Within 45 Mins** on doorstep with front-of-line priority queue depot dispatch.
->>>>>>> e2bf20b (feat: remove unavailable utilities, implement refueling target selection, and overhaul GitHub repo SEO/AEO/GEO)
-- **Live Dispatch Countdown**: Starts at **45 minutes (`45m 00s`, 2,700 seconds)** with `Urgent Priority (Within 45 Mins)` indicator.
+- **Delivery Arrival Window**: Fixed strictly **Delivered: Within 45 Mins** on doorstep across Lahore.
+- **Delivery Speed Option**: Rendered in Step 4 with clean standard doorstep dispatch card (`Delivered: Within 45 Mins`, flat Rs. 280.00 fee; badge removed per user request for a cleaner header).
 
 ---
 
-## Form Flow & 5 Atomic Steps
+## Form Flow & 6 Atomic Steps
 
 1. **Step 1: Select Fuel Grade**:
    - 3 active consumer fuel cards: Super Petrol (92 Octane), Euro-V Diesel, and High-Octane 97 (HOBC) with live rates and inline `Pump Rate (+Rs. 2.50)` badges.
@@ -59,18 +49,20 @@
      - ⚡ **Standby Generator**: Residential or commercial backup generator top-up.
      - 🚜 **Commercial Machinery**: Construction equipment, forklifts, or tractors.
      - 🛢️ **Safe Storage Drum / Tank**: Certified fuel drums or static reservoirs.
-   - Dynamic asset identifier / vehicle number field adapting label and placeholder based on the selected application.
+   - Note: Vehicle Registration / Number plate input field removed for faster, frictionless checkout.
 3. **Step 3: Select Volume (5L to 15L Max)**:
    - Stepper buttons (`-` and `+`) with live manual input, minimum 5L threshold, maximum 15L checkout cap, and quick volume chips `[5L, 7L, 10L, 12L, 15L]`.
-4. **Step 4: Delivery Details**:
-   - Clean single input: `Complete Delivery Address in Lahore *`.
-<<<<<<< HEAD
-   - Toggle buttons: Simple Delivery (20–45 mins) vs. Urgent Delivery (10–20 mins, +Rs. 100).
-6. **Contact & Payment (Step 4)**:
-   - Customer Full Name and Active Contact Number.
-   - Payment method toggle: Cash on Delivery (COD) / Direct Bank Transfer.
+4. **Step 4: Delivery Details & Speed Option**:
+   - Input: `Complete Delivery Address in Lahore *`.
+   - Dedicated Delivery Speed Card: Displays `✓ Standard Dispatch Selected (Within 45 Mins)` with flat Rs. 280.00 nominal fee.
+5. **Step 5: Contact Details**:
+   - Customer Full Name, Phone Number, and Email Address.
+6. **Step 6: Payment Options (COD & Instant Wallets)**:
+   - **Cash on Delivery (COD)**: Available for orders up to 10 Litres (customers are requested to keep exact change ready).
+   - **Instant Digital Payment Alternative**: If customer does not have cash on hand, on-spot digital payment via **JazzCash**, **Easypaisa**, **NayaPay**, or **Raast / Online Bank Transfer** is supported via delivery pilot's QR code.
+   - **Advance Payment Policy**: Orders exceeding 10 Litres (11L to 15L Max) require advance digital payment confirmation prior to dispatch.
 7. **Order Summary**:
-   - Displays Selected Fuel, Litres, Fuel Subtotal, Dispatch Speed (+Rs. 100 indicator when urgent), Delivery Fee, and Grand Total.
+   - Displays Selected Fuel, Quantity, Unit Rate, Fuel Subtotal, Dispatch Window (`Within 45 Mins`), Delivery Charges (`Rs. 280.00`), Payment Mode (`COD / Digital Wallet` or `Advance Digital Transfer`), and Grand Total.
 8. **Tracker Architecture (Modal-Based Dispatch Lifecycle)**:
    - Replaced redundant on-page SVG mockup (`RefuelingLifecycleTracker`) with direct, functional modal tracking upon checkout.
    - Preserves clean ordering flow with active order persistence (`localStorage`) and second-by-second countdown.
@@ -169,13 +161,14 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-25** | **Summarized & Redesigned Payment Option Card (COD 5L–10L & Instant QR Digital Wallets) & Synchronized All Related Articles**. | User requested: *"is ko ek acha sa look do or information ko summarize karo, is sa related article be update karo har gaja per"* and *"Dispatch: Within 45 Mins is ke gaja liko 'Delivered: Within 45 Mins'"*. Redesigned the payment option card in `OrderPage.jsx` into a concise, scannable modern card highlighting Cash on Delivery (5L–10L) and instant on-the-spot mobile wallet QR payments (JazzCash, Easypaisa, NayaPay, Raast / Bank). Synchronized all blog articles in `src/data/articles.js` (Articles 1, 2, 4, 6), `aboutData.js`, `servicesData.js`, `DownloadPage.jsx`, `ServicesPage.jsx`, and `prerender.js`. |
+| **2026-09-25** | **Refactored Payment Mode (COD & Instant Wallets: JazzCash, Easypaisa, NayaPay), Restored Delivery Speed Option (Standard 45-Min SLA), Removed Vehicle Plate Field & Purged Outdated Price Notice Banner**. | User requested: (1) *"Delivery Speed Option ✓ Standard Dispatch Selected (Within 45 Mins) is wale section ko wapas la kar ayo"*, (2) *"Vehicle Registration / Number Plate (Optional for driver dispatch) Vehicle plate (e.g. LEA-2024) is ko be remove karo"*, (3) *"Payment Mode: Cash on Delivery (COD) ... update section refactor & refine karo text ,also add online payment if u dont have cash like Jazz Cash,Easy Paisa,Naya Pay"*, and (4) *"Price Notice • ریٹ اپ ڈیٹ / Delivery Fee Adjustment • Volume-Based Rates ... is wale section ko be remove karo"*. Implemented: (a) Dedicated Delivery Speed Option card restored with `✓ Standard Dispatch Selected (Within 45 Mins)` badge and flat Rs. 280 fee, (b) Removed vehicle registration number plate field for frictionless ordering, (c) Refined Payment Options with polished Cash on Delivery (COD) guidance up to 10L, plus on-spot QR/account digital payment alternatives featuring JazzCash, Easypaisa, NayaPay, and Raast / Instant Bank Transfer, (d) Removed outdated volume-based price tier banner and ticker items, (e) Synchronized Order Summary, live countdown, invoice modal telemetry, WhatsApp dispatch message, and JSON-LD schema. |
 | **2026-09-24** | **Added Refueling Target Application Selection & Purged Inactive Utility Options**. | User requested: *"before order delivery ask user prefer fuel delivery to application"* and *"jab water or gas unavalable ha to phir service page ma kyu show ho rahye ha avalable"*. (1) Added 5-card Refueling Target selector (`car`, `bike`, `generator`, `machinery`, `storage`) with dynamic vehicle/asset identifier field, (2) Embedded Refueling Target in order payload, tracker steps, invoice PDF, HTML invoice modal, and structured WhatsApp dispatch link, (3) Purged dead LPG/Water selectors and summary rows from `OrderPage.jsx`, (4) Re-architected checkout steps into 5 clear atomic stages, (5) Updated bottom on-page FAQs to reflect active fuel offerings and volume limits. |
 | **2026-09-24** | Fixed 'Within 45 Mins' Delivery SLA Standardization & Dynamic On-Demand GSAP Loading. | User requested: *"website ma fixed delivery time ha within 45 mins on doorstep same as urgent delivery"*. Standardized delivery duration across OrderPage to strictly **within 45 minutes** for both Simple Standard and Urgent Priority dispatch (Urgent gets prioritized routing with +Rs. 100 fee). Updated live countdown timer, tracker status descriptions, WhatsApp message payload, invoice print, and vector PDF generator. Dynamically injected GSAP on-demand in `OrderPage.jsx` when mounted, removing the global CDN script from `<head>` to improve Core Web Vitals. |
 | **2026-09-22** | Unified delivery fee to flat **Rs. 280.00** across all orders; purged all lingering 50L bulk references, Free bulk tags, and the '• Min' chip label; explicitly highlighted the 15L Max limit in the UI and documentation. | User requested: *"delivery price ko update karo to phir ya prices update kyu nai ha or ha , 50L gaha per be lika ha us ko remove karo har gaja sa , or jo order ma max liter show ho raha ha is ko website ma mention or article a update karo"* and *"• Min is ko be remove karo"*. Updated `standardFee = 280`, removed `• Min` from 5L chip, removed all 50L bulk notices from invoice print and WhatsApp payload, and added `5L – 15L Max per Order` header badge. |
 | **2026-09-21** | Removed `RefuelingLifecycleTracker` component from `OrderPage.jsx` and purged redundant vector simulation files; streamlined order placement into direct checkout with code-based post-order modal tracking. | User requested: *"Refueling Lifecycle Tracker Awaiting Order... is ko be sai karo is ko remove akro or code base karo is ko Refueling Lifecycle Tracker"*. Purged the bulky 765-line SVG simulation box from the order sidebar to remove confusing visual clutter. Order placement now directly triggers the official code-based interactive Tracker Modal upon submission with live ETA countdown, dispatch steps, and WhatsApp redirection. |
 | **2026-09-21** | Marked Gas Delivery & Water Refill as **Currently Unavailable** across Order checkout and Services cards; clicking either card triggers clear informative warning toasts and prevents unfulfillable utility orders. | User requested: *"gas delivery & water refill unavailable, when user click its unavailable"*. Made LPG Gas Cylinder and Water Refill categories disabled/unavailable with red/amber badges and `not-allowed` styling. Clicking either item displays an immediate warning toast informing customers that only Petrol & Diesel delivery is operational 24/7. Auto-redirected any inbound URL parameters (`?fuel=lpg`, `?fuel=water`) to standard Petrol delivery. |
 | **2026-09-21** | Resolved `"barcode scan failed"` issue by engineering a Dual Verification System (Instant Mobile Camera QR Code + Industrial High-Contrast Code 128 Barcode) inspired by `barkod.studio` standards; added live URL verification handler (`/order/?verify=ZYP-XXXXXX`) with authentic dispatch badge; deployed across web invoice modal, HTML download, and pure vector PDF. | User reported: *"barcode scan failed"*. Technical root-cause identified: native Apple iOS Camera does not support 1D linear barcodes (Code 128) in camera preview without dedicated scanner apps, and small module widths on high-DPI screens caused subpixel optical blur. Engineered dual architecture: 1) Instant 2D QR Code (ISO/IEC 18004) encoding order verification URL, scanned in <100ms by 100% of iPhone/Android cameras; 2) High-contrast pure black (`#000000`) ISO Code 128 Auto barcode (123 bits, 2.4px modules, 16+ quiet zone) for laser barcode guns and Google Lens. Updated web invoice modal, printable HTML, and jsPDF vector generator. Added live on-page verification banner displaying certified dispatch authenticity when scanned. |
->>>>>>> e2bf20b (feat: remove unavailable utilities, implement refueling target selection, and overhaul GitHub repo SEO/AEO/GEO)
 | **2026-09-21** | Overhauled invoice design to full Corporate Executive Tax Invoice standard and initialized live dispatch countdown strictly to **45 minutes (`45m 00s`)** upon order placement. | User requested: *"invoice professional lagne chaye har ek cheeez ache sa represent hone chaye, after order 45 min countdown start"*. Implemented official corporate letterhead with OGRA License `OGRA/DL-7492/LHE`, NTN `9482710-3`, SECP `0248195`, 2-column telemetry profile, 5-column itemized billing table, Amount in Words block (`numberToWords`), OGRA volumetric accuracy box, digital barcode reference, and computerized verification seal (ETO 2002). Standard dispatch duration updated to strictly 45 minutes with instant `45m 00s` live countdown initialization and second-by-second decrement. |
 | **2026-09-21** | Fixed and overhauled PDF invoice generation: replaced fragile HTML-to-Canvas approach with high-performance pure vector `jsPDF` engine (`src/utils/generateInvoicePdf.js`); eliminated CORS/font hanging issues, guaranteeing instant, reliable client-side `.pdf` downloads across all mobile and desktop browsers; retained post-order PDF download priority and 3s WhatsApp auto-redirection workflow. | User reported: *"yesinvoice pdf download nai ho rahi"*. Replaced `html2pdf.js` canvas capture with direct programmatic vector PDF generator using `jspdf`. Guarantees instant client-side generation and download of `Zyphuel-Invoice-${id}.pdf` with crystal-clear vector typography, OGRA compliance stamp, and itemized billing table. |
 | **2026-09-20** | Removed section subtitle (`Select fuel, LPG Gas, or Water...`) and Live Market Rates indicator badge (`Live Market Rates Active: Petrol... Diesel...`) from Order page header. | User requested: *"Select fuel, LPG Gas, or Water. Calculate rates in real time, customize quantities, and track your delivery. Live Market Rates Active: Petrol Rs. 391.64/L • Diesel Rs. 426.54/L • High-Octane Rs. 402.50/L (OGRA Notified: 19-September-2026) is wale section ko remove karo"*. Streamlined the order page header so the title cleanly leads directly into active orders and the fuel order flow without repetitive subheadings or duplicate rate badges (live rates remain fully accessible in the top marquee ticker). |

@@ -28,7 +28,8 @@ Every Zyphuel bowser is fitted with weights-and-measures certified positive-disp
   - Urgent Dispatch: Controlled priority surcharge of +Rs. 100.00 flat (Standard Rs. 280 + Rs. 100 Urgent = Rs. 380.00 total, priority queue within 45 mins).
 - **Payment Policy**:
   - Cash on Delivery (COD) supported for standard orders between 5 and 10 Litres.
-  - Advance direct bank transfer required for orders exceeding 10 Litres (11L–15L Max) for safety and high-volume dispatch verification.
+  - Instant on-spot mobile digital wallet payments (JazzCash, Easypaisa, NayaPay, Raast QR scan) supported upon bowser arrival if customer does not have cash on hand.
+  - Advance direct bank transfer / digital payment required for orders exceeding 10 Litres (11L–15L Max) for safety and high-volume dispatch verification.
 - **Service Availability**: 24/7 uninterrupted fuel delivery operations including national holidays and severe weather periods.
 
 ---
