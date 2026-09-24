@@ -2,7 +2,39 @@
   "name": "zyphuel-react",
   "private": true,
   "version": "2.6.4.0.0.16",
+  "description": "Zyphuel — Pakistan's premier on-demand doorstep fuel delivery and energy logistics platform. Calibrated 0.01L digital flow meters, Euro-V petrol and diesel delivery across Lahore within 45 minutes.",
   "type": "module",
+  "homepage": "https://zyphuel.netlify.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daniyal44/Zyphuel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/daniyal44/Zyphuel/issues"
+  },
+  "author": {
+    "name": "Muhammad Daniyal",
+    "email": "m.daniyalkhan490@gmail.com",
+    "url": "https://zyphuel.netlify.app/about/"
+  },
+  "keywords": [
+    "zyphuel",
+    "fuel-delivery",
+    "doorstep-fuel-delivery",
+    "petrol-delivery-lahore",
+    "diesel-delivery-lahore",
+    "generator-refueling",
+    "mobile-refueling",
+    "energy-logistics",
+    "pakistan-energy",
+    "ogra-calibrated",
+    "react",
+    "vite",
+    "seo",
+    "aeo",
+    "geo"
+  ],
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "prebuild": "node scripts/generate_github_graph.js",

@@ -624,8 +624,13 @@ const ROUTES = [
     path: '/order/',
     outFile: 'dist/order/index.html',
     title: "Order Petrol & Diesel Online in Lahore | Zyphuel",
+<<<<<<< HEAD
     description: "Order diesel, petrol, LPG gas cylinders, and water delivery online with Zyphuel in Lahore. Express doorstep dispatch within 45 minutes with digital calibration meter.",
     keywords: "order diesel Lahore, order petrol Lahore, diesel delivery Lahore, petrol delivery Lahore, generator diesel order, order fuel online Pakistan, LPG gas cylinder order Lahore, water refill delivery Lahore, fuel cash on delivery Lahore, Zyphuel order",
+=======
+    description: "Order diesel, petrol, and high-octane fuel delivery online with Zyphuel in Lahore. Express doorstep dispatch within 45 minutes with calibrated digital flow meter.",
+    keywords: "order diesel Lahore, order petrol Lahore, diesel delivery Lahore, petrol delivery Lahore, generator diesel order, order fuel online Pakistan, fuel cash on delivery Lahore, Zyphuel order",
+>>>>>>> e2bf20b (feat: remove unavailable utilities, implement refueling target selection, and overhaul GitHub repo SEO/AEO/GEO)
     canonical: `${DOMAIN}/order/`,
     ogImage: `${DOMAIN}/images/tank.png`,
     ogType: 'website',
@@ -655,7 +660,7 @@ const ROUTES = [
           "object": {
             "@type": "Product",
             "name": "Zyphuel Mobile Refueling - Diesel & Petrol Delivery",
-            "description": "On-demand doorstep fuel and utility delivery in Lahore with certified digital flow-meter calibration. Super petrol, diesel, LPG cylinders, and water refills.",
+            "description": "On-demand doorstep fuel delivery in Lahore with certified digital flow-meter calibration. Super petrol, diesel, and high-octane 97.",
             "image": `${DOMAIN}/images/tank.png`,
             "brand": {
               "@type": "Brand",
@@ -683,7 +688,7 @@ const ROUTES = [
               "name": "How can I order diesel or petrol online in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Choose your required fuel category (Diesel, Petrol, High-Octane, LPG Cylinder, or Water Refill) on this order page, set your quantity, enter your delivery address in Lahore, and select your delivery speed. Our dispatcher routes the nearest certified bowser to your location."
+                "text": "Choose your required fuel grade (Super Petrol, High-Octane 97, or Euro-V Diesel), select your refueling target asset, set your quantity (5L to 15L Max), enter your delivery address in Lahore, and select your delivery speed. Our dispatcher routes the nearest certified bowser to your location."
               }
             },
             {
@@ -699,7 +704,11 @@ const ROUTES = [
               "name": "Is Cash on Delivery (COD) supported?",
               "acceptedAnswer": {
                 "@type": "Answer",
+<<<<<<< HEAD
                 "text": "Yes! Cash on Delivery (COD) is supported for domestic orders (5 to 15 liters of fuel, 10 kg LPG, or 20 gallons of water). Bank transfers and corporate invoicing are available for commercial clients."
+=======
+                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel. Orders from 11L to 15L require advance payment, and corporate invoicing is available for commercial clients."
+>>>>>>> e2bf20b (feat: remove unavailable utilities, implement refueling target selection, and overhaul GitHub repo SEO/AEO/GEO)
               }
             },
             {
