@@ -11,6 +11,8 @@ This document serves as the authoritative single source of truth for all corpora
 | **Company Legal Name** | Zyphuel (Private) Limited | SECP Pakistan |
 | **SECP Incorporation Number** | `0248195` | Securities and Exchange Commission of Pakistan |
 | **OGRA Petroleum License** | `OGRA/DL-7492/LHE` | Oil and Gas Regulatory Authority (Pakistan) |
+| **Civil Defence Flammable Transport Permit** | `CD-LHE/FL-2026/089` | Civil Defence Department, Lahore |
+| **Weights & Measures Calibration Seal** | `PWM/VER-88210/2026` | Punjab Directorate of Weights & Measures |
 | **National Tax Number (NTN / STRN)** | `9482710-3` | Federal Board of Revenue (FBR) |
 | **Corporate Status** | Licensed On-Demand Mobile Fuel Distributor | Government of Pakistan |
 | **Founding Date** | August 2026 | Lahore, Punjab |

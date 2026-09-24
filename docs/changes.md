@@ -17,6 +17,7 @@ timeline
     Phase 6 : Core Business Logic & Pricing Rules : 5L–15L Doorstep Limits : Rs. 280 Flat Simple Fee
     Phase 7 : Corporate Tax Invoicing & Dual Verification : Camera QR + Code 128 : Pure Vector jsPDF
     Phase 8 : Streamlining, Payment Modernization & Docs : COD 5L–10L + Mobile Wallets : Hero Section Polish : Master Docs
+    Phase 9 : SEO, AEO & GEO Expansion, Search Engine Indexing Fix & 100% Speed : 1,000+ Word Pillar Articles : Data Tables : RSS Feed : Netlify Caching
 ```
 
 ---
@@ -171,3 +172,57 @@ timeline
 
 ### 8.6 Master Documentation Suite Consolidation (`docs/`)
 - Unified all 13 core documentation files into the single `docs/` folder, indexing each in `docs/README.md`.
+
+---
+
+## Phase 9: SEO, AEO & GEO Expansion, Search Engine Indexing Fix & 100% Performance / Speed
+
+### 9.1 Root Cause Resolution of Non-Indexing Status
+- Diagnosed Google Search Console behavior where only 2 pages (`/` and `/services/`) were indexed while the 6 blog articles and subpages experienced discovery latency.
+- Identified the root cause: thin content profiles (~300 words without subheadings, data tables, or structured FAQs) and lack of content syndication feeds.
+
+### 9.2 Massive Content Transformation of All 6 Blog Articles (`src/data/articles.js`)
+- Transformed all 6 articles from short summaries into authoritative 1,000+ word technical pillar guides:
+  - **Article 1**: *Pakistan’s Shift to Daily Fuel Pricing* (Platts rolling benchmark analysis, CIF import parity breakdown, OGRA pricing matrix table, expert quote by CEO Muhammad Daniyal, 5 FAQs).
+  - **Article 2**: *How to Download and Install Zyphuel APK* (Security audit, AGP 9.1.1 architecture, Android OS compatibility matrix table from Android 8.0 to Android 15, mobile engineering quote, 5 FAQs).
+  - **Article 3**: *Industrial Generator Refueling in Lahore* (Commercial load-shedding risks, 50m high-reach delivery hose specs, Generator diesel consumption benchmarks table by kVA rating, commercial ops quote, 5 FAQs).
+  - **Article 4**: *Commercial Generator Diesel & Sealed LPG Cylinders* (HAZMAT safety, multi-utility specifications table, 4-point on-site inspection protocol, utilities lead quote, 5 FAQs).
+  - **Article 5**: *Combating Pump Short-Fueling with Calibrated Meters* (Positive-displacement physics, 0.01L optical encoders, Automatic Temperature Compensation (ATC) table, telemetry lead quote, 5 FAQs).
+  - **Article 6**: *Mobile Energy Logistics in Lahore: Bowser Fleet* (Founder narrative by Muhammad Daniyal, double-walled ASTM A36 tank engineering, Brick-and-Mortar vs Mobile Logistics comparison table, 5 FAQs).
+
+### 9.3 Upgraded Article Rendering Architecture (`src/pages/BlogArticlePage.jsx`)
+- Built structured component rendering:
+  - **Key Takeaways Box**: Executive summary highlighted for Answer Engine Optimization (AEO/GEO) and quick reading.
+  - **Table of Contents Quick Jump**: Smooth anchor navigation links to each major H2 heading.
+  - **Responsive Technical Comparison Tables**: Clean styled HTML tables across desktop, tablet, and mobile viewports.
+  - **Expert Quotes & Testimonials**: Authoritative pull-quotes with executive credentials.
+  - **Interactive FAQ Accordion**: 5 expandable items per article, integrated with Schema.org `FAQPage` JSON-LD.
+  - **Social Sharing Bus**: Direct WhatsApp sharing, LinkedIn sharing, and copy-link with toast notification.
+  - **Author Profile Box & Related Guides Mesh**: Bio card and 3-column mesh to related guides.
+  - **Dual Action CTAs**: Direct buttons to `/order/` and `/contact/`.
+
+### 9.4 Enrichment of About, Download, and Contact Pages
+- **About Page (`src/pages/AboutPage.jsx`)**:
+  - Removed duplicate startup slogan pill per permanent memory rule (strictly single persistent statement on Home hero).
+  - Added Technical Fleet & Metering Specifications Table (ASTM A36 steel, positive-displacement meters, PT100 RTD probes, 50m hoses).
+  - Added Regulatory Compliance & Standards Ledger (OGRA, Civil Defence, Weights & Measures, SECP).
+  - Added 5-question FAQ accordion + Schema.org `FAQPage` markup.
+- **Download Page (`src/pages/DownloadPage.jsx`)**:
+  - Added Android OS Compatibility & Performance Matrix Table (Android 8.0 to 15, API 26-35, biometrics, GPS, FPS).
+  - Added Cryptographic SHA-256 Checksum Panel with verification CLI commands for PowerShell and Linux.
+  - Added Feature Comparison Table: Official Android APK vs. Web Portal (10 features side-by-side).
+- **Contact Page (`src/pages/ContactPage.jsx`)**:
+  - Synchronized delivery SLA to "Delivered: Within 45 Mins" across FAQ schema and quick dispatch banner.
+  - Added Lahore Sector Dispatch Hubs & SLA Matrix (DHA, Gulberg, Johar Town, Model Town, Bahria Town).
+  - Added Commercial Fleet & Industrial Escalation Desk.
+
+### 9.5 Syndication, Caching & Performance Architecture
+- **RSS 2.0 Feed (`public/feed.xml`)**: Created automated XML feed indexing all 6 pillar articles for continuous search crawler discovery.
+- **Discovery Integrations**: Added `<link rel="alternate" type="application/rss+xml">` in `index.html`, added `Allow: /feed.xml` in `public/robots.txt`, and added RSS link button in `HtmlSitemapPage.jsx`.
+- **Netlify `_headers` File**: Created `public/_headers` specifying 1-year immutable caching for `/assets/*`, 30-day caching for images, revalidation for HTML, and modern security headers (`X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`).
+- **Image Optimization & CLS Elimination**:
+  - Added explicit `width` and `height` attributes to all images across `BlogModal.jsx`, `AboutPage.jsx` carousel, `DownloadPage.jsx` QR code, and screenshot slider.
+  - Configured `decoding="async"` across all media.
+  - Configured `loading="eager"` and `fetchpriority="high"` on LCP hero images in `Header.jsx` and `BlogArticlePage.jsx`.
+  - Lazy-loaded subsequent hidden slider cards and carousels.
+- **Static Site Generation (SSG)**: Verified that all 17 routes pre-render cleanly with complete static HTML, structured data, and zero hydration mismatch.

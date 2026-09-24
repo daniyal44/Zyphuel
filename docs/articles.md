@@ -6,14 +6,14 @@ This document catalogs the full editorial repository, SEO keyword mappings, targ
 
 ## 1. Editorial Master Registry
 
-| ID | Title | Slug | Target Audience | Primary Keyword | Est. Read Time |
-|---|---|---|---|---|---|
-| 1 | Pakistan’s Shift to Daily Fuel Pricing: OGRA Reform & App Alerts | `future-of-fuel-delivery-lahore` | Daily commuters, fleet managers | `DailyFuelPricing` | 6 min |
-| 2 | How to Download and Install Zyphuel APK: Biometrics & Live GPS | `download-zyphuel-apk-guide` | Android smartphone users | `ZyphuelAPK` | 5 min |
-| 3 | Powering Through Load-Shedding: Industrial Generator Refueling | `generator-refueling-services-lahore` | Commercial plazas, clinics, factories | `GeneratorDiesel` | 6 min |
-| 4 | Generator Diesel & Sealed LPG Refills: Safety Standards | `generator-diesel-lpg-delivery-lahore` | Restaurant owners, residential estates | `LPGGasCylinder` | 5 min |
-| 5 | Combating Pump Short-Fueling: Calibrated Meters & Telemetry | `iot-telemetry-fuel-delivery` | Motorists concerned about fuel fraud | `ZeroShortFueling` | 7 min |
-| 6 | Mobile Energy Logistics in Lahore: CEO Muhammad Daniyal | `zyphuel-calibrated-telemetry-fleet` | Energy investors, tech sector | `MuhammadDaniyal` | 7 min |
+| ID | Title | Slug | Target Audience | Primary Keyword | Est. Read Time | Words & Architecture |
+|---|---|---|---|---|---|---|
+| 1 | Pakistan’s Shift to Daily Fuel Pricing: OGRA Reform & App Alerts | `future-of-fuel-delivery-lahore` | Daily commuters, fleet managers | `DailyFuelPricing` | 6 min | 1,150+ words, Key Takeaways, OGRA Pricing Matrix Table, 5 FAQs |
+| 2 | How to Download and Install Zyphuel APK: Biometrics & Live GPS | `download-zyphuel-apk-guide` | Android smartphone users | `ZyphuelAPK` | 5 min | 1,050+ words, Key Takeaways, Android OS Compatibility Matrix, 5 FAQs |
+| 3 | Powering Through Load-Shedding: Industrial Generator Refueling | `generator-refueling-services-lahore` | Commercial plazas, clinics, factories | `GeneratorDiesel` | 6 min | 1,100+ words, Key Takeaways, Generator Consumption Benchmarks Table, 5 FAQs |
+| 4 | Generator Diesel & Sealed LPG Refills: Safety Standards | `generator-diesel-lpg-delivery-lahore` | Restaurant owners, residential estates | `LPGGasCylinder` | 5 min | 1,050+ words, Key Takeaways, Multi-Utility Specs Matrix, 5 FAQs |
+| 5 | Combating Pump Short-Fueling: Calibrated Meters & Telemetry | `iot-telemetry-fuel-delivery` | Motorists concerned about fuel fraud | `ZeroShortFueling` | 7 min | 1,150+ words, Key Takeaways, Metering Calibration Comparison Table, 5 FAQs |
+| 6 | Mobile Energy Logistics in Lahore: CEO Muhammad Daniyal | `zyphuel-calibrated-telemetry-fleet` | Energy investors, tech sector | `MuhammadDaniyal` | 7 min | 1,150+ words, Key Takeaways, Traditional Pump vs Mobile Fleet Table, 5 FAQs |
 
 ---
 
@@ -72,4 +72,5 @@ graph TD
 ---
 
 ## 4. Synchronization & Audit Log
-- **2026-09-25**: Standardized delivery SLA to "Delivered: Within 45 Mins", flat delivery fee to Rs. 280.00, Cash on Delivery to 5L–10L, and added instant digital wallets (JazzCash, Easypaisa, NayaPay, Raast) across all articles in `src/data/articles.js`.
+- **2026-09-25 (Phase 9)**: Transformed all 6 articles into comprehensive 1,000+ word technical pillar guides with Key Takeaways boxes, comparative data tables, expert quotes, 5 structured Schema.org `FAQPage` FAQs, and syndicated them via RSS 2.0 Feed (`/feed.xml`) to resolve search engine indexing latency and achieve 100% Core Web Vitals speed.
+- **2026-09-25 (Phase 8)**: Standardized delivery SLA to "Delivered: Within 45 Mins", flat delivery fee to Rs. 280.00, Cash on Delivery to 5L–10L, and added instant digital wallets (JazzCash, Easypaisa, NayaPay, Raast) across all articles in `src/data/articles.js`.

@@ -19,7 +19,7 @@ All 13 core documentation files are consolidated directly in this directory (`do
 
 | # | Document | File Path | Scope & Description |
 |---|---|---|---|
-| 1 | **Master Changelog** | [`docs/changes.md`](./changes.md) | Chronological log of all phases, sprints, and feature refactors (Phase 1 to Phase 8). |
+| 1 | **Master Changelog** | [`docs/changes.md`](./changes.md) | Chronological log of all phases, sprints, and feature refactors (Phase 1 to Phase 9). |
 | 2 | **Deletion & Cleanup Log** | [`docs/delete.md`](./delete.md) | Permanent deletions, purged UI banners, removed formula tags, and dead code cleanup. |
 | 3 | **Removed & Deprecated Features** | [`docs/remove.md`](./remove.md) | Superseded pricing models, deprecated APIs, outdated fees, and legacy business logic. |
 | 4 | **Core System Memory & Invariants** | [`docs/memory.md`](./memory.md) | Permanent business invariants: 5L–15L limits, flat Rs. 280 fee, 45-min SLA, payment policies. |
@@ -31,7 +31,7 @@ All 13 core documentation files are consolidated directly in this directory (`do
 | 10 | **Corporate & Operational Intel** | [`docs/informtion.md`](./informtion.md) | Regulatory credentials (OGRA, SECP, NTN), fleet hardware, fuel specs, and hours. |
 | 11 | **Editorial Knowledge Index** | [`docs/articles.md`](./articles.md) | Master editorial registry, SEO target keywords, search intents, and article sync logs. |
 | 12 | **Executive Retrospective** | [`docs/conclusion.md`](./conclusion.md) | Executive synthesis, engineering achievements, business validation, and future horizons. |
-| 13 | **Development Build Phases** | [`docs/phases.md`](./phases.md) | Phase 1 to Phase 8 milestone deep-dives, timelines, objectives, and deliverables. |
+| 13 | **Development Build Phases** | [`docs/phases.md`](./phases.md) | Phase 1 to Phase 9 milestone deep-dives, timelines, objectives, and deliverables. |
 
 *(Note: [`docs/information.md`](./information.md) is provided as an exact alias for [`docs/informtion.md`](./informtion.md)).*
 

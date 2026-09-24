@@ -23,9 +23,7 @@ Every Zyphuel bowser is fitted with weights-and-measures certified positive-disp
 - **Metering Calibration Precision**: 0.01L positive-displacement digital meter with cryptographic tamper-evident receipts and QR / Code 128 verification.
 - **Fuel Purity & Standards**: 100% terminal-sourced Euro-V Diesel (<10 ppm sulfur content), Super Petrol (92 Octane), and High-Octane 97 compliant with official Hydrocarbon Development Institute of Pakistan (HDIP) and OGRA specifications.
 - **Doorstep Volume Limits**: Strictly 5 Litres minimum up to 15 Litres maximum per mobile doorstep delivery dispatch (preset volume chips: 5L, 7L, 10L, 12L, 15L Max). Bulk commercial orders (>15L up to 10,000L+) serviced via scheduled B2B bowsers.
-- **Pricing & Delivery Fees**:
-  - Simple Dispatch: Flat Rs. 280.00 nominal delivery fee (delivered within 45 mins).
-  - Urgent Dispatch: Controlled priority surcharge of +Rs. 100.00 flat (Standard Rs. 280 + Rs. 100 Urgent = Rs. 380.00 total, priority queue within 45 mins).
+- **Pricing & Delivery Fees**: Flat Rs. 280.00 nominal delivery fee per doorstep dispatch (Delivered: Within 45 Mins).
 - **Payment Policy**:
   - Cash on Delivery (COD) supported for standard orders between 5 and 10 Litres.
   - Instant on-spot mobile digital wallet payments (JazzCash, Easypaisa, NayaPay, Raast QR scan) supported upon bowser arrival if customer does not have cash on hand.
@@ -82,7 +80,7 @@ Zyphuel operates localized dispatch micro-hubs positioned across all key zones o
 | **Mobile App Support** | Android APK v2.6.4.0.0.16 (Live GPS Tracking) | None (Website Only) | Web Portal Only | None (Phone Orders) | None |
 | **Delivery Speed & Window** | Within 45 Mins (Standard & Urgent Priority) | Scheduled Hours | Variable | Next-Day Dispatch | Long queues during price revisions |
 | **Order Volume Limits** | Strictly 5L Min – 15L Max per Doorstep Order | High Commercial Min | Car Tank Min | 500L+ Bulk | 1 Litre at pump |
-| **Delivery Charges** | Standard: Rs. 280 (within 45 mins); Urgent: +Rs. 100 (Total Rs. 380, within 45 mins priority) | Quoted on call | Variable delivery | Contractual freight | Fuel cost only (plus travel expense) |
+| **Delivery Charges** | Flat Rs. 280 (Delivered: Within 45 Mins) | Quoted on call | Variable delivery | Contractual freight | Fuel cost only (plus travel expense) |
 | **Generator Refueling Hoses** | 50-Meter Long-Reach Hose (Rooftops & Basements) | Standard Hoses | Jerry Cans | Industrial Camlock | Manual Jerry Cans Required |
 | **Refueling Target Selection** | 5 Options: Car, Motorbike, Generator, Machinery, Storage | Vehicle Only | Vehicle Only | Tank Only | Vehicle Tank Only |
 | **Pricing Engine** | Real-Time Official OGRA Synced Rate Engine | Manual | Fixed OGRA | B2B Index | Static price boards |

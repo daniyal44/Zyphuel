@@ -195,6 +195,16 @@ export default function HtmlSitemapPage() {
               >
                 <i className="fa-solid fa-robot"></i> View Robots.txt
               </a>
+              <a
+                href="/feed.xml"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-ghost"
+                style={{ padding: '10px 18px', fontSize: '0.9rem', color: '#f59e0b', borderColor: 'rgba(245, 158, 11, 0.4)' }}
+                title="View RSS 2.0 Feed for Blog Guides"
+              >
+                <i className="fa-solid fa-rss"></i> View RSS Feed
+              </a>
             </div>
           </div>
         </div>

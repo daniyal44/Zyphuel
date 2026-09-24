@@ -58,7 +58,7 @@ export default function BlogListPage() {
                 style={{ transitionDelay: `${idx * 0.1}s`, textDecoration: 'none', color: 'inherit' }}
               >
                 <div className="blog-card-image-wrapper">
-                  <img src={article.image} alt={article.title} loading="lazy" className="blog-card-image" />
+                  <img src={article.image} alt={article.title} loading="lazy" decoding="async" width="400" height="225" className="blog-card-image" />
                 </div>
                 <div className="blog-card-content">
                   <span className={`blog-card-category ${article.categoryClass}`}>{article.category}</span>

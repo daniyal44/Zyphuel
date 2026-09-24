@@ -33,6 +33,10 @@ The **HTML Sitemap Page** (`/sitemap/`) is the central navigational directory of
 3. **Legal, Privacy & Compliance**:
    - `Privacy Policy` (`/privacy/`)
    - `Terms of Use & Service Agreement` (`/terms/`)
+4. **Feeds & Machine-Readable Syndication**:
+   - `RSS 2.0 Editorial Feed` (`/feed.xml`)
+   - `XML Sitemap Protocol` (`/sitemap.xml`)
+   - `LLM Context Engine` (`/llms.txt` and `/llms-full.txt`)
 
 ---
 
@@ -44,5 +48,6 @@ The **HTML Sitemap Page** (`/sitemap/`) is the central navigational directory of
 ---
 
 ## 5. Changelog
+- **2026-09-25**: Integrated direct RSS 2.0 Feed (`/feed.xml`) syndication link and discovery badge to accelerate automated crawler re-indexing.
 - **2026-09-24**: Upgraded XML Sitemap generation in `prerender.js` to include `<image:image>` blocks for all 16 canonical pages and blog articles, and derived truthful publication `<lastmod>` timestamps from `articles.js`.
 - **2026-09-19**: Created dedicated HTML Sitemap page to resolve search engine indexing delays for deep pages and blog subpages. Added to footer and build pre-renderer.

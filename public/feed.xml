@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Zyphuel Energy &amp; Fuel Guides</title>
+    <link>https://zyphuel.netlify.app/blog/</link>
+    <description>Authoritative guides, downstream petroleum pricing analysis, IoT telemetry breakdowns, and doorstep fuel delivery insights in Lahore, Pakistan by Zyphuel.</description>
+    <language>en-pk</language>
+    <lastBuildDate>Thu, 24 Sep 2026 21:00:00 GMT</lastBuildDate>
+    <atom:link href="https://zyphuel.netlify.app/feed.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://zyphuel.netlify.app/images/logo.png</url>
+      <title>Zyphuel Energy &amp; Fuel Guides</title>
+      <link>https://zyphuel.netlify.app/blog/</link>
+    </image>
+    <copyright>Copyright 2026 Zyphuel Technologies. All rights reserved.</copyright>
+
+    <item>
+      <title>Pakistan’s Shift to Daily Fuel Pricing: How OGRA’s 2026 Reform Works &amp; Why App Alerts Protect Consumers</title>
+      <link>https://zyphuel.netlify.app/blog/future-of-fuel-delivery-lahore/</link>
+      <guid isPermaLink="true">https://zyphuel.netlify.app/blog/future-of-fuel-delivery-lahore/</guid>
+      <pubDate>Sat, 05 Sep 2026 08:00:00 GMT</pubDate>
+      <dc:creator>Zyphuel Energy Analysis Team</dc:creator>
+      <category>Zyphuel Energy</category>
+      <description><![CDATA[Analyzing Pakistan’s historic transition to daily fuel pricing based on rolling 7-day international Platts benchmarks, the roadmap to full 2027 deregulation, and how Zyphuel’s 2-hour push notification engine protects motorists and fleet budgets across Lahore.]]></description>
+    </item>
+
+    <item>
+      <title>How to Download and Install Zyphuel APK v2.4.0: Biometrics, Live GPS Auto-Pinning &amp; Daily Rate Sync</title>
+      <link>https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide/</link>
+      <guid isPermaLink="true">https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide/</guid>
+      <pubDate>Wed, 09 Sep 2026 08:00:00 GMT</pubDate>
+      <dc:creator>Zyphuel App Engineering</dc:creator>
+      <category>Zyphuel App &amp; Guides</category>
+      <description><![CDATA[A complete, step-by-step setup guide for the official Zyphuel Android APK (v2.4.0, 18.4 MB), covering biometric security checkout, GPS sector auto-detection across Lahore, and real-time bowser telemetry.]]></description>
+    </item>
+
+    <item>
+      <title>Powering Through Load-Shedding: Industrial Generator Refueling &amp; Direct Euro-V Diesel Logistics in Lahore</title>
+      <link>https://zyphuel.netlify.app/blog/generator-refueling-services-lahore/</link>
+      <guid isPermaLink="true">https://zyphuel.netlify.app/blog/generator-refueling-services-lahore/</guid>
+      <pubDate>Fri, 04 Sep 2026 08:00:00 GMT</pubDate>
+      <dc:creator>Zyphuel Commercial Ops</dc:creator>
+      <category>Generator &amp; Utilities</category>
+      <description><![CDATA[How factories, medical plazas, IT technology parks, and high-rise commercial facilities eliminate unpredicted blackout downtime with scheduled Euro-V generator diesel replenishment.]]></description>
+    </item>
+
+    <item>
+      <title>Commercial Generator Diesel &amp; Sealed LPG Cylinder Refills: 2026 Safety Standards &amp; Doorstep Delivery in Lahore</title>
+      <link>https://zyphuel.netlify.app/blog/generator-diesel-lpg-delivery-lahore/</link>
+      <guid isPermaLink="true">https://zyphuel.netlify.app/blog/generator-diesel-lpg-delivery-lahore/</guid>
+      <pubDate>Thu, 03 Sep 2026 08:00:00 GMT</pubDate>
+      <dc:creator>Zyphuel Utilities Team</dc:creator>
+      <category>Generator &amp; Utilities</category>
+      <description><![CDATA[A definitive safety guide on ordering certified Euro-V generator diesel, sealed LPG gas cylinders, and bulk clean water tankers directly to doorsteps across Lahore.]]></description>
+    </item>
+
+    <item>
+      <title>Combating Pump Short-Fueling: Inside Zyphuel’s Calibrated Positive-Displacement Flow Meters &amp; Cloud Telemetry</title>
+      <link>https://zyphuel.netlify.app/blog/iot-telemetry-fuel-delivery/</link>
+      <guid isPermaLink="true">https://zyphuel.netlify.app/blog/iot-telemetry-fuel-delivery/</guid>
+      <pubDate>Tue, 01 Sep 2026 08:00:00 GMT</pubDate>
+      <dc:creator>Zyphuel Telemetry Engineering</dc:creator>
+      <category>Zyphuel Energy</category>
+      <description><![CDATA[An engineering breakdown of how positive-displacement electronic flow meters, 0.01L pulse encoders, and IoT cloud telemetry eliminate retail pump short-fueling and fuel adulteration.]]></description>
+    </item>
+
+    <item>
+      <title>Mobile Energy Logistics in Lahore: Founder &amp; CEO Muhammad Daniyal on Scaling Zyphuel</title>
+      <link>https://zyphuel.netlify.app/blog/zyphuel-calibrated-telemetry-fleet/</link>
+      <guid isPermaLink="true">https://zyphuel.netlify.app/blog/zyphuel-calibrated-telemetry-fleet/</guid>
+      <pubDate>Fri, 28 Aug 2026 08:00:00 GMT</pubDate>
+      <dc:creator>Muhammad Daniyal (CEO)</dc:creator>
+      <category>Zyphuel Energy</category>
+      <description><![CDATA[Inside Zyphuel’s journey from a dedicated on-demand mobile refueler to a tech-enabled energy network in Lahore, led by Founder &amp; CEO Muhammad Daniyal.]]></description>
+    </item>
+  </channel>
+</rss>

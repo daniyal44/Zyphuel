@@ -50,13 +50,24 @@ This document serves as the centralized master tracking ledger for all completed
 - [x] Author 6 in-depth educational blog articles covering daily fuel pricing, generator refueling, short-fueling prevention, and mobile energy logistics.
 - [x] Synchronize all blog articles and data files with COD (5L–10L) and instant digital wallet payment methods.
 
+### 1.7 SEO, AEO & GEO Expansion, Search Engine Indexing Fix & 100% Speed
+- [x] Expand all 6 blog articles in `src/data/articles.js` into 1,000+ word technical pillar guides with Key Takeaways, comparative data tables, expert quotes, and 5 structured FAQs per article.
+- [x] Build structured rendering in `src/pages/BlogArticlePage.jsx` (Key Takeaways box, table of contents anchor jump links, comparison tables, FAQ accordions, social sharing, author bio, related guides grid, and Schema.org `Article`, `FAQPage`, and `SpeakableSpecification`).
+- [x] Enrich `AboutPage.jsx` with Technical Fleet & Metering Specifications, Regulatory Compliance Ledger, 5-question FAQ accordion, and remove duplicate startup slogan pill per permanent memory rule.
+- [x] Enrich `DownloadPage.jsx` with Android OS Compatibility Matrix, Cryptographic SHA-256 Checksum Panel, and Feature Comparison Table (APK vs Web).
+- [x] Enrich `ContactPage.jsx` with Lahore Sector Dispatch Hubs & SLA Matrix and Commercial Escalation Desk.
+- [x] Launch RSS 2.0 Editorial Feed (`/feed.xml`) and index in `index.html`, `robots.txt`, and `/sitemap/`.
+- [x] Create Netlify `_headers` file with 1-year immutable caching for static assets, 30-day image caching, HTML revalidation, and modern security headers.
+- [x] Eliminate all image-induced Cumulative Layout Shift (CLS = 0) with explicit `width`, `height`, `loading`, `decoding`, and `fetchpriority` attributes across all components.
+- [x] Verify full production build and 17-route Static Site Generation (`npm run build`) with exit code 0.
+
 ---
 
 ## 2. Active Engineering Tasks
 
-- [ ] **Task 2.1**: Consolidate and finalize master documentation suite in `docs/`.
-- [ ] **Task 2.2**: Run full production build verification (`npm run build`) to ensure all 17 SSG routes prerender with exit code 0.
-- [ ] **Task 2.3**: Update repository contribution graph and commit ledger.
+- [x] **Task 2.1**: Consolidate and finalize master documentation suite in `docs/`.
+- [x] **Task 2.2**: Run full production build verification (`npm run build`) to ensure all 17 SSG routes prerender with exit code 0.
+- [x] **Task 2.3**: Update repository contribution graph and commit ledger.
 
 ---
 

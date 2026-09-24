@@ -27,6 +27,7 @@ Allow: /manifest.json
 Allow: /llms.txt
 Allow: /llms-full.txt
 Allow: /sitemap.xml
+Allow: /feed.xml
 Allow: /*.css$
 Allow: /*.js$
 Allow: /*.png$

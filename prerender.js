@@ -428,6 +428,52 @@ const ROUTES = [
             "@id": `${DOMAIN}/#organization`
           }
         },
+        {
+          "@type": "FAQPage",
+          "@id": `${DOMAIN}/about/#faq`,
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Who is the founder of Zyphuel and what is the company's background?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zyphuel was founded by Pakistani software engineer and entrepreneur Muhammad Daniyal. Zyphuel operates as a modern mobile refueling and energy logistics company providing certified Euro-V petroleum, standby generator diesel, and clean utilities across Lahore with 0.01L calibrated electronic flow meters."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What specialized vehicles and metering equipment does Zyphuel operate?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zyphuel deploys custom-built micro-refuelers featuring double-walled baffled steel tanks, positive-displacement flow meters with optical pulse encoders (0.01L precision), automatic 15°C temperature compensation, 50-meter high-reach delivery hoses, and heavy-duty static bonding reels."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Zyphuel compliant with Pakistani safety and petroleum regulations?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Zyphuel complies with OGRA Euro-V petroleum quality standards (<10 ppm sulfur diesel and 92+ octane petrol sourced directly from licensed terminal depots), Civil Defence Lahore fire safety codes, Punjab EPA standards, and NFPA 30A motor fuel dispensing protocols."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are Zyphuel's doorstep delivery limits and pricing?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Doorstep consumer fuel orders are strictly bounded between 5 Litres minimum and 15 Litres maximum per dispatch. We charge a flat, transparent delivery fee of Rs. 280.00 with our guaranteed SLA of 'Delivered: Within 45 Mins'. Payment is supported via Cash on Delivery (COD for 5L–10L) and on-the-spot digital wallets (JazzCash, Easypaisa, NayaPay, Raast)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can businesses and corporate fleets open dedicated commercial accounts?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Zyphuel offers centralized billing accounts with 15-day or 30-day payment terms, scheduled weekly generator replenishment, digital consumption telemetry, and 24/7 priority emergency dispatch for hospitals, IT plazas, and logistics hubs."
+              }
+            }
+          ]
+        },
         ...ARTICLES_SCHEMA.filter(a => a["@id"].includes('article-5') || a["@id"].includes('article-6'))
       ]
     }
@@ -923,47 +969,70 @@ const ROUTES = [
       "url": `${DOMAIN}/404.html`
     }
   },
-  ...articles.map(article => ({
-    path: `/blog/${article.slug}/`,
-    outFile: `dist/blog/${article.slug}/index.html`,
-    title: `${article.title} | Zyphuel Blog`,
-    description: article.summary,
-    keywords: `${article.tags.join(', ')}, fuel delivery Lahore, diesel delivery Lahore, Zyphuel`,
-    canonical: `${DOMAIN}/blog/${article.slug}/`,
-    ogImage: article.image || `${DOMAIN}/images/logo.png`,
-    ogType: 'article',
-    schema: {
-      "@graph": [
-        WEBSITE_SCHEMA,
-        ORGANIZATION_SCHEMA,
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": `${DOMAIN}/` },
-            { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${DOMAIN}/blog/` },
-            { "@type": "ListItem", "position": 3, "name": article.title, "item": `${DOMAIN}/blog/${article.slug}/` }
-          ]
+  ...articles.map(article => {
+    const articleGraph = [
+      WEBSITE_SCHEMA,
+      ORGANIZATION_SCHEMA,
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": `${DOMAIN}/` },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${DOMAIN}/blog/` },
+          { "@type": "ListItem", "position": 3, "name": article.title, "item": `${DOMAIN}/blog/${article.slug}/` }
+        ]
+      },
+      {
+        "@type": article.category.includes('App') || article.slug.includes('telemetry') ? "TechArticle" : "Article",
+        "@id": `${DOMAIN}/blog/${article.slug}/#article`,
+        "headline": article.title,
+        "description": article.summary,
+        "image": article.image,
+        "datePublished": article.date,
+        "dateModified": "2026-09-06T00:00:00+05:00",
+        "author": {
+          "@type": article.author.includes('CEO') ? "Person" : "Organization",
+          "name": article.author
         },
-        {
-          "@type": "Article",
-          "@id": `${DOMAIN}/blog/${article.slug}/#article`,
-          "headline": article.title,
-          "description": article.summary,
-          "image": article.image,
-          "datePublished": article.date,
-          "dateModified": "2026-09-06T00:00:00+05:00",
-          "author": {
-            "@type": "Organization",
-            "name": article.author
-          },
-          "publisher": {
-            "@id": `${DOMAIN}/#organization`
-          },
-          "mainEntityOfPage": `${DOMAIN}/blog/${article.slug}/`
+        "publisher": {
+          "@id": `${DOMAIN}/#organization`
+        },
+        "mainEntityOfPage": `${DOMAIN}/blog/${article.slug}/`,
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".article-takeaways-box", ".article-lead-summary"]
         }
-      ]
+      }
+    ]
+
+    if (article.faqs && article.faqs.length > 0) {
+      articleGraph.push({
+        "@type": "FAQPage",
+        "@id": `${DOMAIN}/blog/${article.slug}/#faq`,
+        "mainEntity": article.faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      })
     }
-  }))
+
+    return {
+      path: `/blog/${article.slug}/`,
+      outFile: `dist/blog/${article.slug}/index.html`,
+      title: `${article.title} | Zyphuel Blog`,
+      description: article.summary,
+      keywords: `${article.tags.join(', ')}, fuel delivery Lahore, diesel delivery Lahore, Zyphuel`,
+      canonical: `${DOMAIN}/blog/${article.slug}/`,
+      ogImage: article.image || `${DOMAIN}/images/logo.png`,
+      ogType: 'article',
+      schema: {
+        "@graph": articleGraph
+      }
+    }
+  })
 ]
 
 async function prerender() {
@@ -1217,6 +1286,13 @@ ${sitemapUrls}
     console.log('🤖 Synced robots.txt to dist/')
   }
 
+  const feedSrc = toAbsolute('public/feed.xml')
+  const feedDist = toAbsolute('dist/feed.xml')
+  if (fs.existsSync(feedSrc)) {
+    fs.copyFileSync(feedSrc, feedDist)
+    console.log('📡 Synced feed.xml to dist/')
+  }
+
   const llmsSrc = toAbsolute('public/llms.txt')
   const llmsDist = toAbsolute('dist/llms.txt')
   if (fs.existsSync(llmsSrc)) {
@@ -1243,6 +1319,13 @@ ${sitemapUrls}
   if (fs.existsSync(indexNowSrc)) {
     fs.copyFileSync(indexNowSrc, indexNowDist)
     console.log('🔑 Synced 185084a8fa7dac10b46ec58d30c56792.txt to dist/')
+  }
+
+  const headersSrc = toAbsolute('public/_headers')
+  const headersDist = toAbsolute('dist/_headers')
+  if (fs.existsSync(headersSrc)) {
+    fs.copyFileSync(headersSrc, headersDist)
+    console.log('🛡️ Synced _headers to dist/')
   }
 
   // Clean up temporary dist-ssr directory

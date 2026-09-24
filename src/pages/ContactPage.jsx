@@ -61,7 +61,7 @@ export default function ContactPage() {
               "name": "How do I contact Zyphuel for urgent fuel dispatch in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For emergency fuel dispatch, message or call our 24/7 hotline at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app for 15–30 minute rapid bowser arrival."
+                "text": "For emergency fuel dispatch, message or call our 24/7 hotline at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app with our guaranteed SLA of Delivered: Within 45 Mins across Lahore."
               }
             },
             {
@@ -458,6 +458,102 @@ ${form.message.trim()}`
           </div>
         </section>
 
+        {/* Lahore Sector Coverage & Dispatch SLA Matrix */}
+        <section className="section-padding" style={{ backgroundColor: '#ffffff', borderTop: '1px solid var(--border-color, #e2e8f0)' }}>
+          <div className="container">
+            <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '36px' }}>
+              <div className="section-badge-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '20px', background: 'rgba(2, 132, 199, 0.1)', color: '#0284c7', fontSize: '0.85rem', fontWeight: 700, marginBottom: '12px' }}>
+                <i className="fa-solid fa-map-location-dot"></i> Metropolitan Service Coverage
+              </div>
+              <h2 className="section-title" style={{ fontSize: '1.8rem', margin: '0 0 10px 0' }}>Lahore Sector Dispatch Hubs &amp; SLA Matrix</h2>
+              <p className="section-subtitle" style={{ maxWidth: '780px', margin: '0 auto', color: 'var(--text-secondary)' }}>
+                Zyphuel operates decentralized mobile refueler hubs stationed across key metropolitan corridors, ensuring our guaranteed SLA of Delivered: Within 45 Mins across every covered sector.
+              </p>
+            </div>
+
+            <div className="fade-in-up" style={{ overflowX: 'auto', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 4px 16px rgba(0,0,0,0.04)', marginBottom: '32px' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.92rem' }}>
+                <thead>
+                  <tr style={{ background: '#f8fafc', borderBottom: '2px solid #cbd5e1' }}>
+                    <th style={{ padding: '14px 18px', fontWeight: 700, color: '#0f172a' }}>Sector / Zone</th>
+                    <th style={{ padding: '14px 18px', fontWeight: 700, color: '#0f172a' }}>Primary Dispatch Hub</th>
+                    <th style={{ padding: '14px 18px', fontWeight: 700, color: '#0f172a' }}>Guaranteed Delivery SLA</th>
+                    <th style={{ padding: '14px 18px', fontWeight: 700, color: '#0f172a' }}>Available Fuels &amp; Utilities</th>
+                    <th style={{ padding: '14px 18px', fontWeight: 700, color: '#0f172a' }}>Payment Modes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#ffffff' }}>
+                    <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>DHA Lahore (Phases 1–9 &amp; Prism)</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>DHA Phase 5 &amp; Phase 6 Mobile Nodes</td>
+                    <td style={{ padding: '14px 18px', color: '#10b981', fontWeight: 700 }}>Delivered: Within 45 Mins</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Petrol, Diesel, HOBC 97, LPG</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>COD (5L-10L) &amp; Digital Wallets</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#f8fafc' }}>
+                    <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Gulberg (I, II, III &amp; Main Blvd)</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Gulberg III Central Command Hub</td>
+                    <td style={{ padding: '14px 18px', color: '#10b981', fontWeight: 700 }}>Delivered: Within 45 Mins</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Petrol, Diesel, HOBC 97, Water</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>COD (5L-10L) &amp; Digital Wallets</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#ffffff' }}>
+                    <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Johar Town &amp; Faisal Town</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Allah Hoo Chowk Rapid Bowser Node</td>
+                    <td style={{ padding: '14px 18px', color: '#10b981', fontWeight: 700 }}>Delivered: Within 45 Mins</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Petrol, Diesel, Generator Refueling</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>COD (5L-10L) &amp; Digital Wallets</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#f8fafc' }}>
+                    <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Model Town &amp; Garden Town</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Model Town Link Road Fleet Base</td>
+                    <td style={{ padding: '14px 18px', color: '#10b981', fontWeight: 700 }}>Delivered: Within 45 Mins</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Petrol, Diesel, HOBC 97, LPG</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>COD (5L-10L) &amp; Digital Wallets</td>
+                  </tr>
+                  <tr style={{ background: '#ffffff' }}>
+                    <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Bahria Town, Lake City &amp; Valencia</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Raiwind Road Outpost Node</td>
+                    <td style={{ padding: '14px 18px', color: '#10b981', fontWeight: 700 }}>Delivered: Within 45 Mins</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Petrol, Diesel, Generator Supply</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>COD (5L-10L) &amp; Digital Wallets</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* B2B Escalation & Corporate Procurement Matrix */}
+            <div className="fade-in-up" style={{ background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0', padding: '24px 28px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+                <i className="fa-solid fa-briefcase" style={{ color: '#0284c7', fontSize: '1.25rem' }}></i>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, margin: 0, color: '#0f172a' }}>
+                  Commercial Fleet &amp; Industrial Escalation Desk
+                </h3>
+              </div>
+              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginBottom: '14px' }}>
+                Corporate facilities requiring bulk generator diesel (200L to 10,000L+), dedicated recurring weekly replenishment, or consolidated monthly billing can connect directly with our enterprise operations leads:
+              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px', fontSize: '0.88rem' }}>
+                <div style={{ padding: '12px 14px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                  <strong style={{ display: 'block', color: '#0f172a' }}>Executive Management</strong>
+                  <span style={{ color: '#64748b' }}>Founder &amp; CEO Muhammad Daniyal</span>
+                  <div style={{ color: '#0284c7', marginTop: '4px' }}>m.daniyalkhan490@gmail.com</div>
+                </div>
+                <div style={{ padding: '12px 14px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                  <strong style={{ display: 'block', color: '#0f172a' }}>Sales &amp; Fleet Operations</strong>
+                  <span style={{ color: '#64748b' }}>Adil Farooq (Sales Manager)</span>
+                  <div style={{ color: '#0284c7', marginTop: '4px' }}>+92 3230-112464</div>
+                </div>
+                <div style={{ padding: '12px 14px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                  <strong style={{ display: 'block', color: '#0f172a' }}>24/7 Urgent Dispatch Hotline</strong>
+                  <span style={{ color: '#64748b' }}>WhatsApp Live GPS Dispatch</span>
+                  <div style={{ color: '#16a34a', marginTop: '4px' }}>wa.me/923230112464</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Contact & Support FAQs Section */}
         <section className="section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-color, #e2e8f0)' }}>
           <div className="container" style={{ maxWidth: '880px' }}>
@@ -538,7 +634,7 @@ ${form.message.trim()}`
           <div className="container">
             <h2 className="section-title">Need Immediate Fuel Dispatch?</h2>
             <p className="section-subtitle" style={{ maxWidth: '640px', margin: '0 auto 28px auto' }}>
-              Skip the contact form if you need fuel right now. Place an order directly for 15–30 minute doorstep delivery across Lahore.
+              Skip the contact form if you need fuel right now. Place an order directly for doorstep delivery (Delivered: Within 45 Mins, flat Rs. 280 fee) across Lahore.
             </p>
             <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link to="/order/" className="btn btn-primary btn-lg">

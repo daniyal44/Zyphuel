@@ -40,11 +40,13 @@ zyphuel-react/
 │   ├── informtion.md        # Corporate, legal, fleet & technical data
 │   ├── articles.md          # Editorial knowledge index & search keyword matrix
 │   ├── conclusion.md        # Executive retrospective & platform achievements
-│   ├── phases.md            # Phase 1 to Phase 8 milestone deep-dives
+│   ├── phases.md            # Phase 1 to Phase 9 milestone deep-dives
 │   └── README.md            # Documentation directory navigation index
 ├── public/                  # Public static assets served at root
 │   ├── APK/                 # Official Android APK installation binaries
 │   ├── images/              # Hero photos, fleet assets, founder portraits
+│   ├── _headers             # Netlify caching, compression & security headers
+│   ├── feed.xml             # RSS 2.0 editorial syndication feed
 │   ├── llms.txt             # Markdown summary for LLM scrapers & search bots
 │   ├── llms-full.txt        # Full architectural knowledge base for AI agents
 │   ├── robots.txt           # Search engine crawler crawl rules

@@ -28,6 +28,31 @@ const teamMembers = [
 ];
 
 export default function AboutPage() {
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const aboutFaqs = [
+    {
+      question: "Who is the founder of Zyphuel and what is the company's background?",
+      answer: "Zyphuel was founded by Pakistani software engineer and entrepreneur Muhammad Daniyal. Zyphuel operates as a modern mobile refueling and energy logistics company providing certified Euro-V petroleum, standby generator diesel, and clean utilities across Lahore with 0.01L calibrated electronic flow meters."
+    },
+    {
+      question: "What specialized vehicles and metering equipment does Zyphuel operate?",
+      answer: "Zyphuel deploys custom-built micro-refuelers featuring double-walled baffled steel tanks, positive-displacement flow meters with optical pulse encoders (0.01L precision), automatic 15°C temperature compensation, 50-meter high-reach delivery hoses, and heavy-duty static bonding reels."
+    },
+    {
+      question: "Is Zyphuel compliant with Pakistani safety and petroleum regulations?",
+      answer: "Yes. Zyphuel complies with OGRA Euro-V petroleum quality standards (<10 ppm sulfur diesel and 92+ octane petrol sourced directly from licensed terminal depots), Civil Defence Lahore fire safety codes, Punjab EPA standards, and NFPA 30A motor fuel dispensing protocols."
+    },
+    {
+      question: "What are Zyphuel's doorstep delivery limits and pricing?",
+      answer: "Doorstep consumer fuel orders are strictly bounded between 5 Litres minimum and 15 Litres maximum per dispatch. We charge a flat, transparent delivery fee of Rs. 280.00 with our guaranteed SLA of 'Delivered: Within 45 Mins'. Payment is supported via Cash on Delivery (COD for 5L–10L) and on-the-spot digital wallets (JazzCash, Easypaisa, NayaPay, Raast)."
+    },
+    {
+      question: "Can businesses and corporate fleets open dedicated commercial accounts?",
+      answer: "Yes. Zyphuel offers centralized billing accounts with 15-day or 30-day payment terms, scheduled weekly generator replenishment, digital consumption telemetry, and 24/7 priority emergency dispatch for hospitals, IT plazas, and logistics hubs."
+    }
+  ];
+
   useSEO({
     title: 'About Zyphuel | On-Demand Fuel Delivery in Lahore',
     description: "Learn about Zyphuel's mission to deliver reliable on-demand petrol and diesel across Lahore. Founded by Muhammad Daniyal, bringing calibrated digital flow meters to doorstep refueling.",
@@ -70,6 +95,18 @@ export default function AboutPage() {
               ]
             }
           }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://zyphuel.netlify.app/about/#faq",
+          "mainEntity": aboutFaqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer
+            }
+          }))
         }
       ]
     }
@@ -307,6 +344,99 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Technical Fleet Specifications & Bowser Architecture */}
+        <section className="about-tech-fleet section-padding" style={{ backgroundColor: '#ffffff', borderBottom: '1px solid var(--border-color)' }}>
+          <div className="container">
+            <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '40px' }}>
+              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
+                Engineering Infrastructure &amp; Hardware
+              </span>
+              <h2 className="section-title">Technical Fleet &amp; Metering Specifications</h2>
+              <p className="section-subtitle" style={{ maxWidth: '800px', margin: '0 auto' }}>
+                Every Zyphuel micro-refueler is custom-engineered for dense urban transit across Lahore, combining industrial explosion-proof hardware with digital cloud telemetry.
+              </p>
+            </div>
+
+            <div className="fade-in-up" style={{ overflowX: 'auto', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 4px 16px rgba(0,0,0,0.04)', marginBottom: '32px' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.92rem' }}>
+                <thead>
+                  <tr style={{ background: '#f8fafc', borderBottom: '2px solid #cbd5e1' }}>
+                    <th style={{ padding: '14px 18px', fontWeight: 700, color: '#0f172a' }}>Hardware Component</th>
+                    <th style={{ padding: '14px 18px', fontWeight: 700, color: '#0f172a' }}>Technical Specification</th>
+                    <th style={{ padding: '14px 18px', fontWeight: 700, color: '#0f172a' }}>Safety &amp; Calibration Standard</th>
+                    <th style={{ padding: '14px 18px', fontWeight: 700, color: '#0f172a' }}>Operational Benefit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#ffffff' }}>
+                    <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Micro-Tanker Containment</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Double-walled baffled steel vessel (ASTM A36)</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>ADR &amp; NFPA 385 Flammable Liquid Codes</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Prevents sloshing and eliminates leak risks in traffic</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#f8fafc' }}>
+                    <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Digital Flow Meter</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Positive-displacement oval gear with optical encoder</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>0.01 Litre resolution (±0.1% accuracy)</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Guarantees zero short-fueling with live app streaming</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#ffffff' }}>
+                    <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Temperature Sensor</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Immersed PT100 RTD thermal probe</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>ASTM D1250 15°C temperature normalization</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Corrects for 45°C summer thermal volume expansion</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#f8fafc' }}>
+                    <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>High-Reach Delivery Reel</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>50-meter anti-static reinforced hose with rewind reel</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>EN 1360 petroleum dispensing certification</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Reaches rooftop and basement generator tanks easily</td>
+                  </tr>
+                  <tr style={{ background: '#ffffff' }}>
+                    <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Electrostatic Grounding</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>High-conductivity copper clamp with interlock switch</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>NFPA 77 Static Electricity Dissipation</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Dispenser cannot activate until chassis bonding verified</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* Regulatory Compliance Ledger */}
+            <div className="fade-in-up" style={{ background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0', padding: '24px 28px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+                <i className="fa-solid fa-stamp" style={{ color: '#0284c7', fontSize: '1.3rem' }}></i>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 700, margin: 0, color: '#0f172a' }}>
+                  Regulatory Compliance &amp; Standards Ledger
+                </h3>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px', fontSize: '0.9rem', color: '#475569' }}>
+                <div style={{ padding: '14px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                  <strong style={{ display: 'block', color: '#0f172a', marginBottom: '4px' }}>
+                    <i className="fa-solid fa-certificate" style={{ color: '#10b981', marginRight: '6px' }}></i>
+                    OGRA Euro-V Certified
+                  </strong>
+                  Sourced 100% directly from licensed Oil Marketing Company terminal depots. Ultra-low sulfur diesel (&lt;10 ppm) and 92+ RON petrol.
+                </div>
+                <div style={{ padding: '14px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                  <strong style={{ display: 'block', color: '#0f172a', marginBottom: '4px' }}>
+                    <i className="fa-solid fa-fire-extinguisher" style={{ color: '#ef4444', marginRight: '6px' }}></i>
+                    Civil Defence Lahore
+                  </strong>
+                  Vehicles inspected and permitted for flammable liquid urban transport with onboard automatic dry-chemical extinguishers.
+                </div>
+                <div style={{ padding: '14px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                  <strong style={{ display: 'block', color: '#0f172a', marginBottom: '4px' }}>
+                    <i className="fa-solid fa-scale-balanced" style={{ color: '#6366f1', marginRight: '6px' }}></i>
+                    Weights &amp; Measures Validated
+                  </strong>
+                  Pulse encoders inspected and sealed with zero mechanical drift tolerance for transparent consumer billing.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Official Articles, Press Releases & Social Media Publications */}
         <section id="articles-section" className="section-padding" style={{ backgroundColor: '#ffffff' }}>
           <div className="container">
@@ -318,14 +448,6 @@ export default function AboutPage() {
               <p className="section-subtitle" style={{ maxWidth: '820px', margin: '0 auto' }}>
                 Explore in-depth publications, social media feature articles, and technical breakdowns documenting Zyphuel’s energy technology, telemetry infrastructure, and leadership vision.
               </p>
-              <div style={{ textAlign: 'center', marginTop: '14px' }}>
-                <div className="startup-slogan-pill">
-                  <i className="fa-solid fa-rocket" style={{ color: '#0284c7' }}></i>
-                  <span>
-                    <strong>Not a corporate giant — just an agile, passionate startup</strong> building Pakistan's cleanest on-demand energy platform.
-                  </span>
-                </div>
-              </div>
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
@@ -435,6 +557,10 @@ export default function AboutPage() {
                       <img
                         src={src}
                         alt={`${teamMembers[i]?.name || 'Team Member'} - ${teamMembers[i]?.role || 'Staff'}`}
+                        loading="lazy"
+                        decoding="async"
+                        width="320"
+                        height="380"
                       />
                     </div>
                   ))}
@@ -489,6 +615,71 @@ export default function AboutPage() {
           {showScrollIndicator && (
             <div className="scroll-indicator">scroll</div>
           )}
+        </section>
+
+        {/* Frequently Asked Questions Section */}
+        <section className="about-faq-section section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-color)' }}>
+          <div className="container" style={{ maxWidth: '840px' }}>
+            <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '36px' }}>
+              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
+                Clear Answers &amp; Operational Transparency
+              </span>
+              <h2 className="section-title">Frequently Asked Questions About Zyphuel</h2>
+              <p className="section-subtitle">
+                Everything you need to know about our founding mission, calibrated micro-refueler fleet, safety compliance, and Lahore doorstep delivery.
+              </p>
+            </div>
+
+            <div className="fade-in-up" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              {aboutFaqs.map((faq, idx) => {
+                const isOpen = openFaq === idx;
+                return (
+                  <div
+                    key={idx}
+                    style={{
+                      border: '1px solid #e2e8f0',
+                      borderRadius: '12px',
+                      overflow: 'hidden',
+                      background: isOpen ? '#ffffff' : '#ffffff',
+                      boxShadow: isOpen ? '0 4px 12px rgba(0,0,0,0.05)' : 'none',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    <button
+                      onClick={() => setOpenFaq(isOpen ? null : idx)}
+                      style={{
+                        width: '100%',
+                        padding: '18px 22px',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        background: 'none',
+                        border: 'none',
+                        textAlign: 'left',
+                        cursor: 'pointer',
+                        fontSize: '1rem',
+                        fontWeight: 700,
+                        color: 'var(--text-primary)',
+                        gap: '12px'
+                      }}
+                      aria-expanded={isOpen}
+                    >
+                      <span>{faq.question}</span>
+                      <i
+                        className={`fa-solid ${isOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}
+                        style={{ color: '#0284c7', flexShrink: 0, transition: 'transform 0.2s ease' }}
+                      ></i>
+                    </button>
+                    {isOpen && (
+                      <div style={{ padding: '0 22px 20px 22px', color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.65, borderTop: '1px solid #f1f5f9' }}>
+                        {faq.answer}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </section>
 
         {/* Next Steps CTA Section */}

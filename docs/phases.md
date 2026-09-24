@@ -20,6 +20,8 @@ gantt
     Phase 6 : Core Business Logic & Pricing Rules   :done, p6, 2026-09-16, 2026-09-20
     Phase 7 : Corporate Tax Invoice & Verification  :done, p7, 2026-09-21, 2026-09-23
     Phase 8 : Streamlining, Payment Modernization   :done, p8, 2026-09-24, 2026-09-25
+    section Optimization & Scale
+    Phase 9 : SEO, AEO & GEO Expansion & 100% Speed :active, p9, 2026-09-25, 2026-09-26
 ```
 
 ---
@@ -119,7 +121,7 @@ gantt
 ---
 
 ### Phase 8: Streamlining, Payment Modernization & Master Documentation
-- **Timeline**: September 24, 2026 – September 25, 2026 (Present)
+- **Timeline**: September 24, 2026 – September 25, 2026
 - **Primary Objectives**:
   - Overhaul Home hero section scroll video animation for full-bleed responsive layout without black boxes or pixel tearing.
   - Remove obsolete volume-based price adjustment banners and urgent priority surcharge card from checkout.
@@ -132,3 +134,23 @@ gantt
   - Completely responsive, pixel-perfect home hero scroll section.
   - Modernized, scannable payment card with branded digital wallet chips.
   - Comprehensive, synchronized 13-document master suite in `docs/`.
+
+---
+
+### Phase 9: SEO, AEO & GEO Expansion, Search Engine Indexing Fix & 100% Performance / Speed
+- **Timeline**: September 25, 2026 – Present
+- **Primary Objectives**:
+  - Resolve Google Search Console discovery latency and index all public pages automatically.
+  - Transform all 6 blog articles in `src/data/articles.js` into authoritative 1,000+ word pillar guides with Key Takeaways, data tables, expert quotes, and 5 structured FAQs.
+  - Build rich article rendering in `src/pages/BlogArticlePage.jsx` (Key Takeaways box, table of contents anchor jump links, comparison tables, FAQ accordions, social sharing bus, author bio, related guides grid).
+  - Enrich `AboutPage.jsx` with Technical Fleet & Metering Specifications, Regulatory Compliance Ledger, 5-question FAQ accordion, and remove duplicate startup slogan pill per permanent memory rule.
+  - Enrich `DownloadPage.jsx` with Android OS Compatibility Matrix, Cryptographic SHA-256 Checksum Panel, and Feature Comparison Table (APK vs Web).
+  - Enrich `ContactPage.jsx` with Lahore Sector Dispatch Hubs & SLA Matrix and Commercial Escalation Desk.
+  - Launch RSS 2.0 Editorial Feed (`/feed.xml`) and index in `index.html`, `robots.txt`, and `/sitemap/`.
+  - Achieve 100% Performance & Speed Score across all devices via Netlify `_headers` immutable caching, image dimension attributes (CLS = 0), and LCP preloading.
+- **Key Deliverables**:
+  - 6 comprehensive 1,000+ word technical guides with Schema.org `FAQPage` + `Article` JSON-LD graphs statically pre-rendered in HTML.
+  - Zero hydration mismatch across all 17 SSG routes.
+  - High-performance Netlify caching and security headers (`public/_headers`).
+  - Automated crawler syndication via RSS 2.0 Feed (`dist/feed.xml`).
+

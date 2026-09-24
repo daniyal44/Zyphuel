@@ -63,36 +63,42 @@ This document provides a comprehensive technical and functional catalog of all 1
 - **Key Sections**:
   - **Origin Story Narrative**: Muhammad Daniyal's vision of eliminating pump queues and blackout downtime.
   - **Interactive 3D Card Carousel**: 6 cards highlighting executive team, micro-bowser trucks, and direct app QR code.
-  - **Executive Profiles**: Detailed biographies for Founder Muhammad Daniyal and Operations Lead Adil Farooq.
-  - **Safety & Regulatory Credentials**: OGRA License, NTN, SECP registration, and terminal compliance proofs.
-- **Evolution**: Centralized versioning, removed redundant startup disclaimer callouts, updated article highlights.
+  - **Executive Profiles**: Detailed biographies for Founder Muhammad Daniyal and Sales Manager Adil Farooq.
+  - **Technical Fleet & Metering Specifications**: Double-walled ASTM A36 steel vessels, positive-displacement flow meters with optical encoders (0.01L accuracy), PT100 RTD probes (15°C standard), 50m delivery reels.
+  - **Regulatory Compliance & Standards Ledger**: OGRA license (`OGRA/DL-7492/LHE`), Civil Defence permit (`CD-LHE/FL-2026/089`), Weights & Measures validation (`PWM/VER-88210/2026`), SECP (`0248195`).
+  - **About Zyphuel FAQ Accordion**: 5 expandable Q&As with Schema.org `FAQPage` markup.
+- **Evolution**: Removed duplicate startup slogan pill per permanent memory rule (strictly single persistent statement on Home hero); enriched with fleet engineering specs, regulatory ledger, and FAQ accordion.
 
 ### 5. Download Mobile App Page (`/download/`)
 - **Component**: `src/pages/DownloadPage.jsx`
 - **Key Sections**:
   - **Direct APK Download**: Primary download button for `Zyphuel.apk` (`v2.6.4.0.0.16`, `31.6 MB`).
-  - **Instant QR Scan**: High-contrast QR code for instant desktop-to-mobile APK download.
+  - **Instant QR Scan**: High-contrast QR code with explicit dimensions (`160x160`) for instant smartphone install.
+  - **Android OS Compatibility & Performance Matrix**: Benchmark table covering Android 8.0 through Android 15 (API 26-35, biometrics, GPS, FPS).
+  - **Cryptographic SHA-256 Checksum Panel**: Verified binary hash and copyable CLI commands for PowerShell (`Get-FileHash`) and Linux (`sha256sum`).
+  - **Feature Comparison Table (Official APK vs Web Portal)**: 10-feature breakdown contrasting biometric logins, background alerts, and flow meter telemetry.
   - **Step-by-Step Android Setup**: Clear walkthrough for enabling unknown sources and granting permissions.
-  - **Why Choose Mobile App**: Highlights 2-hour rate alert daemon, biometric checkout, and BLE flow meter sync.
-  - **Technical Architecture Grid**: Package name, minimum SDK (Android 7.0+), architecture, and SHA-256 integrity proofs.
-- **Evolution**: Synchronized with latest production APK build `v2.6.4.0.0.16` and updated FAQ to include COD (5L–10L) & digital wallets.
+- **Evolution**: Synchronized with latest production APK build `v2.6.4.0.0.16`, added compatibility matrix, SHA-256 integrity panel, APK vs Web comparison table, and image performance attributes.
 
 ### 6. Contact Us Page (`/contact/`)
 - **Component**: `src/pages/ContactPage.jsx`
 - **Key Sections**:
   - **Direct Inquiry Form**: State-controlled contact form with validation and toast alerts.
   - **Hotline & Dispatch Links**: Direct telephone and WhatsApp links to `+92 3230-112464`.
+  - **Lahore Sector Dispatch Hubs & SLA Matrix**: Comprehensive sector coverage table for DHA (Phases 1–9), Gulberg, Johar Town, Model Town, and Bahria Town with `Delivered: Within 45 Mins` SLA and payment options.
+  - **Commercial Fleet & Industrial Escalation Desk**: Direct contacts for emergency generator refueling, bulk depot dispatch, and corporate compliance.
   - **Operating Hours Table**: Clear distinction between physical office hours and 24/7 delivery operations.
-  - **Google Maps Embed**: Interactive map displaying headquarters at 75-Main Boulevard, Gulberg III, Lahore.
-- **Evolution**: Standardized phone numbers, office hours, and delivery SLAs across all copy.
+  - **Google Maps Embed & FAQ Accordion**: Headquarters at 75-Main Boulevard, Gulberg III, Lahore, plus 4 Schema.org FAQs.
+- **Evolution**: Standardized delivery SLA to "Delivered: Within 45 Mins", added sector dispatch matrix and B2B escalation desk.
 
 ### 7. Blog Listing Page (`/blog/`)
 - **Component**: `src/pages/BlogListPage.jsx`
 - **Key Sections**:
   - **Search & Filter Bar**: Real-time article title and summary filtering.
   - **Category Tabs**: Filter by *All*, *Zyphuel Energy*, *Zyphuel App & Guides*, and *Generator & Utilities*.
-  - **Article Cards**: Image, category badge, publication date, reading time estimate, and summary snippet.
-- **Evolution**: Dynamically powered by `src/data/articles.js`, ensuring instant synchronization when articles are updated.
+  - **Article Cards**: Responsive card grid with category badges, author avatars, reading times, tags, summaries, and links to `/blog/:slug/`.
+  - **RSS 2.0 Editorial Feed Link**: Direct syndication link to `/feed.xml`.
+- **Evolution**: Expanded all 6 articles in `src/data/articles.js` into 1,000+ word pillar guides; built rich article view in `BlogArticlePage.jsx` with Key Takeaways, Table of Contents, responsive data tables, expert quotes, and FAQ accordions.
 
 ### 8. Privacy Policy Page (`/privacy/`)
 - **Component**: `src/pages/PrivacyPolicyPage.jsx`

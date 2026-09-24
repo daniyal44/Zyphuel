@@ -21,9 +21,8 @@ Zyphuel deploys purpose-built, double-walled micro-refueling tankers equipped wi
 
 ## 2. Core Business Logic, Pricing & Rules (System Invariants)
 - **Fuel Volume Range**: Strictly 5 Litres minimum up to 15 Litres maximum per mobile doorstep delivery dispatch. All input fields clamp requests within 5L–15L. Increment step: +1 Litre. Volume chips provided: `[5, 7, 10, 12, 15]` with 15L Max capacity indicator. Bulk commercial orders (>15L up to 10,000L+) serviced via scheduled B2B bowsers.
-- **Simple Delivery Charges**: Flat Rs. 280.00 nominal dispatch fee for doorstep fuel orders delivered within 45 minutes.
-- **Urgent Priority Surcharge**: Controlled priority surcharge of +Rs. 100.00 flat (Standard Rs. 280 + Rs. 100 Urgent Surcharge = Rs. 380.00 total) with priority queue dispatch within 45 minutes.
-- **Delivery Window**: Fixed within 45 minutes on doorstep across Lahore for both Standard and Urgent Priority dispatches.
+- **Delivery Charges**: Flat Rs. 280.00 nominal dispatch fee for doorstep fuel orders (Delivered: Within 45 Mins).
+- **Delivery Window**: Guaranteed SLA of Delivered: Within 45 Mins across all covered sectors of Lahore.
 - **Fuel Purity Standards**: 100% terminal-sourced Euro-V Diesel (<10 ppm sulfur), Super Petrol (92 Octane), and High-Octane 97 compliant with official Hydrocarbon Development Institute of Pakistan (HDIP) and Oil & Gas Regulatory Authority (OGRA) standards.
 - **Payment Policy**:
   - Cash on Delivery (COD) supported for orders between 5 and 10 Litres.
