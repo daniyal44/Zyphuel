@@ -55,3 +55,13 @@
 - [x] Urgent delivery surcharge maintained at flat +Rs. 100.00 (Total Rs. 380.00).
 - [x] Strict 5L Minimum to 15L Maximum capacity enforced and communicated across Order Page, Terms, and Knowledge Articles.
 - [x] Purged all '50L' / '50 Litres' bulk references and '• Min' tag from volume quick select chips.
+
+## Phase 9 — Performance, SEO, Dynamic Sitemaps & Fixed 45-Min SLA Window
+**Goal:** Comprehensive Core Web Vitals optimization, Schema.org business rule alignment, multi-route Google Image sitemaps, and universal doorstep delivery time standardization.
+- [x] Removed unused Anime.js and global GSAP CDN scripts from `<head>` on all 17 routes, reducing index.html size and initial network overhead.
+- [x] Dynamically injected GSAP on-demand in `OrderPage.jsx` for the truck submit animation without blocking initial route render.
+- [x] Removed unused `birdsData` manual chunk configuration from `vite.config.js`.
+- [x] Standardized doorstep delivery duration to fixed strictly **within 45 minutes** for both Simple Standard and Urgent Priority across OrderPage, countdown timers, tracker states, WhatsApp dispatch template, printable invoice, PDF vector export, and meta tags.
+- [x] Corrected Schema.org JSON-LD structured data in `index.html` and `prerender.js` to strictly enforce the 5–15L volume limit, flat Rs. 280 fee, and within 45 minutes SLA.
+- [x] Enriched dynamic `sitemap.xml` generation in `prerender.js` with `<image:image>` metadata for all 16 canonical public routes and accurate per-article `<lastmod>` publication timestamps.
+- [x] Full SSG build and GSC inspection passing with exit code 0.

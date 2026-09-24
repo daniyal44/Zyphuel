@@ -15,9 +15,6 @@ export default defineConfig(({ isSsrBuild }) => ({
               if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/') || id.includes('node_modules/react-router-dom/')) {
                 return 'vendor-react';
               }
-              if (id.includes('birdsData')) {
-                return 'birds-data';
-              }
               if (id.includes('articles')) {
                 return 'articles-data';
               }

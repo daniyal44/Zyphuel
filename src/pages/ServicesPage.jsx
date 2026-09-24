@@ -38,12 +38,11 @@ export default function ServicesPage() {
 
   useSEO({
     title: 'Fuel Delivery Services in Lahore | Petrol, Diesel & High-Octane | Zyphuel',
-    description: 'On-demand fuel delivery in Lahore: Euro-V petrol, diesel for vehicles and standby generators, sealed LPG gas cylinders, and water tanker delivery. Fast 20-45 minute dispatch.',
+    description: 'On-demand fuel delivery in Lahore: Euro-V Super Petrol, High-Octane 97, and Euro-V Diesel for vehicles and standby generators. Fast dispatch within 45 minutes.',
     keywords: [
       'fuel delivery services Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
       'generator diesel refueling Lahore', 'commercial diesel supply Lahore', 'fleet refueling Pakistan',
-      'doorstep petrol delivery', 'LPG gas cylinder refill Lahore', 'water tanker refill Lahore',
-      'high octane 97 delivery Lahore', 'Zyphuel services'
+      'doorstep petrol delivery', 'high octane 97 delivery Lahore', 'Zyphuel services'
     ],
     image: 'https://zyphuel.netlify.app/images/fuel.png',
     url: 'https://zyphuel.netlify.app/services/',
@@ -54,7 +53,7 @@ export default function ServicesPage() {
         {
           "@type": "Service",
           "@id": "https://zyphuel.netlify.app/services/#service",
-          "name": "On-Demand Doorstep Fuel & Utility Delivery",
+          "name": "On-Demand Doorstep Fuel & Refueling Logistics",
           "provider": {
             "@type": "LocalBusiness",
             "name": "Zyphuel Mobile Refueling",
@@ -73,7 +72,7 @@ export default function ServicesPage() {
           "areaServed": "Lahore, Pakistan",
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "Zyphuel Energy & Utility Services",
+            "name": "Zyphuel Energy & Refueling Services",
             "itemListElement": [
               {
                 "@type": "Offer",
@@ -98,22 +97,6 @@ export default function ServicesPage() {
                   "name": "Corporate Fleet Management & Micro-Bowser Dispatch",
                   "description": "Overnight fleet refueling with RFID telemetry and monthly consolidated invoicing."
                 }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "LPG Gas Cylinder Refills & Swap",
-                  "description": "Doorstep sealed LPG gas cylinder refills with weight verification."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Bulk Water Tanker Refill",
-                  "description": "Potable clean water tanker delivery at Rs. 100 per gallon."
-                }
               }
             ]
           }
@@ -127,7 +110,7 @@ export default function ServicesPage() {
               "name": "What services does Zyphuel provide in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel provides 24/7 on-demand doorstep fuel delivery including Euro-V Super Petrol (92 Octane), High-Octane 97, Euro-V Diesel for vehicles and backup generators, sealed LPG Gas Cylinder refills, and bulk potable Water Tanker delivery across Lahore."
+                "text": "Zyphuel provides 24/7 on-demand doorstep fuel delivery including Euro-V Super Petrol (92 Octane), High-Octane 97, and Euro-V Diesel for vehicles and backup generators across Lahore."
               }
             },
             {
@@ -159,7 +142,7 @@ export default function ServicesPage() {
               "name": "Is Cash on Delivery (COD) supported for fuel orders?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel, 10 kg LPG cylinder, or 20 gallons of water. For larger orders or corporate fleets, online bank transfers and 30-day billing accounts are available."
+                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel. For larger orders or corporate fleets, online bank transfers and 30-day billing accounts are available."
               }
             }
           ]
@@ -224,12 +207,8 @@ export default function ServicesPage() {
                     <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>High-Octane: Rs. {livePrices.highOctane.toFixed(2)}/L</span>
                   </div>
                   <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm, 6px)', padding: '8px 12px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.03)' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#f97316', flexShrink: 0 }}></span>
-                    <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>LPG: Rs. {livePrices.lpg ? livePrices.lpg.toFixed(2) : '450.00'}/kg</span>
-                  </div>
-                  <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm, 6px)', padding: '8px 12px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.03)' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#06b6d4', flexShrink: 0 }}></span>
-                    <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>Water: Rs. 100/gal</span>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#16a34a', flexShrink: 0 }}></span>
+                    <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>Dispatch: Within 45 Mins</span>
                   </div>
                 </div>
 
@@ -523,7 +502,7 @@ export default function ServicesPage() {
                   <i className="fa-solid fa-circle-question" style={{ color: 'var(--accent-color, #0ea5e9)', marginRight: '8px' }}></i> Is Cash on Delivery (COD) supported?
                 </h3>
                 <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                  Yes! Cash on Delivery (COD) is available for domestic orders from 5 to 10 liters of fuel, 10 kg LPG, or 20 gallons of water. For commercial orders and fleets, direct bank transfers and monthly billing accounts are supported.
+                  Yes! Cash on Delivery (COD) is available for domestic orders from 5 to 10 liters of fuel. For commercial orders and fleets, direct bank transfers and monthly billing accounts are supported.
                 </p>
               </div>
             </div>

@@ -44,4 +44,5 @@ The **HTML Sitemap Page** (`/sitemap/`) is the central navigational directory of
 ---
 
 ## 5. Changelog
+- **2026-09-24**: Upgraded XML Sitemap generation in `prerender.js` to include `<image:image>` blocks for all 16 canonical pages and blog articles, and derived truthful publication `<lastmod>` timestamps from `articles.js`.
 - **2026-09-19**: Created dedicated HTML Sitemap page to resolve search engine indexing delays for deep pages and blog subpages. Added to footer and build pre-renderer.

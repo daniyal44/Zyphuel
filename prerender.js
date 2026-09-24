@@ -292,7 +292,7 @@ const ROUTES = [
     path: '/',
     outFile: 'dist/index.html',
     title: "Doorstep Fuel Delivery in Lahore | Fast Petrol & Diesel | Zyphuel",
-    description: "Order certified Euro-V petrol, diesel, LPG cylinders, and water delivered directly to your doorstep in Lahore within 20-45 minutes. Calibrated digital meters and Cash on Delivery.",
+    description: "Order certified Euro-V petrol, diesel, and high-octane fuel delivered directly to your doorstep in Lahore within 45 minutes. Calibrated digital meters and Cash on Delivery.",
     keywords: RELEVANT_KEYWORDS,
     canonical: `${DOMAIN}/`,
     ogImage: `${DOMAIN}/images/logo.png`,
@@ -325,7 +325,7 @@ const ROUTES = [
               "name": "What is the minimum fuel delivery quantity on Zyphuel?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "The minimum fuel delivery volume is strictly 5 Litres for both petrol and diesel. Customers can choose from volume chips (5, 10, 20, 50, 100, 250, 500, 1000L) or input custom amounts above 5 Litres in 1-Litre increments."
+                "text": "The fuel delivery volume is strictly 5 Litres minimum up to 15 Litres maximum per doorstep delivery order. Customers can choose from volume chips (5, 7, 10, 12, 15L) or input custom amounts between 5L and 15L in 1-Litre increments."
               }
             },
             {
@@ -333,7 +333,7 @@ const ROUTES = [
               "name": "What are Zyphuel delivery charges for petrol and diesel in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel charges a simple nominal fee of Rs. 280.00 for orders under 50 Litres. Orders of 50 Litres and above qualify for 100% Free Delivery (Rs. 0.00). Urgent priority dispatch carries a flat surcharge of +Rs. 100.00."
+                "text": "Zyphuel charges a flat nominal delivery fee of Rs. 280.00 for doorstep fuel orders delivered within 45 minutes. Urgent priority dispatch (within 45 minutes priority queue) carries a flat surcharge of +Rs. 100.00 (Rs. 380.00 total)."
               }
             },
             {
@@ -365,7 +365,7 @@ const ROUTES = [
               "name": "Why choose Zyphuel instead of traditional petrol pumps in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel eliminates petrol pump queues and pump short-fueling with 0.01L calibrated digital flow meters, 100% OGRA compliant regulated pricing, genuine terminal-sourced Euro-V fuel, and doorstep delivery within 20 to 45 minutes (10 to 20 minutes urgent dispatch)."
+                "text": "Zyphuel eliminates petrol pump queues and pump short-fueling with 0.01L calibrated digital flow meters, 100% OGRA compliant regulated pricing, genuine terminal-sourced Euro-V fuel, and doorstep delivery within 45 minutes."
               }
             },
             {
@@ -381,7 +381,7 @@ const ROUTES = [
               "name": "What should I do if I run out of petrol or diesel on the road in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Simply open Zyphuel or send your live WhatsApp location to +92 323 0112464. Our rapid mobile bowsers dispatch emergency Euro-V petrol or diesel directly to your stranded vehicle within 20 to 45 minutes (10 to 20 minutes urgent dispatch) anywhere in Lahore."
+                "text": "Simply open Zyphuel or send your live WhatsApp location to +92 323 0112464. Our rapid mobile bowsers dispatch emergency Euro-V petrol or diesel directly to your stranded vehicle within 45 minutes anywhere in Lahore."
               }
             },
             {
@@ -389,7 +389,7 @@ const ROUTES = [
               "name": "How fast does Zyphuel deliver fuel to DHA, Gulberg, or Johar Town?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel operates decentralized mobile refueler hubs across Lahore, delivering within 20-30 minutes to Gulberg, Model Town, Cantt, and Johar Town, 20-35 minutes to DHA Lahore, and 30-45 minutes to Bahria Town (10-20 minutes for urgent priority dispatch)."
+                "text": "Zyphuel operates decentralized mobile refueler hubs across Lahore, delivering within 45 minutes to Gulberg, Model Town, Cantt, Johar Town, DHA Lahore, and Bahria Town."
               }
             }
           ]
@@ -436,8 +436,8 @@ const ROUTES = [
     path: '/services/',
     outFile: 'dist/services/index.html',
     title: "Fuel Delivery Services in Lahore | Petrol, Diesel & High-Octane | Zyphuel",
-    description: "On-demand fuel delivery in Lahore: Euro-V petrol, diesel for vehicles and standby generators, sealed LPG gas cylinders, and water tanker delivery. Fast 20-45 minute dispatch.",
-    keywords: "fuel delivery services Lahore, generator diesel delivery, bulk diesel supplier Lahore, LPG gas cylinder delivery Lahore, water tanker Lahore",
+    description: "On-demand fuel delivery in Lahore: Euro-V petrol, High-Octane 97, and diesel for vehicles and standby generators. Fast calibrated dispatch within 45 minutes.",
+    keywords: "fuel delivery services Lahore, generator diesel delivery, bulk diesel supplier Lahore, petrol delivery Lahore, high octane delivery Lahore",
     canonical: `${DOMAIN}/services/`,
     ogImage: `${DOMAIN}/images/fuel.png`,
     ogType: 'website',
@@ -456,7 +456,7 @@ const ROUTES = [
         {
           "@type": "Service",
           "@id": `${DOMAIN}/services/#service`,
-          "name": "On-Demand Doorstep Fuel & Utility Delivery",
+          "name": "On-Demand Doorstep Fuel Delivery",
           "provider": { "@id": `${DOMAIN}/#organization` },
           "serviceType": "Energy Logistics and Fuel Supply",
           "areaServed": "Lahore, Pakistan",
@@ -475,21 +475,14 @@ const ROUTES = [
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "Commercial Generator Diesel Refueling"
+                  "name": "Commercial Standby Generator Diesel Refueling"
                 }
               },
               {
                 "@type": "Offer",
                 "itemOffered": {
                   "@type": "Service",
-                  "name": "LPG Gas Cylinder Refill & Doorstep Delivery"
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "Bulk Water Tanker Refill"
+                  "name": "Emergency Roadside Fuel Delivery"
                 }
               }
             ]
@@ -504,7 +497,7 @@ const ROUTES = [
               "name": "What services does Zyphuel provide in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel provides 24/7 on-demand doorstep fuel delivery including Euro-V Super Petrol (92 Octane), High-Octane 97, Euro-V Diesel for vehicles and backup generators, sealed LPG Gas Cylinder refills, and bulk potable Water Tanker delivery across Lahore."
+                "text": "Zyphuel provides 24/7 on-demand doorstep fuel delivery including Euro-V Super Petrol (92 Octane), High-Octane 97, and Euro-V Diesel for vehicles and backup generators across Lahore with calibrated digital flow-meters."
               }
             },
             {
@@ -536,7 +529,7 @@ const ROUTES = [
               "name": "Is Cash on Delivery (COD) supported for fuel orders?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel, 10 kg LPG cylinder, or 20 gallons of water. For larger orders or corporate fleets, online bank transfers and 30-day billing accounts are available."
+                "text": "Yes! Cash on Delivery (COD) is supported for doorstep orders from 5 to 10 liters of fuel. For orders exceeding 10 liters (up to 15L Max) or commercial fleets, advance payment and billing accounts are available."
               }
             }
           ]
@@ -631,7 +624,7 @@ const ROUTES = [
     path: '/order/',
     outFile: 'dist/order/index.html',
     title: "Order Petrol & Diesel Online in Lahore | Zyphuel",
-    description: "Order diesel, petrol, LPG gas cylinders, and water delivery online with Zyphuel in Lahore. Express 45-minute doorstep dispatch with digital calibration meter.",
+    description: "Order diesel, petrol, LPG gas cylinders, and water delivery online with Zyphuel in Lahore. Express doorstep dispatch within 45 minutes with digital calibration meter.",
     keywords: "order diesel Lahore, order petrol Lahore, diesel delivery Lahore, petrol delivery Lahore, generator diesel order, order fuel online Pakistan, LPG gas cylinder order Lahore, water refill delivery Lahore, fuel cash on delivery Lahore, Zyphuel order",
     canonical: `${DOMAIN}/order/`,
     ogImage: `${DOMAIN}/images/tank.png`,
@@ -698,7 +691,7 @@ const ROUTES = [
               "name": "What is the minimum quantity for doorstep diesel delivery?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "You can order as little as 5 liters up to 15 liters per doorstep fuel order on the checkout portal with calibrated flow metering."
+                "text": "You can order from 5 liters minimum up to 15 liters maximum per doorstep fuel order on the checkout portal with calibrated flow metering."
               }
             },
             {
@@ -706,7 +699,7 @@ const ROUTES = [
               "name": "Is Cash on Delivery (COD) supported?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders (5 to 10 liters of fuel, 10 kg LPG, or 20 gallons of water). Bank transfers and corporate invoicing are available for commercial clients."
+                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders (5 to 15 liters of fuel, 10 kg LPG, or 20 gallons of water). Bank transfers and corporate invoicing are available for commercial clients."
               }
             },
             {
@@ -766,7 +759,7 @@ const ROUTES = [
               "name": "How do I contact Zyphuel for urgent fuel dispatch in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For emergency fuel dispatch, message or call our 24/7 hotline at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app for 15–30 minute rapid bowser arrival."
+                "text": "For emergency fuel dispatch, message or call our 24/7 hotline at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app for rapid arrival within 45 minutes."
               }
             },
             {
@@ -1128,23 +1121,79 @@ async function prerender() {
     .map(r => {
       let priority = '0.8'
       let changefreq = 'weekly'
+      let lastmod = today
+      let imageLoc = ''
+      let imageTitle = ''
+
       if (r.path === '/') {
         priority = '1.0'
         changefreq = 'daily'
-      } else if (['/order/', '/services/', '/contact/', '/about/', '/download/', '/blog/', '/sitemap/'].includes(r.path)) {
+        imageLoc = `${DOMAIN}/images/zyphuel-og.png`
+        imageTitle = 'Zyphuel - Doorstep Fuel Delivery in Lahore'
+      } else if (r.path === '/order/') {
         priority = '0.9'
         changefreq = 'daily'
+        imageLoc = `${DOMAIN}/images/tank.png`
+        imageTitle = 'Order Fuel Online in Lahore - Zyphuel'
+      } else if (r.path === '/services/') {
+        priority = '0.9'
+        changefreq = 'daily'
+        imageLoc = `${DOMAIN}/images/fuel.png`
+        imageTitle = 'Zyphuel Fuel Delivery Services in Lahore'
+      } else if (r.path === '/contact/') {
+        priority = '0.9'
+        changefreq = 'daily'
+        imageLoc = `${DOMAIN}/images/logo.png`
+        imageTitle = 'Contact Zyphuel Customer Support'
+      } else if (r.path === '/about/') {
+        priority = '0.9'
+        changefreq = 'daily'
+        imageLoc = `${DOMAIN}/images/daniyal.jpeg`
+        imageTitle = 'About Zyphuel - Founder & CEO Muhammad Daniyal'
+      } else if (r.path === '/download/') {
+        priority = '0.9'
+        changefreq = 'daily'
+        imageLoc = `${DOMAIN}/images/1.jpeg`
+        imageTitle = 'Download Zyphuel Android App'
+      } else if (r.path === '/blog/') {
+        priority = '0.9'
+        changefreq = 'daily'
+        imageLoc = `${DOMAIN}/images/logo.png`
+        imageTitle = 'Zyphuel Energy & Fuel Guides Blog'
+      } else if (r.path === '/sitemap/') {
+        priority = '0.9'
+        changefreq = 'daily'
+        imageLoc = `${DOMAIN}/images/logo.png`
+        imageTitle = 'Zyphuel HTML Sitemap Directory'
       } else if (r.path.startsWith('/blog/') && r.path !== '/blog/') {
         priority = '0.8'
         changefreq = 'weekly'
+        const slug = r.path.replace(/^\/blog\//, '').replace(/\/$/, '')
+        const article = articles.find(a => a.slug === slug)
+        if (article) {
+          if (article.image) {
+            imageLoc = article.image
+            imageTitle = article.title
+          }
+          if (article.date) {
+            try {
+              const d = new Date(article.date)
+              if (!isNaN(d.getTime())) {
+                lastmod = d.toISOString().split('T')[0]
+              }
+            } catch (e) {}
+          }
+        }
       } else if (r.path === '/privacy/' || r.path === '/terms/') {
         priority = '0.7'
         changefreq = 'monthly'
       }
-      const imageTag = r.path === '/' ? `\n    <image:image>\n      <image:loc>${DOMAIN}/images/zyphuel-og.png</image:loc>\n      <image:title>Zyphuel - Doorstep Fuel Delivery in Lahore</image:title>\n    </image:image>` : ''
+
+      const escapedTitle = imageTitle.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+      const imageTag = imageLoc ? `\n    <image:image>\n      <image:loc>${imageLoc}</image:loc>\n      <image:title>${escapedTitle}</image:title>\n    </image:image>` : ''
       return `  <url>
     <loc>${DOMAIN}${r.path}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>${imageTag}
   </url>`

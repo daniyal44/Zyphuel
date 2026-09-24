@@ -24,14 +24,56 @@ const FUEL_ICONS = {
   water: 'fa-droplet',
 }
 
+export const DELIVERY_APPLICATION_CONFIG = {
+  car: {
+    id: 'car',
+    label: 'Car / Sedan / SUV',
+    shortLabel: 'Car / SUV',
+    icon: 'fa-car-side',
+    placeholder: 'Vehicle plate (e.g. LEA-2024)',
+    fieldLabel: 'Vehicle Registration / Number Plate'
+  },
+  bike: {
+    id: 'bike',
+    label: 'Motorbike / Scooter',
+    shortLabel: 'Motorbike',
+    icon: 'fa-motorcycle',
+    placeholder: 'Bike plate (e.g. LEM-5678)',
+    fieldLabel: 'Motorbike Plate / Registration'
+  },
+  generator: {
+    id: 'generator',
+    label: 'Standby Generator',
+    shortLabel: 'Generator',
+    icon: 'fa-charging-station',
+    placeholder: 'Generator capacity/model (e.g. 25kVA Perkins)',
+    fieldLabel: 'Generator Make & Capacity'
+  },
+  machinery: {
+    id: 'machinery',
+    label: 'Commercial Machinery',
+    shortLabel: 'Machinery',
+    icon: 'fa-tractor',
+    placeholder: 'Equipment make/unit (e.g. CAT Excavator)',
+    fieldLabel: 'Machinery Model / Unit ID'
+  },
+  storage: {
+    id: 'storage',
+    label: 'Jerrycan / Safe Storage Drum',
+    shortLabel: 'Jerrycan / Drum',
+    icon: 'fa-oil-can',
+    placeholder: 'Container notes (e.g. 2x Sealed Metal Cans)',
+    fieldLabel: 'Storage Drum / Container Notes'
+  }
+}
+
 export default function OrderPage() {
   useSEO({
     title: 'Order Petrol & Diesel Online in Lahore | Zyphuel',
-    description: 'Order diesel, petrol, LPG gas cylinders, and water delivery online with Zyphuel in Lahore. Express 45-minute doorstep dispatch with digital calibration meter.',
+    description: 'Order Euro-V Super Petrol, High-Octane 97, and Euro-V Diesel delivery online with Zyphuel in Lahore. Express 45-minute doorstep dispatch with digital calibration meter.',
     keywords: [
       'order diesel Lahore', 'order petrol Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
-      'generator diesel order', 'order fuel online Pakistan', 'LPG gas cylinder order Lahore',
-      'water refill delivery Lahore', 'fuel cash on delivery Lahore', 'Zyphuel order'
+      'generator diesel order', 'order fuel online Pakistan', 'fuel cash on delivery Lahore', 'Zyphuel order'
     ],
     image: 'https://zyphuel.netlify.app/images/tank.png',
     url: 'https://zyphuel.netlify.app/order/',
@@ -53,7 +95,7 @@ export default function OrderPage() {
           "object": {
             "@type": "Product",
             "name": "Zyphuel Mobile Refueling - Diesel & Petrol Delivery",
-            "description": "On-demand doorstep fuel and utility delivery in Lahore with certified digital flow-meter calibration. Super petrol, diesel, LPG cylinders, and water refills.",
+            "description": "On-demand doorstep fuel delivery in Lahore with certified digital flow-meter calibration. Super petrol, high-octane 97, and Euro-V diesel.",
             "image": "https://zyphuel.netlify.app/images/tank.png",
             "brand": {
               "@type": "Brand",
@@ -85,7 +127,7 @@ export default function OrderPage() {
               "name": "How can I order diesel or petrol online in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Choose your required fuel category (Diesel, Petrol, High-Octane, LPG Cylinder, or Water Refill) on this order page, set your quantity, enter your delivery address in Lahore, and select your delivery speed. Our dispatcher routes the nearest certified bowser to your location."
+                "text": "Choose your required fuel category (Super Petrol, Euro-V Diesel, or High-Octane 97), select your refueling target application (Car, Bike, Generator, or Machinery), set your quantity (5L to 15L Max), enter your delivery address in Lahore, and select your delivery speed. Our dispatcher routes the nearest certified bowser to your location."
               }
             },
             {
@@ -93,7 +135,7 @@ export default function OrderPage() {
               "name": "What is the minimum quantity for doorstep diesel delivery?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "You can order as little as 5 liters up to 2,000+ liters per order. Bulk orders of 50+ liters receive free delivery in covered zones in Lahore."
+                "text": "Doorstep fuel delivery is strictly available from 5 Litres minimum up to 15 Litres maximum per order, dispensed with calibrated 0.01L digital flow meters."
               }
             },
             {
@@ -101,7 +143,7 @@ export default function OrderPage() {
               "name": "Is Cash on Delivery (COD) supported?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders (5 to 10 liters of fuel, 10 kg LPG, or 20 gallons of water). Bank transfers and corporate invoicing are available for commercial clients."
+                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel. Orders above 10 Litres require advance payment for safety compliance."
               }
             },
             {
@@ -146,6 +188,10 @@ export default function OrderPage() {
 
   const [orderWater, setOrderWater] = useState(false)
   const [waterQty, setWaterQty] = useState(10) // Default 10 Gallons
+
+  // Refueling Delivery Application / Target Asset (Car, Bike, Generator, Machinery, Storage)
+  const [deliveryApplication, setDeliveryApplication] = useState('car')
+  const [assetIdentifier, setAssetIdentifier] = useState('')
 
   const [address, setAddress] = useState('')
   const [notes, setNotes] = useState('')
@@ -205,6 +251,16 @@ export default function OrderPage() {
     } catch (e) {}
   }, [location.search])
 
+  // Dynamically load GSAP for truck button animation on-demand (performance optimization)
+  useEffect(() => {
+    if (!window.gsap && typeof document !== 'undefined') {
+      const script = document.createElement('script')
+      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js'
+      script.async = true
+      document.body.appendChild(script)
+    }
+  }, [])
+
   // Computed summary
   const fuelRate = prices[selectedFuelType]
   const fuelCost = orderFuel ? (fuelRate * fuelQty) : 0
@@ -255,6 +311,12 @@ export default function OrderPage() {
 
       if (parsed.selectedFuelType && ['petrol', 'diesel', 'highOctane'].includes(parsed.selectedFuelType)) {
         setSelectedFuelType(parsed.selectedFuelType)
+      }
+      if (parsed.deliveryApplication && DELIVERY_APPLICATION_CONFIG[parsed.deliveryApplication]) {
+        setDeliveryApplication(parsed.deliveryApplication)
+      }
+      if (parsed.assetIdentifier) {
+        setAssetIdentifier(parsed.assetIdentifier)
       }
       if (parsed.fuelQty) setFuelQty(Math.min(15, Math.max(5, Number(parsed.fuelQty) || 5)))
       if (parsed.deliverySpeed) setDeliverySpeed(parsed.deliverySpeed)
@@ -308,7 +370,7 @@ export default function OrderPage() {
       setCountdownText(formattedEta)
 
       if (remaining > 0) {
-        setTrackerEta(`~${mins + 1} Mins Remaining (${activeOrder.deliverySpeed === 'urgent' ? 'Urgent Express 10-20 Min' : 'Standard Dispatch 45 Min'})`)
+        setTrackerEta(`~${mins + 1} Mins Remaining (${activeOrder.deliverySpeed === 'urgent' ? 'Urgent Priority (Within 45 Mins)' : 'Standard Dispatch (Within 45 Mins)'})`)
       } else {
         setTrackerEta('Arrived at Destination!')
         setTrackerProgress(100)
@@ -402,21 +464,20 @@ export default function OrderPage() {
     const id = 'ZYP-' + Math.floor(100000 + Math.random() * 900000)
     setTrackerOrderId(`ORDER #${id}`)
     
-    const durationMinutes = deliverySpeed === 'urgent' ? 20 : 45
-    setTrackerEta(deliverySpeed === 'urgent' ? '~20 Mins Remaining (Urgent Express)' : '~45 Mins Remaining (Standard Dispatch)')
+    const durationMinutes = 45
+    setTrackerEta(deliverySpeed === 'urgent' ? '~45 Mins Remaining (Urgent Priority)' : '~45 Mins Remaining (Standard Dispatch)')
     setRemainingEtaSeconds(durationMinutes * 60)
     setCountdownText(`${durationMinutes}m 00s`)
 
-    const itemsList = []
-    if (orderFuel) itemsList.push(`${fuelQty}L of ${FUEL_DISPLAY[selectedFuelType]} (@ Rs. ${fuelRate.toFixed(2)}/L = Rs. ${fuelCost.toLocaleString()})`)
-    if (orderGas) itemsList.push(`${gasQty}Kg of LPG Gas (@ Rs. ${gasRate.toFixed(2)}/Kg = Rs. ${gasCost.toLocaleString()})`)
-    if (orderWater) itemsList.push(`${waterQty} Gallons of Water (@ Rs. ${waterRate.toFixed(2)}/Gal = Rs. ${waterCost.toLocaleString()})`)
+    const appConfig = DELIVERY_APPLICATION_CONFIG[deliveryApplication] || DELIVERY_APPLICATION_CONFIG.car
+    const appLabel = `${appConfig.shortLabel}${assetIdentifier ? ` (${assetIdentifier})` : ''}`
+
+    const itemsList = [
+      `${fuelQty}L of ${FUEL_DISPLAY[selectedFuelType]} for ${appLabel} (@ Rs. ${fuelRate.toFixed(2)}/L = Rs. ${fuelCost.toLocaleString()})`
+    ]
     const itemsDesc = itemsList.join(' + ')
 
-    let dispatchTitle = 'Delivery Dispatched'
-    if (orderFuel && !orderGas && !orderWater) dispatchTitle = `${FUEL_DISPLAY[selectedFuelType]} Dispatched`
-    else if (!orderFuel && orderGas && !orderWater) dispatchTitle = 'LPG Dispatched'
-    else if (!orderFuel && !orderGas && orderWater) dispatchTitle = 'Water Dispatched'
+    const dispatchTitle = `${FUEL_DISPLAY[selectedFuelType]} Dispatched`
 
     // Initial Stage 1: Order Confirmed, loading depot
     setTrackerSteps([
@@ -428,7 +489,7 @@ export default function OrderPage() {
       { 
         status: '', 
         title: `${dispatchTitle} En Route`, 
-        desc: `Vehicle is preparing to carry ${itemsDesc} to ${address || 'your address'}. Speed: ${deliverySpeed === 'urgent' ? 'Urgent Express (10-20 Mins)' : 'Simple Standard (45 Mins Dispatch)'}.` 
+        desc: `Bowser carrying ${fuelQty}L of ${FUEL_DISPLAY[selectedFuelType]} for ${appLabel} to ${address || 'your address'}. Speed: ${deliverySpeed === 'urgent' ? 'Urgent Priority (Within 45 Mins)' : 'Simple Standard (Within 45 Mins)'}.` 
       },
       { 
         status: '', 
@@ -460,32 +521,20 @@ export default function OrderPage() {
       phone: phone || 'Not provided',
       email: email || 'Not provided',
       address: address || 'Lahore, Pakistan',
-      deliverySpeed: deliverySpeed === 'urgent' ? '⚡ Urgent Priority Dispatch (10–20 Mins)' : 'Standard Dispatch (45 Mins)',
+      deliverySpeed: deliverySpeed === 'urgent' ? '⚡ Urgent Priority Dispatch (Within 45 Mins)' : 'Standard Dispatch (Within 45 Mins)',
       paymentMethod: isCodEligible ? 'Cash on Delivery (COD)' : 'Advance Direct Bank Transfer',
       isUrgent: deliverySpeed === 'urgent',
+      deliveryApplication: appConfig.label,
+      assetIdentifier: assetIdentifier || 'Standard Direct Fill',
       items: [
-        orderFuel ? {
-          title: `Euro-V ${FUEL_DISPLAY[selectedFuelType]}`,
-          detail: '0.01L Calibrated Digital Flow-Meter Refueling • Sealed Depot Batch',
+        {
+          title: `Euro-V ${FUEL_DISPLAY[selectedFuelType]} [${appConfig.shortLabel}]`,
+          detail: `Refueling Target: ${appConfig.label}${assetIdentifier ? ` (${assetIdentifier})` : ''} • 0.01L Calibrated Flow-Meter`,
           qty: `${fuelQty} Litres`,
           rate: `Rs. ${fuelRate.toFixed(2)}/L`,
           cost: fuelCost
-        } : null,
-        orderGas ? {
-          title: 'LPG Gas Cylinder Refill',
-          detail: 'Commercial & Domestic Grade Safe Bottling • Tamper-Proof Seal',
-          qty: `${gasQty} Kg`,
-          rate: `Rs. ${gasRate.toFixed(2)}/Kg`,
-          cost: gasCost
-        } : null,
-        orderWater ? {
-          title: 'Bulk Clean Water Supply',
-          detail: 'Potable Multi-Stage Filtered Safe Water • Food Grade Tanker',
-          qty: `${waterQty} Gallons`,
-          rate: `Rs. ${waterRate.toFixed(2)}/Gal`,
-          cost: waterCost
-        } : null,
-      ].filter(Boolean),
+        }
+      ],
       subtotal: baseCost,
       deliveryFee: deliveryFee,
       total: total,
@@ -507,8 +556,9 @@ export default function OrderPage() {
       `📞 *Phone Number:* ${phone || 'Not provided'}`,
       `📧 *Email:* ${email || 'Not provided'}`,
       `📍 *Delivery Address:* ${address}`,
+      `🎯 *Refueling Target:* ${appConfig.label}${assetIdentifier ? ` (${assetIdentifier})` : ''}`,
       notes ? `📝 *Special Instructions:* ${notes}` : null,
-      `🚀 *Dispatch Speed:* ${deliverySpeed === 'urgent' ? '⚡ Urgent Priority Dispatch (10-20 mins) [+Rs. 100]' : 'Standard Dispatch (20-45 mins)'}`,
+      `🚀 *Dispatch Speed:* ${deliverySpeed === 'urgent' ? '⚡ Urgent Priority Dispatch (Within 45 mins) [+Rs. 100]' : 'Standard Dispatch (Within 45 mins)'}`,
       `💳 *Payment Method:* ${isCodEligible ? 'Cash on Delivery (COD)' : 'Bank Transfer / Advance'}`,
       ``,
       `📦 *Items Ordered:*`,
@@ -541,11 +591,10 @@ export default function OrderPage() {
       itemsSummary: itemsDesc,
       selectedFuelType,
       fuelQty,
-      orderFuel,
-      orderGas,
-      gasQty,
-      orderWater,
-      waterQty,
+      deliveryApplication,
+      assetIdentifier,
+      deliveryApplicationLabel: appConfig.label,
+      orderFuel: true,
       deliverySpeed,
       total,
       durationMinutes,
@@ -637,7 +686,7 @@ export default function OrderPage() {
       {
         status: isDelivered ? 'completed' : (isTransit ? 'active' : ''),
         title: `${FUEL_DISPLAY[activeOrder.selectedFuelType] || 'Fuel'} Dispatched & En Route`,
-        desc: `Bowser #04 carrying ${activeOrder.itemsSummary || 'fuel'} to ${activeOrder.address}. Speed: ${activeOrder.deliverySpeed === 'urgent' ? 'Urgent Express (10-20 Mins)' : 'Standard (20-45 Mins)'}.`
+        desc: `Bowser #04 carrying ${activeOrder.itemsSummary || 'fuel'} to ${activeOrder.address}. Speed: ${activeOrder.deliverySpeed === 'urgent' ? 'Urgent Priority (Within 45 Mins)' : 'Standard (Within 45 Mins)'}.`
       },
       {
         status: isDelivered ? 'completed' : '',
@@ -682,13 +731,11 @@ export default function OrderPage() {
       phone, 
       email, 
       address, 
-      orderFuel,
+      orderFuel: true,
       selectedFuelType, 
       fuelQty, 
-      orderGas,
-      gasQty,
-      orderWater,
-      waterQty,
+      deliveryApplication,
+      assetIdentifier,
       deliverySpeed 
     }
     localStorage.setItem('zyphuel_last_order', JSON.stringify(orderPayload))
@@ -1275,10 +1322,11 @@ export default function OrderPage() {
                     overflowX: 'auto'
                   }}>
                     {[
-                      { num: '01', label: 'Select Items', active: Boolean(orderFuel || orderGas || orderWater), icon: 'fa-cart-shopping' },
-                      { num: '02', label: 'Quantities', active: Boolean(fuelQty > 0 || gasQty > 0 || waterQty > 0), icon: 'fa-sliders' },
-                      { num: '03', label: 'Delivery Details', active: Boolean(address.trim().length > 3), icon: 'fa-location-dot' },
-                      { num: '04', label: 'Review & Order', active: Boolean(name && phone), icon: 'fa-truck-fast' }
+                      { num: '01', label: 'Fuel', active: Boolean(selectedFuelType), icon: 'fa-gas-pump' },
+                      { num: '02', label: 'Target Asset', active: Boolean(deliveryApplication), icon: 'fa-bullseye' },
+                      { num: '03', label: 'Volume (L)', active: Boolean(fuelQty >= 5), icon: 'fa-sliders' },
+                      { num: '04', label: 'Delivery', active: Boolean(address.trim().length > 3), icon: 'fa-location-dot' },
+                      { num: '05', label: 'Contact', active: Boolean(name && phone), icon: 'fa-truck-fast' }
                     ].map((st, i) => (
                       <div key={st.num} style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
                         <div style={{
@@ -1303,7 +1351,7 @@ export default function OrderPage() {
                         }}>
                           {st.label}
                         </span>
-                        {i < 3 && (
+                        {i < 4 && (
                           <div style={{
                             width: '20px',
                             height: '2px',
@@ -1316,285 +1364,201 @@ export default function OrderPage() {
                     ))}
                   </div>
 
-                  {/* 1. Select Items (Category Toggles) */}
+                  {/* 1. Select Fuel Type */}
                   <div className="form-block-title">
-                    <i className="fa-solid fa-cart-shopping"></i> 1. Select Delivery Items
+                    <i className="fa-solid fa-gas-pump"></i> 1. Select Fuel Type
                   </div>
                   {errors.items && <div className="validation-error-label" style={{ display: 'block', marginBottom: '15px' }}>{errors.items}</div>}
                   
-                  <div className="category-selector-grid">
-                    {/* Category 1: Fuel */}
-                    <div className={`category-card${orderFuel ? ' active' : ''}`}>
-                      <div className="category-header" onClick={() => {
-                        if (orderFuel && !orderGas && !orderWater) {
-                          showToast("At least one item category must be selected.", "error")
-                          return
-                        }
-                        setOrderFuel(!orderFuel)
-                      }}>
-                        <div className="category-checkbox">
-                          <i className={`fa-solid ${orderFuel ? 'fa-square-check' : 'fa-square'}`}></i>
+                  <div className="category-selector-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px', marginBottom: '22px' }}>
+                    {['petrol', 'diesel', 'highOctane'].map((type) => {
+                      const isSelected = selectedFuelType === type
+                      return (
+                        <div
+                          key={type}
+                          className={`category-card${isSelected ? ' active' : ''}`}
+                          style={{
+                            cursor: 'pointer',
+                            padding: '16px 14px',
+                            borderRadius: '12px',
+                            border: isSelected ? '2px solid var(--brand-primary, #0284c7)' : '1px solid var(--border-color)',
+                            background: isSelected ? 'rgba(2, 132, 199, 0.08)' : '#ffffff',
+                            boxShadow: isSelected ? '0 4px 14px rgba(2, 132, 199, 0.15)' : '0 1px 3px rgba(0,0,0,0.03)',
+                            transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
+                          }}
+                          onClick={() => setSelectedFuelType(type)}
+                        >
+                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                            <div style={{
+                              width: '32px',
+                              height: '32px',
+                              borderRadius: '50%',
+                              background: isSelected ? 'var(--brand-primary, #0284c7)' : 'rgba(2, 132, 199, 0.12)',
+                              color: isSelected ? '#ffffff' : 'var(--brand-primary, #0284c7)',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              fontSize: '0.9rem'
+                            }}>
+                              <i className={`fa-solid ${FUEL_ICONS[type] || 'fa-gas-pump'}`}></i>
+                            </div>
+                            <i className={`fa-solid ${isSelected ? 'fa-circle-check' : 'fa-circle'}`} style={{ color: isSelected ? 'var(--brand-primary, #0284c7)' : '#cbd5e1', fontSize: '1rem' }}></i>
+                          </div>
+                          <div style={{ fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-primary)', marginBottom: '3px' }}>
+                            {FUEL_DISPLAY[type]}
+                          </div>
+                          <div style={{ fontSize: '0.84rem', fontWeight: 700, color: 'var(--brand-primary, #0284c7)' }}>
+                            Rs. {prices[type].toFixed(2)}/L
+                          </div>
                         </div>
-                        <div className="category-title-area">
-                          <span className="category-name"><i className="fa-solid fa-gas-pump icon-spacing"></i> Fuel Delivery</span>
-                          <span className="category-desc">Petrol (Regular & High-Octane) or Diesel (Regular & Generator)</span>
+                      )
+                    })}
+                  </div>
+
+                  {/* 2. Fuel Delivery Application / Refueling Target */}
+                  <div className="form-block-title" style={{ marginTop: '10px' }}>
+                    <i className="fa-solid fa-bullseye"></i> 2. Fuel Delivery Application (Refueling Target)
+                  </div>
+                  <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', marginTop: '-6px', marginBottom: '14px' }}>
+                    Where should our mobile bowser pump the fuel? Select your preferred target:
+                  </p>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px', marginBottom: '16px' }}>
+                    {Object.values(DELIVERY_APPLICATION_CONFIG).map((app) => {
+                      const isSelected = deliveryApplication === app.id
+                      return (
+                        <div
+                          key={app.id}
+                          onClick={() => setDeliveryApplication(app.id)}
+                          style={{
+                            cursor: 'pointer',
+                            userSelect: 'none',
+                            padding: '14px 10px',
+                            borderRadius: '12px',
+                            border: isSelected ? '2px solid var(--brand-primary, #0284c7)' : '1px solid var(--border-color)',
+                            background: isSelected ? 'rgba(2, 132, 199, 0.08)' : '#ffffff',
+                            boxShadow: isSelected ? '0 4px 12px rgba(2, 132, 199, 0.12)' : '0 1px 3px rgba(0,0,0,0.02)',
+                            transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            textAlign: 'center',
+                            gap: '6px'
+                          }}
+                        >
+                          <div style={{
+                            width: '38px',
+                            height: '38px',
+                            borderRadius: '50%',
+                            background: isSelected ? 'var(--brand-primary, #0284c7)' : 'rgba(2, 132, 199, 0.1)',
+                            color: isSelected ? '#ffffff' : 'var(--brand-primary, #0284c7)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: '1.05rem',
+                            transition: 'all 0.2s ease'
+                          }}>
+                            <i className={`fa-solid ${app.icon}`}></i>
+                          </div>
+                          <span style={{ fontSize: '0.82rem', fontWeight: isSelected ? 800 : 600, color: isSelected ? 'var(--brand-primary, #0284c7)' : 'var(--text-primary)', lineHeight: 1.25 }}>
+                            {app.shortLabel}
+                          </span>
+                        </div>
+                      )
+                    })}
+                  </div>
+
+                  {/* Target Asset Identifier / Registration Field */}
+                  <div className="form-group" style={{ marginBottom: '24px' }}>
+                    <label className="form-label" htmlFor="asset-id-input" style={{ fontSize: '0.85rem' }}>
+                      <i className="fa-solid fa-id-card"></i> {DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.fieldLabel || 'Vehicle / Equipment Identifier'} <span style={{ fontWeight: 400, color: 'var(--text-secondary)' }}>(Optional for driver dispatch)</span>
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="asset-id-input"
+                      placeholder={DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.placeholder || 'e.g. LEA-2024'}
+                      value={assetIdentifier}
+                      onChange={(e) => setAssetIdentifier(e.target.value)}
+                    />
+                  </div>
+
+                  {/* 3. Configure Fuel Quantity */}
+                  <div className="form-block-title" style={{ marginTop: '10px' }}>
+                    <i className="fa-solid fa-scale-balanced"></i> 3. Configure Fuel Quantity
+                  </div>
+
+                  <div className="quantity-config-card animated fadeIn" style={{ marginBottom: '20px' }}>
+                    <div className="quantity-config-header">
+                      <span className="config-title"><i className="fa-solid fa-gas-pump"></i> Fuel Volume ({FUEL_DISPLAY[selectedFuelType]})</span>
+                      <span className="config-unit">5L – 15L Max per Order</span>
+                    </div>
+                    
+                    <div className="form-group">
+                      <div className="stepper-wrap">
+                        <div className="quantity-stepper">
+                          <button type="button" className="stepper-btn" aria-label="Decrease fuel quantity"
+                            onClick={() => syncFuelQty(fuelQty - 1)}
+                            disabled={fuelQty <= 5}>-</button>
+                          <input type="number" className="stepper-input"
+                            value={fuelQty} min="5" max="15" step="1"
+                            onChange={e => syncFuelQty(e.target.value)}
+                            aria-label="Fuel quantity in Litres" />
+                          <button type="button" className="stepper-btn" aria-label="Increase fuel quantity"
+                            onClick={() => syncFuelQty(fuelQty + 1)}
+                            disabled={fuelQty >= 15}>+</button>
+                        </div>
+                        <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Litres</span>
+                        <div style={{ marginLeft: 'auto' }}>
+                          <span style={{ fontSize: '0.82rem', color: '#ea580c', fontWeight: 600 }}>
+                            <i className="fa-solid fa-truck"></i> Standard Delivery: <strong>Rs. {standardFee}</strong>
+                          </span>
                         </div>
                       </div>
                       
-                      {orderFuel && (
-                        <div className="category-body animated fadeIn">
-                          <div className="fuel-selector-mini">
-                            {['petrol', 'diesel', 'highOctane'].map((type) => (
-                              <div
-                                key={type}
-                                className={`fuel-card-mini${selectedFuelType === type ? ' active' : ''}`}
-                                style={{ position: 'relative' }}
-                                onClick={(e) => {
-                                  e.stopPropagation()
-                                  setSelectedFuelType(type)
-                                }}
-                              >
-                                {selectedFuelType === type && (
-                                  <span style={{ position: 'absolute', top: '6px', right: '6px', fontSize: '0.72rem', color: '#0284c7' }}>
-                                    <i className="fa-solid fa-droplet"></i>
-                                  </span>
-                                )}
-                                <div className="fuel-name-mini">{FUEL_DISPLAY[type]}</div>
-                                <div className="fuel-price-mini">Rs. {prices[type].toFixed(2)}/L</div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Category 2: Gas (Unavailable) */}
-                    <div
-                      className="category-card disabled unavailable"
-                      style={{ opacity: 0.72, cursor: 'not-allowed', position: 'relative' }}
-                      onClick={() => {
-                        showToast("Gas Delivery is currently unavailable. Petrol & Diesel delivery is actively operational 24/7.", "warning")
-                      }}
-                    >
-                      <div className="category-header">
-                        <div className="category-checkbox" style={{ color: '#ef4444' }}>
-                          <i className="fa-solid fa-ban"></i>
-                        </div>
-                        <div className="category-title-area">
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-                            <span className="category-name"><i className="fa-solid fa-fire icon-spacing"></i> Gas Delivery</span>
-                            <span style={{
-                              background: 'rgba(239, 68, 68, 0.12)',
-                              color: '#dc2626',
-                              fontSize: '0.72rem',
-                              fontWeight: 700,
-                              padding: '2px 8px',
-                              borderRadius: '4px',
-                              display: 'inline-flex',
-                              alignItems: 'center',
-                              gap: '4px'
-                            }}>
-                              <i className="fa-solid fa-ban"></i> Currently Unavailable
-                            </span>
-                          </div>
-                          <span className="category-desc">Gas Cylinder & Refill / Exchange (Temporarily paused in your sector)</span>
-                        </div>
+                      <input type="range" className="slider-control"
+                        min="5" max="15" step="1" value={fuelQty}
+                        onChange={e => syncFuelQty(e.target.value)}
+                        aria-label="Fuel quantity slider" />
+                      <div className="limits-row">
+                        <span>Min: 5 L</span>
+                        <span>Max: 15 L (Doorstep Limit)</span>
                       </div>
-                    </div>
 
-                    {/* Category 3: Water (Unavailable) */}
-                    <div
-                      className="category-card disabled unavailable"
-                      style={{ opacity: 0.72, cursor: 'not-allowed', position: 'relative' }}
-                      onClick={() => {
-                        showToast("Water Refill service is currently unavailable. Petrol & Diesel delivery is actively operational 24/7.", "warning")
-                      }}
-                    >
-                      <div className="category-header">
-                        <div className="category-checkbox" style={{ color: '#ef4444' }}>
-                          <i className="fa-solid fa-ban"></i>
+                      {/* Quick Select Volume Buttons */}
+                      <div style={{ marginTop: '12px' }}>
+                        <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '8px' }}>
+                          Quick Select Volume:
                         </div>
-                        <div className="category-title-area">
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-                            <span className="category-name"><i className="fa-solid fa-droplet icon-spacing"></i> Water Refill</span>
-                            <span style={{
-                              background: 'rgba(239, 68, 68, 0.12)',
-                              color: '#dc2626',
-                              fontSize: '0.72rem',
-                              fontWeight: 700,
-                              padding: '2px 8px',
-                              borderRadius: '4px',
-                              display: 'inline-flex',
-                              alignItems: 'center',
-                              gap: '4px'
-                            }}>
-                              <i className="fa-solid fa-ban"></i> Currently Unavailable
-                            </span>
-                          </div>
-                          <span className="category-desc">Bulk Gallon Refilling (Temporarily paused in your sector)</span>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                          {[5, 7, 10, 12, 15].map(qty => (
+                            <button
+                              key={qty}
+                              type="button"
+                              onClick={() => syncFuelQty(qty)}
+                              style={{
+                                padding: '5px 11px',
+                                fontSize: '0.82rem',
+                                borderRadius: '6px',
+                                fontWeight: fuelQty === qty ? 700 : 500,
+                                background: fuelQty === qty ? 'var(--brand-primary, #0284c7)' : 'rgba(0, 0, 0, 0.04)',
+                                color: fuelQty === qty ? '#ffffff' : 'var(--text-primary)',
+                                border: fuelQty === qty ? '1px solid var(--brand-primary, #0284c7)' : '1px solid rgba(0, 0, 0, 0.1)',
+                                cursor: 'pointer',
+                                transition: 'all 0.15s ease'
+                              }}
+                            >
+                              {qty} L {qty === 15 ? '• Max' : ''}
+                            </button>
+                          ))}
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* 2. Configure Quantities (Custom Menu per Item) */}
-                  {(orderFuel || orderGas || orderWater) && (
-                    <>
-                      <div className="form-block-title" style={{ marginTop: '30px' }}>
-                        <i className="fa-solid fa-scale-balanced"></i> 2. Configure Quantities
-                      </div>
-
-                      {/* Fuel Quantity Section */}
-                      {orderFuel && (
-                        <div className="quantity-config-card animated fadeIn" style={{ marginBottom: '20px' }}>
-                          <div className="quantity-config-header">
-                            <span className="config-title"><i className="fa-solid fa-gas-pump"></i> Fuel Quantity ({FUEL_DISPLAY[selectedFuelType]})</span>
-                            <span className="config-unit">5L – 15L Max per Order</span>
-                          </div>
-                          
-                          <div className="form-group">
-                            <div className="stepper-wrap">
-                              <div className="quantity-stepper">
-                                <button type="button" className="stepper-btn" aria-label="Decrease fuel quantity"
-                                  onClick={() => syncFuelQty(fuelQty - 1)}
-                                  disabled={fuelQty <= 5}>-</button>
-                                <input type="number" className="stepper-input"
-                                  value={fuelQty} min="5" max="15" step="1"
-                                  onChange={e => syncFuelQty(e.target.value)}
-                                  aria-label="Fuel quantity in Litres" />
-                                <button type="button" className="stepper-btn" aria-label="Increase fuel quantity"
-                                  onClick={() => syncFuelQty(fuelQty + 1)}
-                                  disabled={fuelQty >= 15}>+</button>
-                              </div>
-                              <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Litres</span>
-                              <div style={{ marginLeft: 'auto' }}>
-                                <span style={{ fontSize: '0.82rem', color: '#ea580c', fontWeight: 600 }}>
-                                  <i className="fa-solid fa-truck"></i> Standard Delivery: <strong>Rs. {standardFee}</strong>
-                                </span>
-                              </div>
-                            </div>
-                            
-                            <input type="range" className="slider-control"
-                              min="5" max="15" step="1" value={fuelQty}
-                              onChange={e => syncFuelQty(e.target.value)}
-                              aria-label="Fuel quantity slider" />
-                            <div className="limits-row">
-                              <span>Min: 5 L</span>
-                              <span>Max: 15 L (Doorstep Limit)</span>
-                            </div>
-
-                            {/* Quick Select Volume Buttons */}
-                            <div style={{ marginTop: '12px' }}>
-                              <div style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '8px' }}>
-                                Quick Select Volume:
-                              </div>
-                              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                                {[5, 7, 10, 12, 15].map(qty => (
-                                  <button
-                                    key={qty}
-                                    type="button"
-                                    onClick={() => syncFuelQty(qty)}
-                                    style={{
-                                      padding: '5px 11px',
-                                      fontSize: '0.82rem',
-                                      borderRadius: '6px',
-                                      fontWeight: fuelQty === qty ? 700 : 500,
-                                      background: fuelQty === qty ? 'var(--brand-primary, #0284c7)' : 'rgba(0, 0, 0, 0.04)',
-                                      color: fuelQty === qty ? '#ffffff' : 'var(--text-primary)',
-                                      border: fuelQty === qty ? '1px solid var(--brand-primary, #0284c7)' : '1px solid rgba(0, 0, 0, 0.1)',
-                                      cursor: 'pointer',
-                                      transition: 'all 0.15s ease'
-                                    }}
-                                  >
-                                    {qty} L {qty === 15 ? '• Max' : ''}
-                                  </button>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* LPG Gas Quantity Section */}
-                      {orderGas && (
-                        <div className="quantity-config-card animated fadeIn" style={{ marginBottom: '20px' }}>
-                          <div className="quantity-config-header">
-                            <span className="config-title"><i className="fa-solid fa-fire-burner"></i> LPG Gas Cylinder Refill</span>
-                            <span className="config-unit" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                              <span style={{ background: 'rgba(249, 115, 22, 0.12)', color: '#ea580c', border: '1px solid rgba(249, 115, 22, 0.3)', borderRadius: '20px', padding: '2px 10px', fontSize: '0.76rem', fontWeight: 700 }}>
-                                Market Rate: Rs. {prices.lpg.toFixed(2)}/Kg
-                              </span>
-                              Kilograms / Cylinders
-                            </span>
-                          </div>
-                          
-                          <div className="form-group">
-                            <div className="stepper-wrap">
-                              <div className="quantity-stepper">
-                                <button type="button" className="stepper-btn" aria-label="Decrease gas quantity"
-                                  onClick={() => syncGasQty(gasQty - 1)}>-</button>
-                                <input type="number" className="stepper-input"
-                                  value={gasQty} min="1" max="200" step="1"
-                                  onChange={e => syncGasQty(e.target.value)}
-                                  aria-label="Gas quantity in Kg" />
-                                <button type="button" className="stepper-btn" aria-label="Increase gas quantity"
-                                  onClick={() => syncGasQty(gasQty + 1)}>+</button>
-                              </div>
-                              <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Kg / Units</span>
-                            </div>
-                            
-                            <input type="range" className="slider-control"
-                              min="1" max="200" step="1" value={gasQty}
-                              onChange={e => syncGasQty(e.target.value)}
-                              aria-label="Gas quantity slider" />
-                            <div className="limits-row">
-                              <span>Min: 1 Kg</span>
-                              <span>Max: 200 Kg</span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Water Quantity Section */}
-                      {orderWater && (
-                        <div className="quantity-config-card animated fadeIn" style={{ marginBottom: '20px' }}>
-                          <div className="quantity-config-header">
-                            <span className="config-title"><i className="fa-solid fa-droplet"></i> Water Refill</span>
-                            <span className="config-unit">Gallons</span>
-                          </div>
-                          
-                          <div className="form-group">
-                            <div className="stepper-wrap">
-                              <div className="quantity-stepper">
-                                <button type="button" className="stepper-btn" aria-label="Decrease water quantity"
-                                  onClick={() => syncWaterQty(waterQty - 1)}>-</button>
-                                <input type="number" className="stepper-input"
-                                  value={waterQty} min="1" max="500" step="1"
-                                  onChange={e => syncWaterQty(e.target.value)}
-                                  aria-label="Water quantity in Gallons" />
-                                <button type="button" className="stepper-btn" aria-label="Increase water quantity"
-                                  onClick={() => syncWaterQty(waterQty + 1)}>+</button>
-                              </div>
-                              <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Gallons</span>
-                            </div>
-                            
-                            <input type="range" className="slider-control"
-                              min="1" max="500" step="1" value={waterQty}
-                              onChange={e => syncWaterQty(e.target.value)}
-                              aria-label="Water quantity slider" />
-                            <div className="limits-row">
-                              <span>Min: 1 Gallon</span>
-                              <span>Max: 500 Gallons</span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </>
-                  )}
-
-                  {/* 3. Delivery Details */}
+                  {/* 4. Delivery Details */}
                   <div className="form-block-title" style={{ marginTop: '30px' }}>
-                    <i className="fa-solid fa-location-dot"></i> 3. Delivery Details
+                    <i className="fa-solid fa-location-dot"></i> 4. Delivery Details
                   </div>
                   <div className="form-group">
                     <label className="form-label" htmlFor="address-input">Delivery Address in Lahore</label>
@@ -1618,7 +1582,7 @@ export default function OrderPage() {
                         backgroundColor: deliverySpeed === 'urgent' ? 'rgba(234, 88, 12, 0.12)' : 'rgba(2, 132, 199, 0.1)',
                         color: deliverySpeed === 'urgent' ? '#ea580c' : 'var(--brand-primary, #0284c7)'
                       }}>
-                        {deliverySpeed === 'urgent' ? '⚡ Urgent Dispatch Selected (+Rs. 100)' : '✓ Standard Dispatch Selected (20-45 Mins)'}
+                        {deliverySpeed === 'urgent' ? '⚡ Urgent Dispatch Selected (+Rs. 100)' : '✓ Standard Dispatch Selected (Within 45 Mins)'}
                       </span>
                     </div>
 
@@ -1655,7 +1619,7 @@ export default function OrderPage() {
                             Simple Delivery
                           </span>
                           <span className="schedule-desc" style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
-                            Delivery within 20-45 mins
+                            Delivery within 45 mins
                           </span>
                           <span style={{ fontSize: '0.78rem', color: 'var(--brand-primary, #0284c7)', fontWeight: 700, marginTop: '4px' }}>
                             Standard Rate {standardFee > 0 ? `(Rs. ${standardFee})` : '(Included)'}
@@ -1695,7 +1659,7 @@ export default function OrderPage() {
                             <i className="fa-solid fa-bolt" style={{ color: '#ea580c' }}></i> Urgent Delivery
                           </span>
                           <span className="schedule-desc" style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
-                            Delivery within 10-20 mins
+                            Delivery within 45 mins (Priority Queue)
                           </span>
                           <span style={{ fontSize: '0.78rem', color: '#ea580c', fontWeight: 700, marginTop: '4px' }}>
                             +Rs. 100 Express Priority Surcharge
@@ -1705,9 +1669,9 @@ export default function OrderPage() {
                     </div>
                   </div>
 
-                  {/* 4. Contact Details */}
+                  {/* 5. Contact Details */}
                   <div className="form-block-title">
-                    <i className="fa-solid fa-user-shield"></i> 4. Contact Details
+                    <i className="fa-solid fa-user-shield"></i> 5. Contact Details
                   </div>
                   <div className="form-group-grid">
                     <div className="form-group">
@@ -1733,9 +1697,9 @@ export default function OrderPage() {
                     </div>
                   </div>
 
-                  {/* 5. Payment Policy Selection */}
+                  {/* 6. Payment Policy Selection */}
                   <div className="form-block-title" style={{ marginTop: '25px' }}>
-                    <i className="fa-solid fa-money-check-dollar"></i> 5. Payment Policy
+                    <i className="fa-solid fa-money-check-dollar"></i> 6. Payment Policy
                   </div>
                   <div className="form-group" style={{ marginBottom: '30px' }}>
                     {isCodEligible ? (
@@ -1766,7 +1730,7 @@ export default function OrderPage() {
                         <div>
                           <h5 style={{ margin: '0 0 2px 0', fontSize: '0.92rem', fontWeight: 800, color: '#064e3b' }}>Payment Mode: Cash on Delivery (COD)</h5>
                           <p style={{ margin: 0, fontSize: '0.8rem', color: '#065f46', lineHeight: 1.45 }}>
-                            Cash on Delivery is enabled because your selected quantities are compact. Please keep exact change ready.
+                            Cash on Delivery is enabled for fuel orders up to 10 Litres. Please keep exact change ready.
                           </p>
                         </div>
                       </div>
@@ -1798,7 +1762,7 @@ export default function OrderPage() {
                         <div>
                           <h5 style={{ margin: '0 0 2px 0', fontSize: '0.92rem', fontWeight: 800, color: 'var(--accent-color-hover)' }}>Payment Mode: Advance Payment Required</h5>
                           <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: 1.45 }}>
-                            Orders exceeding 10 Litres of Fuel, 10 Kg of LPG Gas, or 20 Gallons of Water require advance bank transfer due to high volume safety operations.
+                            Orders exceeding 10 Litres of Fuel (11L to 15L Max) require advance bank transfer due to high-volume safety dispatch operations.
                           </p>
                         </div>
                       </div>
@@ -1851,6 +1815,14 @@ export default function OrderPage() {
                         <strong>{FUEL_DISPLAY[selectedFuelType]}</strong>
                       </div>
                       <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
+                        <span>Refueling Target</span>
+                        <strong style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                          <i className={`fa-solid ${DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.icon || 'fa-car-side'}`} style={{ color: 'var(--accent-color)' }}></i>
+                          {DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.shortLabel || 'Direct Fill'}
+                          {assetIdentifier ? ` (${assetIdentifier})` : ''}
+                        </strong>
+                      </div>
+                      <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
                         <span>Quantity</span>
                         <strong>{fuelQty} Litres</strong>
                       </div>
@@ -1861,48 +1833,6 @@ export default function OrderPage() {
                       <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
                         <span>Fuel Cost</span>
                         <strong>{fmt(fuelCost)}</strong>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* LPG Gas Breakdown */}
-                  {orderGas && (
-                    <div className="summary-section" style={{ borderBottom: '1px solid rgba(226, 232, 240, 0.4)', paddingBottom: '10px', marginBottom: '10px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '6px', fontSize: '0.9rem' }}>
-                        <i className="fa-solid fa-fire-burner" style={{ color: '#f97316' }}></i> LPG Gas Cylinder
-                      </div>
-                      <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
-                        <span>Quantity</span>
-                        <strong>{gasQty} Kg</strong>
-                      </div>
-                      <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
-                        <span>Unit Rate</span>
-                        <strong>Rs. {gasRate.toFixed(2)}/Kg</strong>
-                      </div>
-                      <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
-                        <span>Gas Cost</span>
-                        <strong>{fmt(gasCost)}</strong>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Water Breakdown */}
-                  {orderWater && (
-                    <div className="summary-section" style={{ borderBottom: '1px solid rgba(226, 232, 240, 0.4)', paddingBottom: '10px', marginBottom: '10px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '6px', fontSize: '0.9rem' }}>
-                        <i className="fa-solid fa-droplet" style={{ color: '#0ea5e9' }}></i> Water Refill
-                      </div>
-                      <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
-                        <span>Quantity</span>
-                        <strong>{waterQty} Gallons</strong>
-                      </div>
-                      <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
-                        <span>Unit Rate</span>
-                        <strong>Rs. {waterRate.toFixed(2)}/Gal</strong>
-                      </div>
-                      <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
-                        <span>Water Cost</span>
-                        <strong>{fmt(waterCost)}</strong>
                       </div>
                     </div>
                   )}
@@ -2009,16 +1939,16 @@ export default function OrderPage() {
                       1. How can I order diesel or petrol online in Lahore?
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      Simply choose your required fuel category (Diesel, Petrol, High-Octane, LPG Cylinder, or Water Refill) on this order page, set your quantity, enter your delivery address in Lahore, and select your preferred delivery speed. Our dispatcher immediately routes the nearest certified bowser to your location.
+                      Simply choose your required fuel grade (Super Petrol, High-Octane 97, or Euro-V Diesel), select your refueling target asset (Car/SUV, Motorbike, Standby Generator, Commercial Machinery, or Storage Drum), set your volume (5L to 15L Max), enter your delivery address in Lahore, and select your delivery speed. Our dispatcher immediately routes the nearest certified bowser to your location.
                     </p>
                   </div>
 
                   <div style={{ background: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
                     <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>
-                      2. What is the minimum quantity for doorstep diesel delivery?
+                      2. What is the minimum and maximum quantity for doorstep delivery?
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      You can order as little as 5 liters up to 2,000+ liters per order. For orders below 50 liters, a nominal standard delivery fee applies. For bulk orders of 50+ liters, delivery is free within our service coverage zones in Lahore.
+                      Doorstep consumer delivery is strictly <strong>5 Litres minimum</strong> up to <strong>15 Litres maximum</strong> per order (with a flat nominal delivery fee of Rs. 280, or Rs. 380 for Urgent Priority dispatch within 45 mins). For commercial bulk requirements exceeding 15 Litres (generators, plazas, commercial machinery), our B2B specialized bowsers provide scheduled bulk supply via corporate inquiry.
                     </p>
                   </div>
 
@@ -2027,7 +1957,7 @@ export default function OrderPage() {
                       3. Is Cash on Delivery (COD) supported?
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      Yes! Cash on Delivery (COD) is supported for domestic orders (5 to 10 liters of fuel, 10 kg LPG, or 20 gallons of water). For commercial bulk refueling and fleet orders, we provide bank transfer, online payment, and corporate invoicing terms — <Link to="/contact/" style={{ color: '#0284c7', fontWeight: 600 }}>contact our corporate sales team</Link> or explore our <Link to="/services/#b2b" style={{ color: '#0284c7', fontWeight: 600 }}>commercial services</Link>.
+                      Yes! Cash on Delivery (COD) is supported for orders between 5 and 10 Litres of fuel. For orders exceeding 10 Litres (11L to 15L Max), advance payment via bank transfer is required for high-volume safety and dispatch verification. For commercial bulk refueling and corporate fleet accounts, we provide bank transfer, online payment, and corporate invoicing terms — <Link to="/contact/" style={{ color: '#0284c7', fontWeight: 600 }}>contact our corporate sales team</Link> or explore our <Link to="/services/#b2b" style={{ color: '#0284c7', fontWeight: 600 }}>commercial services</Link>.
                     </p>
                   </div>
 
@@ -2103,7 +2033,7 @@ export default function OrderPage() {
             </span>
             {activeOrder && activeOrder.status !== 'delivered' && countdownText && (
               <span style={{ display: 'block', fontSize: '0.88rem', color: '#0284c7', marginTop: '6px', fontWeight: 700 }}>
-                ⏱️ Estimated Arrival: {countdownText} ({activeOrder.deliverySpeed === 'urgent' ? '10-20 Min Urgent' : '20-45 Min Standard'})
+                ⏱️ Estimated Arrival: {countdownText} ({activeOrder.deliverySpeed === 'urgent' ? 'Urgent Priority (Within 45 Mins)' : 'Standard Dispatch (Within 45 Mins)'})
               </span>
             )}
           </div>
@@ -2342,7 +2272,7 @@ export default function OrderPage() {
                 <div className="post-order-countdown-pill">
                   <i className="fa-solid fa-stopwatch fa-spin-pulse"></i>
                   <span>
-                    Live Dispatch Countdown: <strong>{countdownText || (invoiceData.isUrgent ? '20m 00s' : '45m 00s')}</strong> ({invoiceData.isUrgent ? 'Urgent Express 10–20 Min' : 'Standard 45 Min Dispatch'})
+                    Live Dispatch Countdown: <strong>{countdownText || '45m 00s'}</strong> ({invoiceData.isUrgent ? 'Urgent Priority (Within 45 Mins)' : 'Standard Dispatch (Within 45 Mins)'})
                   </span>
                 </div>
 
@@ -2485,7 +2415,7 @@ export default function OrderPage() {
                     <span className="status-confirmed">&#10003; DISPATCH CONFIRMED</span>
                   </div>
                   <div className="inv-meta-row" style={{ marginTop: '5px' }}>
-                    <span>Dispatch Mode:</span> <strong>{invoiceData.isUrgent ? 'Urgent Express (10–20m)' : 'Standard Dispatch (45m)'}</strong>
+                    <span>Dispatch Mode:</span> <strong>{invoiceData.isUrgent ? 'Urgent Priority (Within 45m)' : 'Standard Dispatch (Within 45m)'}</strong>
                   </div>
                 </div>
               </div>
@@ -2498,6 +2428,11 @@ export default function OrderPage() {
                   <div className="inv-party-detail"><i className="fa-solid fa-phone"></i> {invoiceData.phone}</div>
                   {invoiceData.email && invoiceData.email !== 'Not provided' && (
                     <div className="inv-party-detail"><i className="fa-solid fa-envelope"></i> {invoiceData.email}</div>
+                  )}
+                  {invoiceData.deliveryApplication && (
+                    <div className="inv-party-detail" style={{ color: '#0284c7', fontWeight: 600 }}>
+                      <i className="fa-solid fa-bullseye"></i> Refueling Target: <strong>{invoiceData.deliveryApplication}{invoiceData.assetIdentifier && invoiceData.assetIdentifier !== 'Standard Direct Fill' ? ` (${invoiceData.assetIdentifier})` : ''}</strong>
+                    </div>
                   )}
                   <div className="inv-party-detail"><i className="fa-solid fa-location-dot"></i> {invoiceData.address}</div>
                   <div className="inv-party-detail" style={{ color: '#0284c7', fontSize: '0.72rem', fontWeight: 600 }}>

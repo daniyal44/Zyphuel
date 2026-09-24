@@ -75,11 +75,12 @@ async function submitToIndexNow() {
       console.log('[IndexNow] All participating search engines have been notified.')
     } else {
       const errorText = await response.text()
-      console.error(`\n[IndexNow] ❌ Failed (Status ${response.status}):`, errorText)
+      console.warn(`\n[IndexNow] ⚠️ Note (Status ${response.status}):`, errorText)
+      console.log('[IndexNow] Note: Remote IndexNow key validation activates once the build is deployed to https://zyphuel.netlify.app/')
     }
   } catch (error) {
     // Don't fail the build if IndexNow is unreachable
-    console.warn(`\n[IndexNow] ⚠️  Could not reach IndexNow API: ${error.message}`)
+    console.warn(`\n[IndexNow] ⚠️ Could not reach IndexNow API: ${error.message}`)
     console.warn('[IndexNow] Build continues. URLs will be picked up on next crawl.')
   }
 }

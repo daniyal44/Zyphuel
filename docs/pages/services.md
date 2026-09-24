@@ -10,7 +10,7 @@
 
 ## SEO & Structured Data
 - **Page Title**: `Fuel Delivery Services in Lahore | Petrol, Diesel & High-Octane | Zyphuel`
-- **Meta Description**: `On-demand fuel delivery in Lahore: Euro-V petrol, diesel for vehicles and standby generators, sealed LPG gas cylinders, and water tanker delivery. Fast 20-45 minute dispatch.`
+- **Meta Description**: `On-demand fuel delivery in Lahore: Euro-V petrol, diesel for vehicles and standby generators, sealed LPG gas cylinders, and water tanker delivery. Fast dispatch within 45 minutes.`
 - **Canonical URL**: `https://zyphuel.netlify.app/services/`
 - **Schema Type**: `Service` / `LocalBusiness` / `OfferCatalog` / `FAQPage`
 - **Sitemap Priority**: `0.9` (daily change frequency)
@@ -55,6 +55,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-24** | Fixed 'Within 45 Mins' Dispatch SLA Standardization & COD 5–15L Schema Correction. | (1) Standardized service dispatch description to fixed **within 45 minutes** across metadata, schemas, and specs, (2) Updated Schema.org FAQ COD domestic order volume to strictly **5 to 15 liters**, (3) Added dedicated Google Image sitemap schema tag (`fuel.png`) to dynamic XML sitemap. |
 | **2026-09-21** | Marked LPG Gas Cylinder and Bulk Water Tanker services as **Currently Unavailable**; replaced direct order links on `ServiceCard` with interactive unavailable buttons triggering warning toasts. | User requested: *"gas delivery & water refill unavailable, when user click its unavailable"*. Added `isUnavailable: true` flag in `servicesData.js`, displayed `Unavailable` status tags on cards, and wired click handlers to trigger explicit user toasts clarifying that fuel delivery operates 24/7. |
 | **2026-09-20** | Updated LPG Gas price to actual market rate of **Rs. 450.00 / kg**; updated fallback display, context provider, and order form highlights. | User requested: *"gas actual market price is 450 pkr per kg is ko be price ma adjust karo mention"*. Adjusted centralized pricing in `fuelPrices.js`, `FuelPriceContext.jsx`, `ServicesPage.jsx`, and added market rate badge on checkout configuration. |
 | **2026-09-19** | Synchronized live service preview rates with the **+Rs. 2.50 / Litre** Retail Petrol Pump Rate Markup on Petrol, Diesel, and High-Octane; updated category rate pill labels. | Reflect verified retail pump prices consistently across services catalog and link directly to updated Order Page checkout. |

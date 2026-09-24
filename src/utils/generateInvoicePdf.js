@@ -157,11 +157,22 @@ export async function generateInvoicePdf(data) {
   doc.setFont('helvetica', 'normal')
   doc.setFontSize(7.5)
   doc.setTextColor(71, 85, 105)
-  doc.text('Contact Phone: ' + (data.phone || 'Not provided'), margin + 9, cardY + 16.5)
-  doc.text('Registered Email: ' + (data.email || 'Not provided'), margin + 9, cardY + 21)
+  doc.text('Contact Phone: ' + (data.phone || 'Not provided'), margin + 9, cardY + 16)
+  doc.text('Registered Email: ' + (data.email || 'Not provided'), margin + 9, cardY + 20)
+
+  let addrY = cardY + 24
+  if (data.deliveryApplication) {
+    const targetTxt = 'Target: ' + data.deliveryApplication + (data.assetIdentifier && data.assetIdentifier !== 'Standard Direct Fill' ? ' (' + data.assetIdentifier + ')' : '')
+    doc.setFont('helvetica', 'bold')
+    doc.setTextColor(2, 132, 199)
+    doc.text(doc.splitTextToSize(targetTxt, cardW - 12)[0], margin + 9, cardY + 24)
+    doc.setFont('helvetica', 'normal')
+    doc.setTextColor(71, 85, 105)
+    addrY = cardY + 28
+  }
 
   const wrappedAddress = doc.splitTextToSize('Delivery Site: ' + (data.address || 'Lahore, Pakistan'), cardW - 12)
-  doc.text(wrappedAddress.slice(0, 2), margin + 9, cardY + 26)
+  doc.text(wrappedAddress.slice(0, 1), margin + 9, addrY)
 
   // Right Card: Fleet Dispatch Telemetry & Quality Standards
   const rightCardX = margin + 5 + cardW + 4
@@ -211,7 +222,7 @@ export async function generateInvoicePdf(data) {
   doc.text('Speed Window: ', rightCardX + 4, cardY + 31)
   doc.setFont('helvetica', 'bold')
   doc.setTextColor(data.isUrgent ? 234 : 2, data.isUrgent ? 88 : 132, data.isUrgent ? 12 : 199)
-  doc.text(data.isUrgent ? '⚡ Urgent Express (10–20 Min Priority)' : 'Standard Rapid Dispatch (20–45 Mins)', rightCardX + 26, cardY + 31)
+  doc.text(data.isUrgent ? '⚡ Urgent Priority (Within 45 Mins)' : 'Standard Rapid Dispatch (Within 45 Mins)', rightCardX + 26, cardY + 31)
 
   // 4. Itemized Products & Services Table
   const tableY = cardY + cardH + 6

@@ -36,10 +36,11 @@
 - **Standard Doorstep Delivery**: **Rs. 280.00** nominal delivery fee (revised from Rs. 250.00 due to nationwide fuel price increases).
 - **Live Dispatch Countdown**: Strictly starts at **45 minutes (`45m 00s`, 2,700 seconds)** immediately upon order placement, decrementing second-by-second across checkout, tracking banner, and active invoice modal.
 
-### 2. Urgent / Priority Dispatch (20-Min SLA Window)
+### 2. Urgent / Priority Dispatch (Fixed Within 45-Min SLA with Priority Queue)
 - **Urgent Priority Surcharge**: **+Rs. 100.00 flat surcharge** (kept deliberately reasonable).
 - **Total Urgent Delivery Fee**: Rs. 280 base + Rs. 100 urgent = **Rs. 380.00**.
-- **Live Dispatch Countdown**: Starts at **20 minutes (`20m 00s`, 1,200 seconds)**.
+- **Delivery Window**: Fixed strictly **Within 45 Mins** on doorstep with priority queue routing.
+- **Live Dispatch Countdown**: Starts at **45 minutes (`45m 00s`, 2,700 seconds)** with `Urgent Priority (Within 45 Mins)` indicator.
 
 ---
 
@@ -111,6 +112,7 @@
  ## Changelog
  | Date | Changes Made | Rationale / User Request |
  | :--- | :--- | :--- |
+ | **2026-09-24** | Fixed 'Within 45 Mins' Delivery SLA Standardization & Dynamic On-Demand GSAP Loading. | User requested: *"website ma fixed delivery time ha within 45 mins on doorstep same as urgent delivery"*. Standardized delivery duration across OrderPage to strictly **within 45 minutes** for both Simple Standard and Urgent Priority dispatch (Urgent gets prioritized routing with +Rs. 100 fee). Updated live countdown timer, tracker status descriptions, WhatsApp message payload, invoice print, and vector PDF generator. Dynamically injected GSAP on-demand in `OrderPage.jsx` when mounted, removing the global CDN script from `<head>` to improve Core Web Vitals. |
  | **2026-09-22** | Unified delivery fee to flat **Rs. 280.00** across all orders; purged all lingering 50L bulk references, Free bulk tags, and the '• Min' chip label; explicitly highlighted the 15L Max limit in the UI and documentation. | User requested: *"delivery price ko update karo to phir ya prices update kyu nai ha or ha , 50L gaha per be lika ha us ko remove karo har gaja sa , or jo order ma max liter show ho raha ha is ko website ma mention or article a update karo"* and *"• Min is ko be remove karo"*. Updated `standardFee = 280`, removed `• Min` from 5L chip, removed all 50L bulk notices from invoice print and WhatsApp payload, and added `5L – 15L Max per Order` header badge. |
  | **2026-09-21** | Removed `RefuelingLifecycleTracker` component from `OrderPage.jsx` and purged redundant vector simulation files; streamlined order placement into direct checkout with code-based post-order modal tracking. | User requested: *"Refueling Lifecycle Tracker Awaiting Order... is ko be sai karo is ko remove akro or code base karo is ko Refueling Lifecycle Tracker"*. Purged the bulky 765-line SVG simulation box from the order sidebar to remove confusing visual clutter. Order placement now directly triggers the official code-based interactive Tracker Modal upon submission with live ETA countdown, dispatch steps, and WhatsApp redirection. |
  | **2026-09-21** | Configured volume-based tiered fuel delivery charges: strictly **Rs. 300 for 10 Litres**, **Rs. 350 for 15 Litres**, and **Rs. 250 for 5 Litres** (formula: `200 + qty * 10`); updated ticker, notice banners, stepper label, and invoice. | User requested: *"10L per 300 fuel delivery , 15 liter per 350 fuel delivery hone chaye , baki apne hishabab sa dekhlena"*. Replaced static Rs. 280 fee with a linear volume-based delivery fee model (`200 + qty * 10` for orders up to 15L): 5L = Rs. 250, 7L = Rs. 270, 10L = Rs. 300, 12L = Rs. 320, 15L = Rs. 350. Urgent dispatch surcharge remains +Rs. 100 flat. Updated UI indicators, dynamic stepper badge, pre-order notice banner, and invoice computations. |

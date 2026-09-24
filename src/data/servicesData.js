@@ -41,34 +41,6 @@ export const servicesB2C = [
       'Cash on Delivery & online instant payment'
     ],
     fuelTypeKey: 'petrol'
-  },
-  {
-    icon: 'fa-fire-burner',
-    title: 'Doorstep LPG Gas Cylinder Refills & Swap',
-    tag: 'Home & Commercial Gas',
-    desc: 'Safety-certified and weight-verified sealed LPG gas cylinders delivered to your kitchen, restaurant, or outdoor catering setup with mandatory leak checks.',
-    specs: [
-      '5 kg, 11.8 kg, and 45.4 kg commercial cylinder sizes',
-      '100% tare weight verified with digital scale at doorstep',
-      'Pre-tested brass safety valve and rubber ring seals',
-      'Old cylinder exchange or new connection installation'
-    ],
-    fuelTypeKey: 'lpg',
-    isUnavailable: true
-  },
-  {
-    icon: 'fa-droplet',
-    title: 'Bulk Potable Water Tanker Refills',
-    tag: 'Utility Supply',
-    desc: 'High-purity domestic and commercial water tanker delivery across Lahore societies facing water supply interruptions or construction requirements.',
-    specs: [
-      'Flat Rs. 100 per gallon refill pricing model',
-      'Chlorine-tested & TDS-verified clean water',
-      'High-pressure pump hose for rooftop overhead tanks',
-      'Same-day express dispatch across Lahore'
-    ],
-    fuelTypeKey: 'water',
-    isUnavailable: true
   }
 ];
 
@@ -138,7 +110,7 @@ export const whatWeProvide = [
   {
     icon: 'fa-file-invoice-dollar',
     title: 'Flexible Payment: COD & Corporate Invoicing',
-    desc: 'Cash on Delivery (COD) for small household orders up to 10L/10kg, paired with 30-day corporate credit accounts and digital invoice reporting for enterprise fleets.'
+    desc: 'Cash on Delivery (COD) for small household orders from 5 to 10 Litres, paired with 30-day corporate credit accounts and digital invoice reporting for enterprise fleets.'
   },
   {
     icon: 'fa-clock',
