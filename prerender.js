@@ -1258,10 +1258,21 @@ async function prerender() {
         changefreq = 'monthly'
       }
 
-      const escapedTitle = imageTitle.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
-      const imageTag = imageLoc ? `\n    <image:image>\n      <image:loc>${imageLoc}</image:loc>\n      <image:title>${escapedTitle}</image:title>\n    </image:image>` : ''
+      const escapeXml = (str) => {
+        if (!str) return ''
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+      }
+
+      const escapedLoc = escapeXml(`${DOMAIN}${r.path}`)
+      const escapedTitle = escapeXml(imageTitle)
+      const escapedImageLoc = escapeXml(imageLoc)
+      const imageTag = escapedImageLoc ? `\n    <image:image>\n      <image:loc>${escapedImageLoc}</image:loc>\n      <image:title>${escapedTitle}</image:title>\n    </image:image>` : ''
       return `  <url>
-    <loc>${DOMAIN}${r.path}</loc>
+    <loc>${escapedLoc}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>${imageTag}
