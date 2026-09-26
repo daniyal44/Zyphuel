@@ -291,7 +291,7 @@ export default function ServicesPage() {
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '28px' }}>
               
               {/* Box 1: What We Provide */}
               <div style={{ background: '#ffffff', borderRadius: '14px', padding: '28px', border: '1px solid rgba(34,197,94,0.3)', boxShadow: '0 4px 16px rgba(34,197,94,0.06)' }}>
@@ -368,7 +368,7 @@ export default function ServicesPage() {
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(310px, 1fr))', gap: '24px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '24px' }}>
               {operationalPipeline.map((stage) => (
                 <div
                   key={stage.stage}

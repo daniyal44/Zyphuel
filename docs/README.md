@@ -27,7 +27,7 @@ All 13 core documentation files are consolidated directly in this directory (`do
 | 6 | **Product Vision & Origin Story** | [`docs/idea.md`](./idea.md) | Problem statement, solution design, value pillars, founder story, and product roadmap. |
 | 7 | **Master Task Registry** | [`docs/task.md`](./task.md) | Completed engineering milestones, active tasks, and upcoming backlog. |
 | 8 | **Primary Pages Breakdown** | [`docs/pages.md`](./pages.md) | Comprehensive functional and technical catalog of all 11 primary pages. |
-| 9 | **Subpages & Articles Scope** | [`docs/subpages.md`](./subpages.md) | Routing architecture, schema markup, and technical specifications for all 6 subpages. |
+| 9 | **Subpages & Articles Scope** | [`docs/subpages.md`](./subpages.md) | Routing architecture, schema markup, and technical specifications for all 7 subpages. |
 | 10 | **Corporate & Operational Intel** | [`docs/informtion.md`](./informtion.md) | Regulatory credentials (OGRA, SECP, NTN), fleet hardware, fuel specs, and hours. |
 | 11 | **Editorial Knowledge Index** | [`docs/articles.md`](./articles.md) | Master editorial registry, SEO target keywords, search intents, and article sync logs. |
 | 12 | **Executive Retrospective** | [`docs/conclusion.md`](./conclusion.md) | Executive synthesis, engineering achievements, business validation, and future horizons. |
@@ -65,6 +65,7 @@ All 13 core documentation files are consolidated directly in this directory (`do
 | **Generator Diesel & LPG Cylinder Delivery** | `/blog/generator-diesel-lpg-delivery-lahore/` | `src/data/articles.js` (ID: 4) | [`docs/pages/subpages/generator-diesel-lpg-delivery-lahore.md`](./pages/subpages/generator-diesel-lpg-delivery-lahore.md) |
 | **IoT Telemetry & Smart Fuel Calibration** | `/blog/iot-telemetry-fuel-delivery/` | `src/data/articles.js` (ID: 5) | [`docs/pages/subpages/iot-telemetry-fuel-delivery.md`](./pages/subpages/iot-telemetry-fuel-delivery.md) |
 | **Calibrated Telemetry Bowser Fleet** | `/blog/zyphuel-calibrated-telemetry-fleet/` | `src/data/articles.js` (ID: 6) | [`docs/pages/subpages/zyphuel-calibrated-telemetry-fleet.md`](./pages/subpages/zyphuel-calibrated-telemetry-fleet.md) |
+| **Global vs Pakistan Fuel Delivery Benchmarks** | `/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/` | `src/data/articles.js` (ID: 7) | [`docs/pages/subpages/global-vs-pakistan-on-demand-fuel-delivery-benchmarks.md`](./pages/subpages/global-vs-pakistan-on-demand-fuel-delivery-benchmarks.md) |
 
 ---
 

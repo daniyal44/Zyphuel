@@ -2262,8 +2262,31 @@ a.footer-contact-link:hover {
 }
 
 /* ==========================================================================
-   RESPONSIVE MEDIA QUERIES
+   RESPONSIVE MEDIA QUERIES (COMPREHENSIVE MULTI-TIER SYSTEM)
+   Screens supported: 320px, 360px, 375px, 480px, 576px, 768px, 992px, 1200px, 1440px, 1920px+
    ========================================================================== */
+
+/* 1. Large Monitors & Desktops (1440px and above) */
+@media (min-width: 1440px) {
+    :root {
+        --container-max: 1360px;
+    }
+    .hero-title {
+        font-size: 3.5rem;
+    }
+}
+
+/* 2. Ultra-Wide & 4K Displays (1920px and above) */
+@media (min-width: 1920px) {
+    :root {
+        --container-max: 1480px;
+    }
+    .hero-title {
+        font-size: 3.8rem;
+    }
+}
+
+/* 3. Laptops & Standard Desktops (Up to 1200px) */
 @media (max-width: 1200px) {
     .hero-title {
         font-size: 2.8rem;
@@ -2271,51 +2294,93 @@ a.footer-contact-link:hover {
     .services-grid {
         gap: 20px;
     }
+    .order-container-grid {
+        gap: 30px;
+    }
 }
 
+/* 4. Tablets in Landscape & Small Laptops (Up to 992px) */
 @media (max-width: 992px) {
     .hero-grid {
         grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 40px;
         text-align: center;
     }
     .hero-subtitle-badge {
         justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
     }
     .hero-description {
         margin-left: auto;
         margin-right: auto;
+        max-width: 650px;
     }
     .hero-ctas {
         justify-content: center;
     }
     .hero-badges-row {
         justify-content: center;
+        flex-wrap: wrap;
     }
     .hero-graphic {
-        height: 380px;
+        height: 340px;
+        max-width: 500px;
+        margin: 0 auto;
     }
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
     .about-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 36px;
     }
     .order-container-grid {
         grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    .order-summary-sidebar {
+        position: static;
+        top: auto;
     }
     .contact-grid {
         grid-template-columns: 1fr;
+        gap: 36px;
     }
     .footer-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 36px;
+    }
+    .legal-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 40px 0 60px 0;
+    }
+    .legal-sidebar {
+        position: static;
+        padding: 20px;
+    }
+    .legal-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px 18px;
     }
 }
 
+/* 5. Tablets in Portrait & Large Phones (Up to 768px) */
 @media (max-width: 768px) {
     :root {
         --nav-height: 70px;
+    }
+    .section-padding {
+        padding: 56px 0;
+    }
+    .section-header {
+        margin-bottom: 36px;
+    }
+    .section-title {
+        font-size: 1.75rem;
     }
     .hamburger {
         display: flex;
@@ -2326,24 +2391,29 @@ a.footer-contact-link:hover {
         left: 0;
         width: 100%;
         height: calc(100vh - var(--nav-height));
+        height: calc(100dvh - var(--nav-height));
         background-color: var(--surface-card);
         flex-direction: column;
-        padding: 40px 24px;
-        gap: 24px;
+        padding: 32px 24px;
+        gap: 20px;
         transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         box-shadow: var(--shadow-lg);
         border-top: 1px solid var(--border-color);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        z-index: 999;
     }
     .nav-menu.open {
         transform: translateX(0);
     }
     .header-badges {
         margin-left: auto;
-        margin-right: 20px;
+        margin-right: 16px;
     }
     .services-grid {
         grid-template-columns: 1fr;
+        gap: 18px;
     }
     .about-values-grid {
         grid-template-columns: 1fr;
@@ -2351,50 +2421,281 @@ a.footer-contact-link:hover {
     }
     .fuel-selector {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
     .form-group-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
     .form-group.full-width {
         grid-column: span 1;
     }
     .schedule-options {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
     .footer-grid {
         grid-template-columns: 1fr;
+        gap: 32px;
     }
     .footer-bottom {
         flex-direction: column;
         gap: 16px;
         text-align: center;
     }
+    .footer-bottom > div {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px 20px;
+    }
+
+    /* Modal Responsive Tweaks for Tablet & Phone */
+    .modal-backdrop {
+        padding: 16px 12px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        align-items: flex-start;
+    }
+    .tracker-modal {
+        margin: auto;
+        width: 100%;
+        max-width: 100%;
+        padding: 28px 20px;
+        max-height: 92vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .interest-dialog {
+        width: 95%;
+        max-width: 440px;
+        padding: 24px 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    .order-form-panel {
+        padding: 28px 20px;
+    }
+    .summary-card {
+        padding: 24px 20px;
+    }
+    .stepper-wrap {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
 }
 
+/* 6. Standard Mobile Phones (Up to 576px) */
 @media (max-width: 576px) {
+    .container {
+        padding: 0 16px;
+    }
+    .section-padding {
+        padding: 44px 0;
+    }
+    .section-header {
+        margin-bottom: 28px;
+    }
+    .section-title {
+        font-size: 1.55rem;
+    }
+    .section-subtitle {
+        font-size: 0.92rem;
+    }
     .hero-title {
-        font-size: 2.2rem;
+        font-size: 2.1rem;
+        line-height: 1.22;
+    }
+    .hero-description {
+        font-size: 0.92rem;
+        line-height: 1.6;
     }
     .hero-ctas {
         flex-direction: column;
         width: 100%;
+        gap: 12px;
     }
     .hero-ctas .btn {
         width: 100%;
+        min-height: 48px;
+        justify-content: center;
     }
     .hero-badges-row {
-        flex-direction: column;
-        gap: 16px;
-        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    .hero-trust-badge {
+        flex: 1 1 calc(50% - 10px);
+        min-width: 130px;
+        justify-content: center;
+        padding: 10px 12px;
+    }
+    /* Hide second badge in header to prevent crowding on mobile */
+    .header-badges .badge-zyphuel {
+        display: none !important;
+    }
+    .header-badges .badge-active {
+        font-size: 0.72rem;
+        padding: 3px 9px;
     }
     .badge-upcoming {
-        display: none; /* Hide upcoming badge on extremely small screens to fit layout */
+        display: none !important;
     }
     .order-form-panel {
-        padding: 24px 16px;
+        padding: 20px 14px;
+        border-radius: 12px;
     }
     .summary-card {
-        padding: 20px 16px;
+        padding: 18px 14px;
+        border-radius: 12px;
+    }
+    .form-block-title {
+        font-size: 1.08rem;
+        margin-bottom: 14px;
+        padding-bottom: 8px;
+    }
+    .form-group {
+        margin-bottom: 18px;
+    }
+    .form-control {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+    }
+    .contact-method-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    .contact-method-card {
+        padding: 10px 6px;
+        font-size: 0.78rem;
+    }
+    .contact-method-card i {
+        font-size: 1.1rem;
+    }
+    .quantity-config-card {
+        padding: 14px 12px;
+    }
+    .stepper-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .stepper-wrap > div:last-child {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+    .truck-button {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 52px;
+        font-size: 0.98rem;
+    }
+    .tracker-modal {
+        padding: 22px 14px;
+        border-radius: 14px;
+    }
+    .tracker-timeline {
+        padding-left: 36px;
+        margin: 22px 0;
+    }
+    .tracker-timeline::before {
+        left: 13px;
+    }
+    .tracker-step .step-node {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+        left: -36px;
+    }
+    .tracker-step .step-title {
+        font-size: 0.88rem;
+    }
+    .tracker-step .step-desc {
+        font-size: 0.78rem;
+    }
+    .success-checkmark-circle {
+        width: 58px;
+        height: 58px;
+        font-size: 1.7rem;
+        margin-bottom: 14px;
+    }
+    .legal-content {
+        padding: 22px 14px;
+        border-radius: 12px;
+    }
+    .legal-section {
+        margin-bottom: 32px;
+    }
+    .legal-section h2 {
+        font-size: 1.35rem;
+    }
+    .interest-dialog {
+        width: 96%;
+        padding: 22px 16px;
+    }
+}
+
+/* 7. Ultra-Compact Mobile Screens (320px to 380px, e.g. iPhone SE, Galaxy Z Fold outer) */
+@media (max-width: 380px) {
+    .container {
+        padding: 0 12px;
+    }
+    .header-badges {
+        display: none !important;
+    }
+    .logo img {
+        max-width: 115px;
+        height: auto;
+    }
+    .section-title {
+        font-size: 1.38rem;
+    }
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    .hero-trust-badge {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+    .order-form-panel {
+        padding: 16px 10px;
+    }
+    .summary-card {
+        padding: 16px 10px;
+    }
+    .quantity-config-card {
+        padding: 12px 8px;
+    }
+    .quantity-stepper {
+        width: 125px;
+        height: 44px;
+    }
+    .stepper-btn {
+        width: 38px;
+        font-size: 1.1rem;
+    }
+    .stepper-input {
+        width: 44px;
+        font-size: 0.95rem;
+    }
+    .contact-method-grid {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+    .contact-method-card {
+        flex-direction: row;
+        padding: 8px 12px;
+        justify-content: flex-start;
+        gap: 12px;
+    }
+    .contact-method-card.selected::after {
+        top: 50%;
+        transform: translateY(-50%);
+        right: 12px;
+    }
+    .tracker-modal {
+        padding: 18px 10px;
     }
 }
 

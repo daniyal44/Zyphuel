@@ -99,7 +99,7 @@ export default function ContactPage() {
   const contactFaqs = [
     {
       q: "How do I contact Zyphuel for urgent fuel dispatch in Lahore?",
-      a: "For emergency fuel dispatch, message or call our 24/7 hotline at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app for 15–30 minute rapid bowser arrival."
+      a: "For emergency fuel dispatch, message or call our 24/7 hotline at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app for rapid bowser arrival within 45 minutes across Lahore."
     },
     {
       q: "What are Zyphuel’s customer support and delivery operating hours?",
@@ -533,21 +533,11 @@ ${form.message.trim()}`
               <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginBottom: '14px' }}>
                 Corporate facilities requiring bulk generator diesel (200L to 10,000L+), dedicated recurring weekly replenishment, or consolidated monthly billing can connect directly with our enterprise operations leads:
               </p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px', fontSize: '0.88rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 360px))', gap: '14px', fontSize: '0.88rem' }}>
                 <div style={{ padding: '12px 14px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
                   <strong style={{ display: 'block', color: '#0f172a' }}>Executive Management</strong>
                   <span style={{ color: '#64748b' }}>Founder &amp; CEO Muhammad Daniyal</span>
                   <div style={{ color: '#0284c7', marginTop: '4px' }}>m.daniyalkhan490@gmail.com</div>
-                </div>
-                <div style={{ padding: '12px 14px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                  <strong style={{ display: 'block', color: '#0f172a' }}>Sales &amp; Fleet Operations</strong>
-                  <span style={{ color: '#64748b' }}>Adil Farooq (Sales Manager)</span>
-                  <div style={{ color: '#0284c7', marginTop: '4px' }}>+92 3230-112464</div>
-                </div>
-                <div style={{ padding: '12px 14px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                  <strong style={{ display: 'block', color: '#0f172a' }}>24/7 Urgent Dispatch Hotline</strong>
-                  <span style={{ color: '#64748b' }}>WhatsApp Live GPS Dispatch</span>
-                  <div style={{ color: '#16a34a', marginTop: '4px' }}>wa.me/923230112464</div>
                 </div>
               </div>
             </div>

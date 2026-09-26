@@ -115,10 +115,10 @@ export default function Footer() {
             
             {/* Contact details */}
             <div className="footer-contacts">
-              <a href={`tel:${contact.phone.replace(/[^0-9+]/g, '')}`} className="footer-contact-link" title="Call Zyphuel Customer Support Helpline">
-                <i className="fa-solid fa-phone"></i>
-                <span>{contact.phone}</span>
-              </a>
+              <Link to="/contact/" className="footer-contact-link" title="Call or Message Zyphuel Support Helpline">
+                <i className="fa-solid fa-headset"></i>
+                <span>24/7 Helpline &amp; Contact Desk</span>
+              </Link>
               <a href={`mailto:${contact.email}`} className="footer-contact-link" title="Email Zyphuel Enterprise Support Desk">
                 <i className="fa-solid fa-envelope"></i>
                 <span>{contact.email}</span>

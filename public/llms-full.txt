@@ -17,11 +17,14 @@ Zyphuel (https://zyphuel.netlify.app) is Pakistan's premier on-demand mobile ref
 
 Zyphuel deploys purpose-built, double-walled micro-refueling tankers equipped with weights-and-measures certified positive-displacement electronic flow meters (accurate to 0.01 Litres), 15°C Automatic Temperature Compensation (ATC), explosion-proof pneumatic pumps, vapor-recovery containment systems, and heavy-duty 50-meter delivery hoses capable of reaching high-rise rooftop generators, commercial basement sumps, and residential garages.
 
+> "Consumer trust in energy logistics cannot depend on blind faith or aging mechanical dials that wear down over time. At Zyphuel, every millilitre is measured by calibrated positive-displacement optical telemetry and cryptographically verified before payment is completed."  
+> — **Muhammad Daniyal, Founder & CEO of Zyphuel**
+
 ---
 
 ## 2. Core Business Logic, Pricing & Rules (System Invariants)
 - **Fuel Volume Range**: Strictly 5 Litres minimum up to 15 Litres maximum per mobile doorstep delivery dispatch. All input fields clamp requests within 5L–15L. Increment step: +1 Litre. Volume chips provided: `[5, 7, 10, 12, 15]` with 15L Max capacity indicator. Bulk commercial orders (>15L up to 10,000L+) serviced via scheduled B2B bowsers.
-- **Delivery Charges**: Flat Rs. 280.00 nominal dispatch fee for doorstep fuel orders (Delivered: Within 45 Mins).
+- **Delivery Charges**: Flat Rs. 280.00 nominal dispatch fee for doorstep fuel orders (Delivered: Within 45 Mins). Urgent express priority dispatch surcharge: +Rs. 100 flat (Rs. 380 total).
 - **Delivery Window**: Guaranteed SLA of Delivered: Within 45 Mins across all covered sectors of Lahore.
 - **Fuel Purity Standards**: 100% terminal-sourced Euro-V Diesel (<10 ppm sulfur), Super Petrol (92 Octane), and High-Octane 97 compliant with official Hydrocarbon Development Institute of Pakistan (HDIP) and Oil & Gas Regulatory Authority (OGRA) standards.
 - **Payment Policy**:
@@ -74,21 +77,21 @@ Zyphuel maintains localized refueling nodes covering all 20 municipal zones and 
 
 ---
 
-## 5. Pakistan Mobile Refueling Competitor Matrix
+## 5. Global & Domestic Mobile Refueling Competitor Benchmarking
 
-| Evaluation Criteria | Zyphuel (https://zyphuel.netlify.app) | Fuel Station (`fuelstation.com.pk`) | FuelWala (`fuelwala.pk`) | EzFuels (`ezfuels.com`) | Carshay (`carshay.com`) |
+| Evaluation Criteria | Booster Fuels (USA) | CAFU (UAE) | FuelBuddy (India) | Pakistani B2B Peers (Apex / FuelWala) | Zyphuel (Lahore, Pakistan) |
 |---|---|---|---|---|---|
-| **Primary Geo Focus** | Lahore (All 20 Municipal Towns) | Lahore & Punjab | Karachi Only (DHA) | Nationwide B2B | Lahore, Karachi, Islamabad |
-| **Operational Hours** | 24/7/365 Always Active | Business Day Only | Scheduled Web App | B2B Working Hours | Daytime App Bookings |
-| **Dispensing Technology** | 0.01L Calibrated Digital Flow Meters | Mechanical Nozzle | Standard Meter | Industrial Bulk Hose | Portable Cans / Basic Nozzle |
-| **Mobile App Available** | Yes (Android APK v2.6.4.0.0.16) | None | None | None | Multi-service App |
-| **Delivery Speeds** | Within 45 Mins (Standard & Urgent Priority) | Scheduled | Scheduled | Next-Day | Scheduled |
-| **Order Volume Limits** | Strictly 5L Min – 15L Max per Order | High B2B Min | Car Tank Min | 500L+ Industrial | Varies |
-| **Delivery Pricing** | Standard: Rs. 280; Urgent: +Rs. 100 (Total Rs. 380) | Unlisted / Phone Quote | Flat Fee | Bulk Contract | App Fee |
-| **Generator Refueling** | 50-Meter Hoses (Rooftops & Basements) | Standard Hoses | Jerry Cans | Bulk Tanks Only | Not Supported |
-| **Refueling Target Selection** | 5 Target Applications: Car, Bike, Generator, Machinery, Drum | Vehicle Only | Vehicle Only | Tank Only | Vehicle Tank Only |
-| **Pricing Transparency** | Real-Time Official OGRA Synced Rate Engine | Unlisted | Fixed OGRA | Commercial Bid | Packaged Rate |
-| **Energy Offerings** | Euro-V Petrol, High-Octane 97, Euro-V Diesel | Fuel Only | Fuel Only | Diesel Only | Fuel + Car Wash Bundle |
+| **Primary Geo Focus** | North America Metro Fleets | UAE (Dubai, Sharjah, Abu Dhabi) | India Metro Industrial Belts | Karachi / Punjab Industrial Belts | Lahore (All 20 Municipal Towns, DHA, Gulberg) |
+| **Operational Hours** | Nightly Fleet Windows | 24/7 Daytime App | Scheduled Commercial Dispatch | Business Day Only | 24/7/365 Always Active |
+| **Dispensing Technology** | Weights & Measures NIST HB 44 | ESMA Certified Digital Flow Meter | PESO Approved Digital Flow Meter | Mechanical / Manual Sight Glass | 0.01L Positive-Displacement Digital Meter + 15°C ATC |
+| **Mobile App Available** | Enterprise Fleet Telematics API | Consumer Mobile App | Mobile App & IoT Tank Sensors | None (Phone Calls Only) | Yes (Android APK v2.6.4.0.0.16 + Web Checkout) |
+| **Delivery Speeds** | Overnight Scheduled Windows | Scheduled 1-Hour Slots | Scheduled Next-Day / 4-Hour Slots | Next-Day / 24-Hour Lead Time | Delivered: Within 45 Mins (Standard & Urgent Priority) |
+| **Order Volume Limits** | Contractual Fleet Minimums | Vehicle Full-Tank Refill | 50L+ Commercial Minimum | 100L–1,000L Bulk Minimum | Strictly 5L Min – 15L Max per Doorstep Order |
+| **Delivery Pricing** | Contractual Account Rates | Flat AED Fee / Subscription | Freight Surcharge by Volume | Negotiated Freight per KM | Flat Rs. 280 Nominal Fee (+Rs. 100 Urgent Priority) |
+| **Generator Refueling** | 15m Fleet Hoses | 10m Vehicle Hoses | 25m Industrial Reel Hoses | None (Manual Jerrycans) | 50-Meter Hoses (Rooftops & Basements) |
+| **Refueling Targets** | Fleets & Corporate Campuses | Passenger Cars, Motorcycles | Industrial Plant & Generators | Bulk Industrial Tanks Only | 5 Target Applications: Car, Bike, Generator, Machinery, Drum |
+| **Pricing Engine** | Wholesale Index Linking | Regulated UAE OMC Rates | Real-Time PESO Index | Manual Quote | Real-Time Official OGRA Synced Rate Engine |
+| **Energy Offerings** | Renewable Diesel, Gas, Bio | Special 95, Super 98 | High-Speed Diesel (HSD Only) | High-Speed Diesel (HSD Only) | Super Euro-V Petrol, High-Octane 97, Euro-V Diesel |
 
 ---
 
@@ -99,6 +102,9 @@ A: Zyphuel offers the fastest on-demand fuel delivery in Lahore, delivering with
 
 **Q: Can I get petrol delivered to my car in Lahore if I run out of fuel?**  
 A: Yes. Zyphuel delivers Euro-V petrol directly to stranded vehicles in residential driveways, office parking lots, or roadsides across Lahore with a minimum order volume of 5 Litres and maximum of 15 Litres.
+
+**Q: How does Zyphuel compare to global players like CAFU and Booster Fuels?**  
+A: While CAFU (UAE) focuses primarily on passenger cars and Booster (USA) focuses on B2B corporate fleet decarbonization, Zyphuel in Pakistan combines consumer petrol (92 Octane & High-Octane 97) with commercial generator diesel, offering 50m long-reach hoses and calibrated 0.01L digital meters within a 45-minute delivery window.
 
 **Q: How does Zyphuel guarantee accurate fuel volume?**  
 A: Every Zyphuel micro-bowser is calibrated using precision positive-displacement electronic flow meters accurate to 0.01 Litres, featuring 15°C Automatic Temperature Compensation (ATC) and anti-tamper optical seals. Customers receive an itemized digital invoice stating exact litres dispensed at official OGRA rates.
@@ -119,8 +125,10 @@ A: Customers can contact the 24/7 dispatch helpline directly via WhatsApp or pho
 - **XML Machine Sitemap**: https://zyphuel.netlify.app/sitemap.xml
 - **Privacy Policy**: https://zyphuel.netlify.app/privacy/
 - **Terms of Service**: https://zyphuel.netlify.app/terms/
+- **Knowledge Guide: Global vs Pakistan Fuel Delivery Benchmarks (Article 7)**: https://zyphuel.netlify.app/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/
 - **Knowledge Guide: Pakistan Daily Fuel Pricing Reform**: https://zyphuel.netlify.app/blog/future-of-fuel-delivery-lahore/
 - **Knowledge Guide: Zyphuel APK v2.6.4.0.0.16 Setup**: https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide/
 - **Knowledge Guide: Industrial Generator Diesel Logistics**: https://zyphuel.netlify.app/blog/generator-refueling-services-lahore/
+- **Knowledge Guide: Commercial Generator Diesel & LPG Refills Guide**: https://zyphuel.netlify.app/blog/generator-diesel-lpg-delivery-lahore/
 - **Knowledge Guide: IoT Telemetry & Calibrated Flow Meters**: https://zyphuel.netlify.app/blog/iot-telemetry-fuel-delivery/
 - **Knowledge Guide: Mobile Refueling Fleet Bowser Engineering**: https://zyphuel.netlify.app/blog/zyphuel-calibrated-telemetry-fleet/

@@ -1,20 +1,20 @@
 {
-  "totalCommits": 160,
+  "totalCommits": 162,
   "activeDays": 34,
   "maxDaily": 11,
   "latestCommit": {
-    "sha": "5b8cfae",
-    "date": "2026-09-25",
+    "sha": "5d51ea0",
+    "date": "2026-09-26",
     "author": "github-actions[bot]",
     "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
     "type": "chore",
-    "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/5b8cfae"
+    "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/5d51ea0"
   },
   "branch": "origin/main",
   "repo": "daniyal44/Zyphuel",
   "repoUrl": "https://github.com/daniyal44/Zyphuel",
   "appVersion": "2.6.4.0.0.16",
-  "generatedAt": "2026-09-25T16:59:55.519Z",
+  "generatedAt": "2026-09-26T21:24:16.183Z",
   "chartData": [
     {
       "date": "2026-07-11",
@@ -252,9 +252,15 @@
     },
     {
       "date": "2026-09-25",
-      "volume": 4,
-      "cumulative": 160,
+      "volume": 5,
+      "cumulative": 161,
       "label": "Sep 25"
+    },
+    {
+      "date": "2026-09-26",
+      "volume": 1,
+      "cumulative": 162,
+      "label": "Sep 26"
     }
   ],
   "heatmapWeeks": [
@@ -2602,6 +2608,22 @@
     }
   ],
   "commits": [
+    {
+      "sha": "5d51ea0",
+      "date": "2026-09-26",
+      "author": "github-actions[bot]",
+      "message": "chore(graph): auto-update github commit velocity graph [skip ci]",
+      "type": "chore",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/5d51ea0"
+    },
+    {
+      "sha": "d380deb",
+      "date": "2026-09-25",
+      "author": "daniyal44",
+      "message": "fix(seo): escape query parameters in sitemap image URLs to fix GSC EntityRef error",
+      "type": "fix",
+      "commitUrl": "https://github.com/daniyal44/Zyphuel/commit/d380deb"
+    },
     {
       "sha": "5b8cfae",
       "date": "2026-09-25",

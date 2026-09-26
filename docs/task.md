@@ -61,6 +61,19 @@ This document serves as the centralized master tracking ledger for all completed
 - [x] Eliminate all image-induced Cumulative Layout Shift (CLS = 0) with explicit `width`, `height`, `loading`, `decoding`, and `fetchpriority` attributes across all components.
 - [x] Verify full production build and 17-route Static Site Generation (`npm run build`) with exit code 0.
 
+### 1.8 International SEO, AEO & GEO Optimization, Competitor Benchmarking & Image Sitemap Overhaul
+- [x] Research global mobile fueling giants (CAFU, Booster Fuels, FuelBuddy, Repos Energy) and domestic Pakistani suppliers (Apex Energy, FuelWala, EzFuels).
+- [x] Author flagship 3,500+ word comparative research pillar guide in `src/data/articles.js` (Article 7: `global-vs-pakistan-on-demand-fuel-delivery-benchmarks`).
+- [x] Register Article 7 route in `prerender.js` and generate SSG static page `dist/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/index.html` (72.5 KB).
+- [x] Overhaul XML Image Sitemap generator in `prerender.js` to output full Google Image extension metadata (`<image:loc>`, `<image:title>`, `<image:caption>`, `<image:geo_location>`, `<image:license>`).
+- [x] Implement Schema.org `HowTo` structured data for fuel delivery ordering on `/order/` and `index.html`.
+- [x] Implement `SpeakableSpecification` markup for voice assistant querying (Google Assistant, Siri).
+- [x] Expand `public/robots.txt` with explicit crawl rules for 25+ global search engines, social media preview bots, and AI/LLM crawlers.
+- [x] Update `public/llms.txt` and `public/llms-full.txt` with global benchmark matrices, founder quotes, and Article 7 index.
+- [x] Update `HtmlSitemapPage.jsx` with Article 7.
+- [x] Create subpage documentation `docs/pages/subpages/global-vs-pakistan-on-demand-fuel-delivery-benchmarks.md` and synchronize master docs.
+- [x] Run full production SSG compilation with `npm.cmd run build` — 18 routes cleanly generated with 0 errors.
+
 ---
 
 ## 2. Active Engineering Tasks

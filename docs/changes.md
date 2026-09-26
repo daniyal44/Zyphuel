@@ -18,6 +18,7 @@ timeline
     Phase 7 : Corporate Tax Invoicing & Dual Verification : Camera QR + Code 128 : Pure Vector jsPDF
     Phase 8 : Streamlining, Payment Modernization & Docs : COD 5L–10L + Mobile Wallets : Hero Section Polish : Master Docs
     Phase 9 : SEO, AEO & GEO Expansion, Search Engine Indexing Fix & 100% Speed : 1,000+ Word Pillar Articles : Data Tables : RSS Feed : Netlify Caching
+    Phase 10 : Global SEO, AEO & GEO Benchmarks : 3,500+ Word Pillar Article : XML Image Sitemap : 25+ Crawlers in robots.txt
 ```
 
 ---
@@ -226,3 +227,45 @@ timeline
   - Configured `loading="eager"` and `fetchpriority="high"` on LCP hero images in `Header.jsx` and `BlogArticlePage.jsx`.
   - Lazy-loaded subsequent hidden slider cards and carousels.
 - **Static Site Generation (SSG)**: Verified that all 17 routes pre-render cleanly with complete static HTML, structured data, and zero hydration mismatch.
+
+---
+
+## Phase 10: International SEO, AEO & GEO Optimization & Competitor Benchmarking
+
+### 10.1 Flagship Pillar Research Guide (Article 7)
+- **Created**: High-authority 3,500+ word research article in `src/data/articles.js` (ID: 7, slug: `global-vs-pakistan-on-demand-fuel-delivery-benchmarks`):
+  - **Title**: *"On-Demand Fuel Delivery in 2026: Global Tech Benchmarks (Zyphuel vs. CAFU, Booster & FuelBuddy) & The Doorstep Refueling Revolution in Lahore"*.
+  - **Content**: 10-point global vs domestic benchmark matrix, urban decarbonization and dead mileage reduction data table, positive-displacement meter physics with 15°C ATC, executive quote from CEO Muhammad Daniyal, and 6 structured AEO FAQs.
+  - **Static Pre-rendering**: Pre-rendered into `dist/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/index.html` (72.5 KB).
+
+### 10.2 Image SEO & Google Image Sitemap Overhaul
+- **Enhanced XML Sitemap Protocol**:
+  - Upgraded dynamic XML sitemap generator in `prerender.js` to inject full Google Image extension metadata:
+    - `<image:loc>`: Absolute image URL.
+    - `<image:title>`: Keyword-rich descriptive title.
+    - `<image:caption>`: Detailed operational description.
+    - `<image:geo_location>`: `Lahore, Punjab, Pakistan`.
+    - `<image:license>`: `https://zyphuel.netlify.app/terms/`.
+  - Synced to both `public/sitemap.xml` and `dist/sitemap.xml`.
+- **Image Audit**: Verified all `<img>` elements across codebase have explicit dimensions (width/height), `decoding="async"`, `loading="lazy"` (eager for hero LCP), and contextual keyword-dense `alt` attributes.
+
+### 10.3 AEO (Answer Engine Optimization) & Voice Search Schemas
+- **HowTo Structured Data**: Injected Schema.org `HowTo` schema into `/order/` and `index.html` outlining the 4-step fuel delivery booking process.
+- **Speakable Specification**: Added `SpeakableSpecification` markup pointing to summary paragraphs and headings for Google Assistant and Siri direct voice search querying.
+- **Atomic Q&A Optimization**: Formatted all article and page FAQs into concise, 40-50 word direct answers optimized for Google Featured Snippets (#0 position).
+
+### 10.4 GEO (Generative Engine Optimization) & Entity Knowledge Graph
+- **`llms.txt` and `llms-full.txt` Overhaul**:
+  - Added global benchmark comparison matrix (Zyphuel vs. CAFU, Booster Fuels, FuelBuddy, Repos Energy, Apex Energy, FuelWala).
+  - Added verified executive quotes from Founder & CEO Muhammad Daniyal.
+  - Added deep links index and summaries for all 7 articles.
+- **Schema.org Knowledge Graph Expansion**:
+  - Injected Wikipedia entities (`Fuel_dispenser`, `Euro_V`, `Lahore`, `Diesel_engine`, `Electric_generator`) into `ORGANIZATION_SCHEMA` and `LOCAL_BUSINESS_SCHEMA`.
+  - Added `alternateName` array (`Zyphuel Pakistan`, `Zyphuel Fuel Delivery`, `Zyphuel Mobile Refueling`, `Zyphuel Technologies`).
+
+### 10.5 Technical SEO & Global Crawler Optimization
+- **`public/robots.txt`**: Added explicit crawl rules and permissions for 25+ global search engines, social media preview bots, and AI answer engine crawlers (Googlebot, Bingbot, Applebot, Baiduspider, YandexBot, DuckDuckBot, GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Gemini, etc.). Added `Host: https://zyphuel.netlify.app`.
+- **RSS 2.0 Feed (`public/feed.xml`)**: Syndicated Article 7 at the top of the feed with updated publication timestamps.
+- **HTML Sitemap**: Added Article 7 to `HtmlSitemapPage.jsx`.
+- **SSG Verification**: Compiled production build with `npm.cmd run build` — all 18 routes cleanly pre-rendered with 0 errors.
+

@@ -14,7 +14,14 @@ const ORGANIZATION_SCHEMA = {
   "@type": "Organization",
   "@id": `${DOMAIN}/#organization`,
   "name": "Zyphuel",
-  "description": "Zyphuel delivers petrol and diesel to your door in Lahore, Pakistan — serving households, generator owners, and commercial fleets with calibrated metering and live GPS tracking.",
+  "alternateName": [
+    "Zyphuel Pakistan",
+    "Zyphuel Fuel Delivery",
+    "Zyphuel Mobile Refueling",
+    "Zyphuel Technologies",
+    "Zyphuel Energy Logistics"
+  ],
+  "description": "Zyphuel delivers petrol and diesel to your door in Lahore, Pakistan — serving households, generator owners, and commercial fleets with calibrated 0.01L positive-displacement metering and live GPS tracking.",
   "url": DOMAIN,
   "logo": `${DOMAIN}/images/logo.png`,
   "image": `${DOMAIN}/images/logo.png`,
@@ -26,7 +33,8 @@ const ORGANIZATION_SCHEMA = {
     "https://www.linkedin.com/in/muhammad-daniyal490",
     "https://share.google/Nb4XGKYq5aU0nzLr3",
     "https://github.com/daniyal44",
-    "https://www.facebook.com/muhammad.daniyal.522942/"
+    "https://www.facebook.com/muhammad.daniyal.522942/",
+    "https://en.wikipedia.org/wiki/Lahore"
   ],
   "address": {
     "@type": "PostalAddress",
@@ -51,8 +59,27 @@ const ORGANIZATION_SCHEMA = {
       "https://github.com/daniyal44",
       "https://www.facebook.com/muhammad.daniyal.522942/"
     ],
-    "knowsAbout": ["Fuel delivery logistics", "On-demand energy delivery", "Fleet refueling"]
-  }
+    "knowsAbout": [
+      "Fuel delivery logistics",
+      "On-demand energy delivery",
+      "Fleet refueling",
+      "https://en.wikipedia.org/wiki/Fuel_dispenser",
+      "https://en.wikipedia.org/wiki/Euro_V",
+      "https://en.wikipedia.org/wiki/Diesel_engine",
+      "https://en.wikipedia.org/wiki/Electric_generator"
+    ]
+  },
+  "knowsAbout": [
+    "https://en.wikipedia.org/wiki/Fuel_dispenser",
+    "https://en.wikipedia.org/wiki/Euro_V",
+    "https://en.wikipedia.org/wiki/Lahore",
+    "https://en.wikipedia.org/wiki/Diesel_engine",
+    "https://en.wikipedia.org/wiki/Electric_generator",
+    "On-demand fuel delivery",
+    "Doorstep petrol delivery Lahore",
+    "Generator diesel logistics Pakistan",
+    "Calibrated electronic flow meters"
+  ]
 }
 
 const LOCAL_BUSINESS_SCHEMA = {
@@ -282,6 +309,24 @@ const ARTICLES_SCHEMA = [
       "@id": `${DOMAIN}/#organization`
     },
     "mainEntityOfPage": `${DOMAIN}/about/`
+  },
+  {
+    "@type": "TechArticle",
+    "@id": `${DOMAIN}/#article-7`,
+    "headline": "On-Demand Fuel Delivery in 2026: Global Tech Benchmarks (Zyphuel vs. CAFU, Booster & FuelBuddy) & The Doorstep Refueling Revolution in Lahore",
+    "description": "A definitive 2026 comparative benchmark evaluating global mobile fueling titans (CAFU UAE, Booster USA, FuelBuddy India) against Zyphuel in Pakistan. Calibrated 0.01L positive-displacement flow meters and 45-minute dispatch.",
+    "image": "https://images.unsplash.com/photo-1545459720-aac8509eb02c?auto=format&fit=crop&w=1200&q=80",
+    "datePublished": "2026-09-27T08:00:00+05:00",
+    "dateModified": "2026-09-27T00:00:00+05:00",
+    "author": {
+      "@type": "Person",
+      "name": "Muhammad Daniyal",
+      "jobTitle": "Founder & Lead Architect"
+    },
+    "publisher": {
+      "@id": `${DOMAIN}/#organization`
+    },
+    "mainEntityOfPage": `${DOMAIN}/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/`
   }
 ]
 
@@ -721,6 +766,48 @@ const ROUTES = [
           "agent": { "@id": `${DOMAIN}/#organization` }
         },
         {
+          "@type": "HowTo",
+          "@id": `${DOMAIN}/order/#howto`,
+          "name": "How to Order Petrol and Diesel Delivery Online in Lahore with Zyphuel",
+          "description": "Step-by-step instructions for scheduling 24/7 doorstep petrol or diesel refueling in Lahore with calibrated 0.01L digital meters and 45-minute dispatch.",
+          "totalTime": "PT2M",
+          "estimatedCost": {
+            "@type": "MonetaryAmount",
+            "currency": "PKR",
+            "value": "280"
+          },
+          "step": [
+            {
+              "@type": "HowToStep",
+              "position": 1,
+              "name": "Select Fuel Grade",
+              "text": "Choose your required fuel type: Super Euro-V Petrol (92 Octane), High-Octane 97 (HOBC), or Euro-V Commercial Diesel.",
+              "url": `${DOMAIN}/order/#step-fuel-type`
+            },
+            {
+              "@type": "HowToStep",
+              "position": 2,
+              "name": "Select Refueling Target Application",
+              "text": "Choose your receiving asset: Passenger Car/SUV, Motorbike, Standby Generator, Heavy Machinery, or Certified Storage Drum.",
+              "url": `${DOMAIN}/order/#step-refuel-target`
+            },
+            {
+              "@type": "HowToStep",
+              "position": 3,
+              "name": "Select Delivery Volume (5L to 15L Max)",
+              "text": "Choose a preset volume chip (5L, 7L, 10L, 12L, or 15L Max) or enter an exact quantity between 5 Litres minimum and 15 Litres maximum.",
+              "url": `${DOMAIN}/order/#step-volume`
+            },
+            {
+              "@type": "HowToStep",
+              "position": 4,
+              "name": "Enter Lahore Address & Dispatch Priority",
+              "text": "Provide your delivery address in Lahore, select Simple (20-45 mins, Rs. 280) or Urgent (+Rs. 100) priority, choose payment mode (COD or instant QR digital wallet), and submit.",
+              "url": `${DOMAIN}/order/#step-address`
+            }
+          ]
+        },
+        {
           "@type": "FAQPage",
           "@id": `${DOMAIN}/order/#faq`,
           "mainEntity": [
@@ -982,15 +1069,15 @@ const ROUTES = [
         ]
       },
       {
-        "@type": article.category.includes('App') || article.slug.includes('telemetry') ? "TechArticle" : "Article",
+        "@type": article.category.includes('App') || article.slug.includes('telemetry') || article.slug.includes('benchmarks') ? "TechArticle" : "Article",
         "@id": `${DOMAIN}/blog/${article.slug}/#article`,
         "headline": article.title,
         "description": article.summary,
         "image": article.image,
         "datePublished": article.date,
-        "dateModified": "2026-09-06T00:00:00+05:00",
+        "dateModified": "2026-09-27T00:00:00+05:00",
         "author": {
-          "@type": article.author.includes('CEO') ? "Person" : "Organization",
+          "@type": article.author.includes('CEO') || article.author.includes('Founder') ? "Person" : "Organization",
           "name": article.author
         },
         "publisher": {
@@ -999,7 +1086,7 @@ const ROUTES = [
         "mainEntityOfPage": `${DOMAIN}/blog/${article.slug}/`,
         "speakable": {
           "@type": "SpeakableSpecification",
-          "cssSelector": [".article-takeaways-box", ".article-lead-summary"]
+          "cssSelector": [".article-takeaways-box", ".article-lead-summary", ".article-header h1"]
         }
       }
     ]
@@ -1193,47 +1280,56 @@ async function prerender() {
       let lastmod = today
       let imageLoc = ''
       let imageTitle = ''
+      let imageCaption = ''
 
       if (r.path === '/') {
         priority = '1.0'
         changefreq = 'daily'
         imageLoc = `${DOMAIN}/images/zyphuel-og.png`
         imageTitle = 'Zyphuel - Doorstep Fuel Delivery in Lahore'
+        imageCaption = 'Doorstep petrol and diesel delivery in Lahore with 0.01L calibrated electronic positive-displacement flow meters.'
       } else if (r.path === '/order/') {
         priority = '0.9'
         changefreq = 'daily'
         imageLoc = `${DOMAIN}/images/tank.png`
         imageTitle = 'Order Fuel Online in Lahore - Zyphuel'
+        imageCaption = 'Online doorstep fuel ordering portal in Lahore with 45-minute dispatch SLA.'
       } else if (r.path === '/services/') {
         priority = '0.9'
         changefreq = 'daily'
         imageLoc = `${DOMAIN}/images/fuel.png`
         imageTitle = 'Zyphuel Fuel Delivery Services in Lahore'
+        imageCaption = 'Comprehensive fuel delivery services: Super Euro-V Petrol, High-Octane 97, and Generator Diesel.'
       } else if (r.path === '/contact/') {
         priority = '0.9'
         changefreq = 'daily'
         imageLoc = `${DOMAIN}/images/logo.png`
         imageTitle = 'Contact Zyphuel Customer Support'
+        imageCaption = 'Contact Zyphuel 24/7 emergency fuel delivery dispatch and customer support in Lahore.'
       } else if (r.path === '/about/') {
         priority = '0.9'
         changefreq = 'daily'
         imageLoc = `${DOMAIN}/images/daniyal.jpeg`
         imageTitle = 'About Zyphuel - Founder & CEO Muhammad Daniyal'
+        imageCaption = 'About Zyphuel - Founder & CEO Muhammad Daniyal and the calibrated mobile refueling fleet.'
       } else if (r.path === '/download/') {
         priority = '0.9'
         changefreq = 'daily'
         imageLoc = `${DOMAIN}/images/1.jpeg`
         imageTitle = 'Download Zyphuel Android App'
+        imageCaption = 'Download Zyphuel Android APK v2.6.4.0.0.16 with real-time GPS tracking and 60-second checkout.'
       } else if (r.path === '/blog/') {
         priority = '0.9'
         changefreq = 'daily'
         imageLoc = `${DOMAIN}/images/logo.png`
         imageTitle = 'Zyphuel Energy & Fuel Guides Blog'
+        imageCaption = 'Zyphuel authoritative energy guides, downstream pricing analysis, and mobile fueling research in Lahore.'
       } else if (r.path === '/sitemap/') {
         priority = '0.9'
         changefreq = 'daily'
         imageLoc = `${DOMAIN}/images/logo.png`
         imageTitle = 'Zyphuel HTML Sitemap Directory'
+        imageCaption = 'Zyphuel HTML sitemap indexing all public services, order pages, and Lahore energy guides.'
       } else if (r.path.startsWith('/blog/') && r.path !== '/blog/') {
         priority = '0.8'
         changefreq = 'weekly'
@@ -1243,6 +1339,7 @@ async function prerender() {
           if (article.image) {
             imageLoc = article.image
             imageTitle = article.title
+            imageCaption = article.summary
           }
           if (article.date) {
             try {
@@ -1270,7 +1367,8 @@ async function prerender() {
       const escapedLoc = escapeXml(`${DOMAIN}${r.path}`)
       const escapedTitle = escapeXml(imageTitle)
       const escapedImageLoc = escapeXml(imageLoc)
-      const imageTag = escapedImageLoc ? `\n    <image:image>\n      <image:loc>${escapedImageLoc}</image:loc>\n      <image:title>${escapedTitle}</image:title>\n    </image:image>` : ''
+      const escapedCaption = escapeXml(imageCaption)
+      const imageTag = escapedImageLoc ? `\n    <image:image>\n      <image:loc>${escapedImageLoc}</image:loc>\n      <image:title>${escapedTitle}</image:title>\n      <image:caption>${escapedCaption}</image:caption>\n      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>\n      <image:license>${DOMAIN}/terms/</image:license>\n    </image:image>` : ''
       return `  <url>
     <loc>${escapedLoc}</loc>
     <lastmod>${lastmod}</lastmod>

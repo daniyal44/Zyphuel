@@ -58,8 +58,8 @@ Comprehensive sector coverage table indicating micro-depot locations, dispatch S
 
 ## Commercial Fleet & Industrial Escalation Desk
 Dedicated operational contact points for institutional stakeholders:
-- **B2B Priority Fuel Desk**: Emergency diesel generator refueling during grid outages (`+92 3230-112464`).
-- **Bulk Depot Dispatch & Metering**: Industrial tanker orders and flow meter calibration certificates (`m.daniyalkhan490@gmail.com`).
+- **Executive Management Desk**: Corporate accounts, bulk facility fuel procurement, and compliance (`m.daniyalkhan490@gmail.com`).
+- **Bulk Depot Dispatch & Metering**: Industrial tanker orders and flow meter calibration certificates.
 - **Corporate Compliance & Invoicing**: SECP, OGRA, and STRN compliant tax invoices.
 
 ---
@@ -94,6 +94,7 @@ Added interactive 4-item accordion addressing core user intent and eliminating t
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-27** | Removed Sales & Fleet Operations (Adil Farooq) and 24/7 Urgent Dispatch Hotline cards from Commercial Fleet & Industrial Escalation Desk. | Clean up redundant contact cards per user request. |
 | **2026-09-25** | **Added Lahore Sector Dispatch Hubs & SLA Matrix, Commercial Escalation Desk, and Synchronized SLA to "Delivered: Within 45 Mins"**. | Provide high-value local logistics data, eradicate thin content signals, boost local Lahore search queries, and resolve indexing latency. |
 | **2026-09-17** | Added interactive FAQ accordion, added `FAQPage` schema in `useSEO` & `prerender.js`, boosted sitemap priority to 0.9 daily, added in-body referring links from Home, Order, Privacy, Terms, and Blog subpages. | Resolve Google Search Console "Discovered – currently not indexed" & "Referring page: None detected". |
 | **2026-09-13** | Standardized office hours table to match Home and Legal disclosures. | Consistent operating hours across all contact channels. |

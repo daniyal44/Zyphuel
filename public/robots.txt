@@ -1,10 +1,11 @@
 # ==============================================================================
 # Zyphuel Robots Exclusion Protocol (robots.txt)
-# Website: https://zyphuel.netlify.app/
+# Official Website: https://zyphuel.netlify.app/
 # Canonical Sitemap Declaration (Top Priority for Crawlers)
-# Last Updated: 2026-09-20
+# Last Updated: 2026-09-27
 # ==============================================================================
 
+Host: https://zyphuel.netlify.app
 Sitemap: https://zyphuel.netlify.app/sitemap.xml
 
 # Default Crawl Rules for All Search Engine Bots
@@ -72,7 +73,7 @@ Allow: /images/
 Allow: /assets/
 Disallow: /ezgif-2f1a39c97e5b173b-jpg/
 
-# Major Search Engine Crawlers
+# Microsoft Bingbot & MSN
 User-agent: bingbot
 Allow: /
 Allow: /about/
@@ -90,12 +91,14 @@ Allow: /images/
 Disallow: /404.html
 Disallow: /ezgif-2f1a39c97e5b173b-jpg/
 
+# Apple Search & Siri Suggestions
 User-agent: Applebot
 Allow: /
 Allow: /assets/
 Allow: /images/
 Disallow: /404.html
 
+# Privacy & Independent Search Engines
 User-agent: DuckDuckBot
 Allow: /
 
@@ -107,6 +110,51 @@ Allow: /
 
 User-agent: YandexBot
 Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: NaverBot
+Allow: /
+
+User-agent: SeznamBot
+Allow: /
+
+User-agent: Qwantify
+Allow: /
+
+# Social Media Scraping & Link Previews
+User-agent: facebookexternalhit
+Allow: /
+Allow: /images/
+
+User-agent: Twitterbot
+Allow: /
+Allow: /images/
+
+User-agent: LinkedInBot
+Allow: /
+Allow: /images/
+
+User-agent: WhatsApp
+Allow: /
+Allow: /images/
+
+User-agent: TelegramBot
+Allow: /
+Allow: /images/
+
+User-agent: Pinterestbot
+Allow: /
+Allow: /images/
+
+User-agent: Slackbot
+Allow: /
+Allow: /images/
+
+User-agent: Discordbot
+Allow: /
+Allow: /images/
 
 # AI & LLM Search Engine Agents (Direct GEO Optimization)
 User-agent: GPTBot
@@ -155,4 +203,7 @@ User-agent: cohere-ai
 Allow: /
 
 User-agent: Amazonbot
+Allow: /
+
+User-agent: YouBot
 Allow: /

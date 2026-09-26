@@ -70,7 +70,7 @@ export const aboutArticles = [
     highlights: [
       'Cash on Delivery (5L–10L) & instant digital wallet payments (JazzCash, Easypaisa, NayaPay, Raast)',
       'Weight-verified sealed LPG gas cylinders with safety checks',
-      '24/7 customer support helpline (+92 323 0112464)'
+      '24/7 customer support helpline and live dispatch desk'
     ]
   }
 ];

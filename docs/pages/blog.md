@@ -53,13 +53,14 @@
 
 ## Data Source
 - **File**: `src/data/articles.js`
-- **Total Articles**: 6 published authoritative technical pillar guides (1,000+ words each).
+- **Total Articles**: 7 published authoritative technical pillar guides.
 
 ---
 
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-27** | **Published 3,500+ word Flagship Research Pillar Article 7 (`global-vs-pakistan-on-demand-fuel-delivery-benchmarks`) with 10-point global benchmark matrix, urban decarb analysis, and 6 AEO FAQs**. Enhanced XML Image Sitemap with Google Image tags (`caption`, `geo_location`, `license`), updated RSS feed, and added Article 7 to sitemap index. | Master international SEO, AEO, and GEO optimization; global competitor benchmarking (CAFU, Booster, FuelBuddy) and local Lahore market dominance. |
 | **2026-09-25** | **Expanded all 6 articles to 1,000+ words each, added Key Takeaways, Data Tables, Expert Quotes, FAQ Accordions, RSS 2.0 Feed (`/feed.xml`), and LCP hero image optimizations**. | Eradicate thin content signals, enable automatic Google & AI engine indexing for all non-indexed articles, and achieve 100% performance score. |
 | **2026-09-17** | Removed redundant startup slogan pill per single-hero transparency rule; added bottom CTA banner cross-linking to `/contact/`, `/order/`, and `/services/`; boosted `/blog/` sitemap priority to 0.9 daily and articles to 0.8 weekly. | Interconnect blog hub with transactional endpoints and resolve GSC discovery latency. |
 | **2026-09-12** | Added Startup Slogan Pill to blog header. | Reinforce startup authenticity and mission without corporate clutter. |

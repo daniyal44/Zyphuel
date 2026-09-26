@@ -897,7 +897,7 @@ export default function OrderPage() {
         <div class="brand-reg">GOVERNMENT OF PAKISTAN &bull; OGRA LICENSED PETROLEUM DISTRIBUTOR</div>
         <div class="brand-creds">
           OGRA Lic: OGRA/DL-7492/LHE &bull; NTN / STRN: 9482710-3 &bull; SECP: 0248195<br>
-          Lahore Hub #01 &bull; 75-Main Boulevard, Gulberg III &bull; 24/7 Helpline: +92 3230-112464
+          Lahore Hub #01 &bull; 75-Main Boulevard, Gulberg III &bull; Official Dispatch Gateway
         </div>
       </div>
       <div class="doc-meta">
@@ -995,7 +995,7 @@ export default function OrderPage() {
 
       <div class="footer-bar">
         <span>Computerized Verified Invoice &bull; Zyphuel Refueling Systems Pakistan</span>
-        <span>Helpline WhatsApp: +92 3230-112464</span>
+        <span>Support Desk: zyphuel.netlify.app/contact/</span>
       </div>
     </div>
   </div>
@@ -1286,7 +1286,7 @@ export default function OrderPage() {
                   </div>
                   {errors.items && <div className="validation-error-label" style={{ display: 'block', marginBottom: '15px' }}>{errors.items}</div>}
                   
-                  <div className="category-selector-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px', marginBottom: '22px' }}>
+                  <div className="category-selector-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 130px), 1fr))', gap: '12px', marginBottom: '22px' }}>
                     {['petrol', 'diesel', 'highOctane'].map((type) => {
                       const isSelected = selectedFuelType === type
                       return (
@@ -1339,7 +1339,7 @@ export default function OrderPage() {
                     Where should our mobile bowser pump the fuel? Select your preferred target:
                   </p>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px', marginBottom: '16px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 110px), 1fr))', gap: '10px', marginBottom: '16px' }}>
                     {Object.values(DELIVERY_APPLICATION_CONFIG).map((app) => {
                       const isSelected = deliveryApplication === app.id
                       return (
@@ -1396,22 +1396,24 @@ export default function OrderPage() {
                     </div>
                     
                     <div className="form-group">
-                      <div className="stepper-wrap">
-                        <div className="quantity-stepper">
-                          <button type="button" className="stepper-btn" aria-label="Decrease fuel quantity"
-                            onClick={() => syncFuelQty(fuelQty - 1)}
-                            disabled={fuelQty <= 5}>-</button>
-                          <input type="number" className="stepper-input"
-                            value={fuelQty} min="5" max="15" step="1"
-                            onChange={e => syncFuelQty(e.target.value)}
-                            aria-label="Fuel quantity in Litres" />
-                          <button type="button" className="stepper-btn" aria-label="Increase fuel quantity"
-                            onClick={() => syncFuelQty(fuelQty + 1)}
-                            disabled={fuelQty >= 15}>+</button>
+                      <div className="stepper-wrap" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                          <div className="quantity-stepper">
+                            <button type="button" className="stepper-btn" aria-label="Decrease fuel quantity"
+                              onClick={() => syncFuelQty(fuelQty - 1)}
+                              disabled={fuelQty <= 5}>-</button>
+                            <input type="number" className="stepper-input"
+                              value={fuelQty} min="5" max="15" step="1"
+                              onChange={e => syncFuelQty(e.target.value)}
+                              aria-label="Fuel quantity in Litres" />
+                            <button type="button" className="stepper-btn" aria-label="Increase fuel quantity"
+                              onClick={() => syncFuelQty(fuelQty + 1)}
+                              disabled={fuelQty >= 15}>+</button>
+                          </div>
+                          <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.05rem' }}>Litres</span>
                         </div>
-                        <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Litres</span>
-                        <div style={{ marginLeft: 'auto' }}>
-                          <span style={{ fontSize: '0.82rem', color: '#ea580c', fontWeight: 600 }}>
+                        <div className="stepper-delivery-badge" style={{ marginLeft: 'auto' }}>
+                          <span style={{ fontSize: '0.82rem', color: '#ea580c', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
                             <i className="fa-solid fa-truck"></i> Standard Delivery: <strong>Rs. {standardFee}</strong>
                           </span>
                         </div>
@@ -1598,7 +1600,7 @@ export default function OrderPage() {
                         {/* Summarized Key Info Points */}
                         <div style={{
                           display: 'grid',
-                          gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
+                          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
                           gap: '10px',
                           background: '#ffffff',
                           borderRadius: '10px',
@@ -1808,6 +1810,32 @@ export default function OrderPage() {
                     )}
                   </div>
 
+                  {/* Mobile Live Order Summary Preview (Visible right above submit button on mobile/tablets <992px) */}
+                  <div className="mobile-order-summary-preview" style={{
+                    display: 'none',
+                    padding: '14px 16px',
+                    borderRadius: '12px',
+                    background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+                    border: '1.5px solid #e2e8f0',
+                    marginBottom: '16px',
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.04)'
+                  }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                      <span style={{ fontSize: '0.84rem', color: 'var(--text-secondary)' }}>
+                        {fuelQty}L {FUEL_DISPLAY[selectedFuelType]} &bull; {DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.shortLabel || 'Standard Delivery'}
+                      </span>
+                      <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#0284c7' }}>
+                        🚚 Within 45 Mins (Standard)
+                      </span>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', paddingTop: '8px', borderTop: '1px dashed #cbd5e1' }}>
+                      <span style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-primary)' }}>Estimated Total:</span>
+                      <span style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--brand-primary, #0284c7)' }}>
+                        {fmt(total)}
+                      </span>
+                    </div>
+                  </div>
+
                   {/* Truck Submit Button */}
                   <div className="button-wrapper">
                     <button
@@ -1936,7 +1964,7 @@ export default function OrderPage() {
               </p>
 
               {/* 3 Pillars Grid */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', margin: '30px 0' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '20px', margin: '30px 0' }}>
                 <div style={{ background: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-color)', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
                   <div style={{ fontSize: '1.8rem', color: '#0ea5e9', marginBottom: '12px' }}><i className="fa-solid fa-truck-droplet"></i></div>
                   <h3 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>Diesel &amp; Generator Refueling</h3>
@@ -2436,7 +2464,7 @@ export default function OrderPage() {
                     <span><strong>SECP Inc:</strong> 0248195</span>
                   </div>
                   <p className="inv-address-line">
-                    Lahore Central Hub #01 &bull; 75-Main Boulevard, Gulberg III, Lahore, Punjab &bull; Helpline: +92 3230-112464
+                    Lahore Central Hub #01 &bull; 75-Main Boulevard, Gulberg III, Lahore, Punjab &bull; Support: zyphuel.netlify.app/contact/
                   </p>
                 </div>
 
@@ -2669,10 +2697,35 @@ export default function OrderPage() {
       {/* Truck Button Styles + Custom Category Selector styles */}
       <style>{`
         .category-selector-grid {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 12px;
           margin-bottom: 24px;
+        }
+        @media (max-width: 768px) {
+          .category-selector-grid {
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr));
+            gap: 10px;
+          }
+        }
+        .mobile-order-summary-preview {
+          display: none;
+        }
+        @media (max-width: 991px) {
+          .mobile-order-summary-preview {
+            display: block !important;
+          }
+        }
+        @media (max-width: 576px) {
+          .stepper-wrap {
+            flex-direction: column;
+            align-items: flex-start !important;
+            gap: 8px !important;
+          }
+          .stepper-delivery-badge {
+            margin-left: 0 !important;
+            width: 100%;
+          }
         }
         .category-card {
           background-color: var(--bg-primary, #ffffff);
@@ -3652,12 +3705,87 @@ export default function OrderPage() {
           }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
           .inv-parties-grid, .inv-summary-container {
             grid-template-columns: 1fr;
           }
           .invoice-printable {
-            padding: 18px 14px;
+            padding: 16px 12px;
+          }
+          .invoice-modal-dialog {
+            margin: 8px auto;
+            max-height: 94vh;
+            border-radius: 12px;
+          }
+          .invoice-modal-actions {
+            padding: 10px 14px;
+          }
+          .invoice-action-buttons {
+            gap: 6px;
+          }
+          .inv-header-executive {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+          }
+          .inv-brand-section {
+            min-width: 100%;
+          }
+          .inv-doc-meta-section {
+            text-align: left;
+            min-width: 100%;
+            margin-top: 6px;
+            padding-top: 10px;
+            border-top: 1px dashed #cbd5e1;
+          }
+          .inv-dual-verify-card {
+            flex-direction: column;
+            width: 100%;
+            gap: 12px;
+          }
+          .inv-qr-card, .inv-barcode-subcard, .inv-barcode-card {
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: unset !important;
+          }
+          .inv-digital-sign {
+            text-align: left;
+            max-width: 100%;
+            margin-top: 12px;
+          }
+          .inv-table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+          }
+          .inv-table {
+            min-width: 440px;
+          }
+        }
+
+        @media (max-width: 576px) {
+          .tracker-modal {
+            max-height: 92vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 20px 14px;
+            width: 95% !important;
+            margin: auto;
+          }
+          .tracker-eta-box {
+            font-size: 0.82rem;
+            padding: 10px 12px;
+          }
+          .tracker-timeline {
+            padding-left: 28px;
+          }
+          .step-node {
+            width: 26px;
+            height: 26px;
+            font-size: 0.78rem;
+            left: -28px;
+          }
+          .tracker-progress-line {
+            left: 12px;
           }
         }
       `}</style>

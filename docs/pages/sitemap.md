@@ -30,6 +30,7 @@ The **HTML Sitemap Page** (`/sitemap/`) is the central navigational directory of
    - `Commercial Generator Diesel & Sealed LPG Cylinders` (`/blog/generator-diesel-lpg-delivery-lahore/`)
    - `Combating Pump Short-Fueling with Calibrated Meters` (`/blog/iot-telemetry-fuel-delivery/`)
    - `Mobile Energy Logistics in Lahore: Bowser Fleet` (`/blog/zyphuel-calibrated-telemetry-fleet/`)
+   - `Global vs Pakistan Fuel Delivery Benchmarks (2026)` (`/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/`)
 3. **Legal, Privacy & Compliance**:
    - `Privacy Policy` (`/privacy/`)
    - `Terms of Use & Service Agreement` (`/terms/`)
@@ -48,6 +49,9 @@ The **HTML Sitemap Page** (`/sitemap/`) is the central navigational directory of
 ---
 
 ## 5. Changelog
+- **2026-09-27 (Privacy Consolidation)**: Removed raw phone number display `(+92 3230-112464)` from the Contact Helpline card description in `HtmlSitemapPage.jsx`, consolidating personal telephone exposure exclusively to `/contact/`.
+- **2026-09-27 (Phase 10: SEO/AEO/GEO)**: Added Flagship Research Article 7 (`/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/`) to `blogGuides` directory. Enhanced XML Sitemap generator with full Google Image extension metadata (`caption`, `geo_location`, `license`).
+- **2026-09-27**: Upgraded all three content section grids in `HtmlSitemapPage.jsx` (Core Services, Knowledge Guides, and Legal Compliance) from rigid `minmax(320px, 1fr)` to fluid `minmax(min(100%, 280px), 1fr)`, ensuring clean single-column wrapping without horizontal scrolling on ultra-compact mobile screens (320px–360px).
 - **2026-09-25**: Fixed XML entity escaping in `prerender.js` for `<image:loc>`, `<image:title>`, and `<loc>` tags (`&` -> `&amp;`), resolving Google Search Console and browser XML parsing syntax errors (`EntityRef: expecting ';'`) caused by unescaped query parameters in external image CDN URLs.
 - **2026-09-25**: Integrated direct RSS 2.0 Feed (`/feed.xml`) syndication link and discovery badge to accelerate automated crawler re-indexing.
 - **2026-09-24**: Upgraded XML Sitemap generation in `prerender.js` to include `<image:image>` blocks for all 16 canonical pages and blog articles, and derived truthful publication `<lastmod>` timestamps from `articles.js`.

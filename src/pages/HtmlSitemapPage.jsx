@@ -74,7 +74,7 @@ export default function HtmlSitemapPage() {
     {
       title: 'Contact Helpline & 24/7 Support Desk',
       path: '/contact/',
-      desc: '24/7 urgent fuel hotline, WhatsApp live dispatch (+92 3230-112464), corporate accounts desk, and Gulberg III headquarters.',
+      desc: '24/7 urgent fuel hotline, WhatsApp live dispatch, corporate accounts desk, and Gulberg III headquarters.',
       badge: 'Support Desk'
     }
   ]
@@ -121,6 +121,12 @@ export default function HtmlSitemapPage() {
       path: '/blog/zyphuel-calibrated-telemetry-fleet/',
       desc: 'Founder & CEO Muhammad Daniyal shares the architectural journey behind Lahore’s first on-demand mobile micro-tanker network.',
       badge: 'Fleet Engineering'
+    },
+    {
+      title: 'On-Demand Fuel Delivery in 2026: Global Tech Benchmarks (Zyphuel vs. CAFU, Booster & FuelBuddy)',
+      path: '/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/',
+      desc: 'Comparative 2026 benchmark analyzing international mobile fueling giants against Zyphuel in Lahore, with 0.01L calibrated meters and 45-minute dispatch.',
+      badge: 'Global Benchmarks'
     }
   ]
 
@@ -222,7 +228,7 @@ export default function HtmlSitemapPage() {
                 1. Core Navigation &amp; Commercial Services
               </h2>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '20px' }}>
               {mainPages.map(page => (
                 <Link
                   key={page.path}
@@ -276,7 +282,7 @@ export default function HtmlSitemapPage() {
                 2. Fuel &amp; Energy Knowledge Guides (Subpages)
               </h2>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '20px' }}>
               {blogGuides.map(guide => (
                 <Link
                   key={guide.path}
@@ -330,7 +336,7 @@ export default function HtmlSitemapPage() {
                 3. Legal, Privacy &amp; Regulatory Compliance
               </h2>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '20px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '20px' }}>
               {legalPages.map(policy => (
                 <Link
                   key={policy.path}
@@ -394,7 +400,7 @@ export default function HtmlSitemapPage() {
                 Need Immediate Fuel Delivery Anywhere in Lahore?
               </h3>
               <p style={{ color: '#94a3b8', fontSize: '0.92rem', margin: 0 }}>
-                Our 24/7 emergency refueling micro-tankers reach your location within 15–30 minutes.
+                Our 24/7 emergency refueling micro-tankers reach your location within 45 minutes across Lahore.
               </p>
             </div>
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>

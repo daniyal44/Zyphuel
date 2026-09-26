@@ -1,6 +1,6 @@
 # Zyphuel Subpages & Article Routing Directory (`subpages.md`)
 
-This document details the architecture, routing mechanism, content structure, and technical specifications for all 6 dedicated subpages (blog articles) in the Zyphuel web application from inception ("start") to the present ("now").
+This document details the architecture, routing mechanism, content structure, and technical specifications for all 7 dedicated subpages (blog articles) in the Zyphuel web application from inception ("start") to the present ("now").
 
 ---
 
@@ -27,6 +27,7 @@ All subpages in the Zyphuel platform are dynamically resolved via React Router D
 | 4 | `generator-diesel-lpg-delivery-lahore` | Commercial Generator Diesel & Sealed LPG Refills: Safety Standards | Generator & Utilities | Zyphuel Utilities Team | Sept 3, 2026 | `dist/blog/generator-diesel-lpg-delivery-lahore/index.html` |
 | 5 | `iot-telemetry-fuel-delivery` | Combating Pump Short-Fueling: Calibrated Meters & Cloud Telemetry | Zyphuel Energy | Zyphuel Telemetry Engineering | Sept 1, 2026 | `dist/blog/iot-telemetry-fuel-delivery/index.html` |
 | 6 | `zyphuel-calibrated-telemetry-fleet` | Mobile Energy Logistics in Lahore: CEO Muhammad Daniyal on Scaling | Zyphuel Energy | Muhammad Daniyal (CEO) | Aug 28, 2026 | `dist/blog/zyphuel-calibrated-telemetry-fleet/index.html` |
+| 7 | `global-vs-pakistan-on-demand-fuel-delivery-benchmarks` | On-Demand Fuel Delivery in 2026: Global Tech Benchmarks (Zyphuel vs. CAFU, Booster & FuelBuddy) | Zyphuel Intelligence | Muhammad Daniyal (Founder & CEO) | Sept 27, 2026 | `dist/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/index.html` |
 
 ---
 
@@ -71,3 +72,11 @@ All subpages in the Zyphuel platform are dynamically resolved via React Router D
 - **Key Focus**: Founder & CEO Muhammad Daniyal shares the vision and engineering journey of building Lahore’s first tech-enabled mobile fuel delivery network.
 - **Architectural Enhancements (Phase 9)**: Key Takeaways box, Traditional Brick-and-Mortar Petrol Stations vs Zyphuel Mobile Fleet Comparison Table, ASTM A36 double-walled tank specs, direct executive perspective, and 5 Schema.org FAQs.
 - **Recent Update (Phase 8 & 9)**: Refined operational parameters with "Delivered: Within 45 Mins", flat Rs. 280 fee, COD (5L–10L), and instant digital wallets.
+
+### 3.7 Subpage 7: Global vs. Pakistan On-Demand Fuel Delivery Benchmarks
+- **Route**: `/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/`
+- **Word Count**: 3,500+ words (Flagship Global Research & Pillar Guide)
+- **Key Focus**: Comprehensive industry analysis evaluating international mobile fueling titans (Booster Fuels USA, CAFU UAE, FuelBuddy India) against Zyphuel in Lahore, Pakistan.
+- **Architectural Enhancements (Phase 10)**: Key Takeaways box, 10-Dimension Global & Domestic Benchmark Matrix Table, Urban Decarbonization & Dead Mileage Reduction Table, fluid dynamics analysis of 0.01L positive-displacement flow meters with 15°C ATC, executive quote from CEO Muhammad Daniyal, and 6 Schema.org `FAQPage` FAQs.
+- **Standardized Parameters**: Delivered within 45 minutes, flat Rs. 280 fee, strictly 5L min to 15L max, COD (5L–10L), and instant on-spot digital wallets.
+

@@ -267,7 +267,7 @@ export default function HomePage() {
                 </div>
                 <div className="hero-trust-badge">
                   <i className="fa-solid fa-bolt"></i>
-                  <span>15–30 Min Dispatch</span>
+                  <span>Within 45 Min Dispatch</span>
                 </div>
                 <div className="hero-trust-badge">
                   <i className="fa-solid fa-shield-halved"></i>
@@ -295,7 +295,7 @@ export default function HomePage() {
                 <i className="fa-solid fa-location-crosshairs"></i> Searching for a "Petrol Pump Near Me" in Lahore?
               </h3>
               <p>
-                Don't wait in long fuel queues at PSO, Shell, or Total Parco stations. We deliver Euro-V Super Petrol &amp; Diesel directly into your car or generator within 15–30 minutes at official OGRA rates.
+                Don't wait in long fuel queues at PSO, Shell, or Total Parco stations. We deliver Euro-V Super Petrol &amp; Diesel directly into your car or generator within 45 minutes at official OGRA rates.
               </p>
             </div>
             <div className="pump-callout-ctas">
@@ -361,9 +361,9 @@ export default function HomePage() {
               <div className="comp-icon-box amber">
                 <i className="fa-solid fa-bolt"></i>
               </div>
-              <h3>15–30 Minute Rapid Dispatch</h3>
+              <h3>Within 45-Minute Rapid Dispatch</h3>
               <p>
-                Our decentralized micro-refueler fleet is strategically staged across major Lahore sectors. Whether you ran dry on the road or need urgent generator diesel during a power outage, help arrives fast.
+                Our decentralized micro-refueler fleet is strategically staged across major Lahore sectors. Whether you ran dry on the road or need urgent generator diesel during a power outage, delivery is guaranteed within 45 minutes across Lahore.
               </p>
               <div className="comp-proof-tag">
                 <i className="fa-solid fa-truck-fast text-warning"></i> Express Local Response
@@ -440,14 +440,21 @@ export default function HomePage() {
               <tbody>
                 <tr>
                   <td><strong>Doorstep Delivery to Vehicle / Generator</strong></td>
-                  <td className="highlight-zyphuel">✅ Yes (15–30 min express dispatch)</td>
+                  <td className="highlight-zyphuel">✅ Yes (Within 45 mins doorstep dispatch)</td>
                   <td>❌ No (Must drive &amp; wait in queue)</td>
                   <td>⚠️ Bulk only (No passenger cars)</td>
                   <td>⚠️ Limited / Karachi only</td>
                 </tr>
                 <tr>
+                  <td><strong>Delivery Charges (Transparent Nominal Fee)</strong></td>
+                  <td className="highlight-zyphuel">✅ Flat Rs. 280.00 nominal fee (Zero surge)</td>
+                  <td>❌ Fuel wasted driving &amp; waiting in station queues</td>
+                  <td>⚠️ Heavy bulk freight &amp; hauling surcharges</td>
+                  <td>⚠️ High dynamic surge &amp; distance fees</td>
+                </tr>
+                <tr>
                   <td><strong>Measurement Accuracy &amp; Anti-Short-Fueling</strong></td>
-                  <td className="highlight-zyphuel">✅ 0.01L Calibrated Digital Meter</td>
+                  <td className="highlight-zyphuel">✅ 0.01L Calibrated Digital Meter (15°C ATC)</td>
                   <td>⚠️ High risk of pump short-fueling</td>
                   <td>⚠️ Dipstick / manual bulk meters</td>
                   <td>❌ Uncalibrated jerry cans</td>
@@ -461,17 +468,24 @@ export default function HomePage() {
                 </tr>
                 <tr>
                   <td><strong>Generator Standby Fueling (50m Hoses)</strong></td>
-                  <td className="highlight-zyphuel">✅ Direct rooftop &amp; basement access</td>
+                  <td className="highlight-zyphuel">✅ Direct rooftop &amp; basement access (50m hose)</td>
                   <td>❌ Dangerous manual cans required</td>
                   <td>⚠️ Ground storage tanks only</td>
                   <td>❌ No long-reach hoses</td>
                 </tr>
                 <tr>
-                  <td><strong>Order Flexibility (Minimum Volume)</strong></td>
-                  <td className="highlight-zyphuel">✅ 5 Liters to 10,000+ Liters</td>
+                  <td><strong>Order Flexibility (Doorstep Fuel Limits)</strong></td>
+                  <td className="highlight-zyphuel">✅ Strictly 5L min to 15L max per order</td>
                   <td>✅ No minimum (at station)</td>
                   <td>❌ Strict 5,000L+ minimum order</td>
                   <td>⚠️ Inflexible order limits</td>
+                </tr>
+                <tr>
+                  <td><strong>Payment Options &amp; Cash on Delivery</strong></td>
+                  <td className="highlight-zyphuel">✅ COD (5L–10L) &amp; Instant QR Wallets (JazzCash, Easypaisa, Raast)</td>
+                  <td>⚠️ Cash or station POS (network down risks)</td>
+                  <td>❌ 100% advance bank pay-order / PO only</td>
+                  <td>⚠️ Credit cards only with payment processing delays</td>
                 </tr>
                 <tr>
                   <td><strong>Operating Hours &amp; Emergency Response</strong></td>
@@ -654,13 +668,6 @@ export default function HomePage() {
                 >
                   <i className="fa-solid fa-headset"></i> Support &amp; Contact Desk
                 </Link>
-                <a
-                  href="tel:+923230112464"
-                  className="btn btn-ghost"
-                  style={{ padding: '10px 20px', fontSize: '0.9rem', color: '#38bdf8', borderColor: 'rgba(56, 189, 248, 0.3)' }}
-                >
-                  <i className="fa-solid fa-phone"></i> Direct Helpline
-                </a>
               </div>
             </div>
 

@@ -39,13 +39,14 @@
    - Force majeure protections (severe flooding, riots, fuel depot shut-offs).
 7. **Contact & Dispute Resolution**:
    - Governed under the laws of the Islamic Republic of Pakistan, subject to the jurisdiction of courts in Lahore.
-   - Contact Helpline: `+92 3230-112464` | Email: `m.daniyalkhan490@gmail.com`
+   - Contact Helpline: Consolidated exclusively to official Contact Desk (`/contact/`) | Email: `m.daniyalkhan490@gmail.com`
 
 ---
 
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-27** | Removed direct phone number display; routed to official Contact Page. | User requested: *"contact page ka elova mera phone number kise be or page per show nai hona chaye"*. Replaced raw phone number text with direct link to official Contact Page (`/contact/`) to consolidate personal telephone numbers exclusively to the designated contact gateway. |
 | **2026-09-22** | Unified delivery fee to flat **Rs. 280.00** (+Rs. 100 urgent surcharge, Total Rs. 380), defined strict **5L Min to 15L Max** doorstep capacity limit, and purged all 50L references. | User requested delivery fee update, complete purge of 50L mentions, removal of • Min tag, and 15L max volume documentation. |
 | **2026-09-17** | Updated standard delivery fee term from Rs. 250 to **Rs. 280** for sub-50L fuel orders. | Reflected nationwide fuel price increase in legal terms of use and checkout disclosure. |
 | **2026-09-13** | Synchronized delivery pricing terms (min 5L, Rs. 150 standard fee, Rs. 100 urgent surcharge). | Align legal agreement with live checkout pricing and fee rules. |

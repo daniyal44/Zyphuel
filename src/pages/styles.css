@@ -388,6 +388,39 @@
   }
 }
 
+@media (max-width: 480px) {
+  .about-team-section .carousel-container {
+    height: 320px;
+    max-width: 280px;
+  }
+  .about-team-section .carousel-track {
+    width: 200px;
+  }
+  .about-team-section .card {
+    width: 160px;
+    height: 160px;
+  }
+  .about-team-section .card.up-2 {
+    transform: translateY(-95px) scale(0.65) translateZ(-200px);
+  }
+  .about-team-section .card.up-1 {
+    transform: translateY(-48px) scale(0.8) translateZ(-80px);
+  }
+  .about-team-section .card.down-1 {
+    transform: translateY(48px) scale(0.8) translateZ(-80px);
+  }
+  .about-team-section .card.down-2 {
+    transform: translateY(95px) scale(0.65) translateZ(-200px);
+  }
+  .about-team-section .member-name {
+    font-size: 1.3rem;
+  }
+  .about-team-section .member-name::before,
+  .about-team-section .member-name::after {
+    display: none;
+  }
+}
+
 /* ==========================================================================
    DOWNLOAD PAGE STYLES (Premium International App Showcase)
    ========================================================================== */
@@ -1844,7 +1877,7 @@
 
 .help-use-cases-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 28px;
 }
 
@@ -1948,7 +1981,7 @@
 
 .specs-grid-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 20px;
 }
 

@@ -37,7 +37,7 @@
 7. **Cookies & Tracking**:
    - Strictly necessary cookies for theme, session state, and order carts.
 8. **Contact & Legal Support**:
-   - Phone: `+92 3230-112464`
+   - Official Contact Desk: Link to `/contact/` (Direct phone/WhatsApp access consolidated strictly to the Contact page).
    - Email: `m.daniyalkhan490@gmail.com`
    - Hub Address: 75-Main Boulevard, Gulberg III, Lahore
    - Office Schedule: Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm (Delivery 24/7 Always Active).
@@ -47,6 +47,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-27** | Removed direct phone number display; routed to official Contact Page. | User requested: *"contact page ka elova mera phone number kise be or page per show nai hona chaye"*. Replaced raw phone number text with direct link to official Contact Page (`/contact/`) to consolidate personal telephone numbers exclusively to the designated contact gateway. |
 | **2026-09-13** | Updated Contact disclosure with standardized Office Hours schedule. | Ensure complete consistency across all legal disclosures and homepage. |
 | **2026-09-04** | Added explicit Android Biometric KeyStore local authentication privacy clause. | Clarify that biometric data never leaves user devices. |
 | **2026-08-25** | Published comprehensive privacy policy for web and mobile launch. | Legal compliance for digital commerce in Pakistan. |

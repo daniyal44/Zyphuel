@@ -3,94 +3,118 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://zyphuel.netlify.app/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://zyphuel.netlify.app/images/zyphuel-og.png</image:loc>
       <image:title>Zyphuel - Doorstep Fuel Delivery in Lahore</image:title>
+      <image:caption>Doorstep petrol and diesel delivery in Lahore with 0.01L calibrated electronic positive-displacement flow meters.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+      <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/about/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://zyphuel.netlify.app/images/daniyal.jpeg</image:loc>
       <image:title>About Zyphuel - Founder &amp; CEO Muhammad Daniyal</image:title>
+      <image:caption>About Zyphuel - Founder &amp; CEO Muhammad Daniyal and the calibrated mobile refueling fleet.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+      <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/services/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://zyphuel.netlify.app/images/fuel.png</image:loc>
       <image:title>Zyphuel Fuel Delivery Services in Lahore</image:title>
+      <image:caption>Comprehensive fuel delivery services: Super Euro-V Petrol, High-Octane 97, and Generator Diesel.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+      <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/download/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://zyphuel.netlify.app/images/1.jpeg</image:loc>
       <image:title>Download Zyphuel Android App</image:title>
+      <image:caption>Download Zyphuel Android APK v2.6.4.0.0.16 with real-time GPS tracking and 60-second checkout.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+      <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/order/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://zyphuel.netlify.app/images/tank.png</image:loc>
       <image:title>Order Fuel Online in Lahore - Zyphuel</image:title>
+      <image:caption>Online doorstep fuel ordering portal in Lahore with 45-minute dispatch SLA.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+      <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/contact/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://zyphuel.netlify.app/images/logo.png</image:loc>
       <image:title>Contact Zyphuel Customer Support</image:title>
+      <image:caption>Contact Zyphuel 24/7 emergency fuel delivery dispatch and customer support in Lahore.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+      <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/privacy/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/terms/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/blog/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://zyphuel.netlify.app/images/logo.png</image:loc>
       <image:title>Zyphuel Energy &amp; Fuel Guides Blog</image:title>
+      <image:caption>Zyphuel authoritative energy guides, downstream pricing analysis, and mobile fueling research in Lahore.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+      <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/sitemap/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://zyphuel.netlify.app/images/logo.png</image:loc>
       <image:title>Zyphuel HTML Sitemap Directory</image:title>
+      <image:caption>Zyphuel HTML sitemap indexing all public services, order pages, and Lahore energy guides.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+      <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
   </url>
   <url>
@@ -101,6 +125,9 @@
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
       <image:title>Pakistan’s Shift to Daily Fuel Pricing: How OGRA’s 2026 Reform Works &amp; Why App Alerts Protect Consumers</image:title>
+      <image:caption>Analyzing Pakistan’s historic transition to daily fuel pricing based on rolling 7-day international Platts benchmarks, the roadmap to full 2027 deregulation, and how Zyphuel’s 2-hour push notification engine protects motorists and fleet budgets.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+      <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
   </url>
   <url>
@@ -111,6 +138,9 @@
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
       <image:title>How to Download and Install Zyphuel APK v2.6.4.0.0.16: Biometrics, Live GPS Auto-Pinning &amp; Daily Rate Sync</image:title>
+      <image:caption>A complete, step-by-step setup guide for the official Zyphuel Android APK (v2.6.4.0.0.16, 31.6 MB), covering biometric security checkout, GPS sector auto-detection across Lahore, and real-time bowser telemetry.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+      <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
   </url>
   <url>
@@ -121,6 +151,9 @@
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
       <image:title>Powering Through Load-Shedding: Industrial Generator Refueling &amp; Direct Euro-V Diesel Logistics in Lahore</image:title>
+      <image:caption>How factories, medical plazas, IT technology parks, and high-rise commercial facilities eliminate unpredicted blackout downtime with scheduled Euro-V generator diesel replenishment.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+      <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
   </url>
   <url>
@@ -131,6 +164,9 @@
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
       <image:title>Commercial Generator Diesel &amp; Sealed LPG Cylinder Refills: 2026 Safety Standards &amp; Doorstep Delivery in Lahore</image:title>
+      <image:caption>A definitive safety guide on ordering certified Euro-V generator diesel, sealed LPG gas cylinders, and bulk clean water tankers directly to doorsteps across Lahore.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+      <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
   </url>
   <url>
@@ -141,6 +177,9 @@
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
       <image:title>Combating Pump Short-Fueling: Inside Zyphuel’s Calibrated Positive-Displacement Flow Meters &amp; Cloud Telemetry</image:title>
+      <image:caption>An engineering breakdown of how positive-displacement electronic flow meters, 0.01L pulse encoders, and IoT cloud telemetry eliminate retail pump short-fueling and fuel adulteration.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+      <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
   </url>
   <url>
@@ -151,6 +190,22 @@
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
       <image:title>Mobile Energy Logistics in Lahore: Founder &amp; CEO Muhammad Daniyal on Scaling Zyphuel</image:title>
+      <image:caption>Inside Zyphuel’s journey from a dedicated on-demand mobile refueler to a tech-enabled energy network in Lahore, led by Founder &amp; CEO Muhammad Daniyal.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+      <image:license>https://zyphuel.netlify.app/terms/</image:license>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zyphuel.netlify.app/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1545459720-aac8509eb02c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
+      <image:title>On-Demand Fuel Delivery in 2026: Global Tech Benchmarks (Zyphuel vs. CAFU, Booster &amp; FuelBuddy) &amp; The Doorstep Refueling Revolution in Lahore</image:title>
+      <image:caption>A definitive 2026 comparative benchmark evaluating global mobile fueling titans (CAFU UAE, Booster USA, FuelBuddy India) against Zyphuel in Pakistan. Discover how calibrated 0.01L positive-displacement flow meters, dual QR/barcode optical verification, 50m long-reach hoses, and 45-minute rapid dispatch are transforming energy logistics across Lahore.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+      <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
   </url>
 </urlset>

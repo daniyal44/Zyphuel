@@ -178,8 +178,8 @@ export default function PrivacyPolicyPage() {
                 <h2><i className="fa-solid fa-paper-plane"></i> 8. Contact Us</h2>
                 <p>If you have questions, remarks, or security queries regarding this Privacy Policy or wish to update/delete your data, please contact our support team using the information below:</p>
                 <p>
-                  <strong>Phone / WhatsApp:</strong> +92 3230-112464 <em>(Also accepting WhatsApp calls for enterprise clients)</em><br />
-                  <strong>Email:</strong> m.daniyalkhan490@gmail.com <em>(For order modifications or cancellation requests)</em><br />
+                  <strong>Support Desk:</strong> Available 24/7 via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Official Contact &amp; Support Page</Link><br />
+                  <strong>Email:</strong> m.daniyalkhan490@gmail.com <em>(For order modifications or data requests)</em><br />
                   <strong>Location:</strong> 75-Main Boulevard, Gulberg III, Lahore, Pakistan <em>(Walk-in corporate meetings by appointment only)</em><br />
                   <strong>Office Hours:</strong> Monday – Thursday: 8:00 AM – 8:00 PM | Friday: 8:00 AM – 1:00 PM | Saturday – Sunday: 10:00 AM – 6:00 PM<br />
                   <strong>Fuel Delivery (24/7):</strong> Always Active
