@@ -19,6 +19,7 @@ timeline
     Phase 8 : Streamlining, Payment Modernization & Docs : COD 5L–10L + Mobile Wallets : Hero Section Polish : Master Docs
     Phase 9 : SEO, AEO & GEO Expansion, Search Engine Indexing Fix & 100% Speed : 1,000+ Word Pillar Articles : Data Tables : RSS Feed : Netlify Caching
     Phase 10 : Global SEO, AEO & GEO Benchmarks : 3,500+ Word Pillar Article : XML Image Sitemap : 25+ Crawlers in robots.txt
+    Phase 11 : Git Direct Push Automation & Permanent Divergence Resilience : Bulletproof Auto-Stash : Self-Healing Rebase : Conflict Auto-Resolution
 ```
 
 ---
@@ -268,4 +269,28 @@ timeline
 - **RSS 2.0 Feed (`public/feed.xml`)**: Syndicated Article 7 at the top of the feed with updated publication timestamps.
 - **HTML Sitemap**: Added Article 7 to `HtmlSitemapPage.jsx`.
 - **SSG Verification**: Compiled production build with `npm.cmd run build` — all 18 routes cleanly pre-rendered with 0 errors.
+
+---
+
+## Phase 11: Git Direct Push Automation & Permanent Divergence Resilience
+
+### 11.1 Problem Root Cause Analysis
+- **GitHub Actions Asynchronous Commits**: The daily midnight workflow (`.github/workflows/update-graph.yml`) commits automated SVG graph updates directly to `origin/main` (`chore(graph): auto-update github commit velocity graph [skip ci]`).
+- **Batch Script Sequence Inversion**: `github_push.bat` previously generated SVG graphs and created a local commit **before** pulling from remote.
+- **Merge Conflict on Generated Assets**: Because both remote bot commits and local runs touched the exact same SVG coordinates and `gitTelemetry.json`, `git pull --rebase` was halted by merge conflicts.
+- **Unchecked Non-Fast-Forward Rejection**: When rebase stalled, the script blindly proceeded to `git push origin HEAD:main`, triggering `! [rejected] HEAD -> main (non-fast-forward)`.
+
+### 11.2 Architectural Hardening & Self-Healing Pipeline
+- **Sync-Before-Commit Execution Model**:
+  - `github_push.bat` now performs pre-flight recovery checks for interrupted rebases/merges (`.git/rebase-merge`, `.git/rebase-apply`, `.git/MERGE_HEAD`) and stale `.git/index.lock` files, automatically resetting them before proceeding.
+  - Step 1 fetches remote `origin/%CURRENT_BRANCH%` and counts unmerged remote commits.
+  - If remote commits exist, unstaged changes to auto-generated SVG graphs are refreshed, and `git pull --rebase --autostash` runs first.
+- **Merge Driver Configuration**:
+  - Configured `git config --local merge.ours.driver true` and `.gitattributes` (`*.svg merge=ours`, `src/data/gitTelemetry.json merge=ours`) to ensure automated graph files never trigger interactive conflict pauses.
+- **Post-Sync Telemetry Generation**:
+  - `node scripts/generate_github_graph.js` now executes **only after** local HEAD is strictly fast-forwarded and synchronized with remote, ensuring every remote commit is included in the telemetry before staging.
+- **Auto-Reconciliation & Push Retry**:
+  - Added intelligent auto-reconciliation loop: if remote receives an external commit during the build process, the script auto-pulls, re-runs telemetry, commits, and pushes without throwing a fatal terminal error.
+- **GitHub Actions Completeness**:
+  - Updated `.github/workflows/update-graph.yml` to stage `src/data/gitTelemetry.json` and `README.md` alongside SVG assets so all telemetry artifacts stay fully synchronized.
 
