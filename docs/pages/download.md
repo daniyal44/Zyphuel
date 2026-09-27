@@ -60,6 +60,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-27** | **High Market Demand Optimization & Search Engine Dominance**: Added high market demand alert badge (15,000+ active Lahore users), 4 trust assurance pills (100% virus-free, instant install, 45-min SLA, COD & digital wallets), enhanced SEO meta targeting `petrol delivery app pakistan` and `fuel delivery app Lahore`, and updated delivery pricing comparison to fixed Rs. 280 under 10L. | User request: optimize download app page for surging market demand and ensure Zyphuel ranks top for fuel delivery app searches. |
 | **2026-09-25** | **Added Android Compatibility Matrix, SHA-256 Cryptographic Checksum Panel & Feature Comparison Table**. | Transform download portal into an authoritative technical resource, eliminate thin content, resolve search engine indexing delays, and optimize image rendering for 100% performance. |
 | **2026-09-25** | **Updated FAQ & Feature List with Cash on Delivery (5L–10L) & Instant Digital Wallets (JazzCash, Easypaisa, NayaPay, Raast)**. | Synchronized Download Page FAQ accordion, Why Choose Us card, and Personal Mobility perks with instant mobile wallet alternatives. |
 | **2026-09-23** | Synchronized app version to `v2.6.4.0.0.16` (`31.6 MB`, Android 7.0+, AGP 9.1.1) across website metadata, documentation, and download endpoints. | User request: align website app version with latest compiled APK release `v2.6.4.0.0.16`. |

@@ -25,8 +25,8 @@
 
 ## Core Business Logic & Pricing Rules (Permanent Memory)
 - **Minimum & Maximum Fuel Volume**: Strictly **5 Litres minimum** up to **15 Litres maximum** per doorstep delivery order (sub-5L inputs clamped to 5L, capped at 15L max; step: +1L; volume chips: `[5, 7, 10, 12, 15]` with 15L Max capacity indicator).
-- **Simple Delivery Charges**: Flat **Rs. 280.00** nominal fee for doorstep fuel orders.
-- **Urgent Delivery Surcharge**: Controlled, reasonable priority fee of **+Rs. 100.00** flat (Standard Rs. 280 + Rs. 100 Urgent = **Rs. 380.00** total). Always keep this surcharge reasonable.
+- **Doorstep Delivery Charges**: Fixed **Rs. 280.00** flat nominal fee for orders up to **10 Litres** (5L–10L). For high-capacity orders between **11 Litres and 15 Litres Max**, a structured dynamic demand dispatch fee applies (+Rs. 20.00/L above 10L: 11L = Rs. 300, 12L = Rs. 320, 13L = Rs. 340, 14L = Rs. 360, 15L = Rs. 380).
+- **Urgent Delivery Surcharge**: Controlled, reasonable priority fee of **+Rs. 100.00** flat. Always keep this surcharge reasonable.
 - **Delivery Windows**:
   - Simple Dispatch: 20–45 Mins
   - Urgent Dispatch: 10–20 Mins

@@ -124,8 +124,8 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
-      <image:title>Pakistan’s Shift to Daily Fuel Pricing: How OGRA’s 2026 Reform Works &amp; Why App Alerts Protect Consumers</image:title>
-      <image:caption>Analyzing Pakistan’s historic transition to daily fuel pricing based on rolling 7-day international Platts benchmarks, the roadmap to full 2027 deregulation, and how Zyphuel’s 2-hour push notification engine protects motorists and fleet budgets.</image:caption>
+      <image:title>Pakistan’s Shift to Daily Fuel Pricing: How OGRA’s 2026 Reform Works and How Mobile Alerts Protect Consumers</image:title>
+      <image:caption>A practical breakdown of Pakistan’s transition to daily petrol and diesel pricing, why petrol station queues form before price hikes, and how live rate alerts help drivers and generator owners manage fuel costs.</image:caption>
       <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
       <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
@@ -137,8 +137,8 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
-      <image:title>How to Download and Install Zyphuel APK v2.6.4.0.0.16: Biometrics, Live GPS Auto-Pinning &amp; Daily Rate Sync</image:title>
-      <image:caption>A complete, step-by-step setup guide for the official Zyphuel Android APK (v2.6.4.0.0.16, 31.6 MB), covering biometric security checkout, GPS sector auto-detection across Lahore, and real-time bowser telemetry.</image:caption>
+      <image:title>How to Download and Install Zyphuel APK v2.6.4.0.0.16: Setup Guide, GPS Auto-Pinning &amp; Live Price Sync</image:title>
+      <image:caption>A practical step-by-step installation guide for the official Zyphuel Android APK (v2.6.4.0.0.16, 31.6 MB), covering fingerprint checkout, GPS sector auto-detection across Lahore, and real-time bowser tracking.</image:caption>
       <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
       <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
@@ -150,8 +150,8 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
-      <image:title>Powering Through Load-Shedding: Industrial Generator Refueling &amp; Direct Euro-V Diesel Logistics in Lahore</image:title>
-      <image:caption>How factories, medical plazas, IT technology parks, and high-rise commercial facilities eliminate unpredicted blackout downtime with scheduled Euro-V generator diesel replenishment.</image:caption>
+      <image:title>Powering Through Load-Shedding: Standby Generator Refueling and Safe Euro-V Diesel in Lahore</image:title>
+      <image:caption>Why carrying loose diesel in plastic containers damages expensive generator injectors during power cuts, and how scheduled Euro-V diesel delivery keeps homes, clinics, and offices running.</image:caption>
       <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
       <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
@@ -163,8 +163,8 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
-      <image:title>Commercial Generator Diesel &amp; Sealed LPG Cylinder Refills: 2026 Safety Standards &amp; Doorstep Delivery in Lahore</image:title>
-      <image:caption>A definitive safety guide on ordering certified Euro-V generator diesel, sealed LPG gas cylinders, and bulk clean water tankers directly to doorsteps across Lahore.</image:caption>
+      <image:title>Commercial Generator Diesel and Sealed LPG Cylinder Refills: Delivery Standards in Lahore</image:title>
+      <image:caption>A straightforward safety guide to ordering certified Euro-V generator diesel, sealed LPG cylinders, and clean water tankers directly to your doorstep in Lahore.</image:caption>
       <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
       <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
@@ -177,7 +177,7 @@
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
       <image:title>Combating Pump Short-Fueling: Inside Zyphuel’s Calibrated Positive-Displacement Flow Meters &amp; Cloud Telemetry</image:title>
-      <image:caption>An engineering breakdown of how positive-displacement electronic flow meters, 0.01L pulse encoders, and IoT cloud telemetry eliminate retail pump short-fueling and fuel adulteration.</image:caption>
+      <image:caption>How positive-displacement flow meters, 0.01L digital pulse encoders, and automatic temperature compensation eliminate retail pump short-fueling and fuel adulteration in Lahore.</image:caption>
       <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
       <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
@@ -189,8 +189,8 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
-      <image:title>Mobile Energy Logistics in Lahore: Founder &amp; CEO Muhammad Daniyal on Scaling Zyphuel</image:title>
-      <image:caption>Inside Zyphuel’s journey from a dedicated on-demand mobile refueler to a tech-enabled energy network in Lahore, led by Founder &amp; CEO Muhammad Daniyal.</image:caption>
+      <image:title>Mobile Energy Logistics in Lahore: Founder &amp; Leading Web Developer Muhammad Daniyal on Building Zyphuel</image:title>
+      <image:caption>The story behind building Zyphuel, why waiting in crowded Lahore petrol station queues is an unnecessary hassle, and how micro-bowsers and software deliver fuel directly to your doorstep.</image:caption>
       <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
       <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
@@ -202,8 +202,8 @@
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1545459720-aac8509eb02c?auto=format&amp;fit=crop&amp;w=1200&amp;q=80</image:loc>
-      <image:title>On-Demand Fuel Delivery in 2026: Global Tech Benchmarks (Zyphuel vs. CAFU, Booster &amp; FuelBuddy) &amp; The Doorstep Refueling Revolution in Lahore</image:title>
-      <image:caption>A definitive 2026 comparative benchmark evaluating global mobile fueling titans (CAFU UAE, Booster USA, FuelBuddy India) against Zyphuel in Pakistan. Discover how calibrated 0.01L positive-displacement flow meters, dual QR/barcode optical verification, 50m long-reach hoses, and 45-minute rapid dispatch are transforming energy logistics across Lahore.</image:caption>
+      <image:title>On-Demand Fuel Delivery in 2026: Global Models (CAFU, Booster, FuelBuddy) and How Zyphuel Adapts for Lahore</image:title>
+      <image:caption>A 2026 comparative analysis evaluating global mobile fueling platforms (CAFU UAE, Booster USA, FuelBuddy India) alongside Zyphuel in Pakistan, showing how 0.01L digital flow meters, 50m hoses, and 45-minute dispatch transform energy delivery in Lahore.</image:caption>
       <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
       <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>

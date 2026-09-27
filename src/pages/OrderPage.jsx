@@ -272,8 +272,11 @@ export default function OrderPage() {
   const baseCost = fuelCost + gasCost + waterCost
 
   // Delivery Charges:
-  // Flat Standard Delivery: Rs. 280.00 for doorstep dispatches (Within 45 Mins, 5L Min - 15L Max per order)
-  const standardFee = (orderFuel || orderGas || orderWater) ? 280 : 0
+  // Under 10L (5L–10L): Fixed Rs. 280.00 standard nominal fee.
+  // 11L–15L (Max Capacity): Dynamic demand-scaled fee based on volume dispatch load (+Rs. 20/L above 10L).
+  const standardFee = (orderFuel || orderGas || orderWater)
+    ? (fuelQty <= 10 ? 280 : 280 + (fuelQty - 10) * 20)
+    : 0
   const deliveryFee = standardFee
   const total = baseCost + deliveryFee
 
@@ -520,7 +523,7 @@ export default function OrderPage() {
       phone: phone || 'Not provided',
       email: email || 'Not provided',
       address: address || 'Lahore, Pakistan',
-      deliverySpeed: 'Standard Dispatch (Within 45 Mins)',
+      deliverySpeed: fuelQty > 10 ? 'Dynamic Demand Dispatch (Within 45 Mins)' : 'Standard Dispatch (Within 45 Mins)',
       paymentMethod: isCodEligible
         ? 'Cash on Delivery (COD) / Instant Wallet (JazzCash, Easypaisa, NayaPay)'
         : 'Advance Digital Payment (JazzCash, Easypaisa, NayaPay, Bank)',
@@ -559,14 +562,14 @@ export default function OrderPage() {
       `📍 *Delivery Address:* ${address}`,
       `🎯 *Refueling Target:* ${appConfig.label}${assetIdentifier ? ` (${assetIdentifier})` : ''}`,
       notes ? `📝 *Special Instructions:* ${notes}` : null,
-      `🚀 *Dispatch Speed:* Within 45 Mins (Doorstep Delivery)`,
+      `🚀 *Dispatch Speed:* ${fuelQty > 10 ? 'Dynamic Demand Dispatch (Within 45 Mins)' : 'Standard Doorstep Dispatch (Within 45 Mins)'}`,
       `💳 *Payment Method:* ${isCodEligible ? 'Cash on Delivery (COD) / Instant Wallet (JazzCash, Easypaisa, NayaPay)' : 'Advance Digital Payment (JazzCash, Easypaisa, NayaPay, Bank)'}`,
       ``,
       `📦 *Items Ordered:*`,
       ...itemsList.map(item => `  • ${item}`),
       ``,
       `💵 *Subtotal:* Rs. ${baseCost.toLocaleString()}`,
-      `🚚 *Delivery Charges:* Rs. ${deliveryFee}`,
+      `🚚 *Delivery Charges:* Rs. ${deliveryFee} (${fuelQty > 10 ? `Dynamic Demand Rate for ${fuelQty}L` : 'Fixed Rate Under 10L'})`,
       `💰 *TOTAL BILL:* Rs. ${total.toLocaleString()}`,
       `--------------------------------`,
       `📍 *Central Dispatch:* Lahore Hub #01, Pakistan`,
@@ -1063,8 +1066,8 @@ export default function OrderPage() {
                 </div>
                 <div className="ticker-item">
                   <span className="ticker-bullet"></span>
-                  Doorstep Delivery: <strong>Rs. 280.00</strong> (Within 45 Mins)
-                  <span className="price-up" style={{ color: '#10b981' }}>Flat Rate <i className="fa-solid fa-truck-fast"></i></span>
+                  Doorstep Delivery: <strong>Rs. 280.00</strong> (&le;10L Fixed) | Dynamic Demand (11L–15L)
+                  <span className="price-up" style={{ color: '#10b981' }}>Live Rate <i className="fa-solid fa-truck-fast"></i></span>
                 </div>
               </div>
             ))}
@@ -1512,7 +1515,9 @@ export default function OrderPage() {
                             Guaranteed delivery within 45 mins on doorstep across Lahore
                           </span>
                           <span style={{ fontSize: '0.78rem', color: 'var(--brand-primary, #0284c7)', fontWeight: 700, marginTop: '4px' }}>
-                            Standard Nominal Fee: Rs. 280.00
+                            {fuelQty <= 10
+                              ? 'Fixed Delivery Fee: Rs. 280.00 (Orders ≤ 10L)'
+                              : `Dynamic Demand Fee: Rs. ${deliveryFee.toFixed(2)} (${fuelQty}L High-Capacity Load)`}
                           </span>
                         </div>
                       </div>
@@ -1924,7 +1929,12 @@ export default function OrderPage() {
                       {deliveryFee === 0 ? (
                         <span style={{ color: 'var(--success-mint)' }}>Free (Included)</span>
                       ) : (
-                        <span>{fmt(deliveryFee)}</span>
+                        <span>
+                          {fmt(deliveryFee)}
+                          <span style={{ display: 'block', fontSize: '0.72rem', color: fuelQty > 10 ? '#0284c7' : '#10b981', fontWeight: 600 }}>
+                            {fuelQty > 10 ? `Dynamic Demand (${fuelQty}L)` : 'Fixed Rate (≤10L)'}
+                          </span>
+                        </span>
                       )}
                     </strong>
                   </div>
@@ -2011,7 +2021,7 @@ export default function OrderPage() {
                       2. What is the minimum and maximum quantity for doorstep delivery?
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      Doorstep consumer delivery is strictly <strong>5 Litres minimum</strong> up to <strong>15 Litres maximum</strong> per order (with a flat nominal delivery fee of Rs. 280, dispatched within 45 mins). For commercial bulk requirements exceeding 15 Litres (generators, plazas, commercial machinery), our B2B specialized bowsers provide scheduled bulk supply via corporate inquiry.
+                      Doorstep consumer delivery is strictly <strong>5 Litres minimum</strong> up to <strong>15 Litres maximum</strong> per order. Standard delivery is fixed at <strong>Rs. 280.00</strong> for orders up to 10 Litres, while orders between 11L and 15L carry a dynamic demand dispatch fee (+Rs. 20/L above 10L) to cover specialized high-capacity load handling. Dispatched within 45 minutes across Lahore. For commercial bulk requirements exceeding 15 Litres (generators, plazas, commercial machinery), our B2B specialized bowsers provide scheduled bulk supply via corporate inquiry.
                     </p>
                   </div>
 

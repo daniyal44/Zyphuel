@@ -31,10 +31,16 @@
 
 ## Delivery Charges & Speed Options
 
-### 1. Standard Dispatch (Strict 45-Min SLA Window)
-- **Standard Doorstep Delivery**: Flat **Rs. 280.00** nominal delivery fee.
+### 1. Delivery Pricing Structure (Fixed Under 10L, Dynamic Demand 11L–15L)
+- **Standard Doorstep Delivery (5L – 10L)**: Flat, fixed **Rs. 280.00** nominal fee.
+- **High-Capacity Demand Dispatch (11L – 15L Max)**: Dynamic demand-scaled fee calculated as `Rs. 280.00 + (fuelQty - 10) * Rs. 20.00`:
+  - 11 Litres: Rs. 300.00
+  - 12 Litres: Rs. 320.00
+  - 13 Litres: Rs. 340.00
+  - 14 Litres: Rs. 360.00
+  - 15 Litres (Max): Rs. 380.00
 - **Delivery Arrival Window**: Fixed strictly **Delivered: Within 45 Mins** on doorstep across Lahore.
-- **Delivery Speed Option**: Rendered in Step 4 with clean standard doorstep dispatch card (`Delivered: Within 45 Mins`, flat Rs. 280.00 fee; badge removed per user request for a cleaner header).
+- **Delivery Speed Option**: Rendered in Step 4 with live reactive fee calculation reflecting fixed Rs. 280 for orders &le;10L and dynamic demand fee for 11L–15L.
 
 ---
 

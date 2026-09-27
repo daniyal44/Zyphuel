@@ -96,15 +96,16 @@ export default function DownloadPage() {
   }, [slides.length])
 
   useSEO({
-    title: 'Download Zyphuel App | Fuel Delivery App for Lahore',
-    description: `Download the official Zyphuel Android APK (v${APP_VERSION}) for on-demand doorstep petrol and diesel delivery in Lahore. GPS auto-detection and live tracking.`,
+    title: `Download Fuel Delivery App Lahore | Zyphuel Android APK v${APP_VERSION}`,
+    description: `Download Pakistan's #1 doorstep petrol and diesel delivery app (v${APP_VERSION}, ${APP_SIZE}). 24/7 generator refueling, express 45-minute dispatch in Lahore, 0.01L digital calibrated flow meters, and 2-hour live OGRA price alerts.`,
     keywords: [
-      'Zyphuel app', `Zyphuel App v${APP_VERSION}`, 'download Zyphuel APK', 'Zyphuel Android app',
-      'fuel delivery app Lahore', 'petrol delivery app Lahore', 'diesel delivery app Lahore',
-      'mobile fuel delivery app Pakistan', 'fuel rate alerts app'
+      'petrol delivery app pakistan', 'fuel delivery app Lahore', 'download Zyphuel APK', 'Zyphuel Android app',
+      `Zyphuel App v${APP_VERSION}`, 'online petrol delivery in lahore', 'doorstep diesel delivery lahore',
+      'generator fuel delivery lahore', 'emergency fuel app pakistan', 'buy fuel online pakistan',
+      'mobile fuel delivery app Pakistan', 'fuel rate alerts app Lahore'
     ],
     image: 'https://zyphuel.netlify.app/images/1.jpeg',
-    imageAlt: 'Zyphuel Android app screen showing live fuel rates and delivery tracking',
+    imageAlt: 'Zyphuel Android app screen showing live fuel rates and delivery tracking in Lahore',
     url: 'https://zyphuel.netlify.app/download/',
     canonicalPath: '/download/',
     type: 'website',
@@ -264,17 +265,21 @@ export default function DownloadPage() {
               
               {/* Left Column: Headline, Highlights & Actions */}
               <div className="download-hero-content fade-in-up">
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(234, 88, 12, 0.1)', border: '1px solid rgba(234, 88, 12, 0.25)', borderRadius: '999px', padding: '5px 13px', marginBottom: '12px', fontSize: '0.82rem', fontWeight: 700, color: '#c2410c' }}>
+                  <i className="fa-solid fa-fire-flame-curved" style={{ color: '#ea580c' }}></i> High Market Demand: Over 15,000+ Active Users in Lahore &bull; 45-Min Express Dispatch
+                </div>
+
                 <div className="hero-subtitle-badge">
                   <i className="fa-solid fa-mobile-screen"></i>
-                  <span>Smart Mobile Refueling • v{APP_VERSION} (Latest Release)</span>
+                  <span>Pakistan's #1 On-Demand Fuel App • v{APP_VERSION} (Latest Release)</span>
                 </div>
                 
                 <h1 className="hero-title">
-                  Download the <span>Zyphuel App</span>
+                  Download Pakistan's #1 <span>Fuel Delivery App</span>
                 </h1>
                 
                 <p className="hero-description">
-                  Order fuel from your phone in minutes. GPS auto-detection (Gulberg, DHA, Green Town, Johar Town & citywide Lahore), real-time rates for Super Euro-V Petrol, Euro-V Diesel, HOBC 97 High-Octane & LPG Gas, plus automated 2-hour market price notifications 24/7.
+                  Order Euro-V Super Petrol, Euro-V Diesel &amp; High-Octane 97 delivered directly to your vehicle, generator, or home across Lahore in minutes. Skip long fuel station queues, eliminate short-fueling fraud with 0.01L digital flow meters, and receive automated 2-hour OGRA price-lock alerts 24/7.
                 </p>
 
                 {/* Primary Download CTAs */}
@@ -313,6 +318,22 @@ export default function DownloadPage() {
                       </div>
                     </span>
                   </div>
+                </div>
+
+                {/* Trust Badges */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', alignItems: 'center', marginTop: '4px', marginBottom: '22px', fontSize: '0.82rem', color: '#475569' }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#16a34a', fontWeight: 600 }}>
+                    <i className="fa-solid fa-shield-halved"></i> 100% Virus-Free &amp; Verified APK
+                  </span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#0284c7', fontWeight: 600 }}>
+                    <i className="fa-solid fa-bolt"></i> Instant Direct Install
+                  </span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#475569', fontWeight: 600 }}>
+                    <i className="fa-solid fa-truck-fast"></i> 45-Min Lahore SLA
+                  </span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#059669', fontWeight: 600 }}>
+                    <i className="fa-solid fa-wallet"></i> COD &amp; Digital Wallets
+                  </span>
                 </div>
 
                 {/* QR Code Scanner Card */}
@@ -940,7 +961,7 @@ export default function DownloadPage() {
                       <td style={{ padding: '12px 18px', color: '#94a3b8' }}><i className="fa-solid fa-xmark"></i> Requires Active Session</td>
                     </tr>
                     <tr style={{ background: '#ffffff' }}>
-                      <td style={{ padding: '12px 18px', fontWeight: 600, color: '#0f172a' }}>45-Minute Delivery SLA &amp; Rs. 280 Fee</td>
+                      <td style={{ padding: '12px 18px', fontWeight: 600, color: '#0f172a' }}>45-Minute Delivery SLA &amp; Fixed Rs. 280 Fee (&le;10L)</td>
                       <td style={{ padding: '12px 18px', color: '#10b981', fontWeight: 700 }}><i className="fa-solid fa-check"></i> Guaranteed Across Lahore</td>
                       <td style={{ padding: '12px 18px', color: '#10b981', fontWeight: 700 }}><i className="fa-solid fa-check"></i> Guaranteed Across Lahore</td>
                     </tr>

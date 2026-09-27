@@ -447,7 +447,7 @@ export default function HomePage() {
                 </tr>
                 <tr>
                   <td><strong>Delivery Charges (Transparent Nominal Fee)</strong></td>
-                  <td className="highlight-zyphuel">✅ Flat Rs. 280.00 nominal fee (Zero surge)</td>
+                  <td className="highlight-zyphuel">✅ Fixed Rs. 280.00 (&le;10L) • Dynamic Demand (11L–15L)</td>
                   <td>❌ Fuel wasted driving &amp; waiting in station queues</td>
                   <td>⚠️ Heavy bulk freight &amp; hauling surcharges</td>
                   <td>⚠️ High dynamic surge &amp; distance fees</td>

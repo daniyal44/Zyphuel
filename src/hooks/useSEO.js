@@ -4,9 +4,15 @@ import { useEffect } from 'react'
 // strictly relevant — unrelated or trending terms count as keyword stuffing.
 const DEFAULT_KEYWORDS = [
   'Zyphuel',
+  'online petrol delivery in lahore',
+  'doorstep diesel delivery lahore',
+  'emergency petrol delivery service lahore 24/7',
   'fuel delivery Lahore',
   'diesel delivery Lahore',
   'petrol delivery Lahore',
+  'generator petrol delivery near me lahore',
+  'petrol delivery app pakistan',
+  'buy petrol online pakistan',
   'mobile refueling Pakistan',
   'doorstep fuel delivery',
   'doorstep petrol delivery',
@@ -15,11 +21,14 @@ const DEFAULT_KEYWORDS = [
   'bulk diesel supplier Lahore',
   'fleet refueling service',
   'on-demand fuel delivery app',
+  'euro 5 super petrol delivery lahore',
+  'high octane 97 delivery lahore',
   'fuel delivery DHA Lahore',
   'petrol delivery Gulberg',
   'diesel delivery Johar Town',
   'OGRA compliant fuel rates',
   'calibrated flow meter fuel delivery',
+  'doorstep fuel delivery rates lahore',
   'LPG gas cylinder delivery Lahore',
   'clean water tanker Lahore'
 ]
