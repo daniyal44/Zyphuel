@@ -260,9 +260,9 @@ ${form.message.trim()}`
               <div className="contact-info-panel fade-in-up">
                 <div className="contact-details">
                   {[
-                    { icon: 'fa-phone', title: 'Contact no', content: '+92 3230-112464', sub: 'Also accepting WhatsApp calls for enterprise clients.' },
-                    { icon: 'fa-envelope', title: 'Email ', content: 'm.daniyalkhan490@gmail.com', sub: 'For order modifications or cancellation requests.' },
-                    { icon: 'fa-location-dot', title: 'Location', content: 'Lahore, Pakistan.', sub: 'Walk-in corporate meetings by appointment only.' },
+                    { icon: 'fa-phone', title: 'Contact number', content: '+92 3230-112464', sub: '24/7 hotline and WhatsApp live dispatch.' },
+                    { icon: 'fa-envelope', title: 'Complaint Email', content: 'm.daniyalkhan490@gmail.com', sub: 'For complaints, corporate inquiries, and support.' },
+                    { icon: 'fa-location-dot', title: 'Headquarters', content: 'Lahore, Pakistan.', sub: 'Central operations and dispatch command.' },
                   ].map(item => (
                     <div key={item.title} className="contact-item">
                       <div className="contact-icon"><i className={`fa-solid ${item.icon}`}></i></div>
@@ -536,8 +536,8 @@ ${form.message.trim()}`
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 360px))', gap: '14px', fontSize: '0.88rem' }}>
                 <div style={{ padding: '12px 14px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
                   <strong style={{ display: 'block', color: '#0f172a' }}>Executive Management</strong>
-                  <span style={{ color: '#64748b' }}>Founder &amp; CEO Muhammad Daniyal</span>
-                  <div style={{ color: '#0284c7', marginTop: '4px' }}>m.daniyalkhan490@gmail.com</div>
+                  <span style={{ color: '#64748b' }}>Founder &amp; Leading Web Developer Muhammad Daniyal</span>
+                  <div style={{ color: '#0284c7', marginTop: '4px' }}>Complaint Email: m.daniyalkhan490@gmail.com</div>
                 </div>
               </div>
             </div>

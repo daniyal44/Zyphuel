@@ -8,7 +8,7 @@ This document serves as the authoritative single source of truth for all corpora
 
 | Parameter | Official Record | Regulatory Authority |
 |---|---|---|
-| **Company Legal Name** | Zyphuel (Private) Limited | SECP Pakistan |
+| **Company Name** | Zyphuel | Government of Pakistan |
 | **SECP Incorporation Number** | `0248195` | Securities and Exchange Commission of Pakistan |
 | **OGRA Petroleum License** | `OGRA/DL-7492/LHE` | Oil and Gas Regulatory Authority (Pakistan) |
 | **Civil Defence Flammable Transport Permit** | `CD-LHE/FL-2026/089` | Civil Defence Department, Lahore |
@@ -16,7 +16,7 @@ This document serves as the authoritative single source of truth for all corpora
 | **National Tax Number (NTN / STRN)** | `9482710-3` | Federal Board of Revenue (FBR) |
 | **Corporate Status** | Licensed On-Demand Mobile Fuel Distributor | Government of Pakistan |
 | **Founding Date** | August 2026 | Lahore, Punjab |
-| **Founder & Chief Executive Officer** | Muhammad Daniyal | Founder & CEO |
+| **Founder & Leading Web Developer** | Muhammad Daniyal | Founder & Leading Web Developer |
 | **Head of Commercial Operations** | Adil Farooq | Sales & B2B Contracts |
 
 ---
@@ -24,7 +24,7 @@ This document serves as the authoritative single source of truth for all corpora
 ## 2. Physical Location & Operating Schedules
 
 ### 2.1 Corporate Headquarters & Central Depot Hub
-- **Physical Address**: 75-Main Boulevard, Gulberg III, Lahore, Punjab 54000, Pakistan.
+- **Physical Address**: Lahore, Pakistan.
 - **Facility Classification**: Regional Dispatch Hub #01 (Central Fuel Depot & Maintenance Yard).
 - **Coordinates & Verification**: `31.5204° N, 74.3587° E`.
 
@@ -39,10 +39,10 @@ This document serves as the authoritative single source of truth for all corpora
 
 ## 3. Communication Channels & Official Support
 
-- **24/7 Telephone Hotline**: `+92 3230-112464`
+- **Contact number**: `+92 3230-112464`
 - **Official WhatsApp Dispatch API**: `+92 3230-112464`
-- **Corporate Inquiry Email**: `info@zyphuel.com` / `support@zyphuel.com`
-- **Web Portal**: `https://zyphuel.netlify.app`
+- **Complaint Email**: `m.daniyalkhan490@gmail.com`
+- **Official Website**: `https://zyphuel.netlify.app`
 - **Official Mobile Application**: Zyphuel Android APK (`v2.6.4.0.0.16`)
 
 ---

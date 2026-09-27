@@ -11,7 +11,7 @@
 ## SEO & Structured Data
 - **Page Title**: `About Zyphuel | On-Demand Fuel Delivery in Lahore`
 - **Meta Description**: `Learn about Zyphuel's mission to deliver reliable on-demand petrol and diesel across Lahore. Founded by Muhammad Daniyal, bringing calibrated digital flow meters to doorstep refueling.`
-- **Schema Type**: `AboutPage` with embedded `Organization` and `Person` (Muhammad Daniyal - Founder & CEO).
+- **Schema Type**: `AboutPage` with embedded `Organization` and `Person` (Muhammad Daniyal - Founder & Leading Web Developer).
 - **Sitemap Priority**: `0.9` (`daily` change frequency).
 - **Canonical URL**: `https://zyphuel.netlify.app/about/`
 
@@ -25,7 +25,7 @@
    - Mission statement on solving pump queues, fuel tampering, and generator supply bottlenecks.
 3. **Interactive 3D Leadership & Assets Carousel**:
    - 6 Interactive Perspective 3D Cards:
-     1. **Muhammad Daniyal**: Founder & CEO of Zyphuel.
+     1. **Muhammad Daniyal**: Founder & Leading Web Developer of Zyphuel.
      2. **Adil Farooq**: Zyphuel Sales Manager.
      3. **Zyphuel Executive Team**: Mobile Energy Logistics.
      4. **Zyphuel QR Code**: Mobile Application v2.6.4.0.0.16 (dynamically linked to `APP_VERSION`).
@@ -68,6 +68,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-27** | **Corporate Identity & Executive Title Update**: Updated Muhammad Daniyal's designation to **Founder & Leading Web Developer** across team definitions, Schema.org Person metadata, image titles, and leadership bio. | Aligned with user's official corporate credentials declaration. |
 | **2026-09-27** | **Privacy Consolidation**: Removed direct telephone number exposure from Consumer Guide article highlights in `aboutData.js`, routing inquiries to the live dispatch desk and official Contact page. | User requested: *"contact page ka elova mera phone number kise be or page per show nai hona chaye"*. |
 | **2026-09-27** | **GEO Knowledge Graph Expansion & Entity Linking**. Injected Wikipedia entities (`Fuel_dispenser`, `Euro_V`, `Lahore`, `Diesel_engine`, `Electric_generator`) into Schema.org `ORGANIZATION_SCHEMA` and `LOCAL_BUSINESS_SCHEMA`. Added verified executive quote from Founder & CEO Muhammad Daniyal regarding 0.01L calibrated flow meters. Updated `llms.txt` and `llms-full.txt` with global benchmark matrix (Booster Fuels, CAFU, FuelBuddy vs Zyphuel). | Optimize Generative Engine Optimization (GEO) and entity credibility across AI search engines (Perplexity, ChatGPT, Claude, Gemini, Copilot). |
 | **2026-09-27** | **Responsive 3D Carousel Scaling (< 480px) & Fluid Articles Grid Optimization**. | User requested: *"har page ko responsive karo har device ka mutabiq , min screem to large/extra large screen website ma jitne be pages ha website ma , un sab ko responsive bana do"*. (1) Added dedicated `@media (max-width: 480px)` breakpoint for the 3D Interactive Team Carousel in `src/pages/styles.css` with scaled card dimensions (`160px` x `160px`), compressed z-index translations, and hidden horizontal accent bars to prevent any horizontal overflow on 320px–375px compact screens, (2) Upgraded the official publications article grid in `AboutPage.jsx` to fluid `minmax(min(100%, 280px), 1fr)`. |

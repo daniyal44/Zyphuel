@@ -10,7 +10,8 @@ export const footerData = {
   contact: {
     phone: '+92 3230-112464',
     email: 'm.daniyalkhan490@gmail.com',
-    address: '75-Main Boulevard, Gulberg III, Lahore, Pakistan',
+    complaintEmail: 'm.daniyalkhan490@gmail.com',
+    address: 'Lahore, Pakistan',
     whatsapp: 'https://wa.me/923230112464',
   },
   socialLinks: [
@@ -36,7 +37,7 @@ export const footerData = {
       platform: 'LinkedIn Profile',
       url: 'https://www.linkedin.com/in/muhammad-daniyal490',
       icon: 'fa-brands fa-linkedin-in',
-      title: 'Muhammad Daniyal - Founder & CEO LinkedIn Profile',
+      title: 'Muhammad Daniyal - Founder & Leading Web Developer LinkedIn Profile',
     },
     {
       platform: 'GitHub Profile',

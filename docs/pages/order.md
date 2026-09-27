@@ -77,8 +77,9 @@
       - **OGRA License**: `OGRA/DL-7492/LHE`
       - **NTN / STRN**: `9482710-3`
       - **SECP Inc**: `0248195`
-      - **Depot Hub**: `Lahore Central Hub #01 (75-Main Boulevard, Gulberg III, Lahore, Punjab)`
-      - **24/7 Helpline**: `+92 3230-112464`
+      - **Headquarters**: `Lahore, Pakistan.`
+      - **Contact number**: `+92 3230-112464`
+      - **Complaint Email**: `m.daniyalkhan490@gmail.com`
     - **Telemetry Profile (2 Cards)**: Billed-To recipient destination details alongside dispatch speed, metering standards (Positive Displacement ±0.01L Accuracy), and 15°C Automatic Temperature Compensation (ATC).
     - **5-Column Itemized Table**: `SR#`, `DESCRIPTION & FUEL SPECIFICATIONS`, `QUANTITY`, `UNIT RATE (PKR)`, and `TOTAL AMOUNT (PKR)`.
     - **Amount in Words Ledger**: Automatic conversion via `numberToWords(total)` (e.g. *"Pakistani Rupees Four Thousand Two Hundred and Eighty Only"*).
@@ -162,6 +163,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-27** | **Invoice Letterhead & Corporate Credentials Alignment**: Standardized company name to **Zyphuel**, headquarters to **Lahore, Pakistan**, contact number to **+92 3230-112464**, and complaint email to **m.daniyalkhan490@gmail.com** across rendered DOM invoice, printable HTML, and vector PDF generator. | User's official corporate identity declaration. |
 | **2026-09-27** | **AEO Schema Integration & Speakable Markup for Voice Search**. Injected Schema.org `HowTo` structured data (`How to Order Petrol and Diesel Delivery Online in Lahore with Zyphuel`) into `prerender.js` and `index.html` across 4 explicit steps: fuel grade selection, target asset selection, volume limits (5L–15L), and address submission. Enhanced `SpeakableSpecification` targeting `.summary-text` and section titles. | Master international SEO, AEO, and GEO strategy for Google Featured Snippets and voice assistant querying (Google Assistant, Siri). |
 | **2026-09-27** | **Full Multi-Device Responsiveness System & Mobile Order Summary Preview Integration**. | User requested: *"order page responsive nai ha mobile ma"* and *"har page ko responsive karo har device ka mutabiq , min screem to large/extra large screen website ma jitne be pages ha website ma , un sab ko responsive bana do"*. Overhauled responsiveness in `OrderPage.jsx`: (1) Resolved horizontal overflow caused by `.stepper-wrap` minimum 432px constraint by adding `flex-wrap: wrap` and stacking `.stepper-delivery-badge` under 576px, (2) Upgraded Fuel Category Selector to fluid grid `repeat(auto-fit, minmax(min(100%, 130px), 1fr))`, (3) Refactored Refueling Target Selector and Payment Method grids with dynamic clamping, (4) Introduced `mobile-order-summary-preview` directly above the Truck Submit Button so mobile/tablet users (<992px) see their live order total before submission without scrolling past the form, (5) Optimized both Tracker Modal and Official Invoice Modal dialogs with touch-scrolling (`max-height: 92vh; overflow-y: auto`), horizontally scrollable 5-column billing table (`min-width: 440px`), and clean vertical stacking on `< 640px` screens. |
 | **2026-09-25** | **Summarized & Redesigned Payment Option Card (COD 5L–10L & Instant QR Digital Wallets) & Synchronized All Related Articles**. | User requested: *"is ko ek acha sa look do or information ko summarize karo, is sa related article be update karo har gaja per"* and *"Dispatch: Within 45 Mins is ke gaja liko 'Delivered: Within 45 Mins'"*. Redesigned the payment option card in `OrderPage.jsx` into a concise, scannable modern card highlighting Cash on Delivery (5L–10L) and instant on-the-spot mobile wallet QR payments (JazzCash, Easypaisa, NayaPay, Raast / Bank). Synchronized all blog articles in `src/data/articles.js` (Articles 1, 2, 4, 6), `aboutData.js`, `servicesData.js`, `DownloadPage.jsx`, `ServicesPage.jsx`, and `prerender.js`. |

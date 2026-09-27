@@ -130,7 +130,7 @@ const GLOBAL_LOCAL_BUSINESS = {
     "@type": "Person",
     "@id": "https://zyphuel.netlify.app/#person-daniyal",
     "name": "Muhammad Daniyal",
-    "jobTitle": "Founder & CEO of Zyphuel",
+    "jobTitle": "Founder & Leading Web Developer of Zyphuel",
     "sameAs": [
       "https://www.linkedin.com/in/muhammad-daniyal490",
       "https://github.com/daniyal44",
@@ -232,7 +232,7 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
     setMetaTag('keywords', null, combinedKeywords.join(', '))
     setMetaTag('robots', null, 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1')
     setMetaTag('image', null, defaultImage)
-    setMetaTag('author', null, 'Muhammad Daniyal – Founder & CEO of Zyphuel')
+    setMetaTag('author', null, 'Muhammad Daniyal – Founder & Leading Web Developer of Zyphuel')
     setMetaTag('publisher', null, 'Zyphuel Pakistan')
 
     // 2b. Local SEO Geo Location Tags (Lahore, Pakistan)

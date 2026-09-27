@@ -38,7 +38,7 @@ const ORGANIZATION_SCHEMA = {
   ],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "75-Main Boulevard, Gulberg III",
+    "streetAddress": "Lahore",
     "addressLocality": "Lahore",
     "addressRegion": "Punjab",
     "postalCode": "54000",
@@ -53,7 +53,7 @@ const ORGANIZATION_SCHEMA = {
     "@type": "Person",
     "@id": `${DOMAIN}/#person-daniyal`,
     "name": "Muhammad Daniyal",
-    "jobTitle": "Founder & CEO",
+    "jobTitle": "Founder & Leading Web Developer",
     "sameAs": [
       "https://www.linkedin.com/in/muhammad-daniyal490",
       "https://github.com/daniyal44",
@@ -297,7 +297,7 @@ const ARTICLES_SCHEMA = [
     "@type": "Article",
     "@id": `${DOMAIN}/#article-6`,
     "headline": "Mobile Energy Logistics in Lahore: Inside Zyphuel's Doorstep Delivery Fleet",
-    "description": "Inside Zyphuel's journey building on-demand doorstep refueling across Lahore, led by Founder & CEO Muhammad Daniyal.",
+    "description": "Inside Zyphuel's journey building on-demand doorstep refueling across Lahore, led by Founder & Leading Web Developer Muhammad Daniyal.",
     "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=720&q=80",
     "datePublished": "2026-08-28T08:00:00+05:00",
     "dateModified": "2026-09-06T00:00:00+05:00",
@@ -908,7 +908,7 @@ const ROUTES = [
               "name": "Where is Zyphuel's corporate office located in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel's registered headquarters is located at 75-Main Boulevard, Gulberg III, Lahore, Pakistan. Corporate client visits and supplier consultations are held by appointment."
+                "text": "Zyphuel's registered headquarters is located at Lahore, Pakistan. Corporate client visits and supplier consultations are held by appointment."
               }
             },
             {
@@ -1310,8 +1310,8 @@ async function prerender() {
         priority = '0.9'
         changefreq = 'daily'
         imageLoc = `${DOMAIN}/images/daniyal.jpeg`
-        imageTitle = 'About Zyphuel - Founder & CEO Muhammad Daniyal'
-        imageCaption = 'About Zyphuel - Founder & CEO Muhammad Daniyal and the calibrated mobile refueling fleet.'
+        imageTitle = 'About Zyphuel - Founder & Leading Web Developer Muhammad Daniyal'
+        imageCaption = 'About Zyphuel - Founder & Leading Web Developer Muhammad Daniyal and the calibrated mobile refueling fleet.'
       } else if (r.path === '/download/') {
         priority = '0.9'
         changefreq = 'daily'

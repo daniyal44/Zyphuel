@@ -26,10 +26,10 @@
 
 | Channel | Details / Link | Availability |
 | :--- | :--- | :--- |
-| **Helpline Phone** | `+92 3230-112464` | 24/7 Priority Support |
+| **Contact number** | `+92 3230-112464` | 24/7 Priority Support & WhatsApp Live Dispatch |
 | **WhatsApp Direct** | `https://wa.me/923230112464` | Immediate Dispatch Coordination |
-| **Email Support** | `m.daniyalkhan490@gmail.com` | Enterprise & Corporate Accounts |
-| **Physical Hub** | 75-Main Boulevard, Gulberg III, Lahore | Operations & Fleet Terminal |
+| **Complaint Email** | `m.daniyalkhan490@gmail.com` | Complaints, Corporate Inquiries & Support |
+| **Headquarters** | Lahore, Pakistan | Central Operations Command |
 
 ---
 
@@ -94,6 +94,7 @@ Added interactive 4-item accordion addressing core user intent and eliminating t
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-27** | **Corporate Identity & Contact Standardization**: Updated Contact number (`+92 3230-112464`), Complaint Email (`m.daniyalkhan490@gmail.com`), Headquarters (`Lahore, Pakistan`), and Executive Management desk to Founder & Leading Web Developer Muhammad Daniyal. | User's new corporate identity & regulatory credentials declaration. |
 | **2026-09-27** | Removed Sales & Fleet Operations (Adil Farooq) and 24/7 Urgent Dispatch Hotline cards from Commercial Fleet & Industrial Escalation Desk. | Clean up redundant contact cards per user request. |
 | **2026-09-25** | **Added Lahore Sector Dispatch Hubs & SLA Matrix, Commercial Escalation Desk, and Synchronized SLA to "Delivered: Within 45 Mins"**. | Provide high-value local logistics data, eradicate thin content signals, boost local Lahore search queries, and resolve indexing latency. |
 | **2026-09-17** | Added interactive FAQ accordion, added `FAQPage` schema in `useSEO` & `prerender.js`, boosted sitemap priority to 0.9 daily, added in-body referring links from Home, Order, Privacy, Terms, and Blog subpages. | Resolve Google Search Console "Discovered – currently not indexed" & "Referring page: None detected". |

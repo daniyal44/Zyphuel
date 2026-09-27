@@ -19,7 +19,7 @@ const cardImages = [
 ];
 
 const teamMembers = [
-  { name: "Muhammad Daniyal", role: "Founder & CEO of Zyphuel " },
+  { name: "Muhammad Daniyal", role: "Founder & Leading Web Developer of Zyphuel" },
   { name: "Adil Farooq", role: "Zyphuel Sales Manager " },
   { name: "Zyphuel Executive Team", role: "Mobile Energy Logistics" },
   { name: "Zyphuel QR Code", role: `Mobile Application v${APP_VERSION}` },
@@ -88,7 +88,7 @@ export default function AboutPage() {
               "@type": "Person",
               "@id": "https://zyphuel.netlify.app/#person-daniyal",
               "name": "Muhammad Daniyal",
-              "jobTitle": "Founder & CEO",
+              "jobTitle": "Founder & Leading Web Developer",
               "sameAs": [
                 "https://www.linkedin.com/in/muhammad-daniyal490",
                 "https://github.com/daniyal44"
@@ -256,15 +256,15 @@ export default function AboutPage() {
                 <div className="founder-card-frame" itemScope itemType="https://schema.org/Person">
                   <img
                     src="/images/daniyal.jpeg"
-                    alt="Muhammad Daniyal, Founder & CEO of Zyphuel"
-                    title="Muhammad Daniyal – Founder & CEO of Zyphuel"
+                    alt="Muhammad Daniyal, Founder & Leading Web Developer of Zyphuel"
+                    title="Muhammad Daniyal – Founder & Leading Web Developer of Zyphuel"
                     className="founder-avatar-img"
                     width="320"
                     height="320"
                     loading="lazy"
                     itemProp="image"
                   />
-                  <div className="founder-badge">Founder &amp; CEO</div>
+                  <div className="founder-badge">Founder &amp; Leading Web Developer</div>
                 </div>
               </div>
 
@@ -274,7 +274,7 @@ export default function AboutPage() {
                 </div>
                 <h2 className="section-title" style={{ marginBottom: '10px' }}>Muhammad Daniyal</h2>
                 <h3 className="founder-subtitle" style={{ color: 'var(--brand-petrol)', fontWeight: 600, fontSize: 'var(--fs-md)', marginBottom: '16px' }}>
-                  Founder &amp; CEO, Zyphuel
+                  Founder &amp; Leading Web Developer, Zyphuel
                 </h3>
                 <p className="founder-bio" style={{ fontSize: '1rem', lineHeight: '1.65', color: 'var(--text-secondary)', marginBottom: '18px' }}>
                   <strong>Muhammad Daniyal</strong> founded Zyphuel to solve a frustrating reality in urban Pakistan: the hours lost waiting at crowded fuel stations and the safety risks of transporting hazardous jerrycans during power outages. With a systems engineering background, Daniyal built Zyphuel from the ground up as a reliable, on-demand refueling service for Lahore’s motorists, standby generators, and commercial fleets. His focus is on operational dependability, calibrated digital metering, and prompt, honest doorstep dispatch.

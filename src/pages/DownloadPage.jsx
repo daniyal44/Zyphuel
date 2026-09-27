@@ -14,12 +14,12 @@ const appArticles = [
     title: `Zyphuel Mobile App v${APP_VERSION}: Next-Gen Doorstep Fuel Logistics & Cloud Telemetry in Pakistan`,
     readTime: '5 min read',
     date: RELEASE_DATE,
-    author: 'Muhammad Daniyal (Founder & CEO)',
+    author: 'Muhammad Daniyal (Founder & Leading Web Developer)',
     authorIcon: 'fa-solid fa-user-gear',
     tags: ['ZyphuelApp', 'MuhammadDaniyal', 'DoorstepPetrol', 'LahoreFuelApp'],
     summary: `Explore how the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) transforms urban energy delivery in Lahore with instant GPS auto-detection, zero-latency cloud telemetry, and 100% verified Euro-V fuel standards.`,
     paragraphs: [
-      `The Zyphuel Mobile Application (v${APP_VERSION}) is built for on-demand fuel delivery in Lahore. Engineered by Founder & CEO Muhammad Daniyal, the app connects individual car owners, commercial fleets, and industrial generator operators directly to a fleet of micro-refueler bowsers.`,
+      `The Zyphuel Mobile Application (v${APP_VERSION}) is built for on-demand fuel delivery in Lahore. Engineered by Founder & Leading Web Developer Muhammad Daniyal, the app connects individual car owners, commercial fleets, and industrial generator operators directly to a fleet of micro-refueler bowsers.`,
       'Unlike traditional petrol stations where motorists endure lengthy queues and manual meter discrepancies, the Zyphuel Android app leverages automated GPS address pinning covering DHA Phase 1-9, Gulberg, Johar Town, Model Town, Green Town, Bahria Town, and citywide Lahore. With a single tap, users request certified Super Euro-V Petrol, Euro-V Diesel, or High-Octane 97 delivered directly into their vehicle fuel tank.',
       'Every transaction is monitored via cloud-connected electronic flow meters that stream exact liters and pricing in real time to the smartphone screen, guaranteeing 100% volumetric transparency with zero short-fueling.'
     ]

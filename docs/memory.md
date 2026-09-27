@@ -65,13 +65,17 @@ This document defines the immutable business rules, operational constants, and a
 
 ---
 
-## 3. Legal & Regulatory Credentials
+## 3. Corporate Identity & Regulatory Credentials
 
+- **Company Name**: Zyphuel
+- **Headquarters**: Lahore, Pakistan.
+- **Founder & Leading Web Developer**: Muhammad Daniyal
 - **OGRA Distribution License**: `OGRA/DL-7492/LHE`
 - **National Tax Number (NTN / STRN)**: `9482710-3`
 - **SECP Corporate Incorporation**: `0248195`
-- **Depot Hub**: Lahore Central Hub #01 (75-Main Boulevard, Gulberg III, Lahore, Punjab 54000)
-- **Official Helpline**: `+92 3230-112464`
+- **Official Website**: `https://zyphuel.netlify.app`
+- **Contact number**: `+92 3230-112464`
+- **Complaint Email**: `m.daniyalkhan490@gmail.com`
 
 ---
 

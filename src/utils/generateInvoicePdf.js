@@ -92,7 +92,7 @@ export async function generateInvoicePdf(data) {
   doc.setFont('helvetica', 'bold')
   doc.setFontSize(20)
   doc.setTextColor(255, 255, 255)
-  doc.text('ZYPHUEL ENERGY LOGISTICS', margin + 8, margin + 12)
+  doc.text('ZYPHUEL', margin + 8, margin + 12)
 
   doc.setFont('helvetica', 'bold')
   doc.setFontSize(7.5)
@@ -103,8 +103,8 @@ export async function generateInvoicePdf(data) {
   doc.setFontSize(7)
   doc.setTextColor(203, 213, 225)
   doc.text('OGRA License: OGRA/DL-7492/LHE  •  NTN / STRN: 9482710-3  •  SECP Inc: 0248195', margin + 8, margin + 21.5)
-  doc.text('Lahore Hub #01: 75-Main Boulevard, Gulberg III, Lahore, Punjab, Pakistan', margin + 8, margin + 25.5)
-  doc.text('Support Desk: https://zyphuel.netlify.app/contact/  •  Email: support@zyphuel.com  •  Web: https://zyphuel.netlify.app', margin + 8, margin + 29.5)
+  doc.text('Headquarters: Lahore, Pakistan  •  Contact number: +92 3230-112464', margin + 8, margin + 25.5)
+  doc.text('Official Website: https://zyphuel.netlify.app  •  Complaint Email: m.daniyalkhan490@gmail.com', margin + 8, margin + 29.5)
 
   // Right Side: Official Invoice Classification Box
   const metaRightX = pageWidth - margin - 8
@@ -497,7 +497,7 @@ export async function generateInvoicePdf(data) {
   doc.setFontSize(6.6)
   doc.setTextColor(100, 116, 139)
   doc.text('Thank you for trusting Zyphuel. For support & rapid dispatch inquiries, visit: https://zyphuel.netlify.app/contact/', margin + 5, footY + 4.5)
-  doc.text('Zyphuel Energy Logistics (Pvt) Ltd. • 75-Main Boulevard, Gulberg III, Lahore • support@zyphuel.com', margin + 5, footY + 8.5)
+  doc.text('Zyphuel • Headquarters: Lahore, Pakistan • Complaint Email: m.daniyalkhan490@gmail.com', margin + 5, footY + 8.5)
 
   doc.setFont('helvetica', 'bold')
   doc.setFontSize(6.6)

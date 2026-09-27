@@ -122,7 +122,7 @@ export default function HomePage() {
       "founder": {
         "@type": "Person",
         "name": "Muhammad Daniyal",
-        "jobTitle": "Founder & CEO",
+        "jobTitle": "Founder & Leading Web Developer",
         "sameAs": [
           "https://www.linkedin.com/in/muhammad-daniyal490",
           "https://github.com/daniyal44"

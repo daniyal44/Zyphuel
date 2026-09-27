@@ -893,11 +893,11 @@ export default function OrderPage() {
   <div class="inv-card">
     <div class="top-navy-bar">
       <div>
-        <h1 class="brand-title">ZYPHUEL ENERGY LOGISTICS</h1>
+        <h1 class="brand-title">ZYPHUEL</h1>
         <div class="brand-reg">GOVERNMENT OF PAKISTAN &bull; OGRA LICENSED PETROLEUM DISTRIBUTOR</div>
         <div class="brand-creds">
           OGRA Lic: OGRA/DL-7492/LHE &bull; NTN / STRN: 9482710-3 &bull; SECP: 0248195<br>
-          Lahore Hub #01 &bull; 75-Main Boulevard, Gulberg III &bull; Official Dispatch Gateway
+          Headquarters: Lahore, Pakistan &bull; Contact: +92 3230-112464 &bull; Complaint Email: m.daniyalkhan490@gmail.com
         </div>
       </div>
       <div class="doc-meta">
@@ -994,8 +994,8 @@ export default function OrderPage() {
       </div>
 
       <div class="footer-bar">
-        <span>Computerized Verified Invoice &bull; Zyphuel Refueling Systems Pakistan</span>
-        <span>Support Desk: zyphuel.netlify.app/contact/</span>
+        <span>Computerized Verified Invoice &bull; Zyphuel</span>
+        <span>Complaint Email: m.daniyalkhan490@gmail.com &bull; Support: zyphuel.netlify.app/contact/</span>
       </div>
     </div>
   </div>
@@ -2451,7 +2451,7 @@ export default function OrderPage() {
                 <div className="inv-brand-section">
                   <div className="inv-logo-title">
                     <span className="inv-logo-icon"><i className="fa-solid fa-gas-pump"></i></span>
-                    <h2 className="inv-title">ZYPHUEL ENERGY LOGISTICS</h2>
+                    <h2 className="inv-title">ZYPHUEL</h2>
                   </div>
                   <div className="inv-gov-badge">
                     GOVERNMENT OF PAKISTAN &bull; OGRA LICENSED PETROLEUM DISTRIBUTOR
@@ -2464,7 +2464,7 @@ export default function OrderPage() {
                     <span><strong>SECP Inc:</strong> 0248195</span>
                   </div>
                   <p className="inv-address-line">
-                    Lahore Central Hub #01 &bull; 75-Main Boulevard, Gulberg III, Lahore, Punjab &bull; Support: zyphuel.netlify.app/contact/
+                    Headquarters: Lahore, Pakistan &bull; Contact: +92 3230-112464 &bull; Complaint Email: m.daniyalkhan490@gmail.com
                   </p>
                 </div>
 
