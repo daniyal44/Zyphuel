@@ -25,9 +25,12 @@ export const COMPANY_INFO = {
   },
   credentials: {
     companyName: 'Zyphuel',
-    ograLicense: 'OGRA/DL-7492/LHE',
-    ntnStrn: '9482710-3',
-    secpIncorporation: '0248195',
+    headquarters: 'Lahore, Pakistan.',
+    founder: 'Muhammad Daniyal',
+    role: 'Founder & Leading Web Developer',
+    officialWebsite: 'https://zyphuel.netlify.app',
+    contactNumber: '+92 3230-112464',
+    complaintEmail: 'm.daniyalkhan490@gmail.com',
   },
   geo: {
     latitude: 31.507534,

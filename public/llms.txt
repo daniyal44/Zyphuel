@@ -65,8 +65,8 @@ Zyphuel operates localized dispatch micro-hubs positioned across all key zones o
 ---
 
 ## 5. Regulatory Compliance & Safety Protocols
-- **OGRA Compliance**: Governed under the regulatory framework of the Oil & Gas Regulatory Authority (Pakistan). License: `OGRA/DL-7492/LHE`.
-- **Corporate Registration**: SECP Incorporation #`0248195`, NTN/STRN `9482710-3`.
+- **OGRA Compliance**: Governed under the regulatory safety standards of the Oil & Gas Regulatory Authority (Pakistan).
+- **Corporate Transparency**: Founder & Leading Web Developer: Muhammad Daniyal, Headquarters: Lahore, Pakistan.
 - **HDIP Fuel Testing**: Random batch testing verifying density, flashpoint, and sulfur levels against Euro-V criteria.
 - **NFPA 385 & 30A Standards**: Double-walled transport tanks, flame arrestors, certified vapor recovery systems, and Class-B fire suppression equipment aboard every refueler.
 - **Environmental Safeguard**: Positive shut-off nozzles preventing overfilling and zero-ground-spill containment trays.
@@ -130,7 +130,6 @@ A: The official Zyphuel Android app (v2.6.4.0.0.16, 31.6 MB) is available for di
 - **Android App Download (v2.6.4.0.0.16)**: https://zyphuel.netlify.app/download/
 - **Company Profile & Leadership**: https://zyphuel.netlify.app/about/
 - **Contact & 24/7 Helpline**: https://zyphuel.netlify.app/contact/
-- **HTML Sitemap Directory**: https://zyphuel.netlify.app/sitemap/
 - **XML Sitemap**: https://zyphuel.netlify.app/sitemap.xml
 - **Privacy Policy**: https://zyphuel.netlify.app/privacy/
 - **Terms of Use**: https://zyphuel.netlify.app/terms/

@@ -17,7 +17,7 @@ This document provides a comprehensive technical and functional catalog of all 1
 | 7 | **Blog Listing** | `/blog/` | `src/pages/BlogListPage.jsx` | Editorial catalog, category search, read times, featured articles | Yes (`dist/blog/index.html`) |
 | 8 | **Privacy Policy** | `/privacy/` | `src/pages/PrivacyPolicyPage.jsx` | Legal privacy terms, GPS data handling, user consent terms | Yes (`dist/privacy/index.html`) |
 | 9 | **Terms of Use** | `/terms/` | `src/pages/TermsOfUsePage.jsx` | Commercial conditions, COD rules (≤10L), safety disclaimers | Yes (`dist/terms/index.html`) |
-| 10 | **HTML Sitemap** | `/sitemap/` | `src/pages/HtmlSitemapPage.jsx` | Human-readable site index with categorized internal links | Yes (`dist/sitemap/index.html`) |
+| 10 | **HTML Sitemap (Retired)** | `/sitemap/` | Archived / Removed | Historical index decommissioned in Phase 14 in favor of XML sitemap | Removed |
 | 11 | **404 Not Found** | `/404.html` | `src/pages/NotFoundPage.jsx` | Error recovery view with quick navigation back to Home and Order | Yes (`dist/404.html`) |
 
 ---
@@ -115,11 +115,8 @@ This document provides a comprehensive technical and functional catalog of all 1
   - On-spot digital wallet acceptance terms (JazzCash, Easypaisa, NayaPay, Raast).
   - Delivery SLA disclaimers and safety compliance responsibilities for generator owners.
 
-### 10. HTML Sitemap Page (`/sitemap/`)
-- **Component**: `src/pages/HtmlSitemapPage.jsx`
-- **Key Sections**:
-  - Categorized list of all 17 public URLs across Main Pages, Services, Mobile App, Legal, and Educational Articles.
-  - Includes route URLs, descriptions, and dynamic links for both search engines and human visitors.
+### 10. HTML Sitemap Page (`/sitemap/` - Retired / Decommissioned)
+- **Status**: Removed in Phase 14 per user requirements; XML sitemap protocol at `/sitemap.xml` strictly handles search engine indexing.
 
 ### 11. 404 Not Found Page (`/404.html`)
 - **Component**: `src/pages/NotFoundPage.jsx`

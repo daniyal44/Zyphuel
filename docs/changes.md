@@ -22,6 +22,7 @@ timeline
     Phase 11 : Git Direct Push Automation & Permanent Divergence Resilience : Bulletproof Auto-Stash : Self-Healing Rebase : Conflict Auto-Resolution
     Phase 12 : Corporate Identity & Regulatory Credentials Alignment : Zyphuel Legal Entity : Founder & Leading Web Developer : Centralized Data
     Phase 13 : Dynamic Delivery Pricing, App Surge & Content Humanization : Fixed Rs. 280 (<=10L) + Dynamic Demand (11L-15L) : Surging App Demand UI : 100% Human Articles : Search Dominance
+    Phase 14 : Regulatory License Purge, Ticker Cleanup & HTML Sitemap Retirement : Cleaned Ticker : Decommissioned /sitemap/ : Retained Machine XML Sitemap
 ```
 
 ---
@@ -378,4 +379,36 @@ Aligned all corporate credentials, physical location indicators, executive title
   - Explained 15°C temperature compensation (ASTM D1250) in 45°C summer heat.
   - Aligned all delivery pricing references to fixed Rs. 280 for orders &le;10L and dynamic demand pricing for 11L–15L.
 
+---
 
+## Phase 14: Regulatory License Purge, Ticker Cleanup & HTML Sitemap Retirement
+
+### 14.1 Regulatory License & Registration Number Removal
+- **Problem**: Regulatory license numbers (`OGRA/DL-7492/LHE`, NTN `9482710-3`, SECP `0248195`) were displayed in invoice templates and metadata, causing unwanted exposure.
+- **Resolution**:
+  - Removed `ograLicense`, `ntnStrn`, and `secpIncorporation` from `src/data/companyInfo.js`.
+  - Removed `ntn`, `ograLicense`, and `secp` properties from invoice calculation payload in `src/pages/OrderPage.jsx`.
+  - Replaced regulatory credentials banner in print invoice template with official company identity (`Founder & Leading Web Developer: Muhammad Daniyal`, `Headquarters: Lahore, Pakistan`, `Contact: +92 3230-112464`, `Complaint Email: m.daniyalkhan490@gmail.com`).
+  - Updated DOM invoice modal header in `OrderPage.jsx` to clean corporate letterhead.
+  - Updated pure vector PDF invoice generator in `src/utils/generateInvoicePdf.js`.
+  - Purged license mentions from `src/data/articles.js` (Article 7), `public/llms.txt`, and `README.md`.
+
+### 14.2 Marquee Ticker Item Streamlining
+- **Problem**: Marquee ticker in `src/pages/OrderPage.jsx` contained unavailable items (`LPG Gas: Rs. 450.00/Kg Unavailable`, `Water Refill: Rs. 100.00/Gal Unavailable`) and duplicate delivery rate text (`Doorstep Delivery: Rs. 280.00 (≤10L Fixed) | Dynamic Demand (11L–15L)`).
+- **Resolution**:
+  - Completely removed LPG Gas, Water Refill, and Doorstep Delivery items from `price-ticker-track` in `OrderPage.jsx`.
+  - The live ticker now displays strictly active, available fuel grades:
+    1. Super Petrol (Premier Euro 5)
+    2. Diesel (Hi-Cetane Euro 5)
+    3. High-Octane (Euro 5)
+
+### 14.3 HTML Sitemap Route & Component Retirement (`/sitemap/`)
+- **Problem**: The dedicated `/sitemap/` HTML page (`src/pages/HtmlSitemapPage.jsx`) created an extra redundant page layer for users.
+- **Resolution**:
+  - Deleted component `src/pages/HtmlSitemapPage.jsx`.
+  - Removed `/sitemap` and `/sitemap/` route declarations from `src/App.jsx`.
+  - Removed HTML Sitemap link from `bottomLinks` in `src/components/footerData.js`.
+  - Pruned `/sitemap/` static pre-rendering from `prerender.js`.
+  - Removed `/sitemap` 301 redirect from `public/_redirects`.
+  - Removed `Allow: /sitemap/` directives from `public/robots.txt`.
+  - Preserved pure XML machine sitemap (`/sitemap.xml`) generated automatically by `prerender.js` for Google Search Console and Bing Webmaster indexing.

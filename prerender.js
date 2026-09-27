@@ -1010,37 +1010,6 @@ const ROUTES = [
     }
   },
   {
-    path: '/sitemap/',
-    outFile: 'dist/sitemap/index.html',
-    title: "HTML Sitemap | All Pages & Fuel Guides Directory | Zyphuel Lahore",
-    description: "Complete HTML sitemap directory of Zyphuel doorstep fuel delivery services, ordering portal, mobile app downloads, legal policies, and Lahore energy guides.",
-    keywords: "Zyphuel sitemap, fuel delivery pages Lahore, Zyphuel directory, doorstep diesel Lahore sitemap",
-    canonical: `${DOMAIN}/sitemap/`,
-    ogImage: `${DOMAIN}/images/logo.png`,
-    ogType: 'website',
-    schema: {
-      "@graph": [
-        WEBSITE_SCHEMA,
-        ORGANIZATION_SCHEMA,
-        LOCAL_BUSINESS_SCHEMA,
-        {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": `${DOMAIN}/` },
-            { "@type": "ListItem", "position": 2, "name": "HTML Sitemap", "item": `${DOMAIN}/sitemap/` }
-          ]
-        },
-        {
-          "@type": "WebPage",
-          "@id": `${DOMAIN}/sitemap/#webpage`,
-          "url": `${DOMAIN}/sitemap/`,
-          "name": "Zyphuel HTML Sitemap & Directory",
-          "description": "Comprehensive HTML sitemap directory indexing all public pages, services, legal policies, and blog fuel guides for Zyphuel Lahore."
-        }
-      ]
-    }
-  },
-  {
     path: '/404.html',
     outFile: 'dist/404.html',
     title: "Page Not Found (404) | Zyphuel",
@@ -1323,13 +1292,6 @@ async function prerender() {
         changefreq = 'daily'
         imageLoc = `${DOMAIN}/images/logo.png`
         imageTitle = 'Zyphuel Energy & Fuel Guides Blog'
-        imageCaption = 'Zyphuel authoritative energy guides, downstream pricing analysis, and mobile fueling research in Lahore.'
-      } else if (r.path === '/sitemap/') {
-        priority = '0.9'
-        changefreq = 'daily'
-        imageLoc = `${DOMAIN}/images/logo.png`
-        imageTitle = 'Zyphuel HTML Sitemap Directory'
-        imageCaption = 'Zyphuel HTML sitemap indexing all public services, order pages, and Lahore energy guides.'
       } else if (r.path.startsWith('/blog/') && r.path !== '/blog/') {
         priority = '0.8'
         changefreq = 'weekly'

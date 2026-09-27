@@ -93,7 +93,6 @@ export const footerData = {
   bottomLinks: [
     { label: 'Privacy Policy', to: '/privacy/' },
     { label: 'Terms of Use', to: '/terms/' },
-    { label: 'HTML Sitemap', to: '/sitemap/' },
   ],
   copyright: `© ${new Date().getFullYear()} Zyphuel Pakistan. All rights reserved.`,
 };

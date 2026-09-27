@@ -543,9 +543,6 @@ export default function OrderPage() {
       deliveryFee: deliveryFee,
       total: total,
       amountInWords: amountInWords,
-      ntn: '9482710-3',
-      ograLicense: 'OGRA/DL-7492/LHE',
-      secp: '0248195',
       securityHash: `ZYP-${id}-${Math.floor(Date.now() / 1000).toString(16).toUpperCase()}`,
       dispenserUnit: 'Bowser #04 (Positive Displacement Flow-Meter)',
       temperatureComp: '15°C Automatic Temperature Compensation (ATC)'
@@ -897,9 +894,9 @@ export default function OrderPage() {
     <div class="top-navy-bar">
       <div>
         <h1 class="brand-title">ZYPHUEL</h1>
-        <div class="brand-reg">GOVERNMENT OF PAKISTAN &bull; OGRA LICENSED PETROLEUM DISTRIBUTOR</div>
+        <div class="brand-reg">ON-DEMAND DOORSTEP FUEL DISPATCH SERVICE</div>
         <div class="brand-creds">
-          OGRA Lic: OGRA/DL-7492/LHE &bull; NTN / STRN: 9482710-3 &bull; SECP: 0248195<br>
+          Founder & Leading Web Developer: Muhammad Daniyal<br>
           Headquarters: Lahore, Pakistan &bull; Contact: +92 3230-112464 &bull; Complaint Email: m.daniyalkhan490@gmail.com
         </div>
       </div>
@@ -1053,21 +1050,6 @@ export default function OrderPage() {
                   <span className="ticker-bullet"></span>
                   High-Octane (Euro 5): <strong>Rs. {prices.highOctane.toFixed(2)}</strong>/L
                   <span className="price-up">Live <i className="fa-solid fa-caret-up"></i></span>
-                </div>
-                <div className="ticker-item">
-                  <span className="ticker-bullet"></span>
-                  LPG Gas: <strong>Rs. {prices.lpg.toFixed(2)}</strong>/Kg
-                  <span className="price-up" style={{ color: '#ef4444' }}>Unavailable</span>
-                </div>
-                <div className="ticker-item">
-                  <span className="ticker-bullet"></span>
-                  Water Refill: <strong>Rs. {prices.water.toFixed(2)}</strong>/Gal
-                  <span className="price-up" style={{ color: '#ef4444' }}>Unavailable</span>
-                </div>
-                <div className="ticker-item">
-                  <span className="ticker-bullet"></span>
-                  Doorstep Delivery: <strong>Rs. 280.00</strong> (&le;10L Fixed) | Dynamic Demand (11L–15L)
-                  <span className="price-up" style={{ color: '#10b981' }}>Live Rate <i className="fa-solid fa-truck-fast"></i></span>
                 </div>
               </div>
             ))}
@@ -2464,14 +2446,10 @@ export default function OrderPage() {
                     <h2 className="inv-title">ZYPHUEL</h2>
                   </div>
                   <div className="inv-gov-badge">
-                    GOVERNMENT OF PAKISTAN &bull; OGRA LICENSED PETROLEUM DISTRIBUTOR
+                    ON-DEMAND DOORSTEP FUEL DISPATCH SERVICE
                   </div>
                   <div className="inv-creds-strip">
-                    <span><strong>OGRA License:</strong> OGRA/DL-7492/LHE</span>
-                    <span>&bull;</span>
-                    <span><strong>NTN / STRN:</strong> 9482710-3</span>
-                    <span>&bull;</span>
-                    <span><strong>SECP Inc:</strong> 0248195</span>
+                    <span><strong>Founder &amp; Leading Web Developer:</strong> Muhammad Daniyal</span>
                   </div>
                   <p className="inv-address-line">
                     Headquarters: Lahore, Pakistan &bull; Contact: +92 3230-112464 &bull; Complaint Email: m.daniyalkhan490@gmail.com

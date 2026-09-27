@@ -1,16 +1,17 @@
-# HTML Sitemap Page Documentation (`/sitemap/`)
+# HTML Sitemap Page Documentation (`/sitemap/` - Retired / Removed)
 
-## 1. Overview & Purpose
-The **HTML Sitemap Page** (`/sitemap/`) is the central navigational directory of the Zyphuel web application. It exposes direct, search-engine-crawlable hyperlinks to all 16 canonical public pages, services, legal documents, and blog guides. Its primary objective is to eliminate orphan pages, maximize internal link equity distribution (PageRank), and accelerate comprehensive indexing across Google, Bing, and AI crawlers.
+> [!NOTE]
+> **Status: Retired / Removed on 2026-09-28**
+> The human-facing HTML sitemap (`/sitemap/`) was removed per user instruction. All search engine indexing and machine crawling are strictly handled by the canonical XML sitemap at [`/sitemap.xml`](https://zyphuel.netlify.app/sitemap.xml).
+
+## 1. Overview & Historical Purpose
+The **HTML Sitemap Page** (`/sitemap/`) previously served as an experimental navigational directory indexing public pages. In Phase 14, it was decommissioned to streamline application routes down to 17 core static pages, removing code weight and avoiding duplicate content paths.
 
 ---
 
-## 2. Technical Specifications
-- **Route**: `/sitemap` and `/sitemap/` (canonical: `https://zyphuel.netlify.app/sitemap/`)
-- **Component**: `src/pages/HtmlSitemapPage.jsx`
-- **SSG Pre-rendered Output**: `dist/sitemap/index.html`
-- **XML Sitemap Priority**: `0.9` (Change frequency: `daily`)
-- **Robots Directive**: `index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1`
+## 2. Technical Specifications (Archived)
+- **Status**: Decommissioned (Route removed from `App.jsx`, pre-rendering pruned from `prerender.js`, file `HtmlSitemapPage.jsx` deleted).
+- **Canonical Machine Sitemap**: `https://zyphuel.netlify.app/sitemap.xml` (Automated SSG sync).
 
 ---
 
@@ -49,6 +50,7 @@ The **HTML Sitemap Page** (`/sitemap/`) is the central navigational directory of
 ---
 
 ## 5. Changelog
+- **2026-09-28 (Removal & Retirement)**: Decommissioned HTML sitemap (`/sitemap/`): deleted `HtmlSitemapPage.jsx`, removed route from `App.jsx`, removed link from footer navigation, purged route from `prerender.js`, cleaned crawler directives from `robots.txt`, and eliminated redirect from `_redirects`.
 - **2026-09-27 (Privacy Consolidation)**: Removed raw phone number display `(+92 3230-112464)` from the Contact Helpline card description in `HtmlSitemapPage.jsx`, consolidating personal telephone exposure exclusively to `/contact/`.
 - **2026-09-27 (Phase 10: SEO/AEO/GEO)**: Added Flagship Research Article 7 (`/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/`) to `blogGuides` directory. Enhanced XML Sitemap generator with full Google Image extension metadata (`caption`, `geo_location`, `license`).
 - **2026-09-27**: Upgraded all three content section grids in `HtmlSitemapPage.jsx` (Core Services, Knowledge Guides, and Legal Compliance) from rigid `minmax(320px, 1fr)` to fluid `minmax(min(100%, 280px), 1fr)`, ensuring clean single-column wrapping without horizontal scrolling on ultra-compact mobile screens (320px–360px).

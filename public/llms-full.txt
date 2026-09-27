@@ -122,7 +122,6 @@ A: Customers can contact the 24/7 dispatch helpline directly via WhatsApp or pho
 - **Download Android APK (v2.6.4.0.0.16)**: https://zyphuel.netlify.app/download/
 - **About Zyphuel & Leadership**: https://zyphuel.netlify.app/about/
 - **Contact & 24/7 Helpline**: https://zyphuel.netlify.app/contact/
-- **HTML Sitemap Directory**: https://zyphuel.netlify.app/sitemap/
 - **XML Machine Sitemap**: https://zyphuel.netlify.app/sitemap.xml
 - **Privacy Policy**: https://zyphuel.netlify.app/privacy/
 - **Terms of Service**: https://zyphuel.netlify.app/terms/

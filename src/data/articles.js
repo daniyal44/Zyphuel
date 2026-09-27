@@ -698,7 +698,7 @@ export const articles = [
         heading: 'Safety Standards and Regulatory Approvals',
         subheading: 'Compliant with OGRA, Civil Defence, and NFPA 30A Rules',
         paragraphs: [
-          'Delivering motor fuel in residential neighborhoods, office complexes, and industrial areas requires strict adherence to safety standards. Zyphuel operates in full compliance with the Oil and Gas Regulatory Authority (OGRA License: OGRA/DL-7492/LHE), Punjab Civil Defence safety rules, and NFPA 30A and 385 motor fuel standards.',
+          'Delivering motor fuel in residential neighborhoods, office complexes, and industrial areas requires strict adherence to safety standards. Zyphuel operates in full compliance with Oil and Gas Regulatory Authority (OGRA) safety standards, Punjab Civil Defence safety rules, and NFPA 30A and 385 motor fuel standards.',
           'Each micro-refueler uses double-walled 316 stainless steel tanks fitted with internal baffles to control liquid movement during braking. Static electricity is grounded through heavy-duty bonding reels connected to the vehicle before dispensing begins. Our trucks also include emergency shutoff switches, spark-arresting exhaust systems, and dry-break safety couplings that seal immediately if a hose is pulled.'
         ]
       }

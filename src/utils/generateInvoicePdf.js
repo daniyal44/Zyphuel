@@ -97,12 +97,12 @@ export async function generateInvoicePdf(data) {
   doc.setFont('helvetica', 'bold')
   doc.setFontSize(7.5)
   doc.setTextColor(56, 189, 248) // cyan
-  doc.text('GOVERNMENT OF PAKISTAN • OGRA LICENSED PETROLEUM DISTRIBUTOR', margin + 8, margin + 17)
+  doc.text('ON-DEMAND DOORSTEP FUEL DISPATCH SERVICE', margin + 8, margin + 17)
 
   doc.setFont('helvetica', 'normal')
   doc.setFontSize(7)
   doc.setTextColor(203, 213, 225)
-  doc.text('OGRA License: OGRA/DL-7492/LHE  •  NTN / STRN: 9482710-3  •  SECP Inc: 0248195', margin + 8, margin + 21.5)
+  doc.text('Founder & Leading Web Developer: Muhammad Daniyal', margin + 8, margin + 21.5)
   doc.text('Headquarters: Lahore, Pakistan  •  Contact number: +92 3230-112464', margin + 8, margin + 25.5)
   doc.text('Official Website: https://zyphuel.netlify.app  •  Complaint Email: m.daniyalkhan490@gmail.com', margin + 8, margin + 29.5)
 

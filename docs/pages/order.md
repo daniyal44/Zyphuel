@@ -79,10 +79,10 @@
      - **Live 45-Minute Countdown Badge**: Displays active countdown (`Live Dispatch Countdown: 45m 00s`) right inside the post-order hero banner above the download buttons.
      - **Step 2 (WhatsApp Redirection)**: Upon downloading the PDF, triggers a 3-second animated auto-redirect countdown to WhatsApp Dispatch (`+92 3230-112464`) with an instant "Open WhatsApp Now" override and cancellation control. Customers can also click **"2. Proceed to WhatsApp Dispatch"** directly to transition without waiting.
 10. **Executive Corporate Tax Invoice & Pure Vector PDF Architecture**:
-    - **Government Regulatory Credentials**: Formal header bearing Government of Pakistan & OGRA Licensed Petroleum Distributor credentials:
-      - **OGRA License**: `OGRA/DL-7492/LHE`
-      - **NTN / STRN**: `9482710-3`
-      - **SECP Inc**: `0248195`
+    - **Corporate Credentials Header**: Formal letterhead with clean verified company identity:
+      - **Company Name**: `Zyphuel`
+      - **Founder & Leading Web Developer**: `Muhammad Daniyal`
+      - **Official Website**: `https://zyphuel.netlify.app`
       - **Headquarters**: `Lahore, Pakistan.`
       - **Contact number**: `+92 3230-112464`
       - **Complaint Email**: `m.daniyalkhan490@gmail.com`
@@ -146,12 +146,13 @@
    - **Live 45-Minute Countdown Badge**: Displays active countdown (`Live Dispatch Countdown: 45m 00s`) right inside the post-order hero banner above the download buttons.
    - **Step 2 (WhatsApp Redirection)**: Upon downloading the PDF, triggers a 3-second animated auto-redirect countdown to WhatsApp Dispatch (`+92 3230-112464`) with an instant "Open WhatsApp Now" override. Customers can also click **"2. Proceed to WhatsApp Dispatch"** directly to transition without waiting.
 2. **Executive Corporate Tax Invoice & Pure Vector PDF**:
-   - **Government Regulatory Credentials**: Formal header bearing Government of Pakistan & OGRA Licensed Petroleum Distributor credentials:
-     - **OGRA License**: `OGRA/DL-7492/LHE`
-     - **NTN / STRN**: `9482710-3`
-     - **SECP Inc**: `0248195`
-     - **Depot Hub**: `Lahore Central Hub #01 (75-Main Boulevard, Gulberg III, Lahore, Punjab)`
-     - **Support Desk**: Official Contact Desk (`/contact/`)
+   - **Corporate Credentials**: Formal header bearing verified corporate credentials:
+     - **Company**: `Zyphuel`
+     - **Founder & Leading Web Developer**: `Muhammad Daniyal`
+     - **Official Website**: `https://zyphuel.netlify.app`
+     - **Headquarters**: `Lahore, Pakistan.`
+     - **Contact**: `+92 3230-112464`
+     - **Complaint Email**: `m.daniyalkhan490@gmail.com`
    - **Telemetry Profile (2 Cards)**: Billed-To recipient details with **Refueling Target & Asset Identifier** alongside dispatch priority, metering standards (Positive Displacement ±0.01L Accuracy), and 15°C Automatic Temperature Compensation (ATC).
    - **5-Column Itemized Table**: `SR#`, `DESCRIPTION & FUEL SPECIFICATIONS`, `QUANTITY`, `UNIT RATE (PKR)`, and `TOTAL AMOUNT (PKR)`.
    - **Amount in Words Ledger**: Automatic conversion via `numberToWords(total)`.
@@ -169,6 +170,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-09-28** | **Regulatory License Number Purge & Ticker Item Streamlining**: Cleanly removed `OGRA/DL-7492/LHE`, NTN `9482710-3`, and SECP `0248195` from order invoice model, DOM invoice modal, print preview HTML, and vector PDF generator; purged unavailable LPG Gas, Water Refill, and Doorstep Delivery items from marquee ticker in `OrderPage.jsx`, leaving only active available fuels (Petrol, Diesel, High-Octane). | User requested: *"OGRA Distribution License: OGRA/DL-7492/LHE, NTN / STRN: 9482710-3, SECP Incorporation Number: 0248195, LPG Gas: Rs. 450.00 /Kg Unavailable, Water Refill: Rs. 100.00 /Gal Unavailable, Doorstep Delivery: Rs. 280.00 (≤10L Fixed) | Dynamic Demand (11L–15L), http://localhost:5173/sitemap/ is ko be remove karo"*. |
 | **2026-09-27** | **Invoice Letterhead & Corporate Credentials Alignment**: Standardized company name to **Zyphuel**, headquarters to **Lahore, Pakistan**, contact number to **+92 3230-112464**, and complaint email to **m.daniyalkhan490@gmail.com** across rendered DOM invoice, printable HTML, and vector PDF generator. | User's official corporate identity declaration. |
 | **2026-09-27** | **AEO Schema Integration & Speakable Markup for Voice Search**. Injected Schema.org `HowTo` structured data (`How to Order Petrol and Diesel Delivery Online in Lahore with Zyphuel`) into `prerender.js` and `index.html` across 4 explicit steps: fuel grade selection, target asset selection, volume limits (5L–15L), and address submission. Enhanced `SpeakableSpecification` targeting `.summary-text` and section titles. | Master international SEO, AEO, and GEO strategy for Google Featured Snippets and voice assistant querying (Google Assistant, Siri). |
 | **2026-09-27** | **Full Multi-Device Responsiveness System & Mobile Order Summary Preview Integration**. | User requested: *"order page responsive nai ha mobile ma"* and *"har page ko responsive karo har device ka mutabiq , min screem to large/extra large screen website ma jitne be pages ha website ma , un sab ko responsive bana do"*. Overhauled responsiveness in `OrderPage.jsx`: (1) Resolved horizontal overflow caused by `.stepper-wrap` minimum 432px constraint by adding `flex-wrap: wrap` and stacking `.stepper-delivery-badge` under 576px, (2) Upgraded Fuel Category Selector to fluid grid `repeat(auto-fit, minmax(min(100%, 130px), 1fr))`, (3) Refactored Refueling Target Selector and Payment Method grids with dynamic clamping, (4) Introduced `mobile-order-summary-preview` directly above the Truck Submit Button so mobile/tablet users (<992px) see their live order total before submission without scrolling past the form, (5) Optimized both Tracker Modal and Official Invoice Modal dialogs with touch-scrolling (`max-height: 92vh; overflow-y: auto`), horizontally scrollable 5-column billing table (`min-width: 440px`), and clean vertical stacking on `< 640px` screens. |

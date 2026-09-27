@@ -16,7 +16,6 @@ import TermsOfUsePage from './pages/TermsOfUsePage'
 import DownloadPage from './pages/DownloadPage'
 import BlogListPage from './pages/BlogListPage'
 import BlogArticlePage from './pages/BlogArticlePage'
-import HtmlSitemapPage from './pages/HtmlSitemapPage'
 import NotFoundPage from './pages/NotFoundPage'
 
 function ScrollToTop() {
@@ -61,8 +60,6 @@ function App() {
           <Route path="/blog/" element={<BlogListPage />} />
           <Route path="/blog/:slug" element={<BlogArticlePage />} />
           <Route path="/blog/:slug/" element={<BlogArticlePage />} />
-          <Route path="/sitemap" element={<HtmlSitemapPage />} />
-          <Route path="/sitemap/" element={<HtmlSitemapPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />

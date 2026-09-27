@@ -20,7 +20,6 @@ Allow: /privacy/
 Allow: /terms/
 Allow: /blog/
 Allow: /blog/*
-Allow: /sitemap/
 Allow: /images/
 Allow: /assets/
 Allow: /APK/
@@ -52,7 +51,6 @@ Allow: /privacy/
 Allow: /terms/
 Allow: /blog/
 Allow: /blog/*
-Allow: /sitemap/
 Allow: /assets/
 Allow: /images/
 Disallow: /404.html
@@ -85,7 +83,6 @@ Allow: /privacy/
 Allow: /terms/
 Allow: /blog/
 Allow: /blog/*
-Allow: /sitemap/
 Allow: /assets/
 Allow: /images/
 Disallow: /404.html

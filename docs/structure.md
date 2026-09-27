@@ -84,7 +84,6 @@ zyphuel-react/
 │   │   ├── ContactPage.jsx  # Hotline, contact form & Google Map
 │   │   ├── DownloadPage.jsx # Android APK download & setup guide
 │   │   ├── HomePage.jsx     # Hero video scroll, live ticker, quick order
-│   │   ├── HtmlSitemapPage.jsx # Comprehensive HTML sitemap
 │   │   ├── NotFoundPage.jsx # 404 error recovery view
 │   │   ├── OrderPage.jsx    # 5-step order form, invoice modal & tracker
 │   │   ├── PrivacyPolicyPage.jsx # GDPR & local privacy terms
