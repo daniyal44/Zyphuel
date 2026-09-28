@@ -5,7 +5,6 @@
 # Last Updated: 2026-09-27
 # ==============================================================================
 
-Host: https://zyphuel.netlify.app
 Sitemap: https://zyphuel.netlify.app/sitemap.xml
 
 # Default Crawl Rules for All Search Engine Bots
