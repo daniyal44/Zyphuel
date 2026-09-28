@@ -58,7 +58,7 @@
 ---
 
 ## Operational Parameters & Rules
-- **Headquarters**: 75-Main Boulevard, Gulberg III, Lahore.
+- **Headquarters**: .
 - **Service Focus**: On-demand mobile refueling for B2C vehicles and B2B generators / fleets.
 - **Startup Transparency Statement Rule**: Removed duplicate slogan pill from About hero per permanent memory rule (single persistent statement strictly on Home hero).
 - **Asset Versioning**: Integrated with `APP_VERSION` from `src/data/appVersion.js`.

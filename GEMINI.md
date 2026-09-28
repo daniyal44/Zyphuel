@@ -34,7 +34,6 @@
   - Monday – Thursday: 8:00 AM – 8:00 PM
   - Friday: 8:00 AM – 1:00 PM
   - Saturday – Sunday: 10:00 AM – 6:00 PM
-  - Fuel Delivery (24/7): Always Active
 - **Startup Identity**: Single persistent transparency statement on Home hero; never duplicated on child pages.
 - **Automated Dispatch & WhatsApp**: Direct WhatsApp pre-filled dispatch link to `+92 3230-112464`.
 

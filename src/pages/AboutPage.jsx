@@ -4,7 +4,6 @@ import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useSEO } from '../hooks/useSEO';
 import { aboutArticles } from '../data/aboutData';
 import { APP_VERSION } from '../data/appVersion';
-import Breadcrumbs from '../components/Breadcrumbs';
 import "./styles.css";
 
 const TOTAL_CARDS = 6;
@@ -181,8 +180,6 @@ export default function AboutPage() {
   return (
     <div ref={pageRef}>
       <main style={{ paddingTop: 'var(--nav-height)' }}>
-        <Breadcrumbs items={[{ label: 'About Us', path: '/about/' }]} />
-
         {/* Story Section */}
         <section id="about" className="about section-padding">
           <div className="container" style={{ maxWidth: '960px' }}>

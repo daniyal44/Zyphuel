@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
-import Breadcrumbs from '../components/Breadcrumbs'
 
 export default function ContactPage() {
   const pageRef = useScrollReveal()
@@ -61,7 +60,7 @@ export default function ContactPage() {
               "name": "How do I contact Zyphuel for urgent fuel dispatch in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For emergency fuel dispatch, message or call our 24/7 hotline at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app with our guaranteed SLA of Delivered: Within 45 Mins across Lahore."
+                "text": "For fuel dispatch inquiries, message or call our support team at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app during operating Working Hours."
               }
             },
             {
@@ -69,7 +68,7 @@ export default function ContactPage() {
               "name": "What are Zyphuel's customer support and delivery operating hours?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Our doorstep mobile refueling fleet operates 24 hours a day, 7 days a week, 365 days a year across all Lahore sectors. Corporate office and billing desk hours are Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, and Saturday–Sunday 10:00 AM–6:00 PM."
+                "text": "Our doorstep mobile refueling fleet and support services operate during official operating hours: Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, and Saturday–Sunday 10:00 AM–6:00 PM."
               }
             },
             {
@@ -77,7 +76,7 @@ export default function ContactPage() {
               "name": "Where is Zyphuel's corporate office located in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel's registered headquarters is located at 75-Main Boulevard, Gulberg III, Lahore, Pakistan. Corporate client visits and supplier consultations are held by appointment."
+                "text": "Zyphuel's registered headquarters is located at , Pakistan. Corporate client visits and supplier consultations are held by appointment."
               }
             },
             {
@@ -99,15 +98,15 @@ export default function ContactPage() {
   const contactFaqs = [
     {
       q: "How do I contact Zyphuel for urgent fuel dispatch in Lahore?",
-      a: "For emergency fuel dispatch, message or call our 24/7 hotline at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app for rapid bowser arrival within 45 minutes across Lahore."
+      a: "For fuel dispatch inquiries, message or call our support team at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app during operating Working Hours."
     },
     {
       q: "What are Zyphuel’s customer support and delivery operating hours?",
-      a: "Our doorstep mobile refueling fleet operates 24 hours a day, 7 days a week, 365 days a year across all Lahore sectors. Corporate office and billing desk hours are Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, and Saturday–Sunday 10:00 AM–6:00 PM."
+      a: "Our doorstep mobile refueling fleet and support services operate during official operating hours: Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, and Saturday–Sunday 10:00 AM–6:00 PM."
     },
     {
       q: "Where is Zyphuel’s corporate office located in Lahore?",
-      a: "Zyphuel’s registered headquarters is located at 75-Main Boulevard, Gulberg III, Lahore, Pakistan. Corporate client visits and supplier consultations are held by appointment."
+      a: "Zyphuel’s registered headquarters is located at , Pakistan. Corporate client visits and supplier consultations are held by appointment."
     },
     {
       q: "Can corporate clients setup bulk commercial credit accounts?",
@@ -249,7 +248,6 @@ ${form.message.trim()}`
       <main style={{ paddingTop: 'var(--nav-height)' }}>
         <section id="contact" className="contact section-padding">
           <div className="container">
-            <Breadcrumbs items={[{ label: 'Contact', path: '/contact/' }]} />
             <div className="section-header fade-in-up">
               <h1 className="section-title">Contact Zyphuel</h1>
               <p className="section-subtitle">Reach out for bulk inquiries, fleet accounts, tech support, or media relations. Our team responds within hours.</p>
@@ -278,13 +276,12 @@ ${form.message.trim()}`
                 <div className="contact-item" style={{ borderTop: '1px solid var(--border-color)', paddingTop: '20px' }}>
                   <div className="contact-icon"><i className="fa-solid fa-clock"></i></div>
                   <div className="contact-text" style={{ width: '100%' }}>
-                    <h4>Office Hours</h4>
+                    <h4>Working Hours</h4>
                     <table className="hours-table">
                       <tbody>
                         <tr><td>Monday – Thursday</td><td>8:00 AM – 8:00 PM</td></tr>
                         <tr><td>Friday</td><td>8:00 AM – 1:00 PM</td></tr>
                         <tr><td>Saturday – Sunday</td><td>10:00 AM – 6:00 PM</td></tr>
-                        <tr><td>Delivery (24/7)</td><td style={{ color: 'var(--success-mint)' }}>Always Active</td></tr>
                       </tbody>
                     </table>
                   </div>
@@ -452,7 +449,7 @@ ${form.message.trim()}`
                     referrerPolicy="no-referrer-when-downgrade"
                   ></iframe>
                 </div>
-                <p className="map-caption"><i className="fa-solid fa-location-dot" style={{ color: 'var(--accent-color)' }}></i> 75-Main Boulevard, Gulberg III, Lahore</p>
+                <p className="map-caption"><i className="fa-solid fa-location-dot" style={{ color: 'var(--accent-color)' }}></i> </p>
               </div>
             </div>
           </div>

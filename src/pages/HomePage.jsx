@@ -617,7 +617,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Operating & Office Hours Section */}
+      {/* Operating & Working Hours Section */}
       <section className="operating-hours-section" style={{ padding: '0 0 70px 0' }}>
         <div className="container">
           <div className="operating-hours-card fade-in-up" style={{
@@ -649,13 +649,13 @@ export default function HomePage() {
                 marginBottom: '14px'
               }}>
                 <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981' }}></span>
-                24/7 Delivery Active
+                Operating Schedule
               </div>
               <h3 style={{ fontSize: '1.65rem', fontWeight: 800, color: '#ffffff', marginBottom: '10px' }}>
-                Zyphuel Operating &amp; Office Hours
+                Zyphuel Operating &amp; Working Hours
               </h3>
               <p style={{ color: '#94a3b8', fontSize: '0.92rem', lineHeight: '1.6', marginBottom: '20px' }}>
-                Corporate support and billing inquiries are handled during official office hours, while our <strong>doorstep fuel delivery fleet operates 24 hours a day, 7 days a week</strong> across all Lahore sectors.
+                Corporate support, customer service, and doorstep fuel delivery orders are processed during working hours across all Lahore sectors.
               </p>
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 <Link to="/order/" className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
@@ -671,7 +671,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right: Office Hours Schedule Card */}
+            {/* Right: Working Hours Schedule Card */}
             <div style={{
               background: 'rgba(255, 255, 255, 0.04)',
               border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -690,7 +690,7 @@ export default function HomePage() {
                 borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
                 paddingBottom: '10px'
               }}>
-                <i className="fa-solid fa-clock"></i> Office &amp; Delivery Timings
+                <i className="fa-solid fa-clock"></i> Working Hours &amp; Timings
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '8px' }}>
@@ -701,27 +701,9 @@ export default function HomePage() {
                   <span style={{ color: '#cbd5e1' }}>Friday</span>
                   <strong style={{ color: '#ffffff' }}>8:00 AM – 1:00 PM</strong>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span style={{ color: '#cbd5e1' }}>Saturday – Sunday</span>
                   <strong style={{ color: '#ffffff' }}>10:00 AM – 6:00 PM</strong>
-                </div>
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  padding: '10px 14px',
-                  background: 'rgba(16, 185, 129, 0.12)',
-                  borderRadius: '10px',
-                  border: '1px solid rgba(16, 185, 129, 0.3)',
-                  marginTop: '4px'
-                }}>
-                  <span style={{ color: '#ffffff', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <i className="fa-solid fa-truck-fast" style={{ color: '#10b981' }}></i> Delivery (24/7)
-                  </span>
-                  <strong style={{ color: '#10b981', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 8px #10b981' }}></span>
-                    Always Active
-                  </strong>
                 </div>
               </div>
             </div>

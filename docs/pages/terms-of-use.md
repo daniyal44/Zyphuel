@@ -50,5 +50,5 @@
 | **2026-09-22** | Unified delivery fee to flat **Rs. 280.00** (+Rs. 100 urgent surcharge, Total Rs. 380), defined strict **5L Min to 15L Max** doorstep capacity limit, and purged all 50L references. | User requested delivery fee update, complete purge of 50L mentions, removal of • Min tag, and 15L max volume documentation. |
 | **2026-09-17** | Updated standard delivery fee term from Rs. 250 to **Rs. 280** for sub-50L fuel orders. | Reflected nationwide fuel price increase in legal terms of use and checkout disclosure. |
 | **2026-09-13** | Synchronized delivery pricing terms (min 5L, Rs. 150 standard fee, Rs. 100 urgent surcharge). | Align legal agreement with live checkout pricing and fee rules. |
-| **2026-09-13** | Added standardized Office Hours and 24/7 Delivery disclosures to Section 8. | Complete schedule transparency across legal pages. |
+| **2026-09-13** | Added standardized Working Hours and 24/7 Delivery disclosures to Section 8. | Complete schedule transparency across legal pages. |
 | **2026-08-25** | Initial publication of the Terms of Use. | Establish contractual baseline for Lahore fuel delivery. |

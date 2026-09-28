@@ -77,11 +77,6 @@ export const footerData = {
     'Aziz Bhatti Town',
     'Data Gunj Bakhsh Town',
   ],
-  expansion: {
-    showAlert: true,
-    text: 'Launching micro-hubs in Rawalpindi, Islamabad, and Karachi shortly.',
-    badge: 'Islamabad Coming Soon',
-  },
   fuelGuides: [
     { label: 'OGRA Daily Fuel Pricing Reform', to: '/blog/future-of-fuel-delivery-lahore/' },
     { label: 'Zyphuel APK Setup & Install Guide', to: '/blog/download-zyphuel-apk-guide/' },

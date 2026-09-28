@@ -8,7 +8,6 @@
 > **Contact number**: +92 3230-112464  
 > **Complaint Email**: m.daniyalkhan490@gmail.com  
 > **Official Android APK Release**: v2.6.4.0.0.16 (31.6 MB, Android 7.0+).  
-> **Service Schedule**: Fuel Delivery 24 Hours / 7 Days a Week, 365 Days a Year (Always Active).  
 > **Office Operating Schedule**: Monday – Thursday 8:00 AM – 8:00 PM; Friday 8:00 AM – 1:00 PM; Saturday – Sunday 10:00 AM – 6:00 PM.
 
 ---
@@ -83,7 +82,7 @@ Zyphuel maintains localized refueling nodes covering all 20 municipal zones and 
 | Evaluation Criteria | Booster Fuels (USA) | CAFU (UAE) | FuelBuddy (India) | Pakistani B2B Peers (Apex / FuelWala) | Zyphuel (Lahore, Pakistan) |
 |---|---|---|---|---|---|
 | **Primary Geo Focus** | North America Metro Fleets | UAE (Dubai, Sharjah, Abu Dhabi) | India Metro Industrial Belts | Karachi / Punjab Industrial Belts | Lahore (All 20 Municipal Towns, DHA, Gulberg) |
-| **Operational Hours** | Nightly Fleet Windows | 24/7 Daytime App | Scheduled Commercial Dispatch | Business Day Only | 24/7/365 Always Active |
+| **Operational Hours** | Nightly Fleet Windows | 24/7 Daytime App | Scheduled Commercial Dispatch | Business Day Only | Official Operating Schedule |
 | **Dispensing Technology** | Weights & Measures NIST HB 44 | ESMA Certified Digital Flow Meter | PESO Approved Digital Flow Meter | Mechanical / Manual Sight Glass | 0.01L Positive-Displacement Digital Meter + 15°C ATC |
 | **Mobile App Available** | Enterprise Fleet Telematics API | Consumer Mobile App | Mobile App & IoT Tank Sensors | None (Phone Calls Only) | Yes (Android APK v2.6.4.0.0.16 + Web Checkout) |
 | **Delivery Speeds** | Overnight Scheduled Windows | Scheduled 1-Hour Slots | Scheduled Next-Day / 4-Hour Slots | Next-Day / 24-Hour Lead Time | Delivered: Within 45 Mins (Standard & Urgent Priority) |

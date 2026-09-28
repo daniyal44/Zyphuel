@@ -12,7 +12,7 @@
 - **Page Title**: `Doorstep Fuel Delivery in Lahore | Fast Petrol & Diesel | Zyphuel`
 - **Meta Description**: `Order certified Euro-V petrol, diesel, and generator fuel delivered directly to your doorstep in Lahore within 45 minutes. Calibrated digital flow meters, OGRA rates, and live GPS tracking.`
 - **Schema Type**: `LocalBusiness` / `OfferCatalog` / `PostalAddress`
-  - Address: 75-Main Boulevard, Gulberg III, Lahore, Punjab 54000, PK
+  - Address: , Punjab 54000, PK
   - Coordinates: Latitude `31.507534`, Longitude `74.334949`
   - Founder: Muhammad Daniyal (Founder & CEO)
   - Helpline / Phone: `+92 3230-112464`
@@ -59,7 +59,7 @@
      - **Monday – Thursday**: 8:00 AM – 8:00 PM
      - **Friday**: 8:00 AM – 1:00 PM
      - **Saturday – Sunday**: 10:00 AM – 6:00 PM
-     - **Delivery (24/7)**: Always Active (Green active glowing indicator)
+     - **Delivery**: Active (Operating Hours) (Green active glowing indicator)
 
 7. **Featured Blog / Guides Section**:
    - Categorized article cards with instant modal preview and deep links to `/blog/`.
@@ -97,7 +97,7 @@
 | **2026-09-16** | Removed top tech bar and vertical navigation dots overlay. | User requested: *"Zyphuel 3D Refueling Sequence, 001 / 300, Skip Intro, Purity, Containment, Calibration, Delivery ya show nai hone chaye... isko remove karne sa scroll animation per koi farak na pare"*. Kept scroll animation, 650vh track, lerp easing, and preloader 100% intact. |
 | **2026-09-16** | Upgraded Scroll Animation into full Apple-style Cinematic Scrollytelling build-up. | User requested proper pacing and presentation (*"proper build up do... ache se represent karo"*). Expanded track to 650vh with 60fps RAF lerp easing, 4 glassmorphic narrative stages (Purity, Containment, Calibration, Delivery), interactive milestone dots, and seamless gradient exit. |
 | **2026-09-15** | Configured Startup Transparency box to appear strictly once per day. | User requested: *"Startup Transparency... one time in a day show hona chaye bar bar nai"*. Added date-based `localStorage` check (`zyphuel_transparency_last_date`) and dismiss button (`×`). |
-| **2026-09-13** | Added dedicated Office Hours & 24/7 Delivery schedule box. | User requested explicit office timings (Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm, Delivery 24/7 Always Active) on Home page. |
+| **2026-09-13** | Added dedicated Working Hours & 24/7 Delivery schedule box. | User requested explicit office timings (Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm, Delivery 24/7 Active (Operating Hours)) on Home page. |
 | **2026-09-13** | Maintained single Startup Transparency box exclusively on Home hero. | User instructed to keep startup transparency notice visible once without repeating across subsequent screens. |
 | **2026-09-13** | Left-to-Right price ticker animation added and synced. | User requested dynamic left-to-right marquee movement for fuel rates. |
 | **2026-09-10** | Integrated 3D bowser showcase and enhanced mobile responsive grid. | Elevate visual experience and brand credibility. |

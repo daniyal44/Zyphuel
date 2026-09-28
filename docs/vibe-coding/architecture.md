@@ -53,5 +53,5 @@
    - Monday – Thursday: 8:00 AM – 8:00 PM
    - Friday: 8:00 AM – 1:00 PM
    - Saturday – Sunday: 10:00 AM – 6:00 PM
-   - Fuel Delivery (24/7): Always Active round-the-clock
+   - Fuel Delivery: Active (Operating Hours) round-the-clock
 6. **Transparency Identity**: Persistent honest statement on Home hero; never repeated on subpages.

@@ -7,7 +7,6 @@
 > **Contact number**: +92 3230-112464  
 > **Complaint Email**: m.daniyalkhan490@gmail.com  
 > **Official Android APK Version**: v2.6.4.0.0.16 (31.6 MB, Android 7.0+).  
-> **Service Schedule**: Fuel Delivery 24 Hours / 7 Days a Week, 365 Days a Year (Always Active).  
 > **Office Operating Hours**: Monday – Thursday 8:00 AM – 8:00 PM; Friday 8:00 AM – 1:00 PM; Saturday – Sunday 10:00 AM – 6:00 PM.
 
 ---
@@ -116,7 +115,7 @@ A: While CAFU (UAE) focuses primarily on passenger vehicles and Booster (USA) fo
 A: Yes. Zyphuel operates a 24/7 dedicated generator refueling service for residential homes, hospitals, data centers, IT plazas, and industrial facilities with 50-meter heavy-duty fuel hoses to reach rooftop, basement, and courtyard generator tanks.
 
 **Q: What are Zyphuel's office operating hours?**  
-A: Zyphuel headquarters office hours are Monday to Thursday 8:00 AM – 8:00 PM; Friday 8:00 AM – 1:00 PM; Saturday to Sunday 10:00 AM – 6:00 PM. Doorstep fuel delivery operations are 24/7 Always Active.
+A: Zyphuel headquarters Working Hours are Monday to Thursday 8:00 AM – 8:00 PM; Friday 8:00 AM – 1:00 PM; Saturday to Sunday 10:00 AM – 6:00 PM. Doorstep fuel delivery orders are accepted and scheduled during these operational hours.
 
 **Q: Where can I download the Zyphuel mobile app?**  
 A: The official Zyphuel Android app (v2.6.4.0.0.16, 31.6 MB) is available for direct secure download at https://zyphuel.netlify.app/download/ featuring live GPS bowser tracking, biometric checkout, and instant WhatsApp dispatch.

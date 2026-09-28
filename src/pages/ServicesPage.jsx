@@ -15,7 +15,6 @@ import {
 import { APP_VERSION } from '../data/appVersion'
 import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
-import Breadcrumbs from '../components/Breadcrumbs'
 
 export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState('consumer')
@@ -164,8 +163,6 @@ export default function ServicesPage() {
   return (
     <div ref={pageRef}>
       <main style={{ paddingTop: 'var(--nav-height)' }}>
-        <Breadcrumbs items={[{ label: 'Services', path: '/services/' }]} />
-
         {/* Hero Section */}
         <section className="services-hero">
           <div className="container">

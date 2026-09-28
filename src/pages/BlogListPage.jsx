@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { articles } from '../data/articles'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
-import Breadcrumbs from '../components/Breadcrumbs'
 
 export default function BlogListPage() {
   const [activeFilter, setActiveFilter] = useState('All')
@@ -26,7 +25,6 @@ export default function BlogListPage() {
     <div ref={pageRef}>
       <section className="blog-section section-padding">
         <div className="container">
-          <Breadcrumbs items={[{ label: 'Blog', path: '/blog/' }]} />
           <div className="blog-header fade-in-up">
             <h1 className="section-title">Zyphuel Blog &amp; Fuel Guides</h1>
             <p className="section-subtitle">

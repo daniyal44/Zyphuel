@@ -42,7 +42,7 @@ This document defines the immutable business rules, operational constants, and a
 ## 2. Operational Invariants & Operating Hours
 
 ### 2.1 Service Availability
-- **Doorstep Fuel Delivery (24/7)**: Operating 24 hours a day, 7 days a week, 365 days a year across Lahore (including public holidays and extreme weather).
+- **Doorstep Fuel Delivery**: Operating 24 hours a day, 7 days a week, 365 days a year across Lahore (including public holidays and extreme weather).
 - **Physical Office & Customer Support**:
   - Monday – Thursday: 8:00 AM – 8:00 PM
   - Friday: 8:00 AM – 1:00 PM

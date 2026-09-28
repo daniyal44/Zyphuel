@@ -1673,7 +1673,7 @@ textarea.form-control {
     color: var(--text-secondary);
 }
 
-/* Office hours table */
+/* Working Hours table */
 .hours-table {
     width: 100%;
     border-collapse: collapse;

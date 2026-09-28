@@ -34,7 +34,7 @@
 - [x] Perspective 3D cards highlighting leadership (Founder Muhammad Daniyal, Sales Manager Adil Farooq).
 - [x] Dedicated Android APK download page (`/download/`) with direct link to `zyphuel-v2.0.4.apk` (12.4 MB).
 
-## Phase 6 — Operational Office Hours & Delivery Fee Calibration
+## Phase 6 — Operational Working Hours & Delivery Fee Calibration
 **Goal:** Transparent business operations and realistic delivery unit economics.
 - [x] Office operating hours schedule card added to Home, Contact, Privacy, and Terms pages.
 - [x] Simple delivery fee calibrated to flat Rs. 280 for doorstep orders due to nationwide fuel price hikes.

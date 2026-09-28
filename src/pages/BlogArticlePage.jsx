@@ -4,7 +4,6 @@ import { articles } from '../data/articles'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useToast } from '../context/ToastContext'
-import Breadcrumbs from '../components/Breadcrumbs'
 import ReadingProgressBar from '../components/ReadingProgressBar'
 import { APP_VERSION } from '../data/appVersion'
 
@@ -106,13 +105,6 @@ export default function BlogArticlePage() {
     <div ref={pageRef}>
       <ReadingProgressBar />
       <article className="section-padding" style={{ maxWidth: '880px', margin: '0 auto', padding: '2rem 1.5rem' }}>
-        <Breadcrumbs
-          items={[
-            { label: 'Blog', path: '/blog/' },
-            { label: article.title, path: `/blog/${slug}/` }
-          ]}
-        />
-
         {/* Back Link */}
         <Link to="/blog/" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', textDecoration: 'none', marginBottom: '1.5rem', fontSize: '0.95rem', fontWeight: 600 }} className="fade-in-up">
           <i className="fa-solid fa-arrow-left"></i> Back to All Articles

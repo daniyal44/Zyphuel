@@ -5,8 +5,7 @@ import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
 import { FUEL_PRICES } from '../data/fuelPrices'
-import { generateInvoicePdf, numberToWords } from '../utils/generateInvoicePdf'
-import { generateBarcodeSvg, generateQrSvg } from '../utils/barcode128'
+import { checkOfficeHours, OFFICE_HOURS_SCHEDULE } from '../utils/officeHours'
 
 const FUEL_DISPLAY = {
   petrol: 'Petrol',
@@ -163,7 +162,6 @@ export default function OrderPage() {
   const pageRef = useScrollReveal()
   const { showToast } = useToast()
   const location = useLocation()
-  const trackingIntervalRef = useRef(null)
   const isSubmittingRef = useRef(false)
   const truckBtnRef = useRef(null)
 
@@ -215,28 +213,24 @@ export default function OrderPage() {
   // Tracker modal
   const [trackerOpen, setTrackerOpen] = useState(false)
   const [trackerOrderId, setTrackerOrderId] = useState('')
-  const [trackerEta, setTrackerEta] = useState('45 Mins')
-  const [trackerProgress, setTrackerProgress] = useState(0)
   const [generatedWaUrl, setGeneratedWaUrl] = useState('')
-  const [trackerSteps, setTrackerSteps] = useState([
-    { status: 'active', title: 'Order Confirmed & Depot Assigned', desc: 'Your payment method and location are validated.' },
-    { status: '', title: 'Fuel Dispatched & En Route', desc: 'Tanker is routing to your address from the nearest hub.' },
-    { status: '', title: 'Delivered & Calibrated', desc: 'Fuel tank filled and calibrated flow receipt generated.' },
-  ])
 
-  // Active Order Persistence, Anti-Spam Cooldown & Live Countdown Timer
+  // Active Order Persistence
   const [activeOrder, setActiveOrder] = useState(null)
-  const [showCooldownModal, setShowCooldownModal] = useState(false)
-  const [remainingEtaSeconds, setRemainingEtaSeconds] = useState(0)
-  const [countdownText, setCountdownText] = useState('')
-
-  // Official Digital Invoice Modal & PDF Download Flow
-  const [invoiceOpen, setInvoiceOpen] = useState(false)
-  const [invoiceData, setInvoiceData] = useState(null)
-  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false)
-  const [waRedirectCountdown, setWaRedirectCountdown] = useState(null)
-  const [isNewOrderJustPlaced, setIsNewOrderJustPlaced] = useState(false)
   const [verifiedOrderParam, setVerifiedOrderParam] = useState(null)
+
+  // Working Hours validation state
+  const [showOfficeHoursMismatchModal, setShowOfficeHoursMismatchModal] = useState(false)
+  const [officeStatus, setOfficeStatus] = useState(() => checkOfficeHours())
+
+  // Periodically refresh office status
+  useEffect(() => {
+    setOfficeStatus(checkOfficeHours())
+    const interval = setInterval(() => {
+      setOfficeStatus(checkOfficeHours())
+    }, 60000)
+    return () => clearInterval(interval)
+  }, [])
 
   // Listen for QR code verification scan URL (?verify=ZYP-XXXXXX or ?order=ZYP-XXXXXX)
   useEffect(() => {
@@ -325,103 +319,20 @@ export default function OrderPage() {
     }
   }, []) // eslint-disable-line
 
-  // Restore Active Order & Live Countdown from localStorage
+  // Restore Active Order from localStorage
   useEffect(() => {
     try {
       const storedActive = localStorage.getItem('zyphuel_active_order')
       if (storedActive) {
         const order = JSON.parse(storedActive)
-        const elapsedSeconds = Math.floor((Date.now() - order.placedAt) / 1000)
-        const durationMinutes = order.durationMinutes || 45
-        const totalDurationSeconds = durationMinutes * 60
-        const remaining = totalDurationSeconds - elapsedSeconds
-
-        if (order.status !== 'delivered' && remaining > 0) {
-          setActiveOrder(order)
-          setRemainingEtaSeconds(remaining)
-          const mins = Math.floor(remaining / 60)
-          const secs = remaining % 60
-          const formattedEta = mins > 0 ? `${mins}m ${secs < 10 ? '0' : ''}${secs}s` : `${secs}s`
-          setCountdownText(formattedEta)
-          if (order.invoiceData) setInvoiceData(order.invoiceData)
-          if (order.waUrl) setGeneratedWaUrl(order.waUrl)
-          setTrackerOrderId(`ORDER #${order.orderId}`)
-        } else if (order.status === 'delivered') {
-          setActiveOrder(order)
-          if (order.invoiceData) setInvoiceData(order.invoiceData)
-        }
+        setActiveOrder(order)
+        if (order.waUrl) setGeneratedWaUrl(order.waUrl)
+        setTrackerOrderId(`ORDER #${order.orderId}`)
       }
     } catch (e) {
       console.warn('Could not restore zyphuel_active_order:', e)
     }
   }, [])
-
-  // Live Second-by-Second Countdown for Active Order
-  useEffect(() => {
-    if (!activeOrder || activeOrder.status === 'delivered') return
-    const timer = setInterval(() => {
-      const elapsedSeconds = Math.floor((Date.now() - activeOrder.placedAt) / 1000)
-      const durationMinutes = activeOrder.durationMinutes || 45
-      const totalDurationSeconds = durationMinutes * 60
-      const remaining = Math.max(0, totalDurationSeconds - elapsedSeconds)
-      setRemainingEtaSeconds(remaining)
-
-      const mins = Math.floor(remaining / 60)
-      const secs = remaining % 60
-      const formattedEta = mins > 0 ? `${mins}m ${secs < 10 ? '0' : ''}${secs}s` : `${secs}s`
-      setCountdownText(formattedEta)
-
-      if (remaining > 0) {
-        setTrackerEta(`~${mins + 1} Mins Remaining (Within 45 Mins)`)
-      } else {
-        setTrackerEta('Arrived at Destination!')
-        setTrackerProgress(100)
-        setDeliveryPhase('delivered')
-        const updated = { ...activeOrder, status: 'delivered' }
-        setActiveOrder(updated)
-        try {
-          localStorage.setItem('zyphuel_active_order', JSON.stringify(updated))
-        } catch (e) {}
-      }
-    }, 1000)
-
-    return () => clearInterval(timer)
-  }, [activeOrder])
-
-  // Smooth WhatsApp auto-redirect countdown after PDF download
-  useEffect(() => {
-    if (waRedirectCountdown === null) return
-    if (waRedirectCountdown > 0) {
-      const t = setTimeout(() => {
-        setWaRedirectCountdown(prev => (prev > 0 ? prev - 1 : 0))
-      }, 1000)
-      return () => clearTimeout(t)
-    } else if (waRedirectCountdown === 0) {
-      if (generatedWaUrl) {
-        try {
-          window.open(generatedWaUrl, '_blank')
-        } catch (err) {
-          console.warn('Could not auto-open WhatsApp:', err)
-        }
-      }
-      setWaRedirectCountdown(null)
-    }
-  }, [waRedirectCountdown, generatedWaUrl])
-
-  const handleCancelWaRedirect = () => {
-    setWaRedirectCountdown(null)
-  }
-
-  const handleOpenWhatsAppNow = () => {
-    setWaRedirectCountdown(null)
-    if (generatedWaUrl) {
-      try {
-        window.open(generatedWaUrl, '_blank')
-      } catch (err) {
-        console.warn('Could not open WhatsApp:', err)
-      }
-    }
-  }
 
   // Quantity sync helpers (Increments default +1 unit, minimum fuel 5L, maximum fuel 15L)
   const syncFuelQty = (val) => {
@@ -461,15 +372,23 @@ export default function OrderPage() {
     return Object.keys(newErrors).length === 0
   }
 
-  // Tracker simulation & WhatsApp Redirect
+  // Tracker modal & WhatsApp Redirect
   const startTracking = (orderName, isAdditional = false) => {
     const id = 'ZYP-' + Math.floor(100000 + Math.random() * 900000)
     setTrackerOrderId(`ORDER #${id}`)
-    
-    const durationMinutes = 45
-    setTrackerEta('~45 Mins Remaining (Within 45 Mins)')
-    setRemainingEtaSeconds(durationMinutes * 60)
-    setCountdownText(`${durationMinutes}m 00s`)
+
+    const now = new Date()
+    const orderTimeStr = now.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    })
+    const orderDateStr = now.toLocaleDateString('en-PK', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric'
+    })
+    const fullOrderDateTime = `${orderDateStr}, ${orderTimeStr}`
 
     const appConfig = DELIVERY_APPLICATION_CONFIG[deliveryApplication] || DELIVERY_APPLICATION_CONFIG.car
     const appLabel = `${appConfig.shortLabel}${assetIdentifier ? ` (${assetIdentifier})` : ''}`
@@ -479,87 +398,18 @@ export default function OrderPage() {
     ]
     const itemsDesc = itemsList.join(' + ')
 
-    const dispatchTitle = `${FUEL_DISPLAY[selectedFuelType]} Dispatched`
-
-    // Initial Stage 1: Order Confirmed, loading depot
-    setTrackerSteps([
-      { 
-        status: 'active', 
-        title: 'Order Confirmed & Depot Assigned', 
-        desc: `Validation complete for ${orderName || name || 'Customer'}. Assigned to Lahore Hub #01. Bowser queue scheduled.` 
-      },
-      { 
-        status: '', 
-        title: `${dispatchTitle} En Route`, 
-        desc: `Bowser carrying ${fuelQty}L of ${FUEL_DISPLAY[selectedFuelType]} for ${appLabel} to ${address || 'your address'}. Dispatch Window: Within 45 Mins.` 
-      },
-      { 
-        status: '', 
-        title: 'Delivered & Calibrated', 
-        desc: `Awaiting arrival at destination. 0.01L calibrated meter refueling and tamper-proof printed receipt.` 
-      },
-    ])
-    setTrackerProgress(20)
-    setTrackerOpen(true)
-
-    // Generate Official Digital Invoice
-    const now = new Date()
-    const formattedDate = now.toLocaleDateString('en-PK', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric'
-    }) + ', ' + now.toLocaleTimeString('en-PK', {
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true
-    })
-
-    const amountInWords = numberToWords(total)
-
-    const inv = {
-      orderId: id,
-      date: formattedDate,
-      customerName: orderName || name || 'Valued Customer',
-      phone: phone || 'Not provided',
-      email: email || 'Not provided',
-      address: address || 'Lahore, Pakistan',
-      deliverySpeed: fuelQty > 10 ? 'Dynamic Demand Dispatch (Within 45 Mins)' : 'Standard Dispatch (Within 45 Mins)',
-      paymentMethod: isCodEligible
-        ? 'Cash on Delivery (COD) / Instant Wallet (JazzCash, Easypaisa, NayaPay)'
-        : 'Advance Digital Payment (JazzCash, Easypaisa, NayaPay, Bank)',
-      isUrgent: false,
-      deliveryApplication: appConfig.label,
-      assetIdentifier: assetIdentifier || 'Standard Direct Fill',
-      items: [
-        {
-          title: `Euro-V ${FUEL_DISPLAY[selectedFuelType]} [${appConfig.shortLabel}]`,
-          detail: `Refueling Target: ${appConfig.label}${assetIdentifier ? ` (${assetIdentifier})` : ''} • 0.01L Calibrated Flow-Meter`,
-          qty: `${fuelQty} Litres`,
-          rate: `Rs. ${fuelRate.toFixed(2)}/L`,
-          cost: fuelCost
-        }
-      ],
-      subtotal: baseCost,
-      deliveryFee: deliveryFee,
-      total: total,
-      amountInWords: amountInWords,
-      securityHash: `ZYP-${id}-${Math.floor(Date.now() / 1000).toString(16).toUpperCase()}`,
-      dispenserUnit: 'Bowser #04 (Positive Displacement Flow-Meter)',
-      temperatureComp: '15°C Automatic Temperature Compensation (ATC)'
-    }
-    setInvoiceData(inv)
-
-    // Build structured WhatsApp dispatch message with all details
+    // Build structured WhatsApp dispatch message with order placed time
     const waLines = [
       `⚡ *NEW ZYPHUEL ORDER - #${id}*`,
       `--------------------------------`,
+      `🕒 *Order Time:* ${fullOrderDateTime}`,
       `👤 *Customer Name:* ${orderName || name || 'Valued Customer'}`,
       `📞 *Phone Number:* ${phone || 'Not provided'}`,
       `📧 *Email:* ${email || 'Not provided'}`,
       `📍 *Delivery Address:* ${address}`,
       `🎯 *Refueling Target:* ${appConfig.label}${assetIdentifier ? ` (${assetIdentifier})` : ''}`,
       notes ? `📝 *Special Instructions:* ${notes}` : null,
-      `🚀 *Dispatch Speed:* ${fuelQty > 10 ? 'Dynamic Demand Dispatch (Within 45 Mins)' : 'Standard Doorstep Dispatch (Within 45 Mins)'}`,
+      `🚀 *Dispatch Speed:* ${fuelQty > 10 ? 'Dynamic Demand Dispatch' : 'Standard Doorstep Dispatch'}`,
       `💳 *Payment Method:* ${isCodEligible ? 'Cash on Delivery (COD) / Instant Wallet (JazzCash, Easypaisa, NayaPay)' : 'Advance Digital Payment (JazzCash, Easypaisa, NayaPay, Bank)'}`,
       ``,
       `📦 *Items Ordered:*`,
@@ -576,14 +426,13 @@ export default function OrderPage() {
     const waUrl = `https://wa.me/923230112464?text=${encodeURIComponent(waLines)}`
     setGeneratedWaUrl(waUrl)
 
-    // Open Official Digital Invoice modal first so customer can review and download PDF before WhatsApp redirection
-    setIsNewOrderJustPlaced(true)
-    setInvoiceOpen(true)
-
     // Persist new active order in state and localStorage
     const newActiveOrder = {
       orderId: id,
       placedAt: Date.now(),
+      placedTime: orderTimeStr,
+      placedDate: orderDateStr,
+      placedDateTime: fullOrderDateTime,
       customerName: orderName || name || 'Valued Customer',
       phone: phone || '',
       email: email || '',
@@ -598,9 +447,7 @@ export default function OrderPage() {
       orderFuel: true,
       deliverySpeed,
       total,
-      durationMinutes,
-      status: 'loading',
-      invoiceData: inv,
+      status: 'confirmed',
       waUrl: waUrl
     }
     setActiveOrder(newActiveOrder)
@@ -608,103 +455,10 @@ export default function OrderPage() {
       localStorage.setItem('zyphuel_active_order', JSON.stringify(newActiveOrder))
     } catch (e) {}
 
-    // Realistic Transition to En Route Dispatch:
-    // After ~10 seconds of depot preparation, transition to "Dispatched & En Route"
-    if (trackingIntervalRef.current) clearTimeout(trackingIntervalRef.current)
-    trackingIntervalRef.current = setTimeout(() => {
-      setTrackerSteps([
-        { 
-          status: 'completed', 
-          title: 'Order Confirmed & Depot Assigned', 
-          desc: `Validation complete for ${orderName || name || 'Customer'}. Assigned to Lahore Hub #01.` 
-        },
-        { 
-          status: 'active', 
-          title: `${dispatchTitle} En Route`, 
-          desc: `Bowser #04 dispatched with calibrated digital flow-meter. Live GPS telemetry active to ${address || 'your address'}.` 
-        },
-        { 
-          status: '', 
-          title: 'Delivered & Calibrated', 
-          desc: `Awaiting arrival at destination. 0.01L calibrated meter refueling and tamper-proof printed receipt.` 
-        },
-      ])
-      setTrackerProgress(60)
-      setDeliveryPhase('transit')
-      showToast('Bowser vehicle has been dispatched and is en route!', 'success')
-
-      setActiveOrder(prev => {
-        if (!prev) return prev
-        const updated = { ...prev, status: 'transit' }
-        try {
-          localStorage.setItem('zyphuel_active_order', JSON.stringify(updated))
-        } catch (e) {}
-        return updated
-      })
-    }, 10000)
-  }
-
-  // Manual trigger for QA & verification of final delivery stage
-  const handleSimulateDelivery = () => {
-    setTrackerSteps(prev => [
-      { ...prev[0], status: 'completed' },
-      { ...prev[1], status: 'completed' },
-      { 
-        status: 'completed', 
-        title: 'Delivered & Calibrated', 
-        desc: `Delivery successfully completed at ${address || activeOrder?.address || 'your address'}. Calibrated flow receipt verified.` 
-      },
-    ])
-    setTrackerProgress(100)
-    setTrackerEta('Delivery Complete & Calibrated')
-    setDeliveryPhase('delivered')
-    showToast('Delivery completed and flow-meter calibrated!', 'success')
-
-    setActiveOrder(prev => {
-      if (!prev) return prev
-      const updated = { ...prev, status: 'delivered' }
-      try {
-        localStorage.setItem('zyphuel_active_order', JSON.stringify(updated))
-      } catch (e) {}
-      return updated
-    })
-  }
-
-  // Open existing active tracker from notification banner
-  const handleOpenActiveTracker = () => {
-    if (!activeOrder) return
-    setTrackerOrderId(`ORDER #${activeOrder.orderId}`)
-    const elapsedSeconds = Math.floor((Date.now() - activeOrder.placedAt) / 1000)
-    const isTransit = elapsedSeconds > 10 || activeOrder.status === 'transit'
-    const isDelivered = activeOrder.status === 'delivered'
-
-    setTrackerSteps([
-      {
-        status: 'completed',
-        title: 'Order Confirmed & Depot Assigned',
-        desc: `Validation complete for ${activeOrder.customerName || 'Customer'}. Assigned to Lahore Hub #01.`
-      },
-      {
-        status: isDelivered ? 'completed' : (isTransit ? 'active' : ''),
-        title: `${FUEL_DISPLAY[activeOrder.selectedFuelType] || 'Fuel'} Dispatched & En Route`,
-        desc: `Bowser #04 carrying ${activeOrder.itemsSummary || 'fuel'} to ${activeOrder.address}. Dispatch Window: Within 45 Mins.`
-      },
-      {
-        status: isDelivered ? 'completed' : '',
-        title: 'Delivered & Calibrated',
-        desc: isDelivered
-          ? `Delivery completed successfully at ${activeOrder.address}. Safe journey!`
-          : `Awaiting arrival at ${activeOrder.address}. 0.01L calibrated meter refueling.`
-      }
-    ])
-    setTrackerProgress(isDelivered ? 100 : (isTransit ? 60 : 25))
-    setDeliveryPhase(isDelivered ? 'delivered' : (isTransit ? 'transit' : 'loading'))
-    if (activeOrder.invoiceData) setInvoiceData(activeOrder.invoiceData)
-    if (activeOrder.waUrl) setGeneratedWaUrl(activeOrder.waUrl)
     setTrackerOpen(true)
   }
 
-  // Truck button submit with anti-spam cooldown protection
+  // Truck button submit
   const handleTruckClick = () => {
     if (isSubmittingRef.current) return
     if (!validateForm()) {
@@ -712,19 +466,28 @@ export default function OrderPage() {
       return
     }
 
-    // Anti-spam cooldown check: If an active order was placed within the last 15 minutes and is not delivered
-    if (activeOrder && activeOrder.status !== 'delivered') {
-      const elapsed = Date.now() - activeOrder.placedAt
-      if (elapsed < 15 * 60 * 1000) {
-        setShowCooldownModal(true)
-        return
-      }
+    // Strict Working Hours Check
+    const currentStatus = checkOfficeHours()
+    setOfficeStatus(currentStatus)
+    if (!currentStatus.isOpen) {
+      setShowOfficeHoursMismatchModal(true)
+      showToast(`⚠️ Outside Working Hours! Orders are only accepted Mon-Thu (8am-8pm), Fri (8am-1pm), and Sat-Sun (10am-6pm). Current time: ${currentStatus.currentTime}`, 'error')
+      return
     }
 
     proceedOrderSubmission(false)
   }
 
   const proceedOrderSubmission = (isAdditional = false) => {
+    // Secondary safety verification against Working Hours
+    const currentStatus = checkOfficeHours()
+    setOfficeStatus(currentStatus)
+    if (!currentStatus.isOpen) {
+      setShowOfficeHoursMismatchModal(true)
+      showToast(`⚠️ Outside Working Hours! Orders cannot be placed at this time.`, 'error')
+      return
+    }
+
     isSubmittingRef.current = true
 
     const orderPayload = { 
@@ -814,205 +577,7 @@ export default function OrderPage() {
     document.getElementById('order')?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  // Invoice Direct PDF Generation & Download (Pure Vector PDF via jsPDF)
-  const handleDownloadInvoicePDF = async (triggerRedirectAfter = true) => {
-    if (!invoiceData) return
-    setIsGeneratingPdf(true)
-    showToast('Generating official PDF invoice...', 'info')
 
-    try {
-      await generateInvoicePdf(invoiceData)
-      showToast('Official PDF invoice downloaded successfully!', 'success')
-
-      // Smoothly trigger WhatsApp redirect countdown if requested
-      if (triggerRedirectAfter && generatedWaUrl) {
-        setWaRedirectCountdown(3)
-      }
-    } catch (err) {
-      console.error('Vector PDF generation error, trying print fallback:', err)
-      window.print()
-      if (triggerRedirectAfter && generatedWaUrl) {
-        setWaRedirectCountdown(3)
-      }
-    } finally {
-      setIsGeneratingPdf(false)
-    }
-  }
-
-  // Invoice Print / PDF Export
-  const handlePrintInvoice = () => {
-    window.print()
-  }
-
-  // Invoice Standalone HTML File Download
-  const handleDownloadInvoiceHTML = () => {
-    if (!invoiceData) return
-    const words = invoiceData.amountInWords || numberToWords(invoiceData.total)
-    const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Zyphuel Commercial Tax Invoice #${invoiceData.orderId}</title>
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0b1329; color: #0f172a; padding: 24px; margin: 0; }
-    .inv-card { max-width: 760px; margin: 0 auto; background: #ffffff; border-radius: 12px; border: 1px solid #cbd5e1; overflow: hidden; box-shadow: 0 10px 35px rgba(0,0,0,0.25); }
-    .top-navy-bar { background: #0f172a; color: #ffffff; padding: 22px 28px; border-bottom: 3px solid #0284c7; display: flex; justify-content: space-between; align-items: flex-start; }
-    .brand-title { font-size: 22px; font-weight: 900; letter-spacing: 0.04em; margin: 0; color: #ffffff; }
-    .brand-reg { font-size: 10px; font-weight: 800; color: #38bdf8; text-transform: uppercase; margin: 4px 0 0 0; letter-spacing: 0.05em; }
-    .brand-creds { font-size: 11px; color: #94a3b8; margin: 5px 0 0 0; line-height: 1.4; }
-    .doc-meta { text-align: right; }
-    .doc-type { font-size: 13px; font-weight: 900; color: #ffffff; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
-    .doc-id { font-size: 15px; font-weight: 900; color: #38bdf8; font-family: monospace; }
-    .doc-date { font-size: 11px; color: #cbd5e1; margin-top: 3px; }
-    .pill-confirmed { display: inline-block; margin-top: 6px; background: #10b981; color: #ffffff; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 4px; }
-    .body-wrap { padding: 24px 28px; }
-    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
-    .profile-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; }
-    .profile-card-title { font-size: 10px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
-    .profile-line { font-size: 12px; color: #334155; margin: 3px 0; line-height: 1.4; }
-    .table-wrap { border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; margin-bottom: 18px; }
-    table { width: 100%; border-collapse: collapse; font-size: 12px; }
-    th { background: #f1f5f9; padding: 10px 12px; text-align: left; color: #1e293b; font-weight: 700; border-bottom: 1px solid #cbd5e1; font-size: 11px; }
-    td { padding: 10px 12px; border-bottom: 1px solid #e2e8f0; color: #334155; }
-    .center { text-align: center; }
-    .right { text-align: right; }
-    .mono { font-family: monospace; }
-    .words-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 10px 14px; margin-bottom: 18px; font-size: 12px; color: #166534; }
-    .words-label { font-size: 10px; font-weight: 800; color: #15803d; text-transform: uppercase; margin-bottom: 2px; }
-    .summary-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
-    .guarantee-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; font-size: 11px; color: #475569; line-height: 1.45; }
-    .guarantee-title { font-size: 11px; font-weight: 800; color: #15803d; margin-bottom: 4px; }
-    .totals-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; font-size: 12px; }
-    .t-row { display: flex; justify-content: space-between; padding: 3px 0; color: #475569; }
-    .t-grand { border-top: 2px solid #0284c7; margin-top: 6px; padding-top: 6px; font-size: 14px; font-weight: 900; color: #0284c7; }
-    .footer-bar { border-top: 1px dashed #cbd5e1; padding-top: 12px; display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; }
-    @media print { body { background: #fff; padding: 0; } .inv-card { border: none; box-shadow: none; } }
-  </style>
-</head>
-<body>
-  <div class="inv-card">
-    <div class="top-navy-bar">
-      <div>
-        <h1 class="brand-title">ZYPHUEL</h1>
-        <div class="brand-reg">ON-DEMAND DOORSTEP FUEL DISPATCH SERVICE</div>
-        <div class="brand-creds">
-          Founder & Leading Web Developer: Muhammad Daniyal<br>
-          Headquarters: Lahore, Pakistan &bull; Contact: +92 3230-112464 &bull; Complaint Email: m.daniyalkhan490@gmail.com
-        </div>
-      </div>
-      <div class="doc-meta">
-        <div class="doc-type">COMMERCIAL TAX INVOICE</div>
-        <div class="doc-id">#${invoiceData.orderId}</div>
-        <div class="doc-date">${invoiceData.date}</div>
-        <div><span class="pill-confirmed">&#10003; DISPATCH CONFIRMED</span></div>
-      </div>
-    </div>
-    <div class="body-wrap">
-      <div class="profile-grid">
-        <div class="profile-card">
-          <div class="profile-card-title">Billed To / Recipient Site</div>
-          <div class="profile-line"><strong>${invoiceData.customerName}</strong></div>
-          <div class="profile-line">Phone: ${invoiceData.phone}</div>
-          ${invoiceData.email && invoiceData.email !== 'Not provided' ? `<div class="profile-line">Email: ${invoiceData.email}</div>` : ''}
-          <div class="profile-line">Location: ${invoiceData.address}</div>
-        </div>
-        <div class="profile-card">
-          <div class="profile-card-title">Dispatch &amp; Calibration Telemetry</div>
-          <div class="profile-line">Payment Method: <strong>${invoiceData.paymentMethod}</strong></div>
-          <div class="profile-line">Dispatch Priority: <strong>${invoiceData.deliverySpeed}</strong></div>
-          <div class="profile-line">Dispenser Metering: <strong>Positive Displacement (0.01L Calibrated)</strong></div>
-          <div class="profile-line">Temperature Reference: <strong>15&deg;C Automatic Compensation (ATC)</strong></div>
-        </div>
-      </div>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th style="width:8%;" class="center">SR#</th>
-              <th style="width:46%;">Description &amp; Specifications</th>
-              <th style="width:14%;" class="center">Qty</th>
-              <th style="width:16%;" class="right">Unit Rate</th>
-              <th style="width:16%;" class="right">Total (PKR)</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${invoiceData.items.map((item, i) => `
-              <tr>
-                <td class="center mono" style="color:#64748b;">${String(i + 1).padStart(2, '0')}</td>
-                <td><strong>${item.title}</strong><br><span style="font-size:10px; color:#64748b;">${item.detail}</span></td>
-                <td class="center" style="font-weight:700;">${item.qty}</td>
-                <td class="right mono">${item.rate}</td>
-                <td class="right mono" style="font-weight:800;">Rs. ${item.cost.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-              </tr>
-            `).join('')}
-          </tbody>
-        </table>
-      </div>
-
-      <div class="words-box">
-        <div class="words-label">Amount Chargeable in Words:</div>
-        <strong>${words}</strong>
-      </div>
-
-      <div class="summary-grid">
-        <div class="guarantee-card">
-          <div class="guarantee-title">&#10003; OGRA Euro-V &amp; Volumetric Accuracy Guarantee</div>
-          Sourced directly from licensed primary oil marketing depots. Dispensed with positive displacement flow meters (0.01L accuracy) and optical anti-tamper seals. Zero short-fueling guarantee.
-          <div style="margin-top:6px; font-family:monospace; font-size:10px; color:#64748b;">
-            SECURITY HASH: ${invoiceData.securityHash || 'ZYP-SEC-VERIFIED'}
-          </div>
-        </div>
-        <div class="totals-card">
-          <div class="t-row"><span>Subtotal Items</span><strong>Rs. ${invoiceData.subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong></div>
-          <div class="t-row"><span>Doorstep Bowser Delivery</span><strong>${invoiceData.deliveryFee === 0 ? 'FREE' : `Rs. ${invoiceData.deliveryFee.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}</strong></div>
-          <div class="t-row t-grand"><span>Total Payable (PKR)</span><span>Rs. ${invoiceData.total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>
-        </div>
-      </div>
-
-      <div style="display: grid; grid-template-columns: 130px 1fr 1.2fr; gap: 14px; margin-bottom: 20px; align-items: stretch;">
-        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-          <div style="font-size: 9px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px;">📱 Camera Scan (QR)</div>
-          <div style="display: flex; justify-content: center; width: 100%; margin: 2px auto; background: #fff; padding: 3px; border-radius: 4px; border: 1px solid #e2e8f0;">
-            ${generateQrSvg(`https://zyphuel.netlify.app/order/?verify=${invoiceData.orderId}`, { size: 84, margin: 2 })}
-          </div>
-          <div style="font-size: 8px; color: #64748b; margin-top: 4px;">Point phone camera</div>
-        </div>
-        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-          <div style="font-size: 9px; font-weight: 800; color: #0284c7; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px;">Dispatch Barcode • Code 128</div>
-          <div style="display: flex; justify-content: center; width: 100%; margin: 2px auto; background: #fff; padding: 4px; border-radius: 4px; border: 1px solid #e2e8f0;">
-            ${generateBarcodeSvg(invoiceData.orderId, { moduleWidth: 2.2, height: 46, quietZone: 16, color: '#000000', showText: true, fontSize: 11 })}
-          </div>
-          <div style="font-size: 8px; color: #64748b; margin-top: 4px;">Laser gun & Google Lens compatible</div>
-        </div>
-        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px; display: flex; flex-direction: column; justify-content: center; text-align: center;">
-          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 6px 10px; font-size: 11px; font-weight: 800; color: #166534; margin-bottom: 8px;">★ ZYPHUEL PAKISTAN • CERTIFIED DISPATCH ★</div>
-          <div style="font-size: 12px; font-weight: 800; color: #0f172a; margin-bottom: 3px;">Computerized Verified Commercial Invoice</div>
-          <div style="font-size: 10px; color: #64748b; margin-bottom: 4px;">Automated Depots Dispatch Gateway • Lahore Hub #01</div>
-          <div style="font-size: 8.5px; color: #94a3b8;">Valid without physical signature under Electronic Transactions Ordinance 2002</div>
-        </div>
-      </div>
-
-      <div class="footer-bar">
-        <span>Computerized Verified Invoice &bull; Zyphuel</span>
-        <span>Complaint Email: m.daniyalkhan490@gmail.com &bull; Support: zyphuel.netlify.app/contact/</span>
-      </div>
-    </div>
-  </div>
-</body>
-</html>`
-
-    const blob = new Blob([html], { type: 'text/html' })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `Zyphuel-Invoice-${invoiceData.orderId}.html`
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
-    showToast('Invoice downloaded successfully!', 'success')
-  }
 
   return (
     <div ref={pageRef}>
@@ -1072,7 +637,7 @@ export default function OrderPage() {
                   </div>
                   <div className="verified-banner-text">
                     <div className="verified-banner-title">
-                      OFFICIAL DISPATCH INVOICE VERIFIED &bull; #{verifiedOrderParam}
+                      OFFICIAL DISPATCH ORDER VERIFIED &bull; #{verifiedOrderParam}
                     </div>
                     <div className="verified-banner-desc">
                       Certified Authentic Zyphuel Delivery Order &bull; Calibrated 0.01L Digital Flow Meter &bull; OGRA Euro-V Compliant Supply &bull; Lahore Hub #01
@@ -1090,118 +655,7 @@ export default function OrderPage() {
               </div>
             )}
 
-            {/* Active Dispatch Notification Card (Visible if an active order is in progress) */}
-            {activeOrder && (
-              <div className="active-dispatch-banner fade-in-up" style={{
-                background: activeOrder.status === 'delivered'
-                  ? 'linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(2, 132, 199, 0.08) 100%)'
-                  : 'linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(234, 88, 12, 0.08) 100%)',
-                border: activeOrder.status === 'delivered' ? '2px solid #10b981' : '2px solid #0284c7',
-                borderRadius: '16px',
-                padding: '16px 20px',
-                marginBottom: '26px',
-                boxShadow: '0 6px 20px rgba(2, 132, 199, 0.12)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                flexWrap: 'wrap',
-                gap: '16px'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flex: '1 1 300px' }}>
-                  <div style={{
-                    width: '44px',
-                    height: '44px',
-                    borderRadius: '12px',
-                    background: activeOrder.status === 'delivered' ? '#10b981' : '#0284c7',
-                    color: '#ffffff',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '1.25rem',
-                    flexShrink: 0
-                  }}>
-                    <i className={activeOrder.status === 'delivered' ? 'fa-solid fa-circle-check' : 'fa-solid fa-truck-fast'}></i>
-                  </div>
-                  <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-                      <span style={{ fontWeight: 800, color: '#0f172a', fontSize: '1.02rem' }}>
-                        Active Order: #{activeOrder.orderId}
-                      </span>
-                      <span style={{
-                        background: activeOrder.status === 'delivered' ? '#10b981' : (activeOrder.status === 'loading' ? '#f59e0b' : '#0284c7'),
-                        color: '#ffffff',
-                        fontSize: '0.72rem',
-                        fontWeight: 800,
-                        padding: '2px 9px',
-                        borderRadius: '20px',
-                        letterSpacing: '0.04em'
-                      }}>
-                        {activeOrder.status === 'delivered'
-                          ? 'DELIVERED & CALIBRATED'
-                          : (activeOrder.status === 'loading' ? 'DEPOT LOADING' : 'EN ROUTE / IN TRANSIT')}
-                      </span>
-                    </div>
-                    <p style={{ margin: '4px 0 0 0', fontSize: '0.86rem', color: '#475569' }}>
-                      {activeOrder.itemsSummary || `${activeOrder.fuelQty}L Fuel`} &bull; Destination: <strong>{activeOrder.address}</strong>
-                      {activeOrder.status !== 'delivered' && countdownText && (
-                        <span style={{ marginLeft: '8px', color: '#0284c7', fontWeight: 700 }}>
-                          &bull; ETA: {countdownText}
-                        </span>
-                      )}
-                    </p>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-                  <button
-                    type="button"
-                    onClick={handleOpenActiveTracker}
-                    className="btn"
-                    style={{
-                      background: '#0284c7',
-                      color: '#ffffff',
-                      fontWeight: 700,
-                      fontSize: '0.86rem',
-                      padding: '8px 16px',
-                      borderRadius: '8px',
-                      border: 'none',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '6px'
-                    }}
-                  >
-                    <i className="fa-solid fa-location-crosshairs"></i>
-                    Track Live Fleet (ٹریک کریں)
-                  </button>
-                  {activeOrder.invoiceData && (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setInvoiceData(activeOrder.invoiceData)
-                        setInvoiceOpen(true)
-                      }}
-                      className="btn"
-                      style={{
-                        background: 'rgba(2, 132, 199, 0.1)',
-                        color: '#0284c7',
-                        fontWeight: 700,
-                        fontSize: '0.86rem',
-                        padding: '8px 14px',
-                        borderRadius: '8px',
-                        border: '1px solid rgba(2, 132, 199, 0.3)',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '6px'
-                      }}
-                    >
-                      <i className="fa-solid fa-file-invoice"></i>
-                      View Invoice (رسید)
-                    </button>
-                  )}
-                </div>
-              </div>
-            )}
+
 
             <div className="order-container-grid">
 
@@ -1812,7 +1266,7 @@ export default function OrderPage() {
                         {fuelQty}L {FUEL_DISPLAY[selectedFuelType]} &bull; {DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.shortLabel || 'Standard Delivery'}
                       </span>
                       <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#0284c7' }}>
-                        🚚 Within 45 Mins (Standard)
+                        🚚 Express Doorstep Dispatch
                       </span>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', paddingTop: '8px', borderTop: '1px dashed #cbd5e1' }}>
@@ -1821,6 +1275,56 @@ export default function OrderPage() {
                         {fmt(total)}
                       </span>
                     </div>
+                  </div>
+
+                  {/* Office Operating Status Live Badge */}
+                  <div style={{
+                    padding: '10px 14px',
+                    borderRadius: '10px',
+                    marginBottom: '16px',
+                    background: officeStatus.isOpen ? 'rgba(16, 185, 129, 0.08)' : 'rgba(239, 68, 68, 0.08)',
+                    border: `1px solid ${officeStatus.isOpen ? 'rgba(16, 185, 129, 0.25)' : 'rgba(239, 68, 68, 0.25)'}`,
+                    fontSize: '0.84rem'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', flexWrap: 'wrap' }}>
+                      <span style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        color: officeStatus.isOpen ? '#10b981' : '#ef4444',
+                        fontWeight: 700
+                      }}>
+                        <span style={{
+                          width: '8px',
+                          height: '8px',
+                          borderRadius: '50%',
+                          backgroundColor: officeStatus.isOpen ? '#10b981' : '#ef4444',
+                          boxShadow: `0 0 0 3px ${officeStatus.isOpen ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)'}`
+                        }}></span>
+                        {officeStatus.isOpen ? 'Working Hours: Accepting Orders Now' : 'Closed: Outside Working Hours (کام کے اوقات ختم)'}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => setShowOfficeHoursMismatchModal(true)}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          color: officeStatus.isOpen ? '#0284c7' : '#ef4444',
+                          fontWeight: 600,
+                          fontSize: '0.78rem',
+                          textDecoration: 'underline',
+                          cursor: 'pointer',
+                          padding: 0
+                        }}
+                      >
+                        {officeStatus.isOpen ? 'View Timings' : `Next: ${officeStatus.nextOpening}`}
+                      </button>
+                    </div>
+                    {!officeStatus.isOpen && (
+                      <div style={{ color: 'var(--text-muted)', fontSize: '0.78rem', marginTop: '4px', lineHeight: 1.4 }}>
+                        Orders are only accepted during working hours (Mon-Thu 8am-8pm, Fri 8am-1pm, Sat-Sun 10am-6pm).
+                      </div>
+                    )}
                   </div>
 
                   {/* Truck Submit Button */}
@@ -2080,64 +1584,60 @@ export default function OrderPage() {
             </h3>
             <span className="tracker-order-id" id="tracking-order-id-label">{trackerOrderId}</span>
           </div>
-          <div className="tracker-eta-box">
-            Status: <span className="tracker-eta-val" id="tracking-eta-timer">
-              {activeOrder?.status === 'delivered'
-                ? 'Delivered & Calibrated'
-                : (activeOrder?.status === 'loading' ? 'Depot Verification & Calibration' : 'Active Dispatch En Route')}
+          <div className="tracker-eta-box" style={{ marginTop: '12px', marginBottom: '16px' }}>
+            Status: <span className="tracker-eta-val" id="tracking-eta-timer" style={{ color: '#10b981', fontWeight: 700 }}>
+              Order Confirmed & Queued for Fleet Dispatch
             </span>
-            {activeOrder && activeOrder.status !== 'delivered' && countdownText && (
-              <span style={{ display: 'block', fontSize: '0.88rem', color: '#0284c7', marginTop: '6px', fontWeight: 700 }}>
-                ⏱️ Estimated Arrival: {countdownText} (Within 45 Mins)
-              </span>
+            {(activeOrder?.placedDateTime || activeOrder?.placedTime) && (
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                fontSize: '0.92rem',
+                color: '#0284c7',
+                marginTop: '10px',
+                fontWeight: 700,
+                background: 'rgba(2, 132, 199, 0.08)',
+                border: '1px solid rgba(2, 132, 199, 0.2)',
+                padding: '10px 16px',
+                borderRadius: '8px'
+              }}>
+                <i className="fa-regular fa-clock" style={{ fontSize: '1.05rem' }}></i>
+                <span>Order Placed Time: <strong>{activeOrder.placedDateTime || activeOrder.placedTime}</strong> (آرڈر کا وقت)</span>
+              </div>
             )}
           </div>
-          <div className="tracker-timeline">
-            <div className="tracker-progress-line" id="tracker-progress-bar" style={{ height: `${trackerProgress}%` }}></div>
-            {trackerSteps.map((step, i) => (
-              <div key={i} className={`tracker-step${step.status ? ' ' + step.status : ''}`} id={`tracker-step-${i + 1}`}>
-                <div className="step-node">{i + 1}</div>
-                <div className="step-info">
-                  <span className="step-title" style={{ display: 'block', marginBottom: '3px' }}>{step.title}</span>
-                  <span className="step-desc" style={{ display: 'block', lineHeight: 1.45 }}>{step.desc}</span>
-                </div>
+
+          {activeOrder && (
+            <div style={{
+              background: 'var(--surface-color, #ffffff)',
+              border: '1px solid var(--border-color, #e2e8f0)',
+              borderRadius: '10px',
+              padding: '14px 16px',
+              marginBottom: '16px',
+              textAlign: 'left',
+              fontSize: '0.88rem'
+            }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
+                <span style={{ color: 'var(--text-muted, #64748b)' }}>Destination:</span>
+                <span style={{ fontWeight: 600, color: 'var(--text-primary, #0f172a)', textAlign: 'right', maxWidth: '65%' }}>{activeOrder.address}</span>
               </div>
-            ))}
-          </div>
-          {/* View & Download Invoice Button */}
-          {invoiceData && (
-            <div style={{ marginTop: '14px', marginBottom: '8px' }}>
-              <button
-                type="button"
-                className="btn"
-                id="view-invoice-modal-btn"
-                onClick={() => setInvoiceOpen(true)}
-                style={{
-                  width: '100%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '10px',
-                  background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
-                  color: '#ffffff',
-                  fontWeight: 700,
-                  padding: '12px 20px',
-                  borderRadius: '10px',
-                  fontSize: '0.98rem',
-                  border: 'none',
-                  cursor: 'pointer',
-                  boxShadow: '0 4px 14px rgba(2, 132, 199, 0.35)',
-                  transition: 'all 0.2s ease'
-                }}
-              >
-                <i className="fa-solid fa-file-pdf" style={{ fontSize: '1.2rem' }}></i>
-                Download Invoice (PDF) / رسید دیکھیں
-              </button>
+              {activeOrder.itemsSummary && (
+                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
+                  <span style={{ color: 'var(--text-muted, #64748b)' }}>Items:</span>
+                  <span style={{ fontWeight: 600, color: 'var(--text-primary, #0f172a)', textAlign: 'right', maxWidth: '65%' }}>{activeOrder.itemsSummary}</span>
+                </div>
+              )}
+              <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px dashed var(--border-color, #e2e8f0)', paddingTop: '8px', marginTop: '6px' }}>
+                <span style={{ fontWeight: 700, color: 'var(--text-primary, #0f172a)' }}>Total Bill:</span>
+                <span style={{ fontWeight: 800, color: '#10b981', fontSize: '1.05rem' }}>Rs. {activeOrder.total?.toLocaleString()}</span>
+              </div>
             </div>
           )}
 
           {generatedWaUrl && (
-            <div style={{ marginTop: '6px', marginBottom: '6px' }}>
+            <div style={{ marginTop: '12px', marginBottom: '12px' }}>
               <a
                 href={generatedWaUrl}
                 target="_blank"
@@ -2152,7 +1652,7 @@ export default function OrderPage() {
                   backgroundColor: '#25D366',
                   color: '#ffffff',
                   fontWeight: 700,
-                  padding: '13px 20px',
+                  padding: '14px 20px',
                   borderRadius: '10px',
                   textDecoration: 'none',
                   fontSize: '1rem',
@@ -2160,8 +1660,8 @@ export default function OrderPage() {
                   cursor: 'pointer'
                 }}
               >
-                <i className="fa-brands fa-whatsapp" style={{ fontSize: '1.3rem' }}></i>
-                Open WhatsApp Dispatch Chat
+                <i className="fa-brands fa-whatsapp" style={{ fontSize: '1.35rem' }}></i>
+                Proceed to WhatsApp Dispatch (واٹس ایپ پر آرڈر بھیجیں)
               </a>
             </div>
           )}
@@ -2170,515 +1670,139 @@ export default function OrderPage() {
               type="button"
               className="btn btn-ghost"
               id="close-tracker-btn"
-              style={{ flex: '1 1 140px', fontSize: '0.86rem' }}
+              style={{ flex: 1, fontSize: '0.88rem' }}
               onClick={closeTracker}
             >
-              Keep Tracking in Background (بند کریں)
+              Close (بند کریں)
             </button>
-
-            {/* Test Simulation Button: Allows manual testing of Step 3 arrival */}
-            {activeOrder && activeOrder.status !== 'delivered' && (
-              <button
-                type="button"
-                className="btn"
-                onClick={handleSimulateDelivery}
-                title="Test button to simulate delivery arrival"
-                style={{
-                  flex: '1 1 140px',
-                  background: 'rgba(16, 185, 129, 0.1)',
-                  color: '#10b981',
-                  border: '1px solid rgba(16, 185, 129, 0.3)',
-                  fontSize: '0.82rem',
-                  fontWeight: 600,
-                  padding: '8px 12px',
-                  borderRadius: '8px'
-                }}
-              >
-                <i className="fa-solid fa-flag-checkered" style={{ marginRight: '6px' }}></i>
-                Simulate Arrival (ٹیسٹ: آمد)
-              </button>
-            )}
 
             <button
               type="button"
               className="btn btn-primary"
               id="track-order-reset-btn"
-              style={{ flex: '1 1 140px', fontSize: '0.86rem' }}
-              onClick={() => {
-                closeTracker()
-                handleTruckClick()
-              }}
+              style={{ flex: 1, fontSize: '0.88rem' }}
+              onClick={resetOrder}
             >
-              Place Additional Order (نیا آرڈر)
+              Place Another Order (نیا آرڈر)
             </button>
           </div>
         </div>
       </div>
 
-      {/* Active Order Cooldown Warning Modal (Anti-Spam Time Gap Protection) */}
-      {showCooldownModal && activeOrder && (
-        <div
-          className="modal-backdrop open"
-          id="cooldown-modal-backdrop"
-          onClick={e => e.target === e.currentTarget && setShowCooldownModal(false)}
-        >
-          <div className="tracker-modal" style={{ maxWidth: '500px', textAlign: 'center', padding: '28px 22px' }}>
-            <div style={{
-              width: '56px',
-              height: '56px',
-              borderRadius: '50%',
-              background: 'rgba(234, 88, 12, 0.12)',
-              color: '#ea580c',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '1.75rem',
-              margin: '0 auto 14px auto'
-            }}>
-              <i className="fa-solid fa-triangle-exclamation"></i>
+      {/* Working Hours Mismatch Modal */}
+      <div
+        className={`modal-backdrop${showOfficeHoursMismatchModal ? ' open' : ''}`}
+        id="office-hours-mismatch-modal-backdrop"
+        onClick={e => e.target === e.currentTarget && setShowOfficeHoursMismatchModal(false)}
+      >
+        <div className="tracker-modal" style={{ maxWidth: '520px', textAlign: 'center', padding: '28px 24px' }}>
+          
+          {/* Warning Icon Badge */}
+          <div style={{
+            width: '64px',
+            height: '64px',
+            borderRadius: '50%',
+            background: 'rgba(239, 68, 68, 0.1)',
+            color: '#ef4444',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '1.8rem',
+            margin: '0 auto 16px',
+            border: '2px solid rgba(239, 68, 68, 0.25)'
+          }}>
+            <i className="fa-regular fa-clock"></i>
+          </div>
+
+          <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '4px' }}>
+            Order Unavailable: Outside Working Hours
+          </h3>
+          <p style={{ fontSize: '0.98rem', fontWeight: 700, color: '#ef4444', marginBottom: '14px', direction: 'rtl' }}>
+            آرڈر موصول نہیں ہو سکا: کام کے اوقات ختم ہو چکے ہیں
+          </p>
+
+          <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.55, marginBottom: '16px' }}>
+            Online fuel orders can only be placed and scheduled during our working hours. Because your order was attempted outside these hours, the order has not been placed.
+          </p>
+
+          {/* Current Time vs Status Pill */}
+          <div style={{
+            background: 'rgba(239, 68, 68, 0.06)',
+            border: '1px solid rgba(239, 68, 68, 0.2)',
+            borderRadius: '12px',
+            padding: '12px 16px',
+            marginBottom: '18px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '10px',
+            flexWrap: 'wrap'
+          }}>
+            <div style={{ textAlign: 'left' }}>
+              <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                Current Time (موجودہ وقت)
+              </span>
+              <strong style={{ fontSize: '0.95rem', color: 'var(--text-primary)' }}>
+                {officeStatus.currentDateTimeStr || 'Pakistan Time'}
+              </strong>
             </div>
-            <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px' }}>
-              Active Fuel Dispatch In Progress!
-            </h3>
-            <span style={{
-              fontSize: '0.85rem',
-              fontWeight: 700,
-              color: '#0284c7',
-              background: 'rgba(2, 132, 199, 0.1)',
-              padding: '4px 12px',
-              borderRadius: '20px',
-              display: 'inline-block',
-              marginBottom: '14px'
-            }}>
-              Order #{activeOrder.orderId} &bull; {countdownText ? `ETA: ${countdownText}` : 'En Route'}
-            </span>
-            <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '20px' }}>
-              A fuel bowser is already en route to: <strong>{activeOrder.address}</strong>.
-              To avoid duplicate bowser dispatches and double billing, we maintain a safety time gap between orders.
-            </p>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={() => {
-                  setShowCooldownModal(false)
-                  handleOpenActiveTracker()
-                }}
-                style={{ width: '100%', padding: '12px 18px', fontWeight: 700, fontSize: '0.95rem' }}
-              >
-                <i className="fa-solid fa-location-crosshairs" style={{ marginRight: '8px' }}></i>
-                Track Existing Dispatch (موجودہ آرڈر دیکھیں)
-              </button>
-
-              <button
-                type="button"
-                className="btn"
-                onClick={() => {
-                  setShowCooldownModal(false)
-                  proceedOrderSubmission(true)
-                }}
-                style={{
-                  width: '100%',
-                  padding: '10px 18px',
-                  fontWeight: 600,
-                  fontSize: '0.88rem',
-                  background: 'rgba(234, 88, 12, 0.1)',
-                  color: '#ea580c',
-                  border: '1px solid rgba(234, 88, 12, 0.3)'
-                }}
-              >
-                <i className="fa-solid fa-truck" style={{ marginRight: '6px' }}></i>
-                Confirm Additional Tanker (اضافی نیا آرڈر بھیجیں)
-              </button>
-
-              <button
-                type="button"
-                className="btn btn-ghost"
-                onClick={() => setShowCooldownModal(false)}
-                style={{ width: '100%', marginTop: '4px', fontSize: '0.85rem' }}
-              >
-                Close &amp; Wait (کینسل کریں)
-              </button>
+            <div style={{ textAlign: 'right' }}>
+              <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                Next Opening (اگلا وقت)
+              </span>
+              <strong style={{ fontSize: '0.92rem', color: '#10b981' }}>
+                {officeStatus.nextOpening}
+              </strong>
             </div>
           </div>
-        </div>
-      )}
 
-      {/* Official Order Digital Invoice Modal */}
-      {invoiceData && (
-        <div
-          className={`modal-backdrop invoice-modal-backdrop${invoiceOpen ? ' open' : ''}`}
-          id="invoice-modal-backdrop"
-          onClick={e => e.target === e.currentTarget && setInvoiceOpen(false)}
-        >
-          <div className="invoice-modal-dialog">
-            {/* Post-Order Dispatch & PDF Download Hero Banner (Shown right after order submission) */}
-            {isNewOrderJustPlaced && (
-              <div className="post-order-dispatch-banner no-print">
-                <div className="post-order-badge">
-                  <i className="fa-solid fa-circle-check"></i> Order Placed Successfully! (آرڈر درج کر دیا گیا ہے)
-                </div>
-                <h3 className="post-order-heading">
-                  Order #{invoiceData.orderId} Confirmed &bull; Rs. {invoiceData.total.toLocaleString('en-US', { minimumFractionDigits: 2 })}
-                </h3>
-
-                {/* Prominent Live Dispatch Countdown Indicator */}
-                <div className="post-order-countdown-pill">
-                  <i className="fa-solid fa-stopwatch fa-spin-pulse"></i>
-                  <span>
-                    Live Dispatch Countdown: <strong>{countdownText || '45m 00s'}</strong> (Within 45 Mins)
-                  </span>
-                </div>
-
-                <p className="post-order-sub">
-                  Pehle apni official calibrated PDF invoice download karein, phir hamare live WhatsApp dispatch agent se rabta karein.
-                </p>
-
-                <div className="post-order-cta-grid">
-                  {/* Step 1: Download PDF */}
-                  <button
-                    type="button"
-                    className="btn-order-flow btn-flow-pdf"
-                    onClick={() => handleDownloadInvoicePDF(true)}
-                    disabled={isGeneratingPdf}
-                  >
-                    <i className={isGeneratingPdf ? 'fa-solid fa-spinner fa-spin' : 'fa-solid fa-file-pdf'}></i>
-                    <span>{isGeneratingPdf ? 'Generating PDF...' : '1. Download Invoice (PDF)'}</span>
-                  </button>
-
-                  {/* Step 2: Proceed to WhatsApp */}
-                  <button
-                    type="button"
-                    className="btn-order-flow btn-flow-wa"
-                    onClick={handleOpenWhatsAppNow}
-                  >
-                    <i className="fa-brands fa-whatsapp"></i>
-                    <span>2. Proceed to WhatsApp Dispatch</span>
-                  </button>
-                </div>
-
-                {/* Active Redirect Countdown Notice */}
-                {waRedirectCountdown !== null && (
-                  <div className="wa-redirect-notice">
-                    <div className="wa-redirect-content">
-                      <i className="fa-solid fa-clock-rotate-left"></i>
-                      <span>
-                        PDF downloaded! Redirecting to WhatsApp Dispatch in <strong>{waRedirectCountdown}s</strong>...
-                      </span>
-                    </div>
-                    <div className="wa-redirect-actions">
-                      <button
-                        type="button"
-                        className="btn-wa-redirect-now"
-                        onClick={handleOpenWhatsAppNow}
-                      >
-                        Open WhatsApp Now <i className="fa-solid fa-arrow-right"></i>
-                      </button>
-                      <button
-                        type="button"
-                        className="btn-wa-redirect-cancel"
-                        onClick={handleCancelWaRedirect}
-                      >
-                        Cancel Auto-Redirect
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-            )}
-
-            {/* Modal Actions Header Bar (No-Print) */}
-            <div className="invoice-modal-actions no-print">
-              <div className="invoice-action-left">
-                <span className="invoice-badge"><i className="fa-solid fa-certificate"></i> Official Calibrated Receipt</span>
-              </div>
-              <div className="invoice-action-buttons">
-                <button
-                  type="button"
-                  className="btn-invoice-action btn-pdf"
-                  onClick={() => handleDownloadInvoicePDF(false)}
-                  disabled={isGeneratingPdf}
-                  title="Download Official PDF Invoice"
-                >
-                  <i className={isGeneratingPdf ? 'fa-solid fa-spinner fa-spin' : 'fa-solid fa-file-pdf'}></i>
-                  <span>Download PDF</span>
-                </button>
-                {generatedWaUrl && (
-                  <button
-                    type="button"
-                    className="btn-invoice-action btn-wa"
-                    onClick={handleOpenWhatsAppNow}
-                    title="Open Live WhatsApp Dispatch Chat"
-                  >
-                    <i className="fa-brands fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                  </button>
-                )}
-                <button
-                  type="button"
-                  className="btn-invoice-action btn-print"
-                  onClick={handlePrintInvoice}
-                  title="Print or Save as PDF"
-                >
-                  <i className="fa-solid fa-print"></i>
-                  <span>Print</span>
-                </button>
-                <button
-                  type="button"
-                  className="btn-invoice-action btn-close"
-                  onClick={() => setInvoiceOpen(false)}
-                  title="Close Invoice"
-                  aria-label="Close"
-                >
-                  <i className="fa-solid fa-xmark"></i>
-                </button>
-              </div>
+          {/* Schedule Table */}
+          <div style={{
+            background: 'var(--surface-color, #ffffff)',
+            border: '1px solid var(--border-color, #e2e8f0)',
+            borderRadius: '12px',
+            padding: '14px 16px',
+            marginBottom: '18px',
+            textAlign: 'left'
+          }}>
+            <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <i className="fa-solid fa-calendar-days" style={{ color: '#0284c7' }}></i>
+              Working Hours Schedule (کام کے اوقات):
             </div>
-
-            {/* Printable & Viewable Invoice Document (Corporate Executive Tax Invoice) */}
-            <div className="invoice-printable" id="printable-order-invoice">
-              {/* Top Executive Header Banner */}
-              <div className="inv-header-executive">
-                <div className="inv-brand-section">
-                  <div className="inv-logo-title">
-                    <span className="inv-logo-icon"><i className="fa-solid fa-gas-pump"></i></span>
-                    <h2 className="inv-title">ZYPHUEL</h2>
-                  </div>
-                  <div className="inv-gov-badge">
-                    ON-DEMAND DOORSTEP FUEL DISPATCH SERVICE
-                  </div>
-                  <div className="inv-creds-strip">
-                    <span><strong>Founder &amp; Leading Web Developer:</strong> Muhammad Daniyal</span>
-                  </div>
-                  <p className="inv-address-line">
-                    Headquarters: Lahore, Pakistan &bull; Contact: +92 3230-112464 &bull; Complaint Email: m.daniyalkhan490@gmail.com
-                  </p>
-                </div>
-
-                <div className="inv-doc-meta-section">
-                  <div className="inv-doc-title">COMMERCIAL TAX INVOICE</div>
-                  <div className="inv-number-pill">#{invoiceData.orderId}</div>
-                  <div className="inv-meta-row">
-                    <span>Issued Date:</span> <strong>{invoiceData.date}</strong>
-                  </div>
-                  <div className="inv-status-pill-wrap">
-                    <span className="status-confirmed">&#10003; DISPATCH CONFIRMED</span>
-                  </div>
-                  <div className="inv-meta-row" style={{ marginTop: '5px' }}>
-                    <span>Dispatch Mode:</span> <strong>Doorstep Dispatch (Within 45m)</strong>
-                  </div>
-                </div>
-              </div>
-
-              {/* Billed To & Logistics Telemetry Grid */}
-              <div className="inv-parties-grid">
-                <div className="inv-party-card">
-                  <span className="inv-party-label">BILLED TO / RECIPIENT SITE DETAILS</span>
-                  <div className="inv-party-name">{invoiceData.customerName}</div>
-                  <div className="inv-party-detail"><i className="fa-solid fa-phone"></i> {invoiceData.phone}</div>
-                  {invoiceData.email && invoiceData.email !== 'Not provided' && (
-                    <div className="inv-party-detail"><i className="fa-solid fa-envelope"></i> {invoiceData.email}</div>
-                  )}
-                  {invoiceData.deliveryApplication && (
-                    <div className="inv-party-detail" style={{ color: '#0284c7', fontWeight: 600 }}>
-                      <i className="fa-solid fa-bullseye"></i> Refueling Target: <strong>{invoiceData.deliveryApplication}{invoiceData.assetIdentifier && invoiceData.assetIdentifier !== 'Standard Direct Fill' ? ` (${invoiceData.assetIdentifier})` : ''}</strong>
-                    </div>
-                  )}
-                  <div className="inv-party-detail"><i className="fa-solid fa-location-dot"></i> {invoiceData.address}</div>
-                  <div className="inv-party-detail" style={{ color: '#0284c7', fontSize: '0.72rem', fontWeight: 600 }}>
-                    <i className="fa-solid fa-city"></i> Lahore Metropolitan Area, Punjab, Pakistan
-                  </div>
-                </div>
-
-                <div className="inv-party-card">
-                  <span className="inv-party-label">DISPATCH &amp; CALIBRATION TELEMETRY</span>
-                  <div className="inv-party-detail">
-                    <span>Payment Mode:</span> <strong>{invoiceData.paymentMethod}</strong>
-                  </div>
-                  <div className="inv-party-detail">
-                    <span>Dispatch Priority:</span> <strong>{invoiceData.deliverySpeed}</strong>
-                  </div>
-                  <div className="inv-party-detail">
-                    <span>Dispenser Metering:</span> <strong>Positive Displacement (0.01L Accuracy)</strong>
-                  </div>
-                  <div className="inv-party-detail">
-                    <span>ATC Standard:</span> <strong>15&deg;C Automatic Temperature Compensation</strong>
-                  </div>
-                  <div className="inv-party-detail">
-                    <span>Assigned Fleet:</span> <strong>Lahore Hub Bowser #04 (GPS Telemetry Active)</strong>
-                  </div>
-                </div>
-              </div>
-
-              {/* 5-Column Itemized Billing Table */}
-              <div className="inv-table-wrapper">
-                <table className="inv-table">
-                  <thead>
-                    <tr>
-                      <th style={{ width: '8%', textAlign: 'center' }}>SR#</th>
-                      <th style={{ width: '44%' }}>Item Description &amp; Fuel Specifications</th>
-                      <th style={{ textAlign: 'center', width: '14%' }}>Quantity</th>
-                      <th style={{ textAlign: 'right', width: '17%' }}>Unit Rate (PKR)</th>
-                      <th style={{ textAlign: 'right', width: '17%' }}>Total (PKR)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {invoiceData.items.map((item, idx) => (
-                      <tr key={idx}>
-                        <td style={{ textAlign: 'center', fontFamily: 'monospace', color: '#64748b' }}>
-                          {String(idx + 1).padStart(2, '0')}
-                        </td>
-                        <td>
-                          <div className="inv-item-name">{item.title}</div>
-                          <div className="inv-item-spec">{item.detail}</div>
-                        </td>
-                        <td style={{ textAlign: 'center', fontWeight: 700 }}>{item.qty}</td>
-                        <td style={{ textAlign: 'right', fontFamily: 'monospace' }}>{item.rate}</td>
-                        <td style={{ textAlign: 'right', fontWeight: 800, fontFamily: 'monospace' }}>
-                          Rs. {item.cost.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-
-              {/* Amount in Words Callout Banner */}
-              <div className="inv-words-banner">
-                <span className="words-badge"><i className="fa-solid fa-money-bill-wave"></i> AMOUNT IN WORDS:</span>
-                <span className="words-text">{invoiceData.amountInWords || numberToWords(invoiceData.total)}</span>
-              </div>
-
-              {/* Summary & Compliance Guarantee */}
-              <div className="inv-summary-container">
-                <div className="inv-compliance-badge">
-                  <div className="inv-stamp-box">
-                    <i className="fa-solid fa-shield-halved"></i>
-                    <div>
-                      <strong>OGRA COMPLIANT &bull; 100% VOLUMETRIC GUARANTEE</strong>
-                      <p>
-                        All petroleum products supplied strictly under OGRA Euro-V specifications, sourced directly from licensed primary oil marketing depots. Dispensed via positive-displacement digital meters (0.01L calibrated) equipped with anti-tamper optical seals. Zero short-fueling guarantee.
-                      </p>
-                      <div className="inv-hash-reference">
-                        SECURITY HASH: <code>{invoiceData.securityHash || `ZYP-${invoiceData.orderId}-SEC`}</code> &bull; GPS LAHORE HUB #01
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="inv-totals-card">
-                  <div className="inv-total-line">
-                    <span>Subtotal Items</span>
-                    <strong>Rs. {invoiceData.subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
-                  </div>
-                  <div className="inv-total-line">
-                    <span>Digital Flow Meter QA</span>
-                    <span style={{ color: '#10b981', fontWeight: 700 }}>Rs. 0.00 (Free)</span>
-                  </div>
-                  <div className="inv-total-line">
-                    <span>Doorstep Bowser Delivery</span>
-                    <strong>
-                      {invoiceData.deliveryFee === 0 ? (
-                        <span style={{ color: '#10b981' }}>Free</span>
-                      ) : (
-                        `Rs. ${invoiceData.deliveryFee.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
-                      )}
-                    </strong>
-                  </div>
-                  <div className="inv-total-line grand-total-line">
-                    <span>Total Payable (PKR)</span>
-                    <span className="grand-amount">
-                      Rs. {invoiceData.total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Invoice Footer Security & Signatory Notice */}
-              <div className="inv-footer-note">
-                <div className="inv-dual-verify-card">
-                  {/* Left: Instant Camera Scannable QR Code */}
-                  <div className="inv-verify-subcard inv-qr-card">
-                    <div className="inv-barcode-header">
-                      <i className="fa-solid fa-qrcode"></i> CAMERA SCAN (QR)
-                    </div>
-                    <div
-                      className="inv-qr-svg-wrap"
-                      dangerouslySetInnerHTML={{
-                        __html: generateQrSvg(`https://zyphuel.netlify.app/order/?verify=${invoiceData.orderId}`, {
-                          size: 88,
-                          margin: 2,
-                          color: '#000000',
-                          background: '#ffffff'
-                        })
-                      }}
-                    />
-                    <div className="barcode-caption">
-                      Point phone camera
-                    </div>
-                  </div>
-
-                  {/* Center: Industrial Code 128 Barcode */}
-                  <div className="inv-verify-subcard inv-barcode-subcard">
-                    <div className="inv-barcode-header">
-                      <i className="fa-solid fa-barcode"></i> DISPATCH BARCODE &bull; CODE 128
-                    </div>
-                    <div
-                      className="inv-barcode-svg-wrap"
-                      dangerouslySetInnerHTML={{
-                        __html: generateBarcodeSvg(invoiceData.orderId, {
-                          moduleWidth: 2.2,
-                          height: 46,
-                          quietZone: 16,
-                          color: '#000000',
-                          showText: true,
-                          fontSize: 11
-                        })
-                      }}
-                    />
-                    <div className="barcode-caption">
-                      Laser guns & Google Lens
-                    </div>
-                  </div>
-                </div>
-                <div className="inv-digital-sign">
-                  <div className="inv-cert-badge">
-                    ★ ZYPHUEL PAKISTAN &bull; CERTIFIED DISPATCH ★
-                  </div>
-                  <span className="sign-line">&#10003; Computerized Verified Commercial Invoice</span>
-                  <span className="sign-company">Zyphuel Energy Logistics Pakistan (Pvt) Ltd.</span>
-                  <span className="sign-depot">Automated Depots Dispatch Gateway &bull; Lahore Hub #01</span>
-                  <span className="sign-legal">Valid without physical signature under Electronic Transactions Ordinance 2002</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Modal Bottom Actions Bar (No-Print) */}
-            <div className="invoice-modal-bottom-actions no-print">
-              <button
-                type="button"
-                className="btn-order-flow btn-flow-pdf"
-                onClick={() => handleDownloadInvoicePDF(true)}
-                disabled={isGeneratingPdf}
-              >
-                <i className={isGeneratingPdf ? 'fa-solid fa-spinner fa-spin' : 'fa-solid fa-file-pdf'}></i>
-                <span>{isGeneratingPdf ? 'Generating PDF...' : 'Download Invoice (PDF)'}</span>
-              </button>
-              {generatedWaUrl && (
-                <button
-                  type="button"
-                  className="btn-order-flow btn-flow-wa"
-                  onClick={handleOpenWhatsAppNow}
-                >
-                  <i className="fa-brands fa-whatsapp"></i>
-                  <span>Proceed to WhatsApp Dispatch</span>
-                </button>
-              )}
-            </div>
+            <table style={{ width: '100%', fontSize: '0.84rem', borderCollapse: 'collapse' }}>
+              <tbody>
+                {OFFICE_HOURS_SCHEDULE.map((item, idx) => (
+                  <tr key={idx} style={{ borderBottom: idx < OFFICE_HOURS_SCHEDULE.length - 1 ? '1px solid var(--border-color, #f1f5f9)' : 'none' }}>
+                    <td style={{ padding: '7px 4px', color: 'var(--text-secondary, #475569)', fontWeight: 500 }}>
+                      {item.days} <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)' }}>({item.urduDays})</span>
+                    </td>
+                    <td style={{ padding: '7px 4px', textAlign: 'right', fontWeight: 700, color: 'var(--text-primary)' }}>
+                      {item.hours}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
+
+          {/* Action Buttons */}
+          <div style={{ display: 'flex', gap: '10px', flexDirection: 'column' }}>
+            <button
+              type="button"
+              className="btn btn-primary"
+              style={{ width: '100%', fontSize: '0.94rem' }}
+              onClick={() => setShowOfficeHoursMismatchModal(false)}
+            >
+              Understood &amp; Close (سمجھ آ گئی / بند کریں)
+            </button>
+          </div>
+
         </div>
-      )}
+      </div>
+
+
+
+
 
       {/* Global AI & Search Engine Directory Index */}
 

@@ -87,8 +87,8 @@ This document provides a comprehensive technical and functional catalog of all 1
   - **Hotline & Dispatch Links**: Direct telephone and WhatsApp links to `+92 3230-112464`.
   - **Lahore Sector Dispatch Hubs & SLA Matrix**: Comprehensive sector coverage table for DHA (Phases 1–9), Gulberg, Johar Town, Model Town, and Bahria Town with `Delivered: Within 45 Mins` SLA and payment options.
   - **Commercial Fleet & Industrial Escalation Desk**: Direct contacts for emergency generator refueling, bulk depot dispatch, and corporate compliance.
-  - **Operating Hours Table**: Clear distinction between physical office hours and 24/7 delivery operations.
-  - **Google Maps Embed & FAQ Accordion**: Headquarters at 75-Main Boulevard, Gulberg III, Lahore, plus 4 Schema.org FAQs.
+  - **Operating Hours Table**: Clear distinction between physical Working Hours and 24/7 delivery operations.
+  - **Google Maps Embed & FAQ Accordion**: Headquarters at , plus 4 Schema.org FAQs.
 - **Evolution**: Standardized delivery SLA to "Delivered: Within 45 Mins", added sector dispatch matrix and B2B escalation desk.
 
 ### 7. Blog Listing Page (`/blog/`)

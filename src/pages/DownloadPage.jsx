@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { APP_VERSION, BUILD_NUMBER, TARGET_SDK, RELEASE_DATE, APP_SIZE, MIN_ANDROID, CHANGELOG } from '../data/appVersion'
-import Breadcrumbs from '../components/Breadcrumbs'
 import './styles.css'
 
 const appArticles = [
@@ -260,7 +259,6 @@ export default function DownloadPage() {
         {/* Modern Glassmorphic Download Hero */}
         <section className="download-hero">
           <div className="container">
-            <Breadcrumbs items={[{ label: 'Download App', path: '/download/' }]} />
             <div className="download-hero-grid">
               
               {/* Left Column: Headline, Highlights & Actions */}

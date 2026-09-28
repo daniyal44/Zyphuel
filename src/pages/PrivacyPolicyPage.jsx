@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useSEO } from '../hooks/useSEO'
-import Breadcrumbs from '../components/Breadcrumbs'
 
 const sections = [
   { id: 'intro', label: '1. Introduction' },
@@ -61,7 +60,6 @@ export default function PrivacyPolicyPage() {
         <section className="legal-hero">
           <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
             <div>
-              <Breadcrumbs items={[{ label: 'Privacy Policy', path: '/privacy/' }]} />
               <h1 className="legal-title fade-in-up">Privacy Policy</h1>
               <p className="legal-meta fade-in-up" style={{ transitionDelay: '0.1s' }}>Last Updated: September 2, 2026 &bull; Version 2.3</p>
             </div>
@@ -180,9 +178,8 @@ export default function PrivacyPolicyPage() {
                 <p>
                   <strong>Support Desk:</strong> Available 24/7 via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Official Contact &amp; Support Page</Link><br />
                   <strong>Email:</strong> m.daniyalkhan490@gmail.com <em>(For order modifications or data requests)</em><br />
-                  <strong>Location:</strong> 75-Main Boulevard, Gulberg III, Lahore, Pakistan <em>(Walk-in corporate meetings by appointment only)</em><br />
-                  <strong>Office Hours:</strong> Monday – Thursday: 8:00 AM – 8:00 PM | Friday: 8:00 AM – 1:00 PM | Saturday – Sunday: 10:00 AM – 6:00 PM<br />
-                  <strong>Fuel Delivery (24/7):</strong> Always Active
+                  <strong>Location:</strong> , Pakistan <em>(Walk-in corporate meetings by appointment only)</em><br />
+                  <strong>Working Hours:</strong> Monday – Thursday: 8:00 AM – 8:00 PM | Friday: 8:00 AM – 1:00 PM | Saturday – Sunday: 10:00 AM – 6:00 PM
                 </p>
                 <p>
                   Reach out directly via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Zyphuel Contact &amp; Support Desk</Link> or order doorstep fuel online at our <Link to="/order/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Refueling Portal</Link>.

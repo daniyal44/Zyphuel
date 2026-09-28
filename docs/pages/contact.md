@@ -33,14 +33,14 @@
 
 ---
 
-## Operating Schedule & Office Hours
+## Operating Schedule & Working Hours
 
 | Department | Schedule | Status |
 | :--- | :--- | :--- |
 | **Monday – Thursday** | 8:00 AM – 8:00 PM | Office & Administration Open |
-| **Friday** | 8:00 AM – 1:00 PM | Friday Office Hours |
+| **Friday** | 8:00 AM – 1:00 PM | Friday Working Hours |
 | **Saturday – Sunday** | 10:00 AM – 6:00 PM | Weekend Office Desk Open |
-| **Fleet Dispatch & Delivery** | **24/7 / 365 Days** | **Always Active** |
+| **Fleet Dispatch & Delivery** | **24/7 / 365 Days** | **Active (Operating Hours)** |
 
 ---
 
@@ -98,6 +98,6 @@ Added interactive 4-item accordion addressing core user intent and eliminating t
 | **2026-09-27** | Removed Sales & Fleet Operations (Adil Farooq) and 24/7 Urgent Dispatch Hotline cards from Commercial Fleet & Industrial Escalation Desk. | Clean up redundant contact cards per user request. |
 | **2026-09-25** | **Added Lahore Sector Dispatch Hubs & SLA Matrix, Commercial Escalation Desk, and Synchronized SLA to "Delivered: Within 45 Mins"**. | Provide high-value local logistics data, eradicate thin content signals, boost local Lahore search queries, and resolve indexing latency. |
 | **2026-09-17** | Added interactive FAQ accordion, added `FAQPage` schema in `useSEO` & `prerender.js`, boosted sitemap priority to 0.9 daily, added in-body referring links from Home, Order, Privacy, Terms, and Blog subpages. | Resolve Google Search Console "Discovered – currently not indexed" & "Referring page: None detected". |
-| **2026-09-13** | Standardized office hours table to match Home and Legal disclosures. | Consistent operating hours across all contact channels. |
+| **2026-09-13** | Standardized Working Hours table to match Home and Legal disclosures. | Consistent operating hours across all contact channels. |
 | **2026-09-08** | Enhanced WhatsApp dispatch priority routing in contact form. | Accelerate customer response speed for urgent fuel orders. |
 | **2026-09-01** | Implemented interactive validation and Toast feedback alerts. | Improve UX and prevent empty/malformed enquiry submissions. |
