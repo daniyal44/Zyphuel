@@ -96,10 +96,8 @@
   to = "/blog/"
   status = 301
 
-[[redirects]]
-  from = "/blog/:splat"
-  to = "/blog/:splat/"
-  status = 301
+# Blog sub-pages are prerendered as /blog/slug/index.html
+# No redirect needed — Netlify serves them directly
 
 [[redirects]]
   from = "/sitemap"
