@@ -5,6 +5,18 @@
 [build.environment]
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
   NODE_VERSION = "20"
+  VITE_BUSINESS_HOURS_TIMEZONE = "Asia/Karachi"
+  VITE_ORDER_INTAKE_START = "08:00"
+  VITE_ORDER_INTAKE_END = "22:00"
+  VITE_ENABLE_QA_ORDER_BYPASS = "true"
+
+[context.deploy-preview.environment]
+  VITE_DISABLE_ORDER_CUTOFF = "true"
+  VITE_ENABLE_QA_ORDER_BYPASS = "true"
+
+[context.branch-deploy.environment]
+  VITE_DISABLE_ORDER_CUTOFF = "true"
+  VITE_ENABLE_QA_ORDER_BYPASS = "true"
 
 # HTML files - always fresh for crawlers and visitors
 [[headers]]
