@@ -1026,6 +1026,10 @@ const ROUTES = [
     }
   },
   ...articles.map(article => {
+    const toISO = (dateStr) => {
+      const d = new Date(dateStr)
+      return isNaN(d.getTime()) ? dateStr : d.toISOString().split('T')[0]
+    }
     const articleGraph = [
       WEBSITE_SCHEMA,
       ORGANIZATION_SCHEMA,
@@ -1043,7 +1047,7 @@ const ROUTES = [
         "headline": article.title,
         "description": article.summary,
         "image": article.image,
-        "datePublished": article.date,
+        "datePublished": toISO(article.date),
         "dateModified": "2026-09-27T00:00:00+05:00",
         "author": {
           "@type": article.author.includes('CEO') || article.author.includes('Founder') ? "Person" : "Organization",
@@ -1139,7 +1143,7 @@ async function prerender() {
     )
 
     // Replace Canonical & Inject Static Hreflang Tags (Canonical + x-default + en + en-PK)
-    const canonicalAndHreflang = `<link rel="canonical" href="${route.canonical}" />
+    const canonicalAndHreflang = route.noIndex ? '' : `<link rel="canonical" href="${route.canonical}" />
     <link rel="alternate" hreflang="x-default" href="${route.canonical}" />
     <link rel="alternate" hreflang="en" href="${route.canonical}" />
     <link rel="alternate" hreflang="en-PK" href="${route.canonical}" />`
@@ -1176,6 +1180,13 @@ async function prerender() {
       /<meta\s+property=["']og:image:secure_url["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
       `<meta property="og:image:secure_url" content="${route.ogImage}" />`
     )
+
+    const ogImgExt = route.ogImage.match(/\.(jpeg|jpg)$/i) ? 'image/jpeg' : 'image/png'
+    html = html.replace(
+      /<meta\s+property=["']og:image:type["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
+      `<meta property="og:image:type" content="${ogImgExt}" />`
+    )
+
     html = html.replace(
       /<meta\s+property=["']og:type["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
       `<meta property="og:type" content="${route.ogType || 'website'}" />`
@@ -1254,7 +1265,7 @@ async function prerender() {
       if (r.path === '/') {
         priority = '1.0'
         changefreq = 'daily'
-        imageLoc = `${DOMAIN}/images/zyphuel-og.png`
+        imageLoc = `${DOMAIN}/images/logo.png`
         imageTitle = 'Zyphuel - Doorstep Fuel Delivery in Lahore'
         imageCaption = 'Doorstep petrol and diesel delivery in Lahore with 0.01L calibrated electronic positive-displacement flow meters.'
       } else if (r.path === '/order/') {
@@ -1292,6 +1303,7 @@ async function prerender() {
         changefreq = 'daily'
         imageLoc = `${DOMAIN}/images/logo.png`
         imageTitle = 'Zyphuel Energy & Fuel Guides Blog'
+        imageCaption = 'Guides on doorstep fuel delivery, standby generator refueling, LPG cylinder delivery and mobile energy logistics in Lahore.'
       } else if (r.path.startsWith('/blog/') && r.path !== '/blog/') {
         priority = '0.8'
         changefreq = 'weekly'

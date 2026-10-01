@@ -94,21 +94,6 @@ export default function PrivacyPolicyPage() {
 
             {/* Content */}
             <div className="legal-content fade-in-up" style={{ transitionDelay: '0.2s' }}>
-              {/* Prominent Startup Notice */}
-              <div style={{
-                background: 'rgba(245, 158, 11, 0.12)',
-                border: '1px solid #f59e0b',
-                borderRadius: '12px',
-                padding: '16px 20px',
-                marginBottom: '28px'
-              }}>
-                <h3 style={{ color: '#d97706', fontSize: '1.05rem', fontWeight: 800, marginBottom: '6px' }}>
-                  <i className="fa-solid fa-triangle-exclamation"></i> STARTUP STATUS &amp; PRIVACY TRANSPARENCY
-                </h3>
-                <p style={{ color: '#92400e', fontWeight: 700, margin: 0, fontSize: '0.92rem', lineHeight: '1.6' }}>
-                  <strong>Please note: Zyphuel is currently an early-stage startup platform operating in Lahore, Pakistan, and NOT a large corporate entity. All user data, telemetry, and location permissions are processed with startup agility and strict end-to-end encryption exclusively to fulfill your on-demand service dispatches.</strong>
-                </p>
-              </div>
 
               <section id="intro" className="legal-section">
                 <h2><i className="fa-solid fa-file-shield"></i> 1. Introduction</h2>
@@ -178,7 +163,7 @@ export default function PrivacyPolicyPage() {
                 <p>
                   <strong>Support Desk:</strong> Available 24/7 via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Official Contact &amp; Support Page</Link><br />
                   <strong>Email:</strong> m.daniyalkhan490@gmail.com <em>(For order modifications or data requests)</em><br />
-                  <strong>Location:</strong> , Pakistan <em>(Walk-in corporate meetings by appointment only)</em><br />
+                  <strong>Location:</strong> Lahore, Pakistan <em>(Walk-in corporate meetings by appointment only)</em><br />
                   <strong>Working Hours:</strong> Monday – Thursday: 8:00 AM – 8:00 PM | Friday: 8:00 AM – 1:00 PM | Saturday – Sunday: 10:00 AM – 6:00 PM
                 </p>
                 <p>

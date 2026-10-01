@@ -76,7 +76,7 @@ export default function ContactPage() {
               "name": "Where is Zyphuel's corporate office located in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel's registered headquarters is located at , Pakistan. Corporate client visits and supplier consultations are held by appointment."
+                "text": "Zyphuel's registered headquarters is located at Lahore, Pakistan. Corporate client visits and supplier consultations are held by appointment."
               }
             },
             {
@@ -106,7 +106,7 @@ export default function ContactPage() {
     },
     {
       q: "Where is Zyphuel’s corporate office located in Lahore?",
-      a: "Zyphuel’s registered headquarters is located at , Pakistan. Corporate client visits and supplier consultations are held by appointment."
+      a: "Zyphuel’s registered headquarters is located at Lahore, Pakistan. Corporate client visits and supplier consultations are held by appointment."
     },
     {
       q: "Can corporate clients setup bulk commercial credit accounts?",
@@ -449,7 +449,7 @@ ${form.message.trim()}`
                     referrerPolicy="no-referrer-when-downgrade"
                   ></iframe>
                 </div>
-                <p className="map-caption"><i className="fa-solid fa-location-dot" style={{ color: 'var(--accent-color)' }}></i> </p>
+                <p className="map-caption"><i className="fa-solid fa-location-dot" style={{ color: 'var(--accent-color)' }}></i> Zyphuel Headquarters — Lahore, Pakistan</p>
               </div>
             </div>
           </div>

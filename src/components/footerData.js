@@ -84,6 +84,10 @@ export const footerData = {
     { label: 'Commercial Diesel & LPG Safety Standards', to: '/blog/generator-diesel-lpg-delivery-lahore/' },
     { label: 'Calibrated Flow Meters & IoT Telemetry', to: '/blog/iot-telemetry-fuel-delivery/' },
     { label: 'Mobile Refueling Fleet in Lahore', to: '/blog/zyphuel-calibrated-telemetry-fleet/' },
+    {
+      title: 'Global vs Pakistan Fuel Delivery Benchmarks',
+      href: '/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/'
+    }
   ],
   bottomLinks: [
     { label: 'Privacy Policy', to: '/privacy/' },

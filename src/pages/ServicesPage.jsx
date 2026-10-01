@@ -154,7 +154,7 @@ export default function ServicesPage() {
     navigate('/order/', {
       state: {
         fuelType: fuelTypeKey,
-        qty: qtyVal || 50
+        qty: qtyVal || 15
       }
     })
     window.scrollTo(0, 0)
@@ -210,7 +210,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="hero-ctas" style={{ display: 'flex', gap: '14px', alignItems: 'center', flexWrap: 'wrap' }}>
-                  <Link to="/order/?fuel=petrol&qty=50" className="btn btn-primary" style={{ minHeight: '48px' }}>
+                  <Link to="/order/?fuel=petrol&qty=15" className="btn btn-primary" style={{ minHeight: '48px' }}>
                     <i className="fa-solid fa-cart-shopping"></i> Order Fuel Online
                   </Link>
                   <Link to="/download/" className="btn btn-secondary" style={{ minHeight: '48px' }}>
@@ -268,7 +268,7 @@ export default function ServicesPage() {
                   svc={svc}
                   index={idx}
                   activeTab={activeTab}
-                  onOrder={(fuelTypeKey) => handleOrderRedirect(fuelTypeKey, 50)}
+                  onOrder={(fuelTypeKey) => handleOrderRedirect(fuelTypeKey, 15)}
                 />
               ))}
             </div>
@@ -505,7 +505,7 @@ export default function ServicesPage() {
             </div>
 
             <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', marginTop: '36px', flexWrap: 'wrap' }}>
-              <Link to="/order/?fuel=petrol&qty=50" className="btn btn-primary btn-lg">
+              <Link to="/order/?fuel=petrol&qty=15" className="btn btn-primary btn-lg">
                 <i className="fa-solid fa-truck-droplet"></i> Place Your Fuel Order Now
               </Link>
               <Link to="/contact/" className="btn btn-secondary btn-lg">

@@ -90,6 +90,8 @@ export default function Header({ onOpenInterestModal }) {
           className={`hamburger${navOpen ? ' active' : ''}`}
           id="hamburger-btn"
           aria-label="Toggle navigation menu"
+          aria-expanded={navOpen}
+          aria-controls="nav-menu"
           onClick={() => setNavOpen(v => !v)}
         >
           <span></span>

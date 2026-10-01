@@ -35,8 +35,6 @@ Allow: /*.jpeg$
 Allow: /*.svg$
 Allow: /*.webp$
 Allow: /*.ico$
-Disallow: /404.html
-Disallow: /ezgif-2f1a39c97e5b173b-jpg/
 
 # Google Search & Inspection Tooling
 User-agent: Googlebot
@@ -52,14 +50,11 @@ Allow: /blog/
 Allow: /blog/*
 Allow: /assets/
 Allow: /images/
-Disallow: /404.html
-Disallow: /ezgif-2f1a39c97e5b173b-jpg/
 
 User-agent: Google-InspectionTool
 Allow: /
 Allow: /assets/
 Allow: /images/
-Disallow: /ezgif-2f1a39c97e5b173b-jpg/
 
 User-agent: GoogleOther
 Allow: /
@@ -68,7 +63,6 @@ User-agent: Googlebot-Image
 Allow: /
 Allow: /images/
 Allow: /assets/
-Disallow: /ezgif-2f1a39c97e5b173b-jpg/
 
 # Microsoft Bingbot & MSN
 User-agent: bingbot
@@ -84,15 +78,12 @@ Allow: /blog/
 Allow: /blog/*
 Allow: /assets/
 Allow: /images/
-Disallow: /404.html
-Disallow: /ezgif-2f1a39c97e5b173b-jpg/
 
 # Apple Search & Siri Suggestions
 User-agent: Applebot
 Allow: /
 Allow: /assets/
 Allow: /images/
-Disallow: /404.html
 
 # Privacy & Independent Search Engines
 User-agent: DuckDuckBot

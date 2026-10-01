@@ -14,7 +14,57 @@ export default function BlogListPage() {
     keywords: ['fuel delivery blog', 'diesel delivery articles', 'generator refueling guide', 'Lahore fuel news', 'Zyphuel blog'],
     url: 'https://zyphuel.netlify.app/blog/',
     canonicalPath: '/blog/',
-    type: 'website'
+    type: 'website',
+    image: 'https://zyphuel.netlify.app/images/logo.png',
+    imageAlt: 'Zyphuel Blog – fuel delivery, generator refueling and energy guides for Lahore',
+    schema: {
+      '@graph': [
+        {
+          '@type': 'Blog',
+          '@id': 'https://zyphuel.netlify.app/blog/#blog',
+          url: 'https://zyphuel.netlify.app/blog/',
+          name: 'Zyphuel Blog & Fuel Guides',
+          description: 'Articles on doorstep fuel delivery, standby generator refueling, LPG cylinder delivery and mobile energy logistics in Lahore, Pakistan.',
+          inLanguage: 'en-PK',
+          publisher: { '@id': 'https://zyphuel.netlify.app/#organization' },
+          isPartOf: { '@id': 'https://zyphuel.netlify.app/#website' }
+        },
+        {
+          '@type': 'CollectionPage',
+          '@id': 'https://zyphuel.netlify.app/blog/#webpage',
+          url: 'https://zyphuel.netlify.app/blog/',
+          name: 'Zyphuel Blog | Fuel Delivery, Energy & Vehicle Guides',
+          description: 'Read the latest articles about fuel delivery, generator refueling, LPG gas delivery, and mobile energy logistics in Lahore, Pakistan.',
+          isPartOf: { '@id': 'https://zyphuel.netlify.app/#website' },
+          about: { '@id': 'https://zyphuel.netlify.app/#localbusiness' },
+          primaryImageOfPage: {
+            '@type': 'ImageObject',
+            url: 'https://zyphuel.netlify.app/images/logo.png'
+          },
+          breadcrumb: { '@id': 'https://zyphuel.netlify.app/blog/#breadcrumb' }
+        },
+        {
+          '@type': 'BreadcrumbList',
+          '@id': 'https://zyphuel.netlify.app/blog/#breadcrumb',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://zyphuel.netlify.app/' },
+            { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://zyphuel.netlify.app/blog/' }
+          ]
+        },
+        {
+          '@type': 'ItemList',
+          '@id': 'https://zyphuel.netlify.app/blog/#itemlist',
+          name: 'Zyphuel fuel delivery and energy guides',
+          numberOfItems: articles.length,
+          itemListElement: articles.map((article, idx) => ({
+            '@type': 'ListItem',
+            position: idx + 1,
+            url: `https://zyphuel.netlify.app/blog/${article.slug}/`,
+            name: article.title
+          }))
+        }
+      ]
+    }
   })
 
   const filteredArticles = activeFilter === 'All'

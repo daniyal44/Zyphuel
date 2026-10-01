@@ -94,21 +94,6 @@ export default function TermsOfUsePage() {
 
             {/* Content */}
             <div className="legal-content fade-in-up" style={{ transitionDelay: '0.2s' }}>
-              {/* Prominent Startup Notice */}
-              <div style={{
-                background: 'rgba(245, 158, 11, 0.12)',
-                border: '1px solid #f59e0b',
-                borderRadius: '12px',
-                padding: '16px 20px',
-                marginBottom: '28px'
-              }}>
-                <h3 style={{ color: '#d97706', fontSize: '1.05rem', fontWeight: 800, marginBottom: '6px' }}>
-                  <i className="fa-solid fa-triangle-exclamation"></i> IMPORTANT STARTUP DISCLOSURE
-                </h3>
-                <p style={{ color: '#92400e', fontWeight: 700, margin: 0, fontSize: '0.92rem', lineHeight: '1.6' }}>
-                  <strong>Please note: Zyphuel is currently an early-stage startup platform operating in Lahore, Pakistan, and NOT a large corporate conglomerate or established commercial enterprise. All on-demand fuel and roadside delivery operations are conducted as an agile startup service within our designated local service coverage zones.</strong>
-                </p>
-              </div>
 
               <section id="terms-intro" className="legal-section">
                 <h2><i className="fa-solid fa-file-contract"></i> 1. Acceptance of Terms</h2>
@@ -186,7 +171,7 @@ export default function TermsOfUsePage() {
                 <p>
                   <strong>Support Desk:</strong> Available 24/7 via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Official Contact &amp; Support Page</Link><br />
                   <strong>Email:</strong> m.daniyalkhan490@gmail.com <em>(For order modifications or legal inquiries)</em><br />
-                  <strong>Location:</strong> , Pakistan <em>(Walk-in corporate meetings by appointment only)</em><br />
+                  <strong>Location:</strong> Lahore, Pakistan <em>(Walk-in corporate meetings by appointment only)</em><br />
                   <strong>Working Hours:</strong> Monday – Thursday: 8:00 AM – 8:00 PM | Friday: 8:00 AM – 1:00 PM | Saturday – Sunday: 10:00 AM – 6:00 PM
                 </p>
                 <p>

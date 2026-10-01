@@ -483,9 +483,9 @@ export default function DownloadPage() {
                   <div className="how-step-icon"><i className="fa-solid fa-gas-pump"></i></div>
                 </div>
                 <h3>Choose Fuel &amp; Quantity</h3>
-                <p>Select your required fuel: Super Euro-V Petrol, High-Octane 97, Euro-V Diesel, or LPG Gas Cylinders. Choose any volume from 1 Litre up to full tank capacity.</p>
+                <p>Select your required fuel: Super Euro-V Petrol, High-Octane 97, Euro-V Diesel, or LPG Gas Cylinders. Choose any volume from 5 Litres up to 15 Litres maximum.</p>
                 <div className="how-step-meta">
-                  <i className="fa-solid fa-circle-check"></i> COD available for 1 to 10L
+                  <i className="fa-solid fa-circle-check"></i> COD available for 5 to 10L
                 </div>
               </div>
 
@@ -1047,13 +1047,13 @@ export default function DownloadPage() {
                 const isOpen = activeFaq === index
                 return (
                   <div key={index} className={`faq-accordion-item ${isOpen ? 'active' : ''}`}>
-                    <button className="faq-trigger" onClick={() => toggleFaq(index)}>
+                    <button className="faq-trigger" onClick={() => toggleFaq(index)} aria-expanded={isOpen} aria-controls={`faq-answer-${index}`}>
                       <span className="faq-question-text">{faq.question}</span>
                       <span className="faq-chevron">
                         <i className={`fa-solid ${isOpen ? 'fa-minus' : 'fa-plus'}`}></i>
                       </span>
                     </button>
-                    <div className="faq-answer-panel" style={{ maxHeight: isOpen ? '250px' : '0' }}>
+                    <div id={`faq-answer-${index}`} className="faq-answer-panel" style={{ maxHeight: isOpen ? '250px' : '0' }}>
                       <div className="faq-answer-content">
                         <p>{faq.answer}</p>
                       </div>

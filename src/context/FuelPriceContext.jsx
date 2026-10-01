@@ -7,54 +7,29 @@ const DEFAULT_PRICES = FUEL_PRICES;
 const DEFAULT_BASE_PRICES = FUEL_BASE_PRICES;
 
 export function FuelPriceProvider({ children }) {
-  // Initialize state with sessionStorage cache if available to prevent flash of fallback values
-  const [prices, setPrices] = useState(() => {
-    try {
-      const cached = sessionStorage.getItem('zyphuel_live_prices');
-      if (cached) {
-        const parsed = JSON.parse(cached);
-        if (parsed?.prices && Date.now() - (parsed.timestamp || 0) < 15 * 60 * 1000) {
-          return { ...DEFAULT_PRICES, ...parsed.prices, lpg: 450.00 };
-        }
-      }
-    } catch (e) {}
-    return DEFAULT_PRICES;
-  });
-
-  const [basePrices, setBasePrices] = useState(() => {
-    try {
-      const cached = sessionStorage.getItem('zyphuel_live_prices');
-      if (cached) {
-        const parsed = JSON.parse(cached);
-        if (parsed?.basePrices && Date.now() - (parsed.timestamp || 0) < 15 * 60 * 1000) {
-          return { ...DEFAULT_BASE_PRICES, ...parsed.basePrices, lpg: 450.00 };
-        }
-      }
-    } catch (e) {}
-    return DEFAULT_BASE_PRICES;
-  });
-
+  // Initialize state with default values, cache read moved to useEffect for SSR compatibility
+  const [prices, setPrices] = useState(DEFAULT_PRICES);
+  const [basePrices, setBasePrices] = useState(DEFAULT_BASE_PRICES);
   const [loading, setLoading] = useState(true);
-  const [isLive, setIsLive] = useState(() => {
+  const [isLive, setIsLive] = useState(false);
+  const [effectiveDate, setEffectiveDate] = useState(null);
+
+  useEffect(() => {
     try {
       const cached = sessionStorage.getItem('zyphuel_live_prices');
       if (cached) {
         const parsed = JSON.parse(cached);
-        return Boolean(parsed?.isLive && Date.now() - (parsed.timestamp || 0) < 15 * 60 * 1000);
+        const isValid = Date.now() - (parsed.timestamp || 0) < 15 * 60 * 1000;
+        
+        if (isValid) {
+          if (parsed.prices) setPrices({ ...DEFAULT_PRICES, ...parsed.prices, lpg: 450.00 });
+          if (parsed.basePrices) setBasePrices({ ...DEFAULT_BASE_PRICES, ...parsed.basePrices, lpg: 450.00 });
+          if (parsed.isLive !== undefined) setIsLive(Boolean(parsed.isLive));
+          if (parsed.effectiveDate) setEffectiveDate(parsed.effectiveDate);
+        }
       }
     } catch (e) {}
-    return false;
-  });
-  const [effectiveDate, setEffectiveDate] = useState(() => {
-    try {
-      const cached = sessionStorage.getItem('zyphuel_live_prices');
-      if (cached) {
-        const parsed = JSON.parse(cached);
-        return parsed?.effectiveDate || null;
-      }
-    } catch (e) {}
-    return null;
-  });
+  }, []);
   const [lastUpdated, setLastUpdated] = useState(null);
 
   useEffect(() => {
