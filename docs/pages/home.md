@@ -34,7 +34,7 @@
 
 1. **Main Home Hero Section (`#home`)**:
    - Headline: `Doorstep Fuel Delivery in Lahore`.
-   - Live Telemetry Badges: `24/7 Delivery`, `Within 45 Min Dispatch`, `0.01L Calibrated`.
+   - Live Telemetry Badges: `Fast Delivery`, `Within 45 Min Dispatch`, `0.01L Calibrated`.
    - **Startup Transparency Box**: Appears strictly **once per calendar day** per user (`localStorage` date check `zyphuel_transparency_last_date`), equipped with an instant dismiss button (`×`).
    - CTA Buttons: Order Fuel Now (`/order/`), Learn More About Zyphuel (`/about/`).
    - **Preserved Original Animated Vector Graphic**: Equipped with `src/components/HeroGraphic.jsx` (animated Lahore skyline, road, and moving Zyphuel fuel bowser truck SVG) preserved directly opposite the hero text.
@@ -49,7 +49,7 @@
    - 0.01L Positive-Displacement Digital Flow Meter Calibration.
    - Rapid 20–45 Minute Lahore Dispatch (10–20 min Urgent).
    - Certified Euro-V Low-Sulfur Quality.
-   - 24/7 Generator & Emergency Support.
+   - Dedicated Generator & Emergency Support.
 
 5. **Lahore Coverage Sectors**:
    - DHA Lahore (Phases 1–9), Gulberg (I–III), Johar Town & Faisal Town, Bahria Town Lahore, Model Town & Garden Town, Cantt & Cavalary Ground, Industrial Zones (Sundar & Kot Lakhpat).
@@ -60,6 +60,7 @@
      - **Friday**: 8:00 AM – 1:00 PM
      - **Saturday – Sunday**: 10:00 AM – 6:00 PM
      - **Delivery**: Active (Operating Hours) (Green active glowing indicator)
+     - **Helpline**: WhatsApp priority desk available 24/7
 
 7. **Featured Blog / Guides Section**:
    - Categorized article cards with instant modal preview and deep links to `/blog/`.
@@ -67,8 +68,9 @@
 ---
 
 ## Operational Parameters & Rules
-- **Delivery Service**: 24 hours / 7 days a week always active across Lahore.
+- **Delivery Service**: Operates during official working hours across Lahore.
 - **Office Operating Schedule**: Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm.
+- **WhatsApp Support**: Dedicated 24/7 hotline at `+92 3230-112464`.
 - **Service Hub Location**: Gulberg III, Lahore.
 - **Transparency Policy**: Displayed strictly once per calendar day on Home hero; never duplicated on child pages; auto-persisted via `localStorage` with manual dismiss.
 
@@ -77,6 +79,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-01** | **Operational Hours Alignment & 24/7 Claim Reconciliation**: (1) Replaced `24/7 Delivery` hero trust badge with `Fast Delivery`, (2) Updated operating hours comparison table row to `✅ Extended Hours Delivery (Mon–Sun)`, (3) Updated coverage section title to `Doorstep Fuel Delivery Coverage Across Lahore`, (4) Reconciled Schema.org LocalBusiness operating schedule to Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm, while preserving 24/7 WhatsApp emergency support. | Eliminate inaccurate 24/7 delivery claims across consumer-facing pages and align with official business hours. |
 | **2026-09-27** | Synchronized Zyphuel Mobile Comparison Table & Dispatch Telemetry with Order Page. | User requested: *"Zyphuel Mobile is ke information ko be update karoo, ✅ Yes (15–30 min express dispatch), is information kon be update karo abi jo order page ma ha us ko dekhte hove is ko update karo"*. Standardized all dispatch arrival copy from `15–30 min` to guaranteed `Within 45 mins` across the Hero trust badge, high-intent pump search banner, rapid dispatch card, and the market comparison table. Updated `Zyphuel Mobile` column in the comparison table to mirror the exact Order Page rules: (1) Doorstep Delivery: `✅ Yes (Within 45 mins doorstep dispatch)`, (2) Delivery Charges: `✅ Flat Rs. 280.00 nominal fee (Zero surge)`, (3) Metering: `✅ 0.01L Calibrated Digital Meter (15°C ATC)`, (4) Order Flexibility: `✅ Strictly 5L min to 15L max per order`, (5) Payment Options: `✅ COD (5L–10L) & Instant QR Wallets (JazzCash, Easypaisa, Raast)`. |
 | **2026-09-25** | Zero Pixel Tearing, Integer Alignment & Background GPU Async Frame Decoding. | User demanded: *"scroll karte hove pixel na phate ek be frame ka, is ka khas khayal rakhna zara"*. Eliminated subpixel `.5px` raster jitter by removing `transform: translate(-50%, -50%)` in favor of integer `(0, 0)` alignment with `transform: translateZ(0)` hardware acceleration and `image-rendering: high-quality`. Upgraded image preloader with immediate 30-frame async streaming and `img.decode()` background GPU texture decoding. Added `lastDrawnImgRef` frame persistence to prevent blank clear flashes and updated RAF loop to strictly render the latest target frame index, ensuring zero pixel tearing across all 300 frames. |
 | **2026-09-25** | Full-Bleed Edge-to-Edge Responsive Canvas Sizing (Eliminated Side Black Boxes). | User reported: *"home page ma jo sab sa uper hero section ha us ka side black box bana hova ha hero section fill nai ha scroll animation ko us pore section ma fit karo or responvive hona chaye har deveice kadevice mutabiq"*. Upgraded `.reference-canvas` in `ScrollAnimationSection.css` from restrictive `max-width: 100%; max-height: 100%` (which caused pillarboxing black bars on desktop and letterboxing on mobile) to `width: 100%; height: 100%; min-width: 100%; min-height: 100%; object-fit: cover; object-position: center center;`. Initialized 1920x1080 dimensions in JSX to avoid 300x150 layout shifts, enabled high-quality context smoothing (`imageSmoothingQuality = 'high'`), and completely filled the entire hero stage edge-to-edge across all mobile, tablet, laptop, desktop, and ultrawide screens. |

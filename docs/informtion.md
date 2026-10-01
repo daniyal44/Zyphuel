@@ -29,11 +29,12 @@ This document serves as the authoritative single source of truth for all corpora
 - **Coordinates & Verification**: `31.5204° N, 74.3587° E`.
 
 ### 2.2 Operating Schedules
-- **Doorstep Fuel Delivery Operations**: **24 Hours / 7 Days / 365 Days a Year** (Continuous round-the-clock dispatch across Lahore).
+- **Doorstep Fuel Delivery Operations**: Operating during official business working hours across Lahore.
 - **Physical Corporate Office & Administrative Hours**:
   - Monday – Thursday: 8:00 AM – 8:00 PM
   - Friday: 8:00 AM – 1:00 PM (Break for Friday Prayers)
   - Saturday – Sunday: 10:00 AM – 6:00 PM
+- **Automated Dispatch & Support**: Dedicated WhatsApp customer helpline available 24/7 at `+92 3230-112464`.
 
 ---
 
@@ -81,8 +82,11 @@ This document serves as the authoritative single source of truth for all corpora
 - **Minimum Order Quantity**: **5 Litres** (hard threshold; lower inputs clamp to 5L).
 - **Maximum Order Capacity**: **15 Litres** (hard ceiling for agile doorstep dispatches).
 - **Preset Volume Chips**: `[5L, 7L, 10L, 12L, 15L Max]`.
-- **Standard Delivery Fee**: Flat **Rs. 280.00** across all Lahore zones.
-- **Delivery SLA**: Fixed to **"Delivered: Within 45 Mins"**.
+- **Doorstep Delivery Charges**: Fixed **Rs. 280.00** flat nominal fee for orders up to **10 Litres** (5L–10L). For orders between **11 Litres and 15 Litres Max**, a structured dynamic demand dispatch fee applies (+Rs. 20.00/L above 10L: 11L = Rs. 300, 12L = Rs. 320, 13L = Rs. 340, 14L = Rs. 360, 15L = Rs. 380).
+- **Urgent Delivery Surcharge**: Controlled, reasonable priority fee of **+Rs. 100.00** flat.
+- **Delivery Windows**:
+  - Simple Dispatch: 20–45 Mins
+  - Urgent Dispatch: 10–20 Mins
 - **Retail Petrol Pump Rate Formula**: `Official Base Ex-Depot Rate + Rs. 2.50 / Litre`.
 - **Payment Methods**:
   - Cash on Delivery (COD) for 5L–10L orders.

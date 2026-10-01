@@ -13,14 +13,16 @@ This document defines the immutable business rules, operational constants, and a
 - **Volume Presets (Chips)**: `[5, 7, 10, 12, 15]` with explicit `15L Max` capacity indicator.
 - **Bulk Refueling Separation**: Commercial orders exceeding 15 Litres (up to 10,000+ Litres) are serviced exclusively through scheduled commercial B2B bowser contracts.
 
-### 1.2 Simple Flat Delivery Charges
-- **Nominal Fee**: Flat **Rs. 280.00** across all doorstep fuel orders in Lahore.
-- **Universal Uniformity**: Applies uniformly regardless of volume within the 5L–15L range.
+### 1.2 Doorstep Delivery Charges & Dynamic Demand Fee
+- **Nominal Base Fee**: Fixed **Rs. 280.00** flat nominal fee for orders up to **10 Litres** (5L–10L).
+- **High-Capacity Dynamic Demand Fee (11L–15L Max)**: A structured dynamic demand dispatch fee applies (+Rs. 20.00/L above 10L: 11L = Rs. 300, 12L = Rs. 320, 13L = Rs. 340, 14L = Rs. 360, 15L = Rs. 380).
+- **Urgent Delivery Surcharge**: Controlled, reasonable priority fee of **+Rs. 100.00** flat. Always keep this surcharge reasonable.
 - **Zero Hidden Surcharges**: Fuel is charged at exact retail petrol pump rates without unannounced surcharges.
 
-### 1.3 Delivery Arrival SLA
-- **Official Delivery Window**: Fixed strictly to **"Delivered: Within 45 Mins"** on doorstep across all covered sectors of Lahore.
-- **Live Countdown**: Initialized to `45m 00s` upon order placement and decrements second-by-second in active state persistence.
+### 1.3 Delivery Arrival Windows
+- **Simple Dispatch**: **20–45 Mins** on doorstep across covered sectors of Lahore.
+- **Urgent Dispatch**: **10–20 Mins** express priority response.
+- **Live Countdown**: Initialized to `45m 00s` upon standard order placement and decrements second-by-second in active state persistence.
 
 ### 1.4 Payment Modes & Digital Wallet Integration
 - **Cash on Delivery (COD)**: Available for domestic doorstep fuel orders between **5 Litres and 10 Litres**. Customers are requested to keep exact change ready upon bowser arrival.
@@ -41,12 +43,13 @@ This document defines the immutable business rules, operational constants, and a
 
 ## 2. Operational Invariants & Operating Hours
 
-### 2.1 Service Availability
-- **Doorstep Fuel Delivery**: Operating 24 hours a day, 7 days a week, 365 days a year across Lahore (including public holidays and extreme weather).
-- **Physical Office & Customer Support**:
+### 2.1 Service Availability & Working Hours
+- **Doorstep Fuel Delivery Operations**: Operating during official business working hours across Lahore.
+- **Office Operating Hours & Customer Support**:
   - Monday – Thursday: 8:00 AM – 8:00 PM
   - Friday: 8:00 AM – 1:00 PM
   - Saturday – Sunday: 10:00 AM – 6:00 PM
+- **Automated Dispatch & Support**: Dedicated WhatsApp customer helpline available 24/7 at `+92 3230-112464`.
 
 ### 2.2 Coverage Area (Lahore Metropolitan)
 - DHA Lahore (Phase 1 through Phase 9 Prism)

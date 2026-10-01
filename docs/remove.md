@@ -22,9 +22,14 @@ This document records all deprecated, phased-out, or removed features, legacy pr
 - **Replacement**: Explicit 5L Min – 15L Max capacity limits integrated across Order Page, Terms of Use, service data, and educational articles.
 
 ### 1.4 Variable Volume-Based Delivery Fee Structure
-- **What Was Removed**: Volume-based tiered delivery fees: Rs. 250 (5L), Rs. 300 (10L), Rs. 350 (15L).
-- **Why Removed**: User requested a clean, uniform, transparent delivery fee structure without complex tiers.
-- **Replacement**: Unified flat **Rs. 280.00** delivery fee across all eligible fuel quantities (5L–15L).
+- **What Was Removed**: Legacy volume-based tiered delivery fees: Rs. 250 (5L), Rs. 300 (10L), Rs. 350 (15L).
+- **Why Removed**: Replaced with a structured model: fixed Rs. 280 for orders up to 10L, with dynamic demand fee (+Rs. 20/L) only for high-capacity 11L–15L Max dispatches.
+- **Replacement**: Unified base fee of **Rs. 280.00** (&le;10L) with transparent demand scaling (+Rs. 20/L above 10L) for 11L–15L.
+
+### 1.5 Deprecation of '24/7/365 Uninterrupted Delivery' Claims
+- **What Was Removed**: Blanket marketing assertions claiming continuous 24/7/365 physical doorstep fuel delivery across Lahore.
+- **Why Removed**: To align truth-in-advertising with realistic fleet operations and labor regulations, doorstep deliveries are scheduled during defined business hours: Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm.
+- **Replacement**: Clear business working hours on contact and info pages, 'Fast Delivery' hero badges, and 24/7 customer support helpline via WhatsApp.
 
 ---
 

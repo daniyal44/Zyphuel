@@ -23,6 +23,7 @@ timeline
     Phase 12 : Corporate Identity & Regulatory Credentials Alignment : Zyphuel Legal Entity : Founder & Leading Web Developer : Centralized Data
     Phase 13 : Dynamic Delivery Pricing, App Surge & Content Humanization : Fixed Rs. 280 (<=10L) + Dynamic Demand (11L-15L) : Surging App Demand UI : 100% Human Articles : Search Dominance
     Phase 14 : Regulatory License Purge, Ticker Cleanup & HTML Sitemap Retirement : Cleaned Ticker : Decommissioned /sitemap/ : Retained Machine XML Sitemap
+    Phase 15 : Operational Hours Realignment, 24/7 Claim Reconciliation & Dynamic Pricing Clarification : Purged Misleading 24/7 Delivery Claims : Formalized Operating Hours : Synchronized 13 Key Components & Docs
 ```
 
 ---
@@ -412,3 +413,30 @@ Aligned all corporate credentials, physical location indicators, executive title
   - Removed `/sitemap` 301 redirect from `public/_redirects`.
   - Removed `Allow: /sitemap/` directives from `public/robots.txt`.
   - Preserved pure XML machine sitemap (`/sitemap.xml`) generated automatically by `prerender.js` for Google Search Console and Bing Webmaster indexing.
+
+---
+
+## Phase 15: Operational Hours Realignment, 24/7 Claim Reconciliation & Dynamic Pricing Clarification
+
+### 15.1 Elimination of Inaccurate Universal 24/7 Delivery Claims
+- **Audit & Problem**: Several pages, components, and SEO structured data blocks claimed "24/7/365 uninterrupted delivery" or "24/7 Doorstep Fuel Delivery", which conflicted with actual fleet operations and physical support availability.
+- **Resolution**:
+  - Replaced misleading "24/7 delivery" copy across 13 core files: `index.html`, `prerender.js`, `src/components/SeoHead.jsx`, `src/components/ServiceCard.jsx`, `src/data/appVersion.js`, `src/data/companyInfo.js`, `src/data/servicesData.js`, `src/hooks/useSEO.js`, `src/pages/AboutPage.jsx`, `src/pages/DownloadPage.jsx`, `src/pages/HomePage.jsx`, `src/pages/OrderPage.jsx`, and `src/pages/ServicesPage.jsx`.
+  - In `HomePage.jsx`: Updated hero badge from `24/7 Delivery` to `Fast Delivery`; updated operating comparison row to `✅ Extended Hours Delivery (Mon–Sun)`; updated coverage section heading to `Doorstep Fuel Delivery Coverage Across Lahore`.
+  - In `OrderPage.jsx`: Updated SEO heading from `Doorstep Diesel & Petrol Delivery in Lahore – 24/7 On-Demand Fuel Service` to `Doorstep Diesel & Petrol Delivery in Lahore – On-Demand Fuel Service`; clarified express dispatch card to `ensure rapid delivery during operating hours`.
+  - In `ServicesPage.jsx`: Updated hero subtitle badge from `24/7 On-Demand Fuel Mobility Lahore` to `On-Demand Fuel Mobility Lahore`; updated FAQ structured answer to reflect on-demand delivery during operating hours.
+  - In `AboutPage.jsx`: Updated story text and commercial FAQ to emphasize priority emergency dispatch helpline (24/7) while noting fleet operations occur during operating hours.
+  - In `DownloadPage.jsx`: Updated hero description and roadside rescue card from `24/7 Emergency Refueling` to `Emergency Refueling`.
+
+### 15.2 Clarification of Operating Hours vs. 24/7 WhatsApp Helpline
+- **Official Operating Hours Standardized**:
+  - Monday – Thursday: 8:00 AM – 8:00 PM
+  - Friday: 8:00 AM – 1:00 PM
+  - Saturday – Sunday: 10:00 AM – 6:00 PM
+- **Dedicated WhatsApp Support**:
+  - Maintained dedicated 24/7 WhatsApp customer helpline at `+92 3230-112464` for round-the-clock inquiries and emergency pre-bookings.
+
+### 15.3 Dynamic Demand Delivery Pricing Alignment in App Version Changelog
+- **Changelog Alignment in `appVersion.js`**:
+  - Aligned latest app changelog in `src/data/appVersion.js` to accurately describe the structured dynamic demand dispatch fee:
+    *"Doorstep Delivery Pricing Alignment: Fixed Rs. 280.00 flat for 5L–10L, dynamic demand dispatch fee for 11L–15L Max (+Rs. 20/L above 10L), with Cash on Delivery (COD) for 5–10L orders"*.

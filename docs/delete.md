@@ -51,6 +51,11 @@ This document records all permanently deleted files, purged UI banners, removed 
 - **Reason**: Bulky 765-line SVG vector simulation box caused visual clutter on the checkout sidebar.
 - **Action Taken**: Replaced with an interactive code-based modal tracker that launches upon order submission, with live second-by-second countdown and WhatsApp dispatch integration.
 
+### 1.10 Purged Inaccurate '24/7 Delivery' Marketing Claims
+- **Deleted From**: `index.html`, `prerender.js`, `src/components/SeoHead.jsx`, `src/components/ServiceCard.jsx`, `src/data/appVersion.js`, `src/data/companyInfo.js`, `src/data/servicesData.js`, `src/hooks/useSEO.js`, `src/pages/AboutPage.jsx`, `src/pages/DownloadPage.jsx`, `src/pages/HomePage.jsx`, `src/pages/OrderPage.jsx`, and `src/pages/ServicesPage.jsx`.
+- **Reason**: The company operates during designated business hours (Mon–Thu 8:00 AM – 8:00 PM, Fri 8:00 AM – 1:00 PM, Sat–Sun 10:00 AM – 6:00 PM). Universal '24/7/365 uninterrupted delivery' marketing claims conflicted with operational truth-in-advertising.
+- **Action Taken**: Replaced with clear operational schedule statements and 'Fast Delivery' / 'Extended Hours Delivery' badges, while preserving the 24/7 WhatsApp emergency customer helpline (`+92 3230-112464`).
+
 ---
 
 ## 2. Deleted Legacy Files & Build Artifacts
