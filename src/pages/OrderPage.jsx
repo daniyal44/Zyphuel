@@ -464,6 +464,10 @@ export default function OrderPage() {
 
   // Truck button submit
   const handleTruckClick = () => {
+    if (officeStatus.isNightCutoffActive) {
+      showToast('Order intake is closed for the night (10:00 PM – 8:00 AM PKT). Please reorder tomorrow after 8:00 AM.', 'error')
+      return
+    }
     if (isSubmittingRef.current) return
     if (!validateForm()) {
       showToast('Please check form inputs for errors.', 'error')
@@ -474,6 +478,10 @@ export default function OrderPage() {
   }
 
   const proceedOrderSubmission = (isAdditional = false) => {
+    if (officeStatus.isNightCutoffActive) {
+      showToast('Order intake is closed for the night (10:00 PM – 8:00 AM PKT). Please reorder tomorrow after 8:00 AM.', 'error')
+      return
+    }
     isSubmittingRef.current = true
 
     const orderPayload = { 
@@ -876,7 +884,7 @@ export default function OrderPage() {
                                 transition: 'all 0.15s ease'
                               }}
                             >
-                              {qty} L {qty === 15 ? '• Max' : ''}
+                              {qty} L {qty === 15 ? ' Max' : ''}
                             </button>
                           ))}
                         </div>
@@ -936,9 +944,7 @@ export default function OrderPage() {
                           <span className="schedule-desc" style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
                             Guaranteed delivery within 45 mins on doorstep across Lahore
                           </span>
-                          <span style={{ fontSize: '0.78rem', color: 'var(--brand-primary, #0284c7)', fontWeight: 700, marginTop: '4px' }}>
-                            Delivery Fee: Rs. {deliveryFee.toFixed(2)}
-                          </span>
+                          
                         </div>
                       </div>
                     </div>
@@ -1266,8 +1272,12 @@ export default function OrderPage() {
                     padding: '10px 14px',
                     borderRadius: '10px',
                     marginBottom: '16px',
-                    background: officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.08)' : 'rgba(2, 132, 199, 0.08)',
-                    border: `1px solid ${officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.25)' : 'rgba(2, 132, 199, 0.25)'}`,
+                    background: officeStatus.isNightCutoffActive 
+                      ? 'rgba(239, 68, 68, 0.08)' 
+                      : (officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.08)' : 'rgba(2, 132, 199, 0.08)'),
+                    border: `1px solid ${officeStatus.isNightCutoffActive 
+                      ? 'rgba(239, 68, 68, 0.3)' 
+                      : (officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.25)' : 'rgba(2, 132, 199, 0.25)')}`,
                     fontSize: '0.84rem'
                   }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', flexWrap: 'wrap' }}>
@@ -1275,17 +1285,19 @@ export default function OrderPage() {
                         display: 'flex',
                         alignItems: 'center',
                         gap: '6px',
-                        color: officeStatus.isOfficeOpen ? '#10b981' : '#0284c7',
+                        color: officeStatus.isNightCutoffActive ? '#ef4444' : (officeStatus.isOfficeOpen ? '#10b981' : '#0284c7'),
                         fontWeight: 700
                       }}>
                         <span style={{
                           width: '8px',
                           height: '8px',
                           borderRadius: '50%',
-                          backgroundColor: officeStatus.isOfficeOpen ? '#10b981' : '#0284c7',
-                          boxShadow: `0 0 0 3px ${officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.2)' : 'rgba(2, 132, 199, 0.2)'}`
+                          backgroundColor: officeStatus.isNightCutoffActive ? '#ef4444' : (officeStatus.isOfficeOpen ? '#10b981' : '#0284c7'),
+                          boxShadow: `0 0 0 3px ${officeStatus.isNightCutoffActive ? 'rgba(239, 68, 68, 0.2)' : (officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.2)' : 'rgba(2, 132, 199, 0.2)')}`
                         }}></span>
-                        {officeStatus.isOfficeOpen ? 'Working Hours: Accepting Orders (کام کے اوقات جاری ہیں)' : `Operating Hours: ${officeStatus.todaySchedule || 'Mon–Sun'}`}
+                        {officeStatus.isNightCutoffActive 
+                          ? 'Night Orders Closed (10:00 PM – 8:00 AM PKT) / رات کے آرڈرز بند ہیں' 
+                          : (officeStatus.isOfficeOpen ? 'Working Hours: Accepting Orders (کام کے اوقات جاری ہیں)' : `Operating Hours: ${officeStatus.todaySchedule || 'Mon–Sun'}`)}
                       </span>
                       <button
                         type="button"
@@ -1305,34 +1317,98 @@ export default function OrderPage() {
                       </button>
                     </div>
                     <div style={{ color: 'var(--text-muted)', fontSize: '0.78rem', marginTop: '4px', lineHeight: 1.4 }}>
-                      Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm. 24/7 WhatsApp hotline: +92 3230-112464.
+                      {officeStatus.isNightCutoffActive 
+                        ? `Order intake is paused for the night. Next window: ${officeStatus.nextOrderReopen || 'Tomorrow at 8:00 AM PKT'}. 24/7 WhatsApp helpline: +92 3230-112464.`
+                        : 'Order intake: 8:00 AM – 10:00 PM daily. Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm desk support. 24/7 WhatsApp: +92 3230-112464.'}
                     </div>
                   </div>
 
-                  {/* Truck Submit Button */}
-                  <div className="button-wrapper">
-                    <button
-                      type="button"
-                      className="truck-button"
-                      id="truck-submit-btn"
-                      ref={truckBtnRef}
-                      onClick={handleTruckClick}
-                    >
-                      <span className="default">Complete Order</span>
-                      <span className="success">
-                        Order Placed
-                        <svg viewBox="0 0 12 10">
-                          <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                        </svg>
-                      </span>
-                      <div className="truck">
-                        <div className="wheel"></div>
-                        <div className="back"></div>
-                        <div className="front"></div>
-                        <div className="box"></div>
+                  {/* Complete Order Button Guard: Strictly Hidden after 10:00 PM PKT */}
+                  {officeStatus.isNightCutoffActive ? (
+                    <div className="night-cutoff-card" id="night-order-cutoff-guard" style={{
+                      background: 'linear-gradient(135deg, #0b1329 0%, #1e293b 100%)',
+                      border: '1.5px solid rgba(245, 158, 11, 0.5)',
+                      borderRadius: '16px',
+                      padding: '24px 20px',
+                      marginTop: '16px',
+                      textAlign: 'center',
+                      boxShadow: '0 12px 30px -6px rgba(0, 0, 0, 0.45)',
+                      color: '#ffffff',
+                      position: 'relative',
+                      overflow: 'hidden'
+                    }}>
+                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(245, 158, 11, 0.15)', color: '#fbbf24', padding: '6px 14px', borderRadius: '30px', fontSize: '0.85rem', fontWeight: 700, marginBottom: '14px', border: '1px solid rgba(245, 158, 11, 0.35)' }}>
+                        <i className="fa-solid fa-moon"></i>
+                        <span>Order Intake Cutoff Active (10:00 PM – 8:00 AM PKT)</span>
                       </div>
-                    </button>
-                  </div>
+
+                      <h4 style={{ margin: '0 0 10px', fontSize: '1.25rem', color: '#f8fafc', fontWeight: 800 }}>
+                        رات 10 بجے کے بعد آن لائن آرڈرز بند ہیں
+                      </h4>
+                      <p style={{ margin: '0 0 16px', fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.6, maxWidth: '480px', marginLeft: 'auto', marginRight: 'auto' }}>
+                        Doorstep fuel delivery order intake closes strictly at <strong>10:00 PM</strong> every night and resumes tomorrow morning at <strong>8:00 AM PKT</strong>. Under operational safety protocols, the <em>Complete Order</em> button is disabled and hidden until the morning dispatch window opens.
+                      </p>
+
+                      <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '20px', fontSize: '0.84rem' }}>
+                        <div style={{ background: 'rgba(255, 255, 255, 0.06)', padding: '8px 14px', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                          <span style={{ color: '#94a3b8' }}>Current Lahore Time: </span>
+                          <strong style={{ color: '#38bdf8' }}>{officeStatus.currentTime || '10:00+ PM'} (PKT)</strong>
+                        </div>
+                        <div style={{ background: 'rgba(255, 255, 255, 0.06)', padding: '8px 14px', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                          <span style={{ color: '#94a3b8' }}>Orders Reopen: </span>
+                          <strong style={{ color: '#34d399' }}>{officeStatus.nextOrderReopen || 'Tomorrow at 8:00 AM PKT'}</strong>
+                        </div>
+                      </div>
+
+                      <a
+                        href="https://wa.me/923230112464?text=Hello%20Zyphuel%20Support%2C%20I%20am%20inquiring%20about%20emergency%20standby%20generator%20refueling%20or%20tomorrow%20morning%20fuel%20booking"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '10px',
+                          background: '#25D366',
+                          color: '#ffffff',
+                          fontWeight: 700,
+                          fontSize: '0.95rem',
+                          padding: '12px 24px',
+                          borderRadius: '10px',
+                          textDecoration: 'none',
+                          boxShadow: '0 4px 14px rgba(37, 211, 102, 0.35)',
+                          transition: 'all 0.2s ease'
+                        }}
+                      >
+                        <i className="fa-brands fa-whatsapp" style={{ fontSize: '1.25rem' }}></i>
+                        <span>Contact WhatsApp </span>
+                      </a>
+                    </div>
+                  ) : (
+                    <div className="button-wrapper">
+                      <button
+                        type="button"
+                        className="truck-button"
+                        id="truck-submit-btn"
+                        ref={truckBtnRef}
+                        onClick={handleTruckClick}
+                      >
+                        <span className="default">Complete Order</span>
+                        <span className="success">
+                          Order Placed
+                          <svg viewBox="0 0 12 10">
+                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                          </svg>
+                        </span>
+                        <div className="truck">
+                          <div className="wheel"></div>
+                          <div className="back"></div>
+                          <div className="front"></div>
+                          <div className="box"></div>
+                        </div>
+                      </button>
+                    </div>
+                  )}
                 </form>
               </div>
 
@@ -1399,9 +1475,7 @@ export default function OrderPage() {
                       ) : (
                         <span>
                           {fmt(deliveryFee)}
-                          <span style={{ display: 'block', fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 600 }}>
-                            Doorstep Delivery ({fuelQty}L)
-                          </span>
+                          
                         </span>
                       )}
                     </strong>
@@ -1754,6 +1828,22 @@ export default function OrderPage() {
             </div>
             <table style={{ width: '100%', fontSize: '0.84rem', borderCollapse: 'collapse' }}>
               <tbody>
+                <tr style={{ borderBottom: '1px solid var(--border-color, #f1f5f9)', background: 'rgba(2, 132, 199, 0.05)' }}>
+                  <td style={{ padding: '8px 4px', color: '#0284c7', fontWeight: 700 }}>
+                    Online Order Intake <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)' }}>(آن لائن آرڈرز)</span>
+                  </td>
+                  <td style={{ padding: '8px 4px', textAlign: 'right', fontWeight: 800, color: '#0284c7' }}>
+                    8:00 AM – 10:00 PM Daily
+                  </td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid var(--border-color, #f1f5f9)', background: 'rgba(245, 158, 11, 0.05)' }}>
+                  <td style={{ padding: '8px 4px', color: '#d97706', fontWeight: 600 }}>
+                    Night Cutoff Window <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)' }}>(رات کا وقفہ)</span>
+                  </td>
+                  <td style={{ padding: '8px 4px', textAlign: 'right', fontWeight: 700, color: '#d97706' }}>
+                    10:00 PM – 8:00 AM PKT (Closed)
+                  </td>
+                </tr>
                 {OFFICE_HOURS_SCHEDULE.map((item, idx) => (
                   <tr key={idx} style={{ borderBottom: '1px solid var(--border-color, #f1f5f9)' }}>
                     <td style={{ padding: '7px 4px', color: 'var(--text-secondary, #475569)', fontWeight: 500 }}>
@@ -1778,13 +1868,25 @@ export default function OrderPage() {
 
           {/* Action Buttons */}
           <div style={{ display: 'flex', gap: '10px', flexDirection: 'column' }}>
+            {officeStatus.isNightCutoffActive ? (
+              <a
+                href="https://wa.me/923230112464?text=Hello%20Zyphuel%20Support%2C%20I%20am%20inquiring%20about%20emergency%20standby%20generator%20refueling"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+                style={{ width: '100%', fontSize: '0.94rem', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: '#25D366', borderColor: '#25D366' }}
+              >
+                <i className="fa-brands fa-whatsapp"></i>
+                <span>Open WhatsApp Support (+92 3230-112464)</span>
+              </a>
+            ) : null}
             <button
               type="button"
-              className="btn btn-primary"
+              className={officeStatus.isNightCutoffActive ? "btn btn-outline" : "btn btn-primary"}
               style={{ width: '100%', fontSize: '0.94rem' }}
               onClick={() => setShowOfficeHoursMismatchModal(false)}
             >
-              Continue with Order (آرڈر جاری رکھیں)
+              {officeStatus.isNightCutoffActive ? 'Close Window (بند کریں)' : 'Continue with Order (آرڈر جاری رکھیں)'}
             </button>
           </div>
 

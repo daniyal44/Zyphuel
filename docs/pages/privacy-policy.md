@@ -39,14 +39,15 @@
 8. **Contact & Legal Support**:
    - Official Contact Desk: Link to `/contact/` (Direct phone/WhatsApp access consolidated strictly to the Contact page).
    - Email: `m.daniyalkhan490@gmail.com`
-   - Hub Address: 
-   - Office Schedule: Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm (Operating Hours Schedule).
+   - Hub Address: Lahore, Pakistan
+   - Operating Schedule: Desk Support: Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm | Online Doorstep Orders: 8:00 AM – 10:00 PM Daily | WhatsApp Helpline: 24/7.
 
 ---
 
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-01** | **Schedule Specification**: Updated Section 8 contact disclosure to delineate corporate desk hours, online doorstep order window (8:00 AM – 10:00 PM Daily), and 24/7 WhatsApp emergency assistance. | Maintain unified operational transparency across privacy policies. |
 | **2026-09-27** | Removed direct phone number display; routed to official Contact Page. | User requested: *"contact page ka elova mera phone number kise be or page per show nai hona chaye"*. Replaced raw phone number text with direct link to official Contact Page (`/contact/`) to consolidate personal telephone numbers exclusively to the designated contact gateway. |
 | **2026-09-13** | Updated Contact disclosure with standardized Working Hours schedule. | Ensure complete consistency across all legal disclosures and homepage. |
 | **2026-09-04** | Added explicit Android Biometric KeyStore local authentication privacy clause. | Clarify that biometric data never leaves user devices. |

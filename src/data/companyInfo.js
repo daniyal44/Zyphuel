@@ -36,7 +36,9 @@ export const COMPANY_INFO = {
     latitude: 31.507534,
     longitude: 74.334949,
   },
-  hours: 'Mon–Thu: 8 AM – 8 PM, Fri: 8 AM – 1 PM, Sat–Sun: 10 AM – 6 PM (WhatsApp helpline available 24/7)',
+  hours: 'Desk Support: Mon–Thu 8 AM – 8 PM, Fri 8 AM – 1 PM, Sat–Sun 10 AM – 6 PM | Doorstep Orders: 8 AM – 10 PM Daily | WhatsApp Helpline: 24/7',
+  orderHours: '8:00 AM – 10:00 PM Daily (PKT)',
+  nightCutoffWindow: '10:00 PM – 8:00 AM (PKT)',
   founder: {
     name: 'Muhammad Daniyal',
     role: 'Founder & Leading Web Developer',

@@ -118,6 +118,7 @@ export default function TermsOfUsePage() {
                 <ul>
                   <li><strong>Dispatch Timing:</strong> Dispatch and arrival schedules are approximate and subject to urban traffic conditions, weather, safety inspections, and queue priorities.</li>
                   <li><strong>Order Limits:</strong> Fuel orders are strictly structured between a <strong>minimum of 5 Litres</strong> and a <strong>maximum of 15 Litres</strong> per doorstep mobile delivery dispatch to ensure transit safety and rapid routing across Lahore.</li>
+                  <li><strong>Order Intake Window:</strong> Online doorstep orders are accepted daily from <strong>8:00 AM to 10:00 PM (PKT)</strong>. Between 10:00 PM and 8:00 AM, order intake is closed for the night, during which the Complete Order button is disabled and hidden.</li>
                   <li><strong>Delivery Zones:</strong> Active delivery zones are limited to designated Lahore postal codes. Expansion alerts are communicated via our website and badge notifications.</li>
                   <li><strong>Urgent Express Deliveries:</strong> Priority express dispatch carries a reasonable flat surcharge of +Rs. 100 (10–20 minute delivery target).</li>
                 </ul>
@@ -130,9 +131,10 @@ export default function TermsOfUsePage() {
                 <h2><i className="fa-solid fa-credit-card"></i> 4. Pricing & Payments</h2>
                 <p>Fuel prices displayed on our platform are updated in real-time based on market rates as set by OGRA (Oil and Gas Regulatory Authority of Pakistan). Final delivery charges are determined by the live fuel rate at the time of dispatch, plus applicable surcharges.</p>
                 <ul>
-                  <li><strong>Cash on Delivery:</strong> Our primary payment method is physical cash collected by the tanker operator at the delivery location.</li>
+                  <li><strong>Cash on Delivery:</strong> Physical cash collected by the tanker operator at the delivery location for orders up to 10 Litres.</li>
+                  <li><strong>Instant Online Payments:</strong> On-the-spot mobile wallet transfers via JazzCash, Easypaisa, NayaPay, and Raast QR cards carried by delivery pilots across all volumes.</li>
                   <li><strong>Bank Transfer:</strong> Pre-approved enterprise accounts may arrange advance bank transfers for scheduled deliveries.</li>
-                  <li><strong>Delivery Fee:</strong> Doorstep fuel delivery is fixed at <strong>Rs. 300.00</strong> for orders up to 10 Litres. For orders between 11L and 15L (the maximum doorstep volume cap), a structured dynamic dispatch fee applies between <strong>Rs. 320.00 and Rs. 400.00</strong> scaled by volume. Priority express dispatch carries an additional surcharge of <strong>+Rs. 100.00</strong>.</li>
+                  <li><strong>Delivery Fee:</strong> Doorstep fuel delivery is fixed at <strong>Rs. 300.00</strong> for orders up to 10 Litres. For orders between 11L and 15L (the maximum doorstep volume cap), a structured dynamic dispatch fee applies between <strong>Rs. 320.00 and Rs. 400.00</strong> scaled by volume (+Rs. 20/L step). Priority express dispatch carries an additional surcharge of <strong>+Rs. 100.00</strong>.</li>
                   <li><strong>No Hidden Charges:</strong> All applicable fees are displayed in the Order Summary before confirmation. No additional charges will be applied post-delivery.</li>
                 </ul>
               </section>
@@ -169,10 +171,10 @@ export default function TermsOfUsePage() {
                 <h2><i className="fa-solid fa-handshake"></i> 8. Contact & Dispute Resolution</h2>
                 <p>Any disputes arising from the use of our services shall first be attempted to be resolved amicably through our customer support channels. If resolution cannot be achieved within 14 working days, disputes shall be referred to the competent courts of Lahore, Pakistan.</p>
                 <p>
-                  <strong>Support Desk:</strong> Available 24/7 via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Official Contact &amp; Support Page</Link><br />
+                  <strong>Support Desk:</strong> Available via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Official Contact &amp; Support Page</Link><br />
                   <strong>Email:</strong> m.daniyalkhan490@gmail.com <em>(For order modifications or legal inquiries)</em><br />
                   <strong>Location:</strong> Lahore, Pakistan <em>(Walk-in corporate meetings by appointment only)</em><br />
-                  <strong>Working Hours:</strong> Monday – Thursday: 8:00 AM – 8:00 PM | Friday: 8:00 AM – 1:00 PM | Saturday – Sunday: 10:00 AM – 6:00 PM
+                  <strong>Working Hours:</strong> Desk Support: Monday – Thursday: 8:00 AM – 8:00 PM | Friday: 8:00 AM – 1:00 PM | Saturday – Sunday: 10:00 AM – 6:00 PM | Doorstep Ordering: 8:00 AM – 10:00 PM Daily | WhatsApp Helpline: 24/7
                 </p>
                 <p>
                   To file a dispute, request dedicated corporate account terms, or inquire about logistics agreements, submit an inquiry via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Contact &amp; Support Page</Link> or review our <Link to="/services/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Fuel Services &amp; Delivery Terms</Link>.

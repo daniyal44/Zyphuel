@@ -194,6 +194,59 @@ export default function BlogArticlePage() {
           </div>
         )}
 
+        {/* In-Content Download App CTA */}
+        <div
+          className="article-download-cta-box"
+          style={{
+            opacity: 1,
+            visibility: 'visible',
+            margin: '2rem 0',
+            padding: '18px 22px',
+            background: 'linear-gradient(135deg, rgba(2, 132, 199, 0.08), rgba(14, 165, 233, 0.04))',
+            border: '1.5px solid rgba(2, 132, 199, 0.3)',
+            borderRadius: '14px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexWrap: 'wrap',
+            gap: '14px'
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <i className="fa-brands fa-android" style={{ fontSize: '1.6rem', color: '#0284c7' }}></i>
+            <div>
+              <strong style={{ display: 'block', fontSize: '1rem', color: 'var(--text-primary)', fontWeight: 700 }}>
+                Get Zyphuel Mobile for Android (v{APP_VERSION})
+              </strong>
+              <span style={{ fontSize: '0.86rem', color: 'var(--text-secondary)' }}>
+                Direct fuel delivery to your car or generator with 0.01L calibrated accuracy.
+              </span>
+            </div>
+          </div>
+          <Link
+            to="/download/"
+            className="btn btn-primary"
+            id="article-download-btn"
+            data-testid="article-download-btn"
+            style={{
+              opacity: 1,
+              visibility: 'visible',
+              padding: '10px 24px',
+              fontSize: '0.92rem',
+              fontWeight: 700,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              textDecoration: 'none',
+              boxShadow: '0 4px 12px rgba(2, 132, 199, 0.3)',
+              flexShrink: 0
+            }}
+          >
+            <i className="fa-solid fa-download"></i>
+            <span>Download</span>
+          </Link>
+        </div>
+
         {/* Structured Sections */}
         {article.sections ? (
           <div className="article-body">
@@ -456,11 +509,11 @@ export default function BlogArticlePage() {
             Order certified Euro-V Super Petrol, High-Octane 97, or Euro-V Diesel delivered to your doorstep within 45 minutes with calibrated 0.01L digital metering.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
-            <Link to="/order/" className="btn btn-primary" style={{ padding: '12px 24px', fontSize: '0.96rem', fontWeight: 700 }}>
-              <i className="fa-solid fa-truck-fast"></i> Order Fuel Online (45 Mins SLA)
+            <Link to="/download/" className="btn btn-primary" id="article-bottom-download-btn" data-testid="article-bottom-download-btn" style={{ padding: '12px 26px', fontSize: '0.96rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              <i className="fa-solid fa-download"></i> Download
             </Link>
-            <Link to="/download/" className="btn btn-secondary" style={{ padding: '12px 24px', fontSize: '0.96rem', fontWeight: 700 }}>
-              <i className="fa-brands fa-android"></i> Download APK (v{APP_VERSION})
+            <Link to="/order/" className="btn btn-secondary" style={{ padding: '12px 24px', fontSize: '0.96rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              <i className="fa-solid fa-truck-fast"></i> Order Fuel Online
             </Link>
           </div>
         </div>

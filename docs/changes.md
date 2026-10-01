@@ -527,4 +527,45 @@ Aligned all corporate credentials, physical location indicators, executive title
   - Removed `"prebuild"` and `"graph"` scripts from `package.json` so build never re-generates SVG graph files.
   - Removed `src/data/gitTelemetry.json`.
 
+---
+
+## Phase 19: Strict 10:00 PM Order Cutoff, PHP Guard Plugin & 100% Genuine Harmonization
+
+### 19.1 Strict 10:00 PM (Asia/Karachi PKT) "Complete Order" Button Removal
+- **User Directive**: *"10pm ka bad Complete Order ka button show nai hona chaye kis be hal ma , ya kase add karna ya tuma ache sa pata ho ga meri website ma"*
+- **Implementation**:
+  - In `src/utils/officeHours.js`:
+    - Evaluated live time in `Asia/Karachi` timezone: `isNightCutoffActive = (hour >= 22 || hour < 8)`.
+    - Computed `canCompleteOrder = !isNightCutoffActive`.
+    - Computed `nextOrderReopen = (hour >= 22) ? 'Tomorrow at 8:00 AM PKT' : 'Today at 8:00 AM PKT'`.
+  - In `src/pages/OrderPage.jsx`:
+    - Whenever `officeStatus.isNightCutoffActive` is true, the `.button-wrapper` containing `<button className="truck-button" id="truck-submit-btn">` is **strictly not rendered in the DOM**.
+    - In its place, rendered a high-impact **Night Order Cutoff Alert Card** stating orders close at 10:00 PM and reopen at 8:00 AM PKT, showing live PKT clock and direct 24/7 WhatsApp emergency helpline button (`+92 3230-112464`).
+    - Added hard interceptors in `handleTruckClick` and `proceedOrderSubmission` to block order submissions during cutoff hours.
+
+### 19.2 WordPress & Standalone PHP Plugin (`plugins/zyphuel-order-guard/zyphuel-order-guard.php`)
+- **User Directive**: *"ek plugin banayo .php ma 10pm ka bad Complete Order ka button show nai hona chaye kis be hal ma"*
+- **Implementation**:
+  - Created `plugins/zyphuel-order-guard/zyphuel-order-guard.php` conforming to standard WordPress plugin specifications:
+    - Sets timezone `date_default_timezone_set('Asia/Karachi')`.
+    - Implemented REST API route `/wp-json/zyphuel/v1/order-status`.
+    - Injects protective CSS hiding `#truck-submit-btn, .truck-button` if cutoff is active.
+    - Injects JavaScript removing the button from the DOM.
+    - Intercepts POST order submissions with HTTP 403 Forbidden.
+  - Created standalone web-accessible endpoint `public/api/order-guard.php` for direct JSON status queries.
+
+### 19.3 Site-Wide 100% Genuine Information Consistency Audit & Clean-up
+- **User Directive**: *"all information ko wesbite ma update rakho, articles , suspicous information nai hone chaye , ek page ma kuch or information ha or dosra page ma koi or information ha , all information same accroding to names and requrements"*
+- **Harmonized Claims**:
+  1. **Fuel Pricing & Markup**: Updated `HomePage.jsx` to state "Official OGRA + Standard Forecourt Retail Margin (+Rs. 5.00/L)" eliminating contradictory "zero markup" claim.
+  2. **Delivery Fees**: Standardized 10 articles in `src/data/articles.js` by replacing legacy "dynamic demand surge pricing" with exact scaled fee schedule (Rs. 300 up to 10L, Rs. 320–400 for 11L–15L at +Rs. 20/L step).
+  3. **Orderable Targets**: Purged remaining "safe storage drum" / "Drums" from `src/data/articles.js` (lines 199 and 644), strictly enforcing the 4 approved application targets (Car, Motorbike, Generator, Commercial Machinery).
+  4. **Operating Hours**: Aligned `HomePage.jsx`, `ContactPage.jsx`, `companyInfo.js`, `TermsOfUsePage.jsx`, and `PrivacyPolicyPage.jsx` to reflect:
+     - Online Doorstep Orders: 8:00 AM – 10:00 PM Daily (PKT)
+     - Night Cutoff Window: 10:00 PM – 8:00 AM PKT
+     - Corporate Support Desk: Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm
+     - WhatsApp Helpline: 24/7 on-demand
+  5. **SEO Protection**: Protected and reinforced all indexed keywords (doorstep fuel delivery Lahore, calibrated digital flow meter 0.01L, Euro-V petrol diesel).
+
+
 

@@ -28,8 +28,9 @@ This document serves as the authoritative single source of truth for all corpora
 - **Facility Classification**: Regional Dispatch Hub #01 (Central Fuel Depot & Maintenance Yard).
 - **Coordinates & Verification**: `31.5204° N, 74.3587° E`.
 
-### 2.2 Operating Schedules
-- **Online Doorstep Fuel Dispatch**: Operational **24/7 continuously on-demand** across Lahore.
+### 2.2 Operating Schedules & Strict 10:00 PM Order Cutoff
+- **Online Doorstep Fuel Intake Window**: Active daily from **8:00 AM to 10:00 PM (PKT)** across Lahore.
+- **Strict Night Cutoff (10:00 PM – 8:00 AM PKT)**: The "Complete Order" button is strictly hidden from the DOM; night alert card renders with an 8:00 AM reopening countdown and 24/7 WhatsApp emergency hotline. Submissions blocked by `plugins/zyphuel-order-guard/zyphuel-order-guard.php`.
 - **Physical Corporate Office & Administrative Hours**:
   - Monday – Thursday: 8:00 AM – 8:00 PM
   - Friday: 8:00 AM – 1:00 PM (Break for Friday Prayers)

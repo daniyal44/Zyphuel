@@ -67,7 +67,7 @@ Dedicated operational contact points for institutional stakeholders:
 ## Frequently Asked Questions (FAQ) Section
 Added interactive 4-item accordion addressing core user intent and eliminating thin content signals for search engines:
 1. *How do I contact Zyphuel for urgent fuel dispatch in Lahore?* (WhatsApp +92 3230-112464 or web/app dispatch Delivered: Within 45 Mins).
-2. *What are Zyphuel's customer support and delivery operating hours?* (Doorstep refueling fleet and office support operate during official working hours: Monday–Thursday 8am–8pm, Friday 8am–1pm, Saturday–Sunday 10am–6pm, with 24/7 dedicated WhatsApp support at +92 3230-112464).
+2. *What are Zyphuel's customer support and delivery operating hours?* (Online doorstep fuel orders are accepted from 8:00 AM to 10:00 PM PKT daily with night cutoff 10:00 PM – 8:00 AM. Corporate support desk operates Monday–Thursday 8am–8pm, Friday 8am–1pm, Saturday–Sunday 10am–6pm, with 24/7 dedicated WhatsApp support at +92 3230-112464).
 3. *Where is Zyphuel's corporate office located in Lahore?* (75-Main Boulevard, Gulberg III, Lahore).
 4. *Can corporate clients setup bulk commercial credit accounts?* (Yes, monthly consolidated invoicing and telemetry).
 
@@ -94,8 +94,7 @@ Added interactive 4-item accordion addressing core user intent and eliminating t
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
-| **2026-10-01** | **Bottom Banner Delivery Pricing Alignment**: Updated bottom CTA banner to reflect `Rs. 300 fixed ≤10L` delivery fee. | Synchronize Contact Page bottom banner with updated delivery fee calibration. |
-| **2026-10-01** | **Working Hours & Delivery Operations Alignment**: (1) Reconciled Contact FAQ answer #2 to clarify doorstep fleet operates during official working hours (Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm), (2) Updated schedule table status to highlight 24/7 WhatsApp emergency helpline coverage. | Ensure 100% truth-in-advertising and operational alignment across all contact touchpoints. |
+| **2026-10-01** | **Working Hours & Delivery Operations Alignment**: (1) Updated Contact FAQ answer #2 to clarify online doorstep orders operate 8:00 AM – 10:00 PM PKT daily (with strict 10:00 PM – 8:00 AM night cutoff), corporate desk operates Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm, and 24/7 WhatsApp emergency support at `+92 3230-112464`, (2) Synchronized bottom banner delivery fee to Rs. 300 up to 10L and Rs. 320–400 for 11L–15L. | Ensure 100% truth-in-advertising and operational alignment across all contact touchpoints. |
 | **2026-09-27** | **Corporate Identity & Contact Standardization**: Updated Contact number (`+92 3230-112464`), Complaint Email (`m.daniyalkhan490@gmail.com`), Headquarters (`Lahore, Pakistan`), and Executive Management desk to Founder & Leading Web Developer Muhammad Daniyal. | User's new corporate identity & regulatory credentials declaration. |
 | **2026-09-27** | Removed Sales & Fleet Operations (Adil Farooq) and 24/7 Urgent Dispatch Hotline cards from Commercial Fleet & Industrial Escalation Desk. | Clean up redundant contact cards per user request. |
 | **2026-09-25** | **Added Lahore Sector Dispatch Hubs & SLA Matrix, Commercial Escalation Desk, and Synchronized SLA to "Delivered: Within 45 Mins"**. | Provide high-value local logistics data, eradicate thin content signals, boost local Lahore search queries, and resolve indexing latency. |

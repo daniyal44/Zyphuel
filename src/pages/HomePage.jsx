@@ -348,12 +348,12 @@ export default function HomePage() {
               <div className="comp-icon-box">
                 <i className="fa-solid fa-file-invoice-dollar"></i>
               </div>
-              <h3>100% OGRA Compliant Rates</h3>
+              <h3>100% OGRA Compliant Retail Rates</h3>
               <p>
-                We adhere strictly to official government pricing notified by the Oil &amp; Gas Regulatory Authority (OGRA). Transparent pricing, zero surge gouging, and official receipts with every single order.
+                We adhere strictly to official government pricing notified by the Oil &amp; Gas Regulatory Authority (OGRA) with standard petrol pump retail margin (+Rs. 5.00/L). Transparent pricing, zero hidden gouging, and itemized receipts with every single order.
               </p>
               <div className="comp-proof-tag">
-                <i className="fa-solid fa-shield-check text-primary"></i> Zero Price Markup Guarantee
+                <i className="fa-solid fa-shield-check text-primary"></i> Standard Retail Forecourt Pricing (+Rs. 5.00/L)
               </div>
             </div>
 
@@ -461,7 +461,7 @@ export default function HomePage() {
                 </tr>
                 <tr>
                   <td><strong>Government Regulated Pricing (OGRA)</strong></td>
-                  <td className="highlight-zyphuel">✅ 100% OGRA daily rates, zero markup</td>
+                  <td className="highlight-zyphuel">✅ Official OGRA daily rate + standard pump margin (+Rs. 5.00/L)</td>
                   <td>✅ Standard station price</td>
                   <td>⚠️ Broker commissions added</td>
                   <td>⚠️ High surge delivery fees</td>
@@ -655,7 +655,7 @@ export default function HomePage() {
                 Zyphuel Operating &amp; Working Hours
               </h3>
               <p style={{ color: '#94a3b8', fontSize: '0.92rem', lineHeight: '1.6', marginBottom: '20px' }}>
-                Corporate support, customer service, and doorstep fuel delivery orders are processed during working hours across all Lahore sectors.
+                Online doorstep fuel orders are accepted from <strong>8:00 AM to 10:00 PM (PKT)</strong> daily across all Lahore sectors. Corporate support desk and office verification operate during the schedule on the right, with 24/7 WhatsApp emergency assistance.
               </p>
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 <Link to="/order/" className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
@@ -693,6 +693,10 @@ export default function HomePage() {
                 <i className="fa-solid fa-clock"></i> Working Hours &amp; Timings
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(56, 189, 248, 0.25)', paddingBottom: '8px', background: 'rgba(56, 189, 248, 0.08)', padding: '6px 8px', borderRadius: '6px' }}>
+                  <span style={{ color: '#38bdf8', fontWeight: 700 }}>Doorstep Orders</span>
+                  <strong style={{ color: '#38bdf8' }}>8:00 AM – 10:00 PM Daily</strong>
+                </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '8px' }}>
                   <span style={{ color: '#cbd5e1' }}>Monday – Thursday</span>
                   <strong style={{ color: '#ffffff' }}>8:00 AM – 8:00 PM</strong>

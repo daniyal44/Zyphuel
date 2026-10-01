@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { articles } from '../data/articles'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { APP_VERSION } from '../data/appVersion'
 
 export default function BlogListPage() {
   const [activeFilter, setActiveFilter] = useState('All')
@@ -75,12 +76,79 @@ export default function BlogListPage() {
     <div ref={pageRef}>
       <section className="blog-section section-padding">
         <div className="container">
-          <div className="blog-header fade-in-up">
+          <div className="blog-header" style={{ opacity: 1, visibility: 'visible' }}>
             <h1 className="section-title">Zyphuel Blog &amp; Fuel Guides</h1>
             <p className="section-subtitle">
               Read the latest updates about mobile fuel logistics, energy mobility,
               and fuel delivery innovations in Lahore.
             </p>
+          </div>
+
+          {/* Prominent In-Content Download CTA */}
+          <div 
+            className="blog-download-cta-banner"
+            style={{
+              opacity: 1,
+              visibility: 'visible',
+              background: 'linear-gradient(135deg, rgba(2, 132, 199, 0.1) 0%, rgba(14, 165, 233, 0.05) 100%)',
+              border: '1.5px solid rgba(2, 132, 199, 0.35)',
+              borderRadius: '16px',
+              padding: '20px 24px',
+              margin: '20px 0 32px 0',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '16px',
+              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', maxWidth: '680px' }}>
+              <div style={{
+                width: '48px',
+                height: '48px',
+                borderRadius: '12px',
+                background: 'var(--brand-primary, #0284c7)',
+                color: '#ffffff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '1.4rem',
+                flexShrink: 0
+              }}>
+                <i className="fa-brands fa-android"></i>
+              </div>
+              <div>
+                <strong style={{ display: 'block', fontSize: '1.1rem', color: 'var(--text-primary)', fontWeight: 800 }}>
+                  Download the Official Zyphuel Mobile App (v{APP_VERSION})
+                </strong>
+                <span style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
+                  Fast doorstep petrol and diesel delivery in Lahore, live GPS tracking, and automatic 2-hour price alerts.
+                </span>
+              </div>
+            </div>
+            <Link
+              to="/download/"
+              className="btn btn-primary blog-download-cta-btn"
+              id="blog-download-btn"
+              data-testid="blog-download-btn"
+              style={{
+                opacity: 1,
+                visibility: 'visible',
+                padding: '12px 28px',
+                fontSize: '0.98rem',
+                fontWeight: 700,
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                textDecoration: 'none',
+                boxShadow: '0 4px 14px rgba(2, 132, 199, 0.35)',
+                flexShrink: 0
+              }}
+            >
+              <i className="fa-solid fa-download"></i>
+              <span>Download</span>
+            </Link>
           </div>
 
           {/* Filters */}
@@ -144,14 +212,14 @@ export default function BlogListPage() {
               </p>
             </div>
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              <Link to="/order/" className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
+              <Link to="/download/" className="btn btn-primary" style={{ padding: '10px 22px', fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                <i className="fa-solid fa-download"></i> Download
+              </Link>
+              <Link to="/order/" className="btn btn-outline" style={{ padding: '10px 20px', fontSize: '0.9rem', color: '#ffffff', borderColor: 'rgba(255, 255, 255, 0.25)' }}>
                 <i className="fa-solid fa-gas-pump"></i> Order Fuel
               </Link>
               <Link to="/contact/" className="btn btn-ghost" style={{ padding: '10px 20px', fontSize: '0.9rem', color: '#38bdf8', borderColor: 'rgba(56, 189, 248, 0.3)' }}>
                 <i className="fa-solid fa-headset"></i> Contact Us
-              </Link>
-              <Link to="/services/" className="btn btn-ghost" style={{ padding: '10px 20px', fontSize: '0.9rem', color: '#cbd5e1', borderColor: 'rgba(255, 255, 255, 0.15)' }}>
-                <i className="fa-solid fa-list-check"></i> All Services
               </Link>
             </div>
           </div>

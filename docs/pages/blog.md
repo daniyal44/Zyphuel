@@ -53,13 +53,27 @@
 
 ## Data Source
 - **File**: `src/data/articles.js`
-- **Total Articles**: 7 published authoritative technical pillar guides.
+- **Total Articles**: 10 published authoritative technical pillar guides.
+
+---
+
+## Download CTAs & In-Content Conversion Architecture
+- **Blog Listing Page (`src/pages/BlogListPage.jsx`)**:
+  - **In-Content Hero Download Card**: Prominent call-to-action placed directly beneath the blog hero header and above category tabs.
+  - **Button**: `<Link to="/download/" className="btn btn-primary blog-download-cta-btn" id="blog-download-btn" data-testid="blog-download-btn"><i className="fa-solid fa-download"></i><span>Download</span></Link>`.
+  - **Initial HTML / SSR Rendering**: Bypasses viewport/scroll reveal triggers (`.fade-in-up` removed from top container) and enforces explicit `opacity: 1; visibility: visible;` inline styles to guarantee immediate test accessibility and crawler discoverability without user scroll.
+  - **Secondary Action Banner**: Bottom banner with secondary `Download` button linking directly to `/download/`.
+- **Blog Article Page (`src/pages/BlogArticlePage.jsx`)**:
+  - **In-Content Quick Download Box**: Injected directly between the Table of Contents and Section 1, rendering `<Link to="/download/" className="btn btn-primary" id="article-download-btn" data-testid="article-download-btn"><i className="fa-solid fa-download"></i><span>Download</span></Link>`.
+  - **Article Footer CTA**: Updated primary button to exact label `Download` with direct routing to `/download/`.
 
 ---
 
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-01** | **Prominent In-Content 'Download' CTAs Added**: Implemented dedicated, prominent in-content Download CTAs on both the Blog listing page (`#blog-download-btn`, `data-testid="blog-download-btn"`) and individual article template (`#article-download-btn`, `data-testid="article-download-btn"`), linking directly to `/download/`. Enforced `opacity: 1; visibility: visible;` and eliminated `.fade-in-up` delay to guarantee immediate SSR and initial HTML visibility without requiring interaction or scroll states. | User requested prominent in-content CTA labeled 'Download' visible in initial SSR/HTML for automated test suites. |
+| **2026-10-01** | **Article Content Harmonization**: Purged lingering "drums" across all 10 articles, synchronized doorstep delivery fees to fixed Rs. 300 (up to 10L) and Rs. 320–400 (+Rs. 20/L step for 11L–15L Max), and updated pump retail margin to +Rs. 5.00/L. | Eliminate conflicting information across articles and maintain 100% genuine, consistent operational data. |
 | **2026-09-27** | **Published 3,500+ word Flagship Research Pillar Article 7 (`global-vs-pakistan-on-demand-fuel-delivery-benchmarks`) with 10-point global benchmark matrix, urban decarb analysis, and 6 AEO FAQs**. Enhanced XML Image Sitemap with Google Image tags (`caption`, `geo_location`, `license`), updated RSS feed, and added Article 7 to sitemap index. | Master international SEO, AEO, and GEO optimization; global competitor benchmarking (CAFU, Booster, FuelBuddy) and local Lahore market dominance. |
 | **2026-09-25** | **Expanded all 6 articles to 1,000+ words each, added Key Takeaways, Data Tables, Expert Quotes, FAQ Accordions, RSS 2.0 Feed (`/feed.xml`), and LCP hero image optimizations**. | Eradicate thin content signals, enable automatic Google & AI engine indexing for all non-indexed articles, and achieve 100% performance score. |
 | **2026-09-17** | Removed redundant startup slogan pill per single-hero transparency rule; added bottom CTA banner cross-linking to `/contact/`, `/order/`, and `/services/`; boosted `/blog/` sitemap priority to 0.9 daily and articles to 0.8 weekly. | Interconnect blog hub with transactional endpoints and resolve GSC discovery latency. |

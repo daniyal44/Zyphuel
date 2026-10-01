@@ -161,10 +161,10 @@ export default function PrivacyPolicyPage() {
                 <h2><i className="fa-solid fa-paper-plane"></i> 8. Contact Us</h2>
                 <p>If you have questions, remarks, or security queries regarding this Privacy Policy or wish to update/delete your data, please contact our support team using the information below:</p>
                 <p>
-                  <strong>Support Desk:</strong> Available 24/7 via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Official Contact &amp; Support Page</Link><br />
+                  <strong>Support Desk:</strong> Available via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Official Contact &amp; Support Page</Link><br />
                   <strong>Email:</strong> m.daniyalkhan490@gmail.com <em>(For order modifications or data requests)</em><br />
                   <strong>Location:</strong> Lahore, Pakistan <em>(Walk-in corporate meetings by appointment only)</em><br />
-                  <strong>Working Hours:</strong> Monday – Thursday: 8:00 AM – 8:00 PM | Friday: 8:00 AM – 1:00 PM | Saturday – Sunday: 10:00 AM – 6:00 PM
+                  <strong>Working Hours:</strong> Desk Support: Monday – Thursday: 8:00 AM – 8:00 PM | Friday: 8:00 AM – 1:00 PM | Saturday – Sunday: 10:00 AM – 6:00 PM | Doorstep Ordering: 8:00 AM – 10:00 PM Daily | WhatsApp Helpline: 24/7
                 </p>
                 <p>
                   Reach out directly via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Zyphuel Contact &amp; Support Desk</Link> or order doorstep fuel online at our <Link to="/order/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Refueling Portal</Link>.

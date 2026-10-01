@@ -19,7 +19,7 @@ export const articles = [
       'Friday midnight rates remain locked through Saturday and Sunday, while weekdays follow daily rate calibrations.',
       'The Zyphuel Android app sends automated 2-hour price alerts directly to lock screens, helping drivers place orders before depot prices increase.',
       'Doorstep consumer orders range strictly from 5 Litres minimum to 15 Litres maximum per delivery.',
-      'Standard delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with dynamic demand surge pricing for 11L to 15L orders, delivered within 45 minutes across Lahore.'
+      'Standard delivery is fixed at Rs. 300.00 for orders up to 10 Litres, and scaled strictly between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) for 11L to 15L orders, delivered within 20–45 minutes across Lahore.'
     ],
     sections: [
       {
@@ -72,7 +72,7 @@ export const articles = [
         subheading: 'Strict Safety Standards and Convenient Payments in Lahore',
         paragraphs: [
           'To comply with local traffic safety regulations and HAZMAT handling codes, Zyphuel sets strict operational limits on all consumer doorstep orders. Every delivery is kept between a minimum of 5 Litres and a maximum of 15 Litres per dispatch. This cap keeps our micro-refuelers light, allows fast movement through tight residential streets, and provides the exact fuel needed for passenger cars, motorbikes, or home generators.',
-          'Our delivery pricing is transparent and simple. Orders up to 10 Litres have a fixed delivery fee of Rs. 300.00. For orders from 11L to 15L (the maximum volume cap), a structured dynamic demand surge fee applies to cover heavy bowser capacity. We deliver within 45 minutes across Lahore. You can pay via Cash on Delivery (COD) for orders up to 10 Litres, or use instant on-spot digital transfers via JazzCash, Easypaisa, NayaPay, and Raast QR across all volumes.'
+          'Our delivery pricing is transparent and simple. Orders up to 10 Litres have a fixed delivery fee of Rs. 300.00. For orders from 11L to 15L (the maximum volume cap), fees are strictly scaled between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) to cover specialized high-capacity load handling. We deliver within 20–45 minutes across Lahore. You can pay via Cash on Delivery (COD) for orders up to 10 Litres, or use instant on-spot digital transfers via JazzCash, Easypaisa, NayaPay, and Raast QR across all volumes.'
         ]
       }
     ],
@@ -91,7 +91,7 @@ export const articles = [
       },
       {
         question: 'What is the delivery fee for doorstep fuel orders?',
-        answer: 'For orders up to 10 Litres, the delivery fee is strictly fixed at Rs. 300.00. For orders between 11L and 15L, dynamic demand surge pricing applies to cover heavy capacity load handling. Standard orders arrive within 45 minutes across Lahore.'
+        answer: 'For orders up to 10 Litres, the delivery fee is strictly fixed at Rs. 300.00. For orders between 11L and 15L, fees are strictly scaled between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step). Standard orders arrive within 20–45 minutes across Lahore.'
       },
       {
         question: 'Can I pay using Cash on Delivery (COD) or mobile Online Payments?',
@@ -100,7 +100,7 @@ export const articles = [
     ],
     content: [
       'By pairing live rate notifications with on-demand refueling, Zyphuel helps drivers, fleet managers, and generator operators lock in fuel at posted rates before depot price revisions take effect. Doorstep orders are kept between 5 Litres minimum and 15 Litres maximum per delivery.',
-      'Deliveries under 10 Litres carry a fixed delivery fee of Rs. 300.00, while 11L to 15L orders include dynamic demand surge pricing. With our 45-minute delivery standard, Cash on Delivery for smaller orders, and instant Online Payments payments via JazzCash, Easypaisa, NayaPay, and Raast, residents in Gulberg, DHA, Johar Town, and Model Town can get certified Euro-V fuel delivered safely to their doorstep without waiting in petrol pump queues.'
+      'Deliveries under 10 Litres carry a fixed delivery fee of Rs. 300.00, while 11L to 15L orders are scaled between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step). With our 45-minute delivery standard, Cash on Delivery for smaller orders, and instant Online Payments payments via JazzCash, Easypaisa, NayaPay, and Raast, residents in Gulberg, DHA, Johar Town, and Model Town can get certified Euro-V fuel delivered safely to their doorstep without waiting in petrol pump queues.'
     ]
   },
   {
@@ -172,7 +172,7 @@ export const articles = [
         heading: 'Order Limits, Delivery Fees, and Payment Options',
         subheading: '5L to 15L Capacity, Fixed Fees Under 10L, and Mobile Wallets',
         paragraphs: [
-          'The app enforces the same transparent business rules as our web platform: doorstep orders are strictly between 5 Litres minimum and 15 Litres maximum per dispatch. The delivery fee is fixed at Rs. 300.00 for orders up to 10 Litres, with dynamic demand surge pricing for 11L to 15L orders. Orders arrive within 45 minutes.',
+          'The app enforces the same transparent business rules as our web platform: doorstep orders are strictly between 5 Litres minimum and 15 Litres maximum per dispatch. The delivery fee is fixed at Rs. 300.00 for orders up to 10 Litres, and scaled strictly between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) for 11L to 15L orders. Orders arrive within 45 minutes.',
           'You can select Cash on Delivery (COD) for orders up to 10 Litres. If you prefer cashless payment, our delivery pilot carries an active QR card for instant transfers via JazzCash, Easypaisa, NayaPay, and Raast.'
         ]
       }
@@ -196,7 +196,7 @@ export const articles = [
       },
       {
         question: 'Can I use the app to refuel standby generators or motorbikes?',
-        answer: 'Yes. You can select your vehicle or equipment type (car, motorcycle, standby generator, commercial machinery, or safe storage drum) and our driver brings the right nozzle for your tank.'
+        answer: 'Yes. You can select your vehicle or equipment type (car, motorcycle, standby generator, or commercial machinery) and our driver brings the right nozzle for your tank.'
       }
     ],
     content: [
@@ -271,7 +271,7 @@ export const articles = [
         subheading: '0.01L Digital Meters and Verified Receipts',
         paragraphs: [
           'Instead of mechanical pump handles that can be tampered with, every Zyphuel bowser uses an electronic positive-displacement flow meter calibrated to national weights and measures standards. The digital screen measures volume down to 0.01 Litres and produces an itemized receipt showing exact litres pumped, temperature compensation, official OGRA rates, and timestamped GPS coordinates.',
-          'Consumer generator orders arrive within 45 minutes. Deliveries up to 10 Litres have a fixed delivery fee of Rs. 300.00, while orders from 11L to 15L include a dynamic demand dispatch fee to cover specialized high-capacity load handling. You can pay via Cash on Delivery for orders up to 10L, or use instant Online Payments (JazzCash, Easypaisa, NayaPay, Raast). For large enterprise facilities with continuous generator runs, we provide scheduled commercial bulk accounts with 15-day credit terms.'
+          'Consumer generator orders arrive within 45 minutes. Deliveries up to 10 Litres have a fixed delivery fee of Rs. 300.00, while orders from 11L to 15L include a scaled delivery fee of Rs. 320 to Rs. 400 (+Rs. 20/L step) for high-capacity load handling. You can pay via Cash on Delivery for orders up to 10L, or use instant Online Payments (JazzCash, Easypaisa, NayaPay, Raast). For large enterprise facilities with continuous generator runs, we provide scheduled commercial bulk accounts with 15-day credit terms.'
         ]
       }
     ],
@@ -294,13 +294,13 @@ export const articles = [
       },
       {
         question: 'What is the delivery fee for generator fuel orders?',
-        answer: 'Doorstep consumer orders range from 5L to 15L. Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with a dynamic demand dispatch fee for 11L to 15L orders. Larger industrial bulk orders are handled through dedicated commercial tankers.'
+        answer: 'Doorstep consumer orders range from 5L to 15L. Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, and scaled between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) for 11L to 15L orders. Larger industrial bulk orders are handled through dedicated commercial tankers.'
       }
     ],
     content: [
       'Unscheduled grid cuts continue to affect businesses and residential areas across Lahore. Critical facilities like clinics, diagnostic labs, software firms, and apartment buildings depend on standby diesel generators. Hauling fuel in loose jerrycans from petrol stations is slow, unsafe, and introduces dirt that damages expensive common-rail injectors.',
       'Zyphuel eliminates this problem by delivering Euro-V Low-Sulfur Diesel directly to your site. Equipped with 50-meter industrial delivery hoses, static grounding clamps, and anti-spark nozzles, our operators pump fuel straight into your basement or rooftop day-tank with zero mess.',
-      'Doorstep consumer orders are kept between 5 Litres and 15 Litres per delivery. Standard delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with a dynamic demand dispatch fee for 11L to 15L orders. With 45-minute dispatch, Cash on Delivery for smaller orders, and on-spot Online Payments payments, your backup power stays ready whenever the grid goes down.'
+      'Doorstep consumer orders are kept between 5 Litres and 15 Litres per delivery. Standard delivery is fixed at Rs. 300.00 for orders up to 10 Litres, and scaled between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) for 11L to 15L orders. With 45-minute dispatch, Cash on Delivery for smaller orders, and on-spot Online Payments payments, your backup power stays ready whenever the grid goes down.'
     ]
   },
   {
@@ -321,7 +321,7 @@ export const articles = [
       'Fuel and gas prices strictly follow official OGRA notifications, protecting customers from local black-market markups.',
       'Every LPG cylinder is weighed on a portable digital scale at your doorstep before undergoing a mandatory soap-bubble leak check.',
       'Deliveries arrive within 45 minutes across Lahore.',
-      'Fixed Rs. 300 delivery fee for orders up to 10 Litres, with dynamic demand pricing for 11L to 15L, supported by Cash on Delivery and mobile wallets.'
+      'Fixed Rs. 300 delivery fee for orders up to 10 Litres, with scaled delivery fee of Rs. 320 to Rs. 400 for 11L to 15L (+Rs. 20/L step), supported by Cash on Delivery and mobile wallets.'
     ],
     sections: [
       {
@@ -368,7 +368,7 @@ export const articles = [
         heading: 'Delivery Times, Clear Fees, and Payment Options',
         subheading: 'Delivered in 45 Minutes with Fair Delivery Charges',
         paragraphs: [
-          'Doorstep fuel orders are kept between 5 Litres and 15 Litres per delivery to ensure agile, safe transport through residential streets. Standard delivery is fixed at Rs. 300.00 for orders up to 10 Litres, while orders from 11L to 15L include a dynamic demand dispatch fee to cover specialized high-capacity load handling. All orders arrive within 45 minutes.',
+          'Doorstep fuel orders are kept between 5 Litres and 15 Litres per delivery to ensure agile, safe transport through residential streets. Standard delivery is fixed at Rs. 300.00 for orders up to 10 Litres, while orders from 11L to 15L include a scaled delivery fee of Rs. 320 to Rs. 400 (+Rs. 20/L step) for high-capacity load handling. All orders arrive within 45 minutes.',
           'You can pay using Cash on Delivery (COD) for fuel orders up to 10 Litres. For cashless transactions, our delivery pilots carry active QR cards supporting instant mobile wallet payments via JazzCash, Easypaisa, NayaPay, and Raast.'
         ]
       }
@@ -388,7 +388,7 @@ export const articles = [
       },
       {
         question: 'What is the delivery fee for utility dispatches?',
-        answer: 'Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with a dynamic demand dispatch fee for 11L to 15L orders. Deliveries arrive within 45 minutes across Lahore.'
+        answer: 'Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, and scaled between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) for 11L to 15L orders. Deliveries arrive within 45 minutes across Lahore.'
       },
       {
         question: 'Can I pay for gas or fuel using Online Payments?',
@@ -399,7 +399,7 @@ export const articles = [
       'Businesses, commercial kitchens, and residential societies need a dependable, safe supply of essential utilities: clean Euro-V diesel for backup generators, sealed LPG gas cylinders for commercial cooking, and bulk potable water. Zyphuel brings these services together under one dispatch system.',
       'Our prices strictly follow official government notifications: Euro-V Petrol at Rs 345.87/L, Euro-V Diesel at Rs 378.05/L, High-Octane 97 at Rs 365.00/L, and LPG Gas at Rs 450.00/kg, alongside bulk clean water tanker refills at Rs 100 per gallon.',
       'LPG cylinder delivery focuses on consumer safety. Every 5 kg, 11.8 kg, and 45.4 kg cylinder undergoes pressure checks and tare-weight inspection. Our delivery technicians bring portable digital scales directly to your doorstep so you can personally confirm the full net weight before mandatory leak testing.',
-      'Whether you need emergency diesel during a monsoon storm or an urgent cylinder replacement during evening dinner service, Zyphuel provides 45-minute doorstep delivery across Lahore. Orders are bounded between 5L and 15L, with a fixed Rs. 300 fee under 10L, dynamic demand pricing for 11L to 15L, and flexible payment options including COD and digital mobile wallets.'
+      'Whether you need emergency diesel during a monsoon storm or an urgent cylinder replacement during evening dinner service, Zyphuel provides 45-minute doorstep delivery across Lahore. Orders are bounded between 5L and 15L, with a fixed Rs. 300 fee under 10L, scaled delivery fee of Rs. 320 to Rs. 400 for 11L to 15L (+Rs. 20/L step), and flexible payment options including COD and digital mobile wallets.'
     ]
   },
   {
@@ -467,7 +467,7 @@ export const articles = [
         subheading: 'Real-Time Visibility and Digital Invoices',
         paragraphs: [
           'As fuel flows from the micro-refueler into your vehicle or generator tank, the flow rate and cumulative volume stream in real time over Bluetooth directly to your phone screen. You watch the live counter update second by second.',
-          'When dispensing finishes, the system sends an itemized digital receipt to your phone and WhatsApp. It records the exact litres dispensed, the official OGRA rate, the meter serial number, the delivery timestamp, and GPS coordinates. Doorstep orders range from 5L to 15L with a fixed Rs. 300 fee under 10L, dynamic demand pricing for 11L to 15L, and 45-minute dispatch across Lahore.'
+          'When dispensing finishes, the system sends an itemized digital receipt to your phone and WhatsApp. It records the exact litres dispensed, the official OGRA rate, the meter serial number, the delivery timestamp, and GPS coordinates. Doorstep orders range from 5L to 15L with a fixed Rs. 300 fee under 10L, scaled delivery fee of Rs. 320 to Rs. 400 for 11L to 15L (+Rs. 20/L step), and 45-minute dispatch across Lahore.'
         ]
       }
     ],
@@ -490,14 +490,14 @@ export const articles = [
       },
       {
         question: 'What are the delivery charges for calibrated fuel orders?',
-        answer: 'Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with dynamic demand surge pricing for 11L to 15L orders. Payment is supported via Cash on Delivery (≤10L) and instant Online Payments.'
+        answer: 'Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, and scaled strictly between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) for 11L to 15L orders. Payment is supported via Cash on Delivery (≤10L) and instant Online Payments.'
       }
     ],
     content: [
       'Short-fueling is one of the most frustrating experiences for drivers and businesses in Pakistan, where pump calibration drift or manual tampering often results in 5% to 12% less fuel than paid for. Zyphuel was designed to solve this issue through calibrated hardware and transparent digital records.',
       'Our micro-refuelers use positive-displacement flow meters with optical pulse encoders accurate to 0.01 litres. Unlike traditional pump nozzles, our meters use automatic temperature compensation (calibrated to the 15°C international standard) to eliminate density differences caused by intense summer heat.',
       'As fuel dispenses, the litres counter streams live to your phone screen over Bluetooth. Once complete, you receive an itemized digital receipt linked to the meter serial number, timestamp, and GPS coordinates.',
-      'Doorstep consumer orders are kept strictly between 5 Litres and 15 Litres per dispatch. Standard delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with dynamic demand surge pricing for 11L to 15L orders. Arriving within 45 minutes across Lahore, Zyphuel gives you verified, calibrated fuel for every rupee spent.'
+      'Doorstep consumer orders are kept strictly between 5 Litres and 15 Litres per dispatch. Standard delivery is fixed at Rs. 300.00 for orders up to 10 Litres, and scaled strictly between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) for 11L to 15L orders. Arriving within 45 minutes across Lahore, Zyphuel gives you verified, calibrated fuel for every rupee spent.'
     ]
   },
   {
@@ -518,7 +518,7 @@ export const articles = [
       'Software developer Muhammad Daniyal founded Zyphuel to connect certified fuel depots directly to parked vehicles and generators using modern software.',
       'Zyphuel operates purpose-built micro-refuelers with double-walled steel tanks, 0.01L digital meters, and automated dispatch routing.',
       'Doorstep orders are calibrated strictly between 5 Litres minimum and 15 Litres maximum, delivered within 45 minutes.',
-      'Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with dynamic demand pricing for 11L to 15L, supported by Cash on Delivery and mobile wallets.'
+      'Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with scaled delivery fee of Rs. 320 to Rs. 400 for 11L to 15L (+Rs. 20/L step), supported by Cash on Delivery and mobile wallets.'
     ],
     sections: [
       {
@@ -566,7 +566,7 @@ export const articles = [
         subheading: '5L to 15L Orders, Fixed Fees Under 10L, and Instant Wallets',
         paragraphs: [
           'To ensure road safety and maintain our 45-minute delivery timeline across Lahore, consumer orders are kept between 5 Litres minimum and 15 Litres maximum per dispatch. This volume is ideal for commuter cars, motorbikes, standby generators, and roadside emergencies.',
-          'Our pricing is straightforward. Orders up to 10 Litres have a fixed delivery fee of Rs. 300.00. For orders from 11L to 15L, dynamic demand surge pricing applies to cover heavy bowser capacity. Customers can pay via Cash on Delivery for orders up to 10 Litres, or use on-the-spot mobile wallet transfers via JazzCash, Easypaisa, NayaPay, and Raast.'
+          'Our pricing is straightforward. Orders up to 10 Litres have a fixed delivery fee of Rs. 300.00. For orders from 11L to 15L, fees are scaled between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step). Customers can pay via Cash on Delivery for orders up to 10 Litres, or use on-the-spot mobile wallet transfers via JazzCash, Easypaisa, NayaPay, and Raast.'
         ]
       }
     ],
@@ -585,7 +585,7 @@ export const articles = [
       },
       {
         question: 'What is the delivery fee and time window in Lahore?',
-        answer: 'Orders arrive within 45 minutes across Lahore. Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with dynamic demand surge pricing for 11L to 15L orders.'
+        answer: 'Orders arrive within 45 minutes across Lahore. Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, and scaled strictly between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) for 11L to 15L orders.'
       },
       {
         question: 'What payment methods can I use?',
@@ -595,7 +595,7 @@ export const articles = [
     content: [
       'In a busy metropolis of over 14 million people like Lahore, visiting retail fuel stations takes up valuable time: traffic jams around pump entrances, long queues during rush hours, and wasted engine idling. Seeing this bottleneck, software developer Muhammad Daniyal designed and built Zyphuel.',
       'Drawing on software engineering and automated logistics, Daniyal set out to make fuel ordering as easy as ordering food online. Zyphuel’s key development was combining smart cloud routing with compact, double-walled mobile micro-tankers built for urban streets.',
-      'Today, Zyphuel operates 24/7 across Lahore, serving private vehicle owners, housing societies, commercial offices, and emergency backup systems. Doorstep consumer orders range from 5 Litres to 15 Litres per delivery, with 45-minute dispatch, a fixed Rs. 300 fee for orders up to 10 Litres, dynamic demand pricing for 11L to 15L, and flexible payments (Cash on Delivery up to 10L, plus JazzCash, Easypaisa, NayaPay, and Raast).',
+      'Today, Zyphuel operates 24/7 across Lahore, serving private vehicle owners, housing societies, commercial offices, and emergency backup systems. Doorstep consumer orders range from 5 Litres to 15 Litres per delivery, with 45-minute dispatch, a fixed Rs. 300 fee for orders up to 10 Litres, scaled delivery fee of Rs. 320 to Rs. 400 for 11L to 15L (+Rs. 20/L step), and flexible payments (Cash on Delivery up to 10L, plus JazzCash, Easypaisa, NayaPay, and Raast).',
       'As Pakistan moves toward daily fuel pricing, Zyphuel continues to improve its technology with automated price alerts and scheduled generator replenishment, proving how software can make urban fuel delivery cleaner, faster, and more transparent.'
     ]
   },
@@ -617,7 +617,7 @@ export const articles = [
       'While global platforms focus largely on corporate fleet yards or industrial diesel, Pakistan has unique needs: retail consumer petrol access, protection from pump short-fueling, and backup generator refills during load-shedding.',
       'Zyphuel adapts this model for Lahore with agile micro-bowsers featuring calibrated 0.01L digital positive-displacement meters, 15°C temperature compensation, and verified QR receipts.',
       'Unlike unverified local sellers who deliver diesel in dirty containers via phone calls, Zyphuel provides an app-driven platform delivering Super Petrol, High-Octane 97, and Euro-V Diesel within 45 minutes.',
-      'Doorstep dispatches are strictly 5 Litres minimum to 15 Litres maximum per order, with a fixed Rs. 300 fee under 10L, dynamic demand pricing for 11L to 15L, and flexible payments (COD and Online Payments).'
+      'Doorstep dispatches are strictly 5 Litres minimum to 15 Litres maximum per order, with a fixed Rs. 300 fee under 10L, scaled delivery fee of Rs. 320 to Rs. 400 for 11L to 15L (+Rs. 20/L step), and flexible payments (COD and Online Payments).'
     ],
     sections: [
       {
@@ -641,7 +641,7 @@ export const articles = [
           headers: ['Dimension', 'Booster Fuels (USA)', 'CAFU (UAE)', 'FuelBuddy (India)', 'Traditional Pakistani Sellers', 'Zyphuel (Lahore, Pakistan)'],
           rows: [
             ['Primary Market', 'United States (California, Texas)', 'United Arab Emirates (Dubai, Abu Dhabi)', 'India (Major Metro Centers)', 'Karachi and Punjab Industrial Areas', 'Lahore Metropolitan (All Municipal Zones)'],
-            ['Target Assets', 'Commercial Fleets and Office Campuses', 'Consumer Passenger Vehicles and Boats', 'Industrial Generators and Machinery', 'Heavy Commercial Generators and Boilers', 'Cars, Motorbikes, Generators, Machinery, and Drums'],
+            ['Target Assets', 'Commercial Fleets and Office Campuses', 'Consumer Passenger Vehicles and Boats', 'Industrial Generators and Machinery', 'Heavy Commercial Generators and Boilers', 'Cars, Motorbikes, Generators, and Commercial Machinery (Strictly 4 Application Targets)'],
             ['Fuel Grades', 'Renewable Diesel, Gasoline, Biodiesel', 'Special 95 and Super 98 Petrol', 'High-Speed Commercial Diesel (HSD)', 'Commercial Diesel Only', 'Super Petrol (92 Octane), High-Octane 97, Euro-V Diesel'],
             ['Metering Standard', 'NIST Handbook 44 Weights and Measures', 'ESMA UAE Certified Flow Meter', 'PESO Approved Digital Flow Meter', 'Manual Dipsticks or Mechanical Meters', '0.01L Positive-Displacement Digital Meter with 15°C ATC'],
             ['Ordering Method', 'Corporate Web Portal and Fleet API', 'Consumer Mobile App (iOS and Android)', 'Mobile App and Tank Telemetry', 'Manual Phone Calls and WhatsApp', 'Android APK (v2.6.4.0.0.16) and Web App (60s Checkout)'],
@@ -649,7 +649,7 @@ export const articles = [
             ['Hose Length', 'Standard 15m Fleet Hoses', 'Standard 10m Vehicle Hoses', '25m Industrial Reel Hoses', 'None (Manual Plastic Pouring)', '50-Meter Anti-Static Hose (Basements and Rooftops)'],
             ['Delivery Window', 'Scheduled Nightly Windows', 'Same-Day or Scheduled 1-Hour Slots', 'Scheduled Next-Day or 4-Hour Slots', 'Next-Day or 24-Hour Lead Time', 'Delivered within 45 Minutes Guaranteed SLA'],
             ['Order Volume Limits', 'Fleet Contracts (500L+ Minimum)', 'Vehicle Tank Capacity Only', '50L+ Commercial Minimum', '100L to 1,000L Bulk Minimum', 'Strictly 5L Minimum to 15L Maximum per Dispatch'],
-            ['Delivery Pricing', 'B2B Contract Pricing', 'Monthly Subscription or Flat Fee', 'Freight Surcharge by Volume', 'Negotiated Bulk Freight per KM', 'Fixed Rs. 300 Fee (≤10L) with Dynamic Demand (11L-15L)']
+            ['Delivery Pricing', 'B2B Contract Pricing', 'Monthly Subscription or Flat Fee', 'Freight Surcharge by Volume', 'Negotiated Bulk Freight per KM', 'Fixed Rs. 300 Fee (up to 10L) with Scaled Fee (11L-15L: Rs. 320-400)']
           ]
         }
       },
@@ -722,7 +722,7 @@ export const articles = [
       },
       {
         question: 'What are Zyphuel’s delivery charges and payment options in Lahore?',
-        answer: 'Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with dynamic demand surge pricing for 11L to 15L orders. Customers can pay via Cash on Delivery for orders up to 10L, or use instant Online Payments (JazzCash, Easypaisa, NayaPay, Raast QR) across all volumes.'
+        answer: 'Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, and scaled strictly between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) for 11L to 15L orders. Customers can pay via Cash on Delivery for orders up to 10L, or use instant Online Payments (JazzCash, Easypaisa, NayaPay, Raast QR) across all volumes.'
       },
       {
         question: 'How quickly does Zyphuel deliver fuel across Lahore?',
@@ -732,7 +732,7 @@ export const articles = [
     content: [
       'The on-demand mobile fueling model has modernized fuel distribution across the globe. From Booster Fuels serving commercial fleets in North America to CAFU refueling consumer vehicles in the UAE and FuelBuddy supplying diesel in India, mobile delivery is replacing the traditional trip to the petrol station.',
       'In Pakistan, Zyphuel has adapted this global concept to tackle local issues: retail pump short-fueling, load-shedding generator fueling, and the daily price changes of OGRA’s rolling 7-day Platts benchmark. Operating 24/7 across Lahore, Zyphuel pairs double-walled micro-refuelers with digital flow meters accurate down to 0.01 Litres.',
-      'With doorstep orders calibrated between 5 Litres minimum and 15 Litres maximum, delivered within 45 minutes, a fixed Rs. 300 fee for orders up to 10 Litres, dynamic demand pricing for 11L to 15L, 50-meter long-reach hoses for generators, and digital QR receipts, Zyphuel provides a clean, modern fuel delivery service in Pakistan.'
+      'With doorstep orders calibrated between 5 Litres minimum and 15 Litres maximum, delivered within 45 minutes, a fixed Rs. 300 fee for orders up to 10 Litres, scaled delivery fee of Rs. 320 to Rs. 400 for 11L to 15L (+Rs. 20/L step), 50-meter long-reach hoses for generators, and digital QR receipts, Zyphuel provides a clean, modern fuel delivery service in Pakistan.'
     ]
   }
 ];

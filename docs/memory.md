@@ -50,8 +50,12 @@ This document defines the immutable business rules, operational constants, and a
 
 ## 2. Operational Invariants & Operating Hours
 
-### 2.1 Service Availability & Working Hours
-- **Online Doorstep Fuel Dispatch**: Operational **24/7 continuously on-demand** across Lahore (no blocking popups or checkout restrictions).
+### 2.1 Service Availability, Order Intake & Strict 10:00 PM Cutoff
+- **Online Doorstep Fuel Intake Window**: Active daily strictly from **8:00 AM to 10:00 PM (PKT)** across Lahore.
+- **Strict Night Cutoff (10:00 PM – 8:00 AM PKT)**:
+  - The "Complete Order" button (`.truck-button`, `#truck-submit-btn`) is **strictly hidden and removed from the DOM** under all circumstances.
+  - A dedicated Night Cutoff alert card is rendered with an 8:00 AM reopening notification, live PKT clock, and direct 24/7 WhatsApp emergency helpline button.
+  - Order submissions are blocked client-side and server-side via `plugins/zyphuel-order-guard/zyphuel-order-guard.php` (returning HTTP 403 Forbidden).
 - **Corporate Desk Support & Office Verification Schedule**:
   - Monday – Thursday: 8:00 AM – 8:00 PM
   - Friday: 8:00 AM – 1:00 PM

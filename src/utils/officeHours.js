@@ -99,11 +99,18 @@ export function checkOfficeHours(date = new Date()) {
     const currentDateTimeStr = `${day}, ${currentFormattedTime} (PKT)`
     const nextOpening = getNextOpening(day, hour, minute)
 
-    // Online doorstep orders are active and accepted continuously
-    const isOpen = true
+    // Strict 10:00 PM PKT Order Intake Cutoff (22:00 to 08:00 PKT)
+    // Between 10:00 PM and 8:00 AM, doorstep order intake is CLOSED and Complete Order button is hidden.
+    const isNightCutoffActive = (hour >= 22 || hour < 8)
+    const canCompleteOrder = !isNightCutoffActive
+    const nextOrderReopen = (hour >= 22) ? 'Tomorrow at 8:00 AM PKT' : 'Today at 8:00 AM PKT'
 
     return {
-      isOpen: true,
+      isOpen: canCompleteOrder,
+      canCompleteOrder,
+      isNightCutoffActive,
+      nextOrderReopen,
+      orderIntakeWindow: '8:00 AM – 10:00 PM PKT',
       isOfficeOpen,
       day,
       hour,
@@ -119,6 +126,10 @@ export function checkOfficeHours(date = new Date()) {
     // Graceful fallback
     return {
       isOpen: true,
+      canCompleteOrder: true,
+      isNightCutoffActive: false,
+      nextOrderReopen: '8:00 AM PKT',
+      orderIntakeWindow: '8:00 AM – 10:00 PM PKT',
       day: '',
       hour: 12,
       minute: 0,
@@ -131,3 +142,20 @@ export function checkOfficeHours(date = new Date()) {
     }
   }
 }
+
+/**
+ * Returns true if the night cutoff (10:00 PM - 8:00 AM PKT) is currently active
+ */
+export function isNightCutoff(date = new Date()) {
+  const status = checkOfficeHours(date)
+  return status.isNightCutoffActive
+}
+
+/**
+ * Returns true if doorstep order placement is currently allowed
+ */
+export function canPlaceOrder(date = new Date()) {
+  const status = checkOfficeHours(date)
+  return status.canCompleteOrder
+}
+

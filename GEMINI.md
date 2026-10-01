@@ -32,12 +32,14 @@
 - **Delivery Windows**:
   - Simple Dispatch: 20–45 Mins
   - Urgent Dispatch: 10–20 Mins
-- **Online Order Intake & Office Operating Hours**:
-  - Online doorstep order placement & dispatch operates **24/7 continuously on-demand** (never show red "Closed" blocking popups or prevent order placement).
+- **Online Order Intake & Strict 10:00 PM Cutoff**:
+  - Online doorstep fuel order intake operates daily from **8:00 AM to 10:00 PM (PKT)**.
+  - **Strict Night Cutoff (10:00 PM – 8:00 AM PKT)**: The "Complete Order" button (`.truck-button`, `#truck-submit-btn`) is strictly hidden and never shown under any circumstances. A dedicated Night Cutoff alert card is rendered with countdown/notice to 8:00 AM and direct 24/7 WhatsApp emergency helpline. Server-side guard (`plugins/zyphuel-order-guard/zyphuel-order-guard.php`) rejects order submissions with 403 Forbidden.
   - Corporate support & desk verification schedule:
     - Monday – Thursday: 8:00 AM – 8:00 PM
     - Friday: 8:00 AM – 1:00 PM
     - Saturday – Sunday: 10:00 AM – 6:00 PM
+  - WhatsApp emergency helpline operates **24/7 on-demand** at `+92 3230-112464`.
 - **Startup Identity**: Single persistent transparency statement on Home hero; never duplicated on child pages.
 - **Automated Dispatch & WhatsApp**: Direct WhatsApp pre-filled dispatch link to `+92 3230-112464`.
 

@@ -23,15 +23,16 @@
    - Prohibits fraudulent bookings, hazardous tank access, or illegal reselling of fuel.
 3. **Orders, Volumes & Delivery Speed**:
    - **Order Volume Limits**: Strictly **5 Litres minimum** up to **15 Litres maximum** for liquid fuel doorstep delivery / **5 kg** for LPG.
+   - **Order Intake Window**: Online doorstep fuel orders are accepted daily from **8:00 AM to 10:00 PM PKT**. Between 10:00 PM and 8:00 AM, order intake is closed (Night Cutoff) and the Complete Order button is disabled and hidden.
    - **Delivery Windows**:
      - Simple/Standard: Estimated 20–45 minutes across central Lahore sectors.
      - Urgent/Priority: Estimated 10–20 minutes with priority routing.
 4. **Pricing, Surcharges & Payments**:
    - Liquid fuels priced strictly per official OGRA ex-depot notifications plus retail pump markup (+Rs. 5.00/L).
    - Delivery Fees:
-     - Standard Delivery: Fixed **Rs. 300.00** delivery fee for doorstep fuel orders up to 10 Litres; progressive dynamic demand surge fee applies for high-capacity orders (11L–15L Max).
+     - Standard Delivery: Fixed **Rs. 300.00** delivery fee for doorstep fuel orders up to 10 Litres; scaled fee applies for high-capacity orders between 11L and 15L Max (**Rs. 320.00 – Rs. 400.00** with +Rs. 20/L linear step).
      - Urgent Priority Dispatch: Flat **+Rs. 100.00** priority surcharge.
-   - Payment Methods: Cash on Delivery (COD) for small volumes (≤10L fuel) and approved direct bank transfers / on-spot instant Online Payments (JazzCash, Easypaisa, NayaPay, Raast QR).
+   - Payment Methods: Cash on Delivery (COD) for small volumes (≤10L fuel) and instant Online Payments (JazzCash, Easypaisa, NayaPay, Raast QR) across all order volumes.
 5. **Cancellations & Safety Refusals**:
    - Orders can be cancelled prior to bowser departure without penalty.
    - Riders reserve the right to refuse dispensing into damaged, non-grounded, leaking, or plastic domestic containers that violate fire safety standards.
@@ -46,6 +47,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-01** | **Order Window & Night Cutoff Legal Incorporation**: Added contractual terms specifying online doorstep fuel orders intake operates strictly 8:00 AM – 10:00 PM PKT daily, with a strict 10:00 PM night cutoff during which order submission is blocked. Updated delivery fee schedule to Rs. 300 (up to 10L) and Rs. 320–400 (+Rs. 20/L step for 11L–15L Max) and retail margin of +Rs. 5.00/L. | Ensure 100% legal synchronization with frontend checkout controls and backend PHP guard. |
 | **2026-10-01** | Updated standard doorstep delivery fee to fixed **Rs. 300.00** for orders up to 10 Litres, with dynamic demand surge pricing for high-capacity orders (11L–15L Max) and retail pump markup of +Rs. 5.00/L. | Synchronize Terms of Use with updated dispatch logistics pricing. |
 | **2026-09-27** | Removed direct phone number display; routed to official Contact Page. | User requested: *"contact page ka elova mera phone number kise be or page per show nai hona chaye"*. Replaced raw phone number text with direct link to official Contact Page (`/contact/`) to consolidate personal telephone numbers exclusively to the designated contact gateway. |
 | **2026-09-22** | Unified delivery fee to flat **Rs. 280.00** (+Rs. 100 urgent surcharge, Total Rs. 380), defined strict **5L Min to 15L Max** doorstep capacity limit, and purged all 50L references. | User requested delivery fee update, complete purge of 50L mentions, removal of • Min tag, and 15L max volume documentation. |

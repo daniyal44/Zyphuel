@@ -68,7 +68,7 @@ export default function ContactPage() {
               "name": "What are Zyphuel's customer support and delivery operating hours?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Our doorstep mobile refueling fleet and support services operate during official operating hours: Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, and Saturday–Sunday 10:00 AM–6:00 PM."
+                "text": "Online doorstep fuel orders are accepted from 8:00 AM to 10:00 PM (PKT) daily (night cutoff 10:00 PM – 8:00 AM). Corporate support desk operates: Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, Saturday–Sunday 10:00 AM–6:00 PM. Our WhatsApp emergency helpline (+92 3230-112464) operates 24/7."
               }
             },
             {
@@ -102,7 +102,7 @@ export default function ContactPage() {
     },
     {
       q: "What are Zyphuel’s customer support and delivery operating hours?",
-      a: "Our doorstep mobile refueling fleet and support services operate during official operating hours: Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, and Saturday–Sunday 10:00 AM–6:00 PM."
+      a: "Online doorstep fuel orders are accepted from 8:00 AM to 10:00 PM (PKT) daily (night cutoff 10:00 PM – 8:00 AM). Corporate support desk operates: Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, and Saturday–Sunday 10:00 AM–6:00 PM. Our WhatsApp emergency helpline (+92 3230-112464) operates 24/7."
     },
     {
       q: "Where is Zyphuel’s corporate office located in Lahore?",
@@ -621,7 +621,7 @@ ${form.message.trim()}`
           <div className="container">
             <h2 className="section-title">Need Immediate Fuel Dispatch?</h2>
             <p className="section-subtitle" style={{ maxWidth: '640px', margin: '0 auto 28px auto' }}>
-              Skip the contact form if you need fuel right now. Place an order directly for doorstep delivery (Delivered: Within 45 Mins, Rs. 300 fixed &le;10L) across Lahore.
+              Skip the contact form if you need fuel right now. Place an order directly for doorstep delivery (Delivered: 20–45 Mins, Rs. 300 up to 10L, Rs. 320–400 for 11L–15L) across Lahore.
             </p>
             <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link to="/order/" className="btn btn-primary btn-lg">
