@@ -119,7 +119,7 @@ export default function ServiceCard({ svc, index, activeTab, onOrder }) {
         <button
           type="button"
           className={`service-card-cta ${isConsumer ? 'b2c-cta' : 'b2b-cta'}`}
-          onClick={() => showToast(`${svc.title} is currently unavailable. Petrol & Diesel delivery is actively operational 24/7.`, 'warning')}
+          onClick={() => showToast(`${svc.title} is currently unavailable. Petrol & Diesel delivery is actively operational during business hours.`, 'warning')}
           title={`${svc.title} is currently unavailable`}
           aria-label={`${svc.title} is currently unavailable`}
           style={{

@@ -6,7 +6,7 @@ export const COMPANY_INFO = {
   legalName: 'Zyphuel',
   tagline: 'Doorstep Fuel Delivery in Lahore',
   description:
-    'Zyphuel provides 24/7 on-demand doorstep petrol, diesel, and utility delivery in Lahore with calibrated digital flow meters and live dispatch tracking.',
+    'Zyphuel provides on-demand doorstep petrol, diesel, and utility delivery in Lahore with calibrated digital flow meters and live dispatch tracking.',
   phoneDisplay: '+92 3230-112464',
   phoneTel: '+923230112464',
   email: 'm.daniyalkhan490@gmail.com',
@@ -36,7 +36,7 @@ export const COMPANY_INFO = {
     latitude: 31.507534,
     longitude: 74.334949,
   },
-  hours: '24/7 (Monday through Sunday, 00:00 - 23:59)',
+  hours: 'Mon–Thu: 8 AM – 8 PM, Fri: 8 AM – 1 PM, Sat–Sun: 10 AM – 6 PM (WhatsApp helpline available 24/7)',
   founder: {
     name: 'Muhammad Daniyal',
     role: 'Founder & Leading Web Developer',

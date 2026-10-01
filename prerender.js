@@ -137,7 +137,7 @@ const LOCAL_BUSINESS_SCHEMA = {
         "itemOffered": {
           "@type": "Service",
           "name": "Standby Generator Euro-V Diesel Refueling",
-          "description": "24/7 scheduled and emergency diesel logistics for commercial, residential, and industrial generators across Lahore."
+          "description": "Scheduled and emergency diesel logistics for commercial, residential, and industrial generators across Lahore."
         }
       },
       {
@@ -378,7 +378,7 @@ const ROUTES = [
               "name": "What are Zyphuel delivery charges for petrol and diesel in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel charges a flat nominal delivery fee of Rs. 280.00 for doorstep fuel orders delivered within 45 minutes. Urgent priority dispatch (within 45 minutes priority queue) carries a flat surcharge of +Rs. 100.00 (Rs. 380.00 total)."
+                "text": "Zyphuel charges a flat nominal delivery fee of Rs. 280.00 for doorstep fuel orders of 5–10 Litres, delivered within 20–45 minutes. Orders of 11–15 Litres carry a dynamic demand dispatch fee of +Rs. 20/L above 10L. Urgent priority dispatch (10–20 minutes) carries an additional surcharge of +Rs. 100.00."
               }
             },
             {
@@ -514,7 +514,7 @@ const ROUTES = [
               "name": "Can businesses and corporate fleets open dedicated commercial accounts?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. Zyphuel offers centralized billing accounts with 15-day or 30-day payment terms, scheduled weekly generator replenishment, digital consumption telemetry, and 24/7 priority emergency dispatch for hospitals, IT plazas, and logistics hubs."
+                "text": "Yes. Zyphuel offers centralized billing accounts with 15-day or 30-day payment terms, scheduled weekly generator replenishment, digital consumption telemetry, and priority emergency dispatch helpline (24/7) for hospitals, IT plazas, and logistics hubs."
               }
             }
           ]
@@ -588,7 +588,7 @@ const ROUTES = [
               "name": "What services does Zyphuel provide in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel provides 24/7 on-demand doorstep fuel delivery including Euro-V Super Petrol (92 Octane), High-Octane 97, and Euro-V Diesel for vehicles and backup generators across Lahore with calibrated digital flow-meters."
+                "text": "Zyphuel provides on-demand doorstep fuel delivery including Euro-V Super Petrol (92 Octane), High-Octane 97, and Euro-V Diesel for vehicles and backup generators across Lahore with calibrated digital flow-meters."
               }
             },
             {
@@ -769,7 +769,7 @@ const ROUTES = [
           "@type": "HowTo",
           "@id": `${DOMAIN}/order/#howto`,
           "name": "How to Order Petrol and Diesel Delivery Online in Lahore with Zyphuel",
-          "description": "Step-by-step instructions for scheduling 24/7 doorstep petrol or diesel refueling in Lahore with calibrated 0.01L digital meters and 45-minute dispatch.",
+          "description": "Step-by-step instructions for scheduling doorstep petrol or diesel refueling in Lahore with calibrated 0.01L digital meters and 45-minute dispatch.",
           "totalTime": "PT2M",
           "estimatedCost": {
             "@type": "MonetaryAmount",
@@ -802,7 +802,7 @@ const ROUTES = [
               "@type": "HowToStep",
               "position": 4,
               "name": "Enter Lahore Address & Dispatch Priority",
-              "text": "Provide your delivery address in Lahore, select Simple (20-45 mins, Rs. 280) or Urgent (+Rs. 100) priority, choose payment mode (COD or instant QR digital wallet), and submit.",
+              "text": "Provide your delivery address in Lahore, select Simple (20–45 mins, Rs. 280 for 5–10L) or Urgent (+Rs. 100) priority, choose payment mode (COD or instant QR digital wallet), and submit.",
               "url": `${DOMAIN}/order/#step-address`
             }
           ]
@@ -900,7 +900,7 @@ const ROUTES = [
               "name": "What are Zyphuel's customer support and delivery operating hours?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Our doorstep mobile refueling fleet operates 24 hours a day, 7 days a week, 365 days a year across all Lahore sectors. Corporate office and billing desk hours are Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, and Saturday–Sunday 10:00 AM–6:00 PM."
+                "text": "Our doorstep mobile refueling fleet operates across all Lahore sectors during business hours (Mon–Thu 8AM–8PM, Fri 8AM–1PM, Sat–Sun 10AM–6PM). Corporate office and billing desk hours are Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, and Saturday–Sunday 10:00 AM–6:00 PM."
               }
             },
             {

@@ -109,7 +109,7 @@ export default function ServicesPage() {
               "name": "What services does Zyphuel provide in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel provides 24/7 on-demand doorstep fuel delivery including Euro-V Super Petrol (92 Octane), High-Octane 97, and Euro-V Diesel for vehicles and backup generators across Lahore."
+                "text": "Zyphuel provides on-demand doorstep fuel delivery including Euro-V Super Petrol (92 Octane), High-Octane 97, and Euro-V Diesel for vehicles and backup generators across Lahore."
               }
             },
             {
@@ -170,7 +170,7 @@ export default function ServicesPage() {
               <div className="services-hero-content fade-in-up">
                 <div className="hero-subtitle-badge" style={{ backgroundColor: 'rgba(58,134,200,0.12)', borderColor: 'rgba(58,134,200,0.25)', color: '#1a4f7c' }}>
                   <i className="fa-solid fa-truck-droplet"></i>
-                  <span>24/7 On-Demand Fuel Mobility Lahore</span>
+                  <span>On-Demand Fuel Mobility Lahore</span>
                 </div>
                 <h1 className="hero-title" style={{ marginBottom: '16px' }}>
                   Fuel Delivery Services in Lahore

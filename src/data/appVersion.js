@@ -19,7 +19,7 @@ export const CHANGELOG = [
       'Startup Crash Resolution: Eliminated launch-time NullPointerException on security/biometric state initialization for instant crash-free opening',
       'Zero Data Leak & Anti-Breach Safeguards: Enforced automated credential, token, and API key redaction in logging and anti-breach telemetry',
       'Live Rider GPS Tracking & Smooth Interpolation: Real-time driver coordinates published to Firestore with smooth map marker motion and camera lock prevention',
-      'Doorstep Delivery Pricing Alignment: 5L (Rs. 280), 10L (Rs. 300), and 15L Max capacity cap (Rs. 350) with Cash on Delivery (COD) method integration'
+      'Doorstep Delivery Pricing Alignment: Fixed Rs. 280.00 flat for 5L–10L, dynamic demand dispatch fee for 11L–15L Max (+Rs. 20/L above 10L), with Cash on Delivery (COD) for 5–10L orders'
     ]
   },
   {

@@ -96,7 +96,7 @@ export default function DownloadPage() {
 
   useSEO({
     title: `Download Fuel Delivery App Lahore | Zyphuel Android APK v${APP_VERSION}`,
-    description: `Download Pakistan's #1 doorstep petrol and diesel delivery app (v${APP_VERSION}, ${APP_SIZE}). 24/7 generator refueling, express 45-minute dispatch in Lahore, 0.01L digital calibrated flow meters, and 2-hour live OGRA price alerts.`,
+    description: `Download Pakistan's #1 doorstep petrol and diesel delivery app (v${APP_VERSION}, ${APP_SIZE}). generator refueling, express 45-minute dispatch in Lahore, 0.01L digital calibrated flow meters, and 2-hour live OGRA price alerts.`,
     keywords: [
       'petrol delivery app pakistan', 'fuel delivery app Lahore', 'download Zyphuel APK', 'Zyphuel Android app',
       `Zyphuel App v${APP_VERSION}`, 'online petrol delivery in lahore', 'doorstep diesel delivery lahore',
@@ -277,7 +277,7 @@ export default function DownloadPage() {
                 </h1>
                 
                 <p className="hero-description">
-                  Order Euro-V Super Petrol, Euro-V Diesel &amp; High-Octane 97 delivered directly to your vehicle, generator, or home across Lahore in minutes. Skip long fuel station queues, eliminate short-fueling fraud with 0.01L digital flow meters, and receive automated 2-hour OGRA price-lock alerts 24/7.
+                  Order Euro-V Super Petrol, Euro-V Diesel &amp; High-Octane 97 delivered directly to your vehicle, generator, or home across Lahore in minutes. Skip long fuel station queues, eliminate short-fueling fraud with 0.01L digital flow meters, and receive automated 2-hour OGRA price-lock alerts.
                 </p>
 
                 {/* Primary Download CTAs */}
@@ -645,7 +645,7 @@ export default function DownloadPage() {
 
               <div className="help-use-case-card fade-in-up" style={{ transitionDelay: '0.2s' }}>
                 <span className="help-card-tag">Roadside Rescue</span>
-                <h3>24/7 Emergency Refueling</h3>
+                <h3>Emergency Refueling</h3>
                 <p>Stranded on Lahore Ring Road, Canal Bank Road, or downtown traffic with an empty fuel tank? Share your live location via the app for express 45-minute emergency roadside dispatch.</p>
                 <ul className="help-card-perks">
                   <li><i className="fa-solid fa-check"></i> Rapid 45-minute response in covered areas</li>

@@ -87,7 +87,7 @@ export default function HomePage() {
             "itemOffered": {
               "@type": "Service",
               "name": "Standby Generator Euro-V Diesel Refueling",
-              "description": "24/7 scheduled and emergency diesel logistics for commercial, residential, and industrial generators."
+              "description": "Scheduled and emergency diesel logistics for commercial, residential, and industrial generators."
             }
           },
           {
@@ -177,7 +177,7 @@ export default function HomePage() {
     },
     {
       name: "Industrial Estates (Sundar & Kot Lakhpat)",
-      eta: "Scheduled 24/7",
+      eta: "Scheduled Daily",
       desc: "Bulk Euro-V diesel deliveries for manufacturing plants, heavy machinery, excavators, and logistics delivery fleets.",
       link: "/services/#b2b"
     }
@@ -263,7 +263,7 @@ export default function HomePage() {
               <div className="hero-badges-row">
                 <div className="hero-trust-badge">
                   <i className="fa-solid fa-clock"></i>
-                  <span>24/7 Delivery</span>
+                  <span>Fast Delivery</span>
                 </div>
                 <div className="hero-trust-badge">
                   <i className="fa-solid fa-bolt"></i>
@@ -489,7 +489,7 @@ export default function HomePage() {
                 </tr>
                 <tr>
                   <td><strong>Operating Hours &amp; Emergency Response</strong></td>
-                  <td className="highlight-zyphuel">✅ 24/7/365 Uninterrupted Delivery</td>
+                  <td className="highlight-zyphuel">✅ Extended Hours Delivery (Mon–Sun)</td>
                   <td>⚠️ Station queues / Night closures</td>
                   <td>❌ 9-to-5 business hours only</td>
                   <td>❌ Irregular operating hours</td>
@@ -588,7 +588,7 @@ export default function HomePage() {
               <i className="fa-solid fa-location-dot"></i>
               <span>Lahore Metropolitan Coverage</span>
             </div>
-            <h2 className="section-title">24/7 Doorstep Fuel Delivery Coverage Across Lahore</h2>
+            <h2 className="section-title">Doorstep Fuel Delivery Coverage Across Lahore</h2>
             <p className="section-subtitle">
               Zyphuel’s mobile bowser fleet is deployed across 7 primary hubs to guarantee the quickest arrival time in your neighborhood.
             </p>

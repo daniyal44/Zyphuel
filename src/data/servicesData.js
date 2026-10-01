@@ -31,7 +31,7 @@ export const servicesB2C = [
   },
   {
     icon: 'fa-truck-medical',
-    title: '24/7 Emergency Roadside Fuel Dispatch',
+    title: 'Emergency Roadside Fuel Dispatch',
     tag: 'Emergency Response',
     desc: 'Stranded on the highway, Ring Road, or Lahore urban traffic with an empty fuel tank? Share your live GPS pin to receive emergency fuel within 45 minutes.',
     specs: [
@@ -75,11 +75,11 @@ export const servicesB2B = [
     icon: 'fa-building-shield',
     title: 'Enterprise Standby Generator Supply Contracts',
     tag: 'Critical Infrastructure',
-    desc: 'Guaranteed 24/7 diesel supply contracts for hospitals, data centers, telecom towers, banks, and production factories with priority emergency SLA guarantees.',
+    desc: 'Guaranteed diesel supply contracts for hospitals, data centers, telecom towers, banks, and production factories with priority emergency SLA guarantees.',
     specs: [
       '500 Litres to 10,000+ Litres single-order capacity',
       'OGRA laboratory certified density & purity certificates',
-      'Dedicated standby dispatch bowsers on call 24/7',
+      'Dedicated standby dispatch bowsers on call during operating hours',
       'Preventative fuel polishing and water separation checks'
     ],
     fuelTypeKey: 'diesel'
@@ -114,8 +114,8 @@ export const whatWeProvide = [
   },
   {
     icon: 'fa-clock',
-    title: '24/7 Lahore Citywide Service Coverage',
-    desc: 'Uninterrupted round-the-clock delivery across DHA Phase 1-9, Gulberg, Johar Town, Model Town, Bahria Town, Cantt, Green Town, and industrial estates.'
+    title: 'Lahore Citywide Service Coverage',
+    desc: 'Comprehensive delivery coverage across DHA Phase 1-9, Gulberg, Johar Town, Model Town, Bahria Town, Cantt, Green Town, and industrial estates.'
   }
 ];
 

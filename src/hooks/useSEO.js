@@ -6,7 +6,7 @@ const DEFAULT_KEYWORDS = [
   'Zyphuel',
   'online petrol delivery in lahore',
   'doorstep diesel delivery lahore',
-  'emergency petrol delivery service lahore 24/7',
+  'emergency petrol delivery service lahore',
   'fuel delivery Lahore',
   'diesel delivery Lahore',
   'petrol delivery Lahore',
@@ -97,7 +97,7 @@ const GLOBAL_LOCAL_BUSINESS = {
         "itemOffered": {
           "@type": "Service",
           "name": "Standby Generator Euro-V Diesel Refueling",
-          "description": "24/7 scheduled and emergency diesel logistics for commercial, residential, and industrial generators."
+          "description": "Scheduled and emergency diesel logistics for commercial, residential, and industrial generators."
         }
       },
       {
