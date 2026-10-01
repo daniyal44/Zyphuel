@@ -6,16 +6,23 @@ This document defines the immutable business rules, operational constants, and a
 
 ## 1. Core Business Logic & Pricing Rules (Permanent Memory)
 
-### 1.1 Minimum & Maximum Doorstep Fuel Volume
+### 1.1 Minimum & Maximum Doorstep Fuel Volume & Targets
 - **Hard Bounds**: Strictly **5 Litres minimum** up to **15 Litres maximum** per single mobile doorstep delivery order.
 - **Clamping Logic**: All volume input fields clamp inputs below 5L to 5L, and inputs above 15L to 15L.
 - **Increment Step**: Exactly `+1 Litre` per stepper click.
 - **Volume Presets (Chips)**: `[5, 7, 10, 12, 15]` with explicit `15L Max` capacity indicator.
+- **Refueling Targets**: Strictly 4 application targets (Car/Sedan/SUV, Motorbike/Scooter, Standby Generator, Commercial Machinery). Jerrycan / Safe Storage Drum is completely removed.
 - **Bulk Refueling Separation**: Commercial orders exceeding 15 Litres (up to 10,000+ Litres) are serviced exclusively through scheduled commercial B2B bowser contracts.
 
-### 1.2 Doorstep Delivery Charges & Dynamic Demand Fee
-- **Nominal Base Fee**: Fixed **Rs. 300.00** flat nominal fee for orders up to **10 Litres** (5L–10L).
-- **High-Capacity Dynamic Demand Fee (11L–15L Max)**: A progressive dynamic demand surge dispatch fee applies to cover heavy capacity load handling (11L = Rs. 325, 12L = Rs. 355, 13L = Rs. 385, 14L = Rs. 420, 15L = Rs. 460).
+### 1.2 Doorstep Delivery Charges (Strictly Rs. 300 – Rs. 400 Range)
+- **Nominal Base Fee**: Fixed **Rs. 300.00** flat fee for orders up to **10 Litres** (5L–10L).
+- **High-Capacity Scaled Delivery Fee (11L–15L Max)**: Bounded strictly between **Rs. 300.00 and Rs. 400.00** with a linear +Rs. 20/L step:
+  - 11 Litres = Rs. 320.00
+  - 12 Litres = Rs. 340.00
+  - 13 Litres = Rs. 360.00
+  - 14 Litres = Rs. 380.00
+  - 15 Litres (Max) = Rs. 400.00
+- **Purged Legacy Labels**: Explicitly removed `(Orders ≤ 10L)`, `(Order <10)`, and `Fixed Rate (≤10L)` tags across the app.
 - **Urgent Delivery Surcharge**: Controlled, reasonable priority fee of **+Rs. 100.00** flat. Always keep this surcharge reasonable.
 - **Zero Hidden Surcharges**: Fuel is charged at exact retail petrol pump rates without unannounced surcharges.
 
@@ -24,9 +31,9 @@ This document defines the immutable business rules, operational constants, and a
 - **Urgent Dispatch**: **10–20 Mins** express priority response.
 - **Live Countdown**: Initialized to `45m 00s` upon standard order placement and decrements second-by-second in active state persistence.
 
-### 1.4 Payment Modes & Digital Wallet Integration
+### 1.4 Payment Modes & Online Payments Integration
 - **Cash on Delivery (COD)**: Available for domestic doorstep fuel orders between **5 Litres and 10 Litres**. Customers are requested to keep exact change ready upon bowser arrival.
-- **Instant Digital Wallets (No Cash on Hand Alternative)**: If the customer does not have physical cash ready, bowser pilots carry active QR codes for on-spot digital mobile wallet transfers:
+- **Instant Online Payments (No Cash on Hand Alternative)**: If the customer does not have physical cash ready, bowser pilots carry active QR codes for on-spot digital mobile wallet transfers:
   - **JazzCash**
   - **Easypaisa**
   - **NayaPay**
@@ -44,8 +51,8 @@ This document defines the immutable business rules, operational constants, and a
 ## 2. Operational Invariants & Operating Hours
 
 ### 2.1 Service Availability & Working Hours
-- **Doorstep Fuel Delivery Operations**: Operating during official business working hours across Lahore.
-- **Office Operating Hours & Customer Support**:
+- **Online Doorstep Fuel Dispatch**: Operational **24/7 continuously on-demand** across Lahore (no blocking popups or checkout restrictions).
+- **Corporate Desk Support & Office Verification Schedule**:
   - Monday – Thursday: 8:00 AM – 8:00 PM
   - Friday: 8:00 AM – 1:00 PM
   - Saturday – Sunday: 10:00 AM – 6:00 PM

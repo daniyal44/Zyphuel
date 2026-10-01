@@ -55,14 +55,6 @@ export const DELIVERY_APPLICATION_CONFIG = {
     icon: 'fa-tractor',
     placeholder: 'Equipment make/unit (e.g. CAT Excavator)',
     fieldLabel: 'Machinery Model / Unit ID'
-  },
-  storage: {
-    id: 'storage',
-    label: 'Jerrycan / Safe Storage Drum',
-    shortLabel: 'Jerrycan / Drum',
-    icon: 'fa-oil-can',
-    placeholder: 'Container notes (e.g. 2x Sealed Metal Cans)',
-    fieldLabel: 'Storage Drum / Container Notes'
   }
 }
 
@@ -142,7 +134,7 @@ export default function OrderPage() {
               "name": "Is Cash on Delivery (COD) supported?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel. If you do not have cash, instant on-spot digital wallet payments via JazzCash, Easypaisa, NayaPay, and Raast are also accepted. Orders above 10 Litres require advance payment for safety compliance."
+                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel. If you do not have cash, instant on-spot Online Payments payments via JazzCash, Easypaisa, NayaPay, and Raast are also accepted. Orders above 10 Litres require advance payment for safety compliance."
               }
             },
             {
@@ -187,7 +179,7 @@ export default function OrderPage() {
   const [orderWater, setOrderWater] = useState(false)
   const [waterQty, setWaterQty] = useState(10) // Default 10 Gallons
 
-  // Refueling Delivery Application / Target Asset (Car, Bike, Generator, Machinery, Storage)
+  // Refueling Delivery Application / Target Asset (Car, Bike, Generator, Machinery)
   const [deliveryApplication, setDeliveryApplication] = useState('car')
   const [assetIdentifier, setAssetIdentifier] = useState('')
 
@@ -266,18 +258,18 @@ export default function OrderPage() {
   const baseCost = fuelCost + gasCost + waterCost
 
   // Delivery Charges:
-  // Under 10L (5L–10L): Fixed Rs. 300.00 standard nominal fee.
-  // 11L–15L (Max Capacity): Dynamic demand-scaled fee based on volume dispatch load with incremental volume surge.
+  // 5L–10L: Fixed Rs. 300.00 standard nominal fee.
+  // 11L–15L (Max Capacity): Scaled strictly between Rs. 300.00 and Rs. 400.00 (+Rs. 20/L step).
   const getDeliveryFee = (qty) => {
     if (qty <= 10) return 300
     const dynamicFees = {
-      11: 325,
-      12: 355,
-      13: 385,
-      14: 420,
-      15: 460
+      11: 320,
+      12: 340,
+      13: 360,
+      14: 380,
+      15: 400
     }
-    return dynamicFees[qty] || (300 + (qty - 10) * 32)
+    return dynamicFees[qty] || (300 + (qty - 10) * 20)
   }
 
   const standardFee = (orderFuel || orderGas || orderWater)
@@ -428,7 +420,7 @@ export default function OrderPage() {
       ...itemsList.map(item => `  • ${item}`),
       ``,
       `💵 *Subtotal:* Rs. ${baseCost.toLocaleString()}`,
-      `🚚 *Delivery Charges:* Rs. ${deliveryFee} (${fuelQty > 10 ? `Dynamic Demand Rate for ${fuelQty}L` : 'Fixed Rate Under 10L'})`,
+      `🚚 *Delivery Charges:* Rs. ${deliveryFee}`,
       `💰 *TOTAL BILL:* Rs. ${total.toLocaleString()}`,
       `--------------------------------`,
       `📍 *Central Dispatch:* Lahore Hub #01, Pakistan`,
@@ -478,28 +470,10 @@ export default function OrderPage() {
       return
     }
 
-    // Strict Working Hours Check
-    const currentStatus = checkOfficeHours()
-    setOfficeStatus(currentStatus)
-    if (!currentStatus.isOpen) {
-      setShowOfficeHoursMismatchModal(true)
-      showToast(`⚠️ Outside Working Hours! Orders are only accepted Mon-Thu (8am-8pm), Fri (8am-1pm), and Sat-Sun (10am-6pm). Current time: ${currentStatus.currentTime}`, 'error')
-      return
-    }
-
     proceedOrderSubmission(false)
   }
 
   const proceedOrderSubmission = (isAdditional = false) => {
-    // Secondary safety verification against Working Hours
-    const currentStatus = checkOfficeHours()
-    setOfficeStatus(currentStatus)
-    if (!currentStatus.isOpen) {
-      setShowOfficeHoursMismatchModal(true)
-      showToast(`⚠️ Outside Working Hours! Orders cannot be placed at this time.`, 'error')
-      return
-    }
-
     isSubmittingRef.current = true
 
     const orderPayload = { 
@@ -963,9 +937,7 @@ export default function OrderPage() {
                             Guaranteed delivery within 45 mins on doorstep across Lahore
                           </span>
                           <span style={{ fontSize: '0.78rem', color: 'var(--brand-primary, #0284c7)', fontWeight: 700, marginTop: '4px' }}>
-                            {fuelQty <= 10
-                              ? 'Fixed Delivery Fee: Rs. 300.00 (Orders ≤ 10L)'
-                              : `Dynamic Demand Fee: Rs. ${deliveryFee.toFixed(2)} (${fuelQty}L High-Capacity Load)`}
+                            Delivery Fee: Rs. {deliveryFee.toFixed(2)}
                           </span>
                         </div>
                       </div>
@@ -985,7 +957,7 @@ export default function OrderPage() {
                       {errors.name && <div className="validation-error-label" style={{ display: 'block' }}>{errors.name}</div>}
                     </div>
                     <div className="form-group">
-                      <label className="form-label" htmlFor="phone-input">Phone Number (Pakistan)</label>
+                      <label className="form-label" htmlFor="phone-input">Phone Number </label>
                       <input type="tel" className="form-control" id="phone-input"
                         placeholder="+92-300-1234567"
                         value={phone} onChange={e => setPhone(e.target.value)} required />
@@ -1294,8 +1266,8 @@ export default function OrderPage() {
                     padding: '10px 14px',
                     borderRadius: '10px',
                     marginBottom: '16px',
-                    background: officeStatus.isOpen ? 'rgba(16, 185, 129, 0.08)' : 'rgba(239, 68, 68, 0.08)',
-                    border: `1px solid ${officeStatus.isOpen ? 'rgba(16, 185, 129, 0.25)' : 'rgba(239, 68, 68, 0.25)'}`,
+                    background: officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.08)' : 'rgba(2, 132, 199, 0.08)',
+                    border: `1px solid ${officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.25)' : 'rgba(2, 132, 199, 0.25)'}`,
                     fontSize: '0.84rem'
                   }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', flexWrap: 'wrap' }}>
@@ -1303,17 +1275,17 @@ export default function OrderPage() {
                         display: 'flex',
                         alignItems: 'center',
                         gap: '6px',
-                        color: officeStatus.isOpen ? '#10b981' : '#ef4444',
+                        color: officeStatus.isOfficeOpen ? '#10b981' : '#0284c7',
                         fontWeight: 700
                       }}>
                         <span style={{
                           width: '8px',
                           height: '8px',
                           borderRadius: '50%',
-                          backgroundColor: officeStatus.isOpen ? '#10b981' : '#ef4444',
-                          boxShadow: `0 0 0 3px ${officeStatus.isOpen ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)'}`
+                          backgroundColor: officeStatus.isOfficeOpen ? '#10b981' : '#0284c7',
+                          boxShadow: `0 0 0 3px ${officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.2)' : 'rgba(2, 132, 199, 0.2)'}`
                         }}></span>
-                        {officeStatus.isOpen ? 'Working Hours: Accepting Orders Now' : 'Closed: Outside Working Hours (کام کے اوقات ختم)'}
+                        {officeStatus.isOfficeOpen ? 'Working Hours: Accepting Orders (کام کے اوقات جاری ہیں)' : `Operating Hours: ${officeStatus.todaySchedule || 'Mon–Sun'}`}
                       </span>
                       <button
                         type="button"
@@ -1321,7 +1293,7 @@ export default function OrderPage() {
                         style={{
                           background: 'none',
                           border: 'none',
-                          color: officeStatus.isOpen ? '#0284c7' : '#ef4444',
+                          color: '#0284c7',
                           fontWeight: 600,
                           fontSize: '0.78rem',
                           textDecoration: 'underline',
@@ -1329,14 +1301,12 @@ export default function OrderPage() {
                           padding: 0
                         }}
                       >
-                        {officeStatus.isOpen ? 'View Timings' : `Next: ${officeStatus.nextOpening}`}
+                        Working Hours &amp; Timings
                       </button>
                     </div>
-                    {!officeStatus.isOpen && (
-                      <div style={{ color: 'var(--text-muted)', fontSize: '0.78rem', marginTop: '4px', lineHeight: 1.4 }}>
-                        Orders are only accepted during working hours (Mon-Thu 8am-8pm, Fri 8am-1pm, Sat-Sun 10am-6pm).
-                      </div>
-                    )}
+                    <div style={{ color: 'var(--text-muted)', fontSize: '0.78rem', marginTop: '4px', lineHeight: 1.4 }}>
+                      Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm. 24/7 WhatsApp hotline: +92 3230-112464.
+                    </div>
                   </div>
 
                   {/* Truck Submit Button */}
@@ -1429,8 +1399,8 @@ export default function OrderPage() {
                       ) : (
                         <span>
                           {fmt(deliveryFee)}
-                          <span style={{ display: 'block', fontSize: '0.72rem', color: fuelQty > 10 ? '#0284c7' : '#10b981', fontWeight: 600 }}>
-                            {fuelQty > 10 ? `Dynamic Demand (${fuelQty}L)` : 'Fixed Rate (≤10L)'}
+                          <span style={{ display: 'block', fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 600 }}>
+                            Doorstep Delivery ({fuelQty}L)
                           </span>
                         </span>
                       )}
@@ -1441,7 +1411,7 @@ export default function OrderPage() {
                     <span>Payment Mode</span>
                     <strong>
                       <span style={{ color: isCodEligible ? '#059669' : '#0284c7', fontWeight: 700, fontSize: '0.82rem' }}>
-                        {isCodEligible ? 'COD / Digital Wallet' : 'Advance Digital Transfer'}
+                        {isCodEligible ? 'COD / Online Payments' : 'Advance Digital Transfer'}
                       </span>
                     </strong>
                   </div>
@@ -1510,7 +1480,7 @@ export default function OrderPage() {
                       1. How can I order diesel or petrol online in Lahore?
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      Simply choose your required fuel grade (Super Petrol, High-Octane 97, or Euro-V Diesel), select your refueling target asset (Car/SUV, Motorbike, Standby Generator, Commercial Machinery, or Storage Drum), set your volume (5L to 15L Max), enter your delivery address in Lahore, and select your delivery speed. Our dispatcher immediately routes the nearest certified bowser to your location.
+                      Simply choose your required fuel grade (Super Petrol, High-Octane 97, or Euro-V Diesel), select your refueling target asset (Car/SUV, Motorbike, Standby Generator, or Commercial Machinery), set your volume (5L to 15L Max), enter your delivery address in Lahore, and select your delivery speed. Our dispatcher immediately routes the nearest certified bowser to your location.
                     </p>
                   </div>
 
@@ -1519,7 +1489,7 @@ export default function OrderPage() {
                       2. What is the minimum and maximum quantity for doorstep delivery?
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      Doorstep consumer delivery is strictly <strong>5 Litres minimum</strong> up to <strong>15 Litres maximum</strong> per order. Standard delivery is fixed at <strong>Rs. 300.00</strong> for orders up to 10 Litres, while orders between 11L and 15L carry a dynamic demand dispatch fee to cover specialized high-capacity load handling. Dispatched within 45 minutes across Lahore. For commercial bulk requirements exceeding 15 Litres (generators, plazas, commercial machinery), our B2B specialized bowsers provide scheduled bulk supply via corporate inquiry.
+                      Doorstep consumer delivery is strictly <strong>5 Litres minimum</strong> up to <strong>15 Litres maximum</strong> per order. Standard delivery is fixed at <strong>Rs. 300.00</strong> for orders up to 10 Litres, while orders between 11L and 15L carry a structured dynamic dispatch fee between <strong>Rs. 320.00 and Rs. 400.00</strong> (scaled by volume) to cover specialized high-capacity load handling. Dispatched within 45 minutes across Lahore. For commercial bulk requirements exceeding 15 Litres (generators, plazas, commercial machinery), our B2B specialized bowsers provide scheduled bulk supply via corporate inquiry.
                     </p>
                   </div>
 
@@ -1709,38 +1679,38 @@ export default function OrderPage() {
       >
         <div className="tracker-modal" style={{ maxWidth: '520px', textAlign: 'center', padding: '28px 24px' }}>
           
-          {/* Warning Icon Badge */}
+          {/* Schedule Icon Badge */}
           <div style={{
             width: '64px',
             height: '64px',
             borderRadius: '50%',
-            background: 'rgba(239, 68, 68, 0.1)',
-            color: '#ef4444',
+            background: 'rgba(2, 132, 199, 0.1)',
+            color: '#0284c7',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             fontSize: '1.8rem',
             margin: '0 auto 16px',
-            border: '2px solid rgba(239, 68, 68, 0.25)'
+            border: '2px solid rgba(2, 132, 199, 0.25)'
           }}>
             <i className="fa-regular fa-clock"></i>
           </div>
 
           <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '4px' }}>
-            Order Unavailable: Outside Working Hours
+            Zyphuel Operating &amp; Working Hours
           </h3>
-          <p style={{ fontSize: '0.98rem', fontWeight: 700, color: '#ef4444', marginBottom: '14px', direction: 'rtl' }}>
-            آرڈر موصول نہیں ہو سکا: کام کے اوقات ختم ہو چکے ہیں
+          <p style={{ fontSize: '0.98rem', fontWeight: 700, color: '#0284c7', marginBottom: '14px', direction: 'rtl' }}>
+            زیفوئل کے کام کے اوقات اور شیڈول
           </p>
 
           <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.55, marginBottom: '16px' }}>
-            Online fuel orders can only be placed and scheduled during our working hours. Because your order was attempted outside these hours, the order has not been placed.
+            Corporate support, customer service, and doorstep fuel delivery orders are processed during working hours across all Lahore sectors. For emergency inquiries and dispatch assistance, our dedicated WhatsApp helpline (+92 3230-112464) is available 24/7.
           </p>
 
           {/* Current Time vs Status Pill */}
           <div style={{
-            background: 'rgba(239, 68, 68, 0.06)',
-            border: '1px solid rgba(239, 68, 68, 0.2)',
+            background: officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.08)' : 'rgba(2, 132, 199, 0.08)',
+            border: `1px solid ${officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.25)' : 'rgba(2, 132, 199, 0.25)'}`,
             borderRadius: '12px',
             padding: '12px 16px',
             marginBottom: '18px',
@@ -1752,18 +1722,19 @@ export default function OrderPage() {
           }}>
             <div style={{ textAlign: 'left' }}>
               <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                Current Time (موجودہ وقت)
+                Operating Status (اسٹیٹس)
               </span>
-              <strong style={{ fontSize: '0.95rem', color: 'var(--text-primary)' }}>
-                {officeStatus.currentDateTimeStr || 'Pakistan Time'}
+              <strong style={{ fontSize: '0.92rem', color: officeStatus.isOfficeOpen ? '#10b981' : '#0284c7', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: officeStatus.isOfficeOpen ? '#10b981' : '#0284c7', display: 'inline-block' }}></span>
+                {officeStatus.isOfficeOpen ? 'Inside Working Hours' : `Next Window: ${officeStatus.nextOpening}`}
               </strong>
             </div>
             <div style={{ textAlign: 'right' }}>
               <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                Next Opening (اگلا وقت)
+                Current Time (موجودہ وقت)
               </span>
-              <strong style={{ fontSize: '0.92rem', color: '#10b981' }}>
-                {officeStatus.nextOpening}
+              <strong style={{ fontSize: '0.92rem', color: 'var(--text-primary)' }}>
+                {officeStatus.currentDateTimeStr || 'Pakistan Time'}
               </strong>
             </div>
           </div>
@@ -1778,13 +1749,13 @@ export default function OrderPage() {
             textAlign: 'left'
           }}>
             <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <i className="fa-solid fa-calendar-days" style={{ color: '#0284c7' }}></i>
-              Working Hours Schedule (کام کے اوقات):
+              <i className="fa-solid fa-clock" style={{ color: '#0284c7' }}></i>
+              Working Hours &amp; Timings (کام کے اوقات اور ٹائمنگز):
             </div>
             <table style={{ width: '100%', fontSize: '0.84rem', borderCollapse: 'collapse' }}>
               <tbody>
                 {OFFICE_HOURS_SCHEDULE.map((item, idx) => (
-                  <tr key={idx} style={{ borderBottom: idx < OFFICE_HOURS_SCHEDULE.length - 1 ? '1px solid var(--border-color, #f1f5f9)' : 'none' }}>
+                  <tr key={idx} style={{ borderBottom: '1px solid var(--border-color, #f1f5f9)' }}>
                     <td style={{ padding: '7px 4px', color: 'var(--text-secondary, #475569)', fontWeight: 500 }}>
                       {item.days} <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)' }}>({item.urduDays})</span>
                     </td>
@@ -1793,6 +1764,14 @@ export default function OrderPage() {
                     </td>
                   </tr>
                 ))}
+                <tr>
+                  <td style={{ padding: '7px 4px', color: 'var(--text-secondary, #475569)', fontWeight: 500 }}>
+                    WhatsApp Helpline <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)' }}>(ہیلپ لائن)</span>
+                  </td>
+                  <td style={{ padding: '7px 4px', textAlign: 'right', fontWeight: 700, color: '#10b981' }}>
+                    24/7 Live Support
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -1805,7 +1784,7 @@ export default function OrderPage() {
               style={{ width: '100%', fontSize: '0.94rem' }}
               onClick={() => setShowOfficeHoursMismatchModal(false)}
             >
-              Understood &amp; Close (سمجھ آ گئی / بند کریں)
+              Continue with Order (آرڈر جاری رکھیں)
             </button>
           </div>
 

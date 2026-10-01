@@ -40,14 +40,14 @@
   - Rider Foreground Service for real-time bowser telemetry.
 - **Expert Perspective: Mobile Engineering Lead**:
   > *"When dealing with volatile petroleum rates and mobile refuelers navigating Lahore traffic, milliseconds matter. We compiled our APK using R8 optimization and AGP 9.1.1 to deliver a lightweight 31.6 MB footprint that launches in under 400 milliseconds."*
-- **Order Limits & Payment Integration**: 5L–15L Max doorstep volume, COD for 5L–10L and instant digital wallets (JazzCash, Easypaisa, NayaPay, Raast).
+- **Order Limits & Payment Integration**: 5L–15L Max doorstep volume, COD for 5L–10L and instant Online Payments (JazzCash, Easypaisa, NayaPay, Raast).
 
 ### 3. Structured 5-Question FAQ Section (Schema.org FAQPage)
 1. *Is downloading the Zyphuel APK safe for my Android phone?* (Yes, cryptographically signed and scanned clean of malware).
 2. *Why is Zyphuel distributed via direct APK download rather than Google Play?* (Enables immediate daily OGRA price algorithm rollouts without 7-day review cycles).
 3. *What should I do if Android shows an 'Install Unknown App' warning?* (Temporarily enable 'Allow from this source' in Settings > Security).
 4. *Can I order fuel through the browser without installing the APK?* (Yes, full web ordering portal available at `/order/`).
-5. *Does the app support Cash on Delivery (COD)?* (Yes, COD enabled for 5L–10L orders plus instant QR digital wallet transfers).
+5. *Does the app support Cash on Delivery (COD)?* (Yes, COD enabled for 5L–10L orders plus instant QR Online Payments transfers).
 
 ---
 

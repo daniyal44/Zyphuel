@@ -127,12 +127,12 @@ gantt
   - Remove obsolete volume-based price adjustment banners and urgent priority surcharge card from checkout.
   - Remove optional vehicle registration plate field (`LEA-2024`) for frictionless checkout.
   - Standardize delivery SLA label to **"Delivered: Within 45 Mins"**.
-  - Modernize Payment Options card with Cash on Delivery (COD for 5L–10L) and instant on-spot digital wallets (JazzCash, Easypaisa, NayaPay, Raast / Bank).
+  - Modernize Payment Options card with Cash on Delivery (COD for 5L–10L) and instant on-spot Online Payments (JazzCash, Easypaisa, NayaPay, Raast / Bank).
   - Synchronize all 6 educational articles and data files across the codebase.
   - Consolidate all 13 core documentation files into the unified `docs/` hub.
 - **Key Deliverables**:
   - Completely responsive, pixel-perfect home hero scroll section.
-  - Modernized, scannable payment card with branded digital wallet chips.
+  - Modernized, scannable payment card with branded Online Payments chips.
   - Comprehensive, synchronized 13-document master suite in `docs/`.
 
 ---

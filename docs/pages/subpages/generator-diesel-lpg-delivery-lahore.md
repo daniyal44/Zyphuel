@@ -44,7 +44,7 @@
 1. *How can I verify the exact gas weight in my delivered LPG cylinder?* (Every delivery pilot carries a calibrated digital scale for on-spot tare-weight and gross-weight confirmation).
 2. *Can I order both generator diesel and an LPG cylinder in a single delivery?* (Yes, dispatch units can coordinate bundled multi-utility drops).
 3. *What should I do if I suspect an LPG leak after cylinder installation?* (Close valve immediately, do not operate electrical switches, ventilate area, and contact Zyphuel emergency support).
-4. *What are the payment options for utility and LPG deliveries?* (COD for 5L–10L fuel orders, digital wallets: JazzCash, Easypaisa, NayaPay, Raast).
+4. *What are the payment options for utility and LPG deliveries?* (COD for 5L–10L fuel orders, Online Payments: JazzCash, Easypaisa, NayaPay, Raast).
 5. *How quickly can Zyphuel deliver gas cylinders or diesel in Lahore?* (Standard dispatch SLA: Delivered: Within 45 Mins across Lahore).
 
 ---

@@ -239,8 +239,8 @@ export default function DownloadPage() {
       answer: 'The Zyphuel app features automated GPS coordinate detection covering all major Lahore zones including DHA Phase 1–9, Gulberg, Johar Town, Model Town, Green Town, Bahria Town, Faisal Town, Cantt, and surrounding industrial corridors with average 45-minute dispatch.'
     },
     {
-      question: 'Can I pay with Cash on Delivery (COD) or mobile digital wallets?',
-      answer: 'Yes! Household fuel orders from 5 to 10 Litres can be paid via Cash on Delivery (COD). If you do not have cash ready, our delivery pilots carry instant QR codes for on-spot digital wallet transfers via JazzCash, Easypaisa, NayaPay, and Raast / Bank transfer. For larger commercial generator refueling or corporate fleet accounts, we support direct bank transfers and structured 15/30-day corporate billing.'
+      question: 'Can I pay with Cash on Delivery (COD) or mobile Online Payments?',
+      answer: 'Yes! Household fuel orders from 5 to 10 Litres can be paid via Cash on Delivery (COD). If you do not have cash ready, our delivery pilots carry instant QR codes for on-spot Online Payments transfers via JazzCash, Easypaisa, NayaPay, and Raast / Bank transfer. For larger commercial generator refueling or corporate fleet accounts, we support direct bank transfers and structured 15/30-day corporate billing.'
     },
     {
       question: 'Why is the app distributed via direct APK instead of Google Play?',
@@ -330,7 +330,7 @@ export default function DownloadPage() {
                     <i className="fa-solid fa-truck-fast"></i> 45-Min Lahore SLA
                   </span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#059669', fontWeight: 600 }}>
-                    <i className="fa-solid fa-wallet"></i> COD &amp; Digital Wallets
+                    <i className="fa-solid fa-wallet"></i> COD &amp; Online Payments
                   </span>
                 </div>
 
@@ -600,7 +600,7 @@ export default function DownloadPage() {
                 <h3>Flexible Payment &amp; B2B Fleet Invoicing</h3>
                 <p>From individual household COD deliveries to multi-vehicle corporate accounts, Zyphuel provides frictionless financial management.</p>
                 <ul className="why-card-feature-list">
-                  <li><i className="fa-solid fa-check"></i> Cash on Delivery (5L–10L) &amp; Digital Wallets (JazzCash, Easypaisa, NayaPay)</li>
+                  <li><i className="fa-solid fa-check"></i> Cash on Delivery (5L–10L) &amp; Online Payments (JazzCash, Easypaisa, NayaPay)</li>
                   <li><i className="fa-solid fa-check"></i> Biometric 1-tap checkout (Fingerprint/Face)</li>
                   <li><i className="fa-solid fa-check"></i> 15/30-day consolidated corporate credit lines</li>
                 </ul>
@@ -959,7 +959,7 @@ export default function DownloadPage() {
                       <td style={{ padding: '12px 18px', color: '#94a3b8' }}><i className="fa-solid fa-xmark"></i> Requires Active Session</td>
                     </tr>
                     <tr style={{ background: '#ffffff' }}>
-                      <td style={{ padding: '12px 18px', fontWeight: 600, color: '#0f172a' }}>45-Minute Delivery SLA &amp; Fixed Rs. 300 Fee (&le;10L)</td>
+                      <td style={{ padding: '12px 18px', fontWeight: 600, color: '#0f172a' }}>45-Minute Delivery SLA &amp; Standard Delivery Fee</td>
                       <td style={{ padding: '12px 18px', color: '#10b981', fontWeight: 700 }}><i className="fa-solid fa-check"></i> Guaranteed Across Lahore</td>
                       <td style={{ padding: '12px 18px', color: '#10b981', fontWeight: 700 }}><i className="fa-solid fa-check"></i> Guaranteed Across Lahore</td>
                     </tr>

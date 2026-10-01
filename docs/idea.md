@@ -43,7 +43,7 @@ graph TD
     V2["Zero Queue Idling (Refuel Parked at Home/Office)"]
     V3["Certified Euro-V Terminal Purity (<10 ppm Sulfur)"]
     V4["Predictable Pricing (Flat Rs. 280 Fee • 45-Min SLA)"]
-    V5["Flexible Payments (COD 5L-10L • QR Digital Wallets)"]
+    V5["Flexible Payments (COD 5L-10L • QR Online Payments)"]
 
     ZYP["Zyphuel Value Proposition"]
     ZYP --> V1
@@ -70,7 +70,7 @@ graph TD
 ### Horizon 3: Enterprise Integration & Compliance (Current State)
 - Strict 5L–15L consumer doorstep volume calibration with flat Rs. 280 fee.
 - Pure vector jsPDF corporate tax invoice engine with genuine Dual Verification (Instant Camera QR + Code 128 barcode).
-- Modernized Payment Options: Cash on Delivery for 5L–10L orders plus instant on-spot digital wallets (JazzCash, Easypaisa, NayaPay, Raast / Bank).
+- Modernized Payment Options: Cash on Delivery for 5L–10L orders plus instant on-spot Online Payments (JazzCash, Easypaisa, NayaPay, Raast / Bank).
 - 17-route Static Site Generation (SSG) pipeline for ultra-fast load times and top-tier SEO rankings.
 
 ### Horizon 4: Future Horizons (Upcoming Roadmap)

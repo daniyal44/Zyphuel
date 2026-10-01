@@ -26,7 +26,7 @@ This document serves as the centralized master tracking ledger for all completed
 - [x] Remove optional vehicle registration plate field (`LEA-2024`) for frictionless mobile ordering.
 - [x] Standardize delivery charges to flat **Rs. 280.00** across all doorstep fuel orders.
 - [x] Standardize delivery SLA label to **"Delivered: Within 45 Mins"**.
-- [x] Modernize Payment Options card with Cash on Delivery (COD for 5L–10L) and instant on-spot digital wallets (JazzCash, Easypaisa, NayaPay, Raast / Bank).
+- [x] Modernize Payment Options card with Cash on Delivery (COD for 5L–10L) and instant on-spot Online Payments (JazzCash, Easypaisa, NayaPay, Raast / Bank).
 - [x] Implement anti-spam duplicate order cooldown guard (15-minute confirmation modal).
 
 ### 1.4 Invoicing & Verification Architecture
@@ -48,7 +48,7 @@ This document serves as the centralized master tracking ledger for all completed
 ### 1.6 Mobile App & Educational Content
 - [x] Release Android APK `v2.6.4.0.0.16` (`31.6 MB`) compiled for Android 7.0+.
 - [x] Author 6 in-depth educational blog articles covering daily fuel pricing, generator refueling, short-fueling prevention, and mobile energy logistics.
-- [x] Synchronize all blog articles and data files with COD (5L–10L) and instant digital wallet payment methods.
+- [x] Synchronize all blog articles and data files with COD (5L–10L) and instant Online Payments payment methods.
 
 ### 1.7 SEO, AEO & GEO Expansion, Search Engine Indexing Fix & 100% Speed
 - [x] Expand all 6 blog articles in `src/data/articles.js` into 1,000+ word technical pillar guides with Key Takeaways, comparative data tables, expert quotes, and 5 structured FAQs per article.
@@ -83,8 +83,20 @@ This document serves as the centralized master tracking ledger for all completed
 - [x] Implement stepped dynamic demand surge pricing for high-capacity orders (11L–15L: 11L = Rs. 325, 12L = Rs. 355, 13L = Rs. 385, 14L = Rs. 420, 15L = Rs. 460) in `src/pages/OrderPage.jsx`.
 - [x] Synchronize Order Page schedule card, summary computations, live invoice modal, print preview HTML, PDF generator, and WhatsApp dispatch message.
 - [x] Update delivery fee and pricing references across all public pages (`HomePage.jsx`, `AboutPage.jsx`, `ContactPage.jsx`, `DownloadPage.jsx`, `TermsOfUsePage.jsx`, `appVersion.js`, and all 7 articles in `articles.js`).
-- [x] Update permanent memory and coordination protocols in `AGENTS.md`, `GEMINI.md`, `docs/memory.md`, `docs/informtion.md`, `docs/changes.md`, and `docs/pages/order.md`.
+### 1.11 Delivery Pricing Cap (Strictly Rs. 300 – Rs. 400), Jerrycan Removal, Legacy Label Purge & 24/7 Dispatch Acceptance
+- [x] Bound 11L–15L delivery pricing strictly between **Rs. 300.00 and Rs. 400.00** with linear +Rs. 20/L step (11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400) in `src/pages/OrderPage.jsx`.
+- [x] Completely remove `Jerrycan / Safe Storage Drum` from Refueling Target selector (retaining 4 targets: Car, Bike, Generator, Machinery).
+- [x] Purge legacy `(Orders ≤ 10L)`, `(Order <10)`, and `Fixed Rate (≤10L)` tags across schedule card, sidebar summary, and WhatsApp message.
+- [x] Eliminate working hours checkout blocking error dialogs and red closed banners; online doorstep dispatch is active 24/7 on-demand across Lahore with physical office hours designated for desk support and verification.
+- [x] Synchronize `HomePage.jsx`, `AboutPage.jsx`, `DownloadPage.jsx`, `TermsOfUsePage.jsx`, `officeHours.js`, `AGENTS.md`, `GEMINI.md`, `docs/memory.md`, `docs/changes.md`, `docs/informtion.md`, and `docs/pages/order.md`.
 - [x] Verify production static site generation (SSG) pre-rendering via `npm.cmd run build` across all 17 routes with exit code 0.
+
+### 1.12 Operating Hours Site-Wide Harmonization & SVG File Purge
+- [x] Align OrderPage Operating Hours modal and live badge to match exact site-wide schedule and wording from `HomePage.jsx` and `ContactPage.jsx` (`Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm, 24/7 Helpline`).
+- [x] Permanently delete all graph, chart, commit, and change `.svg` files (`github-changes-graph.svg`, `repo-activity-chart.svg`) across all directories.
+- [x] Remove `scripts/generate_github_graph.js`, `update-graph.yml` workflow, and `prebuild` hook from `package.json`.
+- [x] Remove unused `src/data/gitTelemetry.json`.
+- [x] Verify production build (`npm.cmd run build`) pre-renders all 17 SSG routes with zero errors and zero SVG generation.
 
 ---
 

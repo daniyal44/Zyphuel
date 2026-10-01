@@ -44,7 +44,7 @@ export default function AboutPage() {
     },
     {
       question: "What are Zyphuel's doorstep delivery limits and pricing?",
-      answer: "Doorstep consumer fuel orders are strictly bounded between 5 Litres minimum and 15 Litres maximum per dispatch. Standard delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with a dynamic demand dispatch fee for 11L–15L orders, under our guaranteed SLA of 'Delivered: Within 45 Mins'. Payment is supported via Cash on Delivery (COD for 5L–10L) and on-the-spot digital wallets (JazzCash, Easypaisa, NayaPay, Raast)."
+      answer: "Doorstep consumer fuel orders are strictly bounded between 5 Litres minimum and 15 Litres maximum per dispatch. Standard delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with a dynamic fee between Rs. 320.00 and Rs. 400.00 for 11L–15L orders, under our guaranteed SLA of 'Delivered: Within 45 Mins'. Payment is supported via Cash on Delivery (COD for 5L–10L) and on-the-spot Online Payments (JazzCash, Easypaisa, NayaPay, Raast)."
     },
     {
       question: "Can businesses and corporate fleets open dedicated commercial accounts?",

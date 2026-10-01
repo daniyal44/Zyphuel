@@ -29,7 +29,7 @@ Every Zyphuel bowser is fitted with weights-and-measures certified positive-disp
 - **Pricing & Delivery Fees**: Fixed Rs. 300.00 nominal delivery fee for orders up to 10 Litres (Delivered: Within 45 Mins). Progressive dynamic demand surge fee applies for high-capacity orders (11L–15L Max: 11L=Rs. 325, 12L=Rs. 355, 13L=Rs. 385, 14L=Rs. 420, 15L=Rs. 460). Urgent express priority surcharge: +Rs. 100 flat.
 - **Payment Policy**:
   - Cash on Delivery (COD) supported for standard orders between 5 and 10 Litres.
-  - Instant on-spot mobile digital wallet payments (JazzCash, Easypaisa, NayaPay, Raast QR scan) supported upon bowser arrival if customer does not have cash on hand.
+  - Instant on-spot mobile Online Payments payments (JazzCash, Easypaisa, NayaPay, Raast QR scan) supported upon bowser arrival if customer does not have cash on hand.
   - Advance direct bank transfer / digital payment required for orders exceeding 10 Litres (11L–15L Max) for safety and high-volume dispatch verification.
 - **Service Availability**: 24/7 uninterrupted fuel delivery operations including national holidays and severe weather periods.
 
@@ -64,7 +64,7 @@ Zyphuel operates localized dispatch micro-hubs positioned across all key zones o
 ---
 
 ## 5. Regulatory Compliance & Safety Protocols
-- **OGRA Compliance**: Governed under the regulatory safety standards of the Oil & Gas Regulatory Authority (Pakistan).
+- **OGRA Compliance**: Governed under the regulatory safety standards of the Oil & Gas Regulatory Authority .
 - **Corporate Transparency**: Founder & Leading Web Developer: Muhammad Daniyal, Headquarters: Lahore, Pakistan.
 - **HDIP Fuel Testing**: Random batch testing verifying density, flashpoint, and sulfur levels against Euro-V criteria.
 - **NFPA 385 & 30A Standards**: Double-walled transport tanks, flame arrestors, certified vapor recovery systems, and Class-B fire suppression equipment aboard every refueler.

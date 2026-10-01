@@ -25,13 +25,13 @@ This document catalogs the full editorial repository, SEO keyword mappings, targ
 - **Core Narrative**: Documents Pakistan's downstream petroleum deregulation roadmap from fortnightly pricing to daily rolling Platts averages, leading to full market deregulation by June 2027.
 - **Problem Addressed**: High price volatility catching commuters unprepared at retail stations.
 - **Solution Presented**: Zyphuel’s 2-hour automated push notification engine alerting users to lock current rates before depot price adjustments occur.
-- **Standardized Parameters**: Delivered within 45 minutes, flat Rs. 280 fee, COD for 5L–10L, and instant digital wallets (JazzCash, Easypaisa, NayaPay, Raast).
+- **Standardized Parameters**: Delivered within 45 minutes, flat Rs. 280 fee, COD for 5L–10L, and instant Online Payments (JazzCash, Easypaisa, NayaPay, Raast).
 
 ### Article 2: How to Download & Install Zyphuel APK
 - **Slug**: `download-zyphuel-apk-guide`
 - **Core Narrative**: Step-by-step setup guide for `Zyphuel.apk` (`v2.6.4.0.0.16`, `31.6 MB`) compiled for Android 7.0+.
 - **Features Highlighted**: Biometric authentication (Fingerprint/Face Unlock), GPS sector auto-pinning across Lahore, and Rider Foreground Service streaming live telemetry.
-- **Standardized Parameters**: 45-minute delivery SLA, Cash on Delivery (5L–10L), and on-spot digital wallets.
+- **Standardized Parameters**: 45-minute delivery SLA, Cash on Delivery (5L–10L), and on-spot Online Payments.
 
 ### Article 3: Industrial Generator Refueling
 - **Slug**: `generator-refueling-services-lahore`
@@ -43,7 +43,7 @@ This document catalogs the full editorial repository, SEO keyword mappings, targ
 - **Slug**: `generator-diesel-lpg-delivery-lahore`
 - **Core Narrative**: Consumer safety guide contrasting calibrated delivery against hazardous loose jerrycan carrying.
 - **Technical Capabilities**: Hydrostatic pressure testing of LPG cylinders, on-site digital tare scales, soap-bubble valve testing, and clean Euro-V diesel.
-- **Standardized Parameters**: Delivered within 45 minutes, flat Rs. 280 fee, COD (5L–10L), and instant digital wallets.
+- **Standardized Parameters**: Delivered within 45 minutes, flat Rs. 280 fee, COD (5L–10L), and instant Online Payments.
 
 ### Article 5: Combating Pump Short-Fueling
 - **Slug**: `iot-telemetry-fuel-delivery`
@@ -54,13 +54,13 @@ This document catalogs the full editorial repository, SEO keyword mappings, targ
 - **Slug**: `zyphuel-calibrated-telemetry-fleet`
 - **Core Narrative**: Profile of Founder & CEO Muhammad Daniyal, tracing the journey from a software engineering background to building an agile mobile energy logistics network in Lahore.
 - **Vision**: Converting physical fuel procurement into an on-demand digital utility, expanding to EV mobile charging, and building sustainable energy telemetry.
-- **Standardized Parameters**: Delivered within 45 minutes, flat Rs. 280 fee, COD (5L–10L), and instant digital wallets.
+- **Standardized Parameters**: Delivered within 45 minutes, flat Rs. 280 fee, COD (5L–10L), and instant Online Payments.
 
 ### Article 7: Global vs. Pakistan On-Demand Fuel Delivery Benchmarks
 - **Slug**: `global-vs-pakistan-on-demand-fuel-delivery-benchmarks`
 - **Core Narrative**: Global industry evaluation comparing international leaders (CAFU UAE, Booster USA, FuelBuddy & Repos India) against Zyphuel in Lahore.
 - **Key Focus**: How calibrated 0.01L positive-displacement flow meters, 15°C Automatic Temperature Compensation (ATC), 50m long-reach generator hoses, dual optical verification (QR + Code 128), and a 45-minute delivery window solve Pakistan's unique retail pump short-fueling and load-shedding crises.
-- **Standardized Parameters**: Delivered within 45 minutes, flat Rs. 280 fee, strictly 5L min to 15L max, COD (5L–10L), and on-spot digital wallets.
+- **Standardized Parameters**: Delivered within 45 minutes, flat Rs. 280 fee, strictly 5L min to 15L max, COD (5L–10L), and on-spot Online Payments.
 
 ---
 
@@ -83,4 +83,4 @@ graph TD
 - **2026-09-27 (Phase 13: Dynamic Pricing & 100% Content Humanization)**: Completely audited and rewrote all 7 educational articles in `src/data/articles.js`. Removed 100% of AI writing patterns (purged all em dashes, eliminated robotic buzzwords like delve, tapestry, paradigm, pivotal, furthermore, moreover, underscores, and game-changer). Replaced formulaic conclusions with natural, field-grounded engineering prose and local Lahore street realities. Aligned delivery pricing rules across all articles to reflect fixed Rs. 280.00 for orders &le;10L and dynamic demand dispatch pricing for 11L–15L orders (+Rs. 20/L above 10L). Updated founder title to "Founder & Leading Web Developer".
 - **2026-09-27 (Phase 10: Global SEO/AEO/GEO Optimization)**: Authored flagship 3,500+ word research pillar Article 7 (`global-vs-pakistan-on-demand-fuel-delivery-benchmarks`) evaluating CAFU, Booster, and FuelBuddy against Zyphuel. Enhanced XML sitemap with comprehensive Google Image extension tags (`<image:caption>`, `<image:geo_location>`, `<image:license>`). Integrated `HowTo` and `SpeakableSpecification` schemas, upgraded `robots.txt` for 25+ search engines & AI crawlers, and synced `llms.txt` and `llms-full.txt`.
 - **2026-09-25 (Phase 9)**: Transformed all 6 articles into comprehensive 1,000+ word technical pillar guides with Key Takeaways boxes, comparative data tables, expert quotes, 5 structured Schema.org `FAQPage` FAQs, and syndicated them via RSS 2.0 Feed (`/feed.xml`).
-- **2026-09-25 (Phase 8)**: Standardized delivery SLA to "Delivered: Within 45 Mins", flat delivery fee to Rs. 280.00, Cash on Delivery to 5L–10L, and added instant digital wallets (JazzCash, Easypaisa, NayaPay, Raast) across all articles in `src/data/articles.js`.
+- **2026-09-25 (Phase 8)**: Standardized delivery SLA to "Delivered: Within 45 Mins", flat delivery fee to Rs. 280.00, Cash on Delivery to 5L–10L, and added instant Online Payments (JazzCash, Easypaisa, NayaPay, Raast) across all articles in `src/data/articles.js`.

@@ -10,7 +10,7 @@ This document serves as the authoritative single source of truth for all corpora
 |---|---|---|
 | **Company Name** | Zyphuel | Government of Pakistan |
 | **SECP Incorporation Number** | `0248195` | Securities and Exchange Commission of Pakistan |
-| **OGRA Petroleum License** | `OGRA/DL-7492/LHE` | Oil and Gas Regulatory Authority (Pakistan) |
+| **OGRA Petroleum License** | `OGRA/DL-7492/LHE` | Oil and Gas Regulatory Authority  |
 | **Civil Defence Flammable Transport Permit** | `CD-LHE/FL-2026/089` | Civil Defence Department, Lahore |
 | **Weights & Measures Calibration Seal** | `PWM/VER-88210/2026` | Punjab Directorate of Weights & Measures |
 | **National Tax Number (NTN / STRN)** | `9482710-3` | Federal Board of Revenue (FBR) |
@@ -29,7 +29,7 @@ This document serves as the authoritative single source of truth for all corpora
 - **Coordinates & Verification**: `31.5204° N, 74.3587° E`.
 
 ### 2.2 Operating Schedules
-- **Doorstep Fuel Delivery Operations**: Operating during official business working hours across Lahore.
+- **Online Doorstep Fuel Dispatch**: Operational **24/7 continuously on-demand** across Lahore.
 - **Physical Corporate Office & Administrative Hours**:
   - Monday – Thursday: 8:00 AM – 8:00 PM
   - Friday: 8:00 AM – 1:00 PM (Break for Friday Prayers)
@@ -82,7 +82,8 @@ This document serves as the authoritative single source of truth for all corpora
 - **Minimum Order Quantity**: **5 Litres** (hard threshold; lower inputs clamp to 5L).
 - **Maximum Order Capacity**: **15 Litres** (hard ceiling for agile doorstep dispatches).
 - **Preset Volume Chips**: `[5L, 7L, 10L, 12L, 15L Max]`.
-- **Doorstep Delivery Charges**: Fixed **Rs. 300.00** flat nominal fee for orders up to **10 Litres** (5L–10L). For orders between **11 Litres and 15 Litres Max**, dynamic demand surge dispatch fees apply (11L = Rs. 325, 12L = Rs. 355, 13L = Rs. 385, 14L = Rs. 420, 15L = Rs. 460).
+- **Refueling Targets**: Strictly 4 application targets (Car/SUV, Motorbike, Generator, Machinery). Jerrycan/Drum removed.
+- **Doorstep Delivery Charges**: Fixed **Rs. 300.00** nominal fee for orders up to **10 Litres** (5L–10L). For high-capacity orders between **11 Litres and 15 Litres Max**, fees are strictly scaled between **Rs. 300.00 and Rs. 400.00** with a linear +Rs. 20/L step (11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400). Legacy labels `(Order <10)` / `Fixed Rate (≤10L)` purged.
 - **Urgent Delivery Surcharge**: Controlled, reasonable priority fee of **+Rs. 100.00** flat.
 - **Delivery Windows**:
   - Simple Dispatch: 20–45 Mins
@@ -90,6 +91,6 @@ This document serves as the authoritative single source of truth for all corpora
 - **Retail Petrol Pump Rate Formula**: `Official Base Ex-Depot Rate + Rs. 5.00 / Litre` (`PUMP_RATE_MARKUP = 5.00`).
 - **Payment Methods**:
   - Cash on Delivery (COD) for 5L–10L orders.
-  - Instant on-spot digital wallets (JazzCash, Easypaisa, NayaPay, Raast QR scan) upon delivery.
+  - Instant on-spot Online Payments (JazzCash, Easypaisa, NayaPay, Raast QR scan) upon delivery.
   - Advance bank transfer for orders >10L (11L–15L Max).
   - Corporate 15-day / 30-day credit accounts for B2B fleets.

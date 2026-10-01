@@ -485,35 +485,35 @@ ${form.message.trim()}`
                     <td style={{ padding: '14px 18px', color: '#475569' }}>DHA Phase 5 &amp; Phase 6 Mobile Nodes</td>
                     <td style={{ padding: '14px 18px', color: '#10b981', fontWeight: 700 }}>Delivered: Within 45 Mins</td>
                     <td style={{ padding: '14px 18px', color: '#475569' }}>Petrol, Diesel, HOBC 97, LPG</td>
-                    <td style={{ padding: '14px 18px', color: '#475569' }}>COD (5L-10L) &amp; Digital Wallets</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>COD (5L-10L) &amp; Online Payments</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#f8fafc' }}>
                     <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Gulberg (I, II, III &amp; Main Blvd)</td>
                     <td style={{ padding: '14px 18px', color: '#475569' }}>Gulberg III Central Command Hub</td>
                     <td style={{ padding: '14px 18px', color: '#10b981', fontWeight: 700 }}>Delivered: Within 45 Mins</td>
                     <td style={{ padding: '14px 18px', color: '#475569' }}>Petrol, Diesel, HOBC 97, Water</td>
-                    <td style={{ padding: '14px 18px', color: '#475569' }}>COD (5L-10L) &amp; Digital Wallets</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>COD (5L-10L) &amp; Online Payments</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#ffffff' }}>
                     <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Johar Town &amp; Faisal Town</td>
                     <td style={{ padding: '14px 18px', color: '#475569' }}>Allah Hoo Chowk Rapid Bowser Node</td>
                     <td style={{ padding: '14px 18px', color: '#10b981', fontWeight: 700 }}>Delivered: Within 45 Mins</td>
                     <td style={{ padding: '14px 18px', color: '#475569' }}>Petrol, Diesel, Generator Refueling</td>
-                    <td style={{ padding: '14px 18px', color: '#475569' }}>COD (5L-10L) &amp; Digital Wallets</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>COD (5L-10L) &amp; Online Payments</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#f8fafc' }}>
                     <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Model Town &amp; Garden Town</td>
                     <td style={{ padding: '14px 18px', color: '#475569' }}>Model Town Link Road Fleet Base</td>
                     <td style={{ padding: '14px 18px', color: '#10b981', fontWeight: 700 }}>Delivered: Within 45 Mins</td>
                     <td style={{ padding: '14px 18px', color: '#475569' }}>Petrol, Diesel, HOBC 97, LPG</td>
-                    <td style={{ padding: '14px 18px', color: '#475569' }}>COD (5L-10L) &amp; Digital Wallets</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>COD (5L-10L) &amp; Online Payments</td>
                   </tr>
                   <tr style={{ background: '#ffffff' }}>
                     <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Bahria Town, Lake City &amp; Valencia</td>
                     <td style={{ padding: '14px 18px', color: '#475569' }}>Raiwind Road Outpost Node</td>
                     <td style={{ padding: '14px 18px', color: '#10b981', fontWeight: 700 }}>Delivered: Within 45 Mins</td>
                     <td style={{ padding: '14px 18px', color: '#475569' }}>Petrol, Diesel, Generator Supply</td>
-                    <td style={{ padding: '14px 18px', color: '#475569' }}>COD (5L-10L) &amp; Digital Wallets</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>COD (5L-10L) &amp; Online Payments</td>
                   </tr>
                 </tbody>
               </table>

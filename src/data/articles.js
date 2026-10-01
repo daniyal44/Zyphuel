@@ -94,13 +94,13 @@ export const articles = [
         answer: 'For orders up to 10 Litres, the delivery fee is strictly fixed at Rs. 300.00. For orders between 11L and 15L, dynamic demand surge pricing applies to cover heavy capacity load handling. Standard orders arrive within 45 minutes across Lahore.'
       },
       {
-        question: 'Can I pay using Cash on Delivery (COD) or mobile digital wallets?',
+        question: 'Can I pay using Cash on Delivery (COD) or mobile Online Payments?',
         answer: 'Yes. Cash on Delivery is supported for orders up to 10 Litres. If you do not have cash ready, our delivery pilots carry active QR cards for instant transfers via JazzCash, Easypaisa, NayaPay, and Raast.'
       }
     ],
     content: [
       'By pairing live rate notifications with on-demand refueling, Zyphuel helps drivers, fleet managers, and generator operators lock in fuel at posted rates before depot price revisions take effect. Doorstep orders are kept between 5 Litres minimum and 15 Litres maximum per delivery.',
-      'Deliveries under 10 Litres carry a fixed delivery fee of Rs. 300.00, while 11L to 15L orders include dynamic demand surge pricing. With our 45-minute delivery standard, Cash on Delivery for smaller orders, and instant digital wallet payments via JazzCash, Easypaisa, NayaPay, and Raast, residents in Gulberg, DHA, Johar Town, and Model Town can get certified Euro-V fuel delivered safely to their doorstep without waiting in petrol pump queues.'
+      'Deliveries under 10 Litres carry a fixed delivery fee of Rs. 300.00, while 11L to 15L orders include dynamic demand surge pricing. With our 45-minute delivery standard, Cash on Delivery for smaller orders, and instant Online Payments payments via JazzCash, Easypaisa, NayaPay, and Raast, residents in Gulberg, DHA, Johar Town, and Model Town can get certified Euro-V fuel delivered safely to their doorstep without waiting in petrol pump queues.'
     ]
   },
   {
@@ -271,7 +271,7 @@ export const articles = [
         subheading: '0.01L Digital Meters and Verified Receipts',
         paragraphs: [
           'Instead of mechanical pump handles that can be tampered with, every Zyphuel bowser uses an electronic positive-displacement flow meter calibrated to national weights and measures standards. The digital screen measures volume down to 0.01 Litres and produces an itemized receipt showing exact litres pumped, temperature compensation, official OGRA rates, and timestamped GPS coordinates.',
-          'Consumer generator orders arrive within 45 minutes. Deliveries up to 10 Litres have a fixed delivery fee of Rs. 300.00, while orders from 11L to 15L include a dynamic demand dispatch fee to cover specialized high-capacity load handling. You can pay via Cash on Delivery for orders up to 10L, or use instant digital wallets (JazzCash, Easypaisa, NayaPay, Raast). For large enterprise facilities with continuous generator runs, we provide scheduled commercial bulk accounts with 15-day credit terms.'
+          'Consumer generator orders arrive within 45 minutes. Deliveries up to 10 Litres have a fixed delivery fee of Rs. 300.00, while orders from 11L to 15L include a dynamic demand dispatch fee to cover specialized high-capacity load handling. You can pay via Cash on Delivery for orders up to 10L, or use instant Online Payments (JazzCash, Easypaisa, NayaPay, Raast). For large enterprise facilities with continuous generator runs, we provide scheduled commercial bulk accounts with 15-day credit terms.'
         ]
       }
     ],
@@ -300,7 +300,7 @@ export const articles = [
     content: [
       'Unscheduled grid cuts continue to affect businesses and residential areas across Lahore. Critical facilities like clinics, diagnostic labs, software firms, and apartment buildings depend on standby diesel generators. Hauling fuel in loose jerrycans from petrol stations is slow, unsafe, and introduces dirt that damages expensive common-rail injectors.',
       'Zyphuel eliminates this problem by delivering Euro-V Low-Sulfur Diesel directly to your site. Equipped with 50-meter industrial delivery hoses, static grounding clamps, and anti-spark nozzles, our operators pump fuel straight into your basement or rooftop day-tank with zero mess.',
-      'Doorstep consumer orders are kept between 5 Litres and 15 Litres per delivery. Standard delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with a dynamic demand dispatch fee for 11L to 15L orders. With 45-minute dispatch, Cash on Delivery for smaller orders, and on-spot digital wallet payments, your backup power stays ready whenever the grid goes down.'
+      'Doorstep consumer orders are kept between 5 Litres and 15 Litres per delivery. Standard delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with a dynamic demand dispatch fee for 11L to 15L orders. With 45-minute dispatch, Cash on Delivery for smaller orders, and on-spot Online Payments payments, your backup power stays ready whenever the grid goes down.'
     ]
   },
   {
@@ -335,10 +335,10 @@ export const articles = [
           caption: 'Zyphuel Energy and Utility Specifications (Lahore 2026)',
           headers: ['Utility Service', 'Current Notified Rate', 'Measurement Method', 'Delivery Window', 'Payment Options'],
           rows: [
-            ['Super Euro-V Petrol (92 Octane)', 'Rs 345.87 / Litre', '0.01L Calibrated Electronic Flow Meter', 'Within 45 Mins', 'COD (≤10L) and Digital Wallets'],
-            ['Hi-Cetane Euro-V Diesel', 'Rs 378.05 / Litre', '0.01L Calibrated Flow Meter', 'Within 45 Mins', 'COD (≤10L) and Digital Wallets'],
-            ['High-Octane 97 (HOBC)', 'Rs 365.00 / Litre', '0.01L Digital Pulse Meter', 'Within 45 Mins', 'COD (≤10L) and Digital Wallets'],
-            ['Certified Sealed LPG Gas', 'Rs 450.00 / Kilogram', 'Doorstep Digital Scale Weight Check', 'Within 45 Mins', 'COD and Digital Wallets'],
+            ['Super Euro-V Petrol (92 Octane)', 'Rs 345.87 / Litre', '0.01L Calibrated Electronic Flow Meter', 'Within 45 Mins', 'COD (≤10L) and Online Payments'],
+            ['Hi-Cetane Euro-V Diesel', 'Rs 378.05 / Litre', '0.01L Calibrated Flow Meter', 'Within 45 Mins', 'COD (≤10L) and Online Payments'],
+            ['High-Octane 97 (HOBC)', 'Rs 365.00 / Litre', '0.01L Digital Pulse Meter', 'Within 45 Mins', 'COD (≤10L) and Online Payments'],
+            ['Certified Sealed LPG Gas', 'Rs 450.00 / Kilogram', 'Doorstep Digital Scale Weight Check', 'Within 45 Mins', 'COD and Online Payments'],
             ['Potable Clean Water Tanker', 'Rs 100.00 / Gallon', 'Calibrated Flow Meter / Tank Volume', 'Scheduled / Priority', 'COD and Bank Transfer']
           ]
         }
@@ -391,7 +391,7 @@ export const articles = [
         answer: 'Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with a dynamic demand dispatch fee for 11L to 15L orders. Deliveries arrive within 45 minutes across Lahore.'
       },
       {
-        question: 'Can I pay for gas or fuel using digital wallets?',
+        question: 'Can I pay for gas or fuel using Online Payments?',
         answer: 'Yes. Cash on Delivery is supported for fuel orders up to 10L, and instant mobile wallet payments are supported across all orders via JazzCash, Easypaisa, NayaPay, and Raast.'
       }
     ],
@@ -490,7 +490,7 @@ export const articles = [
       },
       {
         question: 'What are the delivery charges for calibrated fuel orders?',
-        answer: 'Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with dynamic demand surge pricing for 11L to 15L orders. Payment is supported via Cash on Delivery (≤10L) and instant digital wallets.'
+        answer: 'Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with dynamic demand surge pricing for 11L to 15L orders. Payment is supported via Cash on Delivery (≤10L) and instant Online Payments.'
       }
     ],
     content: [
@@ -617,7 +617,7 @@ export const articles = [
       'While global platforms focus largely on corporate fleet yards or industrial diesel, Pakistan has unique needs: retail consumer petrol access, protection from pump short-fueling, and backup generator refills during load-shedding.',
       'Zyphuel adapts this model for Lahore with agile micro-bowsers featuring calibrated 0.01L digital positive-displacement meters, 15°C temperature compensation, and verified QR receipts.',
       'Unlike unverified local sellers who deliver diesel in dirty containers via phone calls, Zyphuel provides an app-driven platform delivering Super Petrol, High-Octane 97, and Euro-V Diesel within 45 minutes.',
-      'Doorstep dispatches are strictly 5 Litres minimum to 15 Litres maximum per order, with a fixed Rs. 300 fee under 10L, dynamic demand pricing for 11L to 15L, and flexible payments (COD and digital wallets).'
+      'Doorstep dispatches are strictly 5 Litres minimum to 15 Litres maximum per order, with a fixed Rs. 300 fee under 10L, dynamic demand pricing for 11L to 15L, and flexible payments (COD and Online Payments).'
     ],
     sections: [
       {
@@ -722,7 +722,7 @@ export const articles = [
       },
       {
         question: 'What are Zyphuel’s delivery charges and payment options in Lahore?',
-        answer: 'Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with dynamic demand surge pricing for 11L to 15L orders. Customers can pay via Cash on Delivery for orders up to 10L, or use instant digital wallets (JazzCash, Easypaisa, NayaPay, Raast QR) across all volumes.'
+        answer: 'Delivery is fixed at Rs. 300.00 for orders up to 10 Litres, with dynamic demand surge pricing for 11L to 15L orders. Customers can pay via Cash on Delivery for orders up to 10L, or use instant Online Payments (JazzCash, Easypaisa, NayaPay, Raast QR) across all volumes.'
       },
       {
         question: 'How quickly does Zyphuel deliver fuel across Lahore?',

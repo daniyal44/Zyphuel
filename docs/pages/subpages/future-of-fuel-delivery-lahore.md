@@ -35,14 +35,14 @@
 - **The Consumer Protection Architecture: Zyphuel's 2-Hour Alert Daemon**: How automated push notifications allow locking in fuel rates.
 - **Expert Perspective: Muhammad Daniyal (Founder & CEO)**:
   > *"Daily fuel pricing is an inevitable step toward market efficiency, but without transparency, it penalizes the end consumer. Zyphuel's mission is to democratize energy data and delivery across Lahore."*
-- **Operational Reality & Prudent Refueling**: Ordering between 5L and 15L Max at flat Rs. 280 dispatch fee, COD for 5L–10L and instant digital wallets.
+- **Operational Reality & Prudent Refueling**: Ordering between 5L and 15L Max at flat Rs. 280 dispatch fee, COD for 5L–10L and instant Online Payments.
 
 ### 3. Structured 5-Question FAQ Section (Schema.org FAQPage)
 1. *When does OGRA implement daily fuel price revisions in Pakistan?* (Every midnight at 12:01 AM based on 7-day rolling Singapore Platts FOB benchmarks).
 2. *How early does Zyphuel notify customers of upcoming price changes?* (2 hours in advance at 10:00 PM daily).
 3. *Can I lock in current petrol rates before a midnight price increase?* (Yes, orders placed before 12:00 AM are billed at existing rates).
 4. *What is the maximum fuel quantity I can order delivered to my home in Lahore?* (Strictly 5L to 15L maximum per order).
-5. *What payment options are available upon fuel delivery?* (COD for 5L–10L and instant digital wallets: JazzCash, Easypaisa, NayaPay, Raast).
+5. *What payment options are available upon fuel delivery?* (COD for 5L–10L and instant Online Payments: JazzCash, Easypaisa, NayaPay, Raast).
 
 ---
 

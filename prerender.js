@@ -506,7 +506,7 @@ const ROUTES = [
               "name": "What are Zyphuel's doorstep delivery limits and pricing?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Doorstep consumer fuel orders are strictly bounded between 5 Litres minimum and 15 Litres maximum per dispatch. We charge a fixed delivery fee of Rs. 300.00 for orders up to 10 Litres, with dynamic demand surge pricing for 11L to 15L orders, and a guaranteed SLA of 'Delivered: Within 45 Mins'. Payment is supported via Cash on Delivery (COD for 5L–10L) and on-the-spot digital wallets (JazzCash, Easypaisa, NayaPay, Raast)."
+                "text": "Doorstep consumer fuel orders are strictly bounded between 5 Litres minimum and 15 Litres maximum per dispatch. We charge a fixed delivery fee of Rs. 300.00 for orders up to 10 Litres, with dynamic demand surge pricing for 11L to 15L orders, and a guaranteed SLA of 'Delivered: Within 45 Mins'. Payment is supported via Cash on Delivery (COD for 5L–10L) and on-the-spot Online Payments (JazzCash, Easypaisa, NayaPay, Raast)."
               }
             },
             {
@@ -620,7 +620,7 @@ const ROUTES = [
               "name": "Is Cash on Delivery (COD) supported for fuel orders?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for doorstep orders from 5 to 10 liters of fuel. If you don't have cash, instant on-spot digital wallet payments via JazzCash, Easypaisa, NayaPay, and Raast are accepted. For orders exceeding 10 liters (up to 15L Max) or commercial fleets, advance payment and billing accounts are available."
+                "text": "Yes! Cash on Delivery (COD) is supported for doorstep orders from 5 to 10 liters of fuel. If you don't have cash, instant on-spot Online Payments payments via JazzCash, Easypaisa, NayaPay, and Raast are accepted. For orders exceeding 10 liters (up to 15L Max) or commercial fleets, advance payment and billing accounts are available."
               }
             }
           ]
@@ -802,7 +802,7 @@ const ROUTES = [
               "@type": "HowToStep",
               "position": 4,
               "name": "Enter Lahore Address & Dispatch Priority",
-              "text": "Provide your delivery address in Lahore, select Simple (20–45 mins, Rs. 300 for 5–10L, dynamic surge for 11–15L) or Urgent (+Rs. 100) priority, choose payment mode (COD or instant QR digital wallet), and submit.",
+              "text": "Provide your delivery address in Lahore, select Simple (20–45 mins, Rs. 300 for 5–10L, dynamic surge for 11–15L) or Urgent (+Rs. 100) priority, choose payment mode (COD or instant QR Online Payments), and submit.",
               "url": `${DOMAIN}/order/#step-address`
             }
           ]

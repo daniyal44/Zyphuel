@@ -21,7 +21,7 @@
 - Custom-engineered micro-bowsers utilize double-walled ASTM A36 steel with internal surge baffles.
 - Compact vehicle footprint navigates narrow residential streets and commercial alleys inaccessible to 40,000L bulk tankers.
 - Intelligent sector routing enables average 20–45 minute delivery times across all Lahore zones (DHA, Gulberg, Johar Town, Bahria Town, Model Town).
-- Transparent doorstep service: strictly 5L to 15L maximum per order, flat Rs. 280 delivery fee, COD (5L–10L) and instant digital wallet payments (JazzCash, Easypaisa, NayaPay, Raast).
+- Transparent doorstep service: strictly 5L to 15L maximum per order, flat Rs. 280 delivery fee, COD (5L–10L) and instant Online Payments payments (JazzCash, Easypaisa, NayaPay, Raast).
 
 ### 2. Comprehensive H2/H3 Body Sections
 - **The Genesis of Zyphuel: Frustration as an Innovation Catalyst**: Personal experience of Muhammad Daniyal waiting in suffocating pump queues during Lahore summer heat.
@@ -48,7 +48,7 @@
 2. *Are Zyphuel micro-tanker bowsers legally certified for street transport in Lahore?* (Yes, fully licensed by OGRA, Civil Defence, and Punjab Weights & Measures).
 3. *What areas of Lahore are covered by Zyphuel's bowser fleet?* (All major sectors including DHA Phases 1–9, Gulberg, Johar Town, Model Town, Bahria Town, and Canal Road).
 4. *What are the minimum and maximum fuel volumes I can order?* (Strictly 5 Litres minimum up to 15 Litres maximum per doorstep order).
-5. *How can I pay for my doorstep fuel delivery?* (Cash on Delivery for 5L–10L orders, or instant digital wallets: JazzCash, Easypaisa, NayaPay, Raast).
+5. *How can I pay for my doorstep fuel delivery?* (Cash on Delivery for 5L–10L orders, or instant Online Payments: JazzCash, Easypaisa, NayaPay, Raast).
 
 ---
 

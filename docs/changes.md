@@ -167,7 +167,7 @@ timeline
 ### 8.4 Redesigned Payment Options Card
 - Modernized and polished the payment mode section in `src/pages/OrderPage.jsx` into a concise, scannable two-column card:
   - 💵 **Cash on Delivery (5L–10L)**: Supported for doorstep household fuel orders; keep exact change ready upon bowser arrival.
-  - 📱 **Instant Digital Wallets**: If cash is not on hand, rider carries an active QR code for on-the-spot mobile wallet transfers:
+  - 📱 **Instant Online Payments**: If cash is not on hand, rider carries an active QR code for on-the-spot mobile wallet transfers:
     - **JazzCash**
     - **Easypaisa**
     - **NayaPay**
@@ -175,7 +175,7 @@ timeline
   - **Advance Digital Transfer**: Required for orders exceeding 10 Litres (11L–15L Max) for safety compliance.
 
 ### 8.5 Universal Article & Data Synchronization
-- Updated all educational articles in `src/data/articles.js` (Articles 1, 2, 4, 6), `aboutData.js`, `servicesData.js`, `DownloadPage.jsx`, `ServicesPage.jsx`, and `prerender.js` to consistently state "Delivered: Within 45 Mins", flat Rs. 280 fee, COD for 5L–10L, and instant digital wallet options.
+- Updated all educational articles in `src/data/articles.js` (Articles 1, 2, 4, 6), `aboutData.js`, `servicesData.js`, `DownloadPage.jsx`, `ServicesPage.jsx`, and `prerender.js` to consistently state "Delivered: Within 45 Mins", flat Rs. 280 fee, COD for 5L–10L, and instant Online Payments options.
 
 ### 8.6 Master Documentation Suite Consolidation (`docs/`)
 - Unified all 13 core documentation files into the single `docs/` folder, indexing each in `docs/README.md`.
@@ -366,7 +366,7 @@ Aligned all corporate credentials, physical location indicators, executive title
   - 100% Virus-Free & Verified APK
   - Instant Direct Install
   - 45-Min Lahore SLA
-  - COD & Digital Wallets
+  - COD & Online Payments
 - **App SEO & Structured Data**: Enhanced `SoftwareApplication` JSON-LD schema and meta tags to target fuel delivery app queries.
 
 ### 13.4 Complete Article Humanization (Zero AI Tells)
@@ -475,3 +475,56 @@ Aligned all corporate credentials, physical location indicators, executive title
   - `src/data/appVersion.js`: Updated app version changelog to reflect `Fixed Rs. 300.00 flat for 5L–10L, dynamic demand dispatch fee for 11L–15L Max`.
   - `src/data/articles.js`: Updated all educational articles (Articles 1 through 7) to reflect Rs. 300 fee for orders up to 10 Litres and dynamic demand surge pricing for 11L–15L.
   - Permanent memory & protocols in `AGENTS.md`, `GEMINI.md`, `docs/memory.md`, and `docs/informtion.md` synchronized.
+
+---
+
+## Phase 17: Delivery Pricing Cap (Strictly Rs. 300 – Rs. 400), Jerrycan Removal, Legacy Label Purge & 24/7 Dispatch Acceptance
+
+### 17.1 Delivery Charges Bounded Strictly Between Rs. 300 and Rs. 400
+- **User Directive**: *"delivery price 10-15L price 300-400 between hone chaye samaj ay kia tume"*.
+- **Implementation in `src/pages/OrderPage.jsx`**:
+  - Re-scaled the dynamic fee so that 11L–15L prices are strictly bounded between Rs. 300 and Rs. 400 using a linear +Rs. 20/L step:
+    - 5L–10L: Rs. 300.00
+    - 11L: Rs. 320.00
+    - 12L: Rs. 340.00
+    - 13L: Rs. 360.00
+    - 14L: Rs. 380.00
+    - 15L (Max Capacity): Rs. 400.00
+  - Synchronized `HomePage.jsx`, `TermsOfUsePage.jsx`, `AboutPage.jsx`, and `DownloadPage.jsx` to reflect the updated range.
+
+### 17.2 Complete Removal of Jerrycan / Safe Storage Drum
+- **User Directive**: *"Jerrycan/ Drum is ko be remove karo"*.
+- **Implementation**:
+  - Removed `storage` (`Jerrycan / Safe Storage Drum`) from `DELIVERY_APPLICATION_CONFIG` in `src/pages/OrderPage.jsx`.
+  - Exactly 4 certified application targets remain: Car/Sedan/SUV, Motorbike/Scooter, Standby Generator, Commercial Machinery.
+  - Purged references from FAQ text and developer comments.
+
+### 17.3 Purge of Legacy `(Order <10)` and `Fixed Rate (≤10L)` Tags
+- **User Directive**: *"fixed delivery fee: Rs.300 (Order <10) is ko be remove karo ... Fixed Rate (≤10L) is ko be remove karo"*.
+- **Implementation**:
+  - Step 4 Schedule card: Replaced `Fixed Delivery Fee: Rs. 300.00 (Orders ≤ 10L)` with clean `Delivery Fee: Rs. ${deliveryFee.toFixed(2)}`.
+  - Order Summary sidebar: Replaced `Fixed Rate (≤10L)` / `Dynamic Demand` label with clean `Doorstep Delivery (${fuelQty}L)`.
+  - WhatsApp dispatch text: Purged `(Fixed Rate Under 10L)` / `(Dynamic Demand Rate...)` suffix.
+
+### 17.4 Continuous 24/7 Online Order Acceptance & Friendly Schedule Info
+---
+
+## Phase 18: Operating Hours Modal Site-Wide Alignment & SVG Graph/Chart Purge
+
+### 18.1 Operating Hours Modal & Banner Harmonization
+- **User Directive**: Aligned OrderPage modal and status banner to strictly match the rest of the website (`Zyphuel Operating & Working Hours`):
+  - Monday – Thursday: 8:00 AM – 8:00 PM
+  - Friday: 8:00 AM – 1:00 PM
+  - Saturday – Sunday: 10:00 AM – 6:00 PM
+  - 24/7 WhatsApp Hotline & Emergency Dispatch: `+92 3230-112464`
+- **Eliminated Disparities**: Replaced divergent wording ("Physical office verification desk vs 24/7 dispatch") with unified company operating hours and timings.
+
+### 18.2 Complete Removal of Graph, Chart, Commits, and Changes SVG Files
+- **User Directive**: *"graphs,charts,comits,changes .svg files ko be remove karo."*
+- **Action Executed**:
+  - Deleted `github-changes-graph.svg` and `repo-activity-chart.svg` across `.github/assets/`, `assets/`, `public/images/`, and `dist/images/`.
+  - Deleted `scripts/generate_github_graph.js` and `.github/workflows/update-graph.yml`.
+  - Removed `"prebuild"` and `"graph"` scripts from `package.json` so build never re-generates SVG graph files.
+  - Removed `src/data/gitTelemetry.json`.
+
+

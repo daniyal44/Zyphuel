@@ -141,7 +141,7 @@ export default function ServicesPage() {
               "name": "Is Cash on Delivery (COD) supported for fuel orders?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel. If you don't have cash, instant on-spot digital wallet payments via JazzCash, Easypaisa, NayaPay, and Raast are also accepted. For larger orders or corporate fleets, online bank transfers and 30-day billing accounts are available."
+                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel. If you don't have cash, instant on-spot Online Payments payments via JazzCash, Easypaisa, NayaPay, and Raast are also accepted. For larger orders or corporate fleets, online bank transfers and 30-day billing accounts are available."
               }
             }
           ]

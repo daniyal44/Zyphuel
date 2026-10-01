@@ -132,7 +132,7 @@ export default function TermsOfUsePage() {
                 <ul>
                   <li><strong>Cash on Delivery:</strong> Our primary payment method is physical cash collected by the tanker operator at the delivery location.</li>
                   <li><strong>Bank Transfer:</strong> Pre-approved enterprise accounts may arrange advance bank transfers for scheduled deliveries.</li>
-                  <li><strong>Delivery Fee:</strong> Doorstep fuel delivery is fixed at <strong>Rs. 300.00</strong> for orders up to 10 Litres. For orders between 11L and 15L (the maximum doorstep volume cap), a structured dynamic demand dispatch fee applies with incremental volume surge. Priority express dispatch carries an additional surcharge of <strong>+Rs. 100.00</strong>.</li>
+                  <li><strong>Delivery Fee:</strong> Doorstep fuel delivery is fixed at <strong>Rs. 300.00</strong> for orders up to 10 Litres. For orders between 11L and 15L (the maximum doorstep volume cap), a structured dynamic dispatch fee applies between <strong>Rs. 320.00 and Rs. 400.00</strong> scaled by volume. Priority express dispatch carries an additional surcharge of <strong>+Rs. 100.00</strong>.</li>
                   <li><strong>No Hidden Charges:</strong> All applicable fees are displayed in the Order Summary before confirmation. No additional charges will be applied post-delivery.</li>
                 </ul>
               </section>

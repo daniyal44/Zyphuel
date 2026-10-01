@@ -22,7 +22,7 @@
 - Unlike international players who focus predominantly on corporate fleets or heavy industrial diesel, Pakistan presents unique consumer challenges: retail petrol pump short-fueling fraud, rolling 7-day Platts daily price volatility, and unannounced electrical load-shedding.
 - Zyphuel bridges this technological gap with custom micro-refuelers featuring calibrated 0.01L electronic positive-displacement meters, 15°C Automatic Temperature Compensation (ATC), and dual optical delivery verification (Camera QR + Code 128 barcode).
 - Unlike traditional Pakistani peers supplying unmetered diesel exclusively via manual phone calls and jerrycans, Zyphuel provides an automated app-driven platform delivering Super Petrol (92 Octane), High-Octane 97, and Euro-V Diesel within a guaranteed 45-minute SLA across Lahore.
-- Doorstep dispatches are strictly calibrated between 5 Litres minimum and 15 Litres maximum per order with a transparent flat Rs. 280 delivery fee, supporting Cash on Delivery (5L–10L) and instant on-spot digital wallets (JazzCash, Easypaisa, NayaPay, Raast QR).
+- Doorstep dispatches are strictly calibrated between 5 Litres minimum and 15 Litres maximum per order with a transparent flat Rs. 280 delivery fee, supporting Cash on Delivery (5L–10L) and instant on-spot Online Payments (JazzCash, Easypaisa, NayaPay, Raast QR).
 
 ### 2. Comprehensive H2/H3 Body Sections
 1. **The Global Rise of On-Demand Refueling: From Silicon Valley to Dubai & New Delhi**
@@ -53,7 +53,7 @@
 2. *Why does Zyphuel enforce a 5 Litres minimum and 15 Litres maximum limit on doorstep orders?* (Guarantees neighborhood road safety and agile 45-minute dispatch).
 3. *How do Zyphuel calibrated flow meters prevent retail pump short-fueling fraud?* (Positive-displacement meters accurate to 0.01L with 15°C ATC and dual QR/barcode receipts).
 4. *Can Zyphuel refuel standby generators on building rooftops or basements in Lahore?* (50-meter long-reach anti-static delivery hoses).
-5. *What are Zyphuel's delivery charges and supported payment methods in Lahore?* (Flat Rs. 280 fee, COD 5L–10L, instant QR digital wallets).
+5. *What are Zyphuel's delivery charges and supported payment methods in Lahore?* (Flat Rs. 280 fee, COD 5L–10L, instant QR Online Payments).
 6. *How fast does Zyphuel deliver fuel across Lahore?* (Guaranteed SLA of Delivered: Within 45 Mins across all covered areas).
 
 ---

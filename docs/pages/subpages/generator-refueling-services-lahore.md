@@ -46,7 +46,7 @@
 2. *What grade of diesel does Zyphuel supply for generators?* (100% Euro-V Hi-Cetane Diesel with minimum Cetane rating of 51 and sulfur content <10 ppm).
 3. *How fast can Zyphuel deliver emergency generator fuel during load-shedding?* (Standard deliveries Delivered: Within 45 Mins; B2B contracted priority dispatches).
 4. *Do you provide formal corporate tax invoices with STRN/NTN for fuel purchases?* (Yes, official FBR/SECP compliant computerized invoices).
-5. *What are the payment options for commercial generator refueling?* (COD for 5L–10L, digital wallets: JazzCash, Easypaisa, NayaPay, Raast, or monthly credit terms for B2B accounts).
+5. *What are the payment options for commercial generator refueling?* (COD for 5L–10L, Online Payments: JazzCash, Easypaisa, NayaPay, Raast, or monthly credit terms for B2B accounts).
 
 ---
 

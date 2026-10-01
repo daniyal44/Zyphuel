@@ -68,7 +68,7 @@ export const aboutArticles = [
     external: true,
     summary: 'Consumer guide on ordering on-demand fuel safely at home, avoiding dangerous open canister transportation, and verifying electronic flow-meter receipts.',
     highlights: [
-      'Cash on Delivery (5L–10L) & instant digital wallet payments (JazzCash, Easypaisa, NayaPay, Raast)',
+      'Cash on Delivery (5L–10L) & instant Online Payments payments (JazzCash, Easypaisa, NayaPay, Raast)',
       'Weight-verified sealed LPG gas cylinders with safety checks',
       '24/7 customer support helpline and live dispatch desk'
     ]

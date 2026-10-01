@@ -67,7 +67,7 @@ export function checkOfficeHours(date = new Date()) {
     const minute = parseInt(parts.minute, 10)
     const timeInMinutes = hour * 60 + minute
 
-    let isOpen = false
+    let isOfficeOpen = false
     let todaySchedule = ''
     let openTimeMinutes = 0
     let closeTimeMinutes = 0
@@ -76,17 +76,17 @@ export function checkOfficeHours(date = new Date()) {
       todaySchedule = '8:00 AM – 8:00 PM'
       openTimeMinutes = 8 * 60 // 480
       closeTimeMinutes = 20 * 60 // 1200
-      isOpen = timeInMinutes >= openTimeMinutes && timeInMinutes < closeTimeMinutes
+      isOfficeOpen = timeInMinutes >= openTimeMinutes && timeInMinutes < closeTimeMinutes
     } else if (day === 'Friday') {
       todaySchedule = '8:00 AM – 1:00 PM'
       openTimeMinutes = 8 * 60 // 480
       closeTimeMinutes = 13 * 60 // 780
-      isOpen = timeInMinutes >= openTimeMinutes && timeInMinutes < closeTimeMinutes
+      isOfficeOpen = timeInMinutes >= openTimeMinutes && timeInMinutes < closeTimeMinutes
     } else if (['Saturday', 'Sunday'].includes(day)) {
       todaySchedule = '10:00 AM – 6:00 PM'
       openTimeMinutes = 10 * 60 // 600
       closeTimeMinutes = 18 * 60 // 1080
-      isOpen = timeInMinutes >= openTimeMinutes && timeInMinutes < closeTimeMinutes
+      isOfficeOpen = timeInMinutes >= openTimeMinutes && timeInMinutes < closeTimeMinutes
     }
 
     const currentFormattedTime = new Intl.DateTimeFormat('en-US', {
@@ -99,12 +99,12 @@ export function checkOfficeHours(date = new Date()) {
     const currentDateTimeStr = `${day}, ${currentFormattedTime} (PKT)`
     const nextOpening = getNextOpening(day, hour, minute)
 
-    const mismatchMessage = isOpen 
-      ? '' 
-      : `Orders can only be placed during our Working Hours (${todaySchedule} for ${day}). Current time is ${currentFormattedTime}. Please place your order during working hours.`
+    // Online doorstep orders are active and accepted continuously
+    const isOpen = true
 
     return {
-      isOpen,
+      isOpen: true,
+      isOfficeOpen,
       day,
       hour,
       minute,
@@ -113,7 +113,7 @@ export function checkOfficeHours(date = new Date()) {
       currentDateTimeStr,
       todaySchedule,
       nextOpening,
-      mismatchMessage
+      mismatchMessage: ''
     }
   } catch (err) {
     // Graceful fallback

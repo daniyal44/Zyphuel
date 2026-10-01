@@ -10,7 +10,7 @@ export const servicesB2C = [
     desc: 'Pure, terminal-sourced Super Petrol (92 Octane) and High-Octane (97 Octane) delivered directly into your parked car or motorbike at home, office, or roadside in Lahore.',
     specs: [
       '5 to 15 Litres: Standard Doorstep Delivery (Max 15L capacity)',
-      '5 to 10 Litres: Cash on Delivery (COD) & instant digital wallets (JazzCash, Easypaisa, NayaPay)',
+      '5 to 10 Litres: Cash on Delivery (COD) & instant Online Payments (JazzCash, Easypaisa, NayaPay)',
       'Electronic calibrated flow-meter digital receipt',
       'Zero petrol pump waiting time or nozzle short-fueling'
     ],
@@ -38,7 +38,7 @@ export const servicesB2C = [
       '45-minute rapid response time in covered areas',
       'Safety emergency cone perimeter setup',
       'Compact mobile refueler with certified fire suppression',
-      'Cash on Delivery (5L–10L) & instant QR digital wallet payment (JazzCash, Easypaisa, NayaPay)'
+      'Cash on Delivery (5L–10L) & instant QR Online Payments payment (JazzCash, Easypaisa, NayaPay)'
     ],
     fuelTypeKey: 'petrol'
   }
@@ -109,8 +109,8 @@ export const whatWeProvide = [
   },
   {
     icon: 'fa-file-invoice-dollar',
-    title: 'Flexible Payment: COD & Digital Wallets',
-    desc: 'Cash on Delivery (COD) for household orders (5L–10L) and instant on-spot digital wallet payments (JazzCash, Easypaisa, NayaPay, Raast), paired with 30-day corporate credit accounts and digital invoice reporting for enterprise fleets.'
+    title: 'Flexible Payment: COD & Online Payments',
+    desc: 'Cash on Delivery (COD) for household orders (5L–10L) and instant on-spot Online Payments payments (JazzCash, Easypaisa, NayaPay, Raast), paired with 30-day corporate credit accounts and digital invoice reporting for enterprise fleets.'
   },
   {
     icon: 'fa-clock',
@@ -188,7 +188,7 @@ export const operationalPipeline = [
     role: 'Settlement',
     roleIcon: 'fa-receipt',
     title: 'Calibrated Receipt & Payment Processing',
-    desc: 'A digital flow-meter receipt with exact liters and price is printed and sent via SMS/App. Payment is completed via Cash on Delivery (COD), instant on-spot digital wallets (JazzCash, Easypaisa, NayaPay, Raast), or corporate fleet account.'
+    desc: 'A digital flow-meter receipt with exact liters and price is printed and sent via SMS/App. Payment is completed via Cash on Delivery (COD), instant on-spot Online Payments (JazzCash, Easypaisa, NayaPay, Raast), or corporate fleet account.'
   }
 ];
 

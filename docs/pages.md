@@ -42,7 +42,7 @@ This document provides a comprehensive technical and functional catalog of all 1
   - **Step 2 (Refueling Target)**: 5 target application cards (`Car/SUV`, `Motorbike`, `Generator`, `Machinery`, `Storage Drum`).
   - **Step 3 (Volume Stepper)**: Clamped strictly between 5L min and 15L max with presets `[5, 7, 10, 12, 15]`.
   - **Step 4 (Delivery Details & Speed)**: Address input and standard delivery speed card displaying `Delivered: Within 45 Mins` and flat Rs. 280 fee.
-  - **Step 5 (Contact & Payment)**: Modernized payment card highlighting Cash on Delivery (5L–10L) and instant on-spot digital wallets (JazzCash, Easypaisa, NayaPay, Raast / Bank).
+  - **Step 5 (Contact & Payment)**: Modernized payment card highlighting Cash on Delivery (5L–10L) and instant on-spot Online Payments (JazzCash, Easypaisa, NayaPay, Raast / Bank).
   - **Post-Order Modal**: Corporate tax invoice presentation with instant vector PDF download and 3s WhatsApp auto-redirect countdown.
   - **Anti-Spam Guard**: 15-minute duplicate order detection modal.
 - **Evolution**: Evolved from early prototype to full corporate tax invoice with pure vector jsPDF and Dual Verification (Camera QR + Code 128). Purged obsolete 50L bulk texts, vehicle plate field, and urgent surcharge card.
@@ -54,7 +54,7 @@ This document provides a comprehensive technical and functional catalog of all 1
   - **Hero Rate Pill**: Live rates and green badge stating `Delivered: Within 45 Mins`.
   - **Service Scope & What We Do NOT Do**: Explicit guarantees against open jerrycans, substandard fuel, and uncalibrated meters.
   - **6-Stage Operational Pipeline**: Step-by-step visual workflow from order placement to grounded dispensing and settlement.
-  - **Service FAQs**: Answers clarifying delivery speed, flow meter calibration, and COD + digital wallet options.
+  - **Service FAQs**: Answers clarifying delivery speed, flow meter calibration, and COD + Online Payments options.
   - **Interactive 3D Bookshelf**: Embedded library iframe (`https://bookssection.netlify.app/`).
 - **Evolution**: Purged unavailable LPG and water cards to prevent unfulfillable orders; updated SLA badge to "Delivered: Within 45 Mins".
 
@@ -112,7 +112,7 @@ This document provides a comprehensive technical and functional catalog of all 1
 - **Key Sections**:
   - Fuel order capacity rules (strictly 5L–15L per doorstep dispatch).
   - Cash on Delivery policy (restricted to orders ≤10L; advance payment required for 11L–15L).
-  - On-spot digital wallet acceptance terms (JazzCash, Easypaisa, NayaPay, Raast).
+  - On-spot Online Payments acceptance terms (JazzCash, Easypaisa, NayaPay, Raast).
   - Delivery SLA disclaimers and safety compliance responsibilities for generator owners.
 
 ### 10. HTML Sitemap Page (`/sitemap/` - Retired / Decommissioned)

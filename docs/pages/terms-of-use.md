@@ -31,7 +31,7 @@
    - Delivery Fees:
      - Standard Delivery: Fixed **Rs. 300.00** delivery fee for doorstep fuel orders up to 10 Litres; progressive dynamic demand surge fee applies for high-capacity orders (11L–15L Max).
      - Urgent Priority Dispatch: Flat **+Rs. 100.00** priority surcharge.
-   - Payment Methods: Cash on Delivery (COD) for small volumes (≤10L fuel) and approved direct bank transfers / on-spot instant digital wallets (JazzCash, Easypaisa, NayaPay, Raast QR).
+   - Payment Methods: Cash on Delivery (COD) for small volumes (≤10L fuel) and approved direct bank transfers / on-spot instant Online Payments (JazzCash, Easypaisa, NayaPay, Raast QR).
 5. **Cancellations & Safety Refusals**:
    - Orders can be cancelled prior to bowser departure without penalty.
    - Riders reserve the right to refuse dispensing into damaged, non-grounded, leaking, or plastic domestic containers that violate fire safety standards.

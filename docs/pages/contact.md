@@ -51,7 +51,7 @@ Comprehensive sector coverage table indicating micro-depot locations, dispatch S
 | **DHA Lahore (Phases 1–9)** | Phase 5 Commercial Sector Hub | Delivered: Within 45 Mins | Euro-V Petrol, Hi-Cetane Diesel | Cash on Delivery (5L–10L), JazzCash, Easypaisa, NayaPay, Raast |
 | **Gulberg (I, II, III)** | Central Hub (75-Main Boulevard) | Delivered: Within 30 Mins | Euro-V Petrol, Diesel, HOBC 97 | Cash on Delivery (5L–10L), Mobile Wallets, Bank Transfer |
 | **Johar Town & Faisal Town** | Sector G-3 Micro-Dispatch Base | Delivered: Within 45 Mins | Euro-V Petrol, Diesel | COD (5L–10L), JazzCash, Easypaisa, Raast |
-| **Model Town & Garden Town** | Model Town Link Road Point | Delivered: Within 40 Mins | Euro-V Petrol, Hi-Cetane Diesel | COD (5L–10L), Digital Wallets, Raast |
+| **Model Town & Garden Town** | Model Town Link Road Point | Delivered: Within 40 Mins | Euro-V Petrol, Hi-Cetane Diesel | COD (5L–10L), Online Payments, Raast |
 | **Bahria Town & Canal Road** | Talwar Chowk Quick Dispatch | Delivered: Within 45 Mins | Euro-V Petrol, Generator Diesel | COD (5L–10L), Mobile Wallets, Online Bank |
 
 ---
