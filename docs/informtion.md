@@ -82,12 +82,12 @@ This document serves as the authoritative single source of truth for all corpora
 - **Minimum Order Quantity**: **5 Litres** (hard threshold; lower inputs clamp to 5L).
 - **Maximum Order Capacity**: **15 Litres** (hard ceiling for agile doorstep dispatches).
 - **Preset Volume Chips**: `[5L, 7L, 10L, 12L, 15L Max]`.
-- **Doorstep Delivery Charges**: Fixed **Rs. 280.00** flat nominal fee for orders up to **10 Litres** (5L–10L). For orders between **11 Litres and 15 Litres Max**, a structured dynamic demand dispatch fee applies (+Rs. 20.00/L above 10L: 11L = Rs. 300, 12L = Rs. 320, 13L = Rs. 340, 14L = Rs. 360, 15L = Rs. 380).
+- **Doorstep Delivery Charges**: Fixed **Rs. 300.00** flat nominal fee for orders up to **10 Litres** (5L–10L). For orders between **11 Litres and 15 Litres Max**, dynamic demand surge dispatch fees apply (11L = Rs. 325, 12L = Rs. 355, 13L = Rs. 385, 14L = Rs. 420, 15L = Rs. 460).
 - **Urgent Delivery Surcharge**: Controlled, reasonable priority fee of **+Rs. 100.00** flat.
 - **Delivery Windows**:
   - Simple Dispatch: 20–45 Mins
   - Urgent Dispatch: 10–20 Mins
-- **Retail Petrol Pump Rate Formula**: `Official Base Ex-Depot Rate + Rs. 2.50 / Litre`.
+- **Retail Petrol Pump Rate Formula**: `Official Base Ex-Depot Rate + Rs. 5.00 / Litre` (`PUMP_RATE_MARKUP = 5.00`).
 - **Payment Methods**:
   - Cash on Delivery (COD) for 5L–10L orders.
   - Instant on-spot digital wallets (JazzCash, Easypaisa, NayaPay, Raast QR scan) upon delivery.

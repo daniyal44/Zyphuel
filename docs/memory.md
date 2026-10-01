@@ -14,8 +14,8 @@ This document defines the immutable business rules, operational constants, and a
 - **Bulk Refueling Separation**: Commercial orders exceeding 15 Litres (up to 10,000+ Litres) are serviced exclusively through scheduled commercial B2B bowser contracts.
 
 ### 1.2 Doorstep Delivery Charges & Dynamic Demand Fee
-- **Nominal Base Fee**: Fixed **Rs. 280.00** flat nominal fee for orders up to **10 Litres** (5L–10L).
-- **High-Capacity Dynamic Demand Fee (11L–15L Max)**: A structured dynamic demand dispatch fee applies (+Rs. 20.00/L above 10L: 11L = Rs. 300, 12L = Rs. 320, 13L = Rs. 340, 14L = Rs. 360, 15L = Rs. 380).
+- **Nominal Base Fee**: Fixed **Rs. 300.00** flat nominal fee for orders up to **10 Litres** (5L–10L).
+- **High-Capacity Dynamic Demand Fee (11L–15L Max)**: A progressive dynamic demand surge dispatch fee applies to cover heavy capacity load handling (11L = Rs. 325, 12L = Rs. 355, 13L = Rs. 385, 14L = Rs. 420, 15L = Rs. 460).
 - **Urgent Delivery Surcharge**: Controlled, reasonable priority fee of **+Rs. 100.00** flat. Always keep this surcharge reasonable.
 - **Zero Hidden Surcharges**: Fuel is charged at exact retail petrol pump rates without unannounced surcharges.
 
@@ -35,7 +35,7 @@ This document defines the immutable business rules, operational constants, and a
 - **Corporate Fleet Invoicing**: B2B accounts are provided direct bank transfer, 15-day, and 30-day consolidated corporate credit lines.
 
 ### 1.5 Retail Petrol Pump Tariff Markup
-- **Formula**: `Retail Petrol Pump Rate = Base OGRA Ex-Depot Rate + Rs. 2.50 / Litre`.
+- **Formula**: `Retail Petrol Pump Rate = Base OGRA Ex-Depot Rate + Rs. 5.00 / Litre` (`PUMP_RATE_MARKUP = 5.00`).
 - **Application**: Applied dynamically across Super Euro-V Petrol, Hi-Cetane Euro-V Diesel, and High-Octane 97.
 - **UI Invariant**: Internal markup formulas are calculated in the background; customer-facing cards display clean, professional final pump rates.
 

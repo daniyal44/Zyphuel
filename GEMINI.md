@@ -25,7 +25,8 @@
 
 ## Core Business Logic & Pricing Rules (Permanent Memory)
 - **Minimum & Maximum Fuel Volume**: Strictly **5 Litres minimum** up to **15 Litres maximum** per doorstep delivery order (sub-5L inputs clamped to 5L, capped at 15L max; step: +1L; volume chips: `[5, 7, 10, 12, 15]` with 15L Max capacity indicator).
-- **Doorstep Delivery Charges**: Fixed **Rs. 280.00** flat nominal fee for orders up to **10 Litres** (5L–10L). For high-capacity orders between **11 Litres and 15 Litres Max**, a structured dynamic demand dispatch fee applies (+Rs. 20.00/L above 10L: 11L = Rs. 300, 12L = Rs. 320, 13L = Rs. 340, 14L = Rs. 360, 15L = Rs. 380).
+- **Doorstep Delivery Charges**: Fixed **Rs. 300.00** flat nominal fee for orders up to **10 Litres** (5L–10L). For high-capacity orders between **11 Litres and 15 Litres Max**, dynamic demand surge dispatch fees apply (11L = Rs. 325, 12L = Rs. 355, 13L = Rs. 385, 14L = Rs. 420, 15L = Rs. 460).
+- **Retail Pump Margin Markup**: Controlled margin of **+Rs. 5.00/L** (`PUMP_RATE_MARKUP = 5.00`) across Petrol, Diesel, and High-Octane over official OGRA ex-depot rates.
 - **Urgent Delivery Surcharge**: Controlled, reasonable priority fee of **+Rs. 100.00** flat. Always keep this surcharge reasonable.
 - **Delivery Windows**:
   - Simple Dispatch: 20–45 Mins

@@ -198,7 +198,7 @@ export default function OrderPage() {
   const [email, setEmail] = useState('')
   const [deliverySpeed, setDeliverySpeed] = useState('simple') // 'simple' or 'urgent'
   
-  const { prices: livePrices, basePrices: liveBasePrices, pumpMarkup = 2.50 } = useFuelPrices()
+  const { prices: livePrices, basePrices: liveBasePrices, pumpMarkup = 5.00 } = useFuelPrices()
   const [prices, setPrices] = useState({ ...livePrices })
   const [basePrices, setBasePrices] = useState(liveBasePrices ? { ...liveBasePrices } : null)
 
@@ -266,10 +266,22 @@ export default function OrderPage() {
   const baseCost = fuelCost + gasCost + waterCost
 
   // Delivery Charges:
-  // Under 10L (5L–10L): Fixed Rs. 280.00 standard nominal fee.
-  // 11L–15L (Max Capacity): Dynamic demand-scaled fee based on volume dispatch load (+Rs. 20/L above 10L).
+  // Under 10L (5L–10L): Fixed Rs. 300.00 standard nominal fee.
+  // 11L–15L (Max Capacity): Dynamic demand-scaled fee based on volume dispatch load with incremental volume surge.
+  const getDeliveryFee = (qty) => {
+    if (qty <= 10) return 300
+    const dynamicFees = {
+      11: 325,
+      12: 355,
+      13: 385,
+      14: 420,
+      15: 460
+    }
+    return dynamicFees[qty] || (300 + (qty - 10) * 32)
+  }
+
   const standardFee = (orderFuel || orderGas || orderWater)
-    ? (fuelQty <= 10 ? 280 : 280 + (fuelQty - 10) * 20)
+    ? getDeliveryFee(fuelQty)
     : 0
   const deliveryFee = standardFee
   const total = baseCost + deliveryFee
@@ -952,7 +964,7 @@ export default function OrderPage() {
                           </span>
                           <span style={{ fontSize: '0.78rem', color: 'var(--brand-primary, #0284c7)', fontWeight: 700, marginTop: '4px' }}>
                             {fuelQty <= 10
-                              ? 'Fixed Delivery Fee: Rs. 280.00 (Orders ≤ 10L)'
+                              ? 'Fixed Delivery Fee: Rs. 300.00 (Orders ≤ 10L)'
                               : `Dynamic Demand Fee: Rs. ${deliveryFee.toFixed(2)} (${fuelQty}L High-Capacity Load)`}
                           </span>
                         </div>
@@ -1507,7 +1519,7 @@ export default function OrderPage() {
                       2. What is the minimum and maximum quantity for doorstep delivery?
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      Doorstep consumer delivery is strictly <strong>5 Litres minimum</strong> up to <strong>15 Litres maximum</strong> per order. Standard delivery is fixed at <strong>Rs. 280.00</strong> for orders up to 10 Litres, while orders between 11L and 15L carry a dynamic demand dispatch fee (+Rs. 20/L above 10L) to cover specialized high-capacity load handling. Dispatched within 45 minutes across Lahore. For commercial bulk requirements exceeding 15 Litres (generators, plazas, commercial machinery), our B2B specialized bowsers provide scheduled bulk supply via corporate inquiry.
+                      Doorstep consumer delivery is strictly <strong>5 Litres minimum</strong> up to <strong>15 Litres maximum</strong> per order. Standard delivery is fixed at <strong>Rs. 300.00</strong> for orders up to 10 Litres, while orders between 11L and 15L carry a dynamic demand dispatch fee to cover specialized high-capacity load handling. Dispatched within 45 minutes across Lahore. For commercial bulk requirements exceeding 15 Litres (generators, plazas, commercial machinery), our B2B specialized bowsers provide scheduled bulk supply via corporate inquiry.
                     </p>
                   </div>
 

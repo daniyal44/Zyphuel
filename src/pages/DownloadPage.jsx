@@ -959,7 +959,7 @@ export default function DownloadPage() {
                       <td style={{ padding: '12px 18px', color: '#94a3b8' }}><i className="fa-solid fa-xmark"></i> Requires Active Session</td>
                     </tr>
                     <tr style={{ background: '#ffffff' }}>
-                      <td style={{ padding: '12px 18px', fontWeight: 600, color: '#0f172a' }}>45-Minute Delivery SLA &amp; Fixed Rs. 280 Fee (&le;10L)</td>
+                      <td style={{ padding: '12px 18px', fontWeight: 600, color: '#0f172a' }}>45-Minute Delivery SLA &amp; Fixed Rs. 300 Fee (&le;10L)</td>
                       <td style={{ padding: '12px 18px', color: '#10b981', fontWeight: 700 }}><i className="fa-solid fa-check"></i> Guaranteed Across Lahore</td>
                       <td style={{ padding: '12px 18px', color: '#10b981', fontWeight: 700 }}><i className="fa-solid fa-check"></i> Guaranteed Across Lahore</td>
                     </tr>

@@ -108,7 +108,7 @@ export function FuelPriceProvider({ children }) {
         baseUpdated.highOctane = Number(octaneItem.price_pkr);
       }
 
-      // Calculate effective retail petrol pump rate: Base + Rs. 2.50/L for liquid fuels (petrol, diesel, high-octane)
+      // Calculate effective retail petrol pump rate: Base + Rs. 5.00/L for liquid fuels (petrol, diesel, high-octane)
       const pumpUpdated = {
         petrol: +(baseUpdated.petrol + PUMP_RATE_MARKUP).toFixed(2),
         diesel: +(baseUpdated.diesel + PUMP_RATE_MARKUP).toFixed(2),

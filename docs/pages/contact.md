@@ -94,6 +94,7 @@ Added interactive 4-item accordion addressing core user intent and eliminating t
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-01** | **Bottom Banner Delivery Pricing Alignment**: Updated bottom CTA banner to reflect `Rs. 300 fixed ≤10L` delivery fee. | Synchronize Contact Page bottom banner with updated delivery fee calibration. |
 | **2026-10-01** | **Working Hours & Delivery Operations Alignment**: (1) Reconciled Contact FAQ answer #2 to clarify doorstep fleet operates during official working hours (Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm), (2) Updated schedule table status to highlight 24/7 WhatsApp emergency helpline coverage. | Ensure 100% truth-in-advertising and operational alignment across all contact touchpoints. |
 | **2026-09-27** | **Corporate Identity & Contact Standardization**: Updated Contact number (`+92 3230-112464`), Complaint Email (`m.daniyalkhan490@gmail.com`), Headquarters (`Lahore, Pakistan`), and Executive Management desk to Founder & Leading Web Developer Muhammad Daniyal. | User's new corporate identity & regulatory credentials declaration. |
 | **2026-09-27** | Removed Sales & Fleet Operations (Adil Farooq) and 24/7 Urgent Dispatch Hotline cards from Commercial Fleet & Industrial Escalation Desk. | Clean up redundant contact cards per user request. |

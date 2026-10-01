@@ -24,6 +24,7 @@ timeline
     Phase 13 : Dynamic Delivery Pricing, App Surge & Content Humanization : Fixed Rs. 280 (<=10L) + Dynamic Demand (11L-15L) : Surging App Demand UI : 100% Human Articles : Search Dominance
     Phase 14 : Regulatory License Purge, Ticker Cleanup & HTML Sitemap Retirement : Cleaned Ticker : Decommissioned /sitemap/ : Retained Machine XML Sitemap
     Phase 15 : Operational Hours Realignment, 24/7 Claim Reconciliation & Dynamic Pricing Clarification : Purged Misleading 24/7 Delivery Claims : Formalized Operating Hours : Synchronized 13 Key Components & Docs
+    Phase 16 : Fuel Margin Calibration & Dynamic Surge Delivery Pricing : Retail Markup +Rs. 5.00/L (Petrol, Diesel, High-Octane) : Delivery Fee Rs. 300 (<=10L) + Dynamic Demand Surge (11L-15L)
 ```
 
 ---
@@ -440,3 +441,37 @@ Aligned all corporate credentials, physical location indicators, executive title
 - **Changelog Alignment in `appVersion.js`**:
   - Aligned latest app changelog in `src/data/appVersion.js` to accurately describe the structured dynamic demand dispatch fee:
     *"Doorstep Delivery Pricing Alignment: Fixed Rs. 280.00 flat for 5L–10L, dynamic demand dispatch fee for 11L–15L Max (+Rs. 20/L above 10L), with Cash on Delivery (COD) for 5–10L orders"*.
+
+---
+
+## Phase 16: Fuel Margin Calibration (+Rs. 5.00/L) & Dynamic Surge Delivery Pricing (Rs. 300 / Dynamic 11L–15L)
+
+### 16.1 Retail Petrol Pump Margin Markup Calibration (+Rs. 5.00 / Litre)
+- **User Directive**: Updated the retail pump rate margin (`PUMP_RATE_MARKUP`) from **Rs. 2.50 to Rs. 5.00** across Petrol, Diesel, and High-Octane.
+- **Core Constant Updated**:
+  - `src/data/fuelPrices.js`: Changed `PUMP_RATE_MARKUP = 5.00` and updated dynamic calculation documentation.
+  - `src/context/FuelPriceContext.jsx`: Updated default state fallback `pumpMarkup: 5.00` and comments.
+- **Dynamic Invariance**: Whether base OGRA rates rise, fall, or stay constant, the +Rs. 5.00 retail pump markup is automatically applied silently in background rate calculations.
+
+### 16.2 Doorstep Delivery Charges Realignment: Rs. 300 Base (≤10L) & Dynamic Surge (11L–15L)
+- **User Directive**:
+  - Doorstep delivery fee set to **Rs. 300** for orders under 10L (5L–10L).
+  - For 10L–15L (specifically 11L–15L Max capacity), progressive dynamic demand surge pricing applies.
+- **Implementation in `src/pages/OrderPage.jsx`**:
+  - Replaced linear math with a stepped dynamic demand surge map:
+    - 5L–10L: Rs. 300.00
+    - 11L: Rs. 325.00 (+25)
+    - 12L: Rs. 355.00 (+30)
+    - 13L: Rs. 385.00 (+30)
+    - 14L: Rs. 420.00 (+35)
+    - 15L: Rs. 460.00 (+40)
+  - Updated Order Page schedule card, summary computations, live invoice modal, print preview HTML, PDF generator, and WhatsApp dispatch message.
+- **Cross-Component & Page Synchronization**:
+  - `src/pages/HomePage.jsx`: Updated comparison table to `Fixed Rs. 300.00 (≤10L) • Dynamic Demand (11L–15L)`.
+  - `src/pages/AboutPage.jsx`: Updated FAQ to reflect Rs. 300 for ≤10L and dynamic demand surge for 11L–15L.
+  - `src/pages/ContactPage.jsx`: Updated bottom banner to `Rs. 300 fixed ≤10L`.
+  - `src/pages/DownloadPage.jsx`: Updated table row to `Fixed Rs. 300 Fee (≤10L)`.
+  - `src/pages/TermsOfUsePage.jsx`: Updated Section 4 to reflect Rs. 300.00 for orders up to 10 Litres.
+  - `src/data/appVersion.js`: Updated app version changelog to reflect `Fixed Rs. 300.00 flat for 5L–10L, dynamic demand dispatch fee for 11L–15L Max`.
+  - `src/data/articles.js`: Updated all educational articles (Articles 1 through 7) to reflect Rs. 300 fee for orders up to 10 Litres and dynamic demand surge pricing for 11L–15L.
+  - Permanent memory & protocols in `AGENTS.md`, `GEMINI.md`, `docs/memory.md`, and `docs/informtion.md` synchronized.

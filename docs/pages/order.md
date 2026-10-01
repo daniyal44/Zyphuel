@@ -20,27 +20,27 @@
 
 | Fuel Grade | Retail Pump Unit Rate | OGRA Base Rate | Pump Tariff Markup | Order Range | Increment Step | Volume Presets (Chips) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Premier Euro-5 Super Petrol** | Live + Rs. 2.50 | Live Scraped | **+Rs. 2.50 / L** | **5L – 15 Litres** | +1 L | 5, 7, 10, 12, 15 |
-| **Hi-Cetane Euro-5 Diesel** | Live + Rs. 2.50 | Live Scraped | **+Rs. 2.50 / L** | **5L – 15 Litres** | +1 L | 5, 7, 10, 12, 15 |
-| **High-Octane (Euro-5 / HOBC 97)**| Live + Rs. 2.50 | Live Scraped | **+Rs. 2.50 / L** | **5L – 15 Litres** | +1 L | 5, 7, 10, 12, 15 |
+| **Premier Euro-5 Super Petrol** | Live + Rs. 5.00 | Live Scraped | **+Rs. 5.00 / L** | **5L – 15 Litres** | +1 L | 5, 7, 10, 12, 15 |
+| **Hi-Cetane Euro-5 Diesel** | Live + Rs. 5.00 | Live Scraped | **+Rs. 5.00 / L** | **5L – 15 Litres** | +1 L | 5, 7, 10, 12, 15 |
+| **High-Octane (Euro-5 / HOBC 97)**| Live + Rs. 5.00 | Live Scraped | **+Rs. 5.00 / L** | **5L – 15 Litres** | +1 L | 5, 7, 10, 12, 15 |
 
-> **Retail Petrol Pump Rate Rule**: Petrol, Diesel, and High-Octane rates include the verified **+Rs. 2.50 / Litre** petrol pump rate over the OGRA base ex-depot price, maintaining dynamic invariance across price drops, hikes, or steady states ("jab bhi price kam ho ya zada ho ya same rahe").
+> **Retail Petrol Pump Rate Rule**: Petrol, Diesel, and High-Octane rates include the verified **+Rs. 5.00 / Litre** petrol pump rate (`PUMP_RATE_MARKUP = 5.00`) over the OGRA base ex-depot price, maintaining dynamic invariance across price drops, hikes, or steady states ("jab bhi price kam ho ya zada ho ya same rahe").
 > **Enforced Volume Rule**: Absolute minimum fuel volume is **5 Litres** and maximum fuel checkout volume is strictly **15 Litres**. Sub-5 unit inputs are automatically clamped to 5; inputs exceeding 15 are clamped to 15. Bulk commercial orders exceeding 15 Litres are handled via scheduled commercial B2B bowsers.
 
 ---
 
 ## Delivery Charges & Speed Options
 
-### 1. Delivery Pricing Structure (Fixed Under 10L, Dynamic Demand 11L–15L)
-- **Standard Doorstep Delivery (5L – 10L)**: Flat, fixed **Rs. 280.00** nominal fee.
-- **High-Capacity Demand Dispatch (11L – 15L Max)**: Dynamic demand-scaled fee calculated as `Rs. 280.00 + (fuelQty - 10) * Rs. 20.00`:
-  - 11 Litres: Rs. 300.00
-  - 12 Litres: Rs. 320.00
-  - 13 Litres: Rs. 340.00
-  - 14 Litres: Rs. 360.00
-  - 15 Litres (Max): Rs. 380.00
+### 1. Delivery Pricing Structure (Fixed Under 10L, Dynamic Demand Surge 11L–15L)
+- **Standard Doorstep Delivery (5L – 10L)**: Flat, fixed **Rs. 300.00** nominal fee.
+- **High-Capacity Dynamic Demand Surge (11L – 15L Max)**: Stepped dynamic demand surge fee:
+  - 11 Litres: Rs. 325.00 (+25)
+  - 12 Litres: Rs. 355.00 (+30)
+  - 13 Litres: Rs. 385.00 (+30)
+  - 14 Litres: Rs. 420.00 (+35)
+  - 15 Litres (Max): Rs. 460.00 (+40)
 - **Delivery Arrival Window**: Fixed strictly **Delivered: Within 45 Mins** on doorstep across Lahore.
-- **Delivery Speed Option**: Rendered in Step 4 with live reactive fee calculation reflecting fixed Rs. 280 for orders &le;10L and dynamic demand fee for 11L–15L.
+- **Delivery Speed Option**: Rendered in Step 4 with live reactive fee calculation reflecting fixed Rs. 300 for orders &le;10L and dynamic demand surge fee for 11L–15L.
 
 ---
 
@@ -170,6 +170,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-01** | **Fuel Margin Calibration (+Rs. 5.00/L) & Dynamic Surge Delivery Pricing (Rs. 300 / Dynamic 11L–15L)**: (1) Updated `PUMP_RATE_MARKUP` from Rs. 2.50 to Rs. 5.00/L across Petrol, Diesel, and High-Octane in `fuelPrices.js` and `FuelPriceContext.jsx`, (2) Realigned doorstep fuel delivery fee to fixed Rs. 300.00 nominal fee for orders up to 10 Litres, (3) Implemented stepped dynamic demand surge fees for high-capacity orders (11L = Rs. 325, 12L = Rs. 355, 13L = Rs. 385, 14L = Rs. 420, 15L = Rs. 460), (4) Synchronized schedule card, order summary, DOM invoice modal, print preview HTML, vector PDF generator, and WhatsApp dispatch payload. | User requested: *"delivery price 300 under 10L and 10-15L delivery price increase randomly, .pertol price margin change to margin 2.50 to 5 ok in Petrol ,Desil & high-octane"*. |
 | **2026-10-01** | **Operational Hours Realignment & Claim Reconciliation**: (1) Updated SEO heading to `Doorstep Diesel & Petrol Delivery in Lahore – On-Demand Fuel Service` (removed `24/7`), (2) Reconciled 45-Min Express Dispatch card copy to state `ensure rapid delivery during operating hours`, (3) Maintained accurate dynamic demand dispatch fee structure (+Rs. 20/L above 10L) for 11L–15L Max orders, (4) Highlighted 24/7 dedicated WhatsApp support desk availability. | Standardize customer expectations and eliminate inaccurate 24/7 delivery claims across ordering interface. |
 | **2026-09-28** | **Regulatory License Number Purge & Ticker Item Streamlining**: Cleanly removed `OGRA/DL-7492/LHE`, NTN `9482710-3`, and SECP `0248195` from order invoice model, DOM invoice modal, print preview HTML, and vector PDF generator; purged unavailable LPG Gas, Water Refill, and Doorstep Delivery items from marquee ticker in `OrderPage.jsx`, leaving only active available fuels (Petrol, Diesel, High-Octane). | User requested: *"OGRA Distribution License: OGRA/DL-7492/LHE, NTN / STRN: 9482710-3, SECP Incorporation Number: 0248195, LPG Gas: Rs. 450.00 /Kg Unavailable, Water Refill: Rs. 100.00 /Gal Unavailable, Doorstep Delivery: Rs. 280.00 (≤10L Fixed) | Dynamic Demand (11L–15L), http://localhost:5173/sitemap/ is ko be remove karo"*. |
 | **2026-09-27** | **Invoice Letterhead & Corporate Credentials Alignment**: Standardized company name to **Zyphuel**, headquarters to **Lahore, Pakistan**, contact number to **+92 3230-112464**, and complaint email to **m.daniyalkhan490@gmail.com** across rendered DOM invoice, printable HTML, and vector PDF generator. | User's official corporate identity declaration. |

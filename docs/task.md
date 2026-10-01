@@ -77,7 +77,13 @@ This document serves as the centralized master tracking ledger for all completed
 ### 1.9 Operational Hours Realignment, 24/7 Claim Reconciliation & Dynamic Pricing Clarification
 - [x] Reconcile and purge inaccurate '24/7 delivery' marketing claims across 13 core application components and metadata files (`index.html`, `prerender.js`, `SeoHead.jsx`, `ServiceCard.jsx`, `companyInfo.js`, `servicesData.js`, `useSEO.js`, `HomePage.jsx`, `AboutPage.jsx`, `ServicesPage.jsx`, `DownloadPage.jsx`, and `OrderPage.jsx`).
 - [x] Standardize documented operational working hours across all public pages: Mon–Thu 8:00 AM – 8:00 PM, Fri 8:00 AM – 1:00 PM, Sat–Sun 10:00 AM – 6:00 PM, with dedicated 24/7 WhatsApp emergency support (`+92 3230-112464`).
-- [x] Align app release changelog in `src/data/appVersion.js` with structured dynamic demand dispatch fee (+Rs. 20/L above 10L) for 11L–15L Max capacity orders.
+### 1.10 Fuel Margin Calibration (+Rs. 5.00/L) & Dynamic Surge Delivery Pricing (Rs. 300 / Dynamic 11L–15L)
+- [x] Update retail pump rate margin (`PUMP_RATE_MARKUP`) from **Rs. 2.50 to Rs. 5.00** across Petrol, Diesel, and High-Octane in `src/data/fuelPrices.js` and `src/context/FuelPriceContext.jsx`.
+- [x] Update doorstep fuel delivery fee to **Rs. 300.00** flat nominal fee for orders under 10L (5L–10L).
+- [x] Implement stepped dynamic demand surge pricing for high-capacity orders (11L–15L: 11L = Rs. 325, 12L = Rs. 355, 13L = Rs. 385, 14L = Rs. 420, 15L = Rs. 460) in `src/pages/OrderPage.jsx`.
+- [x] Synchronize Order Page schedule card, summary computations, live invoice modal, print preview HTML, PDF generator, and WhatsApp dispatch message.
+- [x] Update delivery fee and pricing references across all public pages (`HomePage.jsx`, `AboutPage.jsx`, `ContactPage.jsx`, `DownloadPage.jsx`, `TermsOfUsePage.jsx`, `appVersion.js`, and all 7 articles in `articles.js`).
+- [x] Update permanent memory and coordination protocols in `AGENTS.md`, `GEMINI.md`, `docs/memory.md`, `docs/informtion.md`, `docs/changes.md`, and `docs/pages/order.md`.
 - [x] Verify production static site generation (SSG) pre-rendering via `npm.cmd run build` across all 17 routes with exit code 0.
 
 ---

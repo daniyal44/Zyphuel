@@ -24,7 +24,7 @@ Zyphuel deploys purpose-built, double-walled micro-refueling tankers equipped wi
 
 ## 2. Core Business Logic, Pricing & Rules (System Invariants)
 - **Fuel Volume Range**: Strictly 5 Litres minimum up to 15 Litres maximum per mobile doorstep delivery dispatch. All input fields clamp requests within 5L–15L. Increment step: +1 Litre. Volume chips provided: `[5, 7, 10, 12, 15]` with 15L Max capacity indicator. Bulk commercial orders (>15L up to 10,000L+) serviced via scheduled B2B bowsers.
-- **Delivery Charges**: Flat Rs. 280.00 nominal dispatch fee for doorstep fuel orders (Delivered: Within 45 Mins). Urgent express priority dispatch surcharge: +Rs. 100 flat (Rs. 380 total).
+- **Delivery Charges**: Fixed Rs. 300.00 nominal dispatch fee for doorstep fuel orders up to 10 Litres (Delivered: Within 45 Mins). Progressive dynamic demand surge fee applies for high-capacity orders (11L–15L Max: 11L=Rs. 325, 12L=Rs. 355, 13L=Rs. 385, 14L=Rs. 420, 15L=Rs. 460). Urgent express priority dispatch surcharge: +Rs. 100 flat.
 - **Delivery Window**: Guaranteed SLA of Delivered: Within 45 Mins across all covered sectors of Lahore.
 - **Fuel Purity Standards**: 100% terminal-sourced Euro-V Diesel (<10 ppm sulfur), Super Petrol (92 Octane), and High-Octane 97 compliant with official Hydrocarbon Development Institute of Pakistan (HDIP) and Oil & Gas Regulatory Authority (OGRA) standards.
 - **Payment Policy**:
@@ -87,7 +87,7 @@ Zyphuel maintains localized refueling nodes covering all 20 municipal zones and 
 | **Mobile App Available** | Enterprise Fleet Telematics API | Consumer Mobile App | Mobile App & IoT Tank Sensors | None (Phone Calls Only) | Yes (Android APK v2.6.4.0.0.16 + Web Checkout) |
 | **Delivery Speeds** | Overnight Scheduled Windows | Scheduled 1-Hour Slots | Scheduled Next-Day / 4-Hour Slots | Next-Day / 24-Hour Lead Time | Delivered: Within 45 Mins (Standard & Urgent Priority) |
 | **Order Volume Limits** | Contractual Fleet Minimums | Vehicle Full-Tank Refill | 50L+ Commercial Minimum | 100L–1,000L Bulk Minimum | Strictly 5L Min – 15L Max per Doorstep Order |
-| **Delivery Pricing** | Contractual Account Rates | Flat AED Fee / Subscription | Freight Surcharge by Volume | Negotiated Freight per KM | Flat Rs. 280 Nominal Fee (+Rs. 100 Urgent Priority) |
+| **Delivery Pricing** | Contractual Account Rates | Flat AED Fee / Subscription | Freight Surcharge by Volume | Negotiated Freight per KM | Fixed Rs. 300 Fee (≤10L) with Dynamic Demand (11L–15L) |
 | **Generator Refueling** | 15m Fleet Hoses | 10m Vehicle Hoses | 25m Industrial Reel Hoses | None (Manual Jerrycans) | 50-Meter Hoses (Rooftops & Basements) |
 | **Refueling Targets** | Fleets & Corporate Campuses | Passenger Cars, Motorcycles | Industrial Plant & Generators | Bulk Industrial Tanks Only | 5 Target Applications: Car, Bike, Generator, Machinery, Drum |
 | **Pricing Engine** | Wholesale Index Linking | Regulated UAE OMC Rates | Real-Time PESO Index | Manual Quote | Real-Time Official OGRA Synced Rate Engine |

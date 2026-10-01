@@ -378,7 +378,7 @@ const ROUTES = [
               "name": "What are Zyphuel delivery charges for petrol and diesel in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel charges a flat nominal delivery fee of Rs. 280.00 for doorstep fuel orders of 5–10 Litres, delivered within 20–45 minutes. Orders of 11–15 Litres carry a dynamic demand dispatch fee of +Rs. 20/L above 10L. Urgent priority dispatch (10–20 minutes) carries an additional surcharge of +Rs. 100.00."
+                "text": "Zyphuel charges a fixed nominal delivery fee of Rs. 300.00 for doorstep fuel orders of 5–10 Litres, delivered within 20–45 minutes. For high-capacity orders of 11–15 Litres, dynamic demand surge pricing applies (11L = Rs. 325, 12L = Rs. 355, 13L = Rs. 385, 14L = Rs. 420, 15L = Rs. 460). Urgent priority dispatch (10–20 minutes) carries an additional surcharge of +Rs. 100.00."
               }
             },
             {
@@ -506,7 +506,7 @@ const ROUTES = [
               "name": "What are Zyphuel's doorstep delivery limits and pricing?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Doorstep consumer fuel orders are strictly bounded between 5 Litres minimum and 15 Litres maximum per dispatch. We charge a flat, transparent delivery fee of Rs. 280.00 with our guaranteed SLA of 'Delivered: Within 45 Mins'. Payment is supported via Cash on Delivery (COD for 5L–10L) and on-the-spot digital wallets (JazzCash, Easypaisa, NayaPay, Raast)."
+                "text": "Doorstep consumer fuel orders are strictly bounded between 5 Litres minimum and 15 Litres maximum per dispatch. We charge a fixed delivery fee of Rs. 300.00 for orders up to 10 Litres, with dynamic demand surge pricing for 11L to 15L orders, and a guaranteed SLA of 'Delivered: Within 45 Mins'. Payment is supported via Cash on Delivery (COD for 5L–10L) and on-the-spot digital wallets (JazzCash, Easypaisa, NayaPay, Raast)."
               }
             },
             {
@@ -774,7 +774,7 @@ const ROUTES = [
           "estimatedCost": {
             "@type": "MonetaryAmount",
             "currency": "PKR",
-            "value": "280"
+            "value": "300"
           },
           "step": [
             {
@@ -802,7 +802,7 @@ const ROUTES = [
               "@type": "HowToStep",
               "position": 4,
               "name": "Enter Lahore Address & Dispatch Priority",
-              "text": "Provide your delivery address in Lahore, select Simple (20–45 mins, Rs. 280 for 5–10L) or Urgent (+Rs. 100) priority, choose payment mode (COD or instant QR digital wallet), and submit.",
+              "text": "Provide your delivery address in Lahore, select Simple (20–45 mins, Rs. 300 for 5–10L, dynamic surge for 11–15L) or Urgent (+Rs. 100) priority, choose payment mode (COD or instant QR digital wallet), and submit.",
               "url": `${DOMAIN}/order/#step-address`
             }
           ]

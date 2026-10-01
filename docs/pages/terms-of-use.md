@@ -27,11 +27,11 @@
      - Simple/Standard: Estimated 20–45 minutes across central Lahore sectors.
      - Urgent/Priority: Estimated 10–20 minutes with priority routing.
 4. **Pricing, Surcharges & Payments**:
-   - Liquid fuels priced strictly per official OGRA ex-depot notifications.
+   - Liquid fuels priced strictly per official OGRA ex-depot notifications plus retail pump markup (+Rs. 5.00/L).
    - Delivery Fees:
-     - Standard Delivery: Flat **Rs. 280.00** delivery fee for doorstep fuel orders (5L–15L range).
-     - Urgent Priority Dispatch: Flat **+Rs. 100.00** priority surcharge (Total **Rs. 380.00**).
-   - Payment Methods: Cash on Delivery (COD) for small volumes (≤10L fuel) and approved direct bank transfers.
+     - Standard Delivery: Fixed **Rs. 300.00** delivery fee for doorstep fuel orders up to 10 Litres; progressive dynamic demand surge fee applies for high-capacity orders (11L–15L Max).
+     - Urgent Priority Dispatch: Flat **+Rs. 100.00** priority surcharge.
+   - Payment Methods: Cash on Delivery (COD) for small volumes (≤10L fuel) and approved direct bank transfers / on-spot instant digital wallets (JazzCash, Easypaisa, NayaPay, Raast QR).
 5. **Cancellations & Safety Refusals**:
    - Orders can be cancelled prior to bowser departure without penalty.
    - Riders reserve the right to refuse dispensing into damaged, non-grounded, leaking, or plastic domestic containers that violate fire safety standards.
@@ -46,6 +46,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-01** | Updated standard doorstep delivery fee to fixed **Rs. 300.00** for orders up to 10 Litres, with dynamic demand surge pricing for high-capacity orders (11L–15L Max) and retail pump markup of +Rs. 5.00/L. | Synchronize Terms of Use with updated dispatch logistics pricing. |
 | **2026-09-27** | Removed direct phone number display; routed to official Contact Page. | User requested: *"contact page ka elova mera phone number kise be or page per show nai hona chaye"*. Replaced raw phone number text with direct link to official Contact Page (`/contact/`) to consolidate personal telephone numbers exclusively to the designated contact gateway. |
 | **2026-09-22** | Unified delivery fee to flat **Rs. 280.00** (+Rs. 100 urgent surcharge, Total Rs. 380), defined strict **5L Min to 15L Max** doorstep capacity limit, and purged all 50L references. | User requested delivery fee update, complete purge of 50L mentions, removal of • Min tag, and 15L max volume documentation. |
 | **2026-09-17** | Updated standard delivery fee term from Rs. 250 to **Rs. 280** for sub-50L fuel orders. | Reflected nationwide fuel price increase in legal terms of use and checkout disclosure. |

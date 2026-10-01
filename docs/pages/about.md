@@ -68,6 +68,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-01** | **FAQ Delivery Pricing Realignment**: Updated About Page FAQ response to reflect fixed Rs. 300.00 for orders up to 10 Litres and dynamic demand surge pricing for 11L–15L orders. | Synchronize FAQ answers with updated delivery fee calibration. |
 | **2026-10-01** | **Operating Hours & Helpline Claim Alignment**: Reconciled corporate story and FAQ response to specify that mobile refueling dispatches operate during established working hours, while maintaining priority emergency dispatch helpline support (24/7) for hospitals and corporate accounts. | Remove inaccurate round-the-clock delivery claims while highlighting active helpline coverage. |
 | **2026-09-27** | **Corporate Identity & Executive Title Update**: Updated Muhammad Daniyal's designation to **Founder & Leading Web Developer** across team definitions, Schema.org Person metadata, image titles, and leadership bio. | Aligned with user's official corporate credentials declaration. |
 | **2026-09-27** | **Privacy Consolidation**: Removed direct telephone number exposure from Consumer Guide article highlights in `aboutData.js`, routing inquiries to the live dispatch desk and official Contact page. | User requested: *"contact page ka elova mera phone number kise be or page per show nai hona chaye"*. |
