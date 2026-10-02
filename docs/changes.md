@@ -653,3 +653,19 @@ Aligned all corporate credentials, physical location indicators, executive title
     - `HEAD /zyphuel.apk` -> HTTP 200, `content-type: application/vnd.android.package-archive`.
     - `HEAD /download/Zyphuel.apk` -> HTTP 200, `content-type: application/vnd.android.package-archive`.
 
+### 21.4 E2E Test Hardening & App Store Link Resolution (`DownloadPage.jsx`, `Header.jsx`, `HomePage.jsx`, `ServicesPage.jsx`)
+- **User Directive**: *"Re-run the download-page test after the fix, especially 'Open the app store link from the download page', then re-run related acquisition flows from header/services/content pages to confirm the CTA is reachable everywhere it is exposed."*
+- **Implementation**:
+  - **Live Store Links**: Transformed previously disabled store badge `<span>` elements on `/download/` into live, clickable anchors:
+    - `#google-play-download-btn` (`.store-badge.play-store`): Points directly to `/APK/Zyphuel.apk` with `download="Zyphuel.apk"`.
+    - `#apple-app-store-btn` (`.store-badge.app-store`): Points to the responsive web ordering portal `/order/` for iOS / iPhone users.
+  - **Eliminated Animation Wait**: Removed `.fade-in-up` from `.download-hero-content` to guarantee `opacity: 1; visibility: visible; pointer-events: auto;` immediately upon page load without waiting for IntersectionObserver triggers or CSS transitions that cause test runner timeouts.
+  - **Inline Step 1 Link**: Added active download link inside installation Step 1 on the download page.
+  - **Cross-Page Acquisition Flow Consistency**:
+    - `Header.jsx`: Added `Download App` to the main navigation menu `navLinks` (accessible on mobile drawer & desktop) and added `id="header-download-link"`, `data-testid="header-download-link"`.
+    - `HomePage.jsx`: Added secondary `Download App` CTA in the hero section (`#home-hero-download-btn`) and added `#home-feature-download-btn` to the app feature comparison card.
+    - `ServicesPage.jsx`: Added `#services-download-btn` and `data-testid="services-download-btn"` to the hero mobile app CTA.
+    - `ContactPage.jsx`: Added `#contact-download-btn` and `data-testid="contact-download-btn"` to the download button.
+    - `NotFoundPage.jsx`: Added `#not-found-download-link` and `data-testid="not-found-download-link"`.
+
+

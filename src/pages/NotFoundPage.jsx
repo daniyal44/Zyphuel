@@ -54,7 +54,12 @@ export default function NotFoundPage() {
                 </Link>
               </li>
               <li>
-                <Link to="/download/" style={{ color: 'var(--accent-color, #0284c7)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <Link
+                  to="/download/"
+                  id="not-found-download-link"
+                  data-testid="not-found-download-link"
+                  style={{ color: 'var(--accent-color, #0284c7)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}
+                >
                   <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.8rem' }}></i> Download Android App
                 </Link>
               </li>

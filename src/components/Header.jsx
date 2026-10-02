@@ -17,6 +17,7 @@ const LogoFallbackSVG = () => (
 const navLinks = [
   { to: '/', label: 'Home', exact: true, title: 'Zyphuel Home Page' },
   { to: '/services/', label: 'Services', title: 'Zyphuel Services & Fuel Rates' },
+  { to: '/download/', label: 'Download App', title: 'Download Zyphuel Mobile App (Android APK)' },
   { to: '/about/', label: 'About Us', title: 'About Zyphuel & Leadership Team' },
   { to: '/blog/', label: 'Blog', title: 'Zyphuel Energy & Technology Blog' },
   { to: '/contact/', label: 'Contact', title: 'Contact Support & Helpline' },
@@ -76,6 +77,8 @@ export default function Header({ onOpenInterestModal }) {
           </span>
           <Link
             to="/download/"
+            id="header-download-link"
+            data-testid="header-download-link"
             className="badge-pill badge-zyphuel"
             title="Download Zyphuel Mobile App (Android APK)"
             aria-label="Download Zyphuel Mobile App"

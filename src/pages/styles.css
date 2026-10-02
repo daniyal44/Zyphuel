@@ -625,6 +625,13 @@
   height: 52px;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.05);
+  text-decoration: none;
+}
+
+.store-badge:hover {
+  background-color: #1e293b;
+  transform: translateY(-2px);
+  color: #ffffff;
 }
 
 .store-badge i {

@@ -630,7 +630,13 @@ ${form.message.trim()}`
               <Link to="/services/" className="btn btn-secondary btn-lg">
                 <i className="fa-solid fa-list-check"></i> View Services &amp; Live Rates
               </Link>
-              <Link to="/download/" className="btn btn-ghost btn-lg">
+              <Link
+                to="/download/"
+                id="contact-download-btn"
+                data-testid="contact-download-btn"
+                className="btn btn-ghost btn-lg"
+                title="Download Zyphuel Mobile App (Android APK)"
+              >
                 <i className="fa-brands fa-android"></i> Download Android App
               </Link>
             </div>

@@ -253,7 +253,7 @@ export default function DownloadPage() {
             <div className="download-hero-grid">
               
               {/* Left Column: Headline, Highlights & Actions */}
-              <div className="download-hero-content fade-in-up">
+              <div className="download-hero-content" style={{ opacity: 1, visibility: 'visible' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(234, 88, 12, 0.1)', border: '1px solid rgba(234, 88, 12, 0.25)', borderRadius: '999px', padding: '5px 13px', marginBottom: '12px', fontSize: '0.82rem', fontWeight: 700, color: '#c2410c' }}>
                   <i className="fa-solid fa-fire-flame-curved" style={{ color: '#ea580c' }}></i> High Market Demand: Over 15,000+ Active Users in Lahore &bull; 45-Min Express Dispatch
                 </div>
@@ -272,7 +272,7 @@ export default function DownloadPage() {
                 </p>
 
                 {/* Primary Download CTAs */}
-                <div className="download-actions">
+                <div className="download-actions" style={{ position: 'relative', zIndex: 10 }}>
                   <a
                     href="/APK/Zyphuel.apk"
                     download="Zyphuel.apk"
@@ -282,6 +282,7 @@ export default function DownloadPage() {
                     className="btn btn-primary btn-download-main"
                     title="Download Zyphuel Android APK File Directly"
                     aria-label="Direct APK Download for Zyphuel Mobile Application for Fuel Suppliers"
+                    style={{ position: 'relative', zIndex: 10, pointerEvents: 'auto', textDecoration: 'none' }}
                   >
                     <i className="fa-brands fa-android"></i>
                     <div className="btn-download-text">
@@ -291,20 +292,38 @@ export default function DownloadPage() {
                   </a>
 
                   <div className="badge-store-group">
-                    <span className="store-badge play-store disabled" title="Google Play Store - Launch Soon">
+                    <a
+                      href="/APK/Zyphuel.apk"
+                      download="Zyphuel.apk"
+                      type="application/vnd.android.package-archive"
+                      className="store-badge play-store"
+                      id="google-play-download-btn"
+                      data-testid="google-play-download-btn"
+                      title="Download Zyphuel Android APK (Google Play Release Package)"
+                      aria-label="Download Zyphuel Android APK (Google Play Release Package)"
+                      style={{ textDecoration: 'none', cursor: 'pointer', position: 'relative', zIndex: 10 }}
+                    >
                       <i className="fa-brands fa-google-play"></i>
                       <div className="store-badge-text">
-                        <span className="small-label">Launch Soon</span>
+                        <span className="small-label">Direct APK Package</span>
                         <span className="large-label">Google Play</span>
                       </div>
-                    </span>
-                    <span className="store-badge app-store disabled" title="Apple App Store - Coming Soon">
+                    </a>
+                    <Link
+                      to="/order/"
+                      className="store-badge app-store"
+                      id="apple-app-store-btn"
+                      data-testid="apple-app-store-btn"
+                      title="Access Zyphuel Web App for iOS / iPhone"
+                      aria-label="Access Zyphuel Web App for iOS / iPhone"
+                      style={{ textDecoration: 'none', cursor: 'pointer', position: 'relative', zIndex: 10 }}
+                    >
                       <i className="fa-brands fa-apple"></i>
                       <div className="store-badge-text">
-                        <span className="small-label">Coming Soon</span>
+                        <span className="small-label">iOS Web App</span>
                         <span className="large-label">App Store</span>
                       </div>
-                    </span>
+                    </Link>
                   </div>
                 </div>
 
@@ -707,7 +726,7 @@ export default function DownloadPage() {
                 <div className="step-num">01</div>
                 <div className="step-content">
                   <h4>Download the Installation File</h4>
-                  <p>Click the <strong>Direct APK Download</strong> button above or scan our QR Code. Save the `Zyphuel.apk` (v{APP_VERSION}) file ({APP_SIZE}) to your mobile storage folder.</p>
+                  <p>Click the <a href="/APK/Zyphuel.apk" download="Zyphuel.apk" type="application/vnd.android.package-archive" style={{ color: '#0284c7', fontWeight: 700 }}>Direct APK Download</a> button above or scan our QR Code. Save the `Zyphuel.apk` (v{APP_VERSION}) file ({APP_SIZE}) to your mobile storage folder.</p>
                 </div>
               </div>
 

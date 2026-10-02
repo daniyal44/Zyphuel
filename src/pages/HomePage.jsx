@@ -254,8 +254,17 @@ export default function HomePage() {
                 <Link to="/order/" className="btn btn-primary">
                   <i className="fa-solid fa-gas-pump"></i> Order Fuel Now
                 </Link>
+                <Link
+                  to="/download/"
+                  id="home-hero-download-btn"
+                  data-testid="home-hero-download-btn"
+                  className="btn btn-secondary"
+                  title="Download Zyphuel Mobile App (Android APK)"
+                >
+                  <i className="fa-brands fa-android"></i> Download App
+                </Link>
                 <Link to="/about/" className="btn btn-ghost">
-                  Learn More About Zyphuel <i className="fa-solid fa-arrow-right"></i>
+                  Learn More <i className="fa-solid fa-arrow-right"></i>
                 </Link>
               </div>
 
@@ -404,7 +413,14 @@ export default function HomePage() {
               <p>
                 Track your fuel bowser in real time on the interactive map, receive 2-hour advance notifications before OGRA price revisions, and re-order with biometric speed.
               </p>
-              <Link to="/download/" className="comp-proof-tag" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }} title="Download Zyphuel Android APK App">
+              <Link
+                to="/download/"
+                id="home-feature-download-btn"
+                data-testid="home-feature-download-btn"
+                className="comp-proof-tag"
+                style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                title="Download Zyphuel Android APK App"
+              >
                 <i className="fa-brands fa-android"></i> Download App v{APP_VERSION} &rarr;
               </Link>
             </div>
