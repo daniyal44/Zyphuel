@@ -662,6 +662,13 @@
   background-color: #f1f5f9;
   color: #64748b;
   border: 1px solid var(--border-color);
+  pointer-events: none;
+}
+
+.store-badge.disabled:hover {
+  background-color: #f1f5f9;
+  transform: none;
+  color: #64748b;
 }
 
 /* QR Scanner Box */

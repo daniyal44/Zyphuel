@@ -42,5 +42,25 @@
   - WhatsApp emergency helpline operates **24/7 on-demand** at `+92 3230-112464`.
 - **Startup Identity**: Single persistent transparency statement on Home hero; never duplicated on child pages.
 - **Automated Dispatch & WhatsApp**: Direct WhatsApp pre-filled dispatch link to `+92 3230-112464`.
+- **App Store Badges & 100% Genuine Transparency (Strictly No Fake Links)**:
+  - Google Play and Apple App Store apps are currently in development and **NOT yet launched** on official stores.
+  - **Google Play Badge**: Must strictly remain a non-clickable disabled badge (`span.store-badge.play-store.disabled`) labeled **"Launch Soon"** with `pointer-events: none`.
+  - **Apple App Store Badge**: Must strictly remain a non-clickable disabled badge (`span.store-badge.app-store.disabled`) labeled **"Coming Soon"** with `pointer-events: none`.
+  - **STRICT PROHIBITION**: NEVER create fake, deceptive, or misleading store links that redirect Google Play or App Store clicks to an APK download file or web ordering page. This damages user trust, misleads the public, and causes customer complaints.
+  - **Official Android App Distribution**: Android app is exclusively and transparently distributed via the official **Direct APK Download** button (`#direct-apk-download-btn`, `.btn-download-main`, `href="/APK/Zyphuel.apk"`, `download="Zyphuel.apk"`).
+- **Website Information Consistency & Truthfulness**:
+  - All articles, pages, cards, and metadata must contain 100% genuine, consistent, verified information.
+  - Zero discrepancies: hours, pricing, targets, and contact details must match identically across all pages.
+- **No Git Graphs / Telemetry on Customer-Facing Web**:
+  - Git commit activity, graphs, engineering charts, and repository telemetry must NEVER be displayed on the customer-facing website.
+- **MANDATORY Language & Communication Rule (PERMANENT & HIGHEST PRIORITY)**:
+  - **User ki strictly preferred language ROMAN URDU hai**.
+  - **Har jawab Roman Urdu mein dena hai** (Latin script only, e.g. "Theek hai bhai, sab samajh aa gaya").
+  - **Urdu script (اردو رسم الخط) bilkul use nahi karni**.
+  - **English technical words aur common terms** (jaise `prompt`, `language setup`, `AI`, `server`, `build`, `API`, `commit`, `deployment`, `branch`, etc.) waise hi English mein likhe ja sakte hain.
+  - **Agar user English mein bhi likhe**, tab bhi jawab strictly **Roman Urdu** mein hi dena hai, jab tak user clear na kahe ke "English mein jawab do".
+  - **Jawab ka lehja hamesha simple, natural, friendly aur concise rakhna hai**.
+  - **Har naye chat aur conversation turn mein isi language setup ko permanently follow karna hai**.
+
 
 

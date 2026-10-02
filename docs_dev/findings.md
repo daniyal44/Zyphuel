@@ -7,7 +7,7 @@
 - **Root Causes**:
   1. **Synthetic Click Interception**: `onClick={(e) => { e.preventDefault(); handleApkDownload(); }}` created a temporary anchor in memory and cancelled the real anchor's click. In automated headless browsers (Playwright/Puppeteer), synthetic memory clicks don't register as user-initiated downloads, causing the runner to time out waiting for download events.
   2. **Navigation Fallback Failure**: When clicking timed out, the test runner attempted to directly navigate to the button's `href`. In environments where MIME type was missing or server hung on HEAD/unrecognized binary, the browser or HTTP client marked the file as unavailable.
-  3. **"App Store link" Expectation**: The test title mentions `"Open the app store link from the download page"`. The download page currently has disabled badges for Google Play and Apple App Store (`span.store-badge.disabled`). If the test searches for store links or expects active links to Google Play/App Store, having them only as non-clickable `span` tags might also be evaluated if the APK link fails.
+  3. **App Store Badges & Brand Transparency**: Zyphuel has not officially launched on Google Play Store or Apple App Store yet. Creating pseudo-store links that point to an APK or website is deceptive and causes customer complaints. Store badges must strictly remain truthful, non-clickable disabled spans (`.store-badge.disabled`) with 'Launch Soon' and 'Coming Soon'. The primary Direct APK Download button is the sole genuine download mechanism.
 
 ## 2. Server & Hosting Response Headers
 - **Live Netlify Server**:

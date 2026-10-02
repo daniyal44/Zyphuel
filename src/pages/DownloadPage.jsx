@@ -292,38 +292,20 @@ export default function DownloadPage() {
                   </a>
 
                   <div className="badge-store-group">
-                    <a
-                      href="/APK/Zyphuel.apk"
-                      download="Zyphuel.apk"
-                      type="application/vnd.android.package-archive"
-                      className="store-badge play-store"
-                      id="google-play-download-btn"
-                      data-testid="google-play-download-btn"
-                      title="Download Zyphuel Android APK (Google Play Release Package)"
-                      aria-label="Download Zyphuel Android APK (Google Play Release Package)"
-                      style={{ textDecoration: 'none', cursor: 'pointer', position: 'relative', zIndex: 10 }}
-                    >
+                    <span className="store-badge play-store disabled" title="Google Play Store - Launch Soon">
                       <i className="fa-brands fa-google-play"></i>
                       <div className="store-badge-text">
-                        <span className="small-label">Direct APK Package</span>
+                        <span className="small-label">Launch Soon</span>
                         <span className="large-label">Google Play</span>
                       </div>
-                    </a>
-                    <Link
-                      to="/order/"
-                      className="store-badge app-store"
-                      id="apple-app-store-btn"
-                      data-testid="apple-app-store-btn"
-                      title="Access Zyphuel Web App for iOS / iPhone"
-                      aria-label="Access Zyphuel Web App for iOS / iPhone"
-                      style={{ textDecoration: 'none', cursor: 'pointer', position: 'relative', zIndex: 10 }}
-                    >
+                    </span>
+                    <span className="store-badge app-store disabled" title="Apple App Store - Coming Soon">
                       <i className="fa-brands fa-apple"></i>
                       <div className="store-badge-text">
-                        <span className="small-label">iOS Web App</span>
+                        <span className="small-label">Coming Soon</span>
                         <span className="large-label">App Store</span>
                       </div>
-                    </Link>
+                    </span>
                   </div>
                 </div>
 

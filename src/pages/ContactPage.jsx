@@ -449,7 +449,7 @@ ${form.message.trim()}`
                     referrerPolicy="no-referrer-when-downgrade"
                   ></iframe>
                 </div>
-                <p className="map-caption"><i className="fa-solid fa-location-dot" style={{ color: 'var(--accent-color)' }}></i> Zyphuel Headquarters — Lahore, Pakistan</p>
+                <p className="map-caption"><i className="fa-solid fa-location-dot" style={{ color: 'var(--accent-color)' }}></i> Zyphuel Lahore, Pakistan</p>
               </div>
             </div>
           </div>
