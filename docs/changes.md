@@ -683,6 +683,18 @@ Aligned all corporate credentials, physical location indicators, executive title
   - Removed the orange flame callout pill `"High Market Demand: Over 15,000+ Active Users in Lahore • 45-Min Express Dispatch"` from the hero section of `DownloadPage.jsx` per user request.
   - Preserved the clean hero layout with the subtitle badge `"Pakistan's #1 On-Demand Fuel App • v2.6.4.0.0.16 (Latest Release)"` and direct APK download CTAs.
 
+### 21.7 Strict 10:00 PM Night Cutoff Enforcement & Browser Order Guard Plugin Deployment
+- **User Directive**: *"ab ya bato ma na tume order page ma kaha tha 10 pm ka bad koi be order nai lena phir tum na order button kyu show kia ha , kia plugin sai sa kam nai kia kia , aghar plugin sai nai ha to koi or plugin bana kar do muje ko actual ma kam karta hoo"*
+- **Root Cause Analysis**:
+  1. The project is a client-side React / Vite Single Page Application running in the browser and hosted on Netlify. The previously created PHP plugin (`plugins/zyphuel-order-guard/zyphuel-order-guard.php`) runs in WordPress/PHP server environments and did not execute in the browser.
+  2. A fallback QA sandbox checkout block with `#truck-submit-btn` (`data-qa-sandbox="true"`) was mistakenly left inside the Night Cutoff alert card in `OrderPage.jsx`.
+- **Implementation & Resolution**:
+  1. **React OrderPage**: Completely purged the `qa-sandbox-checkout-path` block and the `#truck-submit-btn` from inside the Night Cutoff card. During 10:00 PM – 8:00 AM PKT, the "Complete Order" button is 100% absent from the DOM. Added hard submission guards in `handleTruckClick` and `proceedOrderSubmission`.
+  2. **Browser Runtime Order Guard Plugin (v2.0)**: Created `public/plugins/zyphuel-order-guard/zyphuel-order-guard.js` and `src/plugins/zyphuelOrderGuard.js`, loaded in `index.html` and `src/main.jsx`. Continuously monitors `Asia/Karachi` time, injects aggressive CSS hiding any order buttons (`display: none !important; pointer-events: none !important;`), observes DOM mutations, and intercepts form submissions.
+  3. **Vite Server Plugin**: Integrated `zyphuelOrderGuardPlugin` in `vite.config.js` returning HTTP 403 Forbidden for any order API endpoints during night cutoff hours.
+  4. **Environment & Hosting**: Set `VITE_ENABLE_QA_ORDER_BYPASS=false` and `VITE_DISABLE_ORDER_CUTOFF=false` in `.env`, `.env.example`, and `netlify.toml`. Added `/plugins/*` cache & script headers in `netlify.toml`.
+
+
 
 
 

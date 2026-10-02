@@ -64,11 +64,57 @@ function apkServerPlugin() {
   }
 }
 
+function zyphuelOrderGuardPlugin() {
+  const isNightCutoffNow = () => {
+    try {
+      const dtf = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Karachi',
+        hour: 'numeric',
+        hour12: false
+      })
+      const hour = parseInt(dtf.format(new Date()), 10)
+      return hour >= 22 || hour < 8
+    } catch (e) {
+      const now = new Date()
+      const utc = now.getUTCHours()
+      const hour = (utc + 5) % 24
+      return hour >= 22 || hour < 8
+    }
+  }
+
+  const handleOrderProtection = (req, res, next) => {
+    const url = req.url ? req.url.split('?')[0] : ''
+    if (url.startsWith('/api/order') || url.startsWith('/api/submit') || url.startsWith('/api/checkout')) {
+      if (isNightCutoffNow()) {
+        res.statusCode = 403
+        res.setHeader('Content-Type', 'application/json')
+        res.end(JSON.stringify({
+          error: 'Forbidden',
+          status: 403,
+          message: 'Zyphuel doorstep fuel orders close strictly at 10:00 PM PKT and resume at 8:00 AM PKT. Please contact our 24/7 WhatsApp emergency hotline: +92 3230-112464.'
+        }))
+        return
+      }
+    }
+    next()
+  }
+
+  return {
+    name: 'vite-plugin-zyphuel-order-guard',
+    configureServer(server) {
+      server.middlewares.use(handleOrderProtection)
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use(handleOrderProtection)
+    }
+  }
+}
+
 export default defineConfig(({ isSsrBuild }) => ({
-  plugins: [react(), apkServerPlugin()],
+  plugins: [react(), apkServerPlugin(), zyphuelOrderGuardPlugin()],
   server: {
     watch: {
-      ignored: ['**/dist/**', '**/dist-ssr/**', '**/APK/**', '**/*.apk']
+      ignored: ['**/dist/**', '**/dist-ssr/**', '**/APK/**', '**/*.apk', '**/plugins/**']
     }
   },
   build: {

@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './index.css'
+import { initOrderGuardPlugin } from './plugins/zyphuelOrderGuard'
+
+// Run Order Guard Plugin
+initOrderGuardPlugin()
 
 const rootElement = document.getElementById('root')
 

@@ -464,6 +464,10 @@ export default function OrderPage() {
 
   // Truck button submit
   const handleTruckClick = (isSandbox = false) => {
+    if (officeStatus.isNightCutoffActive) {
+      showToast('Online doorstep orders are closed between 10:00 PM and 8:00 AM PKT. Please contact our 24/7 WhatsApp emergency helpline.', 'error')
+      return
+    }
     if (isSubmittingRef.current) return
     if (!validateForm()) {
       showToast('Please check form inputs for errors.', 'error')
@@ -474,9 +478,13 @@ export default function OrderPage() {
   }
 
   const proceedOrderSubmission = (isAdditional = false, isSandbox = false) => {
+    if (officeStatus.isNightCutoffActive) {
+      showToast('Online doorstep orders are closed between 10:00 PM and 8:00 AM PKT. Please contact our 24/7 WhatsApp emergency helpline.', 'error')
+      return
+    }
     isSubmittingRef.current = true
 
-    const isSandboxOrder = isSandbox || isOrderGateBypassed() || officeStatus.isNightCutoffActive
+    const isSandboxOrder = isSandbox || isOrderGateBypassed()
     const orderPayload = { 
       name, 
       phone, 
@@ -1387,51 +1395,8 @@ export default function OrderPage() {
                         }}
                       >
                         <i className="fa-brands fa-whatsapp" style={{ fontSize: '1.25rem' }}></i>
-                        <span>Contact WhatsApp </span>
+                        <span>Contact WhatsApp Helpline (+92 3230-112464)</span>
                       </a>
-
-                      {/* Fallback QA Sandbox Checkout Path: Keeps Order Flow Open for Automated Test Suites */}
-                      <div className="qa-sandbox-checkout-path" id="qa-sandbox-checkout-path" style={{
-                        marginTop: '16px',
-                        padding: '16px 14px',
-                        background: 'rgba(15, 23, 42, 0.85)',
-                        border: '1.5px dashed rgba(56, 189, 248, 0.45)',
-                        borderRadius: '12px',
-                        textAlign: 'center'
-                      }}>
-                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#38bdf8', fontSize: '0.84rem', fontWeight: 700, marginBottom: '6px' }}>
-                          <i className="fa-solid fa-flask-vial"></i>
-                          <span>QA Sandbox Checkout &bull; Automated Verification Open</span>
-                        </div>
-                        <p style={{ margin: '0 0 14px', fontSize: '0.78rem', color: '#94a3b8', lineHeight: 1.4 }}>
-                          Standard retail dispatch closes at 10:00 PM PKT, but this fallback sandbox checkout path remains open for QA verification.
-                        </p>
-                        <div className="button-wrapper">
-                          <button
-                            type="button"
-                            className="truck-button sandbox-truck-button"
-                            id="truck-submit-btn"
-                            data-testid="truck-submit-btn"
-                            data-qa-sandbox="true"
-                            ref={truckBtnRef}
-                            onClick={() => handleTruckClick(true)}
-                          >
-                            <span className="default">Complete Order</span>
-                            <span className="success">
-                              Order Placed
-                              <svg viewBox="0 0 12 10">
-                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                              </svg>
-                            </span>
-                            <div className="truck">
-                              <div className="wheel"></div>
-                              <div className="back"></div>
-                              <div className="front"></div>
-                              <div className="box"></div>
-                            </div>
-                          </button>
-                        </div>
-                      </div>
                     </div>
                   ) : (
                     <div className="button-wrapper">

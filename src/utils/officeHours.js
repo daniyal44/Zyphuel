@@ -202,9 +202,9 @@ export function checkOfficeHours(date = new Date(), options = {}) {
     const nextOpening = getNextOpening(day, hour, minute)
 
     // Strict 10:00 PM PKT Order Intake Cutoff (22:00 to 08:00 PKT)
-    // When test bypass is active, night cutoff is bypassed for automated verification windows
+    // Strictly enforces cutoff between 10:00 PM and 8:00 AM PKT without exceptions
     const rawNightCutoff = (hour >= 22 || hour < 8)
-    const isNightCutoffActive = isBypassed ? false : rawNightCutoff
+    const isNightCutoffActive = (import.meta.env?.VITE_DISABLE_ORDER_CUTOFF === 'true') ? false : rawNightCutoff
     const canCompleteOrder = !isNightCutoffActive
     const nextOrderReopen = (hour >= 22) ? 'Tomorrow at 8:00 AM PKT' : 'Today at 8:00 AM PKT'
 

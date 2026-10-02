@@ -8,15 +8,16 @@
   VITE_BUSINESS_HOURS_TIMEZONE = "Asia/Karachi"
   VITE_ORDER_INTAKE_START = "08:00"
   VITE_ORDER_INTAKE_END = "22:00"
-  VITE_ENABLE_QA_ORDER_BYPASS = "true"
+  VITE_ENABLE_QA_ORDER_BYPASS = "false"
+  VITE_DISABLE_ORDER_CUTOFF = "false"
 
 [context.deploy-preview.environment]
-  VITE_DISABLE_ORDER_CUTOFF = "true"
-  VITE_ENABLE_QA_ORDER_BYPASS = "true"
+  VITE_DISABLE_ORDER_CUTOFF = "false"
+  VITE_ENABLE_QA_ORDER_BYPASS = "false"
 
 [context.branch-deploy.environment]
-  VITE_DISABLE_ORDER_CUTOFF = "true"
-  VITE_ENABLE_QA_ORDER_BYPASS = "true"
+  VITE_DISABLE_ORDER_CUTOFF = "false"
+  VITE_ENABLE_QA_ORDER_BYPASS = "false"
 
 # HTML files - always fresh for crawlers and visitors
 [[headers]]
@@ -77,6 +78,14 @@
     Access-Control-Allow-Methods = "GET, HEAD, OPTIONS"
     Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
     X-Content-Type-Options = "nosniff"
+
+# Active plugins
+[[headers]]
+  for = "/plugins/*"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
 
 # Explicit 301 normalization to canonical trailing slash URLs
 [[redirects]]
