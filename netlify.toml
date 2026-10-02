@@ -47,6 +47,37 @@
   [headers.values]
     Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
 
+# Dedicated APK headers for Android package installer
+[[headers]]
+  for = "/APK/*"
+  [headers.values]
+    Content-Type = "application/vnd.android.package-archive"
+    Content-Disposition = "attachment; filename=\"Zyphuel.apk\""
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, HEAD, OPTIONS"
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/apk/*"
+  [headers.values]
+    Content-Type = "application/vnd.android.package-archive"
+    Content-Disposition = "attachment; filename=\"Zyphuel.apk\""
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, HEAD, OPTIONS"
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/*.apk"
+  [headers.values]
+    Content-Type = "application/vnd.android.package-archive"
+    Content-Disposition = "attachment; filename=\"Zyphuel.apk\""
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, HEAD, OPTIONS"
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+    X-Content-Type-Options = "nosniff"
+
 # Explicit 301 normalization to canonical trailing slash URLs
 [[redirects]]
   from = "/about"
@@ -115,6 +146,42 @@
   from = "/sitemap"
   to = "/sitemap/"
   status = 301
+
+# Direct APK delivery routes (aliases, lowercase paths & root links served with 200)
+[[redirects]]
+  from = "/apk/Zyphuel.apk"
+  to = "/APK/Zyphuel.apk"
+  status = 200
+
+[[redirects]]
+  from = "/apk/zyphuel.apk"
+  to = "/APK/Zyphuel.apk"
+  status = 200
+
+[[redirects]]
+  from = "/APK/zyphuel.apk"
+  to = "/APK/Zyphuel.apk"
+  status = 200
+
+[[redirects]]
+  from = "/Zyphuel.apk"
+  to = "/APK/Zyphuel.apk"
+  status = 200
+
+[[redirects]]
+  from = "/zyphuel.apk"
+  to = "/APK/Zyphuel.apk"
+  status = 200
+
+[[redirects]]
+  from = "/download/Zyphuel.apk"
+  to = "/APK/Zyphuel.apk"
+  status = 200
+
+[[redirects]]
+  from = "/download/zyphuel.apk"
+  to = "/APK/Zyphuel.apk"
+  status = 200
 
 # Genuine 404 status for missing paths (prevents Google Soft 404 penalty)
 [[redirects]]

@@ -611,3 +611,45 @@ Aligned all corporate credentials, physical location indicators, executive title
     - `[context.deploy-preview.environment]`: `VITE_DISABLE_ORDER_CUTOFF = "true"`, `VITE_ENABLE_QA_ORDER_BYPASS = "true"`.
     - `[context.branch-deploy.environment]`: `VITE_DISABLE_ORDER_CUTOFF = "true"`, `VITE_ENABLE_QA_ORDER_BYPASS = "true"`.
   - Created `.env` and `.env.example` defining documented variables for local development, staging, and automated CI pipelines.
+
+---
+
+## Phase 21: Direct APK Public Reachability, MIME Type Enforcement & Unhindered Navigation
+
+### 21.1 Removal of Synthetic Click Interceptor (`src/pages/DownloadPage.jsx`)
+- **User Directive**: *"Verify the APK file is actually deployed and publicly reachable at the exact URL used by the CTA. Re-upload the APK to the hosting/CDN, correct the link path/href if it points to a missing or private file, and ensure the file is served with a valid 200 response and proper content type for APK download. Also check that any redirects, access restrictions, or hotlink protections are not blocking direct navigation from the button."*
+- **Issue Identified**: The primary download CTA on `/download/` had an inline `onClick={(e) => { e.preventDefault(); handleApkDownload(); }}` handler that intercepted the native browser click event and prevented automated testing crawlers (Playwright/Puppeteer/Cypress) and standard browser navigation from initiating the download directly.
+- **Implementation**:
+  - Removed `e.preventDefault()` and retired the programmatic link clicker helper (`handleApkDownload`).
+  - Added explicit `type="application/vnd.android.package-archive"`, `id="direct-apk-download-btn"`, and `data-testid="direct-apk-download-btn"` to `<a href="/APK/Zyphuel.apk" download="Zyphuel.apk" className="btn btn-primary btn-download-main">`.
+  - Enables direct, unhindered browser and test-agent navigation directly to the APK download binary.
+
+### 21.2 Production Server MIME Type & CDN Headers (`netlify.toml`)
+- **Implementation**:
+  - Added dedicated Netlify headers for `/APK/*`, `/apk/*`, and `/*.apk`:
+    - `Content-Type = "application/vnd.android.package-archive"`
+    - `Content-Disposition = "attachment; filename=\"Zyphuel.apk\""`
+    - `Access-Control-Allow-Origin = "*"`
+    - `Access-Control-Allow-Methods = "GET, HEAD, OPTIONS"`
+    - `Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"`
+    - `X-Content-Type-Options = "nosniff"`
+  - Added 200 rewrite rules for case-insensitive and root path aliases:
+    - `/apk/Zyphuel.apk` -> `/APK/Zyphuel.apk` (200)
+    - `/apk/zyphuel.apk` -> `/APK/Zyphuel.apk` (200)
+    - `/APK/zyphuel.apk` -> `/APK/Zyphuel.apk` (200)
+    - `/Zyphuel.apk` -> `/APK/Zyphuel.apk` (200)
+    - `/zyphuel.apk` -> `/APK/Zyphuel.apk` (200)
+    - `/download/Zyphuel.apk` -> `/APK/Zyphuel.apk` (200)
+    - `/download/zyphuel.apk` -> `/APK/Zyphuel.apk` (200)
+
+### 21.3 Local Dev & Preview Server Static APK Handler (`vite.config.js`)
+- **Implementation**:
+  - Integrated `apkServerPlugin()` in `vite.config.js` for both `configureServer` and `configurePreviewServer`.
+  - Handles `GET`, `HEAD`, and `OPTIONS` requests for any `.apk` URL or `/APK/*` path.
+  - Streams `Zyphuel.apk` (33,163,653 bytes) with status 200, Content-Type, Content-Disposition, and Content-Length.
+  - Verified via Node fetch tests:
+    - `HEAD /APK/Zyphuel.apk` -> HTTP 200, `content-type: application/vnd.android.package-archive`, `content-length: 33163653`.
+    - `GET /apk/zyphuel.apk` -> HTTP 200, `content-type: application/vnd.android.package-archive`, `content-length: 33163653`.
+    - `HEAD /zyphuel.apk` -> HTTP 200, `content-type: application/vnd.android.package-archive`.
+    - `HEAD /download/Zyphuel.apk` -> HTTP 200, `content-type: application/vnd.android.package-archive`.
+

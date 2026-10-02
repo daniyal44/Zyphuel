@@ -208,15 +208,6 @@ export default function DownloadPage() {
 
   const pageRef = useScrollReveal()
 
-  const handleApkDownload = () => {
-    const link = document.createElement('a')
-    link.href = '/APK/Zyphuel.apk'
-    link.setAttribute('download', 'Zyphuel.apk')
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
-
   const toggleFaq = (index) => {
     setActiveFaq(activeFaq === index ? null : index)
   }
@@ -285,10 +276,9 @@ export default function DownloadPage() {
                   <a
                     href="/APK/Zyphuel.apk"
                     download="Zyphuel.apk"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleApkDownload();
-                    }}
+                    type="application/vnd.android.package-archive"
+                    id="direct-apk-download-btn"
+                    data-testid="direct-apk-download-btn"
                     className="btn btn-primary btn-download-main"
                     title="Download Zyphuel Android APK File Directly"
                     aria-label="Direct APK Download for Zyphuel Mobile Application for Fuel Suppliers"
