@@ -254,10 +254,6 @@ export default function DownloadPage() {
               
               {/* Left Column: Headline, Highlights & Actions */}
               <div className="download-hero-content" style={{ opacity: 1, visibility: 'visible' }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(234, 88, 12, 0.1)', border: '1px solid rgba(234, 88, 12, 0.25)', borderRadius: '999px', padding: '5px 13px', marginBottom: '12px', fontSize: '0.82rem', fontWeight: 700, color: '#c2410c' }}>
-                  <i className="fa-solid fa-fire-flame-curved" style={{ color: '#ea580c' }}></i> High Market Demand: Over 15,000+ Active Users in Lahore &bull; 45-Min Express Dispatch
-                </div>
-
                 <div className="hero-subtitle-badge">
                   <i className="fa-solid fa-mobile-screen"></i>
                   <span>Pakistan's #1 On-Demand Fuel App • v{APP_VERSION} (Latest Release)</span>

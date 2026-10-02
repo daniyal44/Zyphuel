@@ -678,5 +678,11 @@ Aligned all corporate credentials, physical location indicators, executive title
   - Assistant replies will always be delivered in Roman Urdu even when the user inputs English, unless explicitly directed otherwise.
   - Rule bolded and permanently locked in `AGENTS.md` and `GEMINI.md`.
 
+### 21.6 High Market Demand Callout Removal (`DownloadPage.jsx`)
+- **Implementation**:
+  - Removed the orange flame callout pill `"High Market Demand: Over 15,000+ Active Users in Lahore • 45-Min Express Dispatch"` from the hero section of `DownloadPage.jsx` per user request.
+  - Preserved the clean hero layout with the subtitle badge `"Pakistan's #1 On-Demand Fuel App • v2.6.4.0.0.16 (Latest Release)"` and direct APK download CTAs.
+
+
 
 
