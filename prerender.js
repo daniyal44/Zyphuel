@@ -1404,6 +1404,13 @@ ${sitemapUrls}
     console.log('🔑 Synced 185084a8fa7dac10b46ec58d30c56792.txt to dist/')
   }
 
+  const adsTxtSrc = toAbsolute('public/ads.txt')
+  const adsTxtDist = toAbsolute('dist/ads.txt')
+  if (fs.existsSync(adsTxtSrc)) {
+    fs.copyFileSync(adsTxtSrc, adsTxtDist)
+    console.log('📢 Synced ads.txt to dist/')
+  }
+
   const headersSrc = toAbsolute('public/_headers')
   const headersDist = toAbsolute('dist/_headers')
   if (fs.existsSync(headersSrc)) {
