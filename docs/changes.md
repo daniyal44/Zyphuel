@@ -707,7 +707,39 @@ Aligned all corporate credentials, physical location indicators, executive title
   - Upgraded `robots.txt` with explicit crawl rules for `Bravebot`, `MojeekBot`, `Qwantify`, `SeznamBot`, and `Yeti`.
   - Enhanced `scripts/indexnow.js` to directly ping `https://www.bing.com/indexnow`, `https://yandex.com/indexnow`, and `https://api.indexnow.org/indexnow` with GET/POST fallbacks to ensure instant indexing across Bing, Yahoo, DuckDuckGo, and Yandex.
 
+### 21.9 Redundant Operating Status Live Badge & Mismatch Modal Removal (`OrderPage.jsx`)
+- **User Directive**: *"Night Orders Closed (10:00 PM – 8:00 AM PKT) / رات کے آرڈرز بند ہیں Working Hours & Timings Order intake is paused for the night. Next window: Tomorrow at 8:00 AM PKT. 24/7 WhatsApp helpline: +92 3230-112464. is ko remove karo"*
+- **Implementation & Streamlining**:
+  - Completely removed the secondary `Office Operating Status Live Badge` container above the checkout button in `src/pages/OrderPage.jsx`.
+  - Removed the unused `showOfficeHoursMismatchModal` state and associated modal backdrop/dialog (`#office-hours-mismatch-modal-backdrop`), and purged unused `OFFICE_HOURS_SCHEDULE` import.
+### 21.10 WhatsApp Helpline CTA Removal from Night Cutoff Card (`OrderPage.jsx`)
+- **User Directive**: *"[Helpline (+92 3230-112464)](https://wa.me/923230112464?text=...) is lp be remove karo"*
+- **Implementation**:
+  - Removed the green WhatsApp helpline action button (`wa.me/923230112464`) from the Night Cutoff card in `OrderPage.jsx`.
+  - Preserved the clean operational timing badges (`Current Lahore Time` and `Orders Reopen`) and core night cutoff safety guards.
 
+### 21.11 OrderPage Syntax Repair & Branded Payment Logo Integration (`OrderPage.jsx`)
+- **User Directive**: *"order page ko fix kaor or image ko un ka names ka mutabiq"*
+- **Implementation & Asset Binding**:
+  - Repaired broken JSX syntax on payment chips in `OrderPage.jsx` where invalid attributes had broken compilation.
+  - Bound all 6 local branded payment logos (`/images/JazzCash.png`, `/images/Easypaisa.jpg`, `/images/Naypay.png`, `/images/SadaPay.jpg`, `/images/Bank.png`, `/images/Mashreq.jpg`) directly to the payment channels configuration (`INSTANT_PAYMENT_METHODS`).
+  - Rendered crisp, modern payment method badges across Cash on Delivery (≤10L) and Advance Digital Transfer (11L–15L) sections with proper image fallbacks and responsive layouts.
+
+### 21.12 Fuel Types, Refueling Targets & Stepper Images Integration (`OrderPage.jsx`)
+- **User Directive**: *"order page ko fix kaor or image ko un ka names ka mutabiq"* and *"order page ma new images add order requriments ka mutabiq is wale gaja per 1. Select Fuel Type Petrol Rs. 397.76/L Diesel Rs. 404.64/L High-Octane Rs. 415.00/L 2. Fuel Delivery Application (Refueling Target) Where should our mobile bowser pump the fuel? Select your preferred target:"*
+- **Implementation & Image Integration**:
+  - **Fuel Types (`FUEL_IMAGES`)**: Bound `/images/Petrol.jpg`, `/images/Diesel.jpg`, and `/images/High-Octane.jpg` directly to the Step 1 category cards with active check badges, live rates, hover micro-interactions, and error fallbacks.
+  - **Refueling Targets (`DELIVERY_APPLICATION_CONFIG`)**: Bound `/images/Car.jpg`, `/images/Motorbike.jpg`, `/images/Generator.jpg`, and `/images/Machinery.jpg` directly to the Step 2 application cards with visual thumbnail banners and active states.
+  - **Stepper Progress (`st.img`)**: Bound stepper images (`Petrol.jpg`, `Target Asset.jpg`, `Volume L.jpg`, `Delivery.jpg`, `Contact.jpg`) to the 5 atomic order steps for unified visual tracking.
+  - **Order Summary Sidebar**: Integrated live selected fuel and target thumbnail images into the checkout review panel.
+
+### 21.13 Image Magnifier Lightbox & Fit-to-Frame Calibration (`OrderPage.jsx`)
+- **User Directive**: *"Fuel Fuel Target Asset Target Asset Volume (L) Volume (L) Delivery Delivery Contact Contact in sa milte julti images per click kare or image magnifine ho gaye petrol or diesel ko fit to frame karo , or fuel image ko be sai karo"*
+- **Implementation & Enhancements**:
+  - **Corrected Stepper Fuel Image**: Reassigned Step 1 "Fuel" thumbnail strictly to `/images/fuel.jpg` instead of the previous placeholder.
+  - **Fit-to-Frame Calibration**: Calibrated Petrol (`/images/Petrol.jpg`), Diesel (`/images/Diesel.jpg`), and High-Octane cards with `object-fit: contain`, centered padding (`padding: 6px`, `backgroundColor: #f8fafc`), and `max-width: 100% / max-height: 100%` so images fit nicely without being cut off, stretched, or cropped.
+  - **Image Magnifier Lightbox Modal**: Created a dedicated high-resolution lightbox modal (`magnifiedImage` state, backdrop blur, scale-up entrance animation, zoom badge indicator, and Esc key dismissal). Clicking any stepper thumbnail, fuel card image, refueling target card, or summary thumbnail instantly magnifies the image in full view.
+  - **Prevented Duplicate Text Selection**: Added `alt=""` and `aria-hidden="true"` on stepper thumbnail images so selecting or copying stepper text no longer produces duplicate ("Fuel Fuel") labels.
 
 
 

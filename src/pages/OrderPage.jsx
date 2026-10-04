@@ -5,7 +5,7 @@ import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
 import { FUEL_PRICES } from '../data/fuelPrices'
-import { checkOfficeHours, isOrderGateBypassed, setTestBypass, OFFICE_HOURS_SCHEDULE } from '../utils/officeHours'
+import { checkOfficeHours, isOrderGateBypassed, setTestBypass } from '../utils/officeHours'
 
 const FUEL_DISPLAY = {
   petrol: 'Petrol',
@@ -23,12 +23,19 @@ const FUEL_ICONS = {
   water: 'fa-droplet',
 }
 
+export const FUEL_IMAGES = {
+  petrol: '/images/Petrol.jpg',
+  diesel: '/images/Diesel.jpg',
+  highOctane: '/images/High-Octane.jpg',
+}
+
 export const DELIVERY_APPLICATION_CONFIG = {
   car: {
     id: 'car',
     label: 'Car / Sedan / SUV',
     shortLabel: 'Car / SUV',
     icon: 'fa-car-side',
+    image: '/images/Car.jpg',
     placeholder: 'Vehicle plate (e.g. LEA-2024)',
     fieldLabel: 'Vehicle Registration / Number Plate'
   },
@@ -37,6 +44,7 @@ export const DELIVERY_APPLICATION_CONFIG = {
     label: 'Motorbike / Scooter',
     shortLabel: 'Motorbike',
     icon: 'fa-motorcycle',
+    image: '/images/Motorbike.jpg',
     placeholder: 'Bike plate (e.g. LEM-5678)',
     fieldLabel: 'Motorbike Plate / Registration'
   },
@@ -45,6 +53,7 @@ export const DELIVERY_APPLICATION_CONFIG = {
     label: 'Standby Generator',
     shortLabel: 'Generator',
     icon: 'fa-charging-station',
+    image: '/images/Generator.jpg',
     placeholder: 'Generator capacity/model (e.g. 25kVA Perkins)',
     fieldLabel: 'Generator Make & Capacity'
   },
@@ -53,10 +62,56 @@ export const DELIVERY_APPLICATION_CONFIG = {
     label: 'Commercial Machinery',
     shortLabel: 'Machinery',
     icon: 'fa-tractor',
+    image: '/images/Machinery.jpg',
     placeholder: 'Equipment make/unit (e.g. CAT Excavator)',
     fieldLabel: 'Machinery Model / Unit ID'
   }
 }
+
+export const INSTANT_PAYMENT_METHODS = [
+  {
+    name: 'JazzCash',
+    img: '/images/JazzCash.png',
+    bg: '#fee2e2',
+    color: '#b91c1c',
+    border: '#fca5a5'
+  },
+  {
+    name: 'Easypaisa',
+    img: '/images/Easypaisa.jpg',
+    bg: '#dcfce7',
+    color: '#15803d',
+    border: '#86efac'
+  },
+  {
+    name: 'NayaPay',
+    img: '/images/Naypay.png',
+    bg: '#ffedd5',
+    color: '#c2410c',
+    border: '#fdba74'
+  },
+  {
+    name: 'SadaPay',
+    img: '/images/SadaPay.jpg',
+    bg: '#ffe4e6',
+    color: '#e11d48',
+    border: '#fecdd3'
+  },
+  {
+    name: 'Raast / Bank',
+    img: '/images/Bank.png',
+    bg: '#f1f5f9',
+    color: '#334155',
+    border: '#cbd5e1'
+  },
+  {
+    name: 'Mashreq',
+    img: '/images/Mashreq.jpg',
+    bg: '#fef3c7',
+    color: '#b45309',
+    border: '#fde68a'
+  }
+]
 
 export default function OrderPage() {
   useSEO({
@@ -189,7 +244,7 @@ export default function OrderPage() {
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
   const [deliverySpeed, setDeliverySpeed] = useState('simple') // 'simple' or 'urgent'
-  
+
   const { prices: livePrices, basePrices: liveBasePrices, pumpMarkup = 5.00 } = useFuelPrices()
   const [prices, setPrices] = useState({ ...livePrices })
   const [basePrices, setBasePrices] = useState(liveBasePrices ? { ...liveBasePrices } : null)
@@ -211,8 +266,20 @@ export default function OrderPage() {
   const [activeOrder, setActiveOrder] = useState(null)
   const [verifiedOrderParam, setVerifiedOrderParam] = useState(null)
 
+  // Image Magnifier Lightbox state
+  const [magnifiedImage, setMagnifiedImage] = useState(null)
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setMagnifiedImage(null)
+    }
+    if (magnifiedImage) {
+      window.addEventListener('keydown', handleKeyDown)
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [magnifiedImage])
+
   // Working Hours validation state
-  const [showOfficeHoursMismatchModal, setShowOfficeHoursMismatchModal] = useState(false)
   const [officeStatus, setOfficeStatus] = useState(() => checkOfficeHours())
 
   // Periodically refresh office status and respond to test bypass / query changes
@@ -234,7 +301,7 @@ export default function OrderPage() {
           setVerifiedOrderParam(v.trim().toUpperCase())
         }
       }
-    } catch (e) {}
+    } catch (e) { }
   }, [location.search])
 
   // Dynamically load GSAP for truck button animation on-demand (performance optimization)
@@ -293,7 +360,7 @@ export default function OrderPage() {
       setPhone(parsed.phone || '')
       setEmail(parsed.email || '')
       setAddress(parsed.address || '')
-      
+
       setOrderFuel(true)
       setOrderGas(false)
       setOrderWater(false)
@@ -457,7 +524,7 @@ export default function OrderPage() {
     setActiveOrder(newActiveOrder)
     try {
       localStorage.setItem('zyphuel_active_order', JSON.stringify(newActiveOrder))
-    } catch (e) {}
+    } catch (e) { }
 
     setTrackerOpen(true)
   }
@@ -485,14 +552,14 @@ export default function OrderPage() {
     isSubmittingRef.current = true
 
     const isSandboxOrder = isSandbox || isOrderGateBypassed()
-    const orderPayload = { 
-      name, 
-      phone, 
-      email, 
-      address, 
+    const orderPayload = {
+      name,
+      phone,
+      email,
+      address,
       orderFuel: true,
-      selectedFuelType, 
-      fuelQty, 
+      selectedFuelType,
+      fuelQty,
       deliveryApplication,
       assetIdentifier,
       deliverySpeed,
@@ -679,27 +746,46 @@ export default function OrderPage() {
                     overflowX: 'auto'
                   }}>
                     {[
-                      { num: '01', label: 'Fuel', active: Boolean(selectedFuelType), icon: 'fa-gas-pump' },
-                      { num: '02', label: 'Target Asset', active: Boolean(deliveryApplication), icon: 'fa-bullseye' },
-                      { num: '03', label: 'Volume (L)', active: Boolean(fuelQty >= 5), icon: 'fa-sliders' },
-                      { num: '04', label: 'Delivery', active: Boolean(address.trim().length > 3), icon: 'fa-location-dot' },
-                      { num: '05', label: 'Contact', active: Boolean(name && phone), icon: 'fa-truck-fast' }
+                      { num: '01', label: 'Fuel', active: Boolean(selectedFuelType), icon: 'fa-gas-pump', img: '/images/fuel.jpg' },
+                      { num: '02', label: 'Target Asset', active: Boolean(deliveryApplication), icon: 'fa-bullseye', img: '/images/Target Asset.jpg' },
+                      { num: '03', label: 'Volume (L)', active: Boolean(fuelQty >= 5), icon: 'fa-sliders', img: '/images/Volume L.jpg' },
+                      { num: '04', label: 'Delivery', active: Boolean(address.trim().length > 3), icon: 'fa-location-dot', img: '/images/Delivery.jpg' },
+                      { num: '05', label: 'Contact', active: Boolean(name && phone), icon: 'fa-truck-fast', img: '/images/Contact.jpg' }
                     ].map((st, i) => (
                       <div key={st.num} style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
-                        <div style={{
-                          width: '26px',
-                          height: '26px',
-                          borderRadius: '50%',
-                          background: st.active ? 'var(--accent-color, #0284c7)' : 'rgba(15, 23, 42, 0.1)',
-                          color: st.active ? '#ffffff' : 'var(--text-secondary, #64748b)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          fontSize: '0.72rem',
-                          fontWeight: 700,
-                          transition: 'all 0.3s ease'
-                        }}>
-                          {st.active ? <i className={`fa-solid ${st.icon}`}></i> : st.num}
+                        <div
+                          onClick={() => setMagnifiedImage({ src: st.img, title: st.label, subtitle: `Step ${st.num} Overview` })}
+                          title={`Click to magnify ${st.label} image`}
+                          style={{
+                            width: '30px',
+                            height: '30px',
+                            borderRadius: '50%',
+                            overflow: 'hidden',
+                            border: st.active ? '2px solid var(--accent-color, #0284c7)' : '1px solid rgba(15, 23, 42, 0.15)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            background: st.active ? 'var(--accent-color, #0284c7)' : 'rgba(15, 23, 42, 0.06)',
+                            color: st.active ? '#ffffff' : 'var(--text-secondary, #64748b)',
+                            fontSize: '0.74rem',
+                            fontWeight: 700,
+                            transition: 'all 0.3s ease',
+                            flexShrink: 0,
+                            cursor: 'zoom-in',
+                            boxShadow: st.active ? '0 2px 8px rgba(2, 132, 199, 0.25)' : 'none'
+                          }}
+                        >
+                          {st.img ? (
+                            <img
+                              src={st.img}
+                              alt=""
+                              aria-hidden="true"
+                              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                              onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                            />
+                          ) : (
+                            st.active ? <i className={`fa-solid ${st.icon}`}></i> : st.num
+                          )}
                         </div>
                         <span style={{
                           fontSize: '0.8rem',
@@ -726,46 +812,121 @@ export default function OrderPage() {
                     <i className="fa-solid fa-gas-pump"></i> 1. Select Fuel Type
                   </div>
                   {errors.items && <div className="validation-error-label" style={{ display: 'block', marginBottom: '15px' }}>{errors.items}</div>}
-                  
-                  <div className="category-selector-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 130px), 1fr))', gap: '12px', marginBottom: '22px' }}>
+
+                  <div className="category-selector-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))', gap: '14px', marginBottom: '22px' }}>
                     {['petrol', 'diesel', 'highOctane'].map((type) => {
                       const isSelected = selectedFuelType === type
                       return (
                         <div
                           key={type}
                           className={`category-card${isSelected ? ' active' : ''}`}
+                          onClick={() => setSelectedFuelType(type)}
                           style={{
                             cursor: 'pointer',
-                            padding: '16px 14px',
-                            borderRadius: '12px',
-                            border: isSelected ? '2px solid var(--brand-primary, #0284c7)' : '1px solid var(--border-color)',
-                            background: isSelected ? 'rgba(2, 132, 199, 0.08)' : '#ffffff',
-                            boxShadow: isSelected ? '0 4px 14px rgba(2, 132, 199, 0.15)' : '0 1px 3px rgba(0,0,0,0.03)',
-                            transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)'
+                            userSelect: 'none',
+                            padding: '12px',
+                            borderRadius: '14px',
+                            border: isSelected ? '2px solid var(--brand-primary, #0284c7)' : '1px solid var(--border-color, #e2e8f0)',
+                            background: isSelected ? 'rgba(2, 132, 199, 0.05)' : '#ffffff',
+                            boxShadow: isSelected ? '0 6px 16px rgba(2, 132, 199, 0.12)' : '0 1px 3px rgba(0,0,0,0.03)',
+                            transition: 'all 0.25s ease',
+                            display: 'flex',
+                            flexDirection: 'column'
                           }}
-                          onClick={() => setSelectedFuelType(type)}
                         >
-                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                            <div style={{
-                              width: '32px',
-                              height: '32px',
-                              borderRadius: '50%',
-                              background: isSelected ? 'var(--brand-primary, #0284c7)' : 'rgba(2, 132, 199, 0.12)',
-                              color: isSelected ? '#ffffff' : 'var(--brand-primary, #0284c7)',
+                          <div
+                            className="fuel-img-frame"
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              setMagnifiedImage({
+                                src: FUEL_IMAGES[type],
+                                title: `${FUEL_DISPLAY[type]} (Euro-V)`,
+                                subtitle: `Live Rate: Rs. ${prices[type].toFixed(2)}/L`
+                              })
+                            }}
+                            title={`Click to magnify ${FUEL_DISPLAY[type]}`}
+                            style={{
+                              position: 'relative',
+                              width: '100%',
+                              height: '110px',
+                              borderRadius: '10px',
+                              overflow: 'hidden',
+                              marginBottom: '10px',
+                              backgroundColor: '#f8fafc',
+                              border: '1px solid rgba(226, 232, 240, 0.9)',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
-                              fontSize: '0.9rem'
-                            }}>
-                              <i className={`fa-solid ${FUEL_ICONS[type] || 'fa-gas-pump'}`}></i>
+                              padding: '6px',
+                              cursor: 'zoom-in'
+                            }}
+                          >
+                            <img
+                              src={FUEL_IMAGES[type]}
+                              alt=""
+                              aria-hidden="true"
+                              loading="lazy"
+                              onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                              style={{
+                                maxWidth: '100%',
+                                maxHeight: '100%',
+                                width: 'auto',
+                                height: 'auto',
+                                objectFit: 'contain',
+                                transition: 'transform 0.3s ease'
+                              }}
+                            />
+                            {/* Magnify badge */}
+                            <div
+                              style={{
+                                position: 'absolute',
+                                top: '6px',
+                                left: '6px',
+                                width: '24px',
+                                height: '24px',
+                                borderRadius: '50%',
+                                background: 'rgba(15, 23, 42, 0.65)',
+                                color: '#ffffff',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontSize: '0.65rem',
+                                backdropFilter: 'blur(4px)',
+                                boxShadow: '0 2px 4px rgba(0,0,0,0.15)',
+                                transition: 'all 0.2s ease'
+                              }}
+                              title="Magnify image"
+                            >
+                              <i className="fa-solid fa-magnifying-glass-plus"></i>
                             </div>
-                            <i className={`fa-solid ${isSelected ? 'fa-circle-check' : 'fa-circle'}`} style={{ color: isSelected ? 'var(--brand-primary, #0284c7)' : '#cbd5e1', fontSize: '1rem' }}></i>
+
+                            {/* Checkmark indicator */}
+                            <div style={{
+                              position: 'absolute',
+                              top: '6px',
+                              right: '6px',
+                              width: '24px',
+                              height: '24px',
+                              borderRadius: '50%',
+                              background: isSelected ? 'var(--brand-primary, #0284c7)' : 'rgba(255, 255, 255, 0.92)',
+                              color: isSelected ? '#ffffff' : '#94a3b8',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              fontSize: '0.75rem',
+                              boxShadow: '0 2px 5px rgba(0,0,0,0.15)'
+                            }}>
+                              <i className={`fa-solid ${isSelected ? 'fa-check' : 'fa-circle'}`}></i>
+                            </div>
                           </div>
-                          <div style={{ fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-primary)', marginBottom: '3px' }}>
-                            {FUEL_DISPLAY[type]}
-                          </div>
-                          <div style={{ fontSize: '0.84rem', fontWeight: 700, color: 'var(--brand-primary, #0284c7)' }}>
-                            Rs. {prices[type].toFixed(2)}/L
+
+                          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                            <div style={{ fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-primary)', marginBottom: '1px' }}>
+                              {FUEL_DISPLAY[type]}
+                            </div>
+                            <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--brand-primary, #0284c7)' }}>
+                              Rs. {prices[type].toFixed(2)}/L
+                            </div>
                           </div>
                         </div>
                       )
@@ -780,7 +941,7 @@ export default function OrderPage() {
                     Where should our mobile bowser pump the fuel? Select your preferred target:
                   </p>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 110px), 1fr))', gap: '10px', marginBottom: '16px' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 130px), 1fr))', gap: '12px', marginBottom: '16px' }}>
                     {Object.values(DELIVERY_APPLICATION_CONFIG).map((app) => {
                       const isSelected = deliveryApplication === app.id
                       return (
@@ -790,36 +951,107 @@ export default function OrderPage() {
                           style={{
                             cursor: 'pointer',
                             userSelect: 'none',
-                            padding: '14px 10px',
-                            borderRadius: '12px',
-                            border: isSelected ? '2px solid var(--brand-primary, #0284c7)' : '1px solid var(--border-color)',
-                            background: isSelected ? 'rgba(2, 132, 199, 0.08)' : '#ffffff',
-                            boxShadow: isSelected ? '0 4px 12px rgba(2, 132, 199, 0.12)' : '0 1px 3px rgba(0,0,0,0.02)',
-                            transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+                            padding: '12px',
+                            borderRadius: '14px',
+                            border: isSelected ? '2px solid var(--brand-primary, #0284c7)' : '1px solid var(--border-color, #e2e8f0)',
+                            background: isSelected ? 'rgba(2, 132, 199, 0.05)' : '#ffffff',
+                            boxShadow: isSelected ? '0 6px 16px rgba(2, 132, 199, 0.12)' : '0 1px 3px rgba(0,0,0,0.03)',
+                            transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
                             display: 'flex',
                             flexDirection: 'column',
-                            alignItems: 'center',
-                            textAlign: 'center',
-                            gap: '6px'
+                            position: 'relative'
                           }}
                         >
-                          <div style={{
-                            width: '38px',
-                            height: '38px',
-                            borderRadius: '50%',
-                            background: isSelected ? 'var(--brand-primary, #0284c7)' : 'rgba(2, 132, 199, 0.1)',
-                            color: isSelected ? '#ffffff' : 'var(--brand-primary, #0284c7)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            fontSize: '1.05rem',
-                            transition: 'all 0.2s ease'
-                          }}>
-                            <i className={`fa-solid ${app.icon}`}></i>
+                          <div
+                            className="target-img-frame"
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              setMagnifiedImage({
+                                src: app.image,
+                                title: app.label,
+                                subtitle: 'Refueling Application Target'
+                              })
+                            }}
+                            title={`Click to magnify ${app.label}`}
+                            style={{
+                              position: 'relative',
+                              width: '100%',
+                              height: '96px',
+                              borderRadius: '10px',
+                              overflow: 'hidden',
+                              marginBottom: '8px',
+                              backgroundColor: '#f8fafc',
+                              border: '1px solid rgba(226, 232, 240, 0.9)',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              padding: '6px',
+                              cursor: 'zoom-in'
+                            }}
+                          >
+                            <img
+                              src={app.image}
+                              alt=""
+                              aria-hidden="true"
+                              loading="lazy"
+                              onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                              style={{
+                                maxWidth: '100%',
+                                maxHeight: '100%',
+                                width: 'auto',
+                                height: 'auto',
+                                objectFit: 'contain',
+                                transition: 'transform 0.3s ease'
+                              }}
+                            />
+                            {/* Magnify badge */}
+                            <div
+                              style={{
+                                position: 'absolute',
+                                top: '5px',
+                                left: '5px',
+                                width: '22px',
+                                height: '22px',
+                                borderRadius: '50%',
+                                background: 'rgba(15, 23, 42, 0.65)',
+                                color: '#ffffff',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontSize: '0.62rem',
+                                backdropFilter: 'blur(4px)',
+                                boxShadow: '0 2px 4px rgba(0,0,0,0.15)'
+                              }}
+                              title="Magnify image"
+                            >
+                              <i className="fa-solid fa-magnifying-glass-plus"></i>
+                            </div>
+
+                            {/* Checkmark indicator */}
+                            <div style={{
+                              position: 'absolute',
+                              top: '5px',
+                              right: '5px',
+                              width: '22px',
+                              height: '22px',
+                              borderRadius: '50%',
+                              background: isSelected ? 'var(--brand-primary, #0284c7)' : 'rgba(255, 255, 255, 0.92)',
+                              color: isSelected ? '#ffffff' : '#94a3b8',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              fontSize: '0.7rem',
+                              boxShadow: '0 2px 5px rgba(0,0,0,0.15)'
+                            }}>
+                              <i className={`fa-solid ${isSelected ? 'fa-check' : 'fa-circle'}`}></i>
+                            </div>
                           </div>
-                          <span style={{ fontSize: '0.82rem', fontWeight: isSelected ? 800 : 600, color: isSelected ? 'var(--brand-primary, #0284c7)' : 'var(--text-primary)', lineHeight: 1.25 }}>
-                            {app.shortLabel}
-                          </span>
+
+                          <div style={{ textAlign: 'center', marginTop: '2px' }}>
+                            <span style={{ fontSize: '0.86rem', fontWeight: isSelected ? 800 : 600, color: isSelected ? 'var(--brand-primary, #0284c7)' : 'var(--text-primary)', lineHeight: 1.25 }}>
+                              {app.shortLabel}
+                            </span>
+                          </div>
                         </div>
                       )
                     })}
@@ -835,7 +1067,7 @@ export default function OrderPage() {
                       <span className="config-title"><i className="fa-solid fa-gas-pump"></i> Fuel Volume ({FUEL_DISPLAY[selectedFuelType]})</span>
                       <span className="config-unit">5L – 15L Max per Order</span>
                     </div>
-                    
+
                     <div className="form-group">
                       <div className="stepper-wrap" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -859,7 +1091,7 @@ export default function OrderPage() {
                           </span>
                         </div>
                       </div>
-                      
+
                       <input type="range" className="slider-control"
                         min="5" max="15" step="1" value={fuelQty}
                         onChange={e => syncFuelQty(e.target.value)}
@@ -952,7 +1184,7 @@ export default function OrderPage() {
                           <span className="schedule-desc" style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
                             Guaranteed delivery within 45 mins on doorstep across Lahore
                           </span>
-                          
+
                         </div>
                       </div>
                     </div>
@@ -1054,76 +1286,46 @@ export default function OrderPage() {
                             </div>
                           </div>
 
-                          <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
-                            <i className="fa-solid fa-qrcode" style={{ color: '#0284c7', marginTop: '3px', fontSize: '0.9rem' }}></i>
-                            <div>
-                              <strong style={{ fontSize: '0.82rem', color: '#0f172a', display: 'block' }}>No Cash? Pay via QR Code</strong>
-                              <span style={{ fontSize: '0.78rem', color: '#64748b' }}>Rider carries instant QR for on-the-spot mobile wallet transfer.</span>
-                            </div>
-                          </div>
+
                         </div>
 
                         {/* Branded Instant Payment Chips */}
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', paddingTop: '2px' }}>
                           <span style={{ fontSize: '0.74rem', fontWeight: 700, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                            Accepted On-Spot:
+                            Accepted:
                           </span>
-                          <span style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '5px',
-                            padding: '3px 9px',
-                            borderRadius: '6px',
-                            fontSize: '0.76rem',
-                            fontWeight: 700,
-                            background: '#fee2e2',
-                            color: '#b91c1c',
-                            border: '1px solid #fca5a5'
-                          }}>
-                            <i className="fa-solid fa-bolt" style={{ fontSize: '0.7rem' }}></i> JazzCash
-                          </span>
-                          <span style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '5px',
-                            padding: '3px 9px',
-                            borderRadius: '6px',
-                            fontSize: '0.76rem',
-                            fontWeight: 700,
-                            background: '#dcfce7',
-                            color: '#15803d',
-                            border: '1px solid #86efac'
-                          }}>
-                            <i className="fa-solid fa-circle-check" style={{ fontSize: '0.7rem' }}></i> Easypaisa
-                          </span>
-                          <span style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '5px',
-                            padding: '3px 9px',
-                            borderRadius: '6px',
-                            fontSize: '0.76rem',
-                            fontWeight: 700,
-                            background: '#ffedd5',
-                            color: '#c2410c',
-                            border: '1px solid #fdba74'
-                          }}>
-                            <i className="fa-solid fa-wallet" style={{ fontSize: '0.7rem' }}></i> NayaPay
-                          </span>
-                          <span style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '5px',
-                            padding: '3px 9px',
-                            borderRadius: '6px',
-                            fontSize: '0.76rem',
-                            fontWeight: 700,
-                            background: '#f1f5f9',
-                            color: '#334155',
-                            border: '1px solid #cbd5e1'
-                          }}>
-                            <i className="fa-solid fa-building-columns" style={{ fontSize: '0.7rem' }}></i> Raast / Bank
-                          </span>
+                          {INSTANT_PAYMENT_METHODS.map((method) => (
+                            <span
+                              key={method.name}
+                              style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '6px',
+                                padding: '3px 9px',
+                                borderRadius: '6px',
+                                fontSize: '0.76rem',
+                                fontWeight: 700,
+                                background: method.bg,
+                                color: method.color,
+                                border: `1px solid ${method.border}`
+                              }}
+                            >
+                              <img
+                                src={method.img}
+                                alt={method.name}
+                                style={{
+                                  width: '16px',
+                                  height: '16px',
+                                  objectFit: 'contain',
+                                  borderRadius: '3px',
+                                  display: 'inline-block',
+                                  verticalAlign: 'middle'
+                                }}
+                                onError={(e) => { e.currentTarget.style.display = 'none' }}
+                              />
+                              {method.name}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     ) : (
@@ -1188,62 +1390,38 @@ export default function OrderPage() {
                           <span style={{ fontSize: '0.74rem', fontWeight: 700, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                             Supported Channels:
                           </span>
-                          <span style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '5px',
-                            padding: '3px 9px',
-                            borderRadius: '6px',
-                            fontSize: '0.76rem',
-                            fontWeight: 700,
-                            background: '#fee2e2',
-                            color: '#b91c1c',
-                            border: '1px solid #fca5a5'
-                          }}>
-                            <i className="fa-solid fa-bolt" style={{ fontSize: '0.7rem' }}></i> JazzCash
-                          </span>
-                          <span style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '5px',
-                            padding: '3px 9px',
-                            borderRadius: '6px',
-                            fontSize: '0.76rem',
-                            fontWeight: 700,
-                            background: '#dcfce7',
-                            color: '#15803d',
-                            border: '1px solid #86efac'
-                          }}>
-                            <i className="fa-solid fa-circle-check" style={{ fontSize: '0.7rem' }}></i> Easypaisa
-                          </span>
-                          <span style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '5px',
-                            padding: '3px 9px',
-                            borderRadius: '6px',
-                            fontSize: '0.76rem',
-                            fontWeight: 700,
-                            background: '#ffedd5',
-                            color: '#c2410c',
-                            border: '1px solid #fdba74'
-                          }}>
-                            <i className="fa-solid fa-wallet" style={{ fontSize: '0.7rem' }}></i> NayaPay
-                          </span>
-                          <span style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '5px',
-                            padding: '3px 9px',
-                            borderRadius: '6px',
-                            fontSize: '0.76rem',
-                            fontWeight: 700,
-                            background: '#f1f5f9',
-                            color: '#334155',
-                            border: '1px solid #cbd5e1'
-                          }}>
-                            <i className="fa-solid fa-building-columns" style={{ fontSize: '0.7rem' }}></i> Raast / Bank
-                          </span>
+                          {INSTANT_PAYMENT_METHODS.map((method) => (
+                            <span
+                              key={method.name}
+                              style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '6px',
+                                padding: '3px 9px',
+                                borderRadius: '6px',
+                                fontSize: '0.76rem',
+                                fontWeight: 700,
+                                background: method.bg,
+                                color: method.color,
+                                border: `1px solid ${method.border}`
+                              }}
+                            >
+                              <img
+                                src={method.img}
+                                alt={method.name}
+                                style={{
+                                  width: '16px',
+                                  height: '16px',
+                                  objectFit: 'contain',
+                                  borderRadius: '3px',
+                                  display: 'inline-block',
+                                  verticalAlign: 'middle'
+                                }}
+                                onError={(e) => { e.currentTarget.style.display = 'none' }}
+                              />
+                              {method.name}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     )}
@@ -1275,66 +1453,7 @@ export default function OrderPage() {
                     </div>
                   </div>
 
-                  {/* Office Operating Status Live Badge */}
-                  <div style={{
-                    padding: '10px 14px',
-                    borderRadius: '10px',
-                    marginBottom: '16px',
-                    background: officeStatus.isNightCutoffActive 
-                      ? 'rgba(239, 68, 68, 0.08)' 
-                      : (officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.08)' : 'rgba(2, 132, 199, 0.08)'),
-                    border: `1px solid ${officeStatus.isNightCutoffActive 
-                      ? 'rgba(239, 68, 68, 0.3)' 
-                      : (officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.25)' : 'rgba(2, 132, 199, 0.25)')}`,
-                    fontSize: '0.84rem'
-                  }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', flexWrap: 'wrap' }}>
-                      <span style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        color: officeStatus.isNightCutoffActive ? '#ef4444' : (officeStatus.isOfficeOpen ? '#10b981' : '#0284c7'),
-                        fontWeight: 700
-                      }}>
-                        <span style={{
-                          width: '8px',
-                          height: '8px',
-                          borderRadius: '50%',
-                          backgroundColor: officeStatus.isNightCutoffActive ? '#ef4444' : (officeStatus.isOfficeOpen ? '#10b981' : '#0284c7'),
-                          boxShadow: `0 0 0 3px ${officeStatus.isNightCutoffActive ? 'rgba(239, 68, 68, 0.2)' : (officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.2)' : 'rgba(2, 132, 199, 0.2)')}`
-                        }}></span>
-                        {officeStatus.isNightCutoffActive 
-                          ? 'Night Orders Closed (10:00 PM – 8:00 AM PKT) / رات کے آرڈرز بند ہیں' 
-                          : (officeStatus.isOfficeOpen ? 'Working Hours: Accepting Orders (کام کے اوقات جاری ہیں)' : `Operating Hours: ${officeStatus.todaySchedule || 'Mon–Sun'}`)}
-                        {officeStatus.isBypassed && (
-                          <span style={{ marginLeft: '6px', fontSize: '0.72rem', background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', padding: '2px 8px', borderRadius: '4px', border: '1px solid rgba(56, 189, 248, 0.3)', fontWeight: 600 }}>
-                            <i className="fa-solid fa-flask-vial"></i> QA Bypass Active
-                          </span>
-                        )}
-                      </span>
-                      <button
-                        type="button"
-                        onClick={() => setShowOfficeHoursMismatchModal(true)}
-                        style={{
-                          background: 'none',
-                          border: 'none',
-                          color: '#0284c7',
-                          fontWeight: 600,
-                          fontSize: '0.78rem',
-                          textDecoration: 'underline',
-                          cursor: 'pointer',
-                          padding: 0
-                        }}
-                      >
-                        Working Hours &amp; Timings
-                      </button>
-                    </div>
-                    <div style={{ color: 'var(--text-muted)', fontSize: '0.78rem', marginTop: '4px', lineHeight: 1.4 }}>
-                      {officeStatus.isNightCutoffActive 
-                        ? `Order intake is paused for the night. Next window: ${officeStatus.nextOrderReopen || 'Tomorrow at 8:00 AM PKT'}. 24/7 WhatsApp helpline: +92 3230-112464.`
-                        : 'Order intake: 8:00 AM – 10:00 PM daily. Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm desk support. 24/7 WhatsApp: +92 3230-112464.'}
-                    </div>
-                  </div>
+
 
                   {/* Complete Order Button Guard with QA Sandbox Fallback */}
                   {officeStatus.isNightCutoffActive ? (
@@ -1362,7 +1481,7 @@ export default function OrderPage() {
                         Doorstep fuel delivery order intake closes strictly at <strong>10:00 PM</strong> every night and resumes tomorrow morning at <strong>8:00 AM PKT</strong>. Under operational safety protocols, standard retail dispatch is paused until the morning window opens.
                       </p>
 
-                      <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: '20px', fontSize: '0.84rem' }}>
+                      <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: 0, fontSize: '0.84rem' }}>
                         <div style={{ background: 'rgba(255, 255, 255, 0.06)', padding: '8px 14px', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
                           <span style={{ color: '#94a3b8' }}>Current Lahore Time: </span>
                           <strong style={{ color: '#38bdf8' }}>{officeStatus.currentTime || '10:00+ PM'} (PKT)</strong>
@@ -1372,31 +1491,6 @@ export default function OrderPage() {
                           <strong style={{ color: '#34d399' }}>{officeStatus.nextOrderReopen || 'Tomorrow at 8:00 AM PKT'}</strong>
                         </div>
                       </div>
-
-                      <a
-                        href="https://wa.me/923230112464?text=Hello%20Zyphuel%20Support%2C%20I%20am%20inquiring%20about%20emergency%20standby%20generator%20refueling%20or%20tomorrow%20morning%20fuel%20booking"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          gap: '10px',
-                          background: '#25D366',
-                          color: '#ffffff',
-                          fontWeight: 700,
-                          fontSize: '0.95rem',
-                          padding: '12px 24px',
-                          borderRadius: '10px',
-                          textDecoration: 'none',
-                          boxShadow: '0 4px 14px rgba(37, 211, 102, 0.35)',
-                          transition: 'all 0.2s ease',
-                          marginBottom: '16px'
-                        }}
-                      >
-                        <i className="fa-brands fa-whatsapp" style={{ fontSize: '1.25rem' }}></i>
-                        <span>Contact WhatsApp Helpline (+92 3230-112464)</span>
-                      </a>
                     </div>
                   ) : (
                     <div className="button-wrapper">
@@ -1443,12 +1537,39 @@ export default function OrderPage() {
                       </div>
                       <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
                         <span>Fuel Type</span>
-                        <strong>{FUEL_DISPLAY[selectedFuelType]}</strong>
+                        <strong style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                          <img
+                            src={FUEL_IMAGES[selectedFuelType]}
+                            alt=""
+                            aria-hidden="true"
+                            title={`Click to magnify ${FUEL_DISPLAY[selectedFuelType]}`}
+                            onClick={() => setMagnifiedImage({
+                              src: FUEL_IMAGES[selectedFuelType],
+                              title: `${FUEL_DISPLAY[selectedFuelType]} (Euro-V)`,
+                              subtitle: `Unit Rate: Rs. ${fuelRate.toFixed(2)}/L`
+                            })}
+                            style={{ width: '22px', height: '22px', borderRadius: '4px', objectFit: 'contain', background: '#f8fafc', border: '1px solid #e2e8f0', cursor: 'zoom-in', padding: '1px' }}
+                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                          />
+                          {FUEL_DISPLAY[selectedFuelType]}
+                        </strong>
                       </div>
                       <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
                         <span>Refueling Target</span>
-                        <strong style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
-                          <i className={`fa-solid ${DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.icon || 'fa-car-side'}`} style={{ color: 'var(--accent-color)' }}></i>
+                        <strong style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                          <img
+                            src={DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.image}
+                            alt=""
+                            aria-hidden="true"
+                            title={`Click to magnify ${DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.label}`}
+                            onClick={() => setMagnifiedImage({
+                              src: DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.image,
+                              title: DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.label,
+                              subtitle: 'Refueling Application Target'
+                            })}
+                            style={{ width: '22px', height: '22px', borderRadius: '4px', objectFit: 'contain', background: '#f8fafc', border: '1px solid #e2e8f0', cursor: 'zoom-in', padding: '1px' }}
+                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                          />
                           {DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.shortLabel || 'Direct Fill'}
                           {assetIdentifier ? ` (${assetIdentifier})` : ''}
                         </strong>
@@ -1472,7 +1593,7 @@ export default function OrderPage() {
                     <span>Base Subtotal</span>
                     <strong id="summary-base-cost">{fmt(baseCost)}</strong>
                   </div>
-                  
+
                   <div className="summary-row">
                     <span>Dispatch Window</span>
                     <strong>
@@ -1490,7 +1611,7 @@ export default function OrderPage() {
                       ) : (
                         <span>
                           {fmt(deliveryFee)}
-                          
+
                         </span>
                       )}
                     </strong>
@@ -1639,6 +1760,142 @@ export default function OrderPage() {
         </section>
       </main>
 
+      {/* High-Resolution Image Magnifier Lightbox Modal */}
+      {magnifiedImage && (
+        <div
+          className="image-magnifier-overlay animated fadeIn"
+          id="image-magnifier-modal-backdrop"
+          onClick={() => setMagnifiedImage(null)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 99999,
+            backgroundColor: 'rgba(15, 23, 42, 0.88)',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '20px',
+            cursor: 'zoom-out'
+          }}
+        >
+          <div
+            className="image-magnifier-modal animated scaleUp"
+            onClick={e => e.stopPropagation()}
+            style={{
+              position: 'relative',
+              maxWidth: '92vw',
+              maxHeight: '90vh',
+              background: '#0f172a',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              borderRadius: '16px',
+              padding: '16px',
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '12px',
+              cursor: 'default'
+            }}
+          >
+            {/* Header bar */}
+            <div style={{
+              width: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '12px',
+              paddingBottom: '10px',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                <span style={{
+                  background: 'var(--brand-primary, #0284c7)',
+                  color: '#ffffff',
+                  padding: '3px 8px',
+                  borderRadius: '6px',
+                  fontSize: '0.72rem',
+                  fontWeight: 800,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.5px'
+                }}>
+                  Enlarged View
+                </span>
+                <span style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.05rem' }}>
+                  {magnifiedImage.title}
+                </span>
+                {magnifiedImage.subtitle && (
+                  <span style={{ color: '#94a3b8', fontSize: '0.85rem' }}>
+                    &bull; {magnifiedImage.subtitle}
+                  </span>
+                )}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setMagnifiedImage(null)}
+                aria-label="Close magnification modal"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
+                  color: '#ffffff',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  fontSize: '1rem',
+                  flexShrink: 0
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = '#ef4444'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)'; }}
+              >
+                <i className="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            {/* High-res Image Container */}
+            <div style={{
+              position: 'relative',
+              maxWidth: '86vw',
+              maxHeight: '74vh',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              overflow: 'hidden',
+              borderRadius: '12px',
+              background: '#020617',
+              padding: '12px'
+            }}>
+              <img
+                src={magnifiedImage.src}
+                alt={magnifiedImage.title}
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '70vh',
+                  width: 'auto',
+                  height: 'auto',
+                  objectFit: 'contain',
+                  borderRadius: '8px',
+                  boxShadow: '0 8px 30px rgba(0,0,0,0.55)',
+                  transition: 'transform 0.25s ease'
+                }}
+              />
+            </div>
+
+            {/* Footer with ESC hint */}
+            <div style={{ fontSize: '0.78rem', color: '#94a3b8', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <i className="fa-solid fa-circle-info" style={{ color: 'var(--brand-primary, #0284c7)' }}></i>
+              Click anywhere outside or press ESC to dismiss preview
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Order Tracker Modal */}
       <div
         className={`modal-backdrop${trackerOpen ? ' open' : ''}`}
@@ -1760,153 +2017,7 @@ export default function OrderPage() {
         </div>
       </div>
 
-      {/* Working Hours Mismatch Modal */}
-      <div
-        className={`modal-backdrop${showOfficeHoursMismatchModal ? ' open' : ''}`}
-        id="office-hours-mismatch-modal-backdrop"
-        onClick={e => e.target === e.currentTarget && setShowOfficeHoursMismatchModal(false)}
-      >
-        <div className="tracker-modal" style={{ maxWidth: '520px', textAlign: 'center', padding: '28px 24px' }}>
-          
-          {/* Schedule Icon Badge */}
-          <div style={{
-            width: '64px',
-            height: '64px',
-            borderRadius: '50%',
-            background: 'rgba(2, 132, 199, 0.1)',
-            color: '#0284c7',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '1.8rem',
-            margin: '0 auto 16px',
-            border: '2px solid rgba(2, 132, 199, 0.25)'
-          }}>
-            <i className="fa-regular fa-clock"></i>
-          </div>
 
-          <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '4px' }}>
-            Zyphuel Operating &amp; Working Hours
-          </h3>
-          <p style={{ fontSize: '0.98rem', fontWeight: 700, color: '#0284c7', marginBottom: '14px', direction: 'rtl' }}>
-            زیفوئل کے کام کے اوقات اور شیڈول
-          </p>
-
-          <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: 1.55, marginBottom: '16px' }}>
-            Corporate support, customer service, and doorstep fuel delivery orders are processed during working hours across all Lahore sectors. For emergency inquiries and dispatch assistance, our dedicated WhatsApp helpline (+92 3230-112464) is available 24/7.
-          </p>
-
-          {/* Current Time vs Status Pill */}
-          <div style={{
-            background: officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.08)' : 'rgba(2, 132, 199, 0.08)',
-            border: `1px solid ${officeStatus.isOfficeOpen ? 'rgba(16, 185, 129, 0.25)' : 'rgba(2, 132, 199, 0.25)'}`,
-            borderRadius: '12px',
-            padding: '12px 16px',
-            marginBottom: '18px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '10px',
-            flexWrap: 'wrap'
-          }}>
-            <div style={{ textAlign: 'left' }}>
-              <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                Operating Status (اسٹیٹس)
-              </span>
-              <strong style={{ fontSize: '0.92rem', color: officeStatus.isOfficeOpen ? '#10b981' : '#0284c7', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: officeStatus.isOfficeOpen ? '#10b981' : '#0284c7', display: 'inline-block' }}></span>
-                {officeStatus.isOfficeOpen ? 'Inside Working Hours' : `Next Window: ${officeStatus.nextOpening}`}
-              </strong>
-            </div>
-            <div style={{ textAlign: 'right' }}>
-              <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', display: 'block', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                Current Time (موجودہ وقت)
-              </span>
-              <strong style={{ fontSize: '0.92rem', color: 'var(--text-primary)' }}>
-                {officeStatus.currentDateTimeStr || 'Pakistan Time'}
-              </strong>
-            </div>
-          </div>
-
-          {/* Schedule Table */}
-          <div style={{
-            background: 'var(--surface-color, #ffffff)',
-            border: '1px solid var(--border-color, #e2e8f0)',
-            borderRadius: '12px',
-            padding: '14px 16px',
-            marginBottom: '18px',
-            textAlign: 'left'
-          }}>
-            <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <i className="fa-solid fa-clock" style={{ color: '#0284c7' }}></i>
-              Working Hours &amp; Timings (کام کے اوقات اور ٹائمنگز):
-            </div>
-            <table style={{ width: '100%', fontSize: '0.84rem', borderCollapse: 'collapse' }}>
-              <tbody>
-                <tr style={{ borderBottom: '1px solid var(--border-color, #f1f5f9)', background: 'rgba(2, 132, 199, 0.05)' }}>
-                  <td style={{ padding: '8px 4px', color: '#0284c7', fontWeight: 700 }}>
-                    Online Order Intake <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)' }}>(آن لائن آرڈرز)</span>
-                  </td>
-                  <td style={{ padding: '8px 4px', textAlign: 'right', fontWeight: 800, color: '#0284c7' }}>
-                    8:00 AM – 10:00 PM Daily
-                  </td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid var(--border-color, #f1f5f9)', background: 'rgba(245, 158, 11, 0.05)' }}>
-                  <td style={{ padding: '8px 4px', color: '#d97706', fontWeight: 600 }}>
-                    Night Cutoff Window <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)' }}>(رات کا وقفہ)</span>
-                  </td>
-                  <td style={{ padding: '8px 4px', textAlign: 'right', fontWeight: 700, color: '#d97706' }}>
-                    10:00 PM – 8:00 AM PKT (Closed)
-                  </td>
-                </tr>
-                {OFFICE_HOURS_SCHEDULE.map((item, idx) => (
-                  <tr key={idx} style={{ borderBottom: '1px solid var(--border-color, #f1f5f9)' }}>
-                    <td style={{ padding: '7px 4px', color: 'var(--text-secondary, #475569)', fontWeight: 500 }}>
-                      {item.days} <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)' }}>({item.urduDays})</span>
-                    </td>
-                    <td style={{ padding: '7px 4px', textAlign: 'right', fontWeight: 700, color: 'var(--text-primary)' }}>
-                      {item.hours}
-                    </td>
-                  </tr>
-                ))}
-                <tr>
-                  <td style={{ padding: '7px 4px', color: 'var(--text-secondary, #475569)', fontWeight: 500 }}>
-                    WhatsApp Helpline <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)' }}>(ہیلپ لائن)</span>
-                  </td>
-                  <td style={{ padding: '7px 4px', textAlign: 'right', fontWeight: 700, color: '#10b981' }}>
-                    24/7 Live Support
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          {/* Action Buttons */}
-          <div style={{ display: 'flex', gap: '10px', flexDirection: 'column' }}>
-            {officeStatus.isNightCutoffActive ? (
-              <a
-                href="https://wa.me/923230112464?text=Hello%20Zyphuel%20Support%2C%20I%20am%20inquiring%20about%20emergency%20standby%20generator%20refueling"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-                style={{ width: '100%', fontSize: '0.94rem', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: '#25D366', borderColor: '#25D366' }}
-              >
-                <i className="fa-brands fa-whatsapp"></i>
-                <span>Open WhatsApp Support (+92 3230-112464)</span>
-              </a>
-            ) : null}
-            <button
-              type="button"
-              className="btn btn-primary"
-              style={{ width: '100%', fontSize: '0.94rem' }}
-              onClick={() => setShowOfficeHoursMismatchModal(false)}
-            >
-              Continue with Order (آرڈر جاری رکھیں)
-            </button>
-          </div>
-
-        </div>
-      </div>
 
 
 
@@ -1956,7 +2067,32 @@ export default function OrderPage() {
           position: relative;
         }
         .category-card:hover {
-          border-color: var(--text-secondary, #64748b);
+          border-color: var(--brand-primary, #0284c7);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+        }
+        .category-card:hover img {
+          transform: scale(1.04);
+        }
+        .fuel-img-frame, .target-img-frame {
+          transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .fuel-img-frame:hover, .target-img-frame:hover {
+          border-color: var(--brand-primary, #0284c7) !important;
+          box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15) !important;
+        }
+        @keyframes scaleUp {
+          from {
+            opacity: 0;
+            transform: scale(0.92);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        .scaleUp {
+          animation: scaleUp 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         .category-card.active {
           border-color: var(--accent-color, #0ea5e9);

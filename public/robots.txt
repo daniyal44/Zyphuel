@@ -5,7 +5,7 @@
 # Last Updated: 2026-09-27
 # ==============================================================================
 
-Sitemap: https://zyphuel.netlify.app/sitemap.xml
+// Sitemap: https://zyphuel.netlify.app/sitemap.xml //
 
 # Default Crawl Rules for All Search Engine Bots
 User-agent: *
