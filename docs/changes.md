@@ -694,6 +694,19 @@ Aligned all corporate credentials, physical location indicators, executive title
   3. **Vite Server Plugin**: Integrated `zyphuelOrderGuardPlugin` in `vite.config.js` returning HTTP 403 Forbidden for any order API endpoints during night cutoff hours.
   4. **Environment & Hosting**: Set `VITE_ENABLE_QA_ORDER_BYPASS=false` and `VITE_DISABLE_ORDER_CUTOFF=false` in `.env`, `.env.example`, and `netlify.toml`. Added `/plugins/*` cache & script headers in `netlify.toml`.
 
+### 21.8 Mobile App v2.6.4.0.0.22 (Build 50) Release & Multi-Search Engine Optimization
+- **User Directive**: *"website ma app version ko update karo or baki cheeze be har gaja per . meri webiste sirf google or andisearch per show ho rahi ha baki kasi search engine per nai . hone chaye baki ka search engines per be"*
+- **Mobile App Version Upgrade**:
+  - Updated centralized mobile app configuration `src/data/appVersion.js` to `v2.6.4.0.0.22` (Build 50, Target SDK 36, Android 15/16 Ready).
+  - Extracted verified production binary SHA-256 hash (`10a23c3d027a7dcc0970d0e00dfc1481b26b89e9a0e87eac25c21fc8e6e174f3`) from compiled `public/APK/Zyphuel.apk` and dynamically bound to `DownloadPage.jsx` cryptographic checksum card.
+  - Synchronized `package.json`, `package-lock.json`, `prerender.js`, `public/feed.xml`, `public/llms.txt`, `public/llms-full.txt`, and documentation files.
+- **Multi-Search Engine Indexation & Discovery Optimization**:
+  - Identified root cause for single-engine indexing: Google is verified via GSC, AndiSearch queries live web and AI/Brave APIs, while Bing, Yahoo, DuckDuckGo, and Ecosia all depend on Bing's search index which requires domain verification and active submission.
+  - Added dedicated crawler instructions in `index.html` for `bingbot`, `duckduckbot`, `slurp` (Yahoo), `yandex`, `applebot`, `baiduspider`, and `bravebot`.
+  - Added verification placeholders in `index.html` for Bing Webmaster Tools (`msvalidate.01`), Yandex Webmaster (`yandex-verification`), Baidu (`baidu-site-verification`), and Naver (`naver-site-verification`).
+  - Upgraded `robots.txt` with explicit crawl rules for `Bravebot`, `MojeekBot`, `Qwantify`, `SeznamBot`, and `Yeti`.
+  - Enhanced `scripts/indexnow.js` to directly ping `https://www.bing.com/indexnow`, `https://yandex.com/indexnow`, and `https://api.indexnow.org/indexnow` with GET/POST fallbacks to ensure instant indexing across Bing, Yahoo, DuckDuckGo, and Yandex.
+
 
 
 

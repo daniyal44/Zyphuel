@@ -45,7 +45,7 @@ This document serves as the authoritative single source of truth for all corpora
 - **Official WhatsApp Dispatch API**: `+92 3230-112464`
 - **Complaint Email**: `m.daniyalkhan490@gmail.com`
 - **Official Website**: `https://zyphuel.netlify.app`
-- **Official Mobile Application**: Zyphuel Android APK (`v2.6.4.0.0.16`)
+- **Official Mobile Application**: Zyphuel Android APK (`v2.6.4.0.0.22`)
 
 ---
 

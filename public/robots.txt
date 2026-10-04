@@ -110,6 +110,18 @@ Allow: /
 User-agent: Qwantify
 Allow: /
 
+User-agent: Bravebot
+Allow: /
+
+User-agent: MojeekBot
+Allow: /
+
+User-agent: Sogouspider
+Allow: /
+
+User-agent: 360Spider
+Allow: /
+
 # Social Media Scraping & Link Previews
 User-agent: facebookexternalhit
 Allow: /

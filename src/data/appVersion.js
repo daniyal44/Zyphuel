@@ -1,14 +1,28 @@
 // Centralized Zyphuel Mobile App Version Configuration
 // Update this file on every application release to dynamically sync versions across the platform.
 
-export const APP_VERSION = '2.6.4.0.0.16';
-export const BUILD_NUMBER = '44';
-export const RELEASE_DATE = 'September 23, 2026';
+export const APP_VERSION = '2.6.4.0.0.22';
+export const BUILD_NUMBER = '50';
+export const RELEASE_DATE = 'October 4, 2026';
 export const APP_SIZE = '31.6 MB';
 export const MIN_ANDROID = '7.0 (Nougat)+';
 export const TARGET_SDK = '36 (Android 15/16 Ready)';
+export const APP_SHA256 = '10a23c3d027a7dcc0970d0e00dfc1481b26b89e9a0e87eac25c21fc8e6e174f3';
 
 export const CHANGELOG = [
+  {
+    version: '2.6.4.0.0.22',
+    build: '50',
+    date: 'October 4, 2026',
+    title: 'Precision GPS Calibration, Android 16 Ready & Core Performance Optimization (Build 50)',
+    features: [
+      'Compiled production release v2.6.4.0.0.22 (Build 50) with Android Gradle Plugin 9.1.1 and Target SDK 36 (Android 15/16 Ready)',
+      'Sub-meter GPS Pinning: Upgraded location engine for Lahore sector-level delivery accuracy with reduced battery consumption',
+      'Enhanced Digital Dispenser Sync: Improved low-latency Bluetooth bridge for live flow-meter volumetric readings',
+      'Security & Integrity Hardening: SHA-256 binary validation (10a23c3...) and zero-leak credential protection across telemetry pipelines',
+      'Doorstep Delivery Pricing Alignment: Fixed Rs. 300.00 flat for 5L–10L, dynamic demand dispatch fee for 11L–15L Max'
+    ]
+  },
   {
     version: '2.6.4.0.0.16',
     build: '44',

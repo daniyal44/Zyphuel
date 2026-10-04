@@ -46,7 +46,7 @@ This document serves as the centralized master tracking ledger for all completed
 - [x] Optimize home page hero scroll video container for full-bleed responsive playback without pixel tearing.
 
 ### 1.6 Mobile App & Educational Content
-- [x] Release Android APK `v2.6.4.0.0.16` (`31.6 MB`) compiled for Android 7.0+.
+- [x] Release Android APK `v2.6.4.0.0.22` (`31.6 MB`) compiled for Android 7.0+.
 - [x] Author 6 in-depth educational blog articles covering daily fuel pricing, generator refueling, short-fueling prevention, and mobile energy logistics.
 - [x] Synchronize all blog articles and data files with COD (5L–10L) and instant Online Payments payment methods.
 

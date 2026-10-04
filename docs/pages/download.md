@@ -9,19 +9,19 @@
 ---
 
 ## Technical Specifications & Constants
-- **Current Version**: `v2.6.4.0.0.16 (Build 44)` (dynamically imported from `src/data/appVersion.js`)
+- **Current Version**: `v2.6.4.0.0.22 (Build 50)` (dynamically imported from `src/data/appVersion.js`)
 - **File Size**: `31.6 MB`
 - **Minimum OS Requirement**: Android 7.0 (Nougat) and above (API level 24+)
 - **Target OS Requirement**: Android 15/16 Ready (API level 36)
 - **Architecture**: Native Android with Jetpack Compose & Material 3 UI
 - **Direct APK Endpoint**: `/APK/Zyphuel.apk`
-- **Security Check**: SHA-256 signed, zero malware/adware, direct release build.
+- **Security Check**: SHA-256 signed (`10a23c3d027a7dcc0970d0e00dfc1481b26b89e9a0e87eac25c21fc8e6e174f3`), zero malware/adware, direct release build.
 
 ---
 
 ## SEO & Structured Data
-- **Page Title**: `Download Zyphuel APK v2.6.4.0.0.16 | Lahore On-Demand Fuel App`
-- **Meta Description**: `Download official Zyphuel Android APK (v2.6.4.0.0.16, 31.6 MB). Order certified Euro-V petrol & diesel in Lahore with live GPS tracking, 2-hour rate alerts, and biometric security.`
+- **Page Title**: `Download Zyphuel APK v2.6.4.0.0.22 | Lahore On-Demand Fuel App`
+- **Meta Description**: `Download official Zyphuel Android APK (v2.6.4.0.0.22, 31.6 MB). Order certified Euro-V petrol & diesel in Lahore with live GPS tracking, 2-hour rate alerts, and biometric security.`
 - **Schema Type**: `SoftwareApplication` / `MobileApplication`
   - Operating System: `Android 7.0+`
   - Application Category: `UtilitiesApplication` / `BusinessApplication`
@@ -58,6 +58,7 @@
 ---
 
 ## Changelog
+| **2026-10-04** | **Release of Android APK v2.6.4.0.0.22 (Build 50)**: Synchronized app version to `v2.6.4.0.0.22` (Build 50, Target SDK 36, Android 15/16 Ready), updated SHA-256 integrity hash to `10a23c3d027a7dcc0970d0e00dfc1481b26b89e9a0e87eac25c21fc8e6e174f3`, and dynamic hash binding in `src/pages/DownloadPage.jsx`. | User request: update app version and sync across the entire platform. |
 | **2026-10-02** | **Removal of High Market Demand Badge**: Removed the "High Market Demand: Over 15,000+ Active Users in Lahore • 45-Min Express Dispatch" alert pill from the download hero header in `src/pages/DownloadPage.jsx` per user directive. | User request: remove the 15,000+ active users high market demand callout. |
 | **2026-10-02** | **Direct APK Enforcement & Store Badge Reversion (100% Genuine Transparency)**: (1) Reverted Google Play and Apple App Store badges back to genuine, non-clickable disabled badges (`.store-badge.disabled`) labeled "Launch Soon" and "Coming Soon", eliminating misleading store redirect links to uphold brand integrity and eliminate customer confusion, (2) Retained unhindered Direct APK Download CTA (`#direct-apk-download-btn`, `.btn-download-main`) pointing directly to `/APK/Zyphuel.apk` with `download="Zyphuel.apk"`, (3) Removed `fade-in-up` class on `download-hero-content` to guarantee immediate above-the-fold visibility, (4) Enforced proper server MIME type (`application/vnd.android.package-archive`) and 200 route rewrites on Netlify and local Vite server. | User directive: Zyphuel is not launched on Google Play Store or Apple App Store yet; strictly eliminate fake/misleading store links and keep badges transparently disabled with "Launch Soon" / "Coming Soon". |
 | **2026-10-01** | **Delivery Fee Alignment in App Feature Matrix**: Updated comparison table row to `Fixed Rs. 300 Fee (≤10L)` matching calibrated doorstep delivery charges. | Synchronize app feature comparison table with updated delivery charges. |

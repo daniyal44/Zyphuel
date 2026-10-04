@@ -82,7 +82,7 @@ gantt
 ### Phase 5: Mobile App Integration & Leadership Showcase
 - **Timeline**: September 9, 2026 – September 15, 2026
 - **Primary Objectives**:
-  - Distribute the official Zyphuel Android APK (`v2.6.4.0.0.16`, `31.6 MB`) compiled for Android 7.0+.
+  - Distribute the official Zyphuel Android APK (`v2.6.4.0.0.22`, `31.6 MB`) compiled for Android 7.0+.
   - Integrate biometric authentication features (Fingerprint and Face Unlock) for 1-tap checkout.
   - Overhaul `AboutPage.jsx` with an interactive 3D Card Carousel showcasing the leadership team and bowser fleet.
 - **Key Deliverables**:

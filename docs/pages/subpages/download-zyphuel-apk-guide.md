@@ -17,7 +17,7 @@
 ## Pillar Guide Architecture & Content Structure
 
 ### 1. Key Takeaways (AEO & GEO Optimization)
-- Official Android APK v2.6.4.0.0.16 available via direct cryptographic download (`31.6 MB`).
+- Official Android APK v2.6.4.0.0.22 available via direct cryptographic download (`31.6 MB`).
 - Built with Jetpack Compose, Material 3, and Kotlin Coroutines for zero battery drain.
 - Hardware-backed biometric authentication (Class 3 Strong BiometricPrompt) replaces passwords.
 - Real-time GPS auto-pinning accurate within <3 meters across Lahore sectors (DHA, Gulberg, Johar Town, Bahria Town).
@@ -63,6 +63,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-04** | Synchronized APK guide version references to `v2.6.4.0.0.22` (Build 50, Target SDK 36, Android 15/16 Ready). | Match latest production APK release `v2.6.4.0.0.22`. |
 | **2026-09-25** | **Expanded to 1,050+ word comprehensive technical guide with Key Takeaways, Android Compatibility Matrix, Expert Quote, and 5 Schema.org FAQs**. | Provide authoritative technical guidance, eliminate thin content, solve search engine indexing delays, and achieve 100% performance. |
 | **2026-09-23** | Synchronized version references to `APP_VERSION` (`v2.6.4.0.0.16`) and updated Min SDK alignment. | Match latest compiled production release `v2.6.4.0.0.16`. |
 | **2026-09-12** | Synchronized version references to `APP_VERSION` and `APP_SIZE`. | Dynamic variable synchronization across app setup guides. |

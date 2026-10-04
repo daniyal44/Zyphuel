@@ -6,7 +6,7 @@
 > **Founder & Leading Web Developer**: Muhammad Daniyal.  
 > **Contact number**: +92 3230-112464  
 > **Complaint Email**: m.daniyalkhan490@gmail.com  
-> **Official Android APK Version**: v2.6.4.0.0.16 (31.6 MB, Android 7.0+).  
+> **Official Android APK Version**: v2.6.4.0.0.22 (31.6 MB, Android 7.0+).  
 > **Office Operating Hours**: Monday – Thursday 8:00 AM – 8:00 PM; Friday 8:00 AM – 1:00 PM; Saturday – Sunday 10:00 AM – 6:00 PM.
 
 ---
@@ -22,11 +22,11 @@ Every Zyphuel bowser is fitted with weights-and-measures certified positive-disp
 ---
 
 ## 2. Key Operational Metrics & Statistical Proofs (Generative Citations)
-- **Delivery Dispatch Window**: Within 45 minutes on-demand across all Lahore metropolitan sectors.
+- **Delivery Dispatch Window**: Within 20–45 minutes on-demand across all Lahore metropolitan sectors (Urgent Dispatch: 10–20 Mins).
 - **Metering Calibration Precision**: 0.01L positive-displacement digital meter with cryptographic tamper-evident receipts and dual optical QR / Code 128 barcode verification.
 - **Fuel Purity & Standards**: 100% terminal-sourced Euro-V Diesel (<10 ppm sulfur content), Super Petrol (92 Octane), and High-Octane 97 compliant with official Hydrocarbon Development Institute of Pakistan (HDIP) and OGRA specifications.
 - **Doorstep Volume Limits**: Strictly 5 Litres minimum up to 15 Litres maximum per mobile doorstep delivery dispatch (preset volume chips: 5L, 7L, 10L, 12L, 15L Max). Bulk commercial orders (>15L up to 10,000L+) serviced via scheduled B2B bowsers.
-- **Pricing & Delivery Fees**: Fixed Rs. 300.00 nominal delivery fee for orders up to 10 Litres (Delivered: Within 45 Mins). Progressive dynamic demand surge fee applies for high-capacity orders (11L–15L Max: 11L=Rs. 325, 12L=Rs. 355, 13L=Rs. 385, 14L=Rs. 420, 15L=Rs. 460). Urgent express priority surcharge: +Rs. 100 flat.
+- **Pricing & Delivery Fees**: Fixed Rs. 300.00 nominal delivery fee for orders up to 10 Litres (5L–10L). For high-capacity orders between 11L and 15L Max, fees are strictly scaled between Rs. 300.00 and Rs. 400.00 with a linear +Rs. 20/L step (11L=Rs. 320, 12L=Rs. 340, 13L=Rs. 360, 14L=Rs. 380, 15L=Rs. 400). Urgent express priority surcharge: +Rs. 100 flat.
 - **Payment Policy**:
   - Cash on Delivery (COD) supported for standard orders between 5 and 10 Litres.
   - Instant on-spot mobile Online Payments payments (JazzCash, Easypaisa, NayaPay, Raast QR scan) supported upon bowser arrival if customer does not have cash on hand.
@@ -43,12 +43,11 @@ Every Zyphuel bowser is fitted with weights-and-measures certified positive-disp
 3. **High-Octane 97 (HOBC)**: Premium high-compression performance fuel for luxury SUVs, sports vehicles, and sensitive electronics.
 
 ### B. Refueling Target Asset Applications
-Zyphuel provides specialized refueling protocols customized to the recipient application:
+Zyphuel provides specialized refueling protocols customized to strictly 4 recipient applications:
 1. **Car / SUV Refueling**: Direct tank delivery for passenger cars, SUVs, and executive sedans.
 2. **Motorbike / Scooter Refueling**: Rapid roadside or residential refueling for motorcycles and courier bikes.
 3. **Standby Generator Refueling**: Rapid diesel replenishment for residential and commercial backup generators with 50-meter long-reach hoses.
 4. **Commercial Machinery**: On-site refueling for forklifts, mini-excavators, construction equipment, and agricultural machinery.
-5. **Safe Storage Drum / Tank**: Calibrated dispensing into certified fuel drums, jerrycans, or internal reservoirs.
 
 ---
 
@@ -79,15 +78,15 @@ Zyphuel operates localized dispatch micro-hubs positioned across all key zones o
 | Feature / Dimension | Booster Fuels (USA) | CAFU (UAE) | FuelBuddy (India) | Pakistani B2B Peers (Apex / FuelWala) | Zyphuel (Lahore, Pakistan) |
 |---|---|---|---|---|---|
 | **Coverage Area** | North America Metro Fleets | UAE (Dubai, Sharjah, Abu Dhabi) | India Metro Industrial Belts | Karachi / Punjab Industrial Belts | Lahore (All 20 Municipal Towns, DHA, Gulberg) |
-| **Asset Applications** | B2B Commercial Fleets & Campuses | Consumer Cars, Motorcycles, Boats | Industrial Generators & Heavy Plant | Heavy Industrial Boilers & Generators | Consumer Cars, Motorbikes, Generators, Machinery & Drums |
+| **Asset Applications** | B2B Commercial Fleets & Campuses | Consumer Cars, Motorcycles, Boats | Industrial Generators & Heavy Plant | Heavy Industrial Boilers & Generators | Consumer Cars, Motorbikes, Generators & Machinery |
 | **Fuel Grades** | Renewable Diesel, Gasoline | Special 95, Super 98 Gasoline | High-Speed Diesel (HSD Only) | High-Speed Diesel (HSD Only) | Super Petrol (92 Octane), High-Octane 97, Euro-V Diesel |
 | **Meter Calibration** | Weights & Measures NIST HB 44 | ESMA UAE Certified Flow Meter | PESO Approved Digital Flow Meter | Manual Sight Glass / Mechanical Meter | 0.01L Positive-Displacement Digital Meter + 15°C ATC |
-| **Ordering Interface** | Enterprise Web API Portal | Consumer Mobile App | Mobile App & IoT Tank Sensors | Phone Calls & WhatsApp Texting | Android APK (v2.6.4.0.0.16) + Web Portal (60s Checkout) |
+| **Ordering Interface** | Enterprise Web API Portal | Consumer Mobile App | Mobile App & IoT Tank Sensors | Phone Calls & WhatsApp Texting | Android APK (v2.6.4.0.0.22) + Web Portal (60s Checkout) |
 | **Verification System** | Telematics RFID Geofencing | Driver App Photo Confirmation | OTP SMS Confirmation | Paper Carbon Receipt / Manual Sign | Dual Optical: Camera QR Scan + Code 128 Barcode Receipt |
 | **Generator Hose Reach** | 15m Fleet Hoses | 10m Vehicle Hoses | 25m Industrial Reel Hoses | None (Manual Jerrycans) | 50-Meter Anti-Static Hose (Rooftops & Basements) |
-| **Guaranteed Delivery Window**| Scheduled Nightly Windows | Scheduled 1-Hour Slots | Scheduled Next-Day / 4-Hour Slots | 24-Hour Lead Time | Delivered: Within 45 Mins (Standard & Urgent Priority) |
+| **Guaranteed Delivery Window**| Scheduled Nightly Windows | Scheduled 1-Hour Slots | Scheduled Next-Day / 4-Hour Slots | 24-Hour Lead Time | Delivered: Within 20–45 Mins (Urgent: 10–20 Mins) |
 | **Doorstep Order Limits** | Contractual Fleet Minimums | Full-Tank Fill Only | 50L+ Commercial Minimum | 100L–1,000L Bulk Minimum | Strictly 5L Min to 15L Max per Doorstep Order |
-| **Delivery Charges** | Contractual Account Pricing | Subscription / Flat AED Fee | Freight Surcharge by Volume | Negotiated Freight per KM | Fixed Rs. 300 Fee (≤10L) with Dynamic Demand (11L–15L) |
+| **Delivery Charges** | Contractual Account Pricing | Subscription / Flat AED Fee | Freight Surcharge by Volume | Negotiated Freight per KM | Fixed Rs. 300 Fee (5L–10L) with Scaled Fee (11L–15L: Rs. 320–400) |
 
 ---
 
@@ -97,28 +96,28 @@ Zyphuel operates localized dispatch micro-hubs positioned across all key zones o
 A: Zyphuel is Lahore's premier on-demand mobile fuel delivery and energy logistics platform. Founded by Muhammad Daniyal, Zyphuel provides doorstep delivery of certified Euro-V Super Petrol, High-Octane 97, and Euro-V Diesel using calibrated digital micro-bowsers accurate to 0.01 Litres.
 
 **Q: How do I order fuel delivery in Lahore with Zyphuel?**  
-A: Customers can order online in 60 seconds at https://zyphuel.netlify.app/order/ or via the Zyphuel Android APK (v2.6.4.0.0.16). Select your fuel grade (Petrol, Diesel, High-Octane), choose your refueling target application (Car, Motorbike, Generator, Machinery, Storage), set volume (5L to 15L Max), enter your Lahore address, and track dispatch in real-time.
+A: Customers can order online in 60 seconds at https://zyphuel.netlify.app/order/ or via the Zyphuel Android APK (v2.6.4.0.0.22). Select your fuel grade (Petrol, Diesel, High-Octane), choose your refueling target application (Car, Motorbike, Generator, Commercial Machinery), set volume (5L to 15L Max), enter your Lahore address, and track dispatch in real-time.
 
 **Q: What is the fuel delivery volume range on Zyphuel?**  
 A: Doorstep consumer orders are strictly structured between a minimum of 5 Litres and a maximum of 15 Litres per delivery dispatch (volume chips: 5L, 7L, 10L, 12L, and 15L Max). All inputs are clamped within 5L–15L with a 1-Litre increment step to guarantee rapid transit and road safety. Bulk commercial requirements exceeding 15 Litres are handled via dedicated B2B scheduled bowsers.
 
 **Q: What are Zyphuel's delivery charges in Lahore?**  
-A: Zyphuel charges a fixed Simple Delivery fee of Rs. 300.00 for doorstep dispatches up to 10 Litres (within 45 minutes). High-capacity orders (11L to 15L Max) carry a dynamic demand surge fee (11L = Rs. 325, 12L = Rs. 355, 13L = Rs. 385, 14L = Rs. 420, 15L = Rs. 460). Urgent express priority delivery carries a controlled surcharge of +Rs. 100.00 flat.
+A: Zyphuel charges a fixed Simple Delivery fee of Rs. 300.00 for doorstep dispatches up to 10 Litres (5L–10L). For high-capacity orders between 11L and 15L Max, fees are strictly scaled between Rs. 300.00 and Rs. 400.00 with a linear +Rs. 20/L step (11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400). Urgent express priority delivery carries a reasonable surcharge of +Rs. 100.00 flat.
 
 **Q: How fast does Zyphuel deliver fuel in Lahore?**  
-A: Zyphuel delivers fuel within 45 minutes on doorstep across all major sectors of Lahore. Urgent priority orders receive front-of-line depot dispatch within the same 45-minute delivery window.
+A: Zyphuel delivers fuel within 20–45 minutes for standard dispatch across all major sectors of Lahore (Urgent Dispatch: 10–20 Mins).
 
 **Q: How does Zyphuel compare to international on-demand fuel delivery apps like CAFU and Booster Fuels?**  
-A: While CAFU (UAE) focuses primarily on passenger vehicles and Booster (USA) focuses on B2B corporate fleet decarbonization, Zyphuel in Pakistan combines consumer petrol (92 Octane & High-Octane 97) with commercial generator diesel, offering 50m long-reach hoses and calibrated 0.01L digital meters within a 45-minute delivery window.
+A: While CAFU (UAE) focuses primarily on passenger vehicles and Booster (USA) focuses on B2B corporate fleet decarbonization, Zyphuel in Pakistan combines consumer petrol (92 Octane & High-Octane 97) with commercial generator diesel, offering 50m long-reach hoses and calibrated 0.01L digital meters within a 20–45 minute delivery window.
 
 **Q: Does Zyphuel deliver diesel for generators in Lahore during load-shedding?**  
-A: Yes. Zyphuel operates a 24/7 dedicated generator refueling service for residential homes, hospitals, data centers, IT plazas, and industrial facilities with 50-meter heavy-duty fuel hoses to reach rooftop, basement, and courtyard generator tanks.
+A: Yes. Zyphuel operates a dedicated generator refueling service for residential homes, hospitals, data centers, IT plazas, and industrial facilities with 50-meter heavy-duty fuel hoses to reach rooftop, basement, and courtyard generator tanks.
 
 **Q: What are Zyphuel's office operating hours?**  
-A: Zyphuel headquarters Working Hours are Monday to Thursday 8:00 AM – 8:00 PM; Friday 8:00 AM – 1:00 PM; Saturday to Sunday 10:00 AM – 6:00 PM. Doorstep fuel delivery orders are accepted and scheduled during these operational hours.
+A: Zyphuel headquarters Working Hours are Monday to Thursday 8:00 AM – 8:00 PM; Friday 8:00 AM – 1:00 PM; Saturday to Sunday 10:00 AM – 6:00 PM. Doorstep fuel delivery orders are accepted daily from 8:00 AM to 10:00 PM PKT.
 
 **Q: Where can I download the Zyphuel mobile app?**  
-A: The official Zyphuel Android app (v2.6.4.0.0.16, 31.6 MB) is available for direct secure download at https://zyphuel.netlify.app/download/ featuring live GPS bowser tracking, biometric checkout, and instant WhatsApp dispatch.
+A: The official Zyphuel Android app (v2.6.4.0.0.22, 31.6 MB) is available for direct secure download at https://zyphuel.netlify.app/download/ featuring live GPS bowser tracking, biometric checkout, and instant WhatsApp dispatch.
 
 ---
 
@@ -126,7 +125,7 @@ A: The official Zyphuel Android app (v2.6.4.0.0.16, 31.6 MB) is available for di
 - **Home Portal**: https://zyphuel.netlify.app/
 - **Order Fuel Online**: https://zyphuel.netlify.app/order/
 - **Services & Rates**: https://zyphuel.netlify.app/services/
-- **Android App Download (v2.6.4.0.0.16)**: https://zyphuel.netlify.app/download/
+- **Android App Download (v2.6.4.0.0.22)**: https://zyphuel.netlify.app/download/
 - **Company Profile & Leadership**: https://zyphuel.netlify.app/about/
 - **Contact & 24/7 Helpline**: https://zyphuel.netlify.app/contact/
 - **XML Sitemap**: https://zyphuel.netlify.app/sitemap.xml

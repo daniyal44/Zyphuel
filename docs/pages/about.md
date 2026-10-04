@@ -28,7 +28,7 @@
      1. **Muhammad Daniyal**: Founder & Leading Web Developer of Zyphuel.
      2. **Adil Farooq**: Zyphuel Sales Manager.
      3. **Zyphuel Executive Team**: Mobile Energy Logistics.
-     4. **Zyphuel QR Code**: Mobile Application v2.6.4.0.0.16 (dynamically linked to `APP_VERSION`).
+     4. **Zyphuel QR Code**: Mobile Application v2.6.4.0.0.22 (dynamically linked to `APP_VERSION`).
      5. **Accurate Measurement**: Calibrated Fuel Tanker & Flow Meter.
      6. **Rider Identity**: HAZMAT Certified Safety Uniform.
 4. **Our Story & Engineering Ethos**:
@@ -68,6 +68,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-04** | Synchronized leadership carousel QR card app version to `v2.6.4.0.0.22`. | Match latest compiled production release `v2.6.4.0.0.22`. |
 | **2026-10-01** | **FAQ Delivery Pricing Realignment**: Updated About Page FAQ response to reflect fixed Rs. 300.00 for orders up to 10 Litres and dynamic demand surge pricing for 11L–15L orders. | Synchronize FAQ answers with updated delivery fee calibration. |
 | **2026-10-01** | **Operating Hours & Helpline Claim Alignment**: Reconciled corporate story and FAQ response to specify that mobile refueling dispatches operate during established working hours, while maintaining priority emergency dispatch helpline support (24/7) for hospitals and corporate accounts. | Remove inaccurate round-the-clock delivery claims while highlighting active helpline coverage. |
 | **2026-09-27** | **Corporate Identity & Executive Title Update**: Updated Muhammad Daniyal's designation to **Founder & Leading Web Developer** across team definitions, Schema.org Person metadata, image titles, and leadership bio. | Aligned with user's official corporate credentials declaration. |

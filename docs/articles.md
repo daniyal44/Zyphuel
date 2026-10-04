@@ -29,7 +29,7 @@ This document catalogs the full editorial repository, SEO keyword mappings, targ
 
 ### Article 2: How to Download & Install Zyphuel APK
 - **Slug**: `download-zyphuel-apk-guide`
-- **Core Narrative**: Step-by-step setup guide for `Zyphuel.apk` (`v2.6.4.0.0.16`, `31.6 MB`) compiled for Android 7.0+.
+- **Core Narrative**: Step-by-step setup guide for `Zyphuel.apk` (`v2.6.4.0.0.22`, `31.6 MB`) compiled for Android 7.0+.
 - **Features Highlighted**: Biometric authentication (Fingerprint/Face Unlock), GPS sector auto-pinning across Lahore, and Rider Foreground Service streaming live telemetry.
 - **Standardized Parameters**: 45-minute delivery SLA, Cash on Delivery (5L–10L), and on-spot Online Payments.
 

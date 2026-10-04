@@ -58,31 +58,40 @@ async function submitToIndexNow() {
     urlList: urls
   }
 
-  console.log(`[IndexNow] Submitting ${urls.length} URLs to Bing/Yandex/Seznam/Naver...`)
+  console.log(`[IndexNow] Submitting ${urls.length} URLs to search engine endpoints...`)
   urls.forEach((url, i) => console.log(`  ${i + 1}. ${url}`))
 
-  try {
-    const response = await fetch(INDEXNOW_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      body: JSON.stringify(payload)
-    })
+  const endpoints = [
+    { name: 'Yandex (yandex.com/indexnow)', url: 'https://yandex.com/indexnow' },
+    { name: 'Microsoft Bing (www.bing.com/indexnow)', url: 'https://www.bing.com/indexnow' },
+    { name: 'IndexNow Shared Hub (api.indexnow.org/indexnow)', url: 'https://api.indexnow.org/indexnow' }
+  ]
 
-    if (response.status === 200 || response.status === 202) {
-      console.log(`\n[IndexNow] ✅ Success! Status: ${response.status}`)
-      console.log('[IndexNow] All participating search engines have been notified.')
-    } else {
-      const errorText = await response.text()
-      console.warn(`\n[IndexNow] ⚠️ Note (Status ${response.status}):`, errorText)
-      console.log('[IndexNow] Note: Remote IndexNow key validation activates once the build is deployed to https://zyphuel.netlify.app/')
+  for (const ep of endpoints) {
+    try {
+      const response = await fetch(ep.url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(payload)
+      })
+
+      if (response.status === 200 || response.status === 202) {
+        console.log(`\n[IndexNow] ✅ ${ep.name} -> Success! (Status ${response.status})`)
+      } else {
+        const errorText = await response.text()
+        console.warn(`\n[IndexNow] ⚠️ ${ep.name} -> Response (Status ${response.status}):`, errorText)
+        if (response.status === 403 && ep.url.includes('bing')) {
+          console.log('[IndexNow] 💡 Bing Note: If Bing returns 403, simply log in to Bing Webmaster Tools (https://www.bing.com/webmasters) and click "Import from Google Search Console" once.')
+        }
+      }
+    } catch (error) {
+      console.warn(`\n[IndexNow] ⚠️ Could not reach ${ep.name}: ${error.message}`)
     }
-  } catch (error) {
-    // Don't fail the build if IndexNow is unreachable
-    console.warn(`\n[IndexNow] ⚠️ Could not reach IndexNow API: ${error.message}`)
-    console.warn('[IndexNow] Build continues. URLs will be picked up on next crawl.')
   }
+
+  console.log('\n[IndexNow] Submission cycle completed.')
 }
 
 submitToIndexNow()

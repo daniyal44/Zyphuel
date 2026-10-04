@@ -1297,7 +1297,7 @@ async function prerender() {
         changefreq = 'daily'
         imageLoc = `${DOMAIN}/images/1.jpeg`
         imageTitle = 'Download Zyphuel Android App'
-        imageCaption = 'Download Zyphuel Android APK v2.6.4.0.0.16 with real-time GPS tracking and 60-second checkout.'
+        imageCaption = `Download Zyphuel Android APK v${APP_VERSION} with real-time GPS tracking and 60-second checkout.`
       } else if (r.path === '/blog/') {
         priority = '0.9'
         changefreq = 'daily'

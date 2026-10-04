@@ -72,13 +72,13 @@ This document provides a comprehensive technical and functional catalog of all 1
 ### 5. Download Mobile App Page (`/download/`)
 - **Component**: `src/pages/DownloadPage.jsx`
 - **Key Sections**:
-  - **Direct APK Download**: Primary download button for `Zyphuel.apk` (`v2.6.4.0.0.16`, `31.6 MB`).
+  - **Direct APK Download**: Primary download button for `Zyphuel.apk` (`v2.6.4.0.0.22`, `31.6 MB`).
   - **Instant QR Scan**: High-contrast QR code with explicit dimensions (`160x160`) for instant smartphone install.
   - **Android OS Compatibility & Performance Matrix**: Benchmark table covering Android 8.0 through Android 15 (API 26-35, biometrics, GPS, FPS).
   - **Cryptographic SHA-256 Checksum Panel**: Verified binary hash and copyable CLI commands for PowerShell (`Get-FileHash`) and Linux (`sha256sum`).
   - **Feature Comparison Table (Official APK vs Web Portal)**: 10-feature breakdown contrasting biometric logins, background alerts, and flow meter telemetry.
   - **Step-by-Step Android Setup**: Clear walkthrough for enabling unknown sources and granting permissions.
-- **Evolution**: Synchronized with latest production APK build `v2.6.4.0.0.16`, added compatibility matrix, SHA-256 integrity panel, APK vs Web comparison table, and image performance attributes.
+- **Evolution**: Synchronized with latest production APK build `v2.6.4.0.0.22`, added compatibility matrix, SHA-256 integrity panel, APK vs Web comparison table, and image performance attributes.
 
 ### 6. Contact Us Page (`/contact/`)
 - **Component**: `src/pages/ContactPage.jsx`

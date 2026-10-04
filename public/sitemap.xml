@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://zyphuel.netlify.app/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -16,7 +16,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/about/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -29,7 +29,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/services/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -42,20 +42,20 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/download/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://zyphuel.netlify.app/images/1.jpeg</image:loc>
       <image:title>Download Zyphuel Android App</image:title>
-      <image:caption>Download Zyphuel Android APK v2.6.4.0.0.16 with real-time GPS tracking and 60-second checkout.</image:caption>
+      <image:caption>Download Zyphuel Android APK v2.6.4.0.0.22 with real-time GPS tracking and 60-second checkout.</image:caption>
       <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
       <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/order/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -68,7 +68,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/contact/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -81,19 +81,19 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/privacy/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/terms/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/blog/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -119,13 +119,13 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide/</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
-      <image:title>How to Download and Install Zyphuel APK v2.6.4.0.0.16: Setup Guide, GPS Auto-Pinning &amp; Live Price Sync</image:title>
-      <image:caption>A practical step-by-step installation guide for the official Zyphuel Android APK (v2.6.4.0.0.16, 31.6 MB), covering fingerprint checkout, GPS sector auto-detection across Lahore, and real-time bowser tracking.</image:caption>
+      <image:title>How to Download and Install Zyphuel APK v2.6.4.0.0.22: Setup Guide, GPS Auto-Pinning &amp; Live Price Sync</image:title>
+      <image:caption>A practical step-by-step installation guide for the official Zyphuel Android APK (v2.6.4.0.0.22, 31.6 MB), covering fingerprint checkout, GPS sector auto-detection across Lahore, and real-time bowser tracking.</image:caption>
       <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
       <image:license>https://zyphuel.netlify.app/terms/</image:license>
     </image:image>
