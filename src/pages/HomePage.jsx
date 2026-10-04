@@ -309,7 +309,7 @@ export default function HomePage() {
             </div>
             <div className="pump-callout-ctas">
               <Link to="/order/" className="btn-white-pump">
-                <i className="fa-solid fa-gas-pump"></i> Dispatch to My Location
+                <i className="fa-solid fa-gas-pump"></i> Order Fuel
               </Link>
               <a
                 href="https://wa.me/923230112464?text=Hello%20Zyphuel!%20I%20am%20looking%20for%20a%20petrol%20pump%20near%20me%20in%20Lahore.%20Please%20dispatch%20fuel%20to%20my%20location."
@@ -318,7 +318,7 @@ export default function HomePage() {
                 className="btn-whatsapp-dispatch"
                 style={{ padding: '10px 16px', fontSize: '0.88rem' }}
               >
-                <i className="fa-brands fa-whatsapp"></i> WhatsApp Fuel
+                <i className="fa-brands fa-whatsapp"></i> WhatsApp Contact
               </a>
             </div>
           </div>
@@ -682,7 +682,7 @@ export default function HomePage() {
                   className="btn btn-ghost"
                   style={{ padding: '10px 20px', fontSize: '0.9rem', color: '#38bdf8', borderColor: 'rgba(56, 189, 248, 0.3)' }}
                 >
-                  <i className="fa-solid fa-headset"></i> Support &amp; Contact Desk
+                  <i className="fa-solid fa-headset"></i> Customer Support
                 </Link>
               </div>
             </div>
