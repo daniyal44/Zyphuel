@@ -269,15 +269,62 @@ export default function OrderPage() {
   // Image Magnifier Lightbox state
   const [magnifiedImage, setMagnifiedImage] = useState(null)
 
+  // Interactive On-Cursor Floating Image Magnifier state
+  const [hoverPreview, setHoverPreview] = useState(null)
+
+  const getFloatingPreviewCoords = (x, y) => {
+    if (typeof window === 'undefined') return { left: (x || 0) + 20, top: (y || 0) + 20 }
+    const previewWidth = 240
+    const previewHeight = 230
+    let left = (x || 0) + 20
+    let top = (y || 0) + 20
+
+    if ((x || 0) + previewWidth + 30 > window.innerWidth) {
+      left = Math.max(12, (x || 0) - previewWidth - 20)
+    }
+    if ((y || 0) + previewHeight + 30 > window.innerHeight) {
+      top = Math.max(12, (y || 0) - previewHeight - 20)
+    }
+
+    return { left, top }
+  }
+
+  const handleImageMouseEnter = (src, title, subtitle, e) => {
+    if (!src) return
+    const x = e ? e.clientX : 0
+    const y = e ? e.clientY : 0
+    setHoverPreview({ src, title, subtitle, x, y })
+  }
+
+  const handleImageMouseMove = (e) => {
+    if (!e) return
+    setHoverPreview(prev => (prev ? { ...prev, x: e.clientX, y: e.clientY } : null))
+  }
+
+  const handleImageMouseLeave = () => {
+    setHoverPreview(null)
+  }
+
+  const triggerFullMagnify = (src, title, subtitle, e) => {
+    if (e) {
+      e.stopPropagation()
+    }
+    setHoverPreview(null)
+    setMagnifiedImage({ src, title, subtitle })
+  }
+
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') setMagnifiedImage(null)
+      if (e.key === 'Escape') {
+        setMagnifiedImage(null)
+        setHoverPreview(null)
+      }
     }
-    if (magnifiedImage) {
+    if (magnifiedImage || hoverPreview) {
       window.addEventListener('keydown', handleKeyDown)
     }
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [magnifiedImage])
+  }, [magnifiedImage, hoverPreview])
 
   // Working Hours validation state
   const [officeStatus, setOfficeStatus] = useState(() => checkOfficeHours())
@@ -754,8 +801,11 @@ export default function OrderPage() {
                     ].map((st, i) => (
                       <div key={st.num} style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
                         <div
-                          onClick={() => setMagnifiedImage({ src: st.img, title: st.label, subtitle: `Step ${st.num} Overview` })}
-                          title={`Click to magnify ${st.label} image`}
+                          onMouseEnter={(e) => handleImageMouseEnter(st.img, st.label, `Step ${st.num} Overview`, e)}
+                          onMouseMove={handleImageMouseMove}
+                          onMouseLeave={handleImageMouseLeave}
+                          onClick={(e) => triggerFullMagnify(st.img, st.label, `Step ${st.num} Overview`, e)}
+                          title={`Click or hover to zoom ${st.label} image`}
                           style={{
                             width: '30px',
                             height: '30px',
@@ -836,15 +886,21 @@ export default function OrderPage() {
                         >
                           <div
                             className="fuel-img-frame"
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              setMagnifiedImage({
-                                src: FUEL_IMAGES[type],
-                                title: `${FUEL_DISPLAY[type]} (Euro-V)`,
-                                subtitle: `Live Rate: Rs. ${prices[type].toFixed(2)}/L`
-                              })
-                            }}
-                            title={`Click to magnify ${FUEL_DISPLAY[type]}`}
+                            onMouseEnter={(e) => handleImageMouseEnter(
+                              FUEL_IMAGES[type],
+                              `${FUEL_DISPLAY[type]} (Euro-V)`,
+                              `Live Rate: Rs. ${prices[type].toFixed(2)}/L`,
+                              e
+                            )}
+                            onMouseMove={handleImageMouseMove}
+                            onMouseLeave={handleImageMouseLeave}
+                            onClick={(e) => triggerFullMagnify(
+                              FUEL_IMAGES[type],
+                              `${FUEL_DISPLAY[type]} (Euro-V)`,
+                              `Live Rate: Rs. ${prices[type].toFixed(2)}/L`,
+                              e
+                            )}
+                            title={`Click or hover to zoom ${FUEL_DISPLAY[type]}`}
                             style={{
                               position: 'relative',
                               width: '100%',
@@ -964,15 +1020,21 @@ export default function OrderPage() {
                         >
                           <div
                             className="target-img-frame"
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              setMagnifiedImage({
-                                src: app.image,
-                                title: app.label,
-                                subtitle: 'Refueling Application Target'
-                              })
-                            }}
-                            title={`Click to magnify ${app.label}`}
+                            onMouseEnter={(e) => handleImageMouseEnter(
+                              app.image,
+                              app.label,
+                              'Refueling Application Target',
+                              e
+                            )}
+                            onMouseMove={handleImageMouseMove}
+                            onMouseLeave={handleImageMouseLeave}
+                            onClick={(e) => triggerFullMagnify(
+                              app.image,
+                              app.label,
+                              'Refueling Application Target',
+                              e
+                            )}
+                            title={`Click or hover to zoom ${app.label}`}
                             style={{
                               position: 'relative',
                               width: '100%',
@@ -1087,7 +1149,7 @@ export default function OrderPage() {
                         </div>
                         <div className="stepper-delivery-badge" style={{ marginLeft: 'auto' }}>
                           <span style={{ fontSize: '0.82rem', color: '#ea580c', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
-                            <i className="fa-solid fa-truck"></i> Standard Delivery: <strong>Rs. {standardFee}</strong>
+                            <i className="fa-solid fa-truck"></i>Delivery Charges: <strong>Rs. {standardFee}</strong>
                           </span>
                         </div>
                       </div>
@@ -1297,6 +1359,11 @@ export default function OrderPage() {
                           {INSTANT_PAYMENT_METHODS.map((method) => (
                             <span
                               key={method.name}
+                              onMouseEnter={(e) => handleImageMouseEnter(method.img, method.name, 'Digital Payment Channel', e)}
+                              onMouseMove={handleImageMouseMove}
+                              onMouseLeave={handleImageMouseLeave}
+                              onClick={(e) => triggerFullMagnify(method.img, method.name, 'Digital Payment Channel', e)}
+                              title={`Click or hover to zoom ${method.name} logo`}
                               style={{
                                 display: 'inline-flex',
                                 alignItems: 'center',
@@ -1307,7 +1374,9 @@ export default function OrderPage() {
                                 fontWeight: 700,
                                 background: method.bg,
                                 color: method.color,
-                                border: `1px solid ${method.border}`
+                                border: `1px solid ${method.border}`,
+                                cursor: 'zoom-in',
+                                transition: 'transform 0.15s ease'
                               }}
                             >
                               <img
@@ -1393,6 +1462,11 @@ export default function OrderPage() {
                           {INSTANT_PAYMENT_METHODS.map((method) => (
                             <span
                               key={method.name}
+                              onMouseEnter={(e) => handleImageMouseEnter(method.img, method.name, 'Digital Payment Channel', e)}
+                              onMouseMove={handleImageMouseMove}
+                              onMouseLeave={handleImageMouseLeave}
+                              onClick={(e) => triggerFullMagnify(method.img, method.name, 'Digital Payment Channel', e)}
+                              title={`Click or hover to zoom ${method.name} logo`}
                               style={{
                                 display: 'inline-flex',
                                 alignItems: 'center',
@@ -1403,7 +1477,9 @@ export default function OrderPage() {
                                 fontWeight: 700,
                                 background: method.bg,
                                 color: method.color,
-                                border: `1px solid ${method.border}`
+                                border: `1px solid ${method.border}`,
+                                cursor: 'zoom-in',
+                                transition: 'transform 0.15s ease'
                               }}
                             >
                               <img
@@ -1542,12 +1618,21 @@ export default function OrderPage() {
                             src={FUEL_IMAGES[selectedFuelType]}
                             alt=""
                             aria-hidden="true"
-                            title={`Click to magnify ${FUEL_DISPLAY[selectedFuelType]}`}
-                            onClick={() => setMagnifiedImage({
-                              src: FUEL_IMAGES[selectedFuelType],
-                              title: `${FUEL_DISPLAY[selectedFuelType]} (Euro-V)`,
-                              subtitle: `Unit Rate: Rs. ${fuelRate.toFixed(2)}/L`
-                            })}
+                            title={`Click or hover to zoom ${FUEL_DISPLAY[selectedFuelType]}`}
+                            onMouseEnter={(e) => handleImageMouseEnter(
+                              FUEL_IMAGES[selectedFuelType],
+                              `${FUEL_DISPLAY[selectedFuelType]} (Euro-V)`,
+                              `Unit Rate: Rs. ${fuelRate.toFixed(2)}/L`,
+                              e
+                            )}
+                            onMouseMove={handleImageMouseMove}
+                            onMouseLeave={handleImageMouseLeave}
+                            onClick={(e) => triggerFullMagnify(
+                              FUEL_IMAGES[selectedFuelType],
+                              `${FUEL_DISPLAY[selectedFuelType]} (Euro-V)`,
+                              `Unit Rate: Rs. ${fuelRate.toFixed(2)}/L`,
+                              e
+                            )}
                             style={{ width: '22px', height: '22px', borderRadius: '4px', objectFit: 'contain', background: '#f8fafc', border: '1px solid #e2e8f0', cursor: 'zoom-in', padding: '1px' }}
                             onError={(e) => { e.currentTarget.style.display = 'none'; }}
                           />
@@ -1561,12 +1646,21 @@ export default function OrderPage() {
                             src={DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.image}
                             alt=""
                             aria-hidden="true"
-                            title={`Click to magnify ${DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.label}`}
-                            onClick={() => setMagnifiedImage({
-                              src: DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.image,
-                              title: DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.label,
-                              subtitle: 'Refueling Application Target'
-                            })}
+                            title={`Click or hover to zoom ${DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.label}`}
+                            onMouseEnter={(e) => handleImageMouseEnter(
+                              DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.image,
+                              DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.label,
+                              'Refueling Application Target',
+                              e
+                            )}
+                            onMouseMove={handleImageMouseMove}
+                            onMouseLeave={handleImageMouseLeave}
+                            onClick={(e) => triggerFullMagnify(
+                              DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.image,
+                              DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.label,
+                              'Refueling Application Target',
+                              e
+                            )}
                             style={{ width: '22px', height: '22px', borderRadius: '4px', objectFit: 'contain', background: '#f8fafc', border: '1px solid #e2e8f0', cursor: 'zoom-in', padding: '1px' }}
                             onError={(e) => { e.currentTarget.style.display = 'none'; }}
                           />
@@ -1759,6 +1853,94 @@ export default function OrderPage() {
           </div>
         </section>
       </main>
+
+      {/* Interactive Floating On-Cursor Image Magnifier Preview */}
+      {hoverPreview && (
+        <div
+          className="cursor-magnifier-float-preview"
+          id="cursor-magnifier-float-card"
+          style={{
+            position: 'fixed',
+            left: `${getFloatingPreviewCoords(hoverPreview.x, hoverPreview.y).left}px`,
+            top: `${getFloatingPreviewCoords(hoverPreview.x, hoverPreview.y).top}px`,
+            zIndex: 99998,
+            pointerEvents: 'none',
+            userSelect: 'none',
+            width: '240px',
+            backgroundColor: '#0f172a',
+            border: '1px solid rgba(56, 189, 248, 0.45)',
+            borderRadius: '12px',
+            padding: '10px',
+            boxShadow: '0 20px 45px -10px rgba(0, 0, 0, 0.75), 0 0 18px rgba(2, 132, 199, 0.28)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
+            backdropFilter: 'blur(8px)',
+            WebkitBackdropFilter: 'blur(8px)',
+            transition: 'left 0.05s ease-out, top 0.05s ease-out'
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '6px' }}>
+            <span style={{
+              background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
+              color: '#ffffff',
+              fontSize: '0.62rem',
+              fontWeight: 800,
+              padding: '2px 7px',
+              borderRadius: '4px',
+              textTransform: 'uppercase',
+              letterSpacing: '0.4px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}>
+              <i className="fa-solid fa-magnifying-glass-plus" style={{ fontSize: '0.58rem' }}></i>
+              Zoom View
+            </span>
+            <span style={{ color: '#94a3b8', fontSize: '0.62rem', fontWeight: 600 }}>
+              Click to Expand
+            </span>
+          </div>
+
+          <div style={{
+            width: '100%',
+            height: '145px',
+            background: '#020617',
+            borderRadius: '8px',
+            overflow: 'hidden',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '6px',
+            border: '1px solid rgba(255, 255, 255, 0.08)'
+          }}>
+            <img
+              src={hoverPreview.src}
+              alt={hoverPreview.title}
+              style={{
+                maxWidth: '100%',
+                maxHeight: '100%',
+                width: 'auto',
+                height: 'auto',
+                objectFit: 'contain',
+                transform: 'scale(1.08)',
+                transition: 'transform 0.2s ease'
+              }}
+            />
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+            <span style={{ color: '#ffffff', fontWeight: 800, fontSize: '0.82rem', lineHeight: 1.25 }}>
+              {hoverPreview.title}
+            </span>
+            {hoverPreview.subtitle && (
+              <span style={{ color: '#94a3b8', fontSize: '0.68rem', lineHeight: 1.25 }}>
+                {hoverPreview.subtitle}
+              </span>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* High-Resolution Image Magnifier Lightbox Modal */}
       {magnifiedImage && (
@@ -3142,6 +3324,25 @@ export default function OrderPage() {
           }
           .tracker-progress-line {
             left: 12px;
+          }
+        }
+
+        .cursor-magnifier-float-preview {
+          animation: popInCursorFloat 0.16s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes popInCursorFloat {
+          from {
+            opacity: 0;
+            transform: scale(0.92) translateY(6px);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+        }
+        @media (max-width: 768px) {
+          .cursor-magnifier-float-preview {
+            display: none !important;
           }
         }
       `}</style>
