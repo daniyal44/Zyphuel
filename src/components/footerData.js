@@ -5,7 +5,7 @@ export const footerData = {
     logoAlt: 'Zyphuel - Mobile Fuel Delivery Service Lahore',
     fallbackLogo: true, // triggers SVG if image fails
     description:
-      'Zyphuel provides 24/7 on-demand doorstep petrol and diesel fuel delivery across Lahore with calibrated digital flow meters and real-time GPS tracking.',
+      'Zyphuel provides certified on-demand doorstep petrol and diesel fuel delivery across Lahore within 45 minutes with calibrated digital flow meters and real-time GPS tracking.',
   },
   contact: {
     phone: '+92 3230-112464',

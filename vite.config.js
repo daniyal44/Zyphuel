@@ -64,6 +64,54 @@ function apkServerPlugin() {
   }
 }
 
+function ezgifServerPlugin() {
+  const serveEzgif = (req, res, next) => {
+    const url = req.url ? req.url.split('?')[0] : ''
+    if (url.startsWith('/ezgif-2f1a39c97e5b173b-jpg/')) {
+      const fileName = path.basename(url)
+      const publicPath = path.resolve(__dirname, 'public/ezgif-2f1a39c97e5b173b-jpg', fileName)
+      const rootPath = path.resolve(__dirname, 'ezgif-2f1a39c97e5b173b-jpg', fileName)
+      const targetPath = fs.existsSync(publicPath) ? publicPath : (fs.existsSync(rootPath) ? rootPath : null)
+
+      if (targetPath) {
+        const stat = fs.statSync(targetPath)
+        res.setHeader('Content-Type', 'image/jpeg')
+        res.setHeader('Content-Length', stat.size)
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
+        res.setHeader('Access-Control-Allow-Origin', '*')
+
+        if (req.method === 'OPTIONS') {
+          res.statusCode = 204
+          res.end()
+          return
+        }
+        if (req.method === 'HEAD') {
+          res.statusCode = 200
+          res.end()
+          return
+        }
+        if (req.method === 'GET') {
+          res.statusCode = 200
+          const stream = fs.createReadStream(targetPath)
+          stream.pipe(res)
+          return
+        }
+      }
+    }
+    next()
+  }
+
+  return {
+    name: 'vite-plugin-ezgif-serve',
+    configureServer(server) {
+      server.middlewares.use(serveEzgif)
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use(serveEzgif)
+    }
+  }
+}
+
 function zyphuelOrderGuardPlugin() {
   const isNightCutoffNow = () => {
     try {
@@ -111,7 +159,7 @@ function zyphuelOrderGuardPlugin() {
 }
 
 export default defineConfig(({ isSsrBuild }) => ({
-  plugins: [react(), apkServerPlugin(), zyphuelOrderGuardPlugin()],
+  plugins: [react(), apkServerPlugin(), ezgifServerPlugin(), zyphuelOrderGuardPlugin()],
   server: {
     watch: {
       ignored: ['**/dist/**', '**/dist-ssr/**', '**/APK/**', '**/*.apk', '**/plugins/**']

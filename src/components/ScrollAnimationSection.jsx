@@ -74,11 +74,19 @@ export default function ScrollAnimationSection() {
     // Priority 1: Instant load and render Frame 1
     const firstImg = new Image()
     firstImg.decoding = 'async'
-    firstImg.src = framePath(1)
-    imgs[0] = firstImg
     firstImg.onload = () => {
       if (!isMounted) return
-      renderFrame(0)
+      renderFrame(targetIndexRef.current || 0)
+    }
+    firstImg.onerror = (e) => {
+      console.warn('Hero frame 1 failed to load:', framePath(1), e)
+    }
+    firstImg.src = framePath(1)
+    imgs[0] = firstImg
+
+    // If frame 1 was already cached and loaded synchronously
+    if (firstImg.complete && firstImg.naturalWidth > 0) {
+      renderFrame(targetIndexRef.current || 0)
     }
 
     // Priority 2: Fast chunk streaming with async GPU decoding
@@ -91,9 +99,16 @@ export default function ScrollAnimationSection() {
       for (let i = nextIndex; i < limit; i++) {
         const img = new Image()
         img.decoding = 'async'
-        img.src = framePath(i)
         const idx = i - 1
         imgs[idx] = img
+        img.onload = () => {
+          if (!isMounted) return
+          // If canvas hasn't drawn anything yet, draw first available loaded frame
+          if (!lastDrawnImgRef.current) {
+            renderFrame(targetIndexRef.current || 0)
+          }
+        }
+        img.src = framePath(i)
         if (img.decode) {
           img.decode().catch(() => {})
         }
@@ -143,12 +158,14 @@ export default function ScrollAnimationSection() {
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     window.addEventListener('resize', handleScroll, { passive: true })
+    window.addEventListener('orientationchange', handleScroll, { passive: true })
 
     handleScroll()
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('resize', handleScroll)
+      window.removeEventListener('orientationchange', handleScroll)
     }
   }, [renderFrame, scrolled])
 

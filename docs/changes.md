@@ -741,5 +741,9 @@ Aligned all corporate credentials, physical location indicators, executive title
   - **Image Magnifier Lightbox Modal**: Created a dedicated high-resolution lightbox modal (`magnifiedImage` state, backdrop blur, scale-up entrance animation, zoom badge indicator, and Esc key dismissal). Clicking any stepper thumbnail, fuel card image, refueling target card, or summary thumbnail instantly magnifies the image in full view.
   - **Prevented Duplicate Text Selection**: Added `alt=""` and `aria-hidden="true"` on stepper thumbnail images so selecting or copying stepper text no longer produces duplicate ("Fuel Fuel") labels.
 
-
-
+### 21.14 Footer Description Reconciliation (Removed Inaccurate 24/7 Delivery Claim)
+- **User Directive**: *"Zyphuel provides 24/7 on-demand doorstep petrol and diesel fuel delivery across Lahore with calibrated digital flow meters and real-time GPS tracking. is information ko sai karo footer ma sa"*
+- **Implementation & Harmonization**:
+  - Reconciled the primary footer brand description in `src/components/footerData.js`.
+  - Replaced the inaccurate `24/7 on-demand doorstep petrol and diesel fuel delivery` claim with truthful and verified copy: `Zyphuel provides certified on-demand doorstep petrol and diesel fuel delivery across Lahore within 45 minutes with calibrated digital flow meters and real-time GPS tracking.`
+  - Aligned the global footer with our official business logic: doorstep delivery operating hours (8:00 AM – 10:00 PM daily / fast dispatch within 45 minutes), preserving the 24/7 designation exclusively for the on-demand WhatsApp emergency helpline.
