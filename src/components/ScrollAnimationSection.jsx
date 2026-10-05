@@ -34,12 +34,12 @@ export default function ScrollAnimationSection() {
     if (!img || !img.complete || img.naturalWidth === 0) {
       let fallback = null
       for (let offset = 1; offset < FRAME_COUNT; offset++) {
-        const prev = images[safeIndex - offset]
+        const prev = safeIndex - offset >= 0 ? images[safeIndex - offset] : null
         if (prev && prev.complete && prev.naturalWidth > 0) {
           fallback = prev
           break
         }
-        const next = images[safeIndex + offset]
+        const next = safeIndex + offset < FRAME_COUNT ? images[safeIndex + offset] : null
         if (next && next.complete && next.naturalWidth > 0) {
           fallback = next
           break
@@ -103,10 +103,13 @@ export default function ScrollAnimationSection() {
         imgs[idx] = img
         img.onload = () => {
           if (!isMounted) return
-          // If canvas hasn't drawn anything yet, draw first available loaded frame
-          if (!lastDrawnImgRef.current) {
+          // If canvas hasn't drawn anything yet, or user is currently at this frame, draw it
+          if (!lastDrawnImgRef.current || targetIndexRef.current === idx) {
             renderFrame(targetIndexRef.current || 0)
           }
+        }
+        img.onerror = () => {
+          console.warn(`Frame ${i} failed to load:`, framePath(i))
         }
         img.src = framePath(i)
         if (img.decode) {
@@ -128,6 +131,7 @@ export default function ScrollAnimationSection() {
 
   // Real-time RAF-synchronized scroll tracker guaranteeing latest frame is always drawn
   useEffect(() => {
+    let hasScrolled = false
     const handleScroll = () => {
       const container = containerRef.current
       if (!container) return
@@ -136,7 +140,8 @@ export default function ScrollAnimationSection() {
       const scrollTop = -rect.top
       const maxScroll = rect.height - window.innerHeight
 
-      if (scrollTop > 20 && !scrolled) {
+      if (scrollTop > 20 && !hasScrolled) {
+        hasScrolled = true
         setScrolled(true)
       }
 
@@ -167,7 +172,7 @@ export default function ScrollAnimationSection() {
       window.removeEventListener('resize', handleScroll)
       window.removeEventListener('orientationchange', handleScroll)
     }
-  }, [renderFrame, scrolled])
+  }, [renderFrame])
 
   return (
     <section

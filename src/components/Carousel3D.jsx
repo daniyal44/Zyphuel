@@ -45,10 +45,28 @@ const DATA_3D = [
 export default function Carousel3D() {
   const [rotationAngle, setRotationAngle] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const [cardWidth, setCardWidth] = useState(() => {
+    if (typeof window === 'undefined') return 220
+    if (window.innerWidth <= 380) return 140
+    if (window.innerWidth <= 480) return 165
+    if (window.innerWidth <= 768) return 190
+    return 220
+  })
+
+  useEffect(() => {
+    const handleResize = () => {
+      const w = window.innerWidth
+      if (w <= 380) setCardWidth(140)
+      else if (w <= 480) setCardWidth(165)
+      else if (w <= 768) setCardWidth(190)
+      else setCardWidth(220)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const count = DATA_3D.length
   const angle = 360 / count
-  const cardWidth = 220
   // Standard 3D cylinder radius calculation
   const radius = Math.round((cardWidth / 2) / Math.tan(Math.PI / count))
 
@@ -80,7 +98,7 @@ export default function Carousel3D() {
           </p>
         </div>
 
-        <div className="fade-in-up carousel-3d-wrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '400px', position: 'relative' }}>
+        <div className="fade-in-up carousel-3d-wrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '360px', position: 'relative' }}>
           {/* Scoped styles for the 3D carousel */}
           <style dangerouslySetInnerHTML={{
             __html: `
@@ -93,17 +111,35 @@ export default function Carousel3D() {
               overflow: visible;
               margin-bottom: 15px;
             }
+            @media (max-width: 768px) {
+              .scene-container {
+                height: 280px;
+                perspective: 950px;
+              }
+            }
+            @media (max-width: 480px) {
+              .scene-container {
+                height: 250px;
+                perspective: 800px;
+              }
+            }
+            @media (max-width: 380px) {
+              .scene-container {
+                height: 210px;
+                perspective: 680px;
+              }
+            }
             .a3d-carousel {
               display: grid;
               transform-style: preserve-3d;
               transition: transform 1s cubic-bezier(0.2, 0.85, 0.32, 1.2);
-              width: 220px;
-              height: 220px;
+              width: ${cardWidth}px;
+              height: ${cardWidth}px;
             }
             .card-3d {
               grid-area: 1 / 1;
-              width: 220px;
-              height: 220px;
+              width: ${cardWidth}px;
+              height: ${cardWidth}px;
               background-color: rgba(255, 255, 255, 0.04);
               backdrop-filter: blur(8px);
               -webkit-backdrop-filter: blur(8px);
@@ -114,7 +150,7 @@ export default function Carousel3D() {
               display: flex;
               align-items: center;
               justify-content: center;
-              padding: 16px;
+              padding: 12px;
               box-sizing: border-box;
               overflow: hidden;
               cursor: pointer;
@@ -196,8 +232,8 @@ export default function Carousel3D() {
                       alt={item.alt}
                       loading="lazy"
                       decoding="async"
-                      width="220"
-                      height="220"
+                      width={cardWidth}
+                      height={cardWidth}
                     />
                   </div>
                 )

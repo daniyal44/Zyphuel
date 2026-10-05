@@ -421,6 +421,40 @@
   }
 }
 
+@media (max-width: 380px) {
+  .about-team-section .carousel-container {
+    height: 280px;
+    max-width: 250px;
+  }
+  .about-team-section .carousel-track {
+    width: 170px;
+  }
+  .about-team-section .card {
+    width: 135px;
+    height: 135px;
+    border-radius: 14px;
+  }
+  .about-team-section .card.up-2 {
+    transform: translateY(-80px) scale(0.65) translateZ(-160px);
+  }
+  .about-team-section .card.up-1 {
+    transform: translateY(-40px) scale(0.8) translateZ(-70px);
+  }
+  .about-team-section .card.down-1 {
+    transform: translateY(40px) scale(0.8) translateZ(-70px);
+  }
+  .about-team-section .card.down-2 {
+    transform: translateY(80px) scale(0.65) translateZ(-160px);
+  }
+  .about-team-section .member-name {
+    font-size: 1.15rem;
+  }
+  .about-team-section .member-role {
+    font-size: 0.85rem;
+  }
+}
+
+
 /* ==========================================================================
    DOWNLOAD PAGE STYLES (Premium International App Showcase)
    ========================================================================== */
@@ -1348,6 +1382,25 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 380px) {
+  .phone-mockup-device {
+    width: 236px;
+    height: 468px;
+    border-width: 6px;
+    border-radius: 26px;
+    margin: 0 auto;
+    max-width: calc(100vw - 28px);
+  }
+  .download-hero-content .hero-title {
+    font-size: 1.45rem;
+  }
+  .btn-download-main {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+
 
 /* Dynamic Version & Changelog Section Styles */
 .version-meta-highlight {

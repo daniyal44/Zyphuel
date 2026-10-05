@@ -523,15 +523,15 @@ export default function ServicesPage() {
         </section>
 
         {/* Bookshelf Animation */}
-        <section style={{ padding: '4rem 0', backgroundColor: '#f3f4f6' }}>
-          <div style={{ textAlign: 'center', fontWeight: 'bold', color: '#1f2937', marginBottom: '2rem' }}>
+        <section style={{ padding: '3.5rem 0', backgroundColor: '#f3f4f6' }}>
+          <div style={{ textAlign: 'center', fontWeight: 'bold', color: '#1f2937', marginBottom: '1.5rem', padding: '0 16px' }}>
             <h2>Services Knowledge &amp; Digital Library</h2>
           </div>
-          <div style={{ width: '100%', height: '600px', maxWidth: '1200px', margin: '0 auto' }}>
+          <div className="bookshelf-iframe-container" style={{ width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
             <iframe
               src="https://bookssection.netlify.app/"   
               title="Book Animation"
-              style={{ width: '100%', height: '100%', border: 'none' }}
+              style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
             />
           </div>
         </section>

@@ -224,7 +224,7 @@
   flex-shrink: 0;
 }
 
-/* Responsive Position */
+/* Responsive Position & Multi-Tier Mobile Optimization */
 @media (max-width: 768px) {
   .lahore-places-menu {
     position: fixed;
@@ -237,3 +237,51 @@
     max-height: 70vh;
   }
 }
+
+@media (max-width: 480px) {
+  .lahore-places-menu {
+    top: calc(var(--nav-height, 70px) + 6px);
+    left: 8px;
+    right: 8px;
+    max-width: calc(100vw - 16px);
+    max-height: 74vh;
+    border-radius: 14px;
+  }
+  .lahore-places-header {
+    padding: 11px 14px;
+  }
+  .lahore-place-link {
+    padding: 8px 10px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .lahore-places-menu {
+    top: calc(var(--nav-height, 64px) + 5px);
+    left: 6px;
+    right: 6px;
+    max-width: calc(100vw - 12px);
+    max-height: 76vh;
+    border-radius: 12px;
+  }
+  .lahore-places-header {
+    padding: 9px 12px;
+  }
+  .lahore-places-heading {
+    font-size: 0.88rem;
+  }
+  .lahore-places-count {
+    font-size: 0.68rem;
+  }
+  .lahore-place-link {
+    padding: 7px 8px;
+    font-size: 0.80rem;
+    gap: 8px;
+  }
+  .lahore-places-footer {
+    padding: 8px 12px;
+    font-size: 0.68rem;
+  }
+}
+

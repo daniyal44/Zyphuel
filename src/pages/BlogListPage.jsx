@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { articles } from '../data/articles'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { APP_VERSION } from '../data/appVersion'
+import AdSenseInFeed from '../components/AdSenseInFeed'
 
 export default function BlogListPage() {
   const [activeFilter, setActiveFilter] = useState('All')
@@ -167,25 +168,40 @@ export default function BlogListPage() {
           {/* Article Cards */}
           <div className="blog-grid">
             {filteredArticles.map((article, idx) => (
-              <Link
-                to={`/blog/${article.slug}/`}
-                key={article.id}
-                className="blog-card fade-in-up"
-                style={{ transitionDelay: `${idx * 0.1}s`, textDecoration: 'none', color: 'inherit' }}
-              >
-                <div className="blog-card-image-wrapper">
-                  <img src={article.image} alt={article.title} loading="lazy" decoding="async" width="400" height="225" className="blog-card-image" />
-                </div>
-                <div className="blog-card-content">
-                  <span className={`blog-card-category ${article.categoryClass}`}>{article.category}</span>
-                  <h3 className="blog-card-title">{article.title}</h3>
-                  <p className="blog-card-summary">{article.summary}</p>
-                  <div className="blog-card-meta">
-                    <span><i className={article.authorIcon}></i> {article.author}</span>
-                    <span>{article.date}</span>
+              <Fragment key={article.id}>
+                <Link
+                  to={`/blog/${article.slug}/`}
+                  className="blog-card fade-in-up"
+                  style={{ transitionDelay: `${idx * 0.1}s`, textDecoration: 'none', color: 'inherit' }}
+                >
+                  <div className="blog-card-image-wrapper">
+                    <img src={article.image} alt={article.title} loading="lazy" decoding="async" width="400" height="225" className="blog-card-image" />
                   </div>
-                </div>
-              </Link>
+                  <div className="blog-card-content">
+                    <span className={`blog-card-category ${article.categoryClass}`}>{article.category}</span>
+                    <h3 className="blog-card-title">{article.title}</h3>
+                    <p className="blog-card-summary">{article.summary}</p>
+                    <div className="blog-card-meta">
+                      <span><i className={article.authorIcon}></i> {article.author}</span>
+                      <span>{article.date}</span>
+                    </div>
+                  </div>
+                </Link>
+
+                {/* Google AdSense Native In-Feed Ad (Slot: 8572960244) */}
+                {(idx === 2 || idx === 5 || (filteredArticles.length < 3 && idx === filteredArticles.length - 1)) && (
+                  <div
+                    key={`infeed-ad-${idx}`}
+                    className="blog-infeed-ad-card fade-in-up"
+                    style={{ transitionDelay: `${(idx + 1) * 0.1}s` }}
+                  >
+                    <div className="blog-infeed-ad-badge">
+                      <i className="fa-solid fa-rectangle-ad"></i> Sponsored Feed
+                    </div>
+                    <AdSenseInFeed />
+                  </div>
+                )}
+              </Fragment>
             ))}
           </div>
 

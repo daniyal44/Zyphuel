@@ -2276,13 +2276,44 @@ a.footer-contact-link:hover {
     }
 }
 
-/* 2. Ultra-Wide & 4K Displays (1920px and above) */
+/* 2. Ultra-Wide Displays (1920px and above) */
 @media (min-width: 1920px) {
     :root {
-        --container-max: 1480px;
+        --container-max: 1520px;
     }
     .hero-title {
         font-size: 3.8rem;
+    }
+    .hero-description {
+        max-width: 720px;
+        font-size: 1.15rem;
+    }
+}
+
+/* 3. Extreme 4K & Ultrawide Displays (2560px and above) */
+@media (min-width: 2560px) {
+    :root {
+        --container-max: 1680px;
+    }
+    .hero-title {
+        font-size: 4.2rem;
+    }
+    .hero-description {
+        max-width: 800px;
+        font-size: 1.25rem;
+    }
+    .section-title {
+        font-size: 2.6rem;
+    }
+    .section-subtitle {
+        font-size: 1.15rem;
+        max-width: 800px;
+    }
+    .order-container-grid {
+        gap: 50px;
+    }
+    .hero-graphic {
+        max-width: 680px;
     }
 }
 
@@ -2482,6 +2513,73 @@ a.footer-contact-link:hover {
         flex-wrap: wrap;
         gap: 12px;
     }
+
+    /* Pump Callout Banner Responsive */
+    .pump-callout-grid {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        text-align: center;
+        gap: 16px;
+    }
+    .pump-callout-text h3 {
+        justify-content: center;
+        text-align: center;
+        font-size: 1.15rem;
+    }
+    .pump-callout-ctas {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+    .btn-white-pump,
+    .btn-whatsapp-dispatch {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Blog CTA Banners Responsive */
+    .blog-download-cta-banner {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        text-align: center;
+        padding: 18px 16px !important;
+    }
+    .blog-download-cta-banner > div:first-child {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        max-width: 100% !important;
+    }
+    .blog-download-cta-btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+    .article-download-cta-box {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        text-align: center;
+        padding: 16px 14px !important;
+    }
+    .article-download-cta-box > div:first-child {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    #article-download-btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    /* Bookshelf Iframe Responsive */
+    .bookshelf-iframe-container {
+        height: 440px !important;
+    }
+
+    /* Competitor Comparison Table responsive container */
+    .comp-table-container {
+        border-radius: 12px;
+        -webkit-overflow-scrolling: touch;
+    }
 }
 
 /* 6. Standard Mobile Phones (Up to 576px) */
@@ -2638,46 +2736,69 @@ a.footer-contact-link:hover {
 
 /* 7. Ultra-Compact Mobile Screens (320px to 380px, e.g. iPhone SE, Galaxy Z Fold outer) */
 @media (max-width: 380px) {
-    .container {
-        padding: 0 12px;
+    :root {
+        --nav-height: 64px;
     }
+    .container {
+        padding: 0 10px;
+    }
+    /* Keep Lahore City badge visible and compact so users can click active places menu */
     .header-badges {
-        display: none !important;
+        display: flex !important;
+        margin-left: auto;
+        margin-right: 6px;
+    }
+    .header-badges .badge-pill {
+        padding: 3px 6px !important;
+        font-size: 0.68rem !important;
+        gap: 3px !important;
+    }
+    .header-badges .badge-pill span {
+        font-size: 0.68rem !important;
+        font-weight: 700;
+    }
+    .header-badges .badge-chevron {
+        font-size: 0.6rem !important;
     }
     .logo img {
-        max-width: 115px;
+        max-width: 100px;
         height: auto;
     }
     .section-title {
-        font-size: 1.38rem;
+        font-size: 1.35rem;
     }
     .hero-title {
-        font-size: 1.75rem;
+        font-size: 1.65rem;
     }
     .hero-trust-badge {
         flex: 1 1 100%;
         min-width: 100%;
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+    .hero-badges-row {
+        gap: 6px;
     }
     .order-form-panel {
-        padding: 16px 10px;
+        padding: 14px 8px;
     }
     .summary-card {
-        padding: 16px 10px;
+        padding: 14px 8px;
     }
     .quantity-config-card {
-        padding: 12px 8px;
+        padding: 10px 6px;
     }
     .quantity-stepper {
-        width: 125px;
-        height: 44px;
+        width: 118px;
+        height: 42px;
     }
     .stepper-btn {
-        width: 38px;
-        font-size: 1.1rem;
+        width: 34px;
+        font-size: 1rem;
     }
     .stepper-input {
-        width: 44px;
-        font-size: 0.95rem;
+        width: 40px;
+        font-size: 0.9rem;
     }
     .contact-method-grid {
         grid-template-columns: 1fr;
@@ -2685,9 +2806,10 @@ a.footer-contact-link:hover {
     }
     .contact-method-card {
         flex-direction: row;
-        padding: 8px 12px;
+        padding: 8px 10px;
         justify-content: flex-start;
-        gap: 12px;
+        gap: 10px;
+        font-size: 0.82rem;
     }
     .contact-method-card.selected::after {
         top: 50%;
@@ -2695,9 +2817,55 @@ a.footer-contact-link:hover {
         right: 12px;
     }
     .tracker-modal {
-        padding: 18px 10px;
+        padding: 16px 8px;
+    }
+    .btn {
+        font-size: 0.88rem;
+        padding: 10px 14px;
+    }
+    .pump-callout-text h3 {
+        font-size: 1.05rem;
+    }
+    .pump-callout-text p {
+        font-size: 0.82rem;
+    }
+    .bookshelf-iframe-container {
+        height: 300px !important;
     }
 }
+
+/* 8. Micro-Screens & Foldable Outer Covers (320px to 340px) */
+@media (max-width: 340px) {
+    .container {
+        padding: 0 8px;
+    }
+    .logo img {
+        max-width: 88px;
+    }
+    .header-badges .badge-pill {
+        padding: 2px 5px !important;
+        font-size: 0.62rem !important;
+    }
+    .hero-title {
+        font-size: 1.48rem;
+    }
+    .section-title {
+        font-size: 1.25rem;
+    }
+    .quantity-stepper {
+        width: 108px;
+        height: 38px;
+    }
+    .stepper-btn {
+        width: 30px;
+        font-size: 0.95rem;
+    }
+    .stepper-input {
+        width: 36px;
+        font-size: 0.85rem;
+    }
+}
+
 
 /* ==========================================================================
    LEGAL PAGES (Privacy Policy & Terms of Use)
@@ -3685,6 +3853,49 @@ a.footer-contact-link:hover {
     .blog-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* ==========================================================================
+   GOOGLE ADSENSE NATIVE IN-FEED AD CARD
+   Variable-height container per Google AdSense guidelines
+   ========================================================================== */
+.blog-infeed-ad-card {
+    background-color: #ffffff;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto !important; /* Variable height container per Google AdSense guidelines */
+    min-height: 280px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.blog-infeed-ad-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.blog-infeed-ad-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 12px;
+}
+
+.adsense-infeed-container {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
 }
 
 /* Detailed Blog Modal Styles */

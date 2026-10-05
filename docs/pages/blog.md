@@ -69,9 +69,24 @@
 
 ---
 
+## Google AdSense Native In-Feed Ad Monetization Architecture
+- **Ad Slot**: `8572960244`
+- **Layout Key**: `-6t+ed+2i-1n-4w`
+- **Publisher ID**: `ca-pub-6127960264752741`
+- **Format**: `data-ad-format="fluid"`
+- **Component File**: `src/components/AdSenseInFeed.jsx`
+- **Container Architecture**: Enforces variable-height container (`height: auto !important; min-height: 280px;`) conforming strictly to Google AdSense guidelines against fixed-height container distortion.
+- **Feed Placements**:
+  - **Blog Listing Feed (`src/pages/BlogListPage.jsx`)**: Dynamically embedded inside `.blog-grid` after the 3rd card (`idx === 2`), 6th card (`idx === 5`), and fallback at end of smaller filtered views.
+  - **Blog Article Page (`src/pages/BlogArticlePage.jsx`)**: Embedded directly before the Related Guides & Energy Insights grid.
+- **Lifecycle & SSR Safety**: Guards against SSR `window is not defined` crashes, prevents duplicate `(adsbygoogle).push({})` calls on already filled slots via `data-adsbygoogle-status` attribute inspection, and auto-injects AdSense script if missing.
+
+---
+
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-05** | **Google AdSense Native In-Feed Ad Integration (`AdSenseInFeed.jsx`)**: Embedded official Google In-feed ad code snippet (`data-ad-slot="8572960244"`, `data-ad-layout-key="-6t+ed+2i-1n-4w"`, `ca-pub-6127960264752741`, `data-ad-format="fluid"`) natively into the content feeds of `BlogListPage.jsx`, `HomePage.jsx` blog grid, and `BlogArticlePage.jsx`. Configured with variable-height styling (`.blog-infeed-ad-card`) and client-side lifecycle execution with SSR/SSG pre-render safety. | User provided Google AdSense in-feed ad snippet and requested placement inside feed content. |
 | **2026-10-01** | **Prominent In-Content 'Download' CTAs Added**: Implemented dedicated, prominent in-content Download CTAs on both the Blog listing page (`#blog-download-btn`, `data-testid="blog-download-btn"`) and individual article template (`#article-download-btn`, `data-testid="article-download-btn"`), linking directly to `/download/`. Enforced `opacity: 1; visibility: visible;` and eliminated `.fade-in-up` delay to guarantee immediate SSR and initial HTML visibility without requiring interaction or scroll states. | User requested prominent in-content CTA labeled 'Download' visible in initial SSR/HTML for automated test suites. |
 | **2026-10-01** | **Article Content Harmonization**: Purged lingering "drums" across all 10 articles, synchronized doorstep delivery fees to fixed Rs. 300 (up to 10L) and Rs. 320–400 (+Rs. 20/L step for 11L–15L Max), and updated pump retail margin to +Rs. 5.00/L. | Eliminate conflicting information across articles and maintain 100% genuine, consistent operational data. |
 | **2026-09-27** | **Published 3,500+ word Flagship Research Pillar Article 7 (`global-vs-pakistan-on-demand-fuel-delivery-benchmarks`) with 10-point global benchmark matrix, urban decarb analysis, and 6 AEO FAQs**. Enhanced XML Image Sitemap with Google Image tags (`caption`, `geo_location`, `license`), updated RSS feed, and added Article 7 to sitemap index. | Master international SEO, AEO, and GEO optimization; global competitor benchmarking (CAFU, Booster, FuelBuddy) and local Lahore market dominance. |
