@@ -812,5 +812,19 @@ Aligned all corporate credentials, physical location indicators, executive title
     - Compiled all 17 static HTML routes via `npm run build` with exit code 0.
     - Verified static presence of `<ins class="adsbygoogle" ... data-ad-slot="8572960244">` across `dist/index.html`, `dist/blog/index.html`, and `dist/blog/*/index.html` for instant Google crawler verification.
 
+### 21.19 Services Knowledge & Digital Library Iframe Scale Restoration (`ServicesPage.jsx`)
+- **User Directive**: *"service page ma is wale section ka size chota kiyu kia ha" -> "ok"* (fix approval)
+- **Root Cause**:
+  - During the previous responsiveness refactor, inline `height: '600px'` was extracted from `<div className="bookshelf-iframe-container">` into CSS media queries, but the base desktop height rule was accidentally omitted outside media queries.
+  - On desktop viewports (> 768px), the container lacked an explicit height rule, collapsing to `height: auto` and causing the child `<iframe>` to fall back to the browser-default 150px height.
+- **Implementation & Resolution**:
+  - Added base `.bookshelf-iframe-container` styles in `src/index.css` restoring the full **600px desktop height** (`width: 100%; height: 600px; max-width: 1200px; margin: 0 auto; border-radius: 12px; overflow: hidden;`).
+  - Added multi-tier responsive overrides:
+    - Tablet Landscape (`max-width: 992px`): `height: 520px !important;`
+    - Tablet Portrait (`max-width: 768px`): `height: 480px !important;`
+    - Standard Mobile (`max-width: 576px`): `height: 380px !important;`
+    - Ultra-Compact Mobile (`max-width: 380px`): `height: 320px !important;`
+  - Verified clean production SSG compilation (`npm run build`) with 100% route pre-rendering.
+
 
 
