@@ -747,3 +747,12 @@ Aligned all corporate credentials, physical location indicators, executive title
   - Reconciled the primary footer brand description in `src/components/footerData.js`.
   - Replaced the inaccurate `24/7 on-demand doorstep petrol and diesel fuel delivery` claim with truthful and verified copy: `Zyphuel provides certified on-demand doorstep petrol and diesel fuel delivery across Lahore within 45 minutes with calibrated digital flow meters and real-time GPS tracking.`
   - Aligned the global footer with our official business logic: doorstep delivery operating hours (8:00 AM – 10:00 PM daily / fast dispatch within 45 minutes), preserving the 24/7 designation exclusively for the on-demand WhatsApp emergency helpline.
+
+### 21.15 Pure Lahore Places List Toggle Menu (Zero Form Elements)
+- **User Directive**: *"Jab user Lahore city par click kare, to Lahore places menu ko open/close toggle karein. Pehle click par menu open ho aur Lahore ke tamam places/areas/towns ke names show karein, including Lahore Active Towns names. Dobara click par menu close ho jaye. Menu mein sirf place names ki simple list show ho — koi form nahi. Input fields, labels, submit buttons ya form elements bilkul include na karein."*
+- **Implementation & Refinement**:
+  - **Open/Close Toggle Logic (`Header.jsx`)**: Clicking the "Lahore City" badge toggles `townsMenuOpen` (`setTownsMenuOpen(prev => !prev)`). First click opens the menu, second click closes it. Animated chevron switches dynamically (`fa-chevron-up` when open, `fa-chevron-down` when closed).
+  - **Zero Form Elements (`LahorePlacesMenu.jsx`)**: Strictly removed all form tags, input elements, search bars, labels, and submit buttons.
+  - **Pure Comprehensive Place Names List**: Renders all 24 active Lahore places/towns (including all 20 Lahore Active Towns: DHA 1–9, Gulberg, Johar Town, Model Town, Garden Town, Bahria Town, Cantt, Wapda Town, Valencia, Faisal Town, Iqbal Town, Township, Samanabad, Shadbagh, Mughalpura, Liaquatabad, Shalimar, Ravi Town, Aziz Bhatti Town, Data Gunj Bakhsh Town, Askari I–XI, Lake City, Sundar, and Badami Bagh).
+  - **Dismiss Interaction**: Clicking outside via backdrop catcher or pressing the Escape key closes the dropdown cleanly.
+  - **Footer Interoperability (`Footer.jsx`)**: Connected footer "Lahore Active Towns" to toggle `window.__toggleLahorePlacesMenu()`.

@@ -1,0 +1,239 @@
+/* ==========================================================================
+   LAHORE PLACES TOGGLE MENU STYLES (PURE LIST, NO FORMS)
+   ========================================================================== */
+
+/* Menu Backdrop catcher */
+.lahore-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2040;
+  background: rgba(15, 23, 42, 0.25);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  animation: lahoreFadeIn 0.15s ease-out;
+}
+
+@keyframes lahoreFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Dropdown Menu Container */
+.lahore-places-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 380px;
+  max-width: 92vw;
+  max-height: 490px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(226, 232, 240, 0.9);
+  z-index: 2050;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: lahoreMenuSlide 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes lahoreMenuSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Header */
+.lahore-places-header {
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.lahore-places-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lahore-places-pin-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.lahore-places-heading {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.lahore-places-count {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #0284c7;
+  display: block;
+  margin-top: 2px;
+}
+
+.lahore-places-close-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.lahore-places-close-btn:hover {
+  background: #fee2e2;
+  color: #ef4444;
+  border-color: #fca5a5;
+}
+
+/* Pure Places List */
+.lahore-places-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 10px;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f8fafc;
+}
+
+.lahore-places-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lahore-places-list::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+.lahore-places-list::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.lahore-places-item {
+  margin: 0;
+  padding: 0;
+}
+
+.lahore-place-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  color: #1e293b;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+  background: transparent;
+}
+
+.lahore-place-link:hover {
+  background: #f0fdf4;
+  color: #047857;
+  transform: translateX(3px);
+}
+
+.lahore-place-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.lahore-place-link:hover .lahore-place-dot {
+  transform: scale(1.3);
+  background: #059669;
+}
+
+.lahore-place-name {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lahore-place-arrow {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.15s ease;
+}
+
+.lahore-place-link:hover .lahore-place-arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: #059669;
+}
+
+/* Footer Note */
+.lahore-places-footer {
+  padding: 10px 16px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.lahore-places-footer i {
+  color: #10b981;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+/* Responsive Position */
+@media (max-width: 768px) {
+  .lahore-places-menu {
+    position: fixed;
+    top: calc(var(--nav-height, 70px) + 8px);
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-width: 420px;
+    margin: 0 auto;
+    max-height: 70vh;
+  }
+}

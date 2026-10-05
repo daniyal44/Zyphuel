@@ -172,13 +172,30 @@ export default function Footer() {
 
           {/* Column 3: Lahore Towns */}
           <div>
-            <h3 className="footer-title">Lahore Active Towns</h3>
+            <h3
+              className="footer-title"
+              style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+              onClick={() => window.__toggleLahorePlacesMenu && window.__toggleLahorePlacesMenu()}
+              title="Click to toggle Lahore active towns menu"
+            >
+              <span>Lahore Active Towns</span>
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--brand-petrol, #0284c7)' }}>
+                View Full List <i className="fa-solid fa-arrow-up-right-from-square" style={{ marginLeft: '4px' }}></i>
+              </span>
+            </h3>
             <div className={`service-towns-container ${isExpanded ? 'expanded' : 'collapsed'}`}>
               <div className="service-towns-pills">
                 {lahoreTowns.map((town) => (
-                  <span key={town} className="service-town-pill">
+                  <button
+                    key={town}
+                    type="button"
+                    className="service-town-pill"
+                    style={{ cursor: 'pointer', background: 'none', font: 'inherit', textAlign: 'inherit' }}
+                    onClick={() => window.__toggleLahorePlacesMenu && window.__toggleLahorePlacesMenu()}
+                    title={`Click to view ${town} in places menu`}
+                  >
                     {town}
-                  </span>
+                  </button>
                 ))}
               </div>
             </div>
