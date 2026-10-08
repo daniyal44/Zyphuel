@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, Fragment } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { articles } from '../data/articles'
@@ -7,7 +7,6 @@ import BlogModal from '../components/BlogModal'
 import Carousel3D from '../components/Carousel3D'
 import ScrollAnimationSection from '../components/ScrollAnimationSection'
 import HeroGraphic from '../components/HeroGraphic'
-import AdSenseInFeed from '../components/AdSenseInFeed'
 import { useSEO } from '../hooks/useSEO'
 import { APP_VERSION } from '../data/appVersion'
 export default function HomePage() {
@@ -759,26 +758,12 @@ export default function HomePage() {
           {/* Grid of articles */}
           <div className="blog-grid">
             {filteredArticles.map((article, idx) => (
-              <Fragment key={article.id}>
-                <BlogCard
-                  article={article}
-                  index={idx}
-                  onReadMore={setSelectedArticle}
-                />
-                {/* Google AdSense Native In-Feed Ad (Slot: 8572960244) */}
-                {(idx === 2 || (filteredArticles.length < 3 && idx === filteredArticles.length - 1)) && (
-                  <div
-                    key={`home-infeed-ad-${idx}`}
-                    className="blog-infeed-ad-card fade-in-up"
-                    style={{ transitionDelay: '0.25s' }}
-                  >
-                    <div className="blog-infeed-ad-badge">
-                      <i className="fa-solid fa-rectangle-ad"></i> Sponsored Feed
-                    </div>
-                    <AdSenseInFeed />
-                  </div>
-                )}
-              </Fragment>
+              <BlogCard
+                key={article.id}
+                article={article}
+                index={idx}
+                onReadMore={setSelectedArticle}
+              />
             ))}
           </div>
 

@@ -69,23 +69,17 @@
 
 ---
 
-## Google AdSense Native In-Feed Ad Monetization Architecture
-- **Ad Slot**: `8572960244`
-- **Layout Key**: `-6t+ed+2i-1n-4w`
-- **Publisher ID**: `ca-pub-6127960264752741`
-- **Format**: `data-ad-format="fluid"`
-- **Component File**: `src/components/AdSenseInFeed.jsx`
-- **Container Architecture**: Enforces variable-height container (`height: auto !important; min-height: 280px;`) conforming strictly to Google AdSense guidelines against fixed-height container distortion.
-- **Feed Placements**:
-  - **Blog Listing Feed (`src/pages/BlogListPage.jsx`)**: Dynamically embedded inside `.blog-grid` after the 3rd card (`idx === 2`), 6th card (`idx === 5`), and fallback at end of smaller filtered views.
-  - **Blog Article Page (`src/pages/BlogArticlePage.jsx`)**: Embedded directly before the Related Guides & Energy Insights grid.
-- **Lifecycle & SSR Safety**: Guards against SSR `window is not defined` crashes, prevents duplicate `(adsbygoogle).push({})` calls on already filled slots via `data-adsbygoogle-status` attribute inspection, and auto-injects AdSense script if missing.
+## Advertising & Monetization (AdSense Removed)
+- **Status**: Completely Removed (as of 2026-10-09).
+- **History**: Previously utilized Google AdSense Native In-Feed ads (`AdSenseInFeed.jsx`, Slot: `8572960244`, Client: `ca-pub-6127960264752741`).
+- **Current State**: 100% clean, ad-free editorial reading experience across all blog listing grids and individual article pages. Zero third-party ad network scripts or tracking tags loaded.
 
 ---
 
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-09** | **Complete Removal of Google AdSense**: Removed `AdSenseInFeed.jsx`, eliminated sponsored in-feed ad units from `BlogListPage.jsx` and `BlogArticlePage.jsx`, deleted AdSense CSS classes (`.blog-infeed-ad-card`, `.adsense-infeed-container`), removed `ads.txt`, and wiped all AdSense verification tags from `index.html`. All blog feeds and article templates are now purely editorial and ad-free. | User requested: *"adsense sa releated all cod eko remove karo"* |
 | **2026-10-05** | **Google AdSense Native In-Feed Ad Integration (`AdSenseInFeed.jsx`)**: Embedded official Google In-feed ad code snippet (`data-ad-slot="8572960244"`, `data-ad-layout-key="-6t+ed+2i-1n-4w"`, `ca-pub-6127960264752741`, `data-ad-format="fluid"`) natively into the content feeds of `BlogListPage.jsx`, `HomePage.jsx` blog grid, and `BlogArticlePage.jsx`. Configured with variable-height styling (`.blog-infeed-ad-card`) and client-side lifecycle execution with SSR/SSG pre-render safety. | User provided Google AdSense in-feed ad snippet and requested placement inside feed content. |
 | **2026-10-01** | **Prominent In-Content 'Download' CTAs Added**: Implemented dedicated, prominent in-content Download CTAs on both the Blog listing page (`#blog-download-btn`, `data-testid="blog-download-btn"`) and individual article template (`#article-download-btn`, `data-testid="article-download-btn"`), linking directly to `/download/`. Enforced `opacity: 1; visibility: visible;` and eliminated `.fade-in-up` delay to guarantee immediate SSR and initial HTML visibility without requiring interaction or scroll states. | User requested prominent in-content CTA labeled 'Download' visible in initial SSR/HTML for automated test suites. |
 | **2026-10-01** | **Article Content Harmonization**: Purged lingering "drums" across all 10 articles, synchronized doorstep delivery fees to fixed Rs. 300 (up to 10L) and Rs. 320–400 (+Rs. 20/L step for 11L–15L Max), and updated pump retail margin to +Rs. 5.00/L. | Eliminate conflicting information across articles and maintain 100% genuine, consistent operational data. |

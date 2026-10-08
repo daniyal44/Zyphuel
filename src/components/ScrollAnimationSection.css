@@ -1,15 +1,15 @@
 /* ==========================================================================
-   SCROLL ANIMATION SECTION — 100% MATCHED TO REFERENCE zz.html
-   Pure #000 background, native 1:1 canvas scaling, pulse scroll-hint.
-   Equal height (2500vh) across mobile, tablet, laptop, and desktop.
+   SCROLL ANIMATION SECTION — HIGH-PERFORMANCE CINEMATIC 3D REFUELING
+   Pure #000 background, native 1:1 canvas scaling, smooth responsive pacing.
    ========================================================================== */
 
-/* Outer Scroll Track: 2500vh runway matching zz.html scroll pacing */
+/* Outer Scroll Track: Responsive calibrated runway for fluid 60fps pacing */
 .cinematic-scroll-hero {
   position: relative;
-  height: 2500vh;
+  height: 420vh;
   width: 100%;
   background: #000;
+  contain: layout paint;
 }
 
 /* Sticky Stage: Pinned in viewport below header, pure #000 background */
@@ -29,7 +29,7 @@
   box-sizing: border-box;
 }
 
-/* Canvas: Fully covers hero section with integer alignment and zero subpixel pixelation/tearing */
+/* Canvas: Fully covers hero section with hardware acceleration and zero subpixel tearing */
 .reference-canvas {
   position: absolute;
   top: 0;
@@ -48,24 +48,58 @@
   -webkit-transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  will-change: transform;
 }
 
-/* Scroll Hint matching zz.html */
+/* Real-time 3D scrub progress line */
+.cinematic-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0284c7 0%, #38bdf8 100%);
+  z-index: 12;
+  transition: width 0.08s linear;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Interactive Clickable Scroll / Skip Hint */
 .reference-scroll-hint {
   position: absolute;
-  bottom: 30px;
+  bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 15;
-  color: rgba(255, 255, 255, 0.6);
-  font-family: 'Segoe UI', system-ui, sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.75px;
   text-transform: uppercase;
-  animation: scrollHintPulse 2s ease-in-out infinite;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
+  animation: scrollHintPulse 2.4s ease-in-out infinite;
+  transition: opacity 0.4s ease, transform 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+  pointer-events: auto;
   white-space: nowrap;
+}
+
+.reference-scroll-hint:hover {
+  background: rgba(2, 132, 199, 0.8);
+  border-color: rgba(56, 189, 248, 0.5);
+  color: #ffffff;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.reference-scroll-hint:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
 }
 
 .reference-scroll-hint.hidden {
@@ -75,31 +109,34 @@
 
 @keyframes scrollHintPulse {
   0%, 100% {
-    opacity: 0.4;
+    opacity: 0.55;
+    transform: translateX(-50%) translateY(0);
   }
   50% {
     opacity: 1;
+    transform: translateX(-50%) translateY(3px);
   }
 }
 
 /* ==========================================================================
-   Responsive Breakpoints — EQUAL runway length across ALL devices
+   Responsive Breakpoints — Calibrated runway for smooth cross-device UX
    ========================================================================== */
 
 @media (max-width: 992px) {
   .cinematic-scroll-hero {
-    height: 2500vh;
+    height: 350vh;
   }
 }
 
 @media (max-width: 576px) {
   .cinematic-scroll-hero {
-    height: 2500vh;
+    height: 280vh;
   }
 
   .reference-scroll-hint {
     bottom: 20px;
     font-size: 0.75rem;
     letter-spacing: 0.5px;
+    padding: 6px 14px;
   }
 }

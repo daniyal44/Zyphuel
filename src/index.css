@@ -48,7 +48,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
 }
 
 body {
@@ -3873,48 +3873,7 @@ a.footer-contact-link:hover {
     }
 }
 
-/* ==========================================================================
-   GOOGLE ADSENSE NATIVE IN-FEED AD CARD
-   Variable-height container per Google AdSense guidelines
-   ========================================================================== */
-.blog-infeed-ad-card {
-    background-color: #ffffff;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: auto !important; /* Variable height container per Google AdSense guidelines */
-    min-height: 280px;
-    padding: 20px;
-    box-sizing: border-box;
-}
 
-.blog-infeed-ad-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-}
-
-.blog-infeed-ad-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: #94a3b8;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    margin-bottom: 12px;
-}
-
-.adsense-infeed-container {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-}
 
 /* Detailed Blog Modal Styles */
 .blog-modal-backdrop {

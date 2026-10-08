@@ -5,7 +5,6 @@ import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useToast } from '../context/ToastContext'
 import ReadingProgressBar from '../components/ReadingProgressBar'
-import AdSenseInFeed from '../components/AdSenseInFeed'
 import { APP_VERSION } from '../data/appVersion'
 
 export default function BlogArticlePage() {
@@ -460,23 +459,7 @@ export default function BlogArticlePage() {
           </div>
         </div>
 
-        {/* Google AdSense Native In-Feed Ad (Slot: 8572960244) */}
-        <div
-          className="fade-in-up"
-          style={{
-            margin: '3rem 0 1rem 0',
-            padding: '20px',
-            background: '#ffffff',
-            borderRadius: 'var(--radius-md, 16px)',
-            border: '1px solid var(--border-color, #e2e8f0)',
-            boxShadow: 'var(--shadow-sm, 0 2px 8px rgba(15, 23, 42, 0.02))'
-          }}
-        >
-          <div className="blog-infeed-ad-badge">
-            <i className="fa-solid fa-rectangle-ad"></i> Sponsored Content
-          </div>
-          <AdSenseInFeed />
-        </div>
+
 
         {/* Related Articles & Fuel Guides Internal Web */}
         <div className="fade-in-up" style={{ marginTop: '2.5rem', paddingTop: '2rem', borderTop: '1px solid var(--border-color, #e0e0e0)' }}>

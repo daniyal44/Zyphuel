@@ -2,7 +2,8 @@
 # Zyphuel Robots Exclusion Protocol (robots.txt)
 # Official Website: https://zyphuel.netlify.app/
 # Canonical Sitemap Declaration (Top Priority for Crawlers)
-# Last Updated: 2026-10-05
+# Last Updated: 2026-10-07
+Sitemap: https://zyphuel.netlify.app/sitemap.xml
 # ==============================================================================
 
 # Default Crawl Rules for All Search Engine Bots
@@ -204,3 +205,5 @@ Allow: /
 
 User-agent: YouBot
 Allow: /
+
+Sitemap: https://zyphuel.netlify.app/sitemap.xml

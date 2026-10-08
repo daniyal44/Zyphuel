@@ -826,5 +826,18 @@ Aligned all corporate credentials, physical location indicators, executive title
     - Ultra-Compact Mobile (`max-width: 380px`): `height: 320px !important;`
   - Verified clean production SSG compilation (`npm run build`) with 100% route pre-rendering.
 
-
-
+### 21.20 Complete Removal of Google AdSense & Ads Infrastructure
+- **User Directive**: *"adsense sa releated all cod eko remove karo"*
+- **Implementation & Complete Purge**:
+  - **Component Deletion**: Deleted `src/components/AdSenseInFeed.jsx`.
+  - **Verification & Ads.txt Files**: Deleted `ads.txt` and `public/ads.txt`.
+  - **HTML Meta & Script Cleanliness (`index.html`)**:
+    - Removed `<meta name="google-adsense-account" content="ca-pub-6127960264752741" />` verification meta tags.
+    - Removed asynchronous library script `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6127960264752741" crossorigin="anonymous"></script>`.
+    - Removed body `<ins class="adsbygoogle">` unit `ad_2` (`data-ad-slot="4955122740"`).
+  - **React Feed Components**:
+    - `src/pages/HomePage.jsx`: Removed `AdSenseInFeed` import, `Fragment` wrapper, and in-feed sponsored ad slot from `.blog-grid`.
+    - `src/pages/BlogListPage.jsx`: Removed `AdSenseInFeed` import, `Fragment` wrapper, and all in-feed ad cards from the articles grid.
+    - `src/pages/BlogArticlePage.jsx`: Removed `AdSenseInFeed` import and sponsored in-feed ad card preceding related articles.
+  - **CSS Styling (`src/index.css`)**: Removed `.blog-infeed-ad-card`, `.blog-infeed-ad-card:hover`, `.blog-infeed-ad-badge`, and `.adsense-infeed-container` classes.
+  - **Result**: Zero ad network scripts, zero ad telemetry, and zero visual sponsored units across the entire application.

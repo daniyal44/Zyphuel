@@ -12,12 +12,14 @@ export default function ScrollAnimationSection() {
   const canvasRef = useRef(null)
   const imagesRef = useRef([])
   const lastDrawnImgRef = useRef(null)
-  const targetIndexRef = useRef(0)
-  const tickingRef = useRef(false)
+  const targetFrameRef = useRef(0)
+  const currentFrameRef = useRef(0)
+  const isCanvasReadyRef = useRef(false)
 
   const [scrolled, setScrolled] = useState(false)
+  const [scrubProgress, setScrubProgress] = useState(0)
 
-  // Direct 1:1 frame renderer with high-quality smoothing and zero-tear persistence
+  // Direct 1:1 frame renderer with zero-tear persistence and instant fallback
   const renderFrame = useCallback((index) => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -27,10 +29,10 @@ export default function ScrollAnimationSection() {
     const images = imagesRef.current
     if (!images || images.length === 0) return
 
-    const safeIndex = Math.min(FRAME_COUNT - 1, Math.max(0, index))
+    const safeIndex = Math.min(FRAME_COUNT - 1, Math.max(0, Math.round(index)))
     let img = images[safeIndex]
 
-    // If target frame is not yet fully decoded, find nearest loaded neighbor
+    // If target frame is not yet fully loaded, find nearest loaded neighbor
     if (!img || !img.complete || img.naturalWidth === 0) {
       let fallback = null
       for (let offset = 1; offset < FRAME_COUNT; offset++) {
@@ -55,28 +57,57 @@ export default function ScrollAnimationSection() {
       }
     }
 
-    if (canvas.width !== img.naturalWidth) canvas.width = img.naturalWidth
-    if (canvas.height !== img.naturalHeight) canvas.height = img.naturalHeight
+    // Set fixed native dimensions once to prevent GPU buffer re-allocations
+    if (!isCanvasReadyRef.current && img.naturalWidth > 0) {
+      canvas.width = img.naturalWidth
+      canvas.height = img.naturalHeight
+      isCanvasReadyRef.current = true
+    }
 
-    // Ensure highest-quality bicubic resampling for razor-sharp pixels
     ctx.imageSmoothingEnabled = true
-    ctx.imageSmoothingQuality = 'high'
-    ctx.drawImage(img, 0, 0)
+    ctx.imageSmoothingQuality = 'medium'
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
     lastDrawnImgRef.current = img
   }, [])
 
-  // Fast parallel preloading with background GPU decoding for zero main-thread jank
+  // Continuous physics-based RAF LERP loop for silky-smooth 60/120fps scrubbing
+  useEffect(() => {
+    let animId
+    let isRunning = true
+
+    const loop = () => {
+      if (!isRunning) return
+      const diff = targetFrameRef.current - currentFrameRef.current
+
+      // Glide smoothly toward target frame with gentle damping
+      if (Math.abs(diff) > 0.05) {
+        currentFrameRef.current += diff * 0.18
+        renderFrame(currentFrameRef.current)
+        setScrubProgress(Math.min(100, Math.max(0, (currentFrameRef.current / (FRAME_COUNT - 1)) * 100)))
+      }
+
+      animId = requestAnimationFrame(loop)
+    }
+
+    animId = requestAnimationFrame(loop)
+    return () => {
+      isRunning = false
+      if (animId) cancelAnimationFrame(animId)
+    }
+  }, [renderFrame])
+
+  // Fast staged preloading: Frame 1 -> Sparse Keyframes (37 frames) -> Progressive background fill
   useEffect(() => {
     let isMounted = true
     const imgs = new Array(FRAME_COUNT)
     imagesRef.current = imgs
 
-    // Priority 1: Instant load and render Frame 1
+    // Priority 1: Instant load and render Frame 1 immediately
     const firstImg = new Image()
     firstImg.decoding = 'async'
     firstImg.onload = () => {
       if (!isMounted) return
-      renderFrame(targetIndexRef.current || 0)
+      renderFrame(0)
     }
     firstImg.onerror = (e) => {
       console.warn('Hero frame 1 failed to load:', framePath(1), e)
@@ -84,52 +115,84 @@ export default function ScrollAnimationSection() {
     firstImg.src = framePath(1)
     imgs[0] = firstImg
 
-    // If frame 1 was already cached and loaded synchronously
     if (firstImg.complete && firstImg.naturalWidth > 0) {
-      renderFrame(targetIndexRef.current || 0)
+      renderFrame(0)
     }
 
-    // Priority 2: Fast chunk streaming with async GPU decoding
-    let nextIndex = 2
-    const batchSize = 30
+    // Priority 2: Sparse Keyframes (every 8th frame: ~37 frames total, only ~1.5 MB)
+    // Allows full-range scrubbing immediately with zero delay
+    const keyframeIndices = []
+    for (let k = 8; k < FRAME_COUNT; k += 8) {
+      keyframeIndices.push(k)
+    }
+    if (keyframeIndices[keyframeIndices.length - 1] !== FRAME_COUNT - 1) {
+      keyframeIndices.push(FRAME_COUNT - 1)
+    }
 
-    const loadNextBatch = () => {
-      if (!isMounted || nextIndex > FRAME_COUNT) return
-      const limit = Math.min(nextIndex + batchSize, FRAME_COUNT + 1)
-      for (let i = nextIndex; i < limit; i++) {
-        const img = new Image()
-        img.decoding = 'async'
-        const idx = i - 1
-        imgs[idx] = img
-        img.onload = () => {
-          if (!isMounted) return
-          // If canvas hasn't drawn anything yet, or user is currently at this frame, draw it
-          if (!lastDrawnImgRef.current || targetIndexRef.current === idx) {
-            renderFrame(targetIndexRef.current || 0)
+    let kIdx = 0
+    const loadKeyframes = () => {
+      if (!isMounted) return
+      if (kIdx >= keyframeIndices.length) {
+        // Once keyframes are queued, progressively fill remaining frames in background
+        loadAllRemainingFrames()
+        return
+      }
+
+      const batch = keyframeIndices.slice(kIdx, kIdx + 6)
+      batch.forEach(idx => {
+        if (!imgs[idx]) {
+          const img = new Image()
+          img.decoding = 'async'
+          img.src = framePath(idx + 1)
+          imgs[idx] = img
+        }
+      })
+      kIdx += 6
+      setTimeout(loadKeyframes, 20)
+    }
+
+    // Start keyframes after a short breather so first hero paint completes cleanly
+    const keyframeTimer = setTimeout(loadKeyframes, 60)
+
+    // Priority 3: Progressive idle background filling for all intermediate frames
+    const loadAllRemainingFrames = () => {
+      if (!isMounted) return
+      let missingIdx = 1
+      const batchSize = 12
+
+      const fillNext = () => {
+        if (!isMounted || missingIdx >= FRAME_COUNT) return
+        let loadedCount = 0
+        while (missingIdx < FRAME_COUNT && loadedCount < batchSize) {
+          if (!imgs[missingIdx]) {
+            const img = new Image()
+            img.decoding = 'async'
+            img.src = framePath(missingIdx + 1)
+            imgs[missingIdx] = img
+            loadedCount++
+          }
+          missingIdx++
+        }
+
+        if (missingIdx < FRAME_COUNT && isMounted) {
+          if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+            window.requestIdleCallback(() => fillNext(), { timeout: 120 })
+          } else {
+            setTimeout(fillNext, 35)
           }
         }
-        img.onerror = () => {
-          console.warn(`Frame ${i} failed to load:`, framePath(i))
-        }
-        img.src = framePath(i)
-        if (img.decode) {
-          img.decode().catch(() => {})
-        }
       }
-      nextIndex = limit
-      if (nextIndex <= FRAME_COUNT && isMounted) {
-        setTimeout(loadNextBatch, 16)
-      }
-    }
 
-    loadNextBatch()
+      fillNext()
+    }
 
     return () => {
       isMounted = false
+      clearTimeout(keyframeTimer)
     }
   }, [renderFrame])
 
-  // Real-time RAF-synchronized scroll tracker guaranteeing latest frame is always drawn
+  // Direct, low-latency scroll tracker updating the target frame without blocking
   useEffect(() => {
     let hasScrolled = false
     const handleScroll = () => {
@@ -148,17 +211,7 @@ export default function ScrollAnimationSection() {
       if (maxScroll <= 0) return
 
       const fraction = Math.min(1, Math.max(0, scrollTop / maxScroll))
-      const index = Math.min(FRAME_COUNT - 1, Math.floor(fraction * FRAME_COUNT))
-
-      targetIndexRef.current = index
-
-      if (!tickingRef.current) {
-        tickingRef.current = true
-        requestAnimationFrame(() => {
-          renderFrame(targetIndexRef.current)
-          tickingRef.current = false
-        })
-      }
+      targetFrameRef.current = fraction * (FRAME_COUNT - 1)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -172,7 +225,15 @@ export default function ScrollAnimationSection() {
       window.removeEventListener('resize', handleScroll)
       window.removeEventListener('orientationchange', handleScroll)
     }
-  }, [renderFrame])
+  }, [])
+
+  // Smooth scroll down to main doorstep fuel delivery hero
+  const handleScrollToContent = () => {
+    const heroEl = document.getElementById('home')
+    if (heroEl) {
+      heroEl.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   return (
     <section
@@ -185,10 +246,24 @@ export default function ScrollAnimationSection() {
         {/* Main Canvas covering 100% viewport */}
         <canvas ref={canvasRef} id="canvas" className="reference-canvas" width={1920} height={1080} />
 
-        {/* Scroll hint matching zz.html */}
-        <div id="scroll-hint" className={`reference-scroll-hint${scrolled ? ' hidden' : ''}`}>
+        {/* Real-time 3D scrub progress line */}
+        <div 
+          className="cinematic-progress-bar" 
+          style={{ width: `${scrubProgress}%` }}
+          aria-hidden="true" 
+        />
+
+        {/* Interactive Clickable Scroll / Skip Hint */}
+        <button
+          type="button"
+          id="scroll-hint"
+          className={`reference-scroll-hint${scrolled ? ' hidden' : ''}`}
+          onClick={handleScrollToContent}
+          title="Scroll or click to view doorstep fuel delivery details"
+          aria-label="Scroll to animate or tap to jump to fuel delivery details"
+        >
           &#8595; Scroll to animate &#8595;
-        </div>
+        </button>
       </div>
     </section>
   )

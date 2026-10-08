@@ -177,6 +177,9 @@ export default defineConfig(({ isSsrBuild }) => ({
               if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/') || id.includes('node_modules/react-router-dom/')) {
                 return 'vendor-react';
               }
+              if (id.includes('node_modules/jspdf') || id.includes('node_modules/qrcode') || id.includes('node_modules/jsbarcode')) {
+                return 'vendor-pdf-barcode';
+              }
               if (id.includes('articles')) {
                 return 'articles-data';
               }
