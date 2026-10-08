@@ -1,11 +1,11 @@
 // Retail Petrol Pump Rate Markup: Flat +Rs. 5.00/L as per petrol pump retail rate
 export const PUMP_RATE_MARKUP = 5.00;
 
-// Centralized base rates (OGRA ex-depot baseline in Lahore)
+// Centralized base rates (Official OGRA ex-depot baseline in Lahore)
 export const FUEL_BASE_PRICES = {
-  petrol: 384.34,
-  diesel: 415.83,
-  highOctane: 400.00,
+  petrol: 398.96,
+  diesel: 395.72,
+  highOctane: 410.00,
   lpg: 450.00,
   water: 100.00, // Rs. 100.00 per gallon refill
 };

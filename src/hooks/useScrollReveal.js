@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react'
 
 /**
- * Attaches IntersectionObserver to a container ref and
- * adds the 'animated' class to all .fade-in-up children when they enter view.
+ * High-performance viewport reveal hook:
+ * Immediately activates above-the-fold elements so tabs load instantly with 0ms delay,
+ * and attaches IntersectionObserver only to off-screen elements below the fold.
  */
 export function useScrollReveal(dependencies = []) {
   const containerRef = useRef(null)
@@ -14,8 +15,23 @@ export function useScrollReveal(dependencies = []) {
     const elements = container.querySelectorAll('.fade-in-up')
     if (!elements.length) return
 
+    // Immediately animate any element that is in the initial viewport
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 800
+    const toObserve = []
+
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect()
+      if (rect.top <= viewportHeight + 100) {
+        el.classList.add('animated')
+      } else {
+        toObserve.push(el)
+      }
+    })
+
+    if (!toObserve.length) return
+
     if (!('IntersectionObserver' in window)) {
-      elements.forEach(el => el.classList.add('animated'))
+      toObserve.forEach(el => el.classList.add('animated'))
       return
     }
 
@@ -28,12 +44,13 @@ export function useScrollReveal(dependencies = []) {
           }
         })
       },
-      { threshold: 0.08, rootMargin: '0px 0px -20px 0px' }
+      { threshold: 0.05, rootMargin: '0px 0px 50px 0px' }
     )
 
-    elements.forEach(el => observer.observe(el))
+    toObserve.forEach(el => observer.observe(el))
     return () => observer.disconnect()
   }, dependencies)
 
   return containerRef
 }
+

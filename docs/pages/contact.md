@@ -56,11 +56,8 @@ Comprehensive sector coverage table indicating micro-depot locations, dispatch S
 
 ---
 
-## Commercial Fleet & Industrial Escalation Desk
-Dedicated operational contact points for institutional stakeholders:
-- **Executive Management Desk**: Corporate accounts, bulk facility fuel procurement, and compliance (`m.daniyalkhan490@gmail.com`).
-- **Bulk Depot Dispatch & Metering**: Industrial tanker orders and flow meter calibration certificates.
-- **Corporate Compliance & Invoicing**: SECP, OGRA, and STRN compliant tax invoices.
+## Commercial Fleet & Industrial Inquiries
+Handled directly via the main contact form subject selection (*Bulk / Enterprise Client Query*) and the 24/7 WhatsApp emergency dispatch line (`+92 3230-112464`). Commercial Escalation Desk card was removed per user request.
 
 ---
 
@@ -94,6 +91,7 @@ Added interactive 4-item accordion addressing core user intent and eliminating t
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-09** | **Removal of Commercial Fleet & Industrial Escalation Desk**: Removed the escalation card and executive management contact box from `src/pages/ContactPage.jsx` per user directive to streamline and declutter contact channels. | User requested: *"Commercial Fleet & Industrial Escalation Desk... is ko be remove karo"* |
 | **2026-10-01** | **Working Hours & Delivery Operations Alignment**: (1) Updated Contact FAQ answer #2 to clarify online doorstep orders operate 8:00 AM – 10:00 PM PKT daily (with strict 10:00 PM – 8:00 AM night cutoff), corporate desk operates Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm, and 24/7 WhatsApp emergency support at `+92 3230-112464`, (2) Synchronized bottom banner delivery fee to Rs. 300 up to 10L and Rs. 320–400 for 11L–15L. | Ensure 100% truth-in-advertising and operational alignment across all contact touchpoints. |
 | **2026-09-27** | **Corporate Identity & Contact Standardization**: Updated Contact number (`+92 3230-112464`), Complaint Email (`m.daniyalkhan490@gmail.com`), Headquarters (`Lahore, Pakistan`), and Executive Management desk to Founder & Leading Web Developer Muhammad Daniyal. | User's new corporate identity & regulatory credentials declaration. |
 | **2026-09-27** | Removed Sales & Fleet Operations (Adil Farooq) and 24/7 Urgent Dispatch Hotline cards from Commercial Fleet & Industrial Escalation Desk. | Clean up redundant contact cards per user request. |

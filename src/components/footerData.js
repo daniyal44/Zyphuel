@@ -86,6 +86,12 @@ export const footerData = {
     { label: 'Mobile Refueling Fleet in Lahore', to: '/blog/zyphuel-calibrated-telemetry-fleet/' },
     { label: 'Global vs Pakistan Fuel Delivery Benchmarks', to: '/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/' }
   ],
+  authoritativeLinks: [
+    { label: 'OGRA Official (Regulatory Authority)', url: 'https://www.ogra.org.pk/' },
+    { label: 'HDIP Pakistan (Testing & Quality)', url: 'http://hdip.com.pk/' },
+    { label: 'Euro-V Standards (Wikipedia)', url: 'https://en.wikipedia.org/wiki/European_emission_standards' },
+    { label: 'Lahore District Guide (Wikipedia)', url: 'https://en.wikipedia.org/wiki/Lahore' },
+  ],
   bottomLinks: [
     { label: 'Privacy Policy', to: '/privacy/' },
     { label: 'Terms of Use', to: '/terms/' },

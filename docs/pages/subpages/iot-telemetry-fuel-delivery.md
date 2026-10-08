@@ -14,6 +14,18 @@
 
 ---
 
+
+<!-- ZYPHUEL_FUEL_UPDATE_START -->
+> [!NOTE]
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 09, 2026)**
+> - **Operational SLA**: 20–45 Mins Simple Dispatch | 10–20 Mins Urgent (+Rs. 100) across Lahore.
+> - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
+> - **Summary**: Weights & Measures certified positive-displacement flow meters with 1,000 pulses/litre optical encoders. 15°C Automatic Temperature Compensation (ATC) counteracts Lahore summer heat expansion with 0.01L verified precision.
+>
+- **Market Intelligence**: Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))
+<!-- ZYPHUEL_FUEL_UPDATE_END -->
+
 ## Pillar Guide Architecture & Content Structure
 
 ### 1. Key Takeaways (AEO & GEO Optimization)
@@ -37,7 +49,7 @@
 - **The BLE Edge Pipeline: From Bowsers to Smartphones**: Zero-latency Bluetooth stream from nozzle flow sensor to client UI.
 - **Expert Perspective: Lead Telemetry Architect**:
   > *"Short-fueling is essentially a silent tax on consumers. We solved it from first principles: positive-displacement mechanical chambers, 1,000-pulse optical encoders, and real-time Bluetooth telemetry that displays dispensed volume on the customer's phone before the nozzle even closes."*
-- **Volumetric Enforcement**: Doorstep orders strictly bounded between 5L min and 15L max, flat Rs. 280 delivery fee, COD for 5L–10L and mobile wallets.
+- **Volumetric Enforcement**: Doorstep orders strictly bounded between 5L min and 15L max, delivery charges fixed at Rs. 300.00 up to 10L (scaled Rs. 320.00–Rs. 400.00 for 11L–15L Max), COD for 5L–10L and mobile wallets.
 
 ### 3. Structured 5-Question FAQ Section (Schema.org FAQPage)
 1. *How does Zyphuel guarantee that 10 Litres ordered is exactly 10 Litres delivered?* (Positive-displacement meters with 1,000 pulse-per-litre optical encoders and Punjab Weights & Measures calibration seals).
@@ -60,6 +72,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-09** | Reconciled delivery charges (fixed Rs. 300.00 up to 10L, Rs. 320.00–Rs. 400.00 for 11L–15L Max) and added Python master daily fuel intelligence sync. | Harmonize documentation with core business logic and automation system. |
 | **2026-09-25** | **Expanded to 1,150+ word comprehensive technical deep-dive with Key Takeaways, Metering Calibration Comparison Table, Expert Quote, and 5 Schema.org FAQs**. | Provide authoritative measurement science and IoT engineering data, eliminate thin content, solve search engine indexing delays, and achieve 100% performance. |
 | **2026-09-22** | Updated article text emphasizing calibrated precision from the minimum 5L to the 15L maximum doorstep order limit. | Align telemetry article with newly unified 5L–15L order bounds. |
 | **2026-09-01** | Published engineering analysis of positive-displacement meters and BLE cloud telemetry. | Educate consumers on hardware-level protections against short-fueling. |

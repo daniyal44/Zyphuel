@@ -38,6 +38,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node prerender.js && node scripts/indexnow.js",
+    "update-fuel": "python scripts/zyphuel_fuel_updater_master.py",
     "gsc:index": "node scripts/gsc_indexing.js",
     "preview": "vite preview"
   },

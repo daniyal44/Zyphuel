@@ -14,6 +14,18 @@
 
 ---
 
+
+<!-- ZYPHUEL_FUEL_UPDATE_START -->
+> [!NOTE]
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 09, 2026)**
+> - **Operational SLA**: 20–45 Mins Simple Dispatch | 10–20 Mins Urgent (+Rs. 100) across Lahore.
+> - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
+> - **Summary**: Certified hazardous materials handling: Positive-displacement calibrated dispensing and sealed utilities. Strict 5L min to 15L max per dispatch with fixed Rs. 300 fee up to 10L, avoiding hazardous loose decanting.
+>
+- **Market Intelligence**: Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))
+<!-- ZYPHUEL_FUEL_UPDATE_END -->
+
 ## Pillar Guide Architecture & Content Structure
 
 ### 1. Key Takeaways (AEO & GEO Optimization)
@@ -61,6 +73,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-09** | Synchronized delivery pricing with permanent rules (fixed Rs. 300.00 up to 10L, Rs. 320.00–Rs. 400.00 for 11L–15L Max) and added Python master daily fuel intelligence sync. | Full documentation consistency with core business logic. |
 | **2026-09-25** | **Expanded to 1,050+ word comprehensive safety guide with Key Takeaways, Multi-Utility Specs Table, Expert Quote, and 5 Schema.org FAQs**. | Provide authoritative HAZMAT and utility guidance, eliminate thin content, solve search engine indexing delays, and achieve 100% performance. |
-| **2026-09-22** | Updated delivery window specifications, standard Rs. 280 fee, and 5L–15L single order fuel limits. | Synchronize article with unified flat delivery pricing and 15L doorstep volume caps. |
+| **2026-09-22** | Updated delivery window specifications, standard delivery fee model, and 5L–15L single order fuel limits. | Synchronize article with unified delivery pricing and 15L doorstep volume caps. |
 | **2026-09-03** | Published safety and volumetric verification protocols for LPG cylinder and bulk water delivery. | Establish industry-leading consumer safety and weight transparency standards. |

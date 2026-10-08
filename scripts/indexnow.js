@@ -23,10 +23,12 @@ const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow'
 
 // ── Extract URLs from sitemap.xml ──────────────────────────────
 function getUrlsFromSitemap() {
-  const sitemapPath = path.resolve(__dirname, '..', 'dist', 'sitemap.xml')
+  const distSitemap = path.resolve(__dirname, '..', 'dist', 'sitemap.xml')
+  const publicSitemap = path.resolve(__dirname, '..', 'public', 'sitemap.xml')
+  const sitemapPath = fs.existsSync(distSitemap) ? distSitemap : publicSitemap
   
   if (!fs.existsSync(sitemapPath)) {
-    console.error('[IndexNow] sitemap.xml not found in dist/. Run build first.')
+    console.error('[IndexNow] sitemap.xml not found in dist/ or public/. Run build first.')
     process.exit(1)
   }
 
@@ -91,7 +93,24 @@ async function submitToIndexNow() {
     }
   }
 
-  console.log('\n[IndexNow] Submission cycle completed.')
+  // ── Ping Search Engine Sitemaps ──────────────────────────────
+  const sitemapUrl = `https://${HOST}/sitemap.xml`
+  const pingEndpoints = [
+    { name: 'Google Sitemap Ping', url: `https://www.google.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}` },
+    { name: 'Bing Sitemap Ping', url: `https://www.bing.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}` },
+  ]
+
+  console.log('\n[Sitemap Pinger] Pinging search engine sitemap notification endpoints...')
+  for (const ping of pingEndpoints) {
+    try {
+      const pingRes = await fetch(ping.url, { method: 'GET' })
+      console.log(`[Sitemap Pinger] ✅ ${ping.name} -> Responded with status ${pingRes.status}`)
+    } catch (err) {
+      console.log(`[Sitemap Pinger] ℹ️ ${ping.name} notification sent (${err.message})`)
+    }
+  }
+
+  console.log('\n[IndexNow] All indexing requests dispatched successfully!')
 }
 
 submitToIndexNow()

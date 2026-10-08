@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { articles } from '../data/articles'
+import fuelMarketIntel from '../data/fuelMarketIntel.json'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useToast } from '../context/ToastContext'
@@ -10,6 +11,7 @@ import { APP_VERSION } from '../data/appVersion'
 export default function BlogArticlePage() {
   const { slug } = useParams()
   const article = articles.find(a => a.slug === slug)
+  const articleIntel = fuelMarketIntel?.articles?.[slug] || null
   const pageRef = useScrollReveal()
   const { showToast } = useToast()
   const [activeFaq, setActiveFaq] = useState(null)
@@ -165,6 +167,60 @@ export default function BlogArticlePage() {
                 </li>
               ))}
             </ul>
+          </div>
+        )}
+
+        {/* Live Daily Fuel Intelligence & Market Monitor (Auto-Synchronized by Python Master Engine) */}
+        {articleIntel && (
+          <div
+            className="zyphuel-market-intel fade-in-up"
+            style={{
+              margin: '2rem 0',
+              padding: '1.25rem 1.5rem',
+              borderRadius: '14px',
+              border: '1.5px solid rgba(245, 158, 11, 0.35)',
+              background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(249, 115, 22, 0.04) 100%)',
+              backdropFilter: 'blur(8px)',
+              boxShadow: '0 4px 16px rgba(245, 158, 11, 0.08)'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.85rem' }}>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem', padding: '4px 12px', borderRadius: '999px', fontSize: '0.78rem', fontWeight: 700, backgroundColor: '#f59e0b', color: '#ffffff', letterSpacing: '0.2px' }}>
+                <i className="fa-solid fa-bolt"></i> Live Fuel Intel: {articleIntel.date}
+              </span>
+              <span style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                <i className="fa-solid fa-arrows-rotate"></i> Daily Verified Search Feed
+              </span>
+            </div>
+
+            <p style={{ fontSize: '0.98rem', fontWeight: 600, color: 'var(--text-primary)', margin: '0 0 0.85rem 0', lineHeight: 1.6 }}>
+              {articleIntel.summary}
+            </p>
+
+            {articleIntel.points && articleIntel.points.length > 0 && (
+              <div style={{ background: 'rgba(255, 255, 255, 0.7)', borderRadius: '10px', padding: '0.75rem 1rem', border: '1px solid rgba(245, 158, 11, 0.2)', marginBottom: '1rem' }}>
+                <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#b45309', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '0.4rem' }}>
+                  <i className="fa-solid fa-satellite-dish" style={{ marginRight: '6px' }}></i> Real-Time Market Signals:
+                </div>
+                <ul style={{ margin: 0, paddingLeft: '1.25rem', fontSize: '0.86rem', color: '#334155', lineHeight: 1.6 }}>
+                  {articleIntel.points.map((pt, pIdx) => (
+                    <li key={pIdx} style={{ marginBottom: '0.3rem' }}>
+                      <strong style={{ color: '#0f172a' }}>{pt.label}:</strong> {pt.text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            <div style={{ paddingTop: '0.75rem', borderTop: '1px solid rgba(245, 158, 11, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', fontSize: '0.84rem' }}>
+              <span style={{ color: '#475569', fontWeight: 500 }}>
+                <i className="fa-solid fa-location-dot" style={{ color: '#f59e0b', marginRight: '5px' }}></i>
+                Operational Zone: <strong style={{ color: '#0f172a' }}>Lahore, Pakistan (20–45 Min SLA)</strong>
+              </span>
+              <Link to="/order/" style={{ color: '#d97706', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                Order Doorstep Fuel Now <i className="fa-solid fa-arrow-right"></i>
+              </Link>
+            </div>
           </div>
         )}
 

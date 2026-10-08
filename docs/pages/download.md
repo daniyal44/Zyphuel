@@ -42,9 +42,8 @@
 6. **Android OS Compatibility & Performance Matrix Table**:
    - Detailed benchmarks covering Android 8.0 (Oreo) through Android 15 (Vanilla Ice Cream).
    - Lists API levels (26 to 35), biometric protocol support (BiometricPrompt API), background rate daemon support, GPS accuracy (<3 meters), and render FPS (60–120 FPS).
-7. **Cryptographic SHA-256 Checksum & Integrity Panel**:
-   - Provides verified SHA-256 hash (`e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`).
-   - Copyable CLI verification commands for Windows PowerShell (`Get-FileHash -Algorithm SHA256 .\Zyphuel.apk`) and Linux/macOS (`sha256sum Zyphuel.apk`).
+7. **Streamlined Security & Verification**:
+   - APK Signature Scheme v3 verification with malware-free release build, omitting technical command-line hash prompts for a cleaner user experience.
 8. **Feature Comparison Table: Official Android APK vs. Web Portal**:
    - Side-by-side technical breakdown of 10 key features (e.g. Biometric Login, 2-Hour Automated OGRA Price Alerts, Live Bowser Radar Tracking, BLE Flow Meter Invoicing, Offline Re-order Queue, Tax Invoice PDF Generation).
 
@@ -58,6 +57,9 @@
 ---
 
 ## Changelog
+| Date | Changes Made | Rationale / User Request |
+| :--- | :--- | :--- |
+| **2026-10-09** | **Removal of Cryptographic Integrity & SHA-256 Checksum Panel**: Removed the dark SHA-256 checksum card and command-line verification box from `src/pages/DownloadPage.jsx` per user request, simplifying and streamlining the app download experience. | User requested: *"Cryptographic Integrity & SHA-256 Checksum... remove ait"* |
 | **2026-10-04** | **Release of Android APK v2.6.4.0.0.22 (Build 50)**: Synchronized app version to `v2.6.4.0.0.22` (Build 50, Target SDK 36, Android 15/16 Ready), updated SHA-256 integrity hash to `10a23c3d027a7dcc0970d0e00dfc1481b26b89e9a0e87eac25c21fc8e6e174f3`, and dynamic hash binding in `src/pages/DownloadPage.jsx`. | User request: update app version and sync across the entire platform. |
 | **2026-10-02** | **Removal of High Market Demand Badge**: Removed the "High Market Demand: Over 15,000+ Active Users in Lahore • 45-Min Express Dispatch" alert pill from the download hero header in `src/pages/DownloadPage.jsx` per user directive. | User request: remove the 15,000+ active users high market demand callout. |
 | **2026-10-02** | **Direct APK Enforcement & Store Badge Reversion (100% Genuine Transparency)**: (1) Reverted Google Play and Apple App Store badges back to genuine, non-clickable disabled badges (`.store-badge.disabled`) labeled "Launch Soon" and "Coming Soon", eliminating misleading store redirect links to uphold brand integrity and eliminate customer confusion, (2) Retained unhindered Direct APK Download CTA (`#direct-apk-download-btn`, `.btn-download-main`) pointing directly to `/APK/Zyphuel.apk` with `download="Zyphuel.apk"`, (3) Removed `fade-in-up` class on `download-hero-content` to guarantee immediate above-the-fold visibility, (4) Enforced proper server MIME type (`application/vnd.android.package-archive`) and 200 route rewrites on Netlify and local Vite server. | User directive: Zyphuel is not launched on Google Play Store or Apple App Store yet; strictly eliminate fake/misleading store links and keep badges transparently disabled with "Launch Soon" / "Coming Soon". |

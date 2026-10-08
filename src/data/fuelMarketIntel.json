@@ -1,0 +1,165 @@
+{
+  "lastUpdated": "2026-10-09T00:46:43.591436",
+  "dateFormatted": "October 09, 2026",
+  "dateISO": "2026-10-09",
+  "headlinesCount": 2,
+  "headlines": [
+    {
+      "title": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn",
+      "summary": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 &nbsp;&nbsp; Dawn",
+      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBiQ083T3FuSXVsMnFmNEpQNmxUMEtfT1N6YVJpQzBSeFU4N2RnSVlEcENqTkhLSmd0cmtGa09zWU8yMjE1UXpvYg?oc=5",
+      "published": "Wed, 07 Oct 2026 17:49:15 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "03850fefa40198b7601158e6cc42001b9755744d885eb954f1a9dc9a05f5c7c7"
+    },
+    {
+      "title": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder",
+      "summary": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre &nbsp;&nbsp; Business Recorder",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5Ha2ZOZE1hOWd1TTIzc0V1OEpyaUtfMWZMQzlxTm9BOWlZVE55N21Rc3VIZTIwUWJRLVdBTnNiTV9VNTNZQUpqSFZ2dGs1TXZiLXlVeHdR0gFWQVVfeXFMTkdrZk5kTWE5Z3VNMjNzRXU4SnJpS18xZkxDOXFOb0E5aVlUTnk3bVFzdUhlMjBRYlEtV0FOc2JNX1U1M1lBSmpIVnZ0azVNdmIteVV4d1E?oc=5",
+      "published": "Thu, 08 Oct 2026 17:56:25 GMT",
+      "source": "Google News (Platts Crude & Petroleum)",
+      "category": "market_trends",
+      "hash": "50fba17fdfbaec33371b69c5824bd2ec6ac7992003f3faf36de4d89843b63434"
+    }
+  ],
+  "businessRules": {
+    "minVolume": 5,
+    "maxVolume": 15,
+    "deliveryFeeUpTo10L": 300,
+    "deliveryFee11To15L": "320-400 (+20/L step)",
+    "urgentSurcharge": 100,
+    "simpleSLA": "20–45 Mins",
+    "urgentSLA": "10–20 Mins",
+    "orderHours": "8:00 AM - 10:00 PM PKT",
+    "helpline": "+92 3230-112464"
+  },
+  "articles": {
+    "future-of-fuel-delivery-lahore": {
+      "date": "October 09, 2026",
+      "headline": "Daily Petroleum Market Intelligence (October 09, 2026)",
+      "summary": "OGRA daily rolling Platts benchmark monitor active. Rates adjust daily Monday through Friday, with weekend rates locked. Lock in your doorstep refuel at current rates before depot changes. Fixed Rs. 300.00 delivery fee for 5L–10L; Rs. 320–Rs. 400 for 11L–15L Max.",
+      "topic": "daily_pricing_ogra",
+      "points": [
+        {
+          "label": "Market Intelligence",
+          "text": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))"
+        }
+      ],
+      "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
+      "verifiedStatus": "Active Verified"
+    },
+    "download-zyphuel-apk-guide": {
+      "date": "October 09, 2026",
+      "headline": "Daily Petroleum Market Intelligence (October 09, 2026)",
+      "summary": "Zyphuel Android APK (v2.6.4+) delivers live lock-screen OGRA rate alerts, GPS sector auto-pinning, and Bluetooth bowser telemetry across Lahore. Orders strictly 5L to 15L Max delivered within 20–45 mins.",
+      "topic": "apk_mobile_telemetry",
+      "points": [
+        {
+          "label": "Market Intelligence",
+          "text": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))"
+        }
+      ],
+      "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
+      "verifiedStatus": "Active Verified"
+    },
+    "generator-refueling-services-lahore": {
+      "date": "October 09, 2026",
+      "headline": "Daily Petroleum Market Intelligence (October 09, 2026)",
+      "summary": "Emergency load-shedding generator backup: 100% Euro-V Hi-Cetane Diesel delivered directly to your rooftop or basement generator with 50-meter anti-static reels. Zero manual jerrycan risks in residential or commercial plazas.",
+      "topic": "generator_diesel_backup",
+      "points": [
+        {
+          "label": "Market Intelligence",
+          "text": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))"
+        }
+      ],
+      "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
+      "verifiedStatus": "Active Verified"
+    },
+    "generator-diesel-lpg-delivery-lahore": {
+      "date": "October 09, 2026",
+      "headline": "Daily Petroleum Market Intelligence (October 09, 2026)",
+      "summary": "Certified hazardous materials handling: Positive-displacement calibrated dispensing and sealed utilities. Strict 5L min to 15L max per dispatch with fixed Rs. 300 fee up to 10L, avoiding hazardous loose decanting.",
+      "topic": "safe_fuel_handling",
+      "points": [
+        {
+          "label": "Market Intelligence",
+          "text": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))"
+        }
+      ],
+      "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
+      "verifiedStatus": "Active Verified"
+    },
+    "iot-telemetry-fuel-delivery": {
+      "date": "October 09, 2026",
+      "headline": "Daily Petroleum Market Intelligence (October 09, 2026)",
+      "summary": "Weights & Measures certified positive-displacement flow meters with 1,000 pulses/litre optical encoders. 15°C Automatic Temperature Compensation (ATC) counteracts Lahore summer heat expansion with 0.01L verified precision.",
+      "topic": "metering_telemetry",
+      "points": [
+        {
+          "label": "Market Intelligence",
+          "text": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))"
+        }
+      ],
+      "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
+      "verifiedStatus": "Active Verified"
+    },
+    "zyphuel-calibrated-telemetry-fleet": {
+      "date": "October 09, 2026",
+      "headline": "Daily Petroleum Market Intelligence (October 09, 2026)",
+      "summary": "Founder Muhammad Daniyal's agile micro-refueler fleet operates across DHA, Gulberg, Johar Town, Bahria Town, and Model Town. Delivered within 20–45 mins simple dispatch (10–20 mins urgent) with instant Raast, JazzCash, Easypaisa QR payments.",
+      "topic": "founder_fleet_network",
+      "points": [
+        {
+          "label": "Market Intelligence",
+          "text": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))"
+        }
+      ],
+      "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
+      "verifiedStatus": "Active Verified"
+    },
+    "global-vs-pakistan-on-demand-fuel-delivery-benchmarks": {
+      "date": "October 09, 2026",
+      "headline": "Daily Petroleum Market Intelligence (October 09, 2026)",
+      "summary": "Comparing global leaders (CAFU, Booster, FuelBuddy) with Zyphuel in Lahore. Calibrated 0.01L flow meters, 50m long-reach hoses, dual optical verification (QR + Code 128), and strictly 5L–15L order limits tailored for Pakistan.",
+      "topic": "global_benchmarks",
+      "points": [
+        {
+          "label": "Market Intelligence",
+          "text": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))"
+        }
+      ],
+      "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
+      "verifiedStatus": "Active Verified"
+    }
+  }
+}

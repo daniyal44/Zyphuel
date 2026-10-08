@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
-import { APP_VERSION, BUILD_NUMBER, TARGET_SDK, RELEASE_DATE, APP_SIZE, MIN_ANDROID, CHANGELOG, APP_SHA256 } from '../data/appVersion'
+import { APP_VERSION, BUILD_NUMBER, TARGET_SDK, RELEASE_DATE, APP_SIZE, MIN_ANDROID, CHANGELOG } from '../data/appVersion'
 import './styles.css'
 
 const appArticles = [
@@ -884,30 +884,6 @@ export default function DownloadPage() {
                   </tr>
                 </tbody>
               </table>
-            </div>
-
-            {/* Cryptographic SHA-256 Checksum Panel */}
-            <div className="fade-in-up" style={{ background: '#0f172a', borderRadius: '14px', padding: '24px 28px', color: '#ffffff', marginBottom: '36px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px', marginBottom: '14px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <i className="fa-solid fa-shield-halved" style={{ color: '#38bdf8', fontSize: '1.4rem' }}></i>
-                  <h3 style={{ fontSize: '1.15rem', fontWeight: 700, margin: 0, color: '#ffffff' }}>
-                    Cryptographic Integrity &amp; SHA-256 Checksum
-                  </h3>
-                </div>
-                <span style={{ fontSize: '0.8rem', background: 'rgba(56,189,248,0.2)', color: '#38bdf8', padding: '4px 12px', borderRadius: '20px', fontWeight: 600 }}>
-                  Digitally Signed by Zyphuel App Engineering
-                </span>
-              </div>
-              <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.6, marginBottom: '16px' }}>
-                Before installing any sideloaded application, security-conscious users can verify the digital signature hash to ensure the binary has not been modified or tampered with.
-              </p>
-              <div style={{ background: '#1e293b', borderRadius: '8px', padding: '12px 16px', fontFamily: 'monospace', fontSize: '0.88rem', color: '#38bdf8', wordBreak: 'break-all', marginBottom: '14px', border: '1px solid #334155' }}>
-                SHA-256: {APP_SHA256}
-              </div>
-              <div style={{ fontSize: '0.82rem', color: '#64748b' }}>
-                Verification Command (PowerShell): <code style={{ color: '#f1f5f9' }}>Get-FileHash -Algorithm SHA256 .\Zyphuel.apk</code> · Linux/macOS: <code style={{ color: '#f1f5f9' }}>sha256sum Zyphuel.apk</code>
-              </div>
             </div>
 
             {/* Feature Comparison: Native Android App vs Web Portal */}

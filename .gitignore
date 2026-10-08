@@ -9,4 +9,5 @@ AITMPL_CATALOG.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.zyphuel_cache/
 

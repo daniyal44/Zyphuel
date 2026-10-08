@@ -14,6 +14,18 @@
 
 ---
 
+
+<!-- ZYPHUEL_FUEL_UPDATE_START -->
+> [!NOTE]
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 09, 2026)**
+> - **Operational SLA**: 20–45 Mins Simple Dispatch | 10–20 Mins Urgent (+Rs. 100) across Lahore.
+> - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
+> - **Summary**: OGRA daily rolling Platts benchmark monitor active. Rates adjust daily Monday through Friday, with weekend rates locked. Lock in your doorstep refuel at current rates before depot changes. Fixed Rs. 300.00 delivery fee for 5L–10L; Rs. 320–Rs. 400 for 11L–15L Max.
+>
+- **Market Intelligence**: Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))
+<!-- ZYPHUEL_FUEL_UPDATE_END -->
+
 ## Pillar Guide Architecture & Content Structure
 
 ### 1. Key Takeaways (AEO & GEO Optimization)
@@ -21,7 +33,7 @@
 - Direct alignment with Singapore Platts CIF benchmarks removes oil company artificial premium buffers.
 - Pre-adjustment retail station panic and supply hoarding eliminated by on-demand doorstep delivery.
 - Zyphuel 2-hour advance price daemon alerts consumers at 10:00 PM before 12:01 AM ex-depot rate changes.
-- Delivery limit: 5L minimum to 15L maximum per doorstep order with transparent flat Rs. 280 fee.
+- Delivery limit: 5L minimum to 15L maximum per doorstep order with transparent delivery charges: fixed Rs. 300.00 up to 10L, and strictly scaled between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) for 11L to 15L Max.
 
 ### 2. Comprehensive H2/H3 Body Sections
 - **The Historical Context: From Monthly Subsidies to Fortnightly Review**: Evolution of Pakistani fuel pricing since 2000.
@@ -35,7 +47,7 @@
 - **The Consumer Protection Architecture: Zyphuel's 2-Hour Alert Daemon**: How automated push notifications allow locking in fuel rates.
 - **Expert Perspective: Muhammad Daniyal (Founder & CEO)**:
   > *"Daily fuel pricing is an inevitable step toward market efficiency, but without transparency, it penalizes the end consumer. Zyphuel's mission is to democratize energy data and delivery across Lahore."*
-- **Operational Reality & Prudent Refueling**: Ordering between 5L and 15L Max at flat Rs. 280 dispatch fee, COD for 5L–10L and instant Online Payments.
+- **Operational Reality & Prudent Refueling**: Ordering between 5L and 15L Max at fixed Rs. 300.00 dispatch fee up to 10L (scaled Rs. 320.00–Rs. 400.00 for 11L–15L), COD for 5L–10L and instant Online Payments.
 
 ### 3. Structured 5-Question FAQ Section (Schema.org FAQPage)
 1. *When does OGRA implement daily fuel price revisions in Pakistan?* (Every midnight at 12:01 AM based on 7-day rolling Singapore Platts FOB benchmarks).
@@ -58,7 +70,8 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-09** | Synchronized delivery pricing with permanent business rules (fixed Rs. 300.00 up to 10L, Rs. 320.00–Rs. 400.00 for 11L–15L Max), 20–45 min dispatch window, and added Python master daily fuel intelligence sync. | Reconcile article documentation with permanent memory rules and autonomous market updater. |
 | **2026-09-25** | **Expanded to 1,150+ word comprehensive pillar guide with Key Takeaways, OGRA Pricing Matrix Table, Expert Quote, and 5 Schema.org FAQs**. | Eradicate thin content signals, provide high-value energy policy data, enable automatic search engine indexing, and achieve 100% performance. |
-| **2026-09-22** | Updated article text with strict 5L–15L Max doorstep volume limit and flat Rs. 280 standard delivery fee. | User requested to mention order max liters in articles and update delivery pricing. |
+| **2026-09-22** | Updated article text with strict 5L–15L Max doorstep volume limit and standard delivery fee model. | User requested to mention order max liters in articles and update delivery pricing. |
 | **2026-09-17** | Added "Related Fuel Guides & Energy Insights" internal link cluster; removed redundant startup slogans per single-hero memory rule; added Contact Helpline CTA; boosted sitemap priority to 0.8 weekly. | Create internal crawl mesh between all 6 blog articles and resolve GSC discovery delays. |
 | **2026-09-05** | Initial publication of daily fuel pricing analysis and OGRA reform guide. | Educate consumers on market volatility and app price alerts. |

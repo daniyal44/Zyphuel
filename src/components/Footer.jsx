@@ -92,7 +92,7 @@ export default function Footer() {
   const [logoError, setLogoError] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const { brand, contact, socialLinks, quickLinks, fuelGuides, lahoreTowns, bottomLinks, copyright } =
+  const { brand, contact, socialLinks, quickLinks, fuelGuides, lahoreTowns, authoritativeLinks, bottomLinks, copyright } =
     useMemo(() => footerData, []);
 
   return (
@@ -210,15 +210,35 @@ export default function Footer() {
             </button>
           </div>
 
-          {/* Column 4: Fuel Guides */}
+          {/* Column 4: Fuel Guides & Authoritative Citations */}
           <div>
             <h3 className="footer-title">Fuel &amp; Energy Guides</h3>
-            <ul className="footer-links" style={{ marginBottom: '20px' }}>
+            <ul className="footer-links" style={{ marginBottom: '16px' }}>
               {fuelGuides && fuelGuides.map((guide) => (
                 <li key={guide.to}>
                   <Link to={guide.to} title={`${guide.label} - Zyphuel`}>
                     {guide.label}
                   </Link>
+                </li>
+              ))}
+            </ul>
+
+            <h4 className="footer-title" style={{ fontSize: '0.9rem', marginTop: '1.25rem', marginBottom: '8px', color: '#94a3b8' }}>
+              Industry Citations &amp; Standards
+            </h4>
+            <ul className="footer-links" style={{ fontSize: '0.82rem' }}>
+              {authoritativeLinks && authoritativeLinks.map((authLink) => (
+                <li key={authLink.url}>
+                  <a
+                    href={authLink.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={`${authLink.label} - Official Authority Reference`}
+                    style={{ opacity: 0.85, display: 'inline-flex', alignItems: 'center', gap: '5px' }}
+                  >
+                    <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.7rem', color: '#0ea5e9' }}></i>
+                    {authLink.label}
+                  </a>
                 </li>
               ))}
             </ul>

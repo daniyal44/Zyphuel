@@ -519,25 +519,6 @@ ${form.message.trim()}`
               </table>
             </div>
 
-            {/* B2B Escalation & Corporate Procurement Matrix */}
-            <div className="fade-in-up" style={{ background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0', padding: '24px 28px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
-                <i className="fa-solid fa-briefcase" style={{ color: '#0284c7', fontSize: '1.25rem' }}></i>
-                <h3 style={{ fontSize: '1.15rem', fontWeight: 700, margin: 0, color: '#0f172a' }}>
-                  Commercial Fleet &amp; Industrial Escalation Desk
-                </h3>
-              </div>
-              <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, marginBottom: '14px' }}>
-                Corporate facilities requiring bulk generator diesel (200L to 10,000L+), dedicated recurring weekly replenishment, or consolidated monthly billing can connect directly with our enterprise operations leads:
-              </p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 360px))', gap: '14px', fontSize: '0.88rem' }}>
-                <div style={{ padding: '12px 14px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                  <strong style={{ display: 'block', color: '#0f172a' }}>Executive Management</strong>
-                  <span style={{ color: '#64748b' }}>Founder &amp; Leading Web Developer Muhammad Daniyal</span>
-                  <div style={{ color: '#0284c7', marginTop: '4px' }}>Complaint Email: m.daniyalkhan490@gmail.com</div>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
