@@ -1,26 +1,98 @@
 {
-  "lastUpdated": "2026-10-09T00:46:43.591436",
+  "lastUpdated": "2026-10-09T08:39:06.406851",
   "dateFormatted": "October 09, 2026",
   "dateISO": "2026-10-09",
-  "headlinesCount": 2,
+  "headlinesCount": 10,
   "headlines": [
     {
-      "title": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn",
-      "summary": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 &nbsp;&nbsp; Dawn",
-      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBiQ083T3FuSXVsMnFmNEpQNmxUMEtfT1N6YVJpQzBSeFU4N2RnSVlEcENqTkhLSmd0cmtGa09zWU8yMjE1UXpvYg?oc=5",
-      "published": "Wed, 07 Oct 2026 17:49:15 GMT",
+      "title": "Petrol and diesel prices hiked by Rs2.31, Re0.78 per litre - The News Pakistan",
+      "summary": "Petrol and diesel prices hiked by Rs2.31, Re0.78 per litre &nbsp;&nbsp; The News Pakistan",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBoMVpZUFdtRnVHVEl2eGZzOUpTcVhQR1pQLTUwLTl2SHd3aDdqWUNxSW1WQ0d4cVl0VF9fdG4xZDJncHQ4cWl2eUN3V2NFTDFIRHl1djItZGExUlNKLV9EaGNxMXA4Qk5Va3FoWERjS0tuS2QxenNVVm5R?oc=5",
+      "published": "Thu, 08 Oct 2026 18:44:39 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "03850fefa40198b7601158e6cc42001b9755744d885eb954f1a9dc9a05f5c7c7"
+      "hash": "4de27b41bfe3cd4a3a12533b8b71066e3e853e71b557600b2debe7a057e07b85"
     },
     {
-      "title": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder",
-      "summary": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre &nbsp;&nbsp; Business Recorder",
-      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5Ha2ZOZE1hOWd1TTIzc0V1OEpyaUtfMWZMQzlxTm9BOWlZVE55N21Rc3VIZTIwUWJRLVdBTnNiTV9VNTNZQUpqSFZ2dGs1TXZiLXlVeHdR0gFWQVVfeXFMTkdrZk5kTWE5Z3VNMjNzRXU4SnJpS18xZkxDOXFOb0E5aVlUTnk3bVFzdUhlMjBRYlEtV0FOc2JNX1U1M1lBSmpIVnZ0azVNdmIteVV4d1E?oc=5",
-      "published": "Thu, 08 Oct 2026 17:56:25 GMT",
-      "source": "Google News (Platts Crude & Petroleum)",
-      "category": "market_trends",
-      "hash": "50fba17fdfbaec33371b69c5824bd2ec6ac7992003f3faf36de4d89843b63434"
+      "title": "Govt raises petrol price by Rs2.31 per litre, high-speed diesel rate by Re0.78 per litre - Dawn",
+      "summary": "Govt raises petrol price by Rs2.31 per litre, high-speed diesel rate by Re0.78 per litre &nbsp;&nbsp; Dawn",
+      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9LVFpiT1NnM3Y5VXpxMUZjcHRlcFBoYjFtNWtpdjVtcHZnUTdocF9DMUNxMkhIS3NfZm9RMWU4NUdJNmpVeXVPQg?oc=5",
+      "published": "Thu, 08 Oct 2026 17:58:29 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "8b583df8ab92f57015cbc9e3aa0321256d15f0a3767cd4b1835c2f9e2aa93f00"
+    },
+    {
+      "title": "Govt increases petrol price by Rs2.31, diesel by Re0.78 per litre - Geo News",
+      "summary": "Govt increases petrol price by Rs2.31, diesel by Re0.78 per litre &nbsp;&nbsp; Geo News",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9pbXZtZUpsa1JoNmUyZ012SmFiTWdfOFY0Tm56QzE3dzVza1N0SUItZEtwODl0Sm8yU1ZRcDd0YUZMWnRpcWhzWUdhSlNtNkc4eE5TOGJMdFV0ZUpja1RGVjhycU45SzM1TEVnUk5uUmMwZDdt?oc=5",
+      "published": "Thu, 08 Oct 2026 20:56:16 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "81ff12671f4fa4b5010e41f9aa3b33fc5776903e8cc6e928a3d33c02def274b0"
+    },
+    {
+      "title": "Petrol Prices in Pakistan – 08 October, 2026 - Minute Mirror",
+      "summary": "Petrol Prices in Pakistan – 08 October, 2026 &nbsp;&nbsp; Minute Mirror",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNNlhJQ19JdlgybkFOSzhrVm12UWJ2cTBFTmRmdWZpT3JLU2NtbHVRQWwtQlV5cnRtajhxcGpXOVZxMVpCQ1ozcGVPN3VIVFVzTnY4YmtaMGJuTUJ5TGFVU1JzZDZnaEtqa0tyOTJ0bm4yb2ZJQW1nVGtNZS1KXzRTLXQtbw?oc=5",
+      "published": "Thu, 08 Oct 2026 17:43:47 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "039ace403f690b721a27496408279c20072a8b6f94b8ea38d4eb6a36c80b4974"
+    },
+    {
+      "title": "Petrol price rises for fourth day, diesel also increases - Aaj English TV",
+      "summary": "Petrol price rises for fourth day, diesel also increases &nbsp;&nbsp; Aaj English TV",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPLUtkcG1IREs5RFh1NnllemhXaTBmMTdDMWQyX2xXY0pvX3h4bE1HRVpDNTFzQk1oR3hrc2I2bzNaWU1wbnlrSlRTZjdwWERZU0JJVEozTVZLc1JhZ0JzNHRJZThTaThKRDVISTBHeS1fMGw3RkM3STFYQ3l0WUM5bmo2Y3lCTTB5QUFOTzFhaWIzSlNTSmxIdw?oc=5",
+      "published": "Thu, 08 Oct 2026 18:17:14 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "770777e1a45cd5d8e6509a684ae470788663f6f1fc62d1a887d7fbf45a1a8fc3"
+    },
+    {
+      "title": "OGRA raises petrol, high-speed diesel prices - Pakistan Connect",
+      "summary": "OGRA raises petrol, high-speed diesel prices &nbsp;&nbsp; Pakistan Connect",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPa3B0MzRsd05DeTZKYUxaVFRnSmpSSWZOamgxRy03bnV5aTlJdkhPN2Y0SzIzWEpISGE4RzluVThUY3dFNC11S1Fsb2N2c3lLRWxLM3NrRFFEVmNSSVREM0RXU1NneXdVQVJpY05RT0dpMzlJVmhrakwxNGJrZldPQQ?oc=5",
+      "published": "Thu, 08 Oct 2026 18:04:10 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "c6f13a4842d99cd35ca9767b5c504df699d42666302050bcd7c042bcc066f06d"
+    },
+    {
+      "title": "Today petrol price reaches near Rs400 per liter in Pakistan: October 9, 2026 - Pkrevenue.com",
+      "summary": "Today petrol price reaches near Rs400 per liter in Pakistan: October 9, 2026 &nbsp;&nbsp; Pkrevenue.com",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBQQWk5UFJlMFJ5QW5jMUZrdld6TlBhWmx0cE5xNFNPckxVcWJnelN2THVBM1FlbjdtazBvYUtMaGhXM3U4bHZEZHp5Ul9LSmxWQmhCbVU3UzNWTE9mWTJwb21oUXVTQVhBS0ItU08tZEJfTmYtemc?oc=5",
+      "published": "Thu, 08 Oct 2026 21:43:46 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "f8fb2aea2eac5bdd51c79c426d7da8e5f931b1e662177f418eac021e9f1b0f53"
+    },
+    {
+      "title": "Petrol and diesel become costlier as OGRA revises prices - ARYnews.tv",
+      "summary": "Petrol and diesel become costlier as OGRA revises prices &nbsp;&nbsp; ARYnews.tv",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPQ1kxSU5qcFM2NVl3d0JaejBvanNfRjE2czVZcVM4UUZ0V25LVlNfcEhXNFBRSW4tOGxGVW9OQVZXX1JkelZRa1J4QjEyWUtSLUNsNEt3bW9jdk5MMDE1QUpKaGZVeGhRUVFiV1piZEZVWTc4ZFlsQ1kyTC1IRHQ3MQ?oc=5",
+      "published": "Thu, 08 Oct 2026 18:18:12 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "5e57466fd64972aafd5b08e92a129722f8c8caef876da1920041145044839c78"
+    },
+    {
+      "title": "OGRA Hikes Petrol and Diesel Prices for Today - TechJuice",
+      "summary": "OGRA Hikes Petrol and Diesel Prices for Today &nbsp;&nbsp; TechJuice",
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE8xd25nMFdoSnJsWTJVZWlTdGdXOUN1aVhabldoOGdidVk5S1N0UjlhcVdPcm5tOXh1WkRENHZicVlyS19VVGhwUE15VGsyYTBVUDEzdGtOQlZLalduUVRjb3VlUk82dDRXMW1GRXM1X1JqR2l3Qm5CbC1aSQ?oc=5",
+      "published": "Fri, 09 Oct 2026 06:00:34 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "1b7a224988256fa72e811d78fc394a51aba71c9d871003f242e8f84796d5b3f5"
+    },
+    {
+      "title": "Petrol prices expected to rise again in Pakistan - Daily Ausaf",
+      "summary": "Petrol prices expected to rise again in Pakistan &nbsp;&nbsp; Daily Ausaf",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQNjFGT3NRR21iclB6bEhLY3VqVlJRdUc0QTFLZEFiNHE0SVUxLVd5YnhmUVk2OHFtWTN1ODFxcFpjN3VLbHhKSWxEbXU0MFNBMUkyVVhJa1NXYWFZcHQ2UkdrTmkyYTJBY1RSUUd2cmVlY1c4dzg4aTBGMWp1NDdPcEdHYlNnYUFmaTAzcdIBkgFBVV95cUxONzZxVzI1aWk4T2Z0b1BDanc1RkU2UUk5TFFxWmhIaGprcU9OOFZoRHZOYmVTci1oek9EX3gzQ0NIcHhNTGFlUGVYVEk2dFlmTmpVUmhZRFZSczJBTElQcDlGLWh3NDl5eWtBcmtSSHZ6VXhhTnRpWl9Pai1SYzd3Y2NUVGVUbTV0YVZnTjBMNDU1UQ?oc=5",
+      "published": "Wed, 07 Oct 2026 14:29:41 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "8c7bf78d9744c4298480ab68b398bd8659f3f1bb0807767615ab77e180f23581"
     }
   ],
   "businessRules": {
@@ -43,11 +115,15 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol and diesel prices hiked by Rs2.31, Re0.78 per litre - The News Pakistan (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))"
+          "text": "Govt raises petrol price by Rs2.31 per litre, high-speed diesel rate by Re0.78 per litre - Dawn (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt increases petrol price by Rs2.31, diesel by Re0.78 per litre - Geo News (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -61,11 +137,15 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol and diesel prices hiked by Rs2.31, Re0.78 per litre - The News Pakistan (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))"
+          "text": "Govt raises petrol price by Rs2.31 per litre, high-speed diesel rate by Re0.78 per litre - Dawn (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt increases petrol price by Rs2.31, diesel by Re0.78 per litre - Geo News (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -79,11 +159,15 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol and diesel prices hiked by Rs2.31, Re0.78 per litre - The News Pakistan (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))"
+          "text": "Govt raises petrol price by Rs2.31 per litre, high-speed diesel rate by Re0.78 per litre - Dawn (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt increases petrol price by Rs2.31, diesel by Re0.78 per litre - Geo News (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -97,11 +181,15 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol and diesel prices hiked by Rs2.31, Re0.78 per litre - The News Pakistan (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))"
+          "text": "Govt raises petrol price by Rs2.31 per litre, high-speed diesel rate by Re0.78 per litre - Dawn (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt increases petrol price by Rs2.31, diesel by Re0.78 per litre - Geo News (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -115,11 +203,15 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol and diesel prices hiked by Rs2.31, Re0.78 per litre - The News Pakistan (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))"
+          "text": "Govt raises petrol price by Rs2.31 per litre, high-speed diesel rate by Re0.78 per litre - Dawn (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt increases petrol price by Rs2.31, diesel by Re0.78 per litre - Geo News (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -133,11 +225,15 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol and diesel prices hiked by Rs2.31, Re0.78 per litre - The News Pakistan (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))"
+          "text": "Govt raises petrol price by Rs2.31 per litre, high-speed diesel rate by Re0.78 per litre - Dawn (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt increases petrol price by Rs2.31, diesel by Re0.78 per litre - Geo News (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -151,11 +247,15 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol and diesel prices hiked by Rs2.31, Re0.78 per litre - The News Pakistan (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))"
+          "text": "Govt raises petrol price by Rs2.31 per litre, high-speed diesel rate by Re0.78 per litre - Dawn (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt increases petrol price by Rs2.31, diesel by Re0.78 per litre - Geo News (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",

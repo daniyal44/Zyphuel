@@ -22,8 +22,9 @@
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: OGRA daily rolling Platts benchmark monitor active. Rates adjust daily Monday through Friday, with weekend rates locked. Lock in your doorstep refuel at current rates before depot changes. Fixed Rs. 300.00 delivery fee for 5L–10L; Rs. 320–Rs. 400 for 11L–15L Max.
 >
-- **Market Intelligence**: Govt raises petrol price by Rs1.82 per litre, reduces high-speed diesel rate by Re0.91 - Dawn (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Govt further increases petrol price by Rs2.31, diesel by Re0.78 per litre - Business Recorder (Google News (Platts Crude & Petroleum))
+- **Market Intelligence**: Petrol and diesel prices hiked by Rs2.31, Re0.78 per litre - The News Pakistan (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt raises petrol price by Rs2.31 per litre, high-speed diesel rate by Re0.78 per litre - Dawn (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt increases petrol price by Rs2.31, diesel by Re0.78 per litre - Geo News (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
