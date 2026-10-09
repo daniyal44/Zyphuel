@@ -9,7 +9,7 @@ echo.
 
 :: 1. Verify Git availability
 where git >nul 2>nul
-if %ERRORLEVEL% neq 0 (
+if !ERRORLEVEL! neq 0 (
     echo [ERROR] Git is not installed or not in system PATH.
     echo.
     pause
@@ -18,7 +18,7 @@ if %ERRORLEVEL% neq 0 (
 
 :: 2. Verify git repository
 git rev-parse --is-inside-work-tree >nul 2>nul
-if %ERRORLEVEL% neq 0 (
+if !ERRORLEVEL! neq 0 (
     echo [ERROR] Current folder is not a Git repository.
     echo.
     pause
@@ -47,7 +47,7 @@ git add -A
 :: 6. Commit changes if any exist
 echo [2/3] Creating commit...
 git diff --staged --quiet
-if %ERRORLEVEL% neq 0 (
+if !ERRORLEVEL! neq 0 (
     git commit -m "feat(update): automated 1-click push on %DATE% at %TIME%"
     echo [OK] Changes committed successfully.
 ) else (
@@ -59,30 +59,47 @@ echo.
 echo [3/3] Pushing to GitHub (origin/%CURRENT_BRANCH%)...
 git push origin %CURRENT_BRANCH%
 
-if %ERRORLEVEL% equ 0 (
+if !ERRORLEVEL! equ 0 goto :push_success
+
+echo.
+echo [!] Push failed or was rejected. Attempting safe sync and retry...
+git pull --rebase --autostash origin %CURRENT_BRANCH%
+if !ERRORLEVEL! neq 0 (
     echo.
     echo ==============================================================
-    echo  [SUCCESS] Code successfully pushed to GitHub!
+    echo  [ERROR] Sync/Rebase failed. Please resolve conflicts or check git status.
     echo ==============================================================
-    echo Commit SHA:
-    git rev-parse --short HEAD
-) else (
-    echo.
-    echo [!] Push failed or was rejected. Attempting safe sync and retry...
-    git pull --rebase --autostash origin %CURRENT_BRANCH%
-    git push origin %CURRENT_BRANCH%
-    if %ERRORLEVEL% equ 0 (
-        echo.
-        echo ==============================================================
-        echo  [SUCCESS] Code successfully pushed after sync!
-        echo ==============================================================
-    ) else (
-        echo.
-        echo ==============================================================
-        echo  [ERROR] Push failed. Please check your internet or GitHub access.
-        echo ==============================================================
-    )
+    goto :push_end
 )
+
+git push origin %CURRENT_BRANCH%
+if !ERRORLEVEL! equ 0 goto :push_success_synced
+
+echo.
+echo ==============================================================
+echo  [ERROR] Push failed. Please check your internet or GitHub access.
+echo ==============================================================
+goto :push_end
+
+:push_success
+echo.
+echo ==============================================================
+echo  [SUCCESS] Code successfully pushed to GitHub!
+echo ==============================================================
+echo Commit SHA:
+git rev-parse --short HEAD
+goto :push_end
+
+:push_success_synced
+echo.
+echo ==============================================================
+echo  [SUCCESS] Code successfully pushed after sync!
+echo ==============================================================
+echo Commit SHA:
+git rev-parse --short HEAD
+goto :push_end
+
+:push_end
 
 echo.
 pause
