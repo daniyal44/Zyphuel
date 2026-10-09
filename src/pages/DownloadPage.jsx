@@ -256,7 +256,7 @@ export default function DownloadPage() {
               <div className="download-hero-content" style={{ opacity: 1, visibility: 'visible' }}>
                 <div className="hero-subtitle-badge">
                   <i className="fa-solid fa-mobile-screen"></i>
-                  <span>Pakistan's #1 On-Demand Fuel App • v{APP_VERSION} (Latest Release)</span>
+                  <span>{`Pakistan's #1 On-Demand Fuel App • v${APP_VERSION} (Latest Release)`}</span>
                 </div>
                 
                 <h1 className="hero-title">
@@ -336,7 +336,7 @@ export default function DownloadPage() {
                     />
                   </div>
                   <div className="qr-info">
-                    <h4>Scan QR to Install v{APP_VERSION}</h4>
+                    <h4>{`Scan QR to Install v${APP_VERSION}`}</h4>
                     <p>Scan with your smartphone camera to download the Android APK installer directly to your mobile device.</p>
                   </div>
                 </div>

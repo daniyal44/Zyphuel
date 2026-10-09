@@ -1233,6 +1233,14 @@ async function prerender() {
       `<script type="application/ld+json" id="seo-schema">\n${schemaJson}\n    </script>`
     )
 
+    // Strip Home-only hero animation preload on non-home pages to eliminate browser preload warnings
+    if (route.path !== '/') {
+      html = html.replace(
+        /\s*<link\s+rel=["']preload["']\s+as=["']image["']\s+href=["']\/ezgif-2f1a39c97e5b173b-jpg\/ezgif-frame-001\.jpg["'][^>]*\/?>/i,
+        ''
+      )
+    }
+
     // Inject Pre-rendered App Content into <div id="root">
     html = html.replace(
       '<div id="root"></div>',

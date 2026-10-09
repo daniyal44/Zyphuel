@@ -830,7 +830,7 @@ Aligned all corporate credentials, physical location indicators, executive title
 - **User Directive**: *"adsense sa releated all cod eko remove karo"*
 - **Implementation & Complete Purge**:
   - **Component Deletion**: Deleted `src/components/AdSenseInFeed.jsx`.
-  - **Verification & Ads.txt Files**: Deleted `ads.txt` and `public/ads.txt`.
+  - **Verification & Ads.txt Files**: Deleted `ads.txt` and `public/ads.txt`, and completely removed `ads.txt` copy/sync routines from `prerender.js`.
   - **HTML Meta & Script Cleanliness (`index.html`)**:
     - Removed `<meta name="google-adsense-account" content="ca-pub-6127960264752741" />` verification meta tags.
     - Removed asynchronous library script `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6127960264752741" crossorigin="anonymous"></script>`.
@@ -841,3 +841,11 @@ Aligned all corporate credentials, physical location indicators, executive title
     - `src/pages/BlogArticlePage.jsx`: Removed `AdSenseInFeed` import and sponsored in-feed ad card preceding related articles.
   - **CSS Styling (`src/index.css`)**: Removed `.blog-infeed-ad-card`, `.blog-infeed-ad-card:hover`, `.blog-infeed-ad-badge`, and `.adsense-infeed-container` classes.
   - **Result**: Zero ad network scripts, zero ad telemetry, and zero visual sponsored units across the entire application.
+
+### 21.21 Google AdSense Site Ownership Verification Integration
+- **User Directive**: *"Verify site ownership... Your AdSense code: <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5869892726772309" crossorigin="anonymous"></script> I've placed the code"*
+- **Implementation & Verification Infrastructure**:
+  - **Head Script Placement (`index.html`)**: Added `<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5869892726772309" crossorigin="anonymous"></script>` between `<head></head>`.
+  - **Account Meta Tag**: Embedded `<meta name="google-adsense-account" content="ca-pub-5869892726772309" />` providing multi-method fallback verification.
+  - **Ads.txt Deployment**: Created `public/ads.txt` containing `google.com, pub-5869892726772309, DIRECT, f08c47fec0942fa0`, synced via `prerender.js` to `dist/ads.txt`, and added cache header in `public/_headers`.
+  - **SSG Route Ingestion**: Compiled with `npm run build` so that every single pre-rendered page across all 17 static routes (`dist/index.html`, `dist/about/index.html`, etc.) immediately contains the verification script and meta tag in `<head>`.

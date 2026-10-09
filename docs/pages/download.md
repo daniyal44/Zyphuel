@@ -59,6 +59,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-09** | **Hydration Optimization for Dynamic App Version Strings**: Wrapped `APP_VERSION` subtitle badge and QR install heading in single template literals (`{`v${APP_VERSION}`}`) to prevent React `<!-- -->` hydration delimiter comments and guarantee zero hydration mismatch errors. | Production React 18 hydration hardening. |
 | **2026-10-09** | **Removal of Cryptographic Integrity & SHA-256 Checksum Panel**: Removed the dark SHA-256 checksum card and command-line verification box from `src/pages/DownloadPage.jsx` per user request, simplifying and streamlining the app download experience. | User requested: *"Cryptographic Integrity & SHA-256 Checksum... remove ait"* |
 | **2026-10-04** | **Release of Android APK v2.6.4.0.0.22 (Build 50)**: Synchronized app version to `v2.6.4.0.0.22` (Build 50, Target SDK 36, Android 15/16 Ready), updated SHA-256 integrity hash to `10a23c3d027a7dcc0970d0e00dfc1481b26b89e9a0e87eac25c21fc8e6e174f3`, and dynamic hash binding in `src/pages/DownloadPage.jsx`. | User request: update app version and sync across the entire platform. |
 | **2026-10-02** | **Removal of High Market Demand Badge**: Removed the "High Market Demand: Over 15,000+ Active Users in Lahore • 45-Min Express Dispatch" alert pill from the download hero header in `src/pages/DownloadPage.jsx` per user directive. | User request: remove the 15,000+ active users high market demand callout. |

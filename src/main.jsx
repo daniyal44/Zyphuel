@@ -5,21 +5,36 @@ import App from './App'
 import './index.css'
 import { initOrderGuardPlugin } from './plugins/zyphuelOrderGuard'
 
-// Run Order Guard Plugin
-initOrderGuardPlugin()
-
 const rootElement = document.getElementById('root')
 
-if (rootElement.hasChildNodes()) {
-  ReactDOM.hydrateRoot(
-    rootElement,
-    <React.StrictMode>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </React.StrictMode>
-  )
-} else {
+if (rootElement && rootElement.hasChildNodes()) {
+  try {
+    ReactDOM.hydrateRoot(
+      rootElement,
+      <React.StrictMode>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </React.StrictMode>,
+      {
+        onRecoverableError(error, errorInfo) {
+          if (import.meta.env.DEV) {
+            console.warn('[Zyphuel Hydration Recoverable]:', error, errorInfo)
+          }
+        }
+      }
+    )
+  } catch (err) {
+    console.warn('[Zyphuel] Hydration fallback to client render:', err)
+    ReactDOM.createRoot(rootElement).render(
+      <React.StrictMode>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </React.StrictMode>
+    )
+  }
+} else if (rootElement) {
   ReactDOM.createRoot(rootElement).render(
     <React.StrictMode>
       <BrowserRouter>
@@ -28,3 +43,6 @@ if (rootElement.hasChildNodes()) {
     </React.StrictMode>
   )
 }
+
+// Run Order Guard Plugin after React initialization
+initOrderGuardPlugin()

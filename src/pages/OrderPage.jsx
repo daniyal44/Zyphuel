@@ -326,15 +326,33 @@ export default function OrderPage() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [magnifiedImage, hoverPreview])
 
-  // Working Hours validation state
-  const [officeStatus, setOfficeStatus] = useState(() => checkOfficeHours())
+  // SSR-safe baseline office status to guarantee deterministic initial render
+  const [officeStatus, setOfficeStatus] = useState(() => ({
+    isOpen: true,
+    canCompleteOrder: true,
+    isNightCutoffActive: false,
+    rawNightCutoff: false,
+    isBypassed: false,
+    nextOrderReopen: 'Tomorrow at 8:00 AM PKT',
+    orderIntakeWindow: '8:00 AM – 10:00 PM PKT',
+    isOfficeOpen: true,
+    day: '',
+    hour: 12,
+    minute: 0,
+    timeInMinutes: 720,
+    currentTime: '',
+    currentDateTimeStr: '',
+    todaySchedule: '8:00 AM – 8:00 PM',
+    nextOpening: '',
+    mismatchMessage: ''
+  }))
 
-  // Periodically refresh office status and respond to test bypass / query changes
+  // Synchronize with live Lahore time immediately on mount and periodically
   useEffect(() => {
     setOfficeStatus(checkOfficeHours())
     const interval = setInterval(() => {
       setOfficeStatus(checkOfficeHours())
-    }, 30000)
+    }, 10000)
     return () => clearInterval(interval)
   }, [location.search])
 
@@ -719,17 +737,23 @@ export default function OrderPage() {
               <div key={i} className="price-ticker-track">
                 <div className="ticker-item">
                   <span className="ticker-bullet"></span>
-                  Petrol (Premier Euro 5): <strong>Rs. {prices.petrol.toFixed(2)}</strong>/L
+                  <span>Petrol (Premier Euro 5): </span>
+                  <strong>{`Rs. ${prices.petrol.toFixed(2)}`}</strong>
+                  <span>/L</span>
                   <span className="price-up">Live <i className="fa-solid fa-caret-up"></i></span>
                 </div>
                 <div className="ticker-item">
                   <span className="ticker-bullet"></span>
-                  Diesel (Hi-Cetane Euro 5): <strong>Rs. {prices.diesel.toFixed(2)}</strong>/L
+                  <span>Diesel (Hi-Cetane Euro 5): </span>
+                  <strong>{`Rs. ${prices.diesel.toFixed(2)}`}</strong>
+                  <span>/L</span>
                   <span className="price-up">Live <i className="fa-solid fa-caret-up"></i></span>
                 </div>
                 <div className="ticker-item">
                   <span className="ticker-bullet"></span>
-                  High-Octane (Euro 5): <strong>Rs. {prices.highOctane.toFixed(2)}</strong>/L
+                  <span>High-Octane (Euro 5): </span>
+                  <strong>{`Rs. ${prices.highOctane.toFixed(2)}`}</strong>
+                  <span>/L</span>
                   <span className="price-up">Live <i className="fa-solid fa-caret-up"></i></span>
                 </div>
               </div>
@@ -981,7 +1005,7 @@ export default function OrderPage() {
                               {FUEL_DISPLAY[type]}
                             </div>
                             <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--brand-primary, #0284c7)' }}>
-                              Rs. {prices[type].toFixed(2)}/L
+                              {`Rs. ${prices[type].toFixed(2)}/L`}
                             </div>
                           </div>
                         </div>
@@ -1126,7 +1150,7 @@ export default function OrderPage() {
 
                   <div className="quantity-config-card animated fadeIn" style={{ marginBottom: '20px' }}>
                     <div className="quantity-config-header">
-                      <span className="config-title"><i className="fa-solid fa-gas-pump"></i> Fuel Volume ({FUEL_DISPLAY[selectedFuelType]})</span>
+                      <span className="config-title"><i className="fa-solid fa-gas-pump"></i>{` Fuel Volume (${FUEL_DISPLAY[selectedFuelType]})`}</span>
                       <span className="config-unit">5L – 15L Max per Order</span>
                     </div>
 
@@ -1149,7 +1173,7 @@ export default function OrderPage() {
                         </div>
                         <div className="stepper-delivery-badge" style={{ marginLeft: 'auto' }}>
                           <span style={{ fontSize: '0.82rem', color: '#ea580c', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
-                            <i className="fa-solid fa-truck"></i>Delivery Charges: <strong>Rs. {standardFee}</strong>
+                            <i className="fa-solid fa-truck"></i><span>Delivery Charges: </span><strong>{`Rs. ${standardFee}`}</strong>
                           </span>
                         </div>
                       </div>
@@ -1186,7 +1210,7 @@ export default function OrderPage() {
                                 transition: 'all 0.15s ease'
                               }}
                             >
-                              {qty} L {qty === 15 ? ' Max' : ''}
+                              {`${qty} L${qty === 15 ? ' Max' : ''}`}
                             </button>
                           ))}
                         </div>
@@ -1515,7 +1539,7 @@ export default function OrderPage() {
                   }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                       <span style={{ fontSize: '0.84rem', color: 'var(--text-secondary)' }}>
-                        {fuelQty}L {FUEL_DISPLAY[selectedFuelType]} &bull; {DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.shortLabel || 'Standard Delivery'}
+                        {`${fuelQty}L ${FUEL_DISPLAY[selectedFuelType]} • ${DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.shortLabel || 'Standard Delivery'}`}
                       </span>
                       <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#0284c7' }}>
                         🚚 Express Doorstep Dispatch
@@ -1560,11 +1584,11 @@ export default function OrderPage() {
                       <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap', marginBottom: 0, fontSize: '0.84rem' }}>
                         <div style={{ background: 'rgba(255, 255, 255, 0.06)', padding: '8px 14px', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
                           <span style={{ color: '#94a3b8' }}>Current Lahore Time: </span>
-                          <strong style={{ color: '#38bdf8' }}>{officeStatus.currentTime || '10:00+ PM'} (PKT)</strong>
+                          <strong style={{ color: '#38bdf8' }}>{`${officeStatus.currentTime || '10:00+ PM'} (PKT)`}</strong>
                         </div>
                         <div style={{ background: 'rgba(255, 255, 255, 0.06)', padding: '8px 14px', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
                           <span style={{ color: '#94a3b8' }}>Orders Reopen: </span>
-                          <strong style={{ color: '#34d399' }}>{officeStatus.nextOrderReopen || 'Tomorrow at 8:00 AM PKT'}</strong>
+                          <strong style={{ color: '#34d399' }}>{`${officeStatus.nextOrderReopen || 'Tomorrow at 8:00 AM PKT'}`}</strong>
                         </div>
                       </div>
                     </div>
@@ -1670,11 +1694,11 @@ export default function OrderPage() {
                       </div>
                       <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
                         <span>Quantity</span>
-                        <strong>{fuelQty} Litres</strong>
+                        <strong>{`${fuelQty} Litres`}</strong>
                       </div>
                       <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
                         <span>Unit Rate</span>
-                        <strong>Rs. {fuelRate.toFixed(2)}/L</strong>
+                        <strong>{`Rs. ${fuelRate.toFixed(2)}/L`}</strong>
                       </div>
                       <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
                         <span>Fuel Cost</span>
@@ -2114,7 +2138,7 @@ export default function OrderPage() {
                 borderRadius: '8px'
               }}>
                 <i className="fa-regular fa-clock" style={{ fontSize: '1.05rem' }}></i>
-                <span>Order Placed Time: <strong>{activeOrder.placedDateTime || activeOrder.placedTime}</strong> (آرڈر کا وقت)</span>
+                <span>{`Order Placed Time: `}<strong>{activeOrder.placedDateTime || activeOrder.placedTime}</strong>{` (آرڈر کا وقت)`}</span>
               </div>
             )}
           </div>
@@ -2141,7 +2165,7 @@ export default function OrderPage() {
               )}
               <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px dashed var(--border-color, #e2e8f0)', paddingTop: '8px', marginTop: '6px' }}>
                 <span style={{ fontWeight: 700, color: 'var(--text-primary, #0f172a)' }}>Total Bill:</span>
-                <span style={{ fontWeight: 800, color: '#10b981', fontSize: '1.05rem' }}>Rs. {activeOrder.total?.toLocaleString()}</span>
+                <span style={{ fontWeight: 800, color: '#10b981', fontSize: '1.05rem' }}>{`Rs. ${activeOrder.total?.toLocaleString()}`}</span>
               </div>
             </div>
           )}
