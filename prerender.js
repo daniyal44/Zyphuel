@@ -632,8 +632,8 @@ const ROUTES = [
   {
     path: '/download/',
     outFile: 'dist/download/index.html',
-    title: "Download Zyphuel App | Fuel Delivery App for Lahore",
-    description: `Download the official Zyphuel Android APK (v${APP_VERSION}) for on-demand doorstep petrol and diesel delivery in Lahore. GPS auto-detection and live tracking.`,
+    title: "Download Zyphuel App | Doorstep Fuel Delivery App Lahore | Android APK",
+    description: `Download the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) for on-demand doorstep petrol and diesel delivery in Lahore. Real-time GPS tracking and 45-minute dispatch.`,
     keywords: `Download Zyphuel APK, Zyphuel App v${APP_VERSION}, fuel delivery app Android, fuel price alert app Pakistan, Lahore fuel delivery app`,
     canonical: `${DOMAIN}/download/`,
     ogImage: `${DOMAIN}/images/1.jpeg`,
@@ -715,7 +715,7 @@ const ROUTES = [
     path: '/order/',
     outFile: 'dist/order/index.html',
     title: "Order Petrol & Diesel Online in Lahore | Zyphuel",
-    description: "Order diesel, petrol, and high-octane fuel delivery online with Zyphuel in Lahore. Express doorstep dispatch within 45 minutes with calibrated digital flow meter.",
+    description: "Order Euro-V Super Petrol, High-Octane 97, and Euro-V Diesel delivery online with Zyphuel in Lahore. Express 45-minute doorstep dispatch with digital calibration meter.",
     keywords: "order diesel Lahore, order petrol Lahore, diesel delivery Lahore, petrol delivery Lahore, generator diesel order, order fuel online Pakistan, fuel cash on delivery Lahore, Zyphuel order",
     canonical: `${DOMAIN}/order/`,
     ogImage: `${DOMAIN}/images/tank.png`,
@@ -788,7 +788,7 @@ const ROUTES = [
               "@type": "HowToStep",
               "position": 2,
               "name": "Select Refueling Target Application",
-              "text": "Choose your receiving asset: Passenger Car/SUV, Motorbike, Standby Generator, Heavy Machinery, or Certified Storage Drum.",
+              "text": "Choose your receiving asset: Car / Sedan / SUV, Motorbike / Scooter, Standby Generator, or Commercial Machinery.",
               "url": `${DOMAIN}/order/#step-refuel-target`
             },
             {
@@ -1350,7 +1350,7 @@ async function prerender() {
       const escapedTitle = escapeXml(imageTitle)
       const escapedImageLoc = escapeXml(imageLoc)
       const escapedCaption = escapeXml(imageCaption)
-      const imageTag = escapedImageLoc ? `\n    <image:image>\n      <image:loc>${escapedImageLoc}</image:loc>\n      <image:title>${escapedTitle}</image:title>\n      <image:caption>${escapedCaption}</image:caption>\n      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>\n      <image:license>${DOMAIN}/terms/</image:license>\n    </image:image>` : ''
+      const imageTag = escapedImageLoc ? `\n    <image:image>\n      <image:loc>${escapedImageLoc}</image:loc>\n      <image:title>${escapedTitle}</image:title>\n      <image:caption>${escapedCaption}</image:caption>\n      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>\n    </image:image>` : ''
       return `  <url>
     <loc>${escapedLoc}</loc>
     <lastmod>${lastmod}</lastmod>

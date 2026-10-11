@@ -93,22 +93,8 @@ async function submitToIndexNow() {
     }
   }
 
-  // ── Ping Search Engine Sitemaps ──────────────────────────────
-  const sitemapUrl = `https://${HOST}/sitemap.xml`
-  const pingEndpoints = [
-    { name: 'Google Sitemap Ping', url: `https://www.google.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}` },
-    { name: 'Bing Sitemap Ping', url: `https://www.bing.com/ping?sitemap=${encodeURIComponent(sitemapUrl)}` },
-  ]
-
-  console.log('\n[Sitemap Pinger] Pinging search engine sitemap notification endpoints...')
-  for (const ping of pingEndpoints) {
-    try {
-      const pingRes = await fetch(ping.url, { method: 'GET' })
-      console.log(`[Sitemap Pinger] ✅ ${ping.name} -> Responded with status ${pingRes.status}`)
-    } catch (err) {
-      console.log(`[Sitemap Pinger] ℹ️ ${ping.name} notification sent (${err.message})`)
-    }
-  }
+  // Note: Google officially retired the /ping?sitemap endpoint in Jan 2024 (returns 404).
+  // Sitemaps are discovered automatically via robots.txt and submitted in Google Search Console.
 
   console.log('\n[IndexNow] All indexing requests dispatched successfully!')
 }

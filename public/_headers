@@ -4,6 +4,11 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(self), camera=(), microphone=()
+  X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+
+/404.html
+  X-Robots-Tag: noindex, follow
+  Cache-Control: no-cache, no-store, must-revalidate
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable

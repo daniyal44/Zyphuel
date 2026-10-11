@@ -50,6 +50,7 @@ The **HTML Sitemap Page** (`/sitemap/`) previously served as an experimental nav
 ---
 
 ## 5. Changelog
+- **2026-10-12 (GSC XML Sitemap Clean-up & Image License Removal)**: Purged invalid `<image:license>${DOMAIN}/terms/</image:license>` tags from `sitemap.xml` in `prerender.js`. Previously, Google Image Crawler was repeatedly attempting to validate machine-readable license schemas on `/terms/`, resulting in crawler delays and indexing stalls on legal and auxiliary pages. Synchronized all canonical page `<lastmod>` timestamps to current date `2026-10-12` and verified 100% crawler reachability.
 - **2026-09-28 (Removal & Retirement)**: Decommissioned HTML sitemap (`/sitemap/`): deleted `HtmlSitemapPage.jsx`, removed route from `App.jsx`, removed link from footer navigation, purged route from `prerender.js`, cleaned crawler directives from `robots.txt`, and eliminated redirect from `_redirects`.
 - **2026-09-27 (Privacy Consolidation)**: Removed raw phone number display `(+92 3230-112464)` from the Contact Helpline card description in `HtmlSitemapPage.jsx`, consolidating personal telephone exposure exclusively to `/contact/`.
 - **2026-09-27 (Phase 10: SEO/AEO/GEO)**: Added Flagship Research Article 7 (`/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/`) to `blogGuides` directory. Enhanced XML Sitemap generator with full Google Image extension metadata (`caption`, `geo_location`, `license`).

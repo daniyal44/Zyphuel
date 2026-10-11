@@ -283,6 +283,7 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
     // 5. Canonical Link & International Hreflang Tags
     setLinkTag('canonical', fullUrl)
     setLinkTag('alternate', fullUrl, { hreflang: 'x-default' })
+    setLinkTag('alternate', fullUrl, { hreflang: 'en' })
     setLinkTag('alternate', fullUrl, { hreflang: 'en-PK' })
 
     // 6. Dynamic Multi-Schema Graph Construction (AEO, GEO, VSO & Schema.org)

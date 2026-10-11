@@ -95,8 +95,8 @@ export default function DownloadPage() {
   }, [slides.length])
 
   useSEO({
-    title: `Download Fuel Delivery App Lahore | Zyphuel Android APK v${APP_VERSION}`,
-    description: `Download Pakistan's #1 doorstep petrol and diesel delivery app (v${APP_VERSION}, ${APP_SIZE}). generator refueling, express 45-minute dispatch in Lahore, 0.01L digital calibrated flow meters, and 2-hour live OGRA price alerts.`,
+    title: `Download Zyphuel App | Doorstep Fuel Delivery App Lahore | Android APK`,
+    description: `Download the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) for on-demand doorstep petrol and diesel delivery in Lahore. Real-time GPS tracking and 45-minute dispatch.`,
     keywords: [
       'petrol delivery app pakistan', 'fuel delivery app Lahore', 'download Zyphuel APK', 'Zyphuel Android app',
       `Zyphuel App v${APP_VERSION}`, 'online petrol delivery in lahore', 'doorstep diesel delivery lahore',

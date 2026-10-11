@@ -49,6 +49,7 @@ export default function SeoHead({
 
     // 4. Internationalization (hreflang) Tags
     setLinkTag('alternate', fullUrl, { hreflang: 'x-default' })
+    setLinkTag('alternate', fullUrl, { hreflang: 'en' })
     setLinkTag('alternate', fullUrl, { hreflang: 'en-PK' })
 
     // 5. OpenGraph Meta Tags

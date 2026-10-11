@@ -1,9 +1,10 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
- * Google Search Console & Search Engine Indexing Automation Tool
+ * Google Search Console & Search Engine Indexing Automation & Audit Tool
  * 
- * Verifies sitemap integrity, checks Google Search Console verification token,
- * pings search engine sitemap endpoints, and outputs direct indexing status.
+ * Verifies sitemap integrity, checks verification tokens, audits the 5 GSC Drilldown
+ * pages (/blog/, /contact/, /download/, /order/, /terms/) for title tags, canonical URLs,
+ * hreflang tags, robots directives, and structured data schemas.
  */
 
 import fs from 'node:fs'
@@ -17,86 +18,133 @@ const DOMAIN = 'https://zyphuel.netlify.app'
 const SITEMAP_URL = `${DOMAIN}/sitemap.xml`
 const GOOGLE_VERIFY_FILE = 'google1ab7400cf65ca469.html'
 
+// The 5 URLs flagged in GSC Coverage Drilldown (Discovered – currently not indexed)
+const DRILLDOWN_PAGES = [
+  { path: '/blog/', file: 'dist/blog/index.html' },
+  { path: '/contact/', file: 'dist/contact/index.html' },
+  { path: '/download/', file: 'dist/download/index.html' },
+  { path: '/order/', file: 'dist/order/index.html' },
+  { path: '/terms/', file: 'dist/terms/index.html' }
+]
+
 async function runGscInspection() {
   console.log('================================================================');
-  console.log('  🔍 ZYPHUEL GOOGLE SEARCH CONSOLE & ENGINE INDEXING INSPECTION  ');
+  console.log('  🔍 ZYPHUEL GOOGLE SEARCH CONSOLE & CRAWL HEALTH AUDIT         ');
   console.log('================================================================\n');
 
   // 1. Verify Google Verification Token File
   const verifyPathPublic = path.join(ROOT, 'public', GOOGLE_VERIFY_FILE)
   const verifyPathDist = path.join(ROOT, 'dist', GOOGLE_VERIFY_FILE)
 
-  let verifyToken = null
   if (fs.existsSync(verifyPathPublic)) {
-    verifyToken = fs.readFileSync(verifyPathPublic, 'utf8').trim()
-    console.log(`[GSC] ✅ Verification File Found (public/): ${GOOGLE_VERIFY_FILE}`)
-    console.log(`      Content: "${verifyToken}"`)
+    const token = fs.readFileSync(verifyPathPublic, 'utf8').trim()
+    console.log(`[GSC Auth] ✅ Verification File Found: ${GOOGLE_VERIFY_FILE}`)
+    console.log(`           Token: "${token}"`)
   } else {
-    console.warn(`[GSC] ⚠️ Verification file missing from public/`)
+    console.warn(`[GSC Auth] ⚠️ Verification file missing from public/`)
   }
 
   // 2. Parse and Validate Sitemap URLs
-  const sitemapPath = path.join(ROOT, 'public', 'sitemap.xml')
-  if (!fs.existsSync(sitemapPath)) {
+  const sitemapPath = path.join(ROOT, 'dist', 'sitemap.xml')
+  const publicSitemapPath = path.join(ROOT, 'public', 'sitemap.xml')
+  const actualSitemap = fs.existsSync(sitemapPath) ? sitemapPath : publicSitemapPath
+
+  if (!fs.existsSync(actualSitemap)) {
     console.error('[Sitemap] ❌ sitemap.xml not found!')
-    process.exit(1)
+  } else {
+    const sitemapContent = fs.readFileSync(actualSitemap, 'utf8')
+    const urlMatches = [...sitemapContent.matchAll(/<loc>(.*?)<\/loc>/g)].map(m => m[1])
+    const lastmodMatches = [...sitemapContent.matchAll(/<lastmod>(.*?)<\/lastmod>/g)].map(m => m[1])
+    console.log(`\n[Sitemap] ✅ Found ${urlMatches.length} URLs in sitemap.xml:`)
+    urlMatches.forEach((url, i) => {
+      const mod = lastmodMatches[i] || 'N/A'
+      console.log(`   ${(i + 1).toString().padStart(2, ' ')}. [${mod}] ${url}`)
+    })
   }
-
-  const sitemapContent = fs.readFileSync(sitemapPath, 'utf8')
-  const urlMatches = [...sitemapContent.matchAll(/<loc>(.*?)<\/loc>/g)].map(m => m[1])
-  const lastmodMatches = [...sitemapContent.matchAll(/<lastmod>(.*?)<\/lastmod>/g)].map(m => m[1])
-
-  console.log(`\n[Sitemap] ✅ Found ${urlMatches.length} URLs in sitemap.xml:`)
-  urlMatches.forEach((url, i) => {
-    const mod = lastmodMatches[i] || 'N/A'
-    console.log(`   ${(i + 1).toString().padStart(2, ' ')}. [${mod}] ${url}`)
-  })
 
   // 3. Check robots.txt Directives
   const robotsPath = path.join(ROOT, 'public', 'robots.txt')
   if (fs.existsSync(robotsPath)) {
     const robots = fs.readFileSync(robotsPath, 'utf8')
     const hasSitemap = robots.includes(SITEMAP_URL)
-    const hasLlms = robots.includes('llms.txt')
+    const hasGooglebot = robots.includes('User-agent: Googlebot')
+    const hasInspectionTool = robots.includes('User-agent: Google-InspectionTool')
     console.log(`\n[Robots.txt] Checks:`)
-    console.log(`   - Sitemap reference: ${hasSitemap ? '✅ PASS' : '❌ MISSING'}`)
-    console.log(`   - llms.txt reference: ${hasLlms ? '✅ PASS' : '❌ MISSING'}`)
-    console.log(`   - Googlebot allowed: ${robots.includes('User-agent: Googlebot') ? '✅ PASS' : '❌ MISSING'}`)
+    console.log(`   - Sitemap declared: ${hasSitemap ? '✅ PASS' : '❌ MISSING'}`)
+    console.log(`   - Googlebot allowed: ${hasGooglebot ? '✅ PASS' : '❌ MISSING'}`)
+    console.log(`   - Google-InspectionTool allowed: ${hasInspectionTool ? '✅ PASS' : '❌ MISSING'}`)
   }
 
-  // 4. Ping Search Engines with Sitemap URL
-  console.log(`\n[Pings] Submitting sitemap ping to search engine endpoints...`)
-
-  const pingEndpoints = [
-    { name: 'Google (Legacy Ping)', url: `https://www.google.com/ping?sitemap=${encodeURIComponent(SITEMAP_URL)}` },
-    { name: 'Bing Ping', url: `https://www.bing.com/ping?sitemap=${encodeURIComponent(SITEMAP_URL)}` }
-  ]
-
-  for (const ep of pingEndpoints) {
-    try {
-      const res = await fetch(ep.url, { method: 'GET', signal: AbortSignal.timeout(6000) })
-      console.log(`   - ${ep.name}: HTTP ${res.status} (${res.statusText || 'OK'})`)
-    } catch (err) {
-      console.log(`   - ${ep.name}: Network notice (${err.message})`)
-    }
-  }
-
-  // 5. Output Direct Steps for Instant GSC Indexing
+  // 4. Audit Drilldown Pages (Title, Canonical, Robots, Hreflang, Schema)
   console.log('\n================================================================');
-  console.log('  📌 GOOGLE SEARCH CONSOLE INSTANT INDEXING GUIDE FOR ALL PAGES  ');
+  console.log('  📑 AUDITING THE 5 GSC DRILLDOWN PAGES                         ');
+  console.log('================================================================');
+
+  for (const page of DRILLDOWN_PAGES) {
+    const filePath = path.join(ROOT, page.file)
+    const url = `${DOMAIN}${page.path}`
+    console.log(`\n🔎 [URL]: ${url}`)
+
+    if (!fs.existsSync(filePath)) {
+      console.log(`   ❌ HTML file missing: ${page.file} (Run build first)`)
+      continue
+    }
+
+    const html = fs.readFileSync(filePath, 'utf8')
+
+    // Title
+    const titleMatch = html.match(/<title>(.*?)<\/title>/i)
+    const title = titleMatch ? titleMatch[1] : 'MISSING'
+    console.log(`   - Title: ${title !== 'MISSING' ? '✅' : '❌'} "${title}" (${title.length} chars)`)
+
+    // Canonical
+    const canonicalMatch = html.match(/<link\s+rel=["']canonical["']\s+href=["'](.*?)["']/i)
+    const canonical = canonicalMatch ? canonicalMatch[1] : 'MISSING'
+    const canonicalValid = canonical === url
+    console.log(`   - Canonical: ${canonicalValid ? '✅ MATCH' : '❌ MISMATCH'} (${canonical})`)
+
+    // Hreflang
+    const hasXDefault = html.includes(`hreflang="x-default" href="${url}"`)
+    const hasEn = html.includes(`hreflang="en" href="${url}"`)
+    const hasEnPk = html.includes(`hreflang="en-PK" href="${url}"`)
+    console.log(`   - Hreflang: ${hasXDefault && hasEn && hasEnPk ? '✅ COMPLETE' : '⚠️ PARTIAL'} (x-default: ${hasXDefault}, en: ${hasEn}, en-PK: ${hasEnPk})`)
+
+    // Meta Robots
+    const robotsMatch = html.match(/<meta\s+name=["']robots["']\s+content=["'](.*?)["']/i)
+    const robotsContent = robotsMatch ? robotsMatch[1] : 'MISSING'
+    console.log(`   - Meta Robots: ${robotsContent.includes('index') && !robotsContent.includes('noindex') ? '✅ INDEXABLE' : '❌ BLOCKED'} (${robotsContent})`)
+
+    // Description
+    const descMatch = html.match(/<meta\s+name=["']description["']\s+content=["'](.*?)["']/i)
+    const desc = descMatch ? descMatch[1] : 'MISSING'
+    console.log(`   - Description: ${desc !== 'MISSING' ? '✅' : '❌'} (${desc.length} chars)`)
+
+    // Schema
+    const hasSchema = html.includes('id="seo-schema"') || html.includes('application/ld+json')
+    console.log(`   - JSON-LD Schema: ${hasSchema ? '✅ PRESENT' : '❌ MISSING'}`)
+  }
+
+  // 5. Actionable Steps for GSC Live Inspection
+  console.log('\n================================================================');
+  console.log('  📌 ACTIONABLE GOOGLE SEARCH CONSOLE STEPS FOR IMMEDIATE INDEXING');
   console.log('================================================================');
   console.log(`
 1. Open Google Search Console: https://search.google.com/search-console
-2. Select Property: https://zyphuel.netlify.app/
-3. Under "Indexing" in the left sidebar, click "Sitemaps"
-4. Under "Add a new sitemap", enter:
-     sitemap.xml
-   and click "SUBMIT".
-   Google will immediately schedule all 15 URLs for crawling and indexing.
-5. For Instant Priority Indexing of specific high-value pages:
-   - Paste the URL (e.g. https://zyphuel.netlify.app/ or https://zyphuel.netlify.app/order/)
-     into the top "Inspect any URL in https://zyphuel.netlify.app" search bar.
-   - Click "TEST LIVE URL" -> "REQUEST INDEXING".
+2. Ensure Property is: https://zyphuel.netlify.app/
+3. Under "Indexing" -> "Sitemaps":
+   - Submit: "sitemap.xml"
+   - Confirm Status is "Success".
+4. For the 5 Drilldown Pages:
+   - https://zyphuel.netlify.app/blog/
+   - https://zyphuel.netlify.app/contact/
+   - https://zyphuel.netlify.app/download/
+   - https://zyphuel.netlify.app/order/
+   - https://zyphuel.netlify.app/terms/
+   Inspect each URL in the top search bar:
+   - Click "TEST LIVE URL" (verifies Googlebot can fetch without error)
+   - Click "REQUEST INDEXING"
+5. Under "Page indexing" -> "Discovered – currently not indexed":
+   - Click "VALIDATE FIX" button to trigger automated Googlebot recrawl!
 `);
 }
 

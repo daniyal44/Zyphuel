@@ -1,88 +1,38 @@
 # ==============================================================================
 # Zyphuel Robots Exclusion Protocol (robots.txt)
 # Official Website: https://zyphuel.netlify.app/
-# Canonical Sitemap Declaration (Top Priority for Crawlers)
-# Last Updated: 2026-10-07
-Sitemap: https://zyphuel.netlify.app/sitemap.xml
+# Last Updated: 2026-10-12
 # ==============================================================================
+
+Sitemap: https://zyphuel.netlify.app/sitemap.xml
 
 # Default Crawl Rules for All Search Engine Bots
 User-agent: *
 Allow: /
-Allow: /about/
-Allow: /services/
-Allow: /download/
-Allow: /order/
-Allow: /contact/
-Allow: /privacy/
-Allow: /terms/
-Allow: /blog/
-Allow: /blog/*
-Allow: /images/
-Allow: /assets/
-Allow: /APK/
-Allow: /manifest.json
-Allow: /llms.txt
-Allow: /llms-full.txt
-Allow: /sitemap.xml
-Allow: /feed.xml
-Allow: /*.css$
-Allow: /*.js$
-Allow: /*.png$
-Allow: /*.jpg$
-Allow: /*.jpeg$
-Allow: /*.svg$
-Allow: /*.webp$
-Allow: /*.ico$
+Disallow: /404.html
 
 # Google Search & Inspection Tooling
 User-agent: Googlebot
 Allow: /
-Allow: /about/
-Allow: /services/
-Allow: /download/
-Allow: /order/
-Allow: /contact/
-Allow: /privacy/
-Allow: /terms/
-Allow: /blog/
-Allow: /blog/*
-Allow: /assets/
-Allow: /images/
+Disallow: /404.html
 
 User-agent: Google-InspectionTool
 Allow: /
-Allow: /assets/
-Allow: /images/
 
 User-agent: GoogleOther
 Allow: /
 
 User-agent: Googlebot-Image
 Allow: /
-Allow: /images/
-Allow: /assets/
 
 # Microsoft Bingbot & MSN
 User-agent: bingbot
 Allow: /
-Allow: /about/
-Allow: /services/
-Allow: /download/
-Allow: /order/
-Allow: /contact/
-Allow: /privacy/
-Allow: /terms/
-Allow: /blog/
-Allow: /blog/*
-Allow: /assets/
-Allow: /images/
+Disallow: /404.html
 
 # Apple Search & Siri Suggestions
 User-agent: Applebot
 Allow: /
-Allow: /assets/
-Allow: /images/
 
 # Privacy & Independent Search Engines
 User-agent: DuckDuckBot
@@ -91,68 +41,30 @@ Allow: /
 User-agent: Slurp
 Allow: /
 
-User-agent: Baiduspider
-Allow: /
-
 User-agent: YandexBot
 Allow: /
 
-User-agent: Yeti
-Allow: /
-
-User-agent: NaverBot
-Allow: /
-
-User-agent: SeznamBot
-Allow: /
-
-User-agent: Qwantify
+User-agent: Baiduspider
 Allow: /
 
 User-agent: Bravebot
 Allow: /
 
-User-agent: MojeekBot
-Allow: /
-
-User-agent: Sogouspider
-Allow: /
-
-User-agent: 360Spider
-Allow: /
-
 # Social Media Scraping & Link Previews
 User-agent: facebookexternalhit
 Allow: /
-Allow: /images/
 
 User-agent: Twitterbot
 Allow: /
-Allow: /images/
 
 User-agent: LinkedInBot
 Allow: /
-Allow: /images/
 
 User-agent: WhatsApp
 Allow: /
-Allow: /images/
 
 User-agent: TelegramBot
 Allow: /
-Allow: /images/
-
-User-agent: Pinterestbot
-Allow: /
-Allow: /images/
-
-User-agent: Slackbot
-Allow: /
-Allow: /images/
-
-User-agent: Discordbot
-Allow: /
-Allow: /images/
 
 # AI & LLM Search Engine Agents (Direct GEO Optimization)
 User-agent: GPTBot
@@ -199,11 +111,3 @@ Allow: /
 
 User-agent: cohere-ai
 Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
-User-agent: YouBot
-Allow: /
-
-Sitemap: https://zyphuel.netlify.app/sitemap.xml
