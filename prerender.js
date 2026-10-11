@@ -744,23 +744,15 @@ const ROUTES = [
             ]
           },
           "object": {
-            "@type": "Product",
+            "@type": "DeliveryService",
             "name": "Zyphuel Mobile Refueling - Diesel & Petrol Delivery",
+            "serviceType": "On-Demand Doorstep Fuel Delivery",
             "description": "On-demand doorstep fuel delivery in Lahore with certified digital flow-meter calibration. Super petrol, diesel, and high-octane 97.",
             "image": `${DOMAIN}/images/tank.png`,
-            "brand": {
-              "@type": "Brand",
-              "name": "Zyphuel"
-            },
-            "offers": {
-              "@type": "Offer",
-              "priceCurrency": "PKR",
-              "description": "Daily official OGRA regulated fuel pricing with calibrated 0.01L digital flow metering",
-              "availability": "https://schema.org/InStock",
-              "areaServed": {
-                "@type": "City",
-                "name": "Lahore"
-              }
+            "provider": { "@id": `${DOMAIN}/#organization` },
+            "areaServed": {
+              "@type": "City",
+              "name": "Lahore"
             }
           },
           "agent": { "@id": `${DOMAIN}/#organization` }
