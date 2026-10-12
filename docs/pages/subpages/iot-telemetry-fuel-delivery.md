@@ -17,14 +17,14 @@
 
 <!-- ZYPHUEL_FUEL_UPDATE_START -->
 > [!NOTE]
-> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 11, 2026)**
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 12, 2026)**
 > - **Operational SLA**: 20–45 Mins Simple Dispatch | 10–20 Mins Urgent (+Rs. 100) across Lahore.
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Weights & Measures certified positive-displacement flow meters with 1,000 pulses/litre optical encoders. 15°C Automatic Temperature Compensation (ATC) counteracts Lahore summer heat expansion with 0.01L verified precision.
 >
-- **Market Intelligence**: Petrol price falls by Re0.66 per litre, diesel rises by Re0.52 - The News Pakistan (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Govt reduces petrol price by Re0.66 per litre, raises high-speed diesel rate by Re0.52 - Dawn (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Petrol price cut by 66 paisa, diesel rises by 52 paisa per litre - The Nation (Pakistan ) (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: The oil price — Pakistan and the US - Business Recorder (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Massive Hike In Petrol Price - OGRA Fresh Notification Issued - Breaking News - 24 News HD - 24 News HD (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Petrol price rises for fourth day, diesel also increases - Aaj English TV (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
