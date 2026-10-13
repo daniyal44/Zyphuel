@@ -1,15 +1,29 @@
 // Centralized Zyphuel Mobile App Version Configuration
 // Update this file on every application release to dynamically sync versions across the platform.
 
-export const APP_VERSION = '2.6.4.0.0.22';
-export const BUILD_NUMBER = '50';
-export const RELEASE_DATE = 'October 4, 2026';
-export const APP_SIZE = '31.6 MB';
+export const APP_VERSION = '2.6.4.0.0.31';
+export const BUILD_NUMBER = '59';
+export const RELEASE_DATE = 'October 13, 2026';
+export const APP_SIZE = '31.7 MB';
 export const MIN_ANDROID = '7.0 (Nougat)+';
 export const TARGET_SDK = '36 (Android 15/16 Ready)';
-export const APP_SHA256 = '10a23c3d027a7dcc0970d0e00dfc1481b26b89e9a0e87eac25c21fc8e6e174f3';
+export const APP_SHA256 = 'e2ceae40c3949a9942a2e508447067bdc5207c5ea1c9c34bc3a94991c4e79510';
 
 export const CHANGELOG = [
+  {
+    version: '2.6.4.0.0.31',
+    build: '59',
+    date: 'October 13, 2026',
+    title: 'Precision GPS Telemetry, Firebase Messaging Push Resilience & Android 16 Ready Architecture (Build 59)',
+    features: [
+      'Compiled production release v2.6.4.0.0.31 (Build 59) with Android Gradle Plugin 9.1.1 and Target SDK 36 (Android 15/16 Ready)',
+      'Enhanced Location Foreground Service: Upgraded RiderLocationForegroundService with battery-conservative sub-meter GPS sector tracking across Lahore',
+      'Firebase Cloud Messaging Resilience: Fortified ZyphuelFcmService and notification channels (zyphuel_fcm_channel) for high-priority lock-screen OGRA rate alerts',
+      'Security & Cryptographic Integrity: Certified SHA-256 binary validation (e2ceae4...) and hardened BiometricPrompt authentication pipeline',
+      'Calibrated Flow-Meter Synchronization: Optimized Bluetooth (BLE) telemetry bridge streaming live 0.01L positive displacement dispenser metering',
+      'Doorstep Dispatch Compliance: Strict 5L–15L Max capacity safeguards with synchronized delivery tariff (Rs. 300 flat up to 10L, Rs. 320–Rs. 400 for 11L–15L Max)'
+    ]
+  },
   {
     version: '2.6.4.0.0.22',
     build: '50',

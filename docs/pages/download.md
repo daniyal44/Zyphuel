@@ -9,19 +9,19 @@
 ---
 
 ## Technical Specifications & Constants
-- **Current Version**: `v2.6.4.0.0.22 (Build 50)` (dynamically imported from `src/data/appVersion.js`)
-- **File Size**: `31.6 MB`
+- **Current Version**: `v2.6.4.0.0.31 (Build 59)` (dynamically imported from `src/data/appVersion.js`)
+- **File Size**: `31.7 MB`
 - **Minimum OS Requirement**: Android 7.0 (Nougat) and above (API level 24+)
 - **Target OS Requirement**: Android 15/16 Ready (API level 36)
 - **Architecture**: Native Android with Jetpack Compose & Material 3 UI
 - **Direct APK Endpoint**: `/APK/Zyphuel.apk`
-- **Security Check**: SHA-256 signed (`10a23c3d027a7dcc0970d0e00dfc1481b26b89e9a0e87eac25c21fc8e6e174f3`), zero malware/adware, direct release build.
+- **Security Check**: SHA-256 signed (`e2ceae40c3949a9942a2e508447067bdc5207c5ea1c9c34bc3a94991c4e79510`), zero malware/adware, direct release build.
 
 ---
 
 ## SEO & Structured Data
-- **Page Title**: `Download Zyphuel APK v2.6.4.0.0.22 | Lahore On-Demand Fuel App`
-- **Meta Description**: `Download official Zyphuel Android APK (v2.6.4.0.0.22, 31.6 MB). Order certified Euro-V petrol & diesel in Lahore with live GPS tracking, 2-hour rate alerts, and biometric security.`
+- **Page Title**: `Download Zyphuel APK v2.6.4.0.0.31 | Lahore On-Demand Fuel App`
+- **Meta Description**: `Download official Zyphuel Android APK (v2.6.4.0.0.31, 31.7 MB). Order certified Euro-V petrol & diesel in Lahore with live GPS tracking, 2-hour rate alerts, and biometric security.`
 - **Schema Type**: `SoftwareApplication` / `MobileApplication`
   - Operating System: `Android 7.0+`
   - Application Category: `UtilitiesApplication` / `BusinessApplication`
@@ -59,6 +59,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-13** | **Release of Android APK v2.6.4.0.0.31 (Build 59)**: Synchronized app version to `v2.6.4.0.0.31` (Build 59, Target SDK 36, Android 15/16 Ready), updated binary size to `31.7 MB`, updated SHA-256 integrity hash to `e2ceae40c3949a9942a2e508447067bdc5207c5ea1c9c34bc3a94991c4e79510`, and documented Rider Foreground Service & FCM push notification resilience. | User request: update app version across the entire website and all .md documentation files. |
 | **2026-10-12** | **Google Search Console Crawl & Indexing Fix**: (1) Synchronized title tag to `Download Zyphuel App \| Doorstep Fuel Delivery App Lahore \| Android APK` identically across SSG pre-render and client React `useSEO`, (2) Synchronized complete hreflang tags (`x-default`, `en`, `en-PK`), (3) Cleaned robots.txt and sitemap image tags to eliminate crawling delays. | Fix Google Search Console "Discovered – currently not indexed" coverage drilldown issue. |
 | **2026-10-09** | **Hydration Optimization for Dynamic App Version Strings**: Wrapped `APP_VERSION` subtitle badge and QR install heading in single template literals (`{`v${APP_VERSION}`}`) to prevent React `<!-- -->` hydration delimiter comments and guarantee zero hydration mismatch errors. | Production React 18 hydration hardening. |
 | **2026-10-09** | **Removal of Cryptographic Integrity & SHA-256 Checksum Panel**: Removed the dark SHA-256 checksum card and command-line verification box from `src/pages/DownloadPage.jsx` per user request, simplifying and streamlining the app download experience. | User requested: *"Cryptographic Integrity & SHA-256 Checksum... remove ait"* |

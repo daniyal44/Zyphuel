@@ -849,3 +849,25 @@ Aligned all corporate credentials, physical location indicators, executive title
   - **Account Meta Tag**: Embedded `<meta name="google-adsense-account" content="ca-pub-5869892726772309" />` providing multi-method fallback verification.
   - **Ads.txt Deployment**: Created `public/ads.txt` containing `google.com, pub-5869892726772309, DIRECT, f08c47fec0942fa0`, synced via `prerender.js` to `dist/ads.txt`, and added cache header in `public/_headers`.
   - **SSG Route Ingestion**: Compiled with `npm run build` so that every single pre-rendered page across all 17 static routes (`dist/index.html`, `dist/about/index.html`, etc.) immediately contains the verification script and meta tag in `<head>`.
+
+### 21.22 Mobile App v2.6.4.0.0.31 (Build 59) Release & Full-Platform Synchronization
+- **User Directive**: *"app version ko pore wesbite ma update karo or us sa releated changes be mention karo all .md files ko be update karo"*
+- **Mobile App Version Upgrade & Binary Validation**:
+  - Centralized mobile app configuration `src/data/appVersion.js` updated to `v2.6.4.0.0.31` (Build 59, Target SDK 36, Android 15/16 Ready).
+  - Package binary size updated to `31.7 MB` (33,245,577 bytes) from compiled `public/APK/Zyphuel.apk`.
+  - Extracted verified SHA-256 cryptographic signature: `e2ceae40c3949a9942a2e508447067bdc5207c5ea1c9c34bc3a94991c4e79510`.
+  - Release date synchronized to `October 13, 2026`.
+- **Core Mobile Enhancements Compiled in Build 59**:
+  - **Precision Location Foreground Service**: Upgraded `RiderLocationForegroundService` with battery-conservative sub-meter GPS sector tracking across Lahore.
+  - **Firebase Cloud Messaging Push Resilience**: Fortified `ZyphuelFcmService` and notification channel (`zyphuel_fcm_channel`) for instant lock-screen OGRA fuel price change alerts.
+  - **Security & Integrity Hardening**: Certified SHA-256 binary validation, Play Integrity API alignment, and hardened `BiometricPrompt` authorization pipeline.
+  - **Calibrated Flow-Meter Synchronization**: Optimized Bluetooth (BLE) telemetry bridge streaming live 0.01L positive displacement dispenser metering.
+  - **Doorstep Delivery Alignment**: Synchronized strict 5L–15L Max volume limits, updated delivery tariff (Rs. 300 flat up to 10L, Rs. 320–Rs. 400 for 11L–15L Max), COD for 5L–10L, and rapid 20–45 min dispatch SLA.
+- **Platform-Wide Synchronization**:
+  - Updated `package.json` and `package-lock.json` to version `2.6.4.0.0.31`.
+  - Synchronized AI/LLM search knowledge files `public/llms.txt` and `public/llms-full.txt`.
+  - Updated RSS 2.0 Editorial Feed `public/feed.xml`.
+  - Synchronized image caption metadata in `public/sitemap.xml`.
+  - Synchronized repository `README.md` badges, TOC links, competitor comparison tables, and mobile application specs table.
+  - Updated all system documentation files (`docs/pages/download.md`, `docs/pages/about.md`, `docs/pages/subpages/download-zyphuel-apk-guide.md`, `docs/informtion.md`, `docs/pages.md`, `docs/subpages.md`, `docs/articles.md`, `docs/task.md`, `docs/phases.md`).
+
