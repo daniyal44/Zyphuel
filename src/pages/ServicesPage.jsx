@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import ServicesScrollAnimationSection from '../components/ServicesScrollAnimationSection'
+import ServicesSection3ScrollAnimation from '../components/ServicesSection3ScrollAnimation'
 import ServicesGraphic from '../components/ServicesGraphic'
 import ServiceCard from '../components/ServiceCard'
 import {
@@ -347,6 +348,9 @@ export default function ServicesPage() {
             </div>
           </div>
         </section>
+
+        {/* Section 3 Interactive Scroll Animation: Smart IoT & Mobility Ecosystem */}
+        <ServicesSection3ScrollAnimation />
 
         {/* What We Provide vs What We Do NOT Provide (Service Scope Matrix) */}
         <section id="services-scope" className="section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>

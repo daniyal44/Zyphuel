@@ -1,0 +1,323 @@
+/* ==========================================================================
+   SERVICES SECTION 3 SCROLL ANIMATION — SMART DISPATCH & IOT ECOSYSTEM
+   Apple-style canvas scrollytelling frame scrub, pure dark aesthetic,
+   hardware-accelerated, responsive calibrated runway.
+   ========================================================================== */
+
+/* Outer Scroll Track: Responsive runway for fluid 60fps scrub */
+.section3-scroll-hero {
+  position: relative;
+  height: 480vh;
+  width: 100%;
+  background: #000000;
+  contain: layout paint;
+}
+
+/* Sticky Stage: Pinned in viewport below header */
+.section3-sticky-stage {
+  position: sticky;
+  top: var(--nav-height, 0px);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--nav-height, 0px));
+  height: calc(100dvh - var(--nav-height, 0px));
+  overflow: hidden;
+  background: #000000;
+  z-index: 10;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Canvas: Native 1920x1080 resolution with hardware acceleration */
+.section3-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  pointer-events: none;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Vignette & Soft Gradient Depth Overlays */
+.section3-canvas-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 11;
+}
+
+.section3-canvas-edge-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+  z-index: 11;
+}
+
+/* Top-Left Status Badge */
+.section3-scroll-badge {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  z-index: 15;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+}
+
+.section3-scroll-badge i {
+  color: #00d26a;
+  font-size: 0.9rem;
+}
+
+.section3-scroll-badge .live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00d26a;
+  box-shadow: 0 0 10px #00d26a;
+  display: inline-block;
+  flex-shrink: 0;
+  animation: section3PulseDot 2s infinite ease-in-out;
+}
+
+@keyframes section3PulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+}
+
+/* Top-Right Phase Pill */
+.section3-phase-pill {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  z-index: 15;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(11, 15, 25, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.section3-phase-pill strong {
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+/* Center-Bottom Storytelling Narrative */
+.section3-story-overlay {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 680px;
+  text-align: center;
+  z-index: 15;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.section3-story-title {
+  color: #ffffff;
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+}
+
+.section3-story-desc {
+  color: rgba(226, 232, 240, 0.9);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin: 0;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.75);
+}
+
+/* Real-time scrub progress bar */
+.section3-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00d26a 0%, #38bdf8 50%, #0284c7 100%);
+  z-index: 16;
+  transition: width 0.06s linear;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Interactive Clickable Scroll / Skip Hint */
+.section3-scroll-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 16;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  padding: 8px 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  animation: section3ScrollHintPulse 2.4s ease-in-out infinite;
+  transition: opacity 0.4s ease, transform 0.2s ease, background 0.2s ease;
+  cursor: pointer;
+  pointer-events: auto;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section3-scroll-hint:hover {
+  background: rgba(0, 210, 106, 0.85);
+  border-color: rgba(0, 210, 106, 0.6);
+  color: #0b0f19;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.section3-scroll-hint:focus-visible {
+  outline: 2px solid #00d26a;
+  outline-offset: 2px;
+}
+
+.section3-scroll-hint.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes section3ScrollHintPulse {
+  0%, 100% {
+    opacity: 0.65;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(3px);
+  }
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .section3-scroll-hero {
+    height: 380vh;
+  }
+
+  .section3-story-title {
+    font-size: 1.25rem;
+  }
+
+  .section3-story-desc {
+    font-size: 0.85rem;
+  }
+
+  .section3-scroll-badge {
+    top: 16px;
+    left: 16px;
+    font-size: 0.78rem;
+    padding: 6px 14px;
+  }
+
+  .section3-phase-pill {
+    top: 16px;
+    right: 16px;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section3-scroll-hero {
+    height: 300vh;
+  }
+
+  .section3-scroll-badge {
+    top: 12px;
+    left: 12px;
+    font-size: 0.72rem;
+    padding: 5px 12px;
+    gap: 6px;
+  }
+
+  .section3-phase-pill {
+    display: none;
+  }
+
+  .section3-story-overlay {
+    bottom: 65px;
+    width: 92%;
+  }
+
+  .section3-story-title {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+
+  .section3-story-desc {
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .section3-scroll-hint {
+    bottom: 16px;
+    font-size: 0.72rem;
+    padding: 6px 14px;
+  }
+}

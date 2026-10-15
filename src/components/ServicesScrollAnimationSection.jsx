@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useCallback, useMemo } from 'react'
 import './ServicesScrollAnimationSection.css'
 
-const FRAME_COUNT = 241
+const FRAME_COUNT = 300
 const FOLDER = '/services-hero-frames'
 
 const framePath = (i) =>
@@ -79,9 +79,9 @@ export default function ServicesScrollAnimationSection() {
       if (!isRunning) return
       const diff = targetFrameRef.current - currentFrameRef.current
 
-      // Glide smoothly toward target frame with gentle damping
-      if (Math.abs(diff) > 0.05) {
-        currentFrameRef.current += diff * 0.18
+      // Glide smoothly toward target frame with calm, cinematic damping
+      if (Math.abs(diff) > 0.04) {
+        currentFrameRef.current += diff * 0.10
         renderFrame(currentFrameRef.current)
         setScrubProgress(Math.min(100, Math.max(0, (currentFrameRef.current / (FRAME_COUNT - 1)) * 100)))
       }

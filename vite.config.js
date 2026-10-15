@@ -72,6 +72,8 @@ function ezgifServerPlugin() {
       folder = 'ezgif-2f1a39c97e5b173b-jpg'
     } else if (url.startsWith('/services-hero-frames/')) {
       folder = 'services-hero-frames'
+    } else if (url.startsWith('/services-section3-frames/')) {
+      folder = 'services-section3-frames'
     }
 
     if (folder) {
@@ -179,7 +181,9 @@ export default defineConfig(({ isSsrBuild }) => ({
         '**/*.mp4',
         '**/*.webm',
         '**/public/services-hero-frames/**',
-        '**/services-hero-frames/**'
+        '**/services-hero-frames/**',
+        '**/public/services-section3-frames/**',
+        '**/services-section3-frames/**'
       ]
     }
   },
