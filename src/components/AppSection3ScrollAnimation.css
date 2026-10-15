@@ -1,0 +1,311 @@
+/* ==========================================================================
+   APP SECTION 3 SCROLL ANIMATION — DOWNLOAD PAGE SECTION 3 BOTTOM
+   Apple-style canvas scrollytelling frame scrub, pure dark aesthetic,
+   hardware-accelerated, high-fidelity responsive pacing.
+   ========================================================================== */
+
+/* Outer Scroll Track: Responsive runway for fluid 60fps scrub */
+.app-sec3-scroll-track {
+  position: relative;
+  height: 450vh;
+  width: 100%;
+  background: #000000;
+  contain: layout paint;
+}
+
+/* Sticky Stage: Pinned in viewport below header */
+.app-sec3-sticky-stage {
+  position: sticky;
+  top: var(--nav-height, 0px);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--nav-height, 0px));
+  height: calc(100dvh - var(--nav-height, 0px));
+  overflow: hidden;
+  background: #000000;
+  z-index: 10;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Canvas: Native 2560x1440 high-DPI scaling with GPU acceleration */
+.app-sec3-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  pointer-events: none;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Subtle Vignette (no heavy dark borders or extra black bars) */
+.app-sec3-canvas-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.2) 100%);
+  z-index: 11;
+}
+
+.app-sec3-canvas-edge-glow {
+  display: none;
+}
+
+/* Top-Left Status Badge */
+.app-sec3-scroll-badge {
+  position: absolute;
+  top: 24px;
+  left: 28px;
+  z-index: 15;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+}
+
+.app-sec3-scroll-badge i {
+  color: #38bdf8;
+  font-size: 0.9rem;
+}
+
+.app-sec3-scroll-badge .live-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #38bdf8;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 10px #38bdf8;
+  animation: appSec3Pulse 2s infinite ease-in-out;
+}
+
+@keyframes appSec3Pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+/* Top-Right Narrative Phase Pill */
+.app-sec3-phase-pill {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  z-index: 15;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.app-sec3-phase-pill strong {
+  color: #00d26a;
+  font-weight: 600;
+}
+
+/* Center-Bottom Storytelling Narrative Overlay */
+.app-sec3-story-overlay {
+  position: absolute;
+  bottom: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  text-align: center;
+  max-width: 720px;
+  width: 90%;
+  pointer-events: none;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 14px 24px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.app-sec3-story-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.85);
+}
+
+.app-sec3-story-desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+  margin: 0 auto;
+  max-width: 620px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+}
+
+/* Bottom Progress Scrub Line */
+.app-sec3-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8 0%, #00d26a 100%);
+  z-index: 20;
+  transition: width 0.08s linear;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+}
+
+/* Interactive Clickable Scroll / Skip Hint */
+.app-sec3-scroll-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 16;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: appSec3ScrollHintPulse 2.4s infinite ease-in-out;
+}
+
+.app-sec3-scroll-hint:hover {
+  background: rgba(30, 41, 59, 0.9);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.app-sec3-scroll-hint.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes appSec3ScrollHintPulse {
+  0%, 100% {
+    opacity: 0.65;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(3px);
+  }
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .app-sec3-scroll-track {
+    height: 380vh;
+  }
+
+  .app-sec3-story-title {
+    font-size: 1.25rem;
+  }
+
+  .app-sec3-story-desc {
+    font-size: 0.85rem;
+  }
+
+  .app-sec3-scroll-badge {
+    top: 16px;
+    left: 16px;
+    font-size: 0.78rem;
+    padding: 6px 14px;
+  }
+
+  .app-sec3-phase-pill {
+    top: 16px;
+    right: 16px;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .app-sec3-scroll-track {
+    height: 300vh;
+  }
+
+  .app-sec3-scroll-badge {
+    top: 12px;
+    left: 12px;
+    font-size: 0.72rem;
+    padding: 5px 12px;
+    gap: 6px;
+  }
+
+  .app-sec3-phase-pill {
+    display: none;
+  }
+
+  .app-sec3-story-overlay {
+    bottom: 65px;
+    width: 92%;
+  }
+
+  .app-sec3-story-title {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+
+  .app-sec3-story-desc {
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .app-sec3-scroll-hint {
+    bottom: 16px;
+    font-size: 0.72rem;
+    padding: 6px 14px;
+  }
+}

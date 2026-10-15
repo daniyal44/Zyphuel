@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { APP_VERSION, BUILD_NUMBER, TARGET_SDK, RELEASE_DATE, APP_SIZE, MIN_ANDROID, CHANGELOG } from '../data/appVersion'
+import AppHeroScrollAnimation from '../components/AppHeroScrollAnimation'
+import AppSection3ScrollAnimation from '../components/AppSection3ScrollAnimation'
 import './styles.css'
 
 const appArticles = [
@@ -247,6 +249,9 @@ export default function DownloadPage() {
     <div ref={pageRef} className="download-page-wrapper">
       <main style={{ paddingTop: 'var(--nav-height)' }}>
         
+        {/* Top Hero: 3D App Mobile Experience Scroll Animation */}
+        <AppHeroScrollAnimation />
+
         {/* Modern Glassmorphic Download Hero */}
         <section className="download-hero">
           <div className="container">
@@ -514,6 +519,9 @@ export default function DownloadPage() {
             </div>
           </div>
         </section>
+
+        {/* Section 3 Interactive Scroll Animation: Smart App Telemetry Ecosystem */}
+        <AppSection3ScrollAnimation />
 
         {/* Why Choose Us Section */}
         <section id="why-choose-us" className="why-choose-section section-padding">

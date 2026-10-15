@@ -19,11 +19,26 @@ export default function ServicesScrollAnimationSection() {
   const [scrolled, setScrolled] = useState(false)
   const [scrubProgress, setScrubProgress] = useState(0)
 
-  // Direct 1:1 frame renderer with zero-tear persistence and instant fallback
+  // High-DPI canvas buffer sizing (Retina/4K/8K crystal clear rendering)
+  const resizeCanvasBuffer = useCallback(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const dpr = Math.min(window.devicePixelRatio || 1, 2.5)
+    const rect = canvas.getBoundingClientRect()
+    const targetW = Math.round((rect.width || window.innerWidth) * dpr)
+    const targetH = Math.round((rect.height || window.innerHeight) * dpr)
+
+    if (canvas.width !== targetW || canvas.height !== targetH) {
+      canvas.width = targetW
+      canvas.height = targetH
+    }
+  }, [])
+
+  // Direct 1:1 frame renderer with aspect-ratio cover math and crystal clear high quality
   const renderFrame = useCallback((index) => {
     const canvas = canvasRef.current
     if (!canvas) return
-    const ctx = canvas.getContext('2d', { alpha: false })
+    const ctx = canvas.getContext('2d', { alpha: false, desynchronized: true })
     if (!ctx) return
 
     const images = imagesRef.current
@@ -50,27 +65,36 @@ export default function ServicesScrollAnimationSection() {
       if (fallback) {
         img = fallback
       } else if (lastDrawnImgRef.current) {
-        // Keep currently rendered frame to avoid blank flicker
         img = lastDrawnImgRef.current
       } else {
         return
       }
     }
 
-    // Set fixed native dimensions once to prevent GPU buffer re-allocations
-    if (!isCanvasReadyRef.current && img.naturalWidth > 0) {
-      canvas.width = img.naturalWidth
-      canvas.height = img.naturalHeight
-      isCanvasReadyRef.current = true
+    // Ensure canvas buffer matches screen DPR
+    if (canvas.width === 0 || canvas.height === 0) {
+      resizeCanvasBuffer()
     }
 
     ctx.imageSmoothingEnabled = true
-    ctx.imageSmoothingQuality = 'medium'
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
-    lastDrawnImgRef.current = img
-  }, [])
+    ctx.imageSmoothingQuality = 'high'
 
-  // Continuous physics-based RAF LERP loop for silky-smooth 60/120fps scrubbing
+    // Apple-grade aspect-ratio cover crop (zero distortion, zero pixel stretch, razor sharp)
+    const cW = canvas.width
+    const cH = canvas.height
+    const iW = img.naturalWidth || 2560
+    const iH = img.naturalHeight || 1440
+    const scale = Math.max(cW / iW, cH / iH)
+    const drawW = iW * scale
+    const drawH = iH * scale
+    const drawX = (cW - drawW) * 0.5
+    const drawY = (cH - drawH) * 0.5
+
+    ctx.drawImage(img, 0, 0, iW, iH, drawX, drawY, drawW, drawH)
+    lastDrawnImgRef.current = img
+  }, [resizeCanvasBuffer])
+
+  // Continuous physics-based RAF LERP loop for silky-smooth, calm, unhurried scrubbing (not fast)
   useEffect(() => {
     let animId
     let isRunning = true
@@ -79,9 +103,9 @@ export default function ServicesScrollAnimationSection() {
       if (!isRunning) return
       const diff = targetFrameRef.current - currentFrameRef.current
 
-      // Glide smoothly toward target frame with calm, cinematic damping
-      if (Math.abs(diff) > 0.04) {
-        currentFrameRef.current += diff * 0.10
+      // Calm, unhurried glide toward target frame with gentle damping (0.065)
+      if (Math.abs(diff) > 0.02) {
+        currentFrameRef.current += diff * 0.065
         renderFrame(currentFrameRef.current)
         setScrubProgress(Math.min(100, Math.max(0, (currentFrameRef.current / (FRAME_COUNT - 1)) * 100)))
       }
@@ -212,18 +236,27 @@ export default function ServicesScrollAnimationSection() {
       targetFrameRef.current = fraction * (FRAME_COUNT - 1)
     }
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    window.addEventListener('resize', handleScroll, { passive: true })
-    window.addEventListener('orientationchange', handleScroll, { passive: true })
+    const handleResize = () => {
+      resizeCanvasBuffer()
+      if (lastDrawnImgRef.current) {
+        renderFrame(currentFrameRef.current)
+      }
+      handleScroll()
+    }
 
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleResize, { passive: true })
+    window.addEventListener('orientationchange', handleResize, { passive: true })
+
+    resizeCanvasBuffer()
     handleScroll()
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleScroll)
-      window.removeEventListener('orientationchange', handleScroll)
+      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('orientationchange', handleResize)
     }
-  }, [])
+  }, [renderFrame, resizeCanvasBuffer])
 
   // Smooth scroll down to main services hero section
   const handleScrollToContent = () => {

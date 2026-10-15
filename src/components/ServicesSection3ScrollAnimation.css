@@ -7,7 +7,7 @@
 /* Outer Scroll Track: Responsive runway for fluid 60fps scrub */
 .section3-scroll-hero {
   position: relative;
-  height: 480vh;
+  height: 900vh;
   width: 100%;
   background: #000000;
   contain: layout paint;
@@ -257,7 +257,7 @@
 
 @media (max-width: 992px) {
   .section3-scroll-hero {
-    height: 380vh;
+    height: 700vh;
   }
 
   .section3-story-title {
@@ -285,7 +285,7 @@
 
 @media (max-width: 576px) {
   .section3-scroll-hero {
-    height: 300vh;
+    height: 520vh;
   }
 
   .section3-scroll-badge {

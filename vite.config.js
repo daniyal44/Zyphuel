@@ -74,6 +74,10 @@ function ezgifServerPlugin() {
       folder = 'services-hero-frames'
     } else if (url.startsWith('/services-section3-frames/')) {
       folder = 'services-section3-frames'
+    } else if (url.startsWith('/app-hero-frames/')) {
+      folder = 'app-hero-frames'
+    } else if (url.startsWith('/app-section3-frames/')) {
+      folder = 'app-section3-frames'
     }
 
     if (folder) {
@@ -183,7 +187,11 @@ export default defineConfig(({ isSsrBuild }) => ({
         '**/public/services-hero-frames/**',
         '**/services-hero-frames/**',
         '**/public/services-section3-frames/**',
-        '**/services-section3-frames/**'
+        '**/services-section3-frames/**',
+        '**/public/app-hero-frames/**',
+        '**/app-hero-frames/**',
+        '**/public/app-section3-frames/**',
+        '**/app-section3-frames/**'
       ]
     }
   },
