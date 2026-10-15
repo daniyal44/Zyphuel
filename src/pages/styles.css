@@ -462,7 +462,6 @@
 .download-page-wrapper {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  overflow-x: hidden;
 }
 
 /* Download Hero */
