@@ -67,10 +67,17 @@ function apkServerPlugin() {
 function ezgifServerPlugin() {
   const serveEzgif = (req, res, next) => {
     const url = req.url ? req.url.split('?')[0] : ''
+    let folder = null
     if (url.startsWith('/ezgif-2f1a39c97e5b173b-jpg/')) {
+      folder = 'ezgif-2f1a39c97e5b173b-jpg'
+    } else if (url.startsWith('/services-hero-frames/')) {
+      folder = 'services-hero-frames'
+    }
+
+    if (folder) {
       const fileName = path.basename(url)
-      const publicPath = path.resolve(__dirname, 'public/ezgif-2f1a39c97e5b173b-jpg', fileName)
-      const rootPath = path.resolve(__dirname, 'ezgif-2f1a39c97e5b173b-jpg', fileName)
+      const publicPath = path.resolve(__dirname, 'public', folder, fileName)
+      const rootPath = path.resolve(__dirname, folder, fileName)
       const targetPath = fs.existsSync(publicPath) ? publicPath : (fs.existsSync(rootPath) ? rootPath : null)
 
       if (targetPath) {
@@ -162,7 +169,18 @@ export default defineConfig(({ isSsrBuild }) => ({
   plugins: [react(), apkServerPlugin(), ezgifServerPlugin(), zyphuelOrderGuardPlugin()],
   server: {
     watch: {
-      ignored: ['**/dist/**', '**/dist-ssr/**', '**/APK/**', '**/*.apk', '**/plugins/**']
+      ignored: [
+        '**/dist/**',
+        '**/dist-ssr/**',
+        '**/APK/**',
+        '**/*.apk',
+        '**/plugins/**',
+        '**/public/video/**',
+        '**/*.mp4',
+        '**/*.webm',
+        '**/public/services-hero-frames/**',
+        '**/services-hero-frames/**'
+      ]
     }
   },
   build: {

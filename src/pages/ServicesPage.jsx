@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import ServicesScrollAnimationSection from '../components/ServicesScrollAnimationSection'
 import ServicesGraphic from '../components/ServicesGraphic'
 import ServiceCard from '../components/ServiceCard'
 import {
@@ -225,8 +226,11 @@ export default function ServicesPage() {
   return (
     <div ref={pageRef}>
       <main style={{ paddingTop: 'var(--nav-height)' }}>
+        {/* Top Hero: Apple-Style Frame Scrubbing Scroll Animation */}
+        <ServicesScrollAnimationSection />
+
         {/* Hero Section */}
-        <section className="services-hero">
+        <section className="services-hero" id="services-overview">
           <div className="container">
             <div className="services-hero-grid">
               <div className="services-hero-content fade-in-up">
