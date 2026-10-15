@@ -153,7 +153,7 @@ export default function DownloadPage() {
         },
         {
           "@type": "Article",
-          "@id": "https://zyphuel.netlify.app/download#app-article-1",
+          "@id": "https://zyphuel.netlify.app/download/#app-article-1",
           "headline": `Zyphuel Mobile App v${APP_VERSION}: Next-Gen Doorstep Fuel Logistics & Cloud Telemetry in Pakistan`,
           "description": `Explore how the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) transforms urban energy delivery in Lahore with instant GPS auto-detection and zero-latency cloud telemetry.`,
           "image": "https://zyphuel.netlify.app/images/1.jpeg",
@@ -170,7 +170,7 @@ export default function DownloadPage() {
         },
         {
           "@type": "Article",
-          "@id": "https://zyphuel.netlify.app/download#app-article-2",
+          "@id": "https://zyphuel.netlify.app/download/#app-article-2",
           "headline": "2-Hour Automated Fuel Rate Push Notifications: Why Fleet Managers Rely on Zyphuel",
           "description": "How Zyphuel's built-in 2-hour push notification engine delivers official OGRA price updates and live market rate tracking directly to Android lock screens.",
           "image": "https://zyphuel.netlify.app/images/3.jpeg",
@@ -187,7 +187,7 @@ export default function DownloadPage() {
         },
         {
           "@type": "Article",
-          "@id": "https://zyphuel.netlify.app/download#app-article-3",
+          "@id": "https://zyphuel.netlify.app/download/#app-article-3",
           "headline": "Commercial Generator Refueling & Sealed LPG Gas Cylinder Refills in Lahore",
           "description": "Eliminate power outage downtime in factories, hospitals, and corporate plazas with scheduled generator diesel refills and safety-tested LPG cylinder deliveries.",
           "image": "https://zyphuel.netlify.app/images/2.jpeg",

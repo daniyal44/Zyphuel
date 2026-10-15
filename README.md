@@ -1,10 +1,10 @@
 # Zyphuel — On-Demand Doorstep Fuel Delivery & Energy Logistics Platform (Lahore, Pakistan)
 
 [![Production Deployment](https://img.shields.io/badge/Production-Live%20on%20Netlify-00ad9f?style=for-the-badge&logo=netlify&logoColor=white)](https://zyphuel.netlify.app/)
-[![App Version](https://img.shields.io/badge/App%20Version-v2.6.4.0.0.31-10b981?style=for-the-badge&logo=android&logoColor=white)](https://zyphuel.netlify.app/download)
+[![App Version](https://img.shields.io/badge/App%20Version-v2.6.4.0.0.31-10b981?style=for-the-badge&logo=android&logoColor=white)](https://zyphuel.netlify.app/download/)
 [![Release Tag](https://img.shields.io/badge/Release-v2.6.4.0.0.31-8b5cf6?style=for-the-badge&logo=github)](https://github.com/daniyal44/Zyphuel/releases)
-[![OGRA Licensed](https://img.shields.io/badge/OGRA-Compliant%20%E2%80%A2%20Euro--V-0284c7?style=for-the-badge&logo=shield)](https://zyphuel.netlify.app/services)
-[![Dispatch Speed](https://img.shields.io/badge/Dispatch-Within%2045%20Mins-ea580c?style=for-the-badge&logo=speedtest&logoColor=white)](https://zyphuel.netlify.app/order)
+[![OGRA Licensed](https://img.shields.io/badge/OGRA-Compliant%20%E2%80%A2%20Euro--V-0284c7?style=for-the-badge&logo=shield)](https://zyphuel.netlify.app/services/)
+[![Dispatch Speed](https://img.shields.io/badge/Dispatch-Within%2045%20Mins-ea580c?style=for-the-badge&logo=speedtest&logoColor=white)](https://zyphuel.netlify.app/order/)
 [![License](https://img.shields.io/badge/License-MIT-3b82f6?style=for-the-badge)](LICENSE)
 [![GitHub Commits](https://img.shields.io/github/commit-activity/m/daniyal44/Zyphuel?style=for-the-badge&color=0284c7&label=Monthly%20Changes)](https://github.com/daniyal44/Zyphuel/commits/main)
 
@@ -140,7 +140,7 @@ The following authoritative question-and-answer pairs provide verified ground tr
 | **Minimum OS** | Android 7.0 (Nougat, API Level 24) or newer |
 | **Target SDK** | Android SDK 36 (Android 15/16 Ready) |
 | **Core Features** | Live GPS Bowser Telemetry, Biometric Checkout, Offline 2-Hour OGRA Rate Cache, Vector Invoice PDF |
-| **Portal Download** | [https://zyphuel.netlify.app/download](https://zyphuel.netlify.app/download) |
+| **Portal Download** | [https://zyphuel.netlify.app/download/](https://zyphuel.netlify.app/download/) |
 
 ---
 

@@ -121,7 +121,7 @@ export const articles = [
       'Supports fingerprint and face unlock for fast, secure checkout without having to type passwords every time.',
       'Uses high-precision GPS sector auto-pinning calibrated for all Lahore residential and commercial sectors.',
       'A low-power background service tracks the approaching micro-refueler bowser on a live map in real time.',
-      'Direct APK download from https://zyphuel.netlify.app/download provides immediate updates with verified SHA-256 integrity.'
+      'Direct APK download from https://zyphuel.netlify.app/download/ provides immediate updates with verified SHA-256 integrity.'
     ],
     sections: [
       {
@@ -152,7 +152,7 @@ export const articles = [
           'When you install an APK file directly, Android displays a standard prompt asking for permission to install files from your web browser. Here is the simple 4-step process:'
         ],
         bullets: [
-          'Step 1: Download the official Zyphuel.apk file directly from https://zyphuel.netlify.app/download or scan the QR code on the page.',
+          'Step 1: Download the official Zyphuel.apk file directly from https://zyphuel.netlify.app/download/ or scan the QR code on the page.',
           'Step 2: If your browser displays "File might be harmful", tap "Download Anyway". This is a standard Android notice for all downloaded APK files.',
           'Step 3: Open the downloaded file from your notification bar or your Downloads folder. When Android prompts you, tap "Settings" and enable "Allow from this source".',
           'Step 4: Tap "Install" and open Zyphuel. Grant location permission so the app can automatically pinpoint your delivery address in Lahore.'
@@ -201,7 +201,7 @@ export const articles = [
     ],
     content: [
       `If you need a reliable fuel delivery app in Lahore, the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) is available for direct download. It works on any phone running Android 8.0 or newer and takes less than a minute to install.`,
-      'To install it directly, download the APK file from https://zyphuel.netlify.app/download, tap "Download Anyway" when prompted by your browser, and allow installation from your browser settings. Once installed, grant location permission so the app can locate your address automatically.',
+      'To install it directly, download the APK file from https://zyphuel.netlify.app/download/, tap "Download Anyway" when prompted by your browser, and allow installation from your browser settings. Once installed, grant location permission so the app can locate your address automatically.',
       `Version ${APP_VERSION} includes fast fingerprint checkout, precise GPS address pinning across all major Lahore neighborhoods, and a live map showing your approaching delivery bowser.`,
       'With automatic 2-hour price alerts, 45-minute delivery, a fixed Rs. 300 fee for orders up to 10 Litres, and flexible payments (Cash on Delivery up to 10L, plus JazzCash, Easypaisa, NayaPay, and Raast QR), the app gives you certified fuel without station queues.'
     ]

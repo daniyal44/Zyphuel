@@ -37,17 +37,18 @@ export default function HomePage() {
   }
 
   useSEO({
-    title: 'Doorstep Fuel Delivery in Lahore | Fast Petrol & Diesel | Zyphuel',
-    description: 'Order certified Euro-V petrol, diesel, and generator fuel delivered directly to your doorstep in Lahore within 45 minutes. Calibrated digital flow meters, OGRA rates, and live GPS tracking.',
+    title: 'Online Petrol Delivery in Lahore | Doorstep Fuel & Diesel (COD) | Zyphuel',
+    description: 'Order verified Euro-V petrol and diesel delivered directly to your doorstep in Lahore within 20–45 mins. Cash on delivery (COD), calibrated digital meters, and official OGRA rates.',
     keywords: [
-      'fuel delivery Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
+      'online petrol delivery in lahore', 'petrol home delivery lahore', 'online petrol delivery near me',
+      'diesel home delivery near me', 'petrol delivery app pakistan', 'emergency petrol delivery lahore',
+      'buy petrol online pakistan', 'fuel delivery Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
       'petrol pump near me Lahore', 'fuel station near me', 'petrol pump open now Lahore',
       'petrol price today Lahore', 'diesel price today Lahore', 'diesel supplier Lahore',
-      'fuel agency Lahore', 'bulk diesel supply Lahore', 'commercial petroleum contractor Lahore',
-      'mobile refueling Pakistan', 'doorstep fuel delivery', 'generator diesel delivery',
-      'generator refueling service', 'bulk diesel supplier Lahore', 'fleet refueling service',
-      'on-demand fuel delivery app', 'fuel delivery DHA Lahore', 'petrol delivery Gulberg',
-      'diesel delivery Johar Town', 'OGRA compliant fuel rates', 'calibrated flow meter fuel delivery'
+      'fuel agency Lahore', 'mobile refueling Pakistan', 'doorstep fuel delivery', 'generator diesel delivery',
+      'generator refueling service', 'fleet refueling service', 'on-demand fuel delivery app',
+      'fuel delivery DHA Lahore', 'petrol delivery Gulberg', 'diesel delivery Johar Town',
+      'OGRA compliant fuel rates', 'calibrated flow meter fuel delivery'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/',

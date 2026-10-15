@@ -16,6 +16,65 @@ import { APP_VERSION } from '../data/appVersion'
 import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
 
+const lahoreServiceSectors = [
+  {
+    name: 'DHA Lahore (Phases 1–9)',
+    badge: 'High Demand Hub',
+    eta: '15–25 mins',
+    desc: 'Doorstep Euro-V petrol, high-octane 97, and generator diesel for luxury sedans, villas, and standby generators across DHA Phase 1 through Phase 9 Prism.',
+    town: 'DHA (Phase 1–9)'
+  },
+  {
+    name: 'Gulberg I, II, III & MM Alam',
+    badge: 'Commercial Corridor',
+    eta: '15–20 mins',
+    desc: 'Express diesel refueling for commercial standby generators, IT tech parks, corporate offices, and restaurants along Main Boulevard & MM Alam Road.',
+    town: 'Gulberg (I, II, III & MM Alam)'
+  },
+  {
+    name: 'Johar Town & PIA Society',
+    badge: 'Healthcare & Residential',
+    eta: '20–30 mins',
+    desc: 'Priority generator diesel supply for hospitals, clinics, diagnostic centers, and residential homes near Shaukat Khanum and Expo Centre.',
+    town: 'Johar Town & PIA Society'
+  },
+  {
+    name: 'Model Town & Garden Town',
+    badge: 'Residential & Commercial',
+    eta: '20–25 mins',
+    desc: 'Calibrated doorstep fuel delivery for private vehicle tanks and emergency load-shedding generator tanks with 0.01L digital precision.',
+    town: 'Model Town'
+  },
+  {
+    name: 'Bahria Town Lahore',
+    badge: 'Gated Community',
+    eta: '25–35 mins',
+    desc: 'Regular scheduled and on-demand micro-refueler bowser dispatch for Sector A through F, Safari Villas, and commercial markets.',
+    town: 'Bahria Town Lahore'
+  },
+  {
+    name: 'Cantt, Cavalry & Askari (I–XI)',
+    badge: 'Priority Access',
+    eta: '20–30 mins',
+    desc: 'Secure gated-community refueling logistics, executive transport fleets, and standby generator diesel replenishment.',
+    town: 'Cantonment (Cantt) & Cavalry Ground'
+  },
+  {
+    name: 'Industrial Estates (Sundar & Kot Lakhpat)',
+    badge: 'Bulk Diesel B2B',
+    eta: 'Scheduled Daily',
+    desc: 'High-capacity commercial Euro-V diesel supply (200L to 10,000L) with 50m long-reach hoses for manufacturing machinery and fleet yards.',
+    town: 'Sundar Industrial Estate'
+  },
+  {
+    name: 'Allama Iqbal Town & Samanabad',
+    badge: 'Central Lahore',
+    eta: '20–30 mins',
+    desc: 'Doorstep car, motorcycle, and commercial shop standby generator refueling delivered directly to your parked location within 45 mins.',
+    town: 'Allama Iqbal Town'
+  }
+]
+
 export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState('consumer')
   const { prices: livePrices } = useFuelPrices()
@@ -37,11 +96,14 @@ export default function ServicesPage() {
 
   useSEO({
     title: 'Fuel Delivery Services in Lahore | Petrol, Diesel & High-Octane | Zyphuel',
-    description: 'On-demand fuel delivery in Lahore: Euro-V Super Petrol, High-Octane 97, and Euro-V Diesel for vehicles and standby generators. Fast dispatch within 45 minutes.',
+    description: 'On-demand fuel delivery in Lahore: Euro-V Super Petrol, High-Octane 97, and Euro-V Diesel for vehicles and standby generators across DHA, Gulberg, Johar Town & Bahria Town. Fast dispatch within 45 minutes.',
     keywords: [
       'fuel delivery services Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
       'generator diesel refueling Lahore', 'commercial diesel supply Lahore', 'fleet refueling Pakistan',
-      'doorstep petrol delivery', 'high octane 97 delivery Lahore', 'Zyphuel services'
+      'doorstep petrol delivery', 'high octane 97 delivery Lahore', 'Zyphuel services',
+      'fuel delivery DHA Lahore', 'petrol delivery Gulberg', 'diesel delivery Johar Town',
+      'generator diesel Model Town', 'emergency fuel Bahria Town Lahore', 'bulk diesel Sundar Industrial Estate',
+      'petrol pump near me Lahore', 'online fuel order Lahore'
     ],
     image: 'https://zyphuel.netlify.app/images/fuel.png',
     url: 'https://zyphuel.netlify.app/services/',
@@ -456,6 +518,97 @@ export default function ServicesPage() {
                   </div>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Lahore Metropolitan Coverage & Priority Refueling Sectors (Local SEO Growth Hub) */}
+        <section id="coverage" className="section-padding" style={{ backgroundColor: '#ffffff', borderTop: '1px solid var(--border-color)' }}>
+          <div className="container">
+            <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '40px' }}>
+              <div className="section-badge-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(2, 132, 199, 0.1)', color: '#0284c7', padding: '6px 14px', borderRadius: '20px', fontWeight: 600, fontSize: '0.85rem', marginBottom: '12px' }}>
+                <i className="fa-solid fa-map-location-dot"></i>
+                <span>Lahore Metropolitan Coverage</span>
+              </div>
+              <h2 className="section-title">Doorstep Fuel Delivery Across Lahore Sectors</h2>
+              <p className="section-subtitle" style={{ maxWidth: '820px', margin: '0 auto' }}>
+                Zyphuel operates decentralized mobile micro-refuelers across primary hubs, guaranteeing certified Euro-V fuel delivery to homes, businesses, and generators within 45 minutes.
+              </p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '22px', marginBottom: '32px' }}>
+              {lahoreServiceSectors.map((sector) => (
+                <div
+                  key={sector.name}
+                  style={{
+                    background: '#f8fafc',
+                    borderRadius: '12px',
+                    padding: '24px',
+                    border: '1px solid var(--border-color)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    transition: 'transform 0.2s, box-shadow 0.2s'
+                  }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px', gap: '8px', flexWrap: 'wrap' }}>
+                      <span style={{ fontSize: '0.78rem', fontWeight: 700, background: 'rgba(2, 132, 199, 0.12)', color: '#0284c7', padding: '3px 8px', borderRadius: '4px' }}>
+                        {sector.badge}
+                      </span>
+                      <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#16a34a', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                        <i className="fa-solid fa-bolt"></i> {sector.eta}
+                      </span>
+                    </div>
+                    <h3 style={{ fontSize: '1.12rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>
+                      {sector.name}
+                    </h3>
+                    <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: '1.55', marginBottom: '16px' }}>
+                      {sector.desc}
+                    </p>
+                  </div>
+                  <div>
+                    <Link
+                      to={`/order/?town=${encodeURIComponent(sector.town)}`}
+                      className="btn btn-secondary btn-sm"
+                      style={{ width: '100%', justifyContent: 'center', padding: '9px 14px', fontSize: '0.86rem', fontWeight: 600 }}
+                      title={`Order fuel dispatch in ${sector.name}`}
+                    >
+                      <span>Order in {sector.name.split(' ')[0]}</span>
+                      <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.8rem' }}></i>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Quick Action to Open All 24 Lahore Towns Modal */}
+            <div style={{ textAlign: 'center', background: '#f1f5f9', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
+              <h4 style={{ margin: '0 0 8px 0', fontSize: '1.05rem', color: 'var(--text-primary)', fontWeight: 700 }}>
+                Looking for another town or society in Lahore?
+              </h4>
+              <p style={{ margin: '0 0 16px 0', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                We deliver to all 24 major zones across Lahore including Wapda Town, Valencia, Lake City, Askari, Faisal Town, and Township.
+              </p>
+              <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                <button
+                  type="button"
+                  onClick={() => window.__openLahoreTownsModal && window.__openLahoreTownsModal()}
+                  className="btn btn-primary btn-sm"
+                  style={{ padding: '10px 22px', fontSize: '0.9rem' }}
+                >
+                  <i className="fa-solid fa-location-dot"></i> Browse All 24 Lahore Sectors
+                </button>
+                <a
+                  href="https://wa.me/923230112464?text=Hello%20Zyphuel!%20I%20want%20to%20check%20if%20fuel%20delivery%20is%20available%20at%20my%20Lahore%20address."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-ghost btn-sm"
+                  style={{ padding: '10px 20px', fontSize: '0.9rem', color: '#16a34a', border: '1px solid rgba(22,163,74,0.3)' }}
+                >
+                  <i className="fa-brands fa-whatsapp"></i> Confirm Address on WhatsApp
+                </a>
+              </div>
             </div>
           </div>
         </section>

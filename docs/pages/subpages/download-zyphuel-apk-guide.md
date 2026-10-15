@@ -76,6 +76,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-15** | Ensured all in-guide references to the Download portal enforce canonical trailing slash (`https://zyphuel.netlify.app/download/`) to eliminate 301 crawler redirect delays. | Standardize canonical linking and prevent GSC redirect indexing flags. |
 | **2026-10-13** | Synchronized APK guide version references to `v2.6.4.0.0.31` (Build 59, Target SDK 36, Android 15/16 Ready, `31.7 MB`). | Match latest production APK release `v2.6.4.0.0.31`. |
 | **2026-10-04** | Synchronized APK guide version references to `v2.6.4.0.0.22` (Build 50, Target SDK 36, Android 15/16 Ready). | Match latest production APK release `v2.6.4.0.0.22`. |
 | **2026-09-25** | **Expanded to 1,050+ word comprehensive technical guide with Key Takeaways, Android Compatibility Matrix, Expert Quote, and 5 Schema.org FAQs**. | Provide authoritative technical guidance, eliminate thin content, solve search engine indexing delays, and achieve 100% performance. |
