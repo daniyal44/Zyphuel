@@ -145,37 +145,37 @@ export default function HomePage() {
       name: "DHA Lahore (Phases 1–9)",
       eta: "15–25 min",
       desc: "Instant doorstep petrol & diesel for luxury vehicles, corporate offices, and estate standby generators across DHA Phase 1 through Phase 9 Prism.",
-      link: "/order/?sector=dha"
+      link: "/order/#dha"
     },
     {
       name: "Gulberg I, II, III & MM Alam",
       eta: "15–20 min",
       desc: "Rapid delivery to commercial tech parks, high-rises, restaurants, and retail plazas along Main Boulevard and MM Alam Road.",
-      link: "/order/?sector=gulberg"
+      link: "/order/#gulberg"
     },
     {
       name: "Johar Town & PIA Society",
       eta: "20–30 min",
       desc: "Serving residential villas, medical clinics, hospitals, and commercial avenues near Shaukat Khanum and Expo Centre.",
-      link: "/order/?sector=johar-town"
+      link: "/order/#johar-town"
     },
     {
       name: "Model Town & Garden Town",
       eta: "20–25 min",
       desc: "Emergency load-shedding generator diesel supply and private car refueling across Model Town Blocks A through M.",
-      link: "/order/?sector=model-town"
+      link: "/order/#model-town"
     },
     {
       name: "Bahria Town Lahore",
       eta: "25–35 min",
       desc: "Scheduled and on-demand micro-bowser dispatch for Sector A through F, Safari Villas, and commercial plazas.",
-      link: "/order/?sector=bahria-town"
+      link: "/order/#bahria-town"
     },
     {
       name: "Lahore Cantt & Cavalry Ground",
       eta: "20–30 min",
       desc: "Priority gated-community fuel logistics, Askari I–XI apartments, and executive transport fleet replenishment.",
-      link: "/order/?sector=cantt"
+      link: "/order/#cantt"
     },
     {
       name: "Industrial Estates (Sundar & Kot Lakhpat)",

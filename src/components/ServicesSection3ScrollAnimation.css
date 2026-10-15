@@ -321,3 +321,56 @@
     padding: 6px 14px;
   }
 }
+
+@media (max-width: 400px) {
+  .section3-scroll-hero {
+    height: 420vh;
+  }
+
+  .section3-scroll-badge {
+    top: 8px;
+    left: 8px;
+    font-size: 0.68rem;
+    padding: 4px 10px;
+    gap: 5px;
+  }
+
+  .section3-story-overlay {
+    bottom: 50px;
+    width: 95%;
+    padding: 10px 14px;
+    border-radius: 12px;
+  }
+
+  .section3-story-title {
+    font-size: 0.98rem;
+    margin-bottom: 2px;
+  }
+
+  .section3-story-desc {
+    font-size: 0.74rem;
+    line-height: 1.35;
+  }
+
+  .section3-scroll-hint {
+    bottom: 12px;
+    font-size: 0.68rem;
+    padding: 5px 12px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .section3-story-overlay {
+    bottom: 95px;
+    max-width: 680px;
+    padding: 24px 32px;
+  }
+
+  .section3-story-title {
+    font-size: 1.6rem;
+  }
+
+  .section3-story-desc {
+    font-size: 1rem;
+  }
+}

@@ -140,3 +140,27 @@
     padding: 6px 14px;
   }
 }
+
+@media (max-width: 400px) {
+  .cinematic-scroll-hero {
+    height: 240vh;
+  }
+
+  .reference-scroll-hint {
+    bottom: 14px;
+    font-size: 0.7rem;
+    padding: 5px 12px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .cinematic-scroll-hero {
+    height: 480vh;
+  }
+
+  .reference-scroll-hint {
+    bottom: 36px;
+    font-size: 0.9rem;
+    padding: 10px 22px;
+  }
+}

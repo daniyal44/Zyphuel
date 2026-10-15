@@ -37,6 +37,20 @@
     X-Robots-Tag = "noindex, follow"
     Cache-Control = "no-cache, no-store, must-revalidate"
 
+[[headers]]
+  for = "/order/*"
+  [headers.values]
+    Link = "<https://zyphuel.netlify.app/order/>; rel=\"canonical\""
+    X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/download/*"
+  [headers.values]
+    Link = "<https://zyphuel.netlify.app/download/>; rel=\"canonical\""
+    X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    Cache-Control = "public, max-age=0, must-revalidate"
+
 # Cache static assets immutably
 [[headers]]
   for = "/assets/*"

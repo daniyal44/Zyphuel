@@ -97,13 +97,13 @@ export default function DownloadPage() {
   }, [slides.length])
 
   useSEO({
-    title: `Download Zyphuel App | Doorstep Fuel Delivery App Lahore | Android APK`,
-    description: `Download the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) for on-demand doorstep petrol and diesel delivery in Lahore. Real-time GPS tracking and 45-minute dispatch.`,
+    title: `Download Zyphuel App: On-Demand Fuel Delivery APK for Android | Official v2.6.4`,
+    description: `Download the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) for on-demand doorstep petrol and diesel delivery in Lahore. Real-time GPS tracking, 45-minute dispatch, and 2-hour OGRA price-lock alerts.`,
     keywords: [
-      'petrol delivery app pakistan', 'fuel delivery app Lahore', 'download Zyphuel APK', 'Zyphuel Android app',
-      `Zyphuel App v${APP_VERSION}`, 'online petrol delivery in lahore', 'doorstep diesel delivery lahore',
-      'generator fuel delivery lahore', 'emergency fuel app pakistan', 'buy fuel online pakistan',
-      'mobile fuel delivery app Pakistan', 'fuel rate alerts app Lahore'
+      'download Zyphuel APK', 'Zyphuel Android app', `Zyphuel App v${APP_VERSION}`,
+      'petrol delivery app pakistan', 'fuel delivery app Lahore', 'online petrol delivery in lahore',
+      'doorstep diesel delivery lahore', 'generator fuel delivery lahore', 'emergency fuel app pakistan',
+      'buy fuel online pakistan', 'mobile fuel delivery app Pakistan', 'fuel rate alerts app Lahore'
     ],
     image: 'https://zyphuel.netlify.app/images/1.jpeg',
     imageAlt: 'Zyphuel Android app screen showing live fuel rates and delivery tracking in Lahore',
@@ -115,9 +115,9 @@ export default function DownloadPage() {
       "@graph": [
         {
           "@type": "SoftwareApplication",
-          "name": "Zyphuel Mobile Application",
-          "operatingSystem": "Android 8.0 and above",
-          "applicationCategory": "BusinessApplication, UtilitiesApplication",
+          "name": "Zyphuel Mobile Application - Doorstep Fuel Delivery Lahore",
+          "operatingSystem": "Android 8.0 and above (Android 15/16 Ready)",
+          "applicationCategory": "UtilitiesApplication, ShoppingApplication",
           "downloadUrl": "https://zyphuel.netlify.app/APK/Zyphuel.apk",
           "fileSize": APP_SIZE,
           "softwareVersion": APP_VERSION,

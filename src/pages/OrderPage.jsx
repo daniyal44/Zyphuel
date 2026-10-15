@@ -115,11 +115,11 @@ export const INSTANT_PAYMENT_METHODS = [
 
 export default function OrderPage() {
   useSEO({
-    title: 'Order Petrol & Diesel Online in Lahore | Zyphuel',
-    description: 'Order Euro-V Super Petrol, High-Octane 97, and Euro-V Diesel delivery online with Zyphuel in Lahore. Express 45-minute doorstep dispatch with digital calibration meter.',
+    title: 'Order Fuel Online in Lahore | Doorstep Petrol & Diesel Booking Portal | Zyphuel',
+    description: 'Book verified Euro-V petrol, high-octane 97, and generator diesel delivery online in Lahore with Zyphuel. Fast 20–45 min dispatch, 5L–15L Max capacity, Cash on Delivery (COD) & digital meters.',
     keywords: [
-      'order diesel Lahore', 'order petrol Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
-      'generator diesel order', 'order fuel online Pakistan', 'fuel cash on delivery Lahore', 'Zyphuel order'
+      'order fuel online Lahore', 'book petrol delivery Lahore', 'order diesel Lahore', 'online fuel ordering Lahore',
+      'doorstep petrol delivery booking', 'generator diesel order', 'petrol cash on delivery Lahore', 'Zyphuel fuel booking'
     ],
     image: 'https://zyphuel.netlify.app/images/tank.png',
     url: 'https://zyphuel.netlify.app/order/',
@@ -761,7 +761,8 @@ export default function OrderPage() {
         <section id="order" className="order-section section-padding">
           <div className="container">
             <div className="section-header fade-in-up">
-              <h1 className="section-title">Order Petrol &amp; Diesel Online in Lahore</h1>
+              <h1 className="section-title">Book Doorstep Fuel Refueling Online in Lahore</h1>
+              <p className="section-subtitle">Select fuel grade, choose delivery volume (5L–15L Max), and get calibrated fuel dispatched directly to your location within 45 minutes.</p>
             </div>
 
             {/* Official Scanned Order Authenticity Verification Banner */}
