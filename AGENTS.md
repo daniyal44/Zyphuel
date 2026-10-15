@@ -13,6 +13,10 @@ This project has access to **425 specialized subagents** across 28 functional do
 4. **Automated Documentation Updates (MANDATORY)**:
    - Every single page and subpage has a dedicated `.md` documentation file in `docs/pages/` and `docs/pages/subpages/` (indexed in `docs/README.md`).
    - Whenever ANY change, refactor, styling update, pricing modification, or feature addition is made to any page, component, or data file, you **MUST ALWAYS** immediately update the corresponding `.md` file with the exact modifications, updated parameters, and changelog.
+5. **GitHub Repository Synchronization & Up-to-Date Commits (MANDATORY)**:
+   - Always keep the remote GitHub repository (`origin/main`) 100% up to date after every user requirement, feature, styling update, or refactor.
+   - Stage all modified files (`git add .`), create a clean and descriptive commit, and immediately push (`git push origin main`).
+   - Never leave local changes uncommitted or unpushed.
 
 ## Core Business Logic & Pricing Rules (Permanent Memory)
 - **Refueling Targets**: Strictly 4 application targets (Car/Sedan/SUV, Motorbike/Scooter, Standby Generator, Commercial Machinery). Jerrycan / Safe Storage Drum is completely removed.

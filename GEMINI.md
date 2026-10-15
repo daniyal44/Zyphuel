@@ -22,6 +22,10 @@
 5. **Automated Documentation Updates (MANDATORY)**:
    - Every single page and subpage in the application has a dedicated `.md` file in `docs/pages/` and `docs/pages/subpages/` (see `docs/README.md`).
    - Whenever any page, component, pricing, logic, UI element, or data file is modified or created, you **MUST ALWAYS** immediately update the corresponding markdown file in `docs/pages/<page>.md` or `docs/pages/subpages/<subpage>.md` with the exact modifications, updated parameters, and changelog.
+6. **GitHub Repository Synchronization & Up-to-Date Commits (MANDATORY)**:
+   - Always keep the remote GitHub repository (`origin/main`) 100% up to date after every user requirement, feature, styling update, or refactor.
+   - Stage all modified files (`git add .`), create a clean and descriptive commit, and immediately push (`git push origin main`).
+   - Never leave local changes uncommitted or unpushed.
 
 ## Core Business Logic & Pricing Rules (Permanent Memory)
 - **Refueling Targets**: Strictly 4 application targets (Car/Sedan/SUV, Motorbike/Scooter, Standby Generator, Commercial Machinery). Jerrycan / Safe Storage Drum is completely removed.
