@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body style='margin:0;padding:0;'>
+<iframe id='frame' src='http://localhost:5173/download/' style='width:1920px;height:1080px;border:none;'></iframe>
+<script>
+window.addEventListener('message', (e) => {});
+setTimeout(() => {
+    const f = document.getElementById('frame');
+    try {
+        f.contentWindow.scrollTo(0, 4800);
+    } catch(e) {}
+}, 1500);
+</script>
+</body>
+</html>
