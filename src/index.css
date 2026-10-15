@@ -95,11 +95,11 @@ button {
     width: 100%;
     max-width: var(--container-max);
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 clamp(16px, 3.5vw, 32px);
 }
 
 .section-padding {
-    padding: 80px 0;
+    padding: clamp(48px, 6vw, 80px) 0;
 }
 
 .section-header {
@@ -3092,14 +3092,17 @@ a.footer-contact-link:hover {
         left: 0;
         width: 100%;
         height: calc(100vh - var(--nav-height));
+        height: calc(100dvh - var(--nav-height));
         background-color: var(--surface-card);
         flex-direction: column;
-        padding: 40px 24px;
-        gap: 24px;
+        padding: 32px 24px;
+        gap: 20px;
         transform: translateX(100%);
-        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         box-shadow: var(--shadow-lg);
         border-top: 1px solid var(--border-color);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         z-index: 999;
     }
     .nav-menu.open {
@@ -5573,5 +5576,306 @@ a.footer-contact-link:hover {
         grid-template-columns: 1fr !important;
         padding: 24px 20px !important;
         gap: 24px !important;
+    }
+}
+
+/* ==========================================================================
+   GLOBAL RESPONSIVENESS ENGINE (320px Mobile to 2560px+ 4K Ultra-Wide)
+   ========================================================================== */
+
+/* 1. Ultra-Wide & 4K Displays (1920px to 2560px+) */
+@media (min-width: 1920px) {
+    :root {
+        --container-max: 1400px;
+    }
+
+    body {
+        font-size: 1.05rem;
+    }
+
+    .container {
+        max-width: var(--container-max);
+    }
+
+    .section-title {
+        font-size: 2.35rem;
+    }
+
+    .hero-title {
+        font-size: 3.2rem;
+    }
+
+    .hero-description {
+        font-size: 1.15rem;
+        max-width: 650px;
+    }
+
+    .comp-table-container {
+        max-width: 1360px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* 2. Extra Large Displays (2560px+ 4K UHD / Retina 5K) */
+@media (min-width: 2560px) {
+    :root {
+        --container-max: 1560px;
+    }
+
+    .container {
+        max-width: var(--container-max);
+    }
+}
+
+/* 3. Medium & Tablet Screens (768px to 1024px) */
+@media (max-width: 1024px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero-description {
+        margin: 0 auto 28px auto;
+    }
+
+    .hero-ctas {
+        justify-content: center;
+    }
+
+    .hero-badges-row {
+        justify-content: center;
+    }
+
+    .hero-graphic {
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    .order-container-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .order-summary-sidebar {
+        position: static;
+        width: 100%;
+    }
+}
+
+/* 4. Standard Mobile Screens (480px to 768px) */
+@media (max-width: 768px) {
+    :root {
+        --nav-height: 70px;
+    }
+
+    .section-padding {
+        padding: 50px 0;
+    }
+
+    .section-title {
+        font-size: 1.65rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.92rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .hero-ctas .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 13px 20px;
+    }
+
+    .hero-badges-row {
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .comp-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+        position: relative;
+    }
+
+    .zyphuel-comparison-table {
+        min-width: 640px;
+    }
+
+    .zyphuel-comparison-table th,
+    .zyphuel-comparison-table td {
+        padding: 12px 14px;
+        font-size: 0.82rem;
+    }
+
+    /* Sector & Agency grids stack cleanly */
+    .sector-grid,
+    .agency-grid,
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .pump-callout-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        text-align: center;
+    }
+
+    .pump-callout-ctas {
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .pump-callout-ctas .btn-white-pump,
+    .pump-callout-ctas .btn-whatsapp-dispatch {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Modal dialogs */
+    .tracker-modal,
+    .blog-modal-content {
+        width: 95% !important;
+        max-width: 95% !important;
+        padding: 20px 16px !important;
+    }
+}
+
+/* 5. Extra-Small Mobile Screens (320px to 400px - iPhone SE, Small Androids) */
+@media (max-width: 400px) {
+    .container {
+        padding: 0 14px;
+    }
+
+    /* Header Compact Mode */
+    .header .container {
+        padding: 0 12px;
+    }
+
+    .logo-icon {
+        height: 32px;
+        margin-right: 4px;
+    }
+
+    .header-badges {
+        margin-right: 8px;
+        gap: 4px;
+    }
+
+    .header-badges .badge-pill {
+        font-size: 0.68rem;
+        padding: 4px 8px;
+        gap: 4px;
+    }
+
+    .header-badges .badge-pill span {
+        max-width: 80px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .hamburger {
+        width: 22px;
+        height: 16px;
+    }
+
+    /* Hero */
+    .hero-title {
+        font-size: 1.65rem;
+        line-height: 1.25;
+    }
+
+    .hero-subtitle-badge {
+        font-size: 0.72rem;
+        padding: 4px 10px;
+        margin-bottom: 12px;
+    }
+
+    .hero-trust-badge {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+
+    /* Order Form */
+    .form-group-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .stepper-wrap {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 8px !important;
+    }
+
+    .stepper-delivery-badge {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    .payment-summary-card {
+        padding: 12px !important;
+    }
+
+    .payment-summary-card h5 {
+        font-size: 0.85rem !important;
+    }
+
+    .order-progress-stepper {
+        padding: 8px 10px !important;
+        gap: 6px !important;
+    }
+
+    .order-progress-stepper span {
+        font-size: 0.72rem !important;
+    }
+
+    /* Truck Submit Button */
+    .truck-button {
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 40px 0 20px 0;
+    }
+
+    .footer-columns-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .footer-bottom-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
     }
 }
