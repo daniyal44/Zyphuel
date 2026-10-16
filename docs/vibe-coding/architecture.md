@@ -4,7 +4,7 @@
 
 ## 1. Overview
 - **Product:** Zyphuel — On-Demand Doorstep Fuel & Utility Delivery platform serving Lahore, Pakistan.
-- **Core Value:** Transparent, certified refueling with 0.01L calibrated digital flow meters, live OGRA pricing + retail petrol pump rate calculation, and rapid 15–45 min dispatch.
+- **Core Value:** Transparent, certified refueling with 0.01L calibrated digital flow meters, live OGRA pricing + retail petrol pump rate calculation, and rapid within 45 min dispatch.
 - **Scale Target (v1):** 5,000+ monthly residential and commercial generator delivery dispatches across Lahore (DHA, Gulberg, Johar Town, Model Town, Green Town, Bahria Town, and citywide).
 
 ## 2. Tech Stack

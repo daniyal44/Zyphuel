@@ -36,7 +36,7 @@
 5. **Core Principles**:
    - **0.01L Meter Precision**: Flow meter encoders eliminating short-fueling.
    - **Euro-V Quality Commitment**: Sourced strictly from licensed primary oil terminals.
-   - **Rapid 15–45 Min Dispatch**: Intelligent routing across all Lahore sectors.
+   - **Rapid Within 45 Min Dispatch**: Intelligent routing across all Lahore sectors.
    - **Safety First**: Grounding reels, spark-suppressed pumps, and HAZMAT certified operators.
 6. **Detailed Leadership Biographies**:
    - Extended profiles for Founder Muhammad Daniyal and Sales Manager Adil Farooq.

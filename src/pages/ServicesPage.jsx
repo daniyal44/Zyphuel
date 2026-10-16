@@ -22,42 +22,42 @@ const lahoreServiceSectors = [
   {
     name: 'DHA Lahore (Phases 1–9)',
     badge: 'High Demand Hub',
-    eta: '15–25 mins',
+    eta: 'Within 45 Mins',
     desc: 'Doorstep Euro-V petrol, high-octane 97, and generator diesel for luxury sedans, villas, and standby generators across DHA Phase 1 through Phase 9 Prism.',
     town: 'DHA (Phase 1–9)'
   },
   {
     name: 'Gulberg I, II, III & MM Alam',
     badge: 'Commercial Corridor',
-    eta: '15–20 mins',
+    eta: 'Within 45 Mins',
     desc: 'Express diesel refueling for commercial standby generators, IT tech parks, corporate offices, and restaurants along Main Boulevard & MM Alam Road.',
     town: 'Gulberg (I, II, III & MM Alam)'
   },
   {
     name: 'Johar Town & PIA Society',
     badge: 'Healthcare & Residential',
-    eta: '20–30 mins',
+    eta: 'Within 45 Mins',
     desc: 'Priority generator diesel supply for hospitals, clinics, diagnostic centers, and residential homes near Shaukat Khanum and Expo Centre.',
     town: 'Johar Town & PIA Society'
   },
   {
     name: 'Model Town & Garden Town',
     badge: 'Residential & Commercial',
-    eta: '20–25 mins',
+    eta: 'Within 45 Mins',
     desc: 'Calibrated doorstep fuel delivery for private vehicle tanks and emergency load-shedding generator tanks with 0.01L digital precision.',
     town: 'Model Town'
   },
   {
     name: 'Bahria Town Lahore',
     badge: 'Gated Community',
-    eta: '25–35 mins',
+    eta: 'Within 45 Mins',
     desc: 'Regular scheduled and on-demand micro-refueler bowser dispatch for Sector A through F, Safari Villas, and commercial markets.',
     town: 'Bahria Town Lahore'
   },
   {
     name: 'Cantt, Cavalry & Askari (I–XI)',
     badge: 'Priority Access',
-    eta: '20–30 mins',
+    eta: 'Within 45 Mins',
     desc: 'Secure gated-community refueling logistics, executive transport fleets, and standby generator diesel replenishment.',
     town: 'Cantonment (Cantt) & Cavalry Ground'
   },
@@ -71,7 +71,7 @@ const lahoreServiceSectors = [
   {
     name: 'Allama Iqbal Town & Samanabad',
     badge: 'Central Lahore',
-    eta: '20–30 mins',
+    eta: 'Within 45 Mins',
     desc: 'Doorstep car, motorcycle, and commercial shop standby generator refueling delivered directly to your parked location within 45 mins.',
     town: 'Allama Iqbal Town'
   }
