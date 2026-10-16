@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const DATA_3D = [
   { url: '/images/Zyphuel-logo.png', alt: 'Zyphuel Official Brand Emblem' },
@@ -43,8 +43,10 @@ const DATA_3D = [
 ]
 
 export default function Carousel3D() {
+  const sectionRef = useRef(null)
   const [rotationAngle, setRotationAngle] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
   const [cardWidth, setCardWidth] = useState(() => {
     if (typeof window === 'undefined') return 220
     if (window.innerWidth <= 380) return 140
@@ -52,6 +54,25 @@ export default function Carousel3D() {
     if (window.innerWidth <= 768) return 190
     return 220
   })
+
+  // Observe visibility so autoplay timer runs ONLY when in viewport
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el || !('IntersectionObserver' in window)) {
+      setIsVisible(true)
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting)
+      },
+      { threshold: 0.05, rootMargin: '100px 0px 100px 0px' }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     const handleResize = () => {
@@ -61,7 +82,7 @@ export default function Carousel3D() {
       else if (w <= 768) setCardWidth(190)
       else setCardWidth(220)
     }
-    window.addEventListener('resize', handleResize)
+    window.addEventListener('resize', handleResize, { passive: true })
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
@@ -70,14 +91,14 @@ export default function Carousel3D() {
   // Standard 3D cylinder radius calculation
   const radius = Math.round((cardWidth / 2) / Math.tan(Math.PI / count))
 
-  // Auto-play interval for 3D carousel
+  // Auto-play interval for 3D carousel - runs ONLY when visible and unpaused
   useEffect(() => {
-    if (isPaused) return
+    if (isPaused || !isVisible) return
     const timer = setInterval(() => {
       setRotationAngle(prev => prev - angle)
     }, 4000)
     return () => clearInterval(timer)
-  }, [isPaused, angle])
+  }, [isPaused, isVisible, angle])
 
   const normalizedAngle = ((rotationAngle % 360) + 360) % 360
   const targetCardIndex = Math.round((360 - normalizedAngle) / angle) % count
@@ -85,6 +106,7 @@ export default function Carousel3D() {
   return (
     <section
       id="slideshow"
+      ref={sectionRef}
       className="slideshow-section section-padding"
       style={{ borderTop: '1px solid var(--border-color)', backgroundColor: '#090d16', padding: '80px 0', overflow: 'hidden' }}
       onMouseEnter={() => setIsPaused(true)}
@@ -132,21 +154,20 @@ export default function Carousel3D() {
             .a3d-carousel {
               display: grid;
               transform-style: preserve-3d;
-              transition: transform 1s cubic-bezier(0.2, 0.85, 0.32, 1.2);
+              transition: transform 0.8s cubic-bezier(0.2, 0.85, 0.32, 1.2);
               width: ${cardWidth}px;
               height: ${cardWidth}px;
+              will-change: transform;
             }
             .card-3d {
               grid-area: 1 / 1;
               width: ${cardWidth}px;
               height: ${cardWidth}px;
-              background-color: rgba(255, 255, 255, 0.04);
-              backdrop-filter: blur(8px);
-              -webkit-backdrop-filter: blur(8px);
+              background-color: rgba(15, 23, 42, 0.85);
               border-radius: var(--radius-lg, 16px);
               backface-visibility: hidden;
               border: 1px solid rgba(255, 255, 255, 0.12);
-              transition: border-color 0.4s ease, background-color 0.4s ease, opacity 0.4s ease;
+              transition: border-color 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -159,17 +180,19 @@ export default function Carousel3D() {
               width: 100%;
               height: 100%;
               object-fit: contain;
-              transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-              filter: brightness(0.8) drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+              transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+              filter: brightness(0.85) drop-shadow(0 4px 8px rgba(0,0,0,0.3));
             }
             .card-3d.active-focus {
-              background-color: rgba(255, 255, 255, 0.1);
-              border-color: rgba(14, 165, 233, 0.7);
-              box-shadow: 0 0 25px rgba(14, 165, 233, 0.25);
+              background-color: rgba(14, 165, 233, 0.15);
+              border-color: rgba(14, 165, 233, 0.8);
+              box-shadow: 0 0 20px rgba(14, 165, 233, 0.35);
+              backdrop-filter: blur(6px);
+              -webkit-backdrop-filter: blur(6px);
             }
             .card-3d.active-focus .carousel-img {
-              filter: brightness(1.1) drop-shadow(0 0 16px rgba(14, 165, 233, 0.5));
-              transform: scale(1.08);
+              filter: brightness(1.1) drop-shadow(0 0 14px rgba(14, 165, 233, 0.5));
+              transform: scale(1.06);
             }
             .carousel-controls {
               display: flex;
@@ -189,7 +212,7 @@ export default function Carousel3D() {
               align-items: center;
               justify-content: center;
               cursor: pointer;
-              transition: all 0.3s ease;
+              transition: all 0.25s ease;
               font-size: 0.95rem;
             }
             .carousel-control-btn:hover {

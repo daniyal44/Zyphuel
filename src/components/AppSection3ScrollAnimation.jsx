@@ -14,15 +14,20 @@ export default function AppSection3ScrollAnimation() {
   const lastDrawnImgRef = useRef(null)
   const targetFrameRef = useRef(0)
   const currentFrameRef = useRef(0)
+  const isLoopingRef = useRef(false)
+  const animIdRef = useRef(null)
+  const isVisibleRef = useRef(false)
+  const hasLoadedInitialRef = useRef(false)
 
   const [scrolled, setScrolled] = useState(false)
   const [scrubProgress, setScrubProgress] = useState(0)
 
-  // High-DPI canvas buffer sizing (Retina/4K/8K crystal clear rendering)
+  // High-performance canvas buffer sizing (sharp visuals with zero GPU bloat)
   const resizeCanvasBuffer = useCallback(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-    const dpr = Math.min(window.devicePixelRatio || 1, 2.5)
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
+    const dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.0 : 1.5)
     const rect = canvas.getBoundingClientRect()
     const targetW = Math.round((rect.width || window.innerWidth) * dpr)
     const targetH = Math.round((rect.height || window.innerHeight) * dpr)
@@ -33,7 +38,7 @@ export default function AppSection3ScrollAnimation() {
     }
   }, [])
 
-  // Direct 1:1 frame renderer with aspect-ratio cover math and crystal clear high quality
+  // Direct 1:1 frame renderer with aspect-ratio cover math
   const renderFrame = useCallback((index) => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -49,7 +54,7 @@ export default function AppSection3ScrollAnimation() {
     // If target frame is not yet fully loaded, find nearest loaded neighbor
     if (!img || !img.complete || img.naturalWidth === 0) {
       let fallback = null
-      for (let offset = 1; offset < FRAME_COUNT; offset++) {
+      for (let offset = 1; offset < 35; offset++) {
         const prev = safeIndex - offset >= 0 ? images[safeIndex - offset] : null
         if (prev && prev.complete && prev.naturalWidth > 0) {
           fallback = prev
@@ -70,15 +75,13 @@ export default function AppSection3ScrollAnimation() {
       }
     }
 
-    // Ensure canvas buffer matches screen DPR
     if (canvas.width === 0 || canvas.height === 0) {
       resizeCanvasBuffer()
     }
 
     ctx.imageSmoothingEnabled = true
-    ctx.imageSmoothingQuality = 'high'
+    ctx.imageSmoothingQuality = 'medium'
 
-    // Apple-grade aspect-ratio cover crop with 1.15x content zoom (eliminates extra black border space around 3D graphics)
     const cW = canvas.width
     const cH = canvas.height
     const iW = img.naturalWidth || 2560
@@ -93,78 +96,81 @@ export default function AppSection3ScrollAnimation() {
     lastDrawnImgRef.current = img
   }, [resizeCanvasBuffer])
 
-  // Continuous physics-based RAF LERP loop for silky-smooth, calm, unhurried scrubbing (not fast)
-  useEffect(() => {
-    let animId
-    let isRunning = true
+  // On-demand RAF loop: runs ONLY while frame is actively moving, stops when idle (0% CPU/GPU waste)
+  const startLoop = useCallback(() => {
+    if (isLoopingRef.current || !isVisibleRef.current) return
+    isLoopingRef.current = true
 
     const loop = () => {
-      if (!isRunning) return
+      if (!isVisibleRef.current) {
+        isLoopingRef.current = false
+        return
+      }
+
       const diff = targetFrameRef.current - currentFrameRef.current
 
-      // Calm, unhurried glide toward target frame with gentle damping (0.065)
       if (Math.abs(diff) > 0.02) {
-        currentFrameRef.current += diff * 0.065
+        currentFrameRef.current += diff * 0.12
         renderFrame(currentFrameRef.current)
         setScrubProgress(Math.min(100, Math.max(0, (currentFrameRef.current / (FRAME_COUNT - 1)) * 100)))
-      } else if (Math.abs(diff) > 0.001) {
+        animIdRef.current = requestAnimationFrame(loop)
+      } else {
         currentFrameRef.current = targetFrameRef.current
         renderFrame(currentFrameRef.current)
         setScrubProgress(Math.min(100, Math.max(0, (currentFrameRef.current / (FRAME_COUNT - 1)) * 100)))
+        isLoopingRef.current = false
       }
-
-      animId = requestAnimationFrame(loop)
     }
 
-    animId = requestAnimationFrame(loop)
-    return () => {
-      isRunning = false
-      if (animId) cancelAnimationFrame(animId)
-    }
+    animIdRef.current = requestAnimationFrame(loop)
   }, [renderFrame])
 
-  // Fast staged preloading of all 300 frames: Frame 1 -> Sparse Keyframes -> Rapid background fill
+  // Cleanup loop on unmount
   useEffect(() => {
-    let isMounted = true
+    return () => {
+      isLoopingRef.current = false
+      if (animIdRef.current) cancelAnimationFrame(animIdRef.current)
+    }
+  }, [])
+
+  // Lazy Preloading on Viewport Approach: does NOT request frames until approaching Section 3
+  const initFrameLoading = useCallback(() => {
+    if (hasLoadedInitialRef.current) return
+    hasLoadedInitialRef.current = true
+
     const imgs = new Array(FRAME_COUNT)
     imagesRef.current = imgs
 
-    // Helper to load a frame if not already loaded
     const loadSingleFrame = (idx) => {
-      if (!imgs[idx]) {
-        const img = new Image()
-        img.decoding = 'async'
-        img.src = framePath(idx + 1)
-        if (img.decode) {
-          img.decode().catch(() => {})
-        }
-        imgs[idx] = img
-      }
+      if (imgs[idx]) return imgs[idx]
+      const img = new Image()
+      img.decoding = 'async'
+      img.src = framePath(idx + 1)
+      imgs[idx] = img
+      return img
     }
 
     // Priority 1: Instant load and render Frame 1 immediately
     const firstImg = new Image()
     firstImg.decoding = 'async'
     firstImg.onload = () => {
-      if (!isMounted) return
       renderFrame(0)
     }
     firstImg.onerror = (e) => {
       console.warn('App section 3 frame 1 failed to load:', framePath(1), e)
     }
     firstImg.src = framePath(1)
-    if (firstImg.decode) {
-      firstImg.decode().catch(() => {})
-    }
     imgs[0] = firstImg
 
     if (firstImg.complete && firstImg.naturalWidth > 0) {
       renderFrame(0)
     }
 
-    // Priority 2: Sparse Keyframes across all 300 frames (every 5th frame: 60 keyframes)
+    // Priority 2: Sparse Keyframes across 300 frames on idle (every 10th frame: 30 frames)
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
+    const step = isMobile ? 15 : 10
     const keyframeIndices = []
-    for (let k = 5; k < FRAME_COUNT; k += 5) {
+    for (let k = step; k < FRAME_COUNT; k += step) {
       keyframeIndices.push(k)
     }
     if (keyframeIndices[keyframeIndices.length - 1] !== FRAME_COUNT - 1) {
@@ -172,56 +178,69 @@ export default function AppSection3ScrollAnimation() {
     }
 
     let kIdx = 0
+    let keyframeTimer = null
+
     const loadKeyframes = () => {
-      if (!isMounted) return
-      if (kIdx >= keyframeIndices.length) {
-        loadAllRemainingFrames()
-        return
-      }
+      if (!isVisibleRef.current || kIdx >= keyframeIndices.length) return
 
-      const batch = keyframeIndices.slice(kIdx, kIdx + 10)
+      const batch = keyframeIndices.slice(kIdx, kIdx + 4)
       batch.forEach((idx) => loadSingleFrame(idx))
-      kIdx += 10
-      setTimeout(loadKeyframes, 15)
-    }
+      kIdx += 4
 
-    const keyframeTimer = setTimeout(loadKeyframes, 40)
-
-    // Priority 3: Rapid sequential preloading of all remaining frames (batches of 15 every 20ms)
-    const loadAllRemainingFrames = () => {
-      if (!isMounted) return
-      let missingIdx = 1
-      const batchSize = 15
-
-      const fillNext = () => {
-        if (!isMounted || missingIdx >= FRAME_COUNT) return
-        let loadedCount = 0
-        while (missingIdx < FRAME_COUNT && loadedCount < batchSize) {
-          loadSingleFrame(missingIdx)
-          loadedCount++
-          missingIdx++
-        }
-
-        if (missingIdx < FRAME_COUNT && isMounted) {
-          setTimeout(fillNext, 20)
+      if (kIdx < keyframeIndices.length) {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadKeyframes, { timeout: 150 })
+        } else {
+          keyframeTimer = setTimeout(loadKeyframes, 60)
         }
       }
-
-      fillNext()
     }
 
-    return () => {
-      isMounted = false
-      clearTimeout(keyframeTimer)
-    }
+    keyframeTimer = setTimeout(() => {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(loadKeyframes, { timeout: 200 })
+      } else {
+        loadKeyframes()
+      }
+    }, 100)
   }, [renderFrame])
 
-  // Direct, low-latency scroll tracker updating target frame with proactive lookahead preloading
+  // Viewport observer: Section 3 is far down, so only init & run when within 400px of viewport
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container || !('IntersectionObserver' in window)) {
+      initFrameLoading()
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const inView = entry.isIntersecting
+          isVisibleRef.current = inView
+          if (inView) {
+            initFrameLoading()
+            startLoop()
+          } else {
+            isLoopingRef.current = false
+            if (animIdRef.current) cancelAnimationFrame(animIdRef.current)
+          }
+        })
+      },
+      { threshold: 0.01, rootMargin: '400px 0px 400px 0px' }
+    )
+
+    observer.observe(container)
+    return () => observer.disconnect()
+  }, [initFrameLoading, startLoop])
+
+  // Direct, low-latency scroll tracker updating target frame with lookahead preloading
   useEffect(() => {
     let hasScrolled = false
+
     const handleScroll = () => {
       const container = containerRef.current
-      if (!container) return
+      if (!container || !isVisibleRef.current) return
 
       const rect = container.getBoundingClientRect()
       const scrollTop = -rect.top
@@ -235,27 +254,25 @@ export default function AppSection3ScrollAnimation() {
       if (maxScroll <= 0) return
 
       const fraction = Math.min(1, Math.max(0, scrollTop / maxScroll))
-      const target = fraction * (FRAME_COUNT - 1)
-      targetFrameRef.current = target
+      targetFrameRef.current = fraction * (FRAME_COUNT - 1)
 
-      // Proactive Lookahead Window: ensure +/- 20 frames around current position are loaded immediately
+      // Lookahead Window: load +/- 8 frames around current position
       const imgs = imagesRef.current
       if (imgs) {
-        const center = Math.round(target)
-        const minW = Math.max(0, center - 20)
-        const maxW = Math.min(FRAME_COUNT - 1, center + 25)
+        const center = Math.round(targetFrameRef.current)
+        const minW = Math.max(0, center - 8)
+        const maxW = Math.min(FRAME_COUNT - 1, center + 10)
         for (let w = minW; w <= maxW; w++) {
           if (!imgs[w]) {
             const img = new Image()
             img.decoding = 'async'
             img.src = framePath(w + 1)
-            if (img.decode) {
-              img.decode().catch(() => {})
-            }
             imgs[w] = img
           }
         }
       }
+
+      startLoop()
     }
 
     const handleResize = () => {
@@ -278,7 +295,7 @@ export default function AppSection3ScrollAnimation() {
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('orientationchange', handleResize)
     }
-  }, [renderFrame, resizeCanvasBuffer])
+  }, [renderFrame, resizeCanvasBuffer, startLoop])
 
   // Smooth scroll down to next section (#why-choose-us)
   const handleScrollToNextSection = () => {

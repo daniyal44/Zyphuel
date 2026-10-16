@@ -15,6 +15,9 @@ export default function ScrollAnimationSection() {
   const targetFrameRef = useRef(0)
   const currentFrameRef = useRef(0)
   const isCanvasReadyRef = useRef(false)
+  const isLoopingRef = useRef(false)
+  const animIdRef = useRef(null)
+  const isVisibleRef = useRef(true)
 
   const [scrolled, setScrolled] = useState(false)
   const [scrubProgress, setScrubProgress] = useState(0)
@@ -23,7 +26,7 @@ export default function ScrollAnimationSection() {
   const renderFrame = useCallback((index) => {
     const canvas = canvasRef.current
     if (!canvas) return
-    const ctx = canvas.getContext('2d', { alpha: false })
+    const ctx = canvas.getContext('2d', { alpha: false, desynchronized: true })
     if (!ctx) return
 
     const images = imagesRef.current
@@ -35,7 +38,7 @@ export default function ScrollAnimationSection() {
     // If target frame is not yet fully loaded, find nearest loaded neighbor
     if (!img || !img.complete || img.naturalWidth === 0) {
       let fallback = null
-      for (let offset = 1; offset < FRAME_COUNT; offset++) {
+      for (let offset = 1; offset < 35; offset++) {
         const prev = safeIndex - offset >= 0 ? images[safeIndex - offset] : null
         if (prev && prev.complete && prev.naturalWidth > 0) {
           fallback = prev
@@ -50,7 +53,6 @@ export default function ScrollAnimationSection() {
       if (fallback) {
         img = fallback
       } else if (lastDrawnImgRef.current) {
-        // Keep currently rendered frame to avoid any blank flicker
         img = lastDrawnImgRef.current
       } else {
         return
@@ -59,8 +61,10 @@ export default function ScrollAnimationSection() {
 
     // Set fixed native dimensions once to prevent GPU buffer re-allocations
     if (!isCanvasReadyRef.current && img.naturalWidth > 0) {
-      canvas.width = img.naturalWidth
-      canvas.height = img.naturalHeight
+      const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
+      const dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.0 : 1.5)
+      canvas.width = Math.round((img.naturalWidth || 1920) * (dpr > 1 ? 1 : 1))
+      canvas.height = Math.round((img.naturalHeight || 1080) * (dpr > 1 ? 1 : 1))
       isCanvasReadyRef.current = true
     }
 
@@ -70,39 +74,59 @@ export default function ScrollAnimationSection() {
     lastDrawnImgRef.current = img
   }, [])
 
-  // Continuous physics-based RAF LERP loop for silky-smooth 60/120fps scrubbing
-  useEffect(() => {
-    let animId
-    let isRunning = true
+  // On-demand RAF loop: runs ONLY while frame is actively moving, stops when idle (0% CPU/GPU waste)
+  const startLoop = useCallback(() => {
+    if (isLoopingRef.current || !isVisibleRef.current) return
+    isLoopingRef.current = true
 
     const loop = () => {
-      if (!isRunning) return
+      if (!isVisibleRef.current) {
+        isLoopingRef.current = false
+        return
+      }
+
       const diff = targetFrameRef.current - currentFrameRef.current
 
-      // Glide smoothly toward target frame with gentle damping
-      if (Math.abs(diff) > 0.05) {
+      if (Math.abs(diff) > 0.04) {
         currentFrameRef.current += diff * 0.18
         renderFrame(currentFrameRef.current)
         setScrubProgress(Math.min(100, Math.max(0, (currentFrameRef.current / (FRAME_COUNT - 1)) * 100)))
+        animIdRef.current = requestAnimationFrame(loop)
+      } else {
+        currentFrameRef.current = targetFrameRef.current
+        renderFrame(currentFrameRef.current)
+        setScrubProgress(Math.min(100, Math.max(0, (currentFrameRef.current / (FRAME_COUNT - 1)) * 100)))
+        isLoopingRef.current = false
       }
-
-      animId = requestAnimationFrame(loop)
     }
 
-    animId = requestAnimationFrame(loop)
-    return () => {
-      isRunning = false
-      if (animId) cancelAnimationFrame(animId)
-    }
+    animIdRef.current = requestAnimationFrame(loop)
   }, [renderFrame])
 
-  // Fast staged preloading: Frame 1 -> Sparse Keyframes (37 frames) -> Progressive background fill
+  // Cleanup loop on unmount
+  useEffect(() => {
+    return () => {
+      isLoopingRef.current = false
+      if (animIdRef.current) cancelAnimationFrame(animIdRef.current)
+    }
+  }, [])
+
+  // High-performance staged preloading: Frame 1 immediately, then sparse keyframes on idle
   useEffect(() => {
     let isMounted = true
     const imgs = new Array(FRAME_COUNT)
     imagesRef.current = imgs
 
-    // Priority 1: Instant load and render Frame 1 immediately
+    const loadSingle = (idx) => {
+      if (imgs[idx]) return imgs[idx]
+      const img = new Image()
+      img.decoding = 'async'
+      img.src = framePath(idx + 1)
+      imgs[idx] = img
+      return img
+    }
+
+    // Priority 1: Instant load and render Frame 1 immediately (0ms blocking)
     const firstImg = new Image()
     firstImg.decoding = 'async'
     firstImg.onload = () => {
@@ -119,10 +143,11 @@ export default function ScrollAnimationSection() {
       renderFrame(0)
     }
 
-    // Priority 2: Sparse Keyframes (every 8th frame: ~37 frames total, only ~1.5 MB)
-    // Allows full-range scrubbing immediately with zero delay
+    // Priority 2: Sparse Keyframes loaded gently during idle periods
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
+    const step = isMobile ? 12 : 8
     const keyframeIndices = []
-    for (let k = 8; k < FRAME_COUNT; k += 8) {
+    for (let k = step; k < FRAME_COUNT; k += step) {
       keyframeIndices.push(k)
     }
     if (keyframeIndices[keyframeIndices.length - 1] !== FRAME_COUNT - 1) {
@@ -130,74 +155,71 @@ export default function ScrollAnimationSection() {
     }
 
     let kIdx = 0
-    const loadKeyframes = () => {
-      if (!isMounted) return
-      if (kIdx >= keyframeIndices.length) {
-        // Once keyframes are queued, progressively fill remaining frames in background
-        loadAllRemainingFrames()
-        return
-      }
+    let keyframeTimer = null
 
-      const batch = keyframeIndices.slice(kIdx, kIdx + 6)
-      batch.forEach(idx => {
-        if (!imgs[idx]) {
-          const img = new Image()
-          img.decoding = 'async'
-          img.src = framePath(idx + 1)
-          imgs[idx] = img
-        }
-      })
-      kIdx += 6
-      setTimeout(loadKeyframes, 20)
-    }
+    const loadNextBatch = () => {
+      if (!isMounted || !isVisibleRef.current) return
+      if (kIdx >= keyframeIndices.length) return
 
-    // Start keyframes after a short breather so first hero paint completes cleanly
-    const keyframeTimer = setTimeout(loadKeyframes, 60)
+      const batch = keyframeIndices.slice(kIdx, kIdx + 4)
+      batch.forEach((idx) => loadSingle(idx))
+      kIdx += 4
 
-    // Priority 3: Progressive idle background filling for all intermediate frames
-    const loadAllRemainingFrames = () => {
-      if (!isMounted) return
-      let missingIdx = 1
-      const batchSize = 12
-
-      const fillNext = () => {
-        if (!isMounted || missingIdx >= FRAME_COUNT) return
-        let loadedCount = 0
-        while (missingIdx < FRAME_COUNT && loadedCount < batchSize) {
-          if (!imgs[missingIdx]) {
-            const img = new Image()
-            img.decoding = 'async'
-            img.src = framePath(missingIdx + 1)
-            imgs[missingIdx] = img
-            loadedCount++
-          }
-          missingIdx++
-        }
-
-        if (missingIdx < FRAME_COUNT && isMounted) {
-          if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-            window.requestIdleCallback(() => fillNext(), { timeout: 120 })
-          } else {
-            setTimeout(fillNext, 35)
-          }
+      if (kIdx < keyframeIndices.length) {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadNextBatch, { timeout: 150 })
+        } else {
+          keyframeTimer = setTimeout(loadNextBatch, 60)
         }
       }
-
-      fillNext()
     }
+
+    keyframeTimer = setTimeout(() => {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(loadNextBatch, { timeout: 200 })
+      } else {
+        loadNextBatch()
+      }
+    }, 100)
 
     return () => {
       isMounted = false
-      clearTimeout(keyframeTimer)
+      if (keyframeTimer) clearTimeout(keyframeTimer)
     }
   }, [renderFrame])
 
-  // Direct, low-latency scroll tracker updating the target frame without blocking
+  // Viewport observer: pause completely when scrolled out of view
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container || !('IntersectionObserver' in window)) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const inView = entry.isIntersecting
+          isVisibleRef.current = inView
+          if (inView) {
+            startLoop()
+          } else {
+            isLoopingRef.current = false
+            if (animIdRef.current) cancelAnimationFrame(animIdRef.current)
+          }
+        })
+      },
+      { threshold: 0.01, rootMargin: '200px 0px 200px 0px' }
+    )
+
+    observer.observe(container)
+    return () => observer.disconnect()
+  }, [startLoop])
+
+  // Low-latency passive scroll tracker with on-demand lookahead frame preloading
   useEffect(() => {
     let hasScrolled = false
+
     const handleScroll = () => {
       const container = containerRef.current
-      if (!container) return
+      if (!container || !isVisibleRef.current) return
 
       const rect = container.getBoundingClientRect()
       const scrollTop = -rect.top
@@ -212,6 +234,24 @@ export default function ScrollAnimationSection() {
 
       const fraction = Math.min(1, Math.max(0, scrollTop / maxScroll))
       targetFrameRef.current = fraction * (FRAME_COUNT - 1)
+
+      // Proactive lookahead: load frames around current position (+/- 8 frames)
+      const imgs = imagesRef.current
+      if (imgs) {
+        const center = Math.round(targetFrameRef.current)
+        const minW = Math.max(0, center - 8)
+        const maxW = Math.min(FRAME_COUNT - 1, center + 10)
+        for (let w = minW; w <= maxW; w++) {
+          if (!imgs[w]) {
+            const img = new Image()
+            img.decoding = 'async'
+            img.src = framePath(w + 1)
+            imgs[w] = img
+          }
+        }
+      }
+
+      startLoop()
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -225,7 +265,7 @@ export default function ScrollAnimationSection() {
       window.removeEventListener('resize', handleScroll)
       window.removeEventListener('orientationchange', handleScroll)
     }
-  }, [])
+  }, [startLoop])
 
   // Smooth scroll down to main doorstep fuel delivery hero
   const handleScrollToContent = () => {
@@ -247,10 +287,10 @@ export default function ScrollAnimationSection() {
         <canvas ref={canvasRef} id="canvas" className="reference-canvas" width={1920} height={1080} />
 
         {/* Real-time 3D scrub progress line */}
-        <div 
-          className="cinematic-progress-bar" 
+        <div
+          className="cinematic-progress-bar"
           style={{ width: `${scrubProgress}%` }}
-          aria-hidden="true" 
+          aria-hidden="true"
         />
 
         {/* Interactive Clickable Scroll / Skip Hint */}

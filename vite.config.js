@@ -176,6 +176,10 @@ export default defineConfig(({ isSsrBuild }) => ({
   server: {
     watch: {
       ignored: [
+        '**/.git/**',
+        '**/.agents/**',
+        '**/.claude/**',
+        '**/docs/**',
         '**/dist/**',
         '**/dist-ssr/**',
         '**/APK/**',
@@ -191,7 +195,11 @@ export default defineConfig(({ isSsrBuild }) => ({
         '**/public/app-hero-frames/**',
         '**/app-hero-frames/**',
         '**/public/app-section3-frames/**',
-        '**/app-section3-frames/**'
+        '**/app-section3-frames/**',
+        '**/ezgif-2f1a39c97e5b173b-jpg/**',
+        '**/public/ezgif-2f1a39c97e5b173b-jpg/**',
+        '**/public/images/**',
+        '**/node_modules/**'
       ]
     }
   },
