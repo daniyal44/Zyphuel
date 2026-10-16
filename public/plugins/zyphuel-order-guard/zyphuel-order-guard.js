@@ -96,37 +96,63 @@
     styleInjected = false;
   }
 
-  function enforceCutoff() {
-    var isCutoff = isNightCutoffActive();
-    var body = document.body;
+  var isEnforcing = false;
+  var enforcePending = false;
 
-    if (isCutoff) {
-      injectGuardStyles();
-      if (body && !body.classList.contains('zyphuel-night-cutoff-active')) {
-        body.classList.add('zyphuel-night-cutoff-active');
-      }
-
-      // Hard suppression: Physically remove any submit button on /order
-      var btns = document.querySelectorAll('#truck-submit-btn, .truck-button, .sandbox-truck-button, [data-testid="truck-submit-btn"]');
-      for (var i = 0; i < btns.length; i++) {
-        var btn = btns[i];
-        if (btn.parentNode) {
-          // Replace or hide with explicit inline styles
-          btn.style.setProperty('display', 'none', 'important');
-          btn.style.setProperty('visibility', 'hidden', 'important');
-          btn.style.setProperty('pointer-events', 'none', 'important');
-        }
-      }
-
-      var sandboxCards = document.querySelectorAll('.qa-sandbox-checkout-path, #qa-sandbox-checkout-path');
-      for (var j = 0; j < sandboxCards.length; j++) {
-        sandboxCards[j].style.setProperty('display', 'none', 'important');
-      }
+  function scheduleEnforce() {
+    if (enforcePending) return;
+    enforcePending = true;
+    if (typeof requestAnimationFrame !== 'undefined') {
+      requestAnimationFrame(function () {
+        enforcePending = false;
+        enforceCutoff();
+      });
     } else {
-      if (body && body.classList.contains('zyphuel-night-cutoff-active')) {
-        body.classList.remove('zyphuel-night-cutoff-active');
+      setTimeout(function () {
+        enforcePending = false;
+        enforceCutoff();
+      }, 60);
+    }
+  }
+
+  function enforceCutoff() {
+    if (isEnforcing) return;
+    isEnforcing = true;
+    try {
+      var isCutoff = isNightCutoffActive();
+      var body = document.body;
+
+      if (isCutoff) {
+        injectGuardStyles();
+        if (body && !body.classList.contains('zyphuel-night-cutoff-active')) {
+          body.classList.add('zyphuel-night-cutoff-active');
+        }
+
+        // Hard suppression: Physically remove any submit button on /order
+        var btns = document.querySelectorAll('#truck-submit-btn, .truck-button, .sandbox-truck-button, [data-testid="truck-submit-btn"]');
+        for (var i = 0; i < btns.length; i++) {
+          var btn = btns[i];
+          if (btn.style.display !== 'none') {
+            btn.style.setProperty('display', 'none', 'important');
+            btn.style.setProperty('visibility', 'hidden', 'important');
+            btn.style.setProperty('pointer-events', 'none', 'important');
+          }
+        }
+
+        var sandboxCards = document.querySelectorAll('.qa-sandbox-checkout-path, #qa-sandbox-checkout-path');
+        for (var j = 0; j < sandboxCards.length; j++) {
+          if (sandboxCards[j].style.display !== 'none') {
+            sandboxCards[j].style.setProperty('display', 'none', 'important');
+          }
+        }
+      } else {
+        if (body && body.classList.contains('zyphuel-night-cutoff-active')) {
+          body.classList.remove('zyphuel-night-cutoff-active');
+        }
+        removeGuardStyles();
       }
-      removeGuardStyles();
+    } finally {
+      isEnforcing = false;
     }
   }
 
@@ -145,15 +171,15 @@
     }, true);
   }
 
-  // Initialize MutationObserver to catch dynamically rendered buttons by React
+  // Initialize MutationObserver to catch dynamically rendered buttons by React without performance thrashing
   function observeDOM() {
     if (typeof MutationObserver !== 'undefined') {
       var observer = new MutationObserver(function () {
-        if (isNightCutoffActive()) {
-          enforceCutoff();
+        if (!isEnforcing && isNightCutoffActive()) {
+          scheduleEnforce();
         }
       });
-      observer.observe(document.documentElement, {
+      observer.observe(document.body || document.documentElement, {
         childList: true,
         subtree: true
       });

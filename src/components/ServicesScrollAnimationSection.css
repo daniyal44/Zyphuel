@@ -22,7 +22,7 @@
   height: calc(100vh - var(--nav-height, 0px));
   height: calc(100dvh - var(--nav-height, 0px));
   overflow: hidden;
-  background: #000000;
+  background: #000 url('/services-hero-frames/service-frame-001.jpg') center center / cover no-repeat;
   z-index: 10;
   user-select: none;
   margin: 0;

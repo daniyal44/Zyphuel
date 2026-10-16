@@ -88,10 +88,18 @@ function ezgifServerPlugin() {
 
       if (targetPath) {
         const stat = fs.statSync(targetPath)
+        const mtime = stat.mtime.toUTCString()
         res.setHeader('Content-Type', 'image/jpeg')
         res.setHeader('Content-Length', stat.size)
         res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
+        res.setHeader('Last-Modified', mtime)
         res.setHeader('Access-Control-Allow-Origin', '*')
+
+        if (req.headers['if-modified-since'] === mtime) {
+          res.statusCode = 304
+          res.end()
+          return
+        }
 
         if (req.method === 'OPTIONS') {
           res.statusCode = 204
