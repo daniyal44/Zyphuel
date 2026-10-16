@@ -17,14 +17,14 @@
 
 <!-- ZYPHUEL_FUEL_UPDATE_START -->
 > [!NOTE]
-> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 15, 2026)**
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 16, 2026)**
 > - **Operational SLA**: 20–45 Mins Simple Dispatch | 10–20 Mins Urgent (+Rs. 100) across Lahore.
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Zyphuel Android APK (v2.6.4+) delivers live lock-screen OGRA rate alerts, GPS sector auto-pinning, and Bluetooth bowser telemetry across Lahore. Orders strictly 5L to 15L Max delivered within 20–45 mins.
 >
-- **Market Intelligence**: Petrol price rises by Rs1.20 per litre, diesel falls by Re0.17 - The News Pakistan (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Govt raises petrol price by Rs1.20 per litre, reduces high-speed diesel rate by Re0.17 - Dawn (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Govt hikes petrol price by Rs1.20 per litre, cuts diesel by Re0.17 - Geo News (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt lowers petrol price by Rs3.63, hikes diesel by Re0.31 per litre - The News Pakistan (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Petrol Price in Pakistan Today – 15 October 2026 Update - Mashriq TV (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt reduces petrol price by Rs3.63 per litre, raises high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
