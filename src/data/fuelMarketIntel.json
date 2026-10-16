@@ -101,7 +101,7 @@
     "deliveryFeeUpTo10L": 300,
     "deliveryFee11To15L": "320-400 (+20/L step)",
     "urgentSurcharge": 100,
-    "simpleSLA": "20–45 Mins",
+    "simpleSLA": "Within 45 Mins",
     "urgentSLA": "10–20 Mins",
     "orderHours": "8:00 AM - 10:00 PM PKT",
     "helpline": "+92 3230-112464"
@@ -126,13 +126,13 @@
           "text": "Govt reduces petrol price by Rs3.63 per litre, raises high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
-      "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
+      "operationalZone": "Lahore, Pakistan (Within 45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "download-zyphuel-apk-guide": {
       "date": "October 16, 2026",
       "headline": "Daily Petroleum Market Intelligence (October 16, 2026)",
-      "summary": "Zyphuel Android APK (v2.6.4+) delivers live lock-screen OGRA rate alerts, GPS sector auto-pinning, and Bluetooth bowser telemetry across Lahore. Orders strictly 5L to 15L Max delivered within 20–45 mins.",
+      "summary": "Zyphuel Android APK (v2.6.4+) delivers live lock-screen OGRA rate alerts, GPS sector auto-pinning, and Bluetooth bowser telemetry across Lahore. Orders strictly 5L to 15L Max delivered within 45 mins.",
       "topic": "apk_mobile_telemetry",
       "points": [
         {
@@ -148,7 +148,7 @@
           "text": "Govt reduces petrol price by Rs3.63 per litre, raises high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
-      "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
+      "operationalZone": "Lahore, Pakistan (Within 45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "generator-refueling-services-lahore": {
@@ -170,7 +170,7 @@
           "text": "Govt reduces petrol price by Rs3.63 per litre, raises high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
-      "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
+      "operationalZone": "Lahore, Pakistan (Within 45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "generator-diesel-lpg-delivery-lahore": {
@@ -192,7 +192,7 @@
           "text": "Govt reduces petrol price by Rs3.63 per litre, raises high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
-      "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
+      "operationalZone": "Lahore, Pakistan (Within 45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "iot-telemetry-fuel-delivery": {
@@ -214,13 +214,13 @@
           "text": "Govt reduces petrol price by Rs3.63 per litre, raises high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
-      "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
+      "operationalZone": "Lahore, Pakistan (Within 45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "zyphuel-calibrated-telemetry-fleet": {
       "date": "October 16, 2026",
       "headline": "Daily Petroleum Market Intelligence (October 16, 2026)",
-      "summary": "Founder Muhammad Daniyal's agile micro-refueler fleet operates across DHA, Gulberg, Johar Town, Bahria Town, and Model Town. Delivered within 20–45 mins simple dispatch (10–20 mins urgent) with instant Raast, JazzCash, Easypaisa QR payments.",
+      "summary": "Founder Muhammad Daniyal's agile micro-refueler fleet operates across DHA, Gulberg, Johar Town, Bahria Town, and Model Town. Delivered within 45 mins with instant Raast, JazzCash, Easypaisa QR payments.",
       "topic": "founder_fleet_network",
       "points": [
         {
@@ -236,7 +236,7 @@
           "text": "Govt reduces petrol price by Rs3.63 per litre, raises high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
-      "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
+      "operationalZone": "Lahore, Pakistan (Within 45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "global-vs-pakistan-on-demand-fuel-delivery-benchmarks": {
@@ -258,7 +258,7 @@
           "text": "Govt reduces petrol price by Rs3.63 per litre, raises high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
-      "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
+      "operationalZone": "Lahore, Pakistan (Within 45 Min SLA)",
       "verifiedStatus": "Active Verified"
     }
   }

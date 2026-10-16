@@ -215,7 +215,7 @@ export default function BlogArticlePage() {
             <div style={{ paddingTop: '0.75rem', borderTop: '1px solid rgba(245, 158, 11, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', fontSize: '0.84rem' }}>
               <span style={{ color: '#475569', fontWeight: 500 }}>
                 <i className="fa-solid fa-location-dot" style={{ color: '#f59e0b', marginRight: '5px' }}></i>
-                Operational Zone: <strong style={{ color: '#0f172a' }}>Lahore, Pakistan (20–45 Min SLA)</strong>
+                Operational Zone: <strong style={{ color: '#0f172a' }}>Lahore, Pakistan (Within 45 Min SLA)</strong>
               </span>
               <Link to="/order/" style={{ color: '#d97706', fontWeight: 700, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
                 Order Doorstep Fuel Now <i className="fa-solid fa-arrow-right"></i>

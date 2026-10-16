@@ -27,7 +27,7 @@ This document defines the immutable business rules, operational constants, and a
 - **Zero Hidden Surcharges**: Fuel is charged at exact retail petrol pump rates without unannounced surcharges.
 
 ### 1.3 Delivery Arrival Windows
-- **Simple Dispatch**: **20–45 Mins** on doorstep across covered sectors of Lahore.
+- **Simple Dispatch**: **Within 45 Mins** on doorstep across covered sectors of Lahore.
 - **Urgent Dispatch**: **10–20 Mins** express priority response.
 - **Live Countdown**: Initialized to `45m 00s` upon standard order placement and decrements second-by-second in active state persistence.
 

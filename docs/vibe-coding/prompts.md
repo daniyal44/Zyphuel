@@ -53,6 +53,6 @@ Key Facts to Remember:
 1. Delivery Zones: Full coverage across Lahore including DHA (Phases 1-9), Gulberg, Johar Town, Model Town, Green Town, Bahria Town, and suburban estates.
 2. Fuel Precision: Certified 0.01L digital positive-displacement flow meters with automatic temperature compensation (15°C reference).
 3. Rates: Fuel rates follow verified retail petrol pump prices (OGRA ex-depot base + Rs. 2.50/L pump tariff).
-4. Delivery Times: 20-45 mins for standard dispatch, 10-20 mins for urgent priority.
+4. Delivery Times: 45 mins for standard dispatch, 10-20 mins for urgent priority.
 5. Operating Schedule: 24/7 round-the-clock for fuel delivery; office support Mon-Thu 8am-8pm, Fri 8am-1pm, Sat-Sun 10am-6pm.
 ```

@@ -116,7 +116,7 @@ export default function TermsOfUsePage() {
                 <h2><i className="fa-solid fa-truck-fast"></i> 3. Orders & Delivery</h2>
                 <p>All fuel orders are subject to availability and delivery feasibility within your requested area. Zyphuel reserves the right to decline any order if your location falls outside the current active delivery radius or if demand exceeds current tanker capacity.</p>
                 <ul>
-                  <li><strong>Dispatch Timing:</strong> Dispatch and arrival schedules are approximate and subject to urban traffic conditions, weather, safety inspections, and queue priorities.</li>
+                  <li><strong>Dispatch Timing:</strong> Standard doorstep fuel deliveries are dispatched within 45 minutes across covered Lahore metropolitan sectors. Dispatch and arrival schedules are subject to urban traffic conditions, weather, safety inspections, and queue priorities.</li>
                   <li><strong>Order Limits:</strong> Fuel orders are strictly structured between a <strong>minimum of 5 Litres</strong> and a <strong>maximum of 15 Litres</strong> per doorstep mobile delivery dispatch to ensure transit safety and rapid routing across Lahore.</li>
                   <li><strong>Order Intake Window:</strong> Online doorstep orders are accepted daily from <strong>8:00 AM to 10:00 PM (PKT)</strong>. Between 10:00 PM and 8:00 AM, order intake is closed for the night, during which the Complete Order button is disabled and hidden.</li>
                   <li><strong>Delivery Zones:</strong> Active delivery zones are limited to designated Lahore postal codes. Expansion alerts are communicated via our website and badge notifications.</li>

@@ -39,7 +39,7 @@ export default function HomePage() {
 
   useSEO({
     title: 'Online Petrol Delivery in Lahore | Doorstep Fuel & Diesel (COD) | Zyphuel',
-    description: 'Order verified Euro-V petrol and diesel delivered directly to your doorstep in Lahore within 20–45 mins. Cash on delivery (COD), calibrated digital meters, and official OGRA rates.',
+    description: 'Order verified Euro-V petrol and diesel delivered directly to your doorstep in Lahore within 45 mins. Cash on delivery (COD), calibrated digital meters, and official OGRA rates.',
     keywords: [
       'online petrol delivery in lahore', 'petrol home delivery lahore', 'online petrol delivery near me',
       'diesel home delivery near me', 'petrol delivery app pakistan', 'emergency petrol delivery lahore',

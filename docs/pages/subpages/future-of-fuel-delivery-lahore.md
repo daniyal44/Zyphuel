@@ -18,7 +18,7 @@
 <!-- ZYPHUEL_FUEL_UPDATE_START -->
 > [!NOTE]
 > **⚡ Live Daily Fuel Intelligence & Market Monitor (October 16, 2026)**
-> - **Operational SLA**: 20–45 Mins Simple Dispatch | 10–20 Mins Urgent (+Rs. 100) across Lahore.
+> - **Operational SLA**: 45 Mins Simple Dispatch | 10–20 Mins Urgent (+Rs. 100) across Lahore.
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: OGRA daily rolling Platts benchmark monitor active. Rates adjust daily Monday through Friday, with weekend rates locked. Lock in your doorstep refuel at current rates before depot changes. Fixed Rs. 300.00 delivery fee for 5L–10L; Rs. 320–Rs. 400 for 11L–15L Max.
 >
@@ -71,7 +71,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
-| **2026-10-09** | Synchronized delivery pricing with permanent business rules (fixed Rs. 300.00 up to 10L, Rs. 320.00–Rs. 400.00 for 11L–15L Max), 20–45 min dispatch window, and added Python master daily fuel intelligence sync. | Reconcile article documentation with permanent memory rules and autonomous market updater. |
+| **2026-10-09** | Synchronized delivery pricing with permanent business rules (fixed Rs. 300.00 up to 10L, Rs. 320.00–Rs. 400.00 for 11L–15L Max), 45 min dispatch window, and added Python master daily fuel intelligence sync. | Reconcile article documentation with permanent memory rules and autonomous market updater. |
 | **2026-09-25** | **Expanded to 1,150+ word comprehensive pillar guide with Key Takeaways, OGRA Pricing Matrix Table, Expert Quote, and 5 Schema.org FAQs**. | Eradicate thin content signals, provide high-value energy policy data, enable automatic search engine indexing, and achieve 100% performance. |
 | **2026-09-22** | Updated article text with strict 5L–15L Max doorstep volume limit and standard delivery fee model. | User requested to mention order max liters in articles and update delivery pricing. |
 | **2026-09-17** | Added "Related Fuel Guides & Energy Insights" internal link cluster; removed redundant startup slogans per single-hero memory rule; added Contact Helpline CTA; boosted sitemap priority to 0.8 weekly. | Create internal crawl mesh between all 6 blog articles and resolve GSC discovery delays. |

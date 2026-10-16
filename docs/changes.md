@@ -862,7 +862,7 @@ Aligned all corporate credentials, physical location indicators, executive title
   - **Firebase Cloud Messaging Push Resilience**: Fortified `ZyphuelFcmService` and notification channel (`zyphuel_fcm_channel`) for instant lock-screen OGRA fuel price change alerts.
   - **Security & Integrity Hardening**: Certified SHA-256 binary validation, Play Integrity API alignment, and hardened `BiometricPrompt` authorization pipeline.
   - **Calibrated Flow-Meter Synchronization**: Optimized Bluetooth (BLE) telemetry bridge streaming live 0.01L positive displacement dispenser metering.
-  - **Doorstep Delivery Alignment**: Synchronized strict 5L–15L Max volume limits, updated delivery tariff (Rs. 300 flat up to 10L, Rs. 320–Rs. 400 for 11L–15L Max), COD for 5L–10L, and rapid 20–45 min dispatch SLA.
+  - **Doorstep Delivery Alignment**: Synchronized strict 5L–15L Max volume limits, updated delivery tariff (Rs. 300 flat up to 10L, Rs. 320–Rs. 400 for 11L–15L Max), COD for 5L–10L, and rapid within 45 min dispatch SLA.
 - **Platform-Wide Synchronization**:
   - Updated `package.json` and `package-lock.json` to version `2.6.4.0.0.31`.
   - Synchronized AI/LLM search knowledge files `public/llms.txt` and `public/llms-full.txt`.

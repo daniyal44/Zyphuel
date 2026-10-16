@@ -337,7 +337,7 @@ const ROUTES = [
     path: '/',
     outFile: 'dist/index.html',
     title: "Online Petrol Delivery in Lahore | Doorstep Fuel & Diesel (COD) | Zyphuel",
-    description: "Order verified Euro-V petrol and diesel delivered directly to your doorstep in Lahore within 20–45 mins. Cash on delivery (COD), calibrated digital meters, and official OGRA rates.",
+    description: "Order verified Euro-V petrol and diesel delivered directly to your doorstep in Lahore within 45 mins. Cash on delivery (COD), calibrated digital meters, and official OGRA rates.",
     keywords: "online petrol delivery in lahore, petrol home delivery lahore, online petrol delivery near me, diesel home delivery near me, emergency petrol delivery, fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore",
     canonical: `${DOMAIN}/`,
     ogImage: `${DOMAIN}/images/logo.png`,
@@ -378,7 +378,7 @@ const ROUTES = [
               "name": "What are Zyphuel delivery charges for petrol and diesel in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel charges a fixed nominal delivery fee of Rs. 300.00 for doorstep fuel orders of 5–10 Litres, delivered within 20–45 minutes. For high-capacity orders of 11–15 Litres, delivery fees scale linearly between Rs. 300.00 and Rs. 400.00 (+Rs. 20/L step: 11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400 Max). Urgent priority dispatch (10–20 minutes) carries an additional surcharge of +Rs. 100.00."
+                "text": "Zyphuel charges a fixed nominal delivery fee of Rs. 300.00 for doorstep fuel orders of 5–10 Litres, delivered within 45 minutes. For high-capacity orders of 11–15 Litres, delivery fees scale linearly between Rs. 300.00 and Rs. 400.00 (+Rs. 20/L step: 11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400 Max). Urgent priority dispatch (10–20 minutes) carries an additional surcharge of +Rs. 100.00."
               }
             },
             {
@@ -715,7 +715,7 @@ const ROUTES = [
     path: '/order/',
     outFile: 'dist/order/index.html',
     title: "Order Fuel Online in Lahore | Doorstep Petrol & Diesel Booking Portal | Zyphuel",
-    description: "Book verified Euro-V petrol, high-octane 97, and generator diesel delivery online in Lahore with Zyphuel. Fast 20–45 min dispatch, 5L–15L Max capacity, Cash on Delivery (COD) & digital meters.",
+    description: "Book verified Euro-V petrol, high-octane 97, and generator diesel delivery online in Lahore with Zyphuel. Fast 45 min dispatch, 5L–15L Max capacity, Cash on Delivery (COD) & digital meters.",
     keywords: "order fuel online Lahore, book petrol delivery Lahore, order diesel Lahore, online fuel ordering Lahore, doorstep petrol delivery booking, generator diesel order, petrol cash on delivery Lahore, Zyphuel fuel booking",
     canonical: `${DOMAIN}/order/`,
     ogImage: `${DOMAIN}/images/tank.png`,
@@ -794,7 +794,7 @@ const ROUTES = [
               "@type": "HowToStep",
               "position": 4,
               "name": "Enter Lahore Address & Dispatch Priority",
-              "text": "Provide your delivery address in Lahore, select Simple (20–45 mins, Rs. 300 for 5–10L, dynamic surge for 11–15L) or Urgent (+Rs. 100) priority, choose payment mode (COD or instant QR Online Payments), and submit.",
+              "text": "Provide your delivery address in Lahore, select Simple (Within 45 mins, Rs. 300 for 5–10L, dynamic surge for 11–15L) or Urgent (+Rs. 100) priority, choose payment mode (COD or instant QR Online Payments), and submit.",
               "url": `${DOMAIN}/order/#step-address`
             }
           ]

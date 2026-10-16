@@ -10,7 +10,7 @@
 
 ## SEO & Structured Data
 - **Page Title**: `Order Fuel Online in Lahore | Doorstep Petrol & Diesel Booking Portal | Zyphuel`
-- **Meta Description**: `Book verified Euro-V petrol, high-octane 97, and generator diesel delivery online in Lahore with Zyphuel. Fast 20–45 min dispatch, 5L–15L Max capacity, Cash on Delivery (COD) & digital meters.`
+- **Meta Description**: `Book verified Euro-V petrol, high-octane 97, and generator diesel delivery online in Lahore with Zyphuel. Fast 45 min dispatch, 5L–15L Max capacity, Cash on Delivery (COD) & digital meters.`
 - **Canonical URL**: `https://zyphuel.netlify.app/order/`
 - **Schema Type**: `OrderAction` / `DeliveryService` / `LocalBusiness` / `FAQPage`
 
@@ -39,7 +39,7 @@
   - 13 Litres: Rs. 360.00
   - 14 Litres: Rs. 380.00
   - 15 Litres (Max): Rs. 400.00
-- **Delivery Arrival Window**: Fixed strictly **Delivered: 20–45 Mins** on doorstep across Lahore.
+- **Delivery Arrival Window**: Fixed strictly **Delivered: Within 45 Mins** on doorstep across Lahore.
 - **Purged Legacy Labels**: Purged `(Orders ≤ 10L)`, `(Order <10)`, and `Fixed Rate (≤10L)` from cards and summaries.
 
 ---
@@ -59,7 +59,7 @@
    - Stepper buttons (`-` and `+`) with live manual input, minimum 5L threshold, maximum 15L checkout cap, and quick volume chips `[5L, 7L, 10L, 12L, 15L]`.
 4. **Step 4: Delivery Details & Speed Option**:
    - Input: `Complete Delivery Address in Lahore *`.
-   - Dedicated Delivery Speed Card: Displays `✓ Standard Dispatch Selected (20–45 Mins)` with flat Rs. 300.00 nominal fee (scaled for 11L-15L).
+   - Dedicated Delivery Speed Card: Displays `✓ Standard Dispatch Selected (Within 45 Mins)` with flat Rs. 300.00 nominal fee (scaled for 11L-15L).
 5. **Step 5: Contact Details**:
    - Customer Full Name, Phone Number, and Email Address.
 6. **Step 6: Payment Options (COD & Instant Wallets)**:
@@ -67,7 +67,7 @@
    - **Instant Digital Payment Alternative**: If customer does not have cash on hand, on-spot digital payment via **JazzCash**, **Easypaisa**, **NayaPay**, or **Raast / Online Bank Transfer** is supported via delivery pilot's QR code.
    - **Advance Payment Policy**: Orders exceeding 10 Litres (11L to 15L Max) require advance digital payment confirmation prior to dispatch.
 7. **Order Summary**:
-   - Displays Selected Fuel, Quantity, Unit Rate, Fuel Subtotal, Dispatch Window (`20–45 Mins`), Delivery Charges (`Rs. 300.00` – `Rs. 400.00`), Payment Mode (`COD / Online Payments` or `Advance Digital Transfer`), and Grand Total.
+   - Displays Selected Fuel, Quantity, Unit Rate, Fuel Subtotal, Dispatch Window (`Within 45 Mins`), Delivery Charges (`Rs. 300.00` – `Rs. 400.00`), Payment Mode (`COD / Online Payments` or `Advance Digital Transfer`), and Grand Total.
 8. **Tracker Architecture (Modal-Based Dispatch Lifecycle)**:
    - Replaced redundant on-page SVG mockup (`RefuelingLifecycleTracker`) with direct, functional modal tracking upon checkout.
    - Preserves clean ordering flow with active order persistence (`localStorage`) and second-by-second countdown.

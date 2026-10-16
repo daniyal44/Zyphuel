@@ -19,7 +19,7 @@ export const articles = [
       'Friday midnight rates remain locked through Saturday and Sunday, while weekdays follow daily rate calibrations.',
       'The Zyphuel Android app sends automated 2-hour price alerts directly to lock screens, helping drivers place orders before depot prices increase.',
       'Doorstep consumer orders range strictly from 5 Litres minimum to 15 Litres maximum per delivery.',
-      'Standard delivery is fixed at Rs. 300.00 for orders up to 10 Litres, and scaled strictly between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) for 11L to 15L orders, delivered within 20–45 minutes across Lahore.'
+      'Standard delivery is fixed at Rs. 300.00 for orders up to 10 Litres, and scaled strictly between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) for 11L to 15L orders, delivered within 45 minutes across Lahore.'
     ],
     sections: [
       {
@@ -72,7 +72,7 @@ export const articles = [
         subheading: 'Strict Safety Standards and Convenient Payments in Lahore',
         paragraphs: [
           'To comply with local traffic safety regulations and HAZMAT handling codes, Zyphuel sets strict operational limits on all consumer doorstep orders. Every delivery is kept between a minimum of 5 Litres and a maximum of 15 Litres per dispatch. This cap keeps our micro-refuelers light, allows fast movement through tight residential streets, and provides the exact fuel needed for passenger cars, motorbikes, or home generators.',
-          'Our delivery pricing is transparent and simple. Orders up to 10 Litres have a fixed delivery fee of Rs. 300.00. For orders from 11L to 15L (the maximum volume cap), fees are strictly scaled between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) to cover specialized high-capacity load handling. We deliver within 20–45 minutes across Lahore. You can pay via Cash on Delivery (COD) for orders up to 10 Litres, or use instant on-spot digital transfers via JazzCash, Easypaisa, NayaPay, and Raast QR across all volumes.'
+          'Our delivery pricing is transparent and simple. Orders up to 10 Litres have a fixed delivery fee of Rs. 300.00. For orders from 11L to 15L (the maximum volume cap), fees are strictly scaled between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) to cover specialized high-capacity load handling. We deliver within 45 minutes across Lahore. You can pay via Cash on Delivery (COD) for orders up to 10 Litres, or use instant on-spot digital transfers via JazzCash, Easypaisa, NayaPay, and Raast QR across all volumes.'
         ]
       }
     ],
@@ -91,7 +91,7 @@ export const articles = [
       },
       {
         question: 'What is the delivery fee for doorstep fuel orders?',
-        answer: 'For orders up to 10 Litres, the delivery fee is strictly fixed at Rs. 300.00. For orders between 11L and 15L, fees are strictly scaled between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step). Standard orders arrive within 20–45 minutes across Lahore.'
+        answer: 'For orders up to 10 Litres, the delivery fee is strictly fixed at Rs. 300.00. For orders between 11L and 15L, fees are strictly scaled between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step). Standard orders arrive within 45 minutes across Lahore.'
       },
       {
         question: 'Can I pay using Cash on Delivery (COD) or mobile Online Payments?',

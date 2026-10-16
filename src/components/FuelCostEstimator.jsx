@@ -52,7 +52,7 @@ export default function FuelCostEstimator() {
 • Euro-V Diesel: Rs. ${FUEL_PRICES.diesel.toFixed(2)}/L
 • High-Octane 97: Rs. ${FUEL_PRICES.highOctane.toFixed(2)}/L
 
-🚗 *Doorstep Fuel Delivery in Lahore (20–45 Mins)*:
+🚗 *Doorstep Fuel Delivery in Lahore (Within 45 Mins)*:
 Order verified fuel delivered directly to your car, bike, or generator. Cash on Delivery (COD) available!
 Order link: https://zyphuel.netlify.app/order/?fuel=${selectedFuel}&volume=${volume}`
     return encodeURIComponent(text)
@@ -251,7 +251,7 @@ Order link: https://zyphuel.netlify.app/order/?fuel=${selectedFuel}&volume=${vol
                     Urgent Express Dispatch (10–20 Mins)
                   </div>
                   <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
-                    Standard is 20–45 mins. Urgent surcharge: +Rs. 100.00
+                    Standard is within 45 mins. Urgent surcharge: +Rs. 100.00
                   </div>
                 </div>
                 <input

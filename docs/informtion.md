@@ -87,7 +87,7 @@ This document serves as the authoritative single source of truth for all corpora
 - **Doorstep Delivery Charges**: Fixed **Rs. 300.00** nominal fee for orders up to **10 Litres** (5L–10L). For high-capacity orders between **11 Litres and 15 Litres Max**, fees are strictly scaled between **Rs. 300.00 and Rs. 400.00** with a linear +Rs. 20/L step (11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400). Legacy labels `(Order <10)` / `Fixed Rate (≤10L)` purged.
 - **Urgent Delivery Surcharge**: Controlled, reasonable priority fee of **+Rs. 100.00** flat.
 - **Delivery Windows**:
-  - Simple Dispatch: 20–45 Mins
+  - Simple Dispatch: Strictly **Within 45 Mins**
   - Urgent Dispatch: 10–20 Mins
 - **Retail Petrol Pump Rate Formula**: `Official Base Ex-Depot Rate + Rs. 5.00 / Litre` (`PUMP_RATE_MARKUP = 5.00`).
 - **Payment Methods**:

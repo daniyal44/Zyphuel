@@ -49,8 +49,8 @@ Today, the platform delivers 100% terminal-certified Euro-V fuels directly to co
 | Operational Metric | Before Optimization | Current Production Standard |
 |---|---|---|
 | **Doorstep Fuel Range** | Undefined / Varied | Strictly 5L Minimum to 15L Maximum (Clamped) |
-| **Delivery Fee Model** | Rs. 250 + Variable Scaling | Flat Rs. 280.00 Across All Lahore Zones |
-| **Delivery Window SLA** | Estimated 20–45 min | Standardized to strictly "Delivered: Within 45 Mins" |
+| **Delivery Fee Model** | Rs. 250 + Variable Scaling | Fixed Rs. 300.00 (5L–10L, scaled Rs. 320–Rs. 400 for 11L–15L) |
+| **Delivery Window SLA** | Variable | Standardized to strictly "Delivered: Within 45 Mins" |
 | **Payment Options** | Cash Only / Advance | COD (5L–10L) + Instant QR Online Payments (JazzCash, Easypaisa, NayaPay, Raast) |
 | **Meter Precision** | Estimated / Pump Nozzle | 0.01L Optical Pulse Encoder + 15°C Temp Compensation |
 | **Regulatory Compliance** | Informal Prototype | OGRA License `OGRA/DL-7492/LHE`, NTN `9482710-3`, SECP `0248195` |

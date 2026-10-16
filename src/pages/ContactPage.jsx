@@ -602,7 +602,7 @@ ${form.message.trim()}`
           <div className="container">
             <h2 className="section-title">Need Immediate Fuel Dispatch?</h2>
             <p className="section-subtitle" style={{ maxWidth: '640px', margin: '0 auto 28px auto' }}>
-              Skip the contact form if you need fuel right now. Place an order directly for doorstep delivery (Delivered: 20–45 Mins, Rs. 300 up to 10L, Rs. 320–400 for 11L–15L) across Lahore.
+              Skip the contact form if you need fuel right now. Place an order directly for doorstep delivery (Delivered: Within 45 Mins, Rs. 300 up to 10L, Rs. 320–400 for 11L–15L) across Lahore.
             </p>
             <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link to="/order/" className="btn btn-primary btn-lg">

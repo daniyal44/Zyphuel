@@ -34,7 +34,7 @@
 - **Retail Pump Margin Markup**: Controlled margin of **+Rs. 5.00/L** (`PUMP_RATE_MARKUP = 5.00`) across Petrol, Diesel, and High-Octane over official OGRA ex-depot rates.
 - **Urgent Delivery Surcharge**: Controlled, reasonable priority fee of **+Rs. 100.00** flat. Always keep this surcharge reasonable.
 - **Delivery Windows**:
-  - Simple Dispatch: 20–45 Mins
+  - Simple Dispatch: Strictly **Within 45 Mins**
   - Urgent Dispatch: 10–20 Mins
 - **Online Order Intake & Strict 10:00 PM Cutoff**:
   - Online doorstep fuel order intake operates daily from **8:00 AM to 10:00 PM (PKT)**.

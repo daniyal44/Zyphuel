@@ -25,7 +25,7 @@
    - **Order Volume Limits**: Strictly **5 Litres minimum** up to **15 Litres maximum** for liquid fuel doorstep delivery / **5 kg** for LPG.
    - **Order Intake Window**: Online doorstep fuel orders are accepted daily from **8:00 AM to 10:00 PM PKT**. Between 10:00 PM and 8:00 AM, order intake is closed (Night Cutoff) and the Complete Order button is disabled and hidden.
    - **Delivery Windows**:
-     - Simple/Standard: Estimated 20–45 minutes across central Lahore sectors.
+     - Simple/Standard: Estimated 45 minutes across central Lahore sectors.
      - Urgent/Priority: Estimated 10–20 minutes with priority routing.
 4. **Pricing, Surcharges & Payments**:
    - Liquid fuels priced strictly per official OGRA ex-depot notifications plus retail pump markup (+Rs. 5.00/L).

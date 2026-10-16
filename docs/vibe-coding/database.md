@@ -33,7 +33,7 @@ Maintains real-time order tracking status, active dispatch countdown, and anti-s
 | `selectedFuelType`| `String` | Fuel key: `'petrol' \| 'diesel' \| 'highOctane'` |
 | `fuelQty` | `Number` | Volume ordered in Litres (5 to 15L) |
 | `fuelRate` | `Number` | Effective retail pump rate at time of order |
-| `deliverySpeed`| `String` | `'simple'` (20–45 min) or `'urgent'` (10–20 min) |
+| `deliverySpeed`| `String` | `'simple'` (45 min) or `'urgent'` (10–20 min) |
 | `deliveryFee` | `Number` | Calibrated delivery fee (Rs. 280, Rs. 100, Rs. 380, or Rs. 0) |
 | `total` | `Number` | Final bill in PKR |
 | `status` | `String` | Lifecycle: `'confirmed' \| 'dispatched' \| 'delivered'` |
