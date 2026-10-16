@@ -65,7 +65,7 @@ const lahoreServiceSectors = [
     name: 'Industrial Estates (Sundar & Kot Lakhpat)',
     badge: 'Bulk Diesel B2B',
     eta: 'Scheduled Daily',
-    desc: 'High-capacity commercial Euro-V diesel supply (200L to 10,000L) with 50m long-reach hoses for manufacturing machinery and fleet yards.',
+    desc: 'Commercial Euro-V diesel supply with 50m long-reach hoses for manufacturing machinery, standby generators, and fleet yards.',
     town: 'Sundar Industrial Estate'
   },
   {

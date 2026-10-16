@@ -9,7 +9,7 @@ export const servicesB2C = [
     tag: 'B2C Consumer Refueling',
     desc: 'Pure, terminal-sourced Super Petrol (92 Octane) and High-Octane (97 Octane) delivered directly into your parked car or motorbike at home, office, or roadside in Lahore.',
     specs: [
-      '5 to 15 Litres: Standard Doorstep Delivery (Max 15L capacity)',
+      '5 to 15 Litres: Standard Doorstep Delivery',
       '5 to 10 Litres: Cash on Delivery (COD) & instant Online Payments (JazzCash, Easypaisa, NayaPay)',
       'Electronic calibrated flow-meter digital receipt',
       'Zero petrol pump waiting time or nozzle short-fueling'
@@ -77,7 +77,7 @@ export const servicesB2B = [
     tag: 'Critical Infrastructure',
     desc: 'Guaranteed diesel supply contracts for hospitals, data centers, telecom towers, banks, and production factories with priority emergency SLA guarantees.',
     specs: [
-      '500 Litres to 10,000+ Litres single-order capacity',
+      'Dedicated bulk commercial supply for enterprise facilities',
       'OGRA laboratory certified density & purity certificates',
       'Dedicated standby dispatch bowsers on call during operating hours',
       'Preventative fuel polishing and water separation checks'

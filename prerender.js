@@ -145,7 +145,7 @@ const LOCAL_BUSINESS_SCHEMA = {
         "itemOffered": {
           "@type": "Service",
           "name": "Authorized Fuel Agency & Bulk Diesel Supply",
-          "description": "Commercial fuel agency services offering 200L to 10,000L bulk Euro-V diesel deliveries with calibrated flow meters and digital invoices."
+          "description": "Commercial fuel agency services offering bulk Euro-V diesel deliveries with calibrated flow meters and digital invoices."
         }
       },
       {
@@ -418,7 +418,7 @@ const ROUTES = [
               "name": "Is Zyphuel an authorized commercial fuel agency in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. Zyphuel operates as a compliant mobile refueling and fuel agency supplying bulk Euro-V diesel (200L to 10,000L+) directly to corporate generator tanks, manufacturing plants, telecommunication towers, and construction yards across Lahore at official OGRA rates with verified batch quality certificates."
+                "text": "Yes. Zyphuel operates as a compliant mobile refueling and fuel agency supplying bulk Euro-V diesel directly to corporate generator tanks, manufacturing plants, telecommunication towers, and construction yards across Lahore at official OGRA rates with verified batch quality certificates."
               }
             },
             {
