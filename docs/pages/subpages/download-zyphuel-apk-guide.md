@@ -17,14 +17,14 @@
 
 <!-- ZYPHUEL_FUEL_UPDATE_START -->
 > [!NOTE]
-> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 18, 2026)**
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 19, 2026)**
 > - **Operational SLA**: 20–45 Mins Simple Dispatch | 10–20 Mins Urgent (+Rs. 100) across Lahore.
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Zyphuel Android APK (v2.6.4+) delivers live lock-screen OGRA rate alerts, GPS sector auto-pinning, and Bluetooth bowser telemetry across Lahore. Orders strictly 5L to 15L Max delivered within 20–45 mins.
 >
-- **Market Intelligence**: Govt cuts petrol price by Rs3.93 per litre - Dawn (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Petrol price cut by Rs3.93; HSD’s remains unchanged - Business Recorder (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Petrol price in Pakistan - ARYnews.tv (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt cuts petrol price by Rs3.93 per litre, diesel unchanged - Bol News (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Weekly Fuel Trend: A Slight Breath of Relief as Petrol Edges Downward - Pakwheels (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt cuts petrol by Rs3.93, keeps diesel unchanged till Oct 19 - The Express Tribune (Google News (Diesel Price Lahore))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
