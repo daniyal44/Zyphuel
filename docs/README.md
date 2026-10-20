@@ -89,3 +89,11 @@ All 13 core documentation files are consolidated directly in this directory (`do
 | Session Date | Scope & Key Focus | File Link |
 | :--- | :--- | :--- |
 | **2026-09-19** | Retail Pump Markup (+Rs. 2.50), UI De-cluttering, Vibe-Coding Context Files & Robots.txt Protocol | [`docs/chat/chat-history-2026-09-19.md`](./chat/chat-history-2026-09-19.md) |
+
+---
+
+## 6. Audit & Performance Reports (`docs/audits/`)
+
+| Audit Date | Scope & Key Findings | File Link |
+| :--- | :--- | :--- |
+| **2026-10-21** | Competitor Gap Analysis (PK + global), Responsiveness Fixes (Order page 233px mobile overflow, 3D carousel page scroll), Full Lighthouse Scores (Home Desktop 99 / Mobile 64; Order Desktop 98 / Mobile 56) with measured root causes and next-step backlog | [`docs/audits/2026-10-21-audit.md`](./audits/2026-10-21-audit.md) |

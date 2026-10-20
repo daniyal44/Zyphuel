@@ -1403,6 +1403,10 @@ export default function OrderPage() {
                               <img
                                 src={method.img}
                                 alt={method.name}
+                                loading="lazy"
+                                decoding="async"
+                                width={16}
+                                height={16}
                                 style={{
                                   width: '16px',
                                   height: '16px',
@@ -1506,6 +1510,10 @@ export default function OrderPage() {
                               <img
                                 src={method.img}
                                 alt={method.name}
+                                loading="lazy"
+                                decoding="async"
+                                width={16}
+                                height={16}
                                 style={{
                                   width: '16px',
                                   height: '16px',

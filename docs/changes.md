@@ -871,3 +871,34 @@ Aligned all corporate credentials, physical location indicators, executive title
   - Synchronized repository `README.md` badges, TOC links, competitor comparison tables, and mobile application specs table.
   - Updated all system documentation files (`docs/pages/download.md`, `docs/pages/about.md`, `docs/pages/subpages/download-zyphuel-apk-guide.md`, `docs/informtion.md`, `docs/pages.md`, `docs/subpages.md`, `docs/articles.md`, `docs/task.md`, `docs/phases.md`).
 
+## Phase 22: Full Site Audit — Competitor Gap Analysis, Responsiveness Fixes & Lighthouse Scores (2026-10-21)
+
+### 22.1 Mobile Responsiveness Fixes (`src/index.css`)
+- **User Directive**: *"meri wesbite ma a asa kia nai ha jao baki ke meri competitors ke wesbite ma or meri wesbite ma nai ha a, resaponsivesss ko be fix kro , detailed report do score be dena desktop & mobile performance speed all of them"*
+- **Bug 1 — Order page horizontal scroll**: `.order-container-grid` used `grid-template-columns: 1.3fr 1fr`, so fixed-content children (the 3-step fuel selector, stepper, payment grid) forced a **592px panel inside a 373px viewport** (`document.scrollWidth = 606`). Fixed with `minmax(0, 1.3fr) minmax(0, 1fr)` + `.order-container-grid > * { min-width: 0 }`. Verified: `scrollWidth` 606 → **373**, panel 592 → **345**, no horizontal scroll at 320px.
+- **Bug 2 — 3D carousel page scroll**: `Carousel3D` cards rotate outside `.scene-container` (which declares `overflow: visible`), producing **44px of horizontal page scrolling at 320px**. Fixed with `.slideshow-section { overflow-x: clip }`. Verified `scrollX` 44 → **0**.
+- **Safety net**: `html` and `body` now use `overflow-x: clip` (with `hidden` fallback) so transformed/animated content can never create a page-level horizontal scrollbar, while keeping `position: sticky` functional (order summary sticky behaviour re-verified on desktop).
+- **Media rule**: `img, svg, video, iframe { max-width: 100% }`.
+- **Re-audit**: `/about/`, `/services/`, `/contact/`, `/download/`, `/blog/`, `/privacy/` all report 0 horizontal overflow at 390px (wide tables were already inside scroll containers).
+
+### 22.2 Mobile Performance Fix (`src/pages/OrderPage.jsx`)
+- Payment chips rendered `/images/Bank.png` (**1,985 KB**) at 16×16px on first load; both chip `<img>` tags now carry `loading="lazy" decoding="async" width={16} height={16}`, deferring the 2 MB request past the order form.
+- Measured result: order-page mobile **First Contentful Paint 5.1 s → 3.1 s**.
+
+### 22.3 Lighthouse Scores (production build, `vite preview`, Lighthouse 12)
+| Page | Device | Performance | Accessibility | Best Practices | SEO | LCP | TBT |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| `/` | Desktop | **99** | 94 | 100 | 92 | 0.7 s | 20 ms |
+| `/` | Mobile | **64** (57–64) | 94 | 100 | 92 | 3.8 s | 680 ms |
+| `/order/` | Desktop | **98** | 94 | 100 | 100 | 1.1 s | 20 ms |
+| `/order/` | Mobile | **56** (54–57) | 94 | 100 | 100 | 6.4–8.2 s | 290–520 ms |
+
+### 22.4 Competitor Gap Findings (PK + global)
+- Missing vs Pakistani competitors: **Google Play listing & ratings** (FuelStation 5.0★), **first-order/promo offer** (FuelWala 20% off), **site-wide WhatsApp widget** (fueldelivery.pk), **named team page** (FuelStation), **public fuel-price page** (fueldelivery.pk), **safety/insurance certificates** (RevUp, Booster).
+- Missing vs global benchmarks (CAFU, Booster, Fuel Me, EzFill): subscription/auto-refuel, loyalty & referral rewards, saved vehicles/addresses, live web ETA tracking, fleet dashboard with invoicing/reporting.
+- Zyphuel already leads locally on: published delivery-fee bands, COD + 6 payment channels, 5–15L/45-min SLA detail, and SEO infrastructure (17 prerendered routes, SEO 100 on `/order/`).
+
+### 22.5 Documentation
+- New report: [`docs/audits/2026-10-21-audit.md`](./audits/2026-10-21-audit.md), indexed in `docs/README.md` (new section 6).
+- Updated `docs/pages/order.md`, `docs/pages/home.md` changelogs with measured before/after values.
+
