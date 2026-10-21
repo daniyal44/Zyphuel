@@ -11,3 +11,4 @@ yarn-debug.log*
 yarn-error.log*
 .zyphuel_cache/
 
+/freebuff-sites-build/
