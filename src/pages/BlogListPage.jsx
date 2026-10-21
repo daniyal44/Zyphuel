@@ -76,7 +76,7 @@ export default function BlogListPage() {
     <div ref={pageRef}>
       <section className="blog-section section-padding">
         <div className="container">
-          <div className="blog-header" style={{ opacity: 1, visibility: 'visible' }}>
+          <div className="blog-header" data-reveal="up" style={{ opacity: 1, visibility: 'visible' }}>
             <h1 className="section-title">Zyphuel Blog &amp; Fuel Guides</h1>
             <p className="section-subtitle">
               Read the latest updates about mobile fuel logistics, energy mobility,
@@ -85,8 +85,10 @@ export default function BlogListPage() {
           </div>
 
           {/* Prominent In-Content Download CTA */}
-          <div 
+          <div
             className="blog-download-cta-banner"
+            data-reveal="up"
+            data-reveal-delay="0.08"
             style={{
               opacity: 1,
               visibility: 'visible',
@@ -152,7 +154,7 @@ export default function BlogListPage() {
           </div>
 
           {/* Filters */}
-          <div className="blog-filters fade-in-up" style={{ transitionDelay: '0.1s' }}>
+          <div className="blog-filters" data-reveal="up" data-reveal-delay="0.12">
             {['All', 'Zyphuel Energy', 'Zyphuel App & Guides', 'Generator & Utilities'].map(filter => (
               <button
                 key={filter}
@@ -165,13 +167,14 @@ export default function BlogListPage() {
           </div>
 
           {/* Article Cards */}
-          <div className="blog-grid">
+          <div className="blog-grid" data-reveal-stagger="0.09">
             {filteredArticles.map((article, idx) => (
               <Link
                 key={article.id}
                 to={`/blog/${article.slug}/`}
-                className="blog-card fade-in-up"
-                style={{ transitionDelay: `${idx * 0.1}s`, textDecoration: 'none', color: 'inherit' }}
+                className="blog-card"
+                data-reveal="up"
+                style={{ textDecoration: 'none', color: 'inherit' }}
               >
                 <div className="blog-card-image-wrapper">
                   <img src={article.image} alt={article.title} loading="lazy" decoding="async" width="400" height="225" className="blog-card-image" />
@@ -190,7 +193,7 @@ export default function BlogListPage() {
           </div>
 
           {/* Bottom Help & Refueling Dispatch Banner */}
-          <div className="fade-in-up" style={{
+          <div className="fade-in-up" data-reveal="up" style={{
             marginTop: '50px',
             background: 'linear-gradient(135deg, #0b1329 0%, #0f172a 100%)',
             borderRadius: '16px',

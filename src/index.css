@@ -176,6 +176,53 @@ h1, h2, h3, h4, h5, h6 {
     will-change: auto;
 }
 
+/* --------------------------------------------------------------------------
+   SCROLL REVEAL SYSTEM (variants + stagger)
+   Used by `useScrollReveal`. Only opacity/transform animate, so nothing here
+   can shift layout (CLS 0). Elements stay visible unless <html class="reveal-ready">
+   exists, which the hook adds at runtime — JavaScript off = full content, no blank page.
+   -------------------------------------------------------------------------- */
+/* Hidden state applies ONLY while <html class="reveal-ready"> is set, which the hook
+   adds after it has safely discovered and scheduled every element. No JS (or reduced
+   motion) = no class = every element sits in its final, fully visible state. */
+.reveal-ready [data-reveal] {
+    opacity: 0;
+    transition:
+        opacity 0.62s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-ready [data-reveal='up'] {
+    transform: translate3d(0, 26px, 0);
+}
+
+.reveal-ready [data-reveal='down'] {
+    transform: translate3d(0, -22px, 0);
+}
+
+.reveal-ready [data-reveal='left'] {
+    transform: translate3d(-32px, 0, 0);
+}
+
+.reveal-ready [data-reveal='right'] {
+    transform: translate3d(32px, 0, 0);
+}
+
+.reveal-ready [data-reveal='scale'] {
+    transform: scale(0.94);
+}
+
+.reveal-ready [data-reveal='fade'] {
+    transform: none;
+}
+
+.reveal-ready [data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+}
+
 @keyframes pulseGlow {
     0% {
         box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4);
@@ -4952,7 +4999,8 @@ a.footer-contact-link:hover {
         scroll-behavior: auto !important;
     }
 
-    .fade-in-up {
+    .fade-in-up,
+    [data-reveal] {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;

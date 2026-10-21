@@ -1762,7 +1762,7 @@ export default function OrderPage() {
         {/* SEO On-Page Guide & FAQ Section: Doorstep Diesel & Petrol Delivery in Lahore */}
         <section className="order-seo-info section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-color)', marginTop: '40px' }}>
           <div className="container" style={{ maxWidth: '1000px' }}>
-            <div className="fade-in-up">
+            <div data-reveal="up">
               <div className="hero-subtitle-badge" style={{ backgroundColor: 'var(--brand-petrol)', borderColor: 'rgba(58,134,200,0.15)', color: '#1a4f7c' }}>
                 <i className="fa-solid fa-truck-fast"></i>
                 <span>Verified Fuel Logistics Lahore</span>
@@ -1775,8 +1775,8 @@ export default function OrderPage() {
               </p>
 
               {/* 3 Pillars Grid */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '20px', margin: '30px 0' }}>
-                <div style={{ background: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-color)', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+              <div data-reveal-stagger="0.1" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: '20px', margin: '30px 0' }}>
+                <div data-reveal="up" style={{ background: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-color)', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
                   <div style={{ fontSize: '1.8rem', color: '#0ea5e9', marginBottom: '12px' }}><i className="fa-solid fa-truck-droplet"></i></div>
                   <h3 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>Diesel &amp; Generator Refueling</h3>
                   <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
@@ -1784,7 +1784,7 @@ export default function OrderPage() {
                   </p>
                 </div>
 
-                <div style={{ background: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-color)', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+                <div data-reveal="up" style={{ background: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-color)', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
                   <div style={{ fontSize: '1.8rem', color: '#10b981', marginBottom: '12px' }}><i className="fa-solid fa-gauge-high"></i></div>
                   <h3 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>Calibrated Volumetric Billing</h3>
                   <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
@@ -1792,7 +1792,7 @@ export default function OrderPage() {
                   </p>
                 </div>
 
-                <div style={{ background: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-color)', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+                <div data-reveal="up" style={{ background: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-color)', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
                   <div style={{ fontSize: '1.8rem', color: '#6366f1', marginBottom: '12px' }}><i className="fa-solid fa-clock-rotate-left"></i></div>
                   <h3 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>45-Min Express Dispatch</h3>
                   <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>

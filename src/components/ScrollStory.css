@@ -1,0 +1,302 @@
+/* ==========================================================================
+   SCROLL STORY (pinned scrollytelling section)
+   Sticky rail on desktop, plain stacked list on mobile. Only opacity,
+   transform and background-color change — no layout animation, so CLS stays 0.
+   ========================================================================== */
+
+.scroll-story {
+    position: relative;
+    padding: 84px 0 96px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    overflow: clip;
+}
+
+.scroll-story-head {
+    max-width: 760px;
+    margin: 0 auto 56px;
+    text-align: center;
+}
+
+.scroll-story-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    margin-bottom: 18px;
+    border-radius: 999px;
+    background: rgba(2, 132, 199, 0.08);
+    border: 1px solid rgba(2, 132, 199, 0.18);
+    color: #0369a1;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.scroll-story-title {
+    margin: 0 0 14px;
+    font-size: clamp(1.6rem, 3.2vw, 2.35rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.scroll-story-desc {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.scroll-story-grid {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 64px;
+    align-items: start;
+}
+
+/* ---------- Desktop rail ---------- */
+.scroll-story-rail {
+    position: relative;
+}
+
+.scroll-story-rail-sticky {
+    position: sticky;
+    top: calc(var(--nav-height, 80px) + 64px);
+    display: grid;
+    grid-template-columns: 3px minmax(0, 1fr);
+    gap: 18px;
+}
+
+.scroll-story-rail-track {
+    position: relative;
+    width: 3px;
+    border-radius: 999px;
+    background: #e2e8f0;
+    height: 100%;
+    min-height: 180px;
+    overflow: hidden;
+}
+
+.scroll-story-rail-fill {
+    position: absolute;
+    inset: 0;
+    transform-origin: top center;
+    background: linear-gradient(180deg, #38bdf8 0%, #0369a1 100%);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-story-rail-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.scroll-story-rail-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #94a3b8;
+    transition: color 0.3s ease;
+}
+
+.scroll-story-rail-dot {
+    width: 9px;
+    height: 9px;
+    flex: 0 0 9px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scroll-story-rail-item.is-done {
+    color: #475569;
+}
+
+.scroll-story-rail-item.is-done .scroll-story-rail-dot {
+    background: #7dd3fc;
+}
+
+.scroll-story-rail-item.is-active {
+    color: #0f172a;
+}
+
+.scroll-story-rail-item.is-active .scroll-story-rail-dot {
+    background: var(--accent-color, #0284c7);
+    box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.16);
+}
+
+/* ---------- Steps ---------- */
+.scroll-story-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.scroll-story-step {
+    position: relative;
+}
+
+.scroll-story-step-card {
+    position: relative;
+    padding: 26px 28px;
+    border-radius: 18px;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+    /* Only opacity/transform/shadow animate — the card never changes size. */
+    transform: translate3d(0, 0, 0);
+    transition:
+        transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
+}
+
+.scroll-story-step.is-active .scroll-story-step-card {
+    transform: translate3d(6px, 0, 0);
+    border-color: rgba(2, 132, 199, 0.35);
+    box-shadow: 0 16px 40px rgba(2, 132, 199, 0.14);
+}
+
+.scroll-story-step-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.scroll-story-step-number {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #94a3b8;
+    transition: color 0.35s ease;
+}
+
+.scroll-story-step.is-active .scroll-story-step-number {
+    color: var(--accent-color, #0284c7);
+}
+
+.scroll-story-step-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: rgba(2, 132, 199, 0.08);
+    color: #0369a1;
+    font-size: 0.95rem;
+    transition: background-color 0.35s ease, color 0.35s ease, transform 0.35s ease;
+}
+
+.scroll-story-step.is-active .scroll-story-step-icon {
+    background: var(--accent-color, #0284c7);
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.scroll-story-step-title {
+    margin: 0 0 8px;
+    font-size: 1.12rem;
+    font-weight: 750;
+    color: var(--text-primary);
+    line-height: 1.35;
+}
+
+.scroll-story-step-desc {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+}
+
+.scroll-story-step-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 14px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 992px) {
+    .scroll-story {
+        padding: 64px 0 72px;
+    }
+
+    .scroll-story-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+    }
+
+    /* No pinned rail on tablet/mobile: the steps read as a normal list. */
+    .scroll-story-rail {
+        display: none;
+    }
+
+    .scroll-story-head {
+        margin-bottom: 36px;
+        text-align: left;
+    }
+
+    .scroll-story-step.is-active .scroll-story-step-card {
+        transform: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .scroll-story {
+        padding: 52px 0 60px;
+    }
+
+    .scroll-story-step-card {
+        padding: 20px 18px;
+        border-radius: 14px;
+    }
+
+    .scroll-story-steps {
+        gap: 18px;
+    }
+
+    .scroll-story-step-title {
+        font-size: 1.02rem;
+    }
+
+    .scroll-story-step-desc {
+        font-size: 0.9rem;
+    }
+
+    .scroll-story-step-meta {
+        font-size: 0.74rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-story-step-card,
+    .scroll-story-rail-fill,
+    .scroll-story-rail-item,
+    .scroll-story-step-icon,
+    .scroll-story-rail-dot {
+        transition: none !important;
+        transform: none !important;
+    }
+}

@@ -944,3 +944,26 @@ Aligned all corporate credentials, physical location indicators, executive title
 - `npm run build` exit **0** (17 SSG routes, no errors).
 - Browser check on the production build at 414 px: `Live Lahore Fuel Rate` text and `.fuel-estimator-section` both absent, `.competitive-section` still rendered, no zero-height sections or empty gaps between the banner and the pillars, `scrollWidth == clientWidth` (no horizontal overflow).
 - Updated `docs/pages/home.md` (section 1.5 marked removed + changelog row).
+
+## Phase 25: Scroll Animation System for About, Blog, Contact & Order (2026-10-21)
+
+### 25.1 New Reusable Pieces
+- **`src/hooks/useScrollReveal.js` upgraded**: keeps the legacy `.fade-in-up` behaviour but adds `[data-reveal]` variants (`up` / `down` / `left` / `right` / `scale` / `fade`), per-element `data-reveal-delay`, and `data-reveal-stagger="0.09"` containers that fan out a delay across their children. Above-the-fold elements are still revealed synchronously; everything else waits for one IntersectionObserver.
+- **No-JS and reduced-motion safety**: the hidden state lives behind `.reveal-ready [data-reveal]`, and that class is only added by the hook. With JavaScript disabled — or when `prefers-reduced-motion: reduce` is set — no element is ever hidden. The global reduced-motion block also forces `[data-reveal]` to its final state.
+- **`src/components/ScrollStory.jsx` + `ScrollStory.css`**: a pinned scrollytelling section. Desktop gets a sticky rail (progress line + step labels) that highlights whichever step sits at the reading line; below 992 px the rail is dropped and the steps render as stacked cards. Implemented with one IntersectionObserver (`rootMargin: -45% 0px -45% 0px`) — no scroll listener. Steps are mounted only when the section comes within 800 px of the viewport.
+
+### 25.2 Where It Was Applied
+| Page | Change |
+| :--- | :--- |
+| `/about/` | New `ScrollStory` `#refueling-lifecycle` — 4 factual steps: order intake 8 AM–10 PM · 45-min dispatch · 0.01 L calibrated metering · QR + Code 128 invoice. Values grid staggered. |
+| `/contact/` | New `ScrollStory` `#contact-dispatch-flow` — message logged (desk hours) · verification · within-45-minute scheduling · WhatsApp confirmation. Contact info items staggered. |
+| `/blog/` | Header, download banner and filters revealed; article cards staggered instead of a fixed inline delay; article body sections + FAQ switched to `data-reveal="up"`. |
+| `/order/` | Only the below-the-fold SEO guide section animates (heading + 3 pillar cards staggered). The checkout form, step chips and sticky summary stay instantly interactive. |
+
+### 25.3 Verification
+- `npm run build` exit **0** (17 SSG routes).
+- Browser checks at 1440 px and 390 px: story renders on `/about/` and `/contact/`, the rail is `display: none` on mobile, `scrollWidth == clientWidth` on every touched page (zero horizontal overflow), and the active step advances 0 → 1 → 2 → 3 with the rail fill tracking `scaleY(0.02 → 1)`.
+- Reduced-motion cascade verified: with the OS `prefers-reduced-motion` block disabled in-page, a card measured `opacity: 0` + `translate3d(0, 26px, 0)` before reveal and `opacity: 1` + `transform: none` after, with `transition-duration: 0.62s`; with the block enabled everything stays visible (nothing is hidden).
+- Mobile Lighthouse: `/about/` **64 → 84 / 78**, `/blog/` 77 → 70–77, `/contact/` 86 → **71–74**, `/order/` 61 → **62**. Desktop: blog 90, order 80, contact 90, about 92.
+- **Known regression, reported honestly:** `/contact/` mobile dropped from a lucky 86 baseline (30 ms TBT) to 71–74 because the extra below-fold section pushes a long layout task past FCP. Control pages measured in the same session (`/privacy/` 73 → 75, `/terms/` 87 → 84) confirm normal machine variance accounts for part, not all, of the delta.
+- Screenshot artefact: `docs/audits/about-scroll-story-desktop.png`.

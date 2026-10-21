@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import ScrollStory from '../components/ScrollStory'
 import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
 
@@ -256,13 +257,13 @@ ${form.message.trim()}`
             <div className="contact-grid">
               {/* Left: Contact Info */}
               <div className="contact-info-panel fade-in-up">
-                <div className="contact-details">
+                <div className="contact-details" data-reveal-stagger="0.09">
                   {[
                     { icon: 'fa-phone', title: 'Contact number', content: '+92 3230-112464', sub: '24/7 hotline and WhatsApp live dispatch.' },
                     { icon: 'fa-envelope', title: 'Complaint Email', content: 'm.daniyalkhan490@gmail.com', sub: 'For complaints, corporate inquiries, and support.' },
                     { icon: 'fa-location-dot', title: 'Headquarters', content: 'Lahore, Pakistan.', sub: 'Central operations and dispatch command.' },
                   ].map(item => (
-                    <div key={item.title} className="contact-item">
+                    <div key={item.title} className="contact-item" data-reveal="up">
                       <div className="contact-icon"><i className={`fa-solid ${item.icon}`}></i></div>
                       <div className="contact-text">
                         <h4>{item.title}</h4>
@@ -454,6 +455,44 @@ ${form.message.trim()}`
             </div>
           </div>
         </section>
+
+        {/* Pinned scrollytelling: what happens after a message is sent */}
+        <ScrollStory
+          id="contact-dispatch-flow"
+          eyebrow="After You Send a Message"
+          title="What our dispatch desk does with your request"
+          description="Corporate quotes, bulk diesel, fleet accounts and complaints all follow the same desk rhythm. No request sits unseen — it is logged, verified and either scheduled or answered on WhatsApp."
+          steps={[
+            {
+              short: 'Message logged',
+              icon: 'fa-inbox',
+              title: 'Your message reaches the operations desk',
+              desc: 'Every form submission is logged with your name, phone number, sector and fuel requirement. Requests sent outside desk hours stay queued and are picked up when the desk opens — nothing is discarded overnight.',
+              meta: 'Mon–Thu 8 AM–8 PM · Fri 8 AM–1 PM · Sat–Sun 10 AM–6 PM'
+            },
+            {
+              short: 'Verification',
+              icon: 'fa-clipboard-check',
+              title: 'We verify the requirement first',
+              desc: 'Before any dispatch, the desk confirms the delivery sector, volume (5 L – 15 L per doorstep order), payment method and whether the target is a vehicle, standby generator or commercial machinery — so the correct calibrated bowser is sent.',
+              meta: 'Volume, sector and payment confirmed'
+            },
+            {
+              short: 'Scheduling',
+              icon: 'fa-truck-fast',
+              title: 'A dispatch slot is scheduled',
+              desc: 'Standard doorstep orders are scheduled inside the within-45-minute delivery window. Urgent priority requests are routed ahead of the queue for 10–20 minute dispatch and carry the flat Rs. 100 priority fee.',
+              meta: 'Within 45 mins · Urgent 10–20 mins'
+            },
+            {
+              short: 'WhatsApp confirmation',
+              icon: 'fa-comment-dots',
+              title: 'You get a written confirmation',
+              desc: 'The bowser assignment, invoice details and delivery confirmation are shared on WhatsApp at +92 3230-112464. That same helpline stays reachable 24/7 for dispatch emergencies, even when the desk itself is closed.',
+              meta: 'WhatsApp helpline 24/7'
+            }
+          ]}
+        />
 
         {/* Lahore Sector Coverage & Dispatch SLA Matrix */}
         <section className="section-padding" style={{ backgroundColor: '#ffffff', borderTop: '1px solid var(--border-color, #e2e8f0)' }}>

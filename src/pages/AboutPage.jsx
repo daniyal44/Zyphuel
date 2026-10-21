@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import ScrollStory from '../components/ScrollStory';
 import { useSEO } from '../hooks/useSEO';
 import { aboutArticles } from '../data/aboutData';
 import { APP_VERSION } from '../data/appVersion';
@@ -224,18 +225,18 @@ export default function AboutPage() {
                 </a>
               </div>
 
-              <div className="about-values-grid" style={{ marginTop: '40px' }}>
-                <div className="value-item">
+              <div className="about-values-grid" data-reveal-stagger="0.1" style={{ marginTop: '40px' }}>
+                <div className="value-item" data-reveal="up">
                   <span className="value-icon"><i className="fa-solid fa-truck-ramp-box"></i></span>
                   <h3 className="value-title">On-Demand Mobility</h3>
                   <p className="value-desc">Certified fleet refuels vehicles and backup generators during downtime with zero delays.</p>
                 </div>
-                <div className="value-item">
+                <div className="value-item" data-reveal="up">
                   <span className="value-icon"><i className="fa-solid fa-scale-balanced"></i></span>
                   <h3 className="value-title">Volumetric Honesty</h3>
                   <p className="value-desc">Calibrated digital flow meters with optical encoders guarantee 100% accurate billing.</p>
                 </div>
-                <div className="value-item">
+                <div className="value-item" data-reveal="up">
                   <span className="value-icon"><i className="fa-solid fa-shield-halved"></i></span>
                   <h3 className="value-title">Safety Compliance</h3>
                   <p className="value-desc">Strict adherence to HAZMAT, NFPA 30A, and national OGRA Euro-V regulations.</p>
@@ -244,6 +245,44 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        {/* Pinned scrollytelling: how a doorstep refueling actually runs, step by step */}
+        <ScrollStory
+          id="refueling-lifecycle"
+          eyebrow="The Doorstep Refueling Lifecycle"
+          title="From your order to a verified invoice in four steps"
+          description="Every Zyphuel delivery follows the same audited sequence — the same one the order page and the invoice use, so what you read here is what actually happens at your gate."
+          steps={[
+            {
+              short: 'Place order',
+              icon: 'fa-clipboard-check',
+              title: 'You place the order',
+              desc: 'Pick petrol, High-Octane or diesel, choose a target (car, motorbike, standby generator or commercial machinery) and a volume between 5 L and 15 L. Order intake runs daily from 8:00 AM to 10:00 PM PKT; outside those hours the site shows the night cutoff notice instead of a checkout button.',
+              meta: '5 L – 15 L per order · COD up to 10 L'
+            },
+            {
+              short: 'Dispatch',
+              icon: 'fa-truck-fast',
+              title: 'The nearest bowser is dispatched',
+              desc: 'Your order is routed to the closest calibrated micro-tanker for a within-45-minute doorstep delivery. Urgent priority requests jump the queue for 10–20 minute dispatch and carry the flat Rs. 100 priority fee.',
+              meta: 'Within 45 mins · Urgent 10–20 mins'
+            },
+            {
+              short: 'Calibrated fill',
+              icon: 'fa-gauge-high',
+              title: 'Fuel is metered at your gate',
+              desc: 'Fuel moves through a positive-displacement flow meter accurate to 0.01 L, with automatic temperature compensation at 15°C and a 50 m high-reach hose. Euro-V grade is sealed at the depot and opened only at your vehicle, generator or machinery.',
+              meta: '0.01 L accuracy · ATC 15°C'
+            },
+            {
+              short: 'Invoice & receipt',
+              icon: 'fa-receipt',
+              title: 'You get a scannable invoice',
+              desc: 'Every order produces an itemised tax invoice with a camera-scannable QR code and a Code 128 barcode, downloadable as a vector PDF. The dispatch desk stays on WhatsApp at +92 3230-112464 for confirmation, receipts and after-hours emergencies.',
+              meta: 'QR + barcode verified · WhatsApp 24/7'
+            }
+          ]}
+        />
 
         {/* Founder & Leadership Section */}
         <section className="about-founder section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>

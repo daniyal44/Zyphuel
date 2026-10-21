@@ -307,7 +307,7 @@ export default function BlogArticlePage() {
         {article.sections ? (
           <div className="article-body">
             {article.sections.map((section, sIdx) => (
-              <section key={sIdx} id={`section-${sIdx + 1}`} style={{ marginBottom: '2.75rem' }} className="fade-in-up">
+              <section key={sIdx} id={`section-${sIdx + 1}`} style={{ marginBottom: '2.75rem' }} data-reveal="up">
                 <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.5rem', lineHeight: 1.35, paddingTop: '0.5rem' }}>
                   {section.heading}
                 </h2>
@@ -397,7 +397,7 @@ export default function BlogArticlePage() {
 
         {/* On-Page FAQ Accordion */}
         {article.faqs && article.faqs.length > 0 && (
-          <section id="article-faqs" className="fade-in-up" style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '2px solid #e2e8f0' }}>
+          <section id="article-faqs" data-reveal="up" style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '2px solid #e2e8f0' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.5rem' }}>
               <i className="fa-solid fa-circle-question" style={{ color: '#0284c7', fontSize: '1.4rem' }}></i>
               <h2 style={{ fontSize: '1.45rem', fontWeight: 800, margin: 0, color: 'var(--text-primary)' }}>
