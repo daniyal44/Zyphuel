@@ -104,7 +104,7 @@ export default function ScrollStory({
           {description && <p className="scroll-story-desc">{description}</p>}
         </header>
 
-        <div className={`scroll-story-grid${stepsMounted ? '' : ' is-deferred'}`}>
+        <div className="scroll-story-grid">
           <aside className="scroll-story-rail" aria-hidden="true">
             <div className="scroll-story-rail-sticky">
               <div className="scroll-story-rail-track">
