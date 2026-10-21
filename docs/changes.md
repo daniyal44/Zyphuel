@@ -932,3 +932,15 @@ Aligned all corporate credentials, physical location indicators, executive title
 ### 23.4 Documentation
 - Rewrote [`docs/audits/2026-10-21-audit.md`](./audits/2026-10-21-audit.md) with the full 9-page desktop + mobile table, round-2 before/after evidence, an explicit “known limitations” section, and an updated 10-step backlog.
 - Updated `docs/pages/about.md`, `docs/pages/services.md`, `docs/pages/download.md` changelogs with the exact CSS/JS changes and measured numbers.
+
+## Phase 24: Home-Page Fuel Cost Estimator Removal (2026-10-21)
+
+### 24.1 Section Removed
+- Deleted the `<FuelCostEstimator />` block from `src/pages/HomePage.jsx` — the “Live Lahore Fuel Rate & Cost Estimator / Estimate Your Doorstep Fuel Cost in Seconds” section that sat between the pump search banner and the “Why Choose Zyphuel” pillars — along with its `import FuelCostEstimator from '../components/FuelCostEstimator'` line.
+- Deleted `src/components/FuelCostEstimator.jsx` (405 lines). No other file referenced it, and all of its styling was inline, so no CSS cleanup was required.
+- **Reason:** the widget rendered static local values from `data/fuelPrices` and was not synced with live OGRA rates, so it could show wrong prices to customers. Doorstep cost guidance now lives only on `/order/`, where the summary uses the same pricing source as checkout.
+
+### 24.2 Verification
+- `npm run build` exit **0** (17 SSG routes, no errors).
+- Browser check on the production build at 414 px: `Live Lahore Fuel Rate` text and `.fuel-estimator-section` both absent, `.competitive-section` still rendered, no zero-height sections or empty gaps between the banner and the pillars, `scrollWidth == clientWidth` (no horizontal overflow).
+- Updated `docs/pages/home.md` (section 1.5 marked removed + changelog row).

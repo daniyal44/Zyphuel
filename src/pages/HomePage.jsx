@@ -7,7 +7,6 @@ import BlogModal from '../components/BlogModal'
 import Carousel3D from '../components/Carousel3D'
 import ScrollAnimationSection from '../components/ScrollAnimationSection'
 import HeroGraphic from '../components/HeroGraphic'
-import FuelCostEstimator from '../components/FuelCostEstimator'
 import { useSEO } from '../hooks/useSEO'
 import { APP_VERSION } from '../data/appVersion'
 export default function HomePage() {
@@ -326,9 +325,6 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-
-      {/* Live Lahore Fuel Rate & Doorstep Delivery Cost Estimator (Interactive Tool + WhatsApp Share) */}
-      <FuelCostEstimator />
 
       {/* Competitive Advantage & Trust Pillars */}
       <section className="competitive-section">
