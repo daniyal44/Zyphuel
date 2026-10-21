@@ -68,6 +68,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-21** | **Layout-Shift (CLS) Elimination**: (1) Added a metric-matched `@font-face` fallback (`'Inter Fallback'`, `src: local('Arial')`, `size-adjust: 107.12%`, `ascent-override: 90.44%`, `descent-override: 22.43%`, `line-gap-override: 0%`) in `src/index.css` and inserted it into `--font-family` between `'Inter'` and the system stack, so the async Google Fonts swap no longer reflows text, (2) `.about-company-logo` now reserves its box (`width: 180px; height: 48px; aspect-ratio: 180/48`; mobile `143px × 38px`) instead of `width: auto`. | User requested a full responsiveness + speed audit with desktop & mobile scores; Lighthouse traced the 0.194 / 0.203 CLS on `/about/` to the logo decode plus the web-font swap. Measured: **CLS 0.203 → 0.019 (mobile)**, **0.194 → 0.008 (desktop)**, desktop Performance **89 → 97**. |
 | **2026-10-13** | Synchronized leadership carousel QR card app version to `v2.6.4.0.0.31` (Build 59). | Match latest compiled production release `v2.6.4.0.0.31`. |
 | **2026-10-04** | Synchronized leadership carousel QR card app version to `v2.6.4.0.0.22`. | Match latest compiled production release `v2.6.4.0.0.22`. |
 | **2026-10-01** | **FAQ Delivery Pricing Realignment**: Updated About Page FAQ response to reflect fixed Rs. 300.00 for orders up to 10 Litres and dynamic demand surge pricing for 11L–15L orders. | Synchronize FAQ answers with updated delivery fee calibration. |

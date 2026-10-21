@@ -168,7 +168,7 @@ export default function ServicesSection3ScrollAnimation() {
 
     // Priority 2: Sparse Keyframes on idle (every 10th frame: 30 frames)
     const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
-    const step = isMobile ? 15 : 10
+    const step = isMobile ? 45 : 10
     const keyframeIndices = []
     for (let k = step; k < FRAME_COUNT; k += step) {
       keyframeIndices.push(k)

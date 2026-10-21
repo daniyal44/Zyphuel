@@ -1,6 +1,20 @@
 /* ==========================================================================
    DESIGN SYSTEM & CSS VARIABLES (Derived from Stitch UI Design Concept)
    ========================================================================== */
+
+/* Metric-compatible Inter fallback.
+   The Google Fonts stylesheet is loaded asynchronously, so first paint renders text in the
+   local fallback face and then reflows when Inter lands (the dominant CLS source on /about/).
+   Matching Arial's metrics to Inter keeps line boxes identical during that swap. */
+@font-face {
+    font-family: 'Inter Fallback';
+    src: local('Arial');
+    size-adjust: 107.12%;
+    ascent-override: 90.44%;
+    descent-override: 22.43%;
+    line-gap-override: 0%;
+}
+
 :root {
     /* Color Palette */
     --bg-primary: #ffffff;            /* Pure White Primary Background */
@@ -9,8 +23,7 @@
     --text-secondary: #475569;        /* Soft Muted Slate */
     --accent-color: #0284c7;          /* Brand CTA Sky Blue (WCAG AA compliant 4.64:1 with white text) */
     --accent-color-hover: #0369a1;    /* Hover State CTA Sky Blue */
-    --brand-petrol: #f0f9ff;          /* Very Soft Light Blue Tint */
-    --brand-petrol-dark: #0284c7;     /* Darker Petrol Blue for icons/borders */
+    --brand-petrol: #f0f9ff;          /* Very Soft Light Blue Tint */    --brand-petrol-dark: #0284c7;     /* Darker Petrol Blue for icons/borders */
     --success-mint: #10b981;          /* Success Emerald Green */
     --success-mint-light: #ecfdf5;    /* Soft Emerald container background */
     --error-red: #ef4444;             /* Error Red */
@@ -18,7 +31,7 @@
     --border-color: #e2e8f0;          /* Clean Light border line */
     
     /* Typography Scale (Inter-based) */
-    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     
     /* Elevation & Shadows */
     --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.02);
@@ -3140,8 +3153,10 @@ a.footer-contact-link:hover {
 }
 
 .about-company-logo {
+    width: 180px;
     height: 48px;
-    width: auto;
+    /* Reserve the exact logo box before decode so the hero row never reflows (CLS fix) */
+    aspect-ratio: 180 / 48;
     object-fit: contain;
 }
 
@@ -3426,7 +3441,9 @@ a.footer-contact-link:hover {
         gap: 12px;
     }
     .about-company-logo {
+        width: 143px;
         height: 38px;
+        aspect-ratio: 180 / 48;
     }
 }
 

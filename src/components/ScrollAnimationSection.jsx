@@ -145,7 +145,7 @@ export default function ScrollAnimationSection() {
 
     // Priority 2: Sparse Keyframes loaded gently during idle periods
     const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
-    const step = isMobile ? 12 : 8
+    const step = isMobile ? 40 : 8
     const keyframeIndices = []
     for (let k = step; k < FRAME_COUNT; k += step) {
       keyframeIndices.push(k)

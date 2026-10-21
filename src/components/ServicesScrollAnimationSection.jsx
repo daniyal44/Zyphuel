@@ -166,7 +166,10 @@ export default function ServicesScrollAnimationSection() {
 
     // Priority 2: Sparse Keyframes on idle (every 10th frame: 30 frames)
     const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
-    const step = isMobile ? 15 : 10
+    // Mobile cellular clients must not pull ~20 full-res frames (~6 MB) up-front.
+    // A sparse 45-frame step (~7 frames ≈ 2 MB) keeps the scrub watchable while the
+    // scroll lookahead window fills the frames the user actually reaches.
+    const step = isMobile ? 45 : 10
     const keyframeIndices = []
     for (let k = step; k < FRAME_COUNT; k += step) {
       keyframeIndices.push(k)

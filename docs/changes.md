@@ -902,3 +902,33 @@ Aligned all corporate credentials, physical location indicators, executive title
 - New report: [`docs/audits/2026-10-21-audit.md`](./audits/2026-10-21-audit.md), indexed in `docs/README.md` (new section 6).
 - Updated `docs/pages/order.md`, `docs/pages/home.md` changelogs with measured before/after values.
 
+
+## Phase 23: Round-2 Performance Pass — CLS Elimination, Mobile Frame Throttle & Full 9-Page Lighthouse Sweep (2026-10-21)
+
+### 23.1 About-Page Layout Shift (CLS) Eliminated
+- **Root cause (from Lighthouse `layout-shifts` audit):** the Google Fonts stylesheet loads asynchronously (`media="print" onload`), so first paint rendered text in the local fallback face and reflowed when Inter arrived; the `about-company-logo` `<img>` (`width: auto` in CSS) also had 0 width until decode.
+- **Fix 1 — metric-matched fallback:** added `@font-face { font-family: 'Inter Fallback'; src: local('Arial'); size-adjust: 107.12%; ascent-override: 90.44%; descent-override: 22.43%; line-gap-override: 0%; }` in `src/index.css` (outside `:root`) and inserted `'Inter Fallback'` into `--font-family` immediately after `'Inter'`.
+- **Fix 2 — reserve the logo box:** `.about-company-logo` now uses `width: 180px; height: 48px; aspect-ratio: 180 / 48` (mobile override `143px × 38px`) instead of `width: auto`.
+- **Measured:** `/about/` CLS **0.203 → 0.019** (mobile) and **0.194 → 0.008** (desktop); desktop Performance **89 → 97**.
+
+### 23.2 Mobile Frame-Preload Throttle
+- Mobile idle keyframe step raised **15 → 45** in `ServicesScrollAnimationSection.jsx`, `AppHeroScrollAnimation.jsx`, `AppSection3ScrollAnimation.jsx`, `ServicesSection3ScrollAnimation.jsx`, and **12 → 40** in `ScrollAnimationSection.jsx` (desktop unchanged). The ±8-frame scroll lookahead and nearest-loaded-neighbour fallback keep the scrub filled.
+- **Measured `/services/` mobile:** payload **7,583 KB → 4,387 KB**, LCP **9.7 s → 4.7 s**, Performance **39 → 56**.
+- **Measured `/download/` mobile:** payload **7,581 KB → 4,195 KB**, but the score did **not** improve — A/B on the same build gave step 45 = 49 / 49 / 36 vs step 15 = 52 / 44. The real bottleneck is **6.3 s of “Style & Layout”** in the two sticky canvas stages, logged as backlog item #1 rather than claimed as fixed.
+
+### 23.3 Full 9-Page Lighthouse Sweep (shipped build)
+| Page | Desktop | Mobile | Mobile LCP | Mobile TBT |
+| :--- | :---: | :---: | :---: | :---: |
+| `/` | 86–99 | 66 | 3.9 s | 550 ms |
+| `/order/` | 81–98 | 61 | 8.3 s | 120 ms |
+| `/about/` | 97 | 64 | 3.2 s | 1,190 ms |
+| `/services/` | 86–93 | 56 | 4.7 s | 620 ms |
+| `/contact/` | 96 | 86 | 3.3 s | 30 ms |
+| `/download/` | 88 | 34 | 9.1 s | 2,600 ms |
+| `/blog/` | 95 | 77 | 4.1 s | 230 ms |
+| `/privacy/` | 97 | 73 | 3.7 s | 390 ms |
+| `/terms/` | 93 | 87 | 2.3 s | 330 ms |
+
+### 23.4 Documentation
+- Rewrote [`docs/audits/2026-10-21-audit.md`](./audits/2026-10-21-audit.md) with the full 9-page desktop + mobile table, round-2 before/after evidence, an explicit “known limitations” section, and an updated 10-step backlog.
+- Updated `docs/pages/about.md`, `docs/pages/services.md`, `docs/pages/download.md` changelogs with the exact CSS/JS changes and measured numbers.
