@@ -639,11 +639,11 @@ ${form.message.trim()}`
         {/* Quick Refueling Dispatch Banner */}
         <section className="section-padding" style={{ backgroundColor: '#ffffff', borderTop: '1px solid var(--border-color, #e2e8f0)', textAlign: 'center' }}>
           <div className="container">
-            <h2 className="section-title">Need Immediate Fuel Dispatch?</h2>
-            <p className="section-subtitle" style={{ maxWidth: '640px', margin: '0 auto 28px auto' }}>
+            <h2 className="section-title" data-reveal="up">Need Immediate Fuel Dispatch?</h2>
+            <p className="section-subtitle" data-reveal="up" data-reveal-delay="0.08" style={{ maxWidth: '640px', margin: '0 auto 28px auto' }}>
               Skip the contact form if you need fuel right now. Place an order directly for doorstep delivery (Delivered: Within 45 Mins, Rs. 300 up to 10L, Rs. 320–400 for 11L–15L) across Lahore.
             </p>
-            <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div data-reveal="up" data-reveal-delay="0.16" style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link to="/order/" className="btn btn-primary btn-lg">
                 <i className="fa-solid fa-truck-droplet"></i> Order Fuel Online Now
               </Link>

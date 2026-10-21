@@ -486,10 +486,11 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '28px' }}>
+            <div data-reveal-stagger="0.08" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '28px' }}>
               {aboutArticles.map((art) => (
                 <article
                   key={art.id}
+                  data-reveal="up"
                   style={{
                     background: '#f8fafc',
                     borderRadius: '14px',
@@ -498,8 +499,7 @@ export default function AboutPage() {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
-                    transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.03)'
                   }}
                 >
                   <div>
@@ -567,7 +567,7 @@ export default function AboutPage() {
 
         {/* Team Members Carousel */}
         <section className="about-team-section">
-          <div className="main-container">
+          <div className="main-container" data-reveal="up">
             <div className="carousel-section">
               <div className="carousel-container">
                 <button
@@ -721,11 +721,11 @@ export default function AboutPage() {
         {/* Next Steps CTA Section */}
         <section className="section-padding" style={{ backgroundColor: 'var(--bg-card, #ffffff)', borderTop: '1px solid var(--border-color, #e2e8f0)', textAlign: 'center' }}>
           <div className="container">
-            <h2 className="section-title">Ready to Experience Modern Refueling?</h2>
-            <p className="section-subtitle" style={{ maxWidth: '640px', margin: '0 auto 28px auto' }}>
+            <h2 className="section-title" data-reveal="up">Ready to Experience Modern Refueling?</h2>
+            <p className="section-subtitle" data-reveal="up" data-reveal-delay="0.08" style={{ maxWidth: '640px', margin: '0 auto 28px auto' }}>
               Whether you need Euro-V fuel for your private vehicle or scheduled diesel replenishment for your business generator, Zyphuel is at your service across Lahore.
             </p>
-            <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div data-reveal="up" data-reveal-delay="0.16" style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link to="/order/" className="btn btn-primary btn-lg">
                 <i className="fa-solid fa-truck-fast"></i> Order Fuel Online Now
               </Link>

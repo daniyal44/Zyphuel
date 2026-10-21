@@ -1762,15 +1762,15 @@ export default function OrderPage() {
         {/* SEO On-Page Guide & FAQ Section: Doorstep Diesel & Petrol Delivery in Lahore */}
         <section className="order-seo-info section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-color)', marginTop: '40px' }}>
           <div className="container" style={{ maxWidth: '1000px' }}>
-            <div data-reveal="up">
-              <div className="hero-subtitle-badge" style={{ backgroundColor: 'var(--brand-petrol)', borderColor: 'rgba(58,134,200,0.15)', color: '#1a4f7c' }}>
+            <div>
+              <div className="hero-subtitle-badge" data-reveal="up" style={{ backgroundColor: 'var(--brand-petrol)', borderColor: 'rgba(58,134,200,0.15)', color: '#1a4f7c' }}>
                 <i className="fa-solid fa-truck-fast"></i>
                 <span>Verified Fuel Logistics Lahore</span>
               </div>
-              <h2 className="section-title" style={{ fontSize: '1.8rem', marginTop: '10px', marginBottom: '16px' }}>
+              <h2 className="section-title" data-reveal="up" data-reveal-delay="0.06" style={{ fontSize: '1.8rem', marginTop: '10px', marginBottom: '16px' }}>
                 Doorstep Diesel &amp; Petrol Delivery in Lahore – On-Demand Fuel Service
               </h2>
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '20px' }}>
+              <p data-reveal="up" data-reveal-delay="0.1" style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: '20px' }}>
                 Whether you need high-grade <strong>Euro-V Diesel</strong> for industrial standby generators, commercial fleet logistics, agricultural machinery, or <strong>Super Petrol</strong> and <strong>High-Octane 97</strong> delivered directly to your car doorstep in Lahore, Zyphuel provides certified, seamless, and timely fuel dispatch. Forget waiting in long petrol pump queues or transporting hazardous jerrycans—our specialized bowser fleet delivers calibrated fuel straight to your GPS location with zero short-fueling.
               </p>
 
@@ -1802,13 +1802,13 @@ export default function OrderPage() {
               </div>
 
               {/* Ordering FAQs Accordion */}
-              <div style={{ marginTop: '40px' }}>
+              <div data-reveal="up" style={{ marginTop: '40px' }}>
                 <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '20px', color: 'var(--text-primary)' }}>
                   Frequently Asked Questions (FAQ) – Ordering Fuel in Pakistan
                 </h3>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-                  <div style={{ background: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
+                <div data-reveal-stagger="0.09" style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  <div data-reveal="up" style={{ background: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
                     <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>
                       1. How can I order diesel or petrol online in Lahore?
                     </h4>
@@ -1817,7 +1817,7 @@ export default function OrderPage() {
                     </p>
                   </div>
 
-                  <div style={{ background: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
+                  <div data-reveal="up" style={{ background: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
                     <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>
                       2. What is the minimum and maximum quantity for doorstep delivery?
                     </h4>
@@ -1826,7 +1826,7 @@ export default function OrderPage() {
                     </p>
                   </div>
 
-                  <div style={{ background: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
+                  <div data-reveal="up" style={{ background: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
                     <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>
                       3. Is Cash on Delivery (COD) supported?
                     </h4>
@@ -1835,7 +1835,7 @@ export default function OrderPage() {
                     </p>
                   </div>
 
-                  <div style={{ background: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
+                  <div data-reveal="up" style={{ background: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
                     <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>
                       4. Are Zyphuel fuels tested and OGRA certified?
                     </h4>
@@ -1847,7 +1847,7 @@ export default function OrderPage() {
               </div>
 
               {/* Commercial Inquiries & Helpline Banner */}
-              <div style={{
+              <div data-reveal="up" style={{
                 marginTop: '32px',
                 padding: '24px 28px',
                 background: '#ffffff',

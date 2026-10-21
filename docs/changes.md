@@ -967,3 +967,32 @@ Aligned all corporate credentials, physical location indicators, executive title
 - Mobile Lighthouse: `/about/` **64 → 84 / 78**, `/blog/` 77 → 70–77, `/contact/` 86 → **71–74**, `/order/` 61 → **62**. Desktop: blog 90, order 80, contact 90, about 92.
 - **`/contact/` mobile score — A/B tested, animation is not the cause:** the earlier 86 → 71–74 drop was re-tested the same way Lighthouse measures. A build **without** the ScrollStory section (variant B) scored **72 / 74** in the same session as the build **with** it (variant A: **71 / 80**) — identical range, so the section costs ~0. The old 86 was a single favourable run (30 ms TBT) on a machine whose `/contact/` mobile score also measured 71 the day *before* any animation existed; `Style & Layout` measured ~4.4 s on both variants today vs 2.1 s on the old baseline run, i.e. machine state, not page code. Artefacts: `lighthouse/r2-contact-*.json` (A), `lighthouse/r2b-contact-*.json` (B), `lighthouse/r2-privacy-ctl.json` (control 80).
 - Screenshot artefact: `docs/audits/about-scroll-story-desktop.png`.
+
+## Phase 26: Scroll-Reveal Completion Pass on About, Contact & Order (2026-10-21)
+
+### 26.1 Audit First (measured, not assumed)
+- Every page was loaded in a real browser and every `section` / block was checked for an animated ancestor (`[data-reveal]` or `.fade-in-up`). Result: `/blog/` (index + articles), `/services/`, `/download/`, `/privacy/`, `/terms/` were fully covered; `/about/`, `/contact/` and `/order/` each had leftover static blocks.
+- Remaining gaps: `/about/` Press-Coverage grid (8 article cards over a 3,123 px section), the team carousel section and the final CTA; `/contact/` final dispatch banner; `/order/` the whole `order-seo-info` guide (3,100 px) animated as a single block because one blanket `data-reveal="up"` wrapper covered it.
+
+### 26.2 Changes (attributes only — no new JS, CSS, asset or layout)
+| Page | Change |
+| :--- | :--- |
+| `/about/` | Articles grid → `data-reveal-stagger="0.08"` + `data-reveal="up"` per card; removed the vestigial inline `transition: 'transform 0.2s ease, box-shadow 0.2s ease'` on those cards (inline `transition` beats the stylesheet rule, so the reveal would have snapped instead of easing); team carousel `.main-container` → `data-reveal="up"`; final CTA title / subtitle (+0.08 s) / buttons (+0.16 s). |
+| `/contact/` | Final "Need Immediate Fuel Dispatch?" banner: heading `data-reveal="up"`, subtitle +0.08 s, button row +0.16 s. |
+| `/order/` | Blanket wrapper reveal removed; per-block reveals instead — badge → title (+0.06 s) → intro (+0.10 s), pillar cards keep `data-reveal-stagger="0.1"`, FAQ block + its 4 cards fan out with `data-reveal-stagger="0.09"`, corporate/helpline banner reveals last. Checkout, step chips and sticky summary untouched. |
+
+### 26.3 Verification
+- **Real animation path, headless Chrome (CDP), reduced-motion emulated off** — the browser panel and `chrome-headless-shell` both default to `prefers-reduced-motion: reduce`, which correctly short-circuits the hook, so `Emulation.setEmulatedMedia` forced `no-preference`. Every touched element measured `reveal-ready` set, `opacity: 0` + `matrix(1, 0, 0, 1, 0, 26)` while below the fold, then `is-revealed` + `opacity: 1` + `transform: none` after `scrollIntoView`; the 4th order FAQ card reported `transition-delay: 0.27 s` (3 × 0.09 s stagger). Zero console errors, `scrollWidth == clientWidth` on all four pages.
+- **No-JS / reduced-motion safety unchanged**: hidden state still exists only while `<html class="reveal-ready">` is present, which only the hook adds.
+- **`npm run build` exit 0** — 17 SSG routes.
+- **Mobile Lighthouse A/B** (same machine, same session, build without vs with — artefacts `lighthouse/ctrlA-mobile-*.json` vs `lighthouse/rvB-*` / `rvC-*`):
+
+| Page | Without | With (2 runs) | CLS |
+| :--- | :---: | :---: | :---: |
+| `/about/` | 70 | 72 / 73 | 0.000 → 0.016 / 0.015 |
+| `/order/` | 45 | 51 / 50 | 0.003 → 0.009 / 0.005 |
+| `/contact/` | 91 | 76 / 91 | 0.002 → 0.002 / 0.002 |
+| `/blog/` (untouched control) | 80 | 62 / 63 | 0.026 → 0.025 / 0.091 |
+
+- The `/blog/` control proves the spread is machine noise: that page has **zero** code changes in this phase yet moved 80 → 62–63, driven by TBT (97 → 159 / 1,000 ms) and LCP (4.0 → 5.8 / 2.3 s) swings. `/contact/` recovered from 76 to its exact baseline 91 on the repeat run. Stable metrics — CLS and the DOM/CSS delta — show no regression: the change is 13 added attributes, below the fold, `opacity`/`transform` only.
+- Page-level changelogs updated: [`about.md`](./pages/about.md), [`contact.md`](./pages/contact.md), [`order.md`](./pages/order.md). Blog needed no change and therefore no changelog row.
