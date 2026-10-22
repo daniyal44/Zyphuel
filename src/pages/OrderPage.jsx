@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import ScrollStory from '../components/ScrollStory'
 import { useToast } from '../context/ToastContext'
 import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
@@ -1881,6 +1882,44 @@ export default function OrderPage() {
             </div>
           </div>
         </section>
+
+        {/* Pinned scrollytelling: what happens between the order and the doorstep */}
+        <ScrollStory
+          id="order-journey"
+          eyebrow="From Order to Doorstep"
+          title="How Your Fuel Reaches You"
+          description="Four verified stages between placing the order and watching the meter at your doorstep."
+          steps={[
+            {
+              short: 'Order placed',
+              icon: 'fa-cart-shopping',
+              title: 'Order placed online',
+              desc: 'Choose Petrol, Diesel or High-Octane, set the volume between 5 and 15 litres, and confirm your Lahore delivery address. Online intake runs daily from 8:00 AM to 10:00 PM PKT.',
+              meta: '5 L minimum · 15 L maximum per doorstep order'
+            },
+            {
+              short: 'Verification',
+              icon: 'fa-clipboard-check',
+              title: 'Requirement verification',
+              desc: 'Our desk confirms the grade, volume and address, then schedules the slot — within 45 minutes for a standard dispatch, or 10–20 minutes when you select Urgent.',
+              meta: 'WhatsApp confirmation at +92 3230-112464'
+            },
+            {
+              short: 'Dispatch',
+              icon: 'fa-truck-droplet',
+              title: 'Calibrated dispatch',
+              desc: 'The nearest van is dispatched with a 0.01 L digital flow meter and an anti-tamper optical seal, so the delivered quantity matches the invoice line by line.',
+              meta: 'Euro-V supply from OGRA-licensed terminals'
+            },
+            {
+              short: 'Handover',
+              icon: 'fa-receipt',
+              title: 'Doorstep handover',
+              desc: 'Fuel is dispensed into your car, motorbike, standby generator or commercial machinery while you watch the meter. You receive a QR-verified invoice with a Code 128 barcode.',
+              meta: 'Delivery fee: Rs. 300 up to 10 L · Rs. 320–400 for 11–15 L'
+            }
+          ]}
+        />
       </main>
 
       {/* Interactive Floating On-Cursor Image Magnifier Preview */}

@@ -26,6 +26,7 @@ export default function ScrollStory({
   accent = 'var(--accent-color)'
 }) {
   const sectionRef = useRef(null)
+  const fillRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(0)
   // Steps are mounted only once the section is within one screen of the viewport.
   // Keeps the first paint of a long page (contact/about) identical to before this
@@ -82,7 +83,46 @@ export default function ScrollStory({
     return () => observer.disconnect()
   }, [steps.length, stepsMounted])
 
-  const progress = steps.length > 1 ? activeIndex / (steps.length - 1) : 1
+  // Scroll-linked rail fill.
+  //
+  // The fill tracks the scroll position 1:1 (like a scrollbar) instead of jumping
+  // when a step becomes active, which is what makes the section feel scroll-driven
+  // rather than a sequence of one-shot reveals. It is written straight to the DOM —
+  // no React re-render, no state, no work at all while the page is idle. The write is
+  // rate-limited to one per animation frame by `performance.now()` rather than by
+  // `requestAnimationFrame`, so the indicator still advances when a background or
+  // occluded tab has its frame callbacks suspended.
+  useEffect(() => {
+    const section = sectionRef.current
+    const fill = fillRef.current
+    if (!section || !fill) return
+
+    let lastWrite = 0
+    const update = () => {
+      const rect = section.getBoundingClientRect()
+      const vh = window.innerHeight || 800
+      // 0 → the section head is still at the 80% line; 1 → the last step has passed
+      // above the 20% line. Between those points the fill moves 1:1 with the scroll.
+      const entered = vh * 0.8 - rect.top
+      const span = Math.max(rect.height + vh * 0.5, 1)
+      const ratio = Math.min(1, Math.max(0, entered / span))
+      fill.style.transform = `scaleY(${(0.02 + ratio * 0.98).toFixed(4)})`
+    }
+    const onScroll = () => {
+      const now = performance.now()
+      if (now - lastWrite < 16) return
+      lastWrite = now
+      update()
+    }
+
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
+  }, [steps.length])
 
   return (
     <section
@@ -109,8 +149,9 @@ export default function ScrollStory({
             <div className="scroll-story-rail-sticky">
               <div className="scroll-story-rail-track">
                 <span
+                  ref={fillRef}
                   className="scroll-story-rail-fill"
-                  style={{ transform: `scaleY(${Math.max(progress, 0.02)})` }}
+                  style={{ transform: 'scaleY(0.02)' }}
                 />
               </div>
               <ol className="scroll-story-rail-list">

@@ -139,6 +139,7 @@ export default function BlogArticlePage() {
           <img
             src={article.image}
             alt={article.title}
+            data-scrub="parallax"
             loading="eager"
             fetchpriority="high"
             decoding="async"

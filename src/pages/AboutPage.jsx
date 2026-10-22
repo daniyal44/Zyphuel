@@ -295,6 +295,7 @@ export default function AboutPage() {
                     alt="Muhammad Daniyal, Founder & Leading Web Developer of Zyphuel"
                     title="Muhammad Daniyal – Founder & Leading Web Developer of Zyphuel"
                     className="founder-avatar-img"
+                    data-scrub="parallax"
                     width="320"
                     height="320"
                     loading="lazy"

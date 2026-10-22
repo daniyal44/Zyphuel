@@ -223,6 +223,7 @@ h1, h2, h3, h4, h5, h6 {
     will-change: auto;
 }
 
+
 @keyframes pulseGlow {
     0% {
         box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4);
@@ -5010,17 +5011,18 @@ a.footer-contact-link:hover {
     }
 
     /* SOFT REVEAL MODE — `useScrollReveal` adds `.reveal-soft` while this media
-       query matches. The scroll engine keeps running, but only `opacity` is allowed
-       to change: no travel, no scale, no parallax (nothing that can trigger motion
-       sickness). A cross-fade is not vestibular motion, so About / Contact / Order /
-       Blog keep a visible scroll rhythm instead of looking completely static while
-       Home / Services / Download still animate their canvas heroes. */
+       query matches. The scroll engine keeps running with a deliberately small,
+       non-vestibular movement: a 16 px rise + cross-fade (no parallax, no scale,
+       no zoom, nothing that fills the visual field). 16 px is inside the range that
+       reduced-motion guidance allows as a replacement for a slide, and it is what
+       keeps these pages from looking completely frozen while Home / Services /
+       Download animate their canvas heroes. */
     .reveal-ready.reveal-soft [data-reveal],
     .reveal-ready.reveal-soft .fade-in-up {
         opacity: 0 !important;
-        transform: none !important;
-        transition: opacity 0.5s linear !important;
-        will-change: opacity;
+        transform: translate3d(0, 16px, 0) !important;
+        transition: opacity 0.55s ease-out !important, transform 0.55s ease-out !important;
+        will-change: opacity, transform;
     }
 
     .reveal-ready.reveal-soft [data-reveal].is-revealed,

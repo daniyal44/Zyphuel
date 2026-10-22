@@ -1035,3 +1035,43 @@ Headless Chrome via CDP with `Emulation.setEmulatedMedia` (confirmed in-page: `r
 ### 27.5 What a user on a "reduce motion" machine will see
 - Home / Services / Download: unchanged (canvas scrub keeps running).
 - About / Contact / Order / Blog: every block now cross-fades in as it enters the viewport, staggered where a stagger is declared — no sliding, no parallax. On a machine with animations enabled the same blocks slide 38 px and ease over 0.72 s.
+
+## Phase 28: Scroll-Linked Motion (Continuous, Not One-Shot) + MIT LICENSE File (2026-10-22)
+
+### 28.1 Why phase 27 was not enough
+- A single reveal fires **once** when a block enters the viewport. On a long page the reader spends most of the scroll between reveals, so the page still reads as static — the reviewer's complaint ("abi be missing ha") survived the fix. The Home / Services / Download heroes do not have this problem because they are **canvas frame sequences** that move on every scroll event.
+- Additions here are scroll-linked rather than one-shot, so motion continues for as long as the user scrolls, on the pages that have no canvas: `/about/`, `/contact/`, `/order/`, `/blog/` and article pages.
+
+### 28.2 Changes
+| File | Change |
+| :--- | :--- |
+| `src/components/ScrollStory.jsx` | The rail fill is now written frame-by-frame from the section's scroll position (`scaleY(0.02 → 1)` between the 80% and 20% viewport lines) instead of only changing when a step becomes active. Written straight to the DOM: no React re-render, no state, zero work while idle, and rate-limited with `performance.now()` instead of `requestAnimationFrame` so it still advances when a background/occluded tab suspends frame callbacks. |
+| `src/components/ScrollStory.css` | Removed the fill's 0.45 s transition (a transition would rubber-band behind a 1:1 linked fill). The reduced-motion block no longer freezes the fill — a progress indicator that tracks the scroll exactly is scrollbar-equivalent motion, which is what that setting is meant to preserve — but still removes every card/step transition. |
+| `src/hooks/useScrollReveal.js` | Added a `[data-scrub="parallax"]` driver to the same hook every page already calls: ±12 px drift with a fixed `scale(1.12)` across the element's viewport pass, ±5 px and `scale(1.06)` under reduced motion. One passive scroll listener per page, one write per animation frame, all rects read before any style is written (no layout thrash), elements more than 240 px outside the viewport skipped, and the whole thing removed on unmount. |
+| `src/pages/BlogListPage.jsx` / `BlogArticlePage.jsx` / `AboutPage.jsx` | Card images, the article hero image and the founder portrait marked with `data-scrub="parallax"`. All three already sit inside `overflow: hidden` frames, so the drift can never expose an edge. |
+| `src/pages/OrderPage.jsx` | New `ScrollStory` section `#order-journey` ("How Your Fuel Reaches You") after the SEO guide and before the footer — 4 factual stages. The checkout column, step chips, sticky summary and Complete Order button are untouched. |
+| `LICENSE` (new) | MIT license text, `Copyright (c) 2026 Muhammad Daniyal (Zyphuel)`. |
+
+### 28.3 Rejected approach (why no CSS scroll timelines)
+- `animation-timeline: view()` was implemented first (zero JS, compositor-driven, `@supports`-gated). It was **reverted after measuring**: in the real pages the `ViewTimeline` attached correctly (`getAnimations()` reported `scrubParallax|ViewTimeline`) but its progress froze at `0.452` across five scroll offsets while `requestAnimationFrame` on the same page ran at ~50 fps and `rect.top` moved from 442 to −900. A synthetic page in the same browser updated fine, so the behaviour depends on something in the app's CSS cascade — unverifiable and not worth shipping blind. The JS version was measured working instead.
+
+### 28.4 Verification (headless Chrome via CDP, 1280×900, both media states)
+| What | Measurement |
+| :--- | :--- |
+| Rail fill `/order/` | **0.039 → 0.295 → 0.534 → 0.772 → 0.984** across five scroll offsets (identical in `reduce`) |
+| Rail fill `/about/` | 0.03 → 0.275 → 0.496 → 0.717 → 0.913 |
+| Parallax `/blog/` (motion on) | `translateY` **−2.56 → 2.61 → 11.18 px**, `scale(1.12)` |
+| Parallax `/blog/` (reduce) | `translateY` **−1.07 → 1.17 → 4.74 px**, `scale(1.06)` |
+| Parallax article hero | −1.06 → 0 → 2.93 px |
+| Parallax founder portrait `/about/` | −3.45 → 0.43 → 3.44 px |
+| Reveals | `translateY(16)` + `opacity 0` → `none` + `opacity 1` (soft), `38` px (motion on); **0 stuck** on every page |
+| Layout / console | `scrollWidth == clientWidth` everywhere (0 overflow), 0 console errors |
+
+### 28.5 Performance
+- **Desktop Lighthouse:** `/blog/` **90**, `/about/` **93**, `/order/` **77**; CLS 0.003 / 0.008 / 0.006, TBT 0 ms, a11y 92 / 94 / 94 — all equal to or better than the phase-27 numbers.
+- The scroll work is one passive listener per page, ≤1 write per 16 ms, and it does nothing at all while the page is idle, so it cannot touch TBT or LCP.
+- `npm run build` exit **0**.
+
+### 28.6 MIT license link on GitHub (404 reason)
+- `package.json` declares `"license": "MIT"`, so GitHub renders a **"MIT license"** entry in the repository sidebar. That entry links to `/blob/main/LICENSE` — and the repository had **no `LICENSE` file**, so the click landed on GitHub's 404 page.
+- Fixed by adding the [`LICENSE`](../LICENSE) file with the standard MIT text and the project's copyright line. MIT is a permissive license: anyone may use, copy, modify, merge, publish, distribute, sublicense and sell the software, provided the copyright notice and permission notice are kept in all copies; the software comes with no warranty.

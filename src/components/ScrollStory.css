@@ -81,12 +81,15 @@
     overflow: hidden;
 }
 
+/* Driven frame-by-frame from the scroll position (see ScrollStory.jsx), so it must
+   not smooth/ease itself — a transition here would rubber-band behind the scroll. */
 .scroll-story-rail-fill {
     position: absolute;
     inset: 0;
     transform-origin: top center;
+    transform: scaleY(0.02);
     background: linear-gradient(180deg, #38bdf8 0%, #0369a1 100%);
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: none;
 }
 
 .scroll-story-rail-list {
@@ -292,11 +295,18 @@
 
 @media (prefers-reduced-motion: reduce) {
     .scroll-story-step-card,
-    .scroll-story-rail-fill,
     .scroll-story-rail-item,
     .scroll-story-step-icon,
     .scroll-story-rail-dot {
         transition: none !important;
         transform: none !important;
+    }
+
+    /* The rail fill is deliberately NOT frozen: it is a 1:1 progress indicator that
+       tracks the scroll position exactly (the same motion as a scrollbar thumb),
+       which is the one kind of movement a reduced-motion user still expects. It is
+       written directly by the component, so no CSS transition is needed. */
+    .scroll-story-rail-fill {
+        transition: none !important;
     }
 }
