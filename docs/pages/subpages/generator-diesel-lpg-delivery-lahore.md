@@ -17,14 +17,14 @@
 
 <!-- ZYPHUEL_FUEL_UPDATE_START -->
 > [!NOTE]
-> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 21, 2026)**
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 22, 2026)**
 > - **Operational SLA**: 20–45 Mins Simple Dispatch | 10–20 Mins Urgent (+Rs. 100) across Lahore.
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Certified hazardous materials handling: Positive-displacement calibrated dispensing and sealed utilities. Strict 5L min to 15L max per dispatch with fixed Rs. 300 fee up to 10L, avoiding hazardous loose decanting.
 >
-- **Market Intelligence**: Petrol price increases by Re0.88 per litre, diesel by Re0.53 - The News Pakistan (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Govt ups petrol price by Re0.88 per litre, high-speed diesel rate by Re0.53 - Dawn (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: OGRA cuts petrol price by Rs5.16, diesel by Rs7.69 per litre - | Associated Press Of Pakistan (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt reduces petrol price by Rs2.71 per litre, ups high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Pakistan Petrol Price | High Speed Diesel Rate | OGRA Update - Aaj News (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Petrol price cut by Rs2.71, HSD’s hiked by 31 paise - Business Recorder (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
