@@ -381,7 +381,6 @@ export default function ServicesSection3ScrollAnimation() {
           className={`section3-scroll-hint${scrolled ? ' hidden' : ''}`}
           onClick={handleScrollToNextSection}
           title="Scroll to animate or click to view service compliance details"
-          aria-label="Scroll to animate or tap to jump to service compliance details"
         >
           <i className="fa-solid fa-arrow-down" />
           <span>Scroll to explore</span>

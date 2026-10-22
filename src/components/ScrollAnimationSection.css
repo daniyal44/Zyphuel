@@ -57,7 +57,7 @@
   bottom: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(90deg, #0284c7 0%, #38bdf8 100%);
+  background: linear-gradient(90deg, #0369a1 0%, #38bdf8 100%);
   z-index: 12;
   transition: width 0.08s linear;
   pointer-events: none;

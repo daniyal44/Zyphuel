@@ -381,7 +381,6 @@ export default function AppSection3ScrollAnimation() {
           className={`app-sec3-scroll-hint${scrolled ? ' hidden' : ''}`}
           onClick={handleScrollToNextSection}
           title="Scroll to animate or click to view Zyphuel advantages"
-          aria-label="Scroll to animate or tap to jump to Zyphuel advantages"
         >
           <i className="fa-solid fa-arrow-down" />
           <span>Scroll to explore features</span>

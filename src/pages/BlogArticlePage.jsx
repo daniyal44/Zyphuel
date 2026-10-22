@@ -125,7 +125,7 @@ export default function BlogArticlePage() {
         {/* Author, Date & Reading Time Bar */}
         <div className="fade-in-up" style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem', color: 'var(--text-secondary)', fontSize: '0.92rem', flexWrap: 'wrap', borderBottom: '1px solid var(--border-color, #e2e8f0)', paddingBottom: '1rem' }}>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontWeight: 600, color: 'var(--text-primary)' }}>
-            <i className={article.authorIcon} style={{ color: 'var(--brand-petrol, #0284c7)' }}></i>
+            <i className={article.authorIcon} style={{ color: 'var(--brand-petrol, #0369a1)' }}></i>
             {article.author}
           </span>
           <span>•</span>
@@ -150,7 +150,7 @@ export default function BlogArticlePage() {
         </div>
 
         {/* Article Summary Lead Paragraph */}
-        <div className="fade-in-up article-lead-summary" style={{ fontSize: '1.15rem', lineHeight: 1.7, color: 'var(--text-primary)', fontWeight: 500, marginBottom: '2rem', padding: '1rem 1.25rem', backgroundColor: '#f8fafc', borderLeft: '4px solid var(--brand-petrol, #0284c7)', borderRadius: '0 8px 8px 0' }}>
+        <div className="fade-in-up article-lead-summary" style={{ fontSize: '1.15rem', lineHeight: 1.7, color: 'var(--text-primary)', fontWeight: 500, marginBottom: '2rem', padding: '1rem 1.25rem', backgroundColor: '#f8fafc', borderLeft: '4px solid var(--brand-petrol, #0369a1)', borderRadius: '0 8px 8px 0' }}>
           {article.summary}
         </div>
 
@@ -232,7 +232,7 @@ export default function BlogArticlePage() {
               <i className="fa-solid fa-list-ol" style={{ marginRight: '0.5rem', color: 'var(--brand-petrol)' }}></i>
               In This Comprehensive Guide:
             </div>
-            <ol style={{ margin: 0, paddingLeft: '1.25rem', color: '#0284c7', fontSize: '0.93rem', lineHeight: 1.6 }}>
+            <ol style={{ margin: 0, paddingLeft: '1.25rem', color: '#0369a1', fontSize: '0.93rem', lineHeight: 1.6 }}>
               {article.sections.map((sec, sIdx) => (
                 <li key={sIdx} style={{ marginBottom: '0.35rem' }}>
                   <a href={`#section-${sIdx + 1}`} style={{ color: '#0369a1', textDecoration: 'none', fontWeight: 600 }}>
@@ -270,7 +270,7 @@ export default function BlogArticlePage() {
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <i className="fa-brands fa-android" style={{ fontSize: '1.6rem', color: '#0284c7' }}></i>
+            <i className="fa-brands fa-android" style={{ fontSize: '1.6rem', color: '#0369a1' }}></i>
             <div>
               <strong style={{ display: 'block', fontSize: '1rem', color: 'var(--text-primary)', fontWeight: 700 }}>
                 Get Zyphuel Mobile for Android (v{APP_VERSION})
@@ -313,7 +313,7 @@ export default function BlogArticlePage() {
                   {section.heading}
                 </h2>
                 {section.subheading && (
-                  <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: 'var(--brand-petrol, #0284c7)', marginBottom: '1rem', lineHeight: 1.4 }}>
+                  <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: 'var(--brand-petrol, #0369a1)', marginBottom: '1rem', lineHeight: 1.4 }}>
                     {section.subheading}
                   </h3>
                 )}
@@ -329,7 +329,7 @@ export default function BlogArticlePage() {
                   <div style={{ margin: '1.5rem 0 2rem 0', overflowX: 'auto', borderRadius: '10px', border: '1px solid #e2e8f0', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
                     {section.table.caption && (
                       <div style={{ padding: '0.75rem 1rem', background: '#f1f5f9', fontWeight: 700, fontSize: '0.88rem', color: '#1e293b', borderBottom: '1px solid #e2e8f0' }}>
-                        <i className="fa-solid fa-table" style={{ marginRight: '0.4rem', color: '#0284c7' }}></i>
+                        <i className="fa-solid fa-table" style={{ marginRight: '0.4rem', color: '#0369a1' }}></i>
                         {section.table.caption}
                       </div>
                     )}
@@ -360,12 +360,12 @@ export default function BlogArticlePage() {
 
                 {/* Optional Quote */}
                 {section.quote && (
-                  <blockquote style={{ margin: '1.5rem 0', padding: '1.25rem 1.5rem', background: '#f8fafc', borderLeft: '4px solid #0284c7', borderRadius: '0 10px 10px 0', fontStyle: 'italic', color: '#1e293b' }}>
+                  <blockquote style={{ margin: '1.5rem 0', padding: '1.25rem 1.5rem', background: '#f8fafc', borderLeft: '4px solid #0369a1', borderRadius: '0 10px 10px 0', fontStyle: 'italic', color: '#1e293b' }}>
                     <p style={{ margin: '0 0 0.5rem 0', fontSize: '1.02rem', lineHeight: 1.6 }}>
                       "{section.quote.text}"
                     </p>
                     {section.quote.author && (
-                      <cite style={{ display: 'block', fontSize: '0.88rem', fontWeight: 700, color: '#0284c7', fontStyle: 'normal' }}>
+                      <cite style={{ display: 'block', fontSize: '0.88rem', fontWeight: 700, color: '#0369a1', fontStyle: 'normal' }}>
                         — {section.quote.author}
                       </cite>
                     )}
@@ -400,7 +400,7 @@ export default function BlogArticlePage() {
         {article.faqs && article.faqs.length > 0 && (
           <section id="article-faqs" data-reveal="up" style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '2px solid #e2e8f0' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1.5rem' }}>
-              <i className="fa-solid fa-circle-question" style={{ color: '#0284c7', fontSize: '1.4rem' }}></i>
+              <i className="fa-solid fa-circle-question" style={{ color: '#0369a1', fontSize: '1.4rem' }}></i>
               <h2 style={{ fontSize: '1.45rem', fontWeight: 800, margin: 0, color: 'var(--text-primary)' }}>
                 Frequently Asked Questions
               </h2>
@@ -441,7 +441,7 @@ export default function BlogArticlePage() {
                       <span>{faq.question}</span>
                       <i
                         className={`fa-solid ${isOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}
-                        style={{ color: '#0284c7', flexShrink: 0, transition: 'transform 0.2s ease' }}
+                        style={{ color: '#0369a1', flexShrink: 0, transition: 'transform 0.2s ease' }}
                       ></i>
                     </button>
                     {isOpen && (
@@ -459,7 +459,7 @@ export default function BlogArticlePage() {
         {/* Share and Action Toolbar */}
         <div className="fade-in-up" style={{ marginTop: '2.5rem', padding: '1.25rem', background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '14px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.92rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
-            <i className="fa-solid fa-share-nodes" style={{ color: '#0284c7' }}></i> Share this Guide:
+            <i className="fa-solid fa-share-nodes" style={{ color: '#0369a1' }}></i> Share this Guide:
           </div>
           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
             <a
@@ -504,7 +504,7 @@ export default function BlogArticlePage() {
 
         {/* Author Bio Box */}
         <div className="fade-in-up" style={{ marginTop: '2.5rem', padding: '1.5rem', background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0', display: 'flex', gap: '16px', alignItems: 'center' }}>
-          <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: '#e0f2fe', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#0284c7', fontSize: '1.5rem' }}>
+          <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: '#e0f2fe', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#0369a1', fontSize: '1.5rem' }}>
             <i className={article.authorIcon}></i>
           </div>
           <div>
@@ -546,7 +546,7 @@ export default function BlogArticlePage() {
                   <img src={rel.image} alt={rel.title} loading="lazy" decoding="async" width="280" height="150" style={{ width: '100%', height: '130px', objectFit: 'cover' }} />
                   <div style={{ padding: '14px', display: 'flex', flexDirection: 'column', flexGrow: 1, justifyContent: 'space-between' }}>
                     <div>
-                      <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#0284c7', textTransform: 'uppercase' }}>{rel.category}</span>
+                      <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#0369a1', textTransform: 'uppercase' }}>{rel.category}</span>
                       <h4 style={{ fontSize: '0.9rem', fontWeight: 700, margin: '6px 0 0 0', lineHeight: 1.4, color: '#0f172a' }}>{rel.title}</h4>
                     </div>
                     <span style={{ fontSize: '0.78rem', color: '#64748b', marginTop: '10px' }}><i className="fa-regular fa-clock"></i> {rel.readTime}</span>

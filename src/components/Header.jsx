@@ -90,7 +90,7 @@ export default function Header({ onOpenInterestModal }) {
               type="button"
               className={`badge-pill badge-active badge-interactive${townsMenuOpen ? ' active' : ''}`}
               title="Click to toggle Lahore active towns menu"
-              aria-label="Toggle Lahore places menu"
+              aria-label="Lahore City — Toggle Lahore places menu"
               aria-expanded={townsMenuOpen}
               onClick={() => setTownsMenuOpen(prev => !prev)}
             >

@@ -487,7 +487,7 @@
 .download-hero-content .hero-subtitle-badge {
   background-color: rgba(14, 165, 233, 0.08);
   border: 1px solid rgba(14, 165, 233, 0.15);
-  color: #0284c7;
+  color: #0369a1;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -552,7 +552,7 @@
 }
 
 .avail-badge.avail-play i {
-  color: #0284c7;
+  color: #0369a1;
 }
 
 .avail-badge.avail-appstore i {
@@ -728,7 +728,7 @@
   background-color: #ffffff;
 }
 
-.qr-info h4 {
+.qr-info h2 {
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 4px;
@@ -910,7 +910,7 @@
 .phone-slide-img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
   display: block;
 }
 
@@ -1013,7 +1013,7 @@
   margin-bottom: 20px;
 }
 
-.icon-wrapper.tracking { background-color: #e0f2fe; color: #0284c7; }
+.icon-wrapper.tracking { background-color: #e0f2fe; color: #0369a1; }
 .icon-wrapper.schedule { background-color: #f3e8ff; color: #7e22ce; }
 .icon-wrapper.payment { background-color: #ecfdf5; color: #059669; }
 .icon-wrapper.telemetry { background-color: #fff7ed; color: #ea580c; }
@@ -1084,7 +1084,7 @@
   transform: scale(1.05);
 }
 
-.step-content h4 {
+.step-content h3 {
   font-size: 1.05rem;
   font-weight: 700;
   margin-bottom: 8px;
@@ -1892,7 +1892,7 @@
   height: 54px;
   border-radius: 14px;
   background: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(2, 132, 199, 0.08) 100%);
-  color: #0284c7;
+  color: #0369a1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1986,7 +1986,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #0284c7;
+  color: #0369a1;
   background: #e0f2fe;
   padding: 4px 10px;
   border-radius: 20px;
@@ -2081,7 +2081,7 @@
   flex-shrink: 0;
 }
 
-.spec-item-content h4 {
+.spec-item-content h3 {
   font-size: 0.8rem;
   color: #94a3b8;
   text-transform: uppercase;

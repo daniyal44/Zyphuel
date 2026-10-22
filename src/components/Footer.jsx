@@ -179,7 +179,7 @@ export default function Footer() {
               title="Click to toggle Lahore active towns menu"
             >
               <span>Lahore Active Towns</span>
-              <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--brand-petrol, #0284c7)' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--brand-petrol, #0369a1)' }}>
                 View Full List <i className="fa-solid fa-arrow-up-right-from-square" style={{ marginLeft: '4px' }}></i>
               </span>
             </h3>
@@ -203,7 +203,6 @@ export default function Footer() {
               className="towns-expand-btn" 
               onClick={() => setIsExpanded(!isExpanded)}
               aria-expanded={isExpanded}
-              aria-label="Toggle all Lahore fuel delivery towns"
             >
               <span>{isExpanded ? 'Show Less' : 'Show All Areas'}</span>
               <i className={`fa-solid fa-chevron-down chevron-icon ${isExpanded ? 'rotated' : ''}`}></i>

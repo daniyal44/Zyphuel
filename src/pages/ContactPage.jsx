@@ -264,9 +264,8 @@ ${form.message.trim()}`
                     { icon: 'fa-location-dot', title: 'Headquarters', content: 'Lahore, Pakistan.', sub: 'Central operations and dispatch command.' },
                   ].map(item => (
                     <div key={item.title} className="contact-item" data-reveal="up">
-                      <div className="contact-icon"><i className={`fa-solid ${item.icon}`}></i></div>
-                      <div className="contact-text">
-                        <h4>{item.title}</h4>
+                      <div className="contact-icon"><i className={`fa-solid ${item.icon}`}></i></div>                        <div className="contact-text">
+                          <h2>{item.title}</h2>
                         <p><strong>{item.content}</strong></p>
                         <p>{item.sub}</p>
                       </div>
@@ -275,9 +274,8 @@ ${form.message.trim()}`
                 </div>
 
                 <div className="contact-item" style={{ borderTop: '1px solid var(--border-color)', paddingTop: '20px' }}>
-                  <div className="contact-icon"><i className="fa-solid fa-clock"></i></div>
-                  <div className="contact-text" style={{ width: '100%' }}>
-                    <h4>Working Hours</h4>
+                  <div className="contact-icon"><i className="fa-solid fa-clock"></i></div>                    <div className="contact-text" style={{ width: '100%' }}>
+                      <h2>Working Hours</h2>
                     <table className="hours-table">
                       <tbody>
                         <tr><td>Monday – Thursday</td><td>8:00 AM – 8:00 PM</td></tr>
@@ -498,7 +496,7 @@ ${form.message.trim()}`
         <section className="section-padding" style={{ backgroundColor: '#ffffff', borderTop: '1px solid var(--border-color, #e2e8f0)' }}>
           <div className="container">
             <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '36px' }}>
-              <div className="section-badge-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '20px', background: 'rgba(2, 132, 199, 0.1)', color: '#0284c7', fontSize: '0.85rem', fontWeight: 700, marginBottom: '12px' }}>
+              <div className="section-badge-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '20px', background: 'rgba(2, 132, 199, 0.1)', color: '#0369a1', fontSize: '0.85rem', fontWeight: 700, marginBottom: '12px' }}>
                 <i className="fa-solid fa-map-location-dot"></i> Metropolitan Service Coverage
               </div>
               <h2 className="section-title" style={{ fontSize: '1.8rem', margin: '0 0 10px 0' }}>Lahore Sector Dispatch Hubs &amp; SLA Matrix</h2>
@@ -565,7 +563,7 @@ ${form.message.trim()}`
         <section className="section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-color, #e2e8f0)' }}>
           <div className="container" style={{ maxWidth: '880px' }}>
             <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '32px' }}>
-              <div className="section-badge-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '20px', background: 'rgba(2, 132, 199, 0.1)', color: '#0284c7', fontSize: '0.85rem', fontWeight: 700, marginBottom: '12px' }}>
+              <div className="section-badge-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '20px', background: 'rgba(2, 132, 199, 0.1)', color: '#0369a1', fontSize: '0.85rem', fontWeight: 700, marginBottom: '12px' }}>
                 <i className="fa-solid fa-circle-question"></i> Common Inquiries
               </div>
               <h2 className="section-title" style={{ fontSize: '1.8rem', margin: '0 0 10px 0' }}>Frequently Asked Questions</h2>
@@ -613,7 +611,7 @@ ${form.message.trim()}`
                       <i className="fa-solid fa-chevron-down" style={{
                         transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                         transition: 'transform 0.2s',
-                        color: '#0284c7',
+                        color: '#0369a1',
                         fontSize: '0.9rem',
                         flexShrink: 0
                       }}></i>

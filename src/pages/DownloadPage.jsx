@@ -282,7 +282,6 @@ export default function DownloadPage() {
                     data-testid="direct-apk-download-btn"
                     className="btn btn-primary btn-download-main"
                     title="Download Zyphuel Android APK File Directly"
-                    aria-label="Direct APK Download for Zyphuel Mobile Application for Fuel Suppliers"
                     style={{ position: 'relative', zIndex: 10, pointerEvents: 'auto', textDecoration: 'none' }}
                   >
                     <i className="fa-brands fa-android"></i>
@@ -315,7 +314,7 @@ export default function DownloadPage() {
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#16a34a', fontWeight: 600 }}>
                     <i className="fa-solid fa-shield-halved"></i> 100% Virus-Free &amp; Verified APK
                   </span>
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#0284c7', fontWeight: 600 }}>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#0369a1', fontWeight: 600 }}>
                     <i className="fa-solid fa-bolt"></i> Instant Direct Install
                   </span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px', color: '#475569', fontWeight: 600 }}>
@@ -341,7 +340,7 @@ export default function DownloadPage() {
                     />
                   </div>
                   <div className="qr-info">
-                    <h4>{`Scan QR to Install v${APP_VERSION}`}</h4>
+                    <h2>{`Scan QR to Install v${APP_VERSION}`}</h2>
                     <p>Scan with your smartphone camera to download the Android APK installer directly to your mobile device.</p>
                   </div>
                 </div>
@@ -409,7 +408,10 @@ export default function DownloadPage() {
                         key={idx}
                         className={`phone-slider-dot ${currentSlide === idx ? 'active' : ''}`}
                         onClick={() => setCurrentSlide(idx)}
+                        role="button"
+                        tabIndex={0}
                         aria-label={`Show slide ${idx + 1}`}
+                        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setCurrentSlide(idx) } }}
                       ></span>
                     ))}
                   </div>
@@ -711,15 +713,15 @@ export default function DownloadPage() {
               <div className="step-timeline-item fade-in-up">
                 <div className="step-num">01</div>
                 <div className="step-content">
-                  <h4>Download the Installation File</h4>
-                  <p>Click the <a href="/APK/Zyphuel.apk" download="Zyphuel.apk" type="application/vnd.android.package-archive" style={{ color: '#0284c7', fontWeight: 700 }}>Direct APK Download</a> button above or scan our QR Code. Save the `Zyphuel.apk` (v{APP_VERSION}) file ({APP_SIZE}) to your mobile storage folder.</p>
+                  <h3>Download the Installation File</h3>
+                  <p>Click the <a href="/APK/Zyphuel.apk" download="Zyphuel.apk" type="application/vnd.android.package-archive" style={{ color: '#0369a1', fontWeight: 700 }}>Direct APK Download</a> button above or scan our QR Code. Save the `Zyphuel.apk` (v{APP_VERSION}) file ({APP_SIZE}) to your mobile storage folder.</p>
                 </div>
               </div>
 
               <div className="step-timeline-item fade-in-up" style={{ transitionDelay: '0.1s' }}>
                 <div className="step-num">02</div>
                 <div className="step-content">
-                  <h4>Enable Unknown Sources</h4>
+                  <h3>Enable Unknown Sources</h3>
                   <p>Open your phone settings, go to <strong>Security / Privacy</strong>, and toggle on <strong>"Install from Unknown Sources"</strong> for your web browser or file manager (if prompted).</p>
                 </div>
               </div>
@@ -727,7 +729,7 @@ export default function DownloadPage() {
               <div className="step-timeline-item fade-in-up" style={{ transitionDelay: '0.2s' }}>
                 <div className="step-num">03</div>
                 <div className="step-content">
-                  <h4>Run the Installer</h4>
+                  <h3>Run the Installer</h3>
                   <p>Open your file explorer, locate the downloaded `Zyphuel.apk`, click it, and press <strong>"Install"</strong>. The system will finalize the installation in seconds.</p>
                 </div>
               </div>
@@ -735,7 +737,7 @@ export default function DownloadPage() {
               <div className="step-timeline-item fade-in-up" style={{ transitionDelay: '0.3s' }}>
                 <div className="step-num">04</div>
                 <div className="step-content">
-                  <h4>Verify &amp; Start Ordering</h4>
+                  <h3>Verify &amp; Start Ordering</h3>
                   <p>Launch the Zyphuel App, allow location &amp; notification permissions, and start ordering premium fuel on-demand!</p>
                 </div>
               </div>
@@ -758,7 +760,7 @@ export default function DownloadPage() {
               <div className="spec-item-box">
                 <div className="spec-item-icon"><i className="fa-solid fa-code-branch"></i></div>
                 <div className="spec-item-content">
-                  <h4>Application Version</h4>
+                  <h3>Application Version</h3>
                   <div className="spec-value">v{APP_VERSION} (Build {BUILD_NUMBER} • Production)</div>
                   <div className="spec-subtext">Updated {RELEASE_DATE}</div>
                 </div>
@@ -767,7 +769,7 @@ export default function DownloadPage() {
               <div className="spec-item-box">
                 <div className="spec-item-icon"><i className="fa-solid fa-box-archive"></i></div>
                 <div className="spec-item-content">
-                  <h4>Package File Size</h4>
+                  <h3>Package File Size</h3>
                   <div className="spec-value">{APP_SIZE} (Universal APK)</div>
                   <div className="spec-subtext">Optimized ProGuard release build</div>
                 </div>
@@ -776,7 +778,7 @@ export default function DownloadPage() {
               <div className="spec-item-box">
                 <div className="spec-item-icon"><i className="fa-brands fa-android"></i></div>
                 <div className="spec-item-content">
-                  <h4>Minimum OS Requirement</h4>
+                  <h3>Minimum OS Requirement</h3>
                   <div className="spec-value">{MIN_ANDROID}</div>
                   <div className="spec-subtext">Targeting Android 14 (API 34)</div>
                 </div>
@@ -785,7 +787,7 @@ export default function DownloadPage() {
               <div className="spec-item-box">
                 <div className="spec-item-icon"><i className="fa-solid fa-microchip"></i></div>
                 <div className="spec-item-content">
-                  <h4>Supported Architectures</h4>
+                  <h3>Supported Architectures</h3>
                   <div className="spec-value">arm64-v8a, armeabi-v7a, x86_64</div>
                   <div className="spec-subtext">Universal multi-ABI support</div>
                 </div>
@@ -794,7 +796,7 @@ export default function DownloadPage() {
               <div className="spec-item-box">
                 <div className="spec-item-icon"><i className="fa-solid fa-fingerprint"></i></div>
                 <div className="spec-item-content">
-                  <h4>Security &amp; Biometrics</h4>
+                  <h3>Security &amp; Biometrics</h3>
                   <div className="spec-value">BiometricPrompt API (v2)</div>
                   <div className="spec-subtext">Encrypted Room &amp; DataStore storage</div>
                 </div>
@@ -803,7 +805,7 @@ export default function DownloadPage() {
               <div className="spec-item-box">
                 <div className="spec-item-icon"><i className="fa-solid fa-satellite"></i></div>
                 <div className="spec-item-content">
-                  <h4>Telemetry &amp; Notifications</h4>
+                  <h3>Telemetry &amp; Notifications</h3>
                   <div className="spec-value">FCM + Foreground GPS Daemon</div>
                   <div className="spec-subtext">2-Hour rolling OGRA price sync</div>
                 </div>
@@ -812,7 +814,7 @@ export default function DownloadPage() {
               <div className="spec-item-box">
                 <div className="spec-item-icon"><i className="fa-solid fa-shield-halved"></i></div>
                 <div className="spec-item-content">
-                  <h4>Digital Signature &amp; Integrity</h4>
+                  <h3>Digital Signature &amp; Integrity</h3>
                   <div className="spec-value">APK Signature Scheme v3</div>
                   <div className="spec-subtext">Digitally signed &amp; verified clean</div>
                 </div>
@@ -821,7 +823,7 @@ export default function DownloadPage() {
               <div className="spec-item-box">
                 <div className="spec-item-icon"><i className="fa-solid fa-user-gear"></i></div>
                 <div className="spec-item-content">
-                  <h4>Developer &amp; Publisher</h4>
+                  <h3>Developer &amp; Publisher</h3>
                   <div className="spec-value">Zyphuel Technologies</div>
                   <div className="spec-subtext">Founder: Muhammad Daniyal</div>
                 </div>
@@ -904,7 +906,7 @@ export default function DownloadPage() {
                   <thead>
                     <tr style={{ background: '#f8fafc', borderBottom: '2px solid #cbd5e1' }}>
                       <th style={{ padding: '12px 18px', fontWeight: 700, color: '#0f172a' }}>Capability / Feature</th>
-                      <th style={{ padding: '12px 18px', fontWeight: 700, color: '#0284c7' }}>Zyphuel Android APK (v{APP_VERSION})</th>
+                      <th style={{ padding: '12px 18px', fontWeight: 700, color: '#0369a1' }}>Zyphuel Android APK (v{APP_VERSION})</th>
                       <th style={{ padding: '12px 18px', fontWeight: 700, color: '#475569' }}>Web Portal (Browser)</th>
                     </tr>
                   </thead>

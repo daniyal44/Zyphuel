@@ -7,8 +7,8 @@ const ServiceSvgIcon = ({ fuelTypeKey, fallbackIcon }) => {
   if (fuelTypeKey === 'petrol' || fuelTypeKey === 'highOctane') {
     return (
       <svg viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" fill="rgba(2, 132, 199, 0.12)" stroke="#0284c7" strokeWidth="1.5" />
-        <path d="M20 10 C20 10 13 19 13 24 A7 7 0 0 0 27 24 C27 19 20 10 20 10 Z" fill="#0284c7" />
+        <circle cx="20" cy="20" r="18" fill="rgba(2, 132, 199, 0.12)" stroke="#0369a1" strokeWidth="1.5" />
+        <path d="M20 10 C20 10 13 19 13 24 A7 7 0 0 0 27 24 C27 19 20 10 20 10 Z" fill="#0369a1" />
         <path d="M18 23 A3 3 0 0 0 21 26" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     )
@@ -49,11 +49,11 @@ const ServiceSvgIcon = ({ fuelTypeKey, fallbackIcon }) => {
       height: '36px',
       borderRadius: '50%',
       background: 'rgba(2, 132, 199, 0.12)',
-      border: '1.5px solid #0284c7',
+      border: '1.5px solid #0369a1',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      color: '#0284c7',
+      color: '#0369a1',
       fontSize: '1rem'
     }}>
       <i className={`fa-solid ${fallbackIcon}`}></i>

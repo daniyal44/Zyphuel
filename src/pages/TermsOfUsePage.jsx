@@ -63,10 +63,10 @@ export default function TermsOfUsePage() {
             {/* Legal Agreement Compliance Seal */}
             <div className="fade-in-up" style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'rgba(2, 132, 199, 0.08)', border: '1px solid rgba(2, 132, 199, 0.25)', borderRadius: '12px', padding: '12px 18px' }}>
               <svg viewBox="0 0 32 32" width="32" height="32" fill="none" aria-hidden="true">
-                <rect x="6" y="4" width="20" height="24" rx="3" fill="rgba(2, 132, 199, 0.12)" stroke="#0284c7" strokeWidth="1.8" />
-                <line x1="10" y1="10" x2="22" y2="10" stroke="#0284c7" strokeWidth="1.8" strokeLinecap="round" />
-                <line x1="10" y1="15" x2="22" y2="15" stroke="#0284c7" strokeWidth="1.8" strokeLinecap="round" />
-                <line x1="10" y1="20" x2="16" y2="20" stroke="#0284c7" strokeWidth="1.8" strokeLinecap="round" />
+                <rect x="6" y="4" width="20" height="24" rx="3" fill="rgba(2, 132, 199, 0.12)" stroke="#0369a1" strokeWidth="1.8" />
+                <line x1="10" y1="10" x2="22" y2="10" stroke="#0369a1" strokeWidth="1.8" strokeLinecap="round" />
+                <line x1="10" y1="15" x2="22" y2="15" stroke="#0369a1" strokeWidth="1.8" strokeLinecap="round" />
+                <line x1="10" y1="20" x2="16" y2="20" stroke="#0369a1" strokeWidth="1.8" strokeLinecap="round" />
                 <circle cx="21" cy="21" r="3.5" fill="#10b981" />
               </svg>
               <div style={{ fontSize: '0.8rem', lineHeight: '1.3' }}>
@@ -82,7 +82,7 @@ export default function TermsOfUsePage() {
           <div className="legal-layout">
             {/* Sidebar */}
             <aside className="legal-sidebar fade-in-up" style={{ transitionDelay: '0.15s' }}>
-              <h3 className="legal-sidebar-title">Sections</h3>
+              <h2 className="legal-sidebar-title">Sections</h2>
               <nav className="legal-nav">
                 {sections.map(s => (
                   <a key={s.id} href={`#${s.id}`} className={`legal-nav-link${activeSection === s.id ? ' active' : ''}`}>
@@ -171,13 +171,13 @@ export default function TermsOfUsePage() {
                 <h2><i className="fa-solid fa-handshake"></i> 8. Contact & Dispute Resolution</h2>
                 <p>Any disputes arising from the use of our services shall first be attempted to be resolved amicably through our customer support channels. If resolution cannot be achieved within 14 working days, disputes shall be referred to the competent courts of Lahore, Pakistan.</p>
                 <p>
-                  <strong>Support Desk:</strong> Available via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Official Contact &amp; Support Page</Link><br />
+                  <strong>Support Desk:</strong> Available via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0369a1)', fontWeight: 600 }}>Official Contact &amp; Support Page</Link><br />
                   <strong>Email:</strong> m.daniyalkhan490@gmail.com <em>(For order modifications or legal inquiries)</em><br />
                   <strong>Location:</strong> Lahore, Pakistan <em>(Walk-in corporate meetings by appointment only)</em><br />
                   <strong>Working Hours:</strong> Desk Support: Monday – Thursday: 8:00 AM – 8:00 PM | Friday: 8:00 AM – 1:00 PM | Saturday – Sunday: 10:00 AM – 6:00 PM | Doorstep Ordering: 8:00 AM – 10:00 PM Daily | WhatsApp Helpline: 24/7
                 </p>
                 <p>
-                  To file a dispute, request dedicated corporate account terms, or inquire about logistics agreements, submit an inquiry via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Contact &amp; Support Page</Link> or review our <Link to="/services/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Fuel Services &amp; Delivery Terms</Link>.
+                  To file a dispute, request dedicated corporate account terms, or inquire about logistics agreements, submit an inquiry via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0369a1)', fontWeight: 600 }}>Contact &amp; Support Page</Link> or review our <Link to="/services/" style={{ color: 'var(--brand-primary, #0369a1)', fontWeight: 600 }}>Fuel Services &amp; Delivery Terms</Link>.
                 </p>
               </section>
             </div>

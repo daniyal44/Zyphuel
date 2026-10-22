@@ -10,7 +10,7 @@ export default function HeroGraphic() {
         </linearGradient>
         <linearGradient id="truckBlue" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stopColor="#0ea5e9" />
-          <stop offset="100%" stopColor="#0284c7" />
+          <stop offset="100%" stopColor="#0369a1" />
         </linearGradient>
         <linearGradient id="lahoreSkyline" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stopColor="#e0f0ff" stopOpacity="0.8" />

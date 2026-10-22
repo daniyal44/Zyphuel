@@ -135,7 +135,7 @@
 }
 
 .scroll-story-rail-item.is-active .scroll-story-rail-dot {
-    background: var(--accent-color, #0284c7);
+    background: var(--accent-color, #0369a1);
     box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.16);
 }
 
@@ -185,12 +185,12 @@
     font-size: 0.8rem;
     font-weight: 800;
     letter-spacing: 0.08em;
-    color: #94a3b8;
+    color: #64748b;
     transition: color 0.35s ease;
 }
 
 .scroll-story-step.is-active .scroll-story-step-number {
-    color: var(--accent-color, #0284c7);
+    color: var(--accent-color, #0369a1);
 }
 
 .scroll-story-step-icon {
@@ -207,7 +207,7 @@
 }
 
 .scroll-story-step.is-active .scroll-story-step-icon {
-    background: var(--accent-color, #0284c7);
+    background: var(--accent-color, #0369a1);
     color: #ffffff;
     transform: scale(1.05);
 }

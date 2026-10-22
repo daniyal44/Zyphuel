@@ -49,7 +49,7 @@ export default function NotFoundPage() {
             </h2>
             <ul style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px', paddingLeft: 0, listStyle: 'none' }}>
               <li>
-                <Link to="/order/" style={{ color: 'var(--accent-color, #0284c7)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <Link to="/order/" style={{ color: 'var(--accent-color, #0369a1)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.8rem' }}></i> Order Fuel Online
                 </Link>
               </li>
@@ -58,18 +58,18 @@ export default function NotFoundPage() {
                   to="/download/"
                   id="not-found-download-link"
                   data-testid="not-found-download-link"
-                  style={{ color: 'var(--accent-color, #0284c7)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}
+                  style={{ color: 'var(--accent-color, #0369a1)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}
                 >
                   <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.8rem' }}></i> Download Android App
                 </Link>
               </li>
               <li>
-                <Link to="/about/" style={{ color: 'var(--accent-color, #0284c7)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <Link to="/about/" style={{ color: 'var(--accent-color, #0369a1)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.8rem' }}></i> About Zyphuel
                 </Link>
               </li>
               <li>
-                <Link to="/blog/" style={{ color: 'var(--accent-color, #0284c7)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <Link to="/blog/" style={{ color: 'var(--accent-color, #0369a1)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.8rem' }}></i> Fuel Guides &amp; Blog
                 </Link>
               </li>

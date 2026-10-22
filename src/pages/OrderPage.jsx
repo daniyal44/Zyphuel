@@ -95,7 +95,7 @@ export const INSTANT_PAYMENT_METHODS = [
     name: 'SadaPay',
     img: '/images/SadaPay.jpg',
     bg: '#ffe4e6',
-    color: '#e11d48',
+    color: '#be123c',
     border: '#fecdd3'
   },
   {
@@ -833,11 +833,11 @@ export default function OrderPage() {
                             height: '30px',
                             borderRadius: '50%',
                             overflow: 'hidden',
-                            border: st.active ? '2px solid var(--accent-color, #0284c7)' : '1px solid rgba(15, 23, 42, 0.15)',
+                            border: st.active ? '2px solid var(--accent-color, #0369a1)' : '1px solid rgba(15, 23, 42, 0.15)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
-                            background: st.active ? 'var(--accent-color, #0284c7)' : 'rgba(15, 23, 42, 0.06)',
+                            background: st.active ? 'var(--accent-color, #0369a1)' : 'rgba(15, 23, 42, 0.06)',
                             color: st.active ? '#ffffff' : 'var(--text-secondary, #64748b)',
                             fontSize: '0.74rem',
                             fontWeight: 700,
@@ -870,7 +870,7 @@ export default function OrderPage() {
                           <div style={{
                             width: '20px',
                             height: '2px',
-                            background: st.active ? 'var(--accent-color, #0284c7)' : 'rgba(15, 23, 42, 0.1)',
+                            background: st.active ? 'var(--accent-color, #0369a1)' : 'rgba(15, 23, 42, 0.1)',
                             marginLeft: '4px',
                             transition: 'background 0.3s ease'
                           }} />
@@ -898,7 +898,7 @@ export default function OrderPage() {
                             userSelect: 'none',
                             padding: '12px',
                             borderRadius: '14px',
-                            border: isSelected ? '2px solid var(--brand-primary, #0284c7)' : '1px solid var(--border-color, #e2e8f0)',
+                            border: isSelected ? '2px solid var(--brand-primary, #0369a1)' : '1px solid var(--border-color, #e2e8f0)',
                             background: isSelected ? 'rgba(2, 132, 199, 0.05)' : '#ffffff',
                             boxShadow: isSelected ? '0 6px 16px rgba(2, 132, 199, 0.12)' : '0 1px 3px rgba(0,0,0,0.03)',
                             transition: 'all 0.25s ease',
@@ -986,7 +986,7 @@ export default function OrderPage() {
                               width: '24px',
                               height: '24px',
                               borderRadius: '50%',
-                              background: isSelected ? 'var(--brand-primary, #0284c7)' : 'rgba(255, 255, 255, 0.92)',
+                              background: isSelected ? 'var(--brand-primary, #0369a1)' : 'rgba(255, 255, 255, 0.92)',
                               color: isSelected ? '#ffffff' : '#94a3b8',
                               display: 'flex',
                               alignItems: 'center',
@@ -1002,7 +1002,7 @@ export default function OrderPage() {
                             <div style={{ fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-primary)', marginBottom: '1px' }}>
                               {FUEL_DISPLAY[type]}
                             </div>
-                            <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--brand-primary, #0284c7)' }}>
+                            <div style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--brand-primary, #0369a1)' }}>
                               {`Rs. ${prices[type].toFixed(2)}/L`}
                             </div>
                           </div>
@@ -1031,7 +1031,7 @@ export default function OrderPage() {
                             userSelect: 'none',
                             padding: '12px',
                             borderRadius: '14px',
-                            border: isSelected ? '2px solid var(--brand-primary, #0284c7)' : '1px solid var(--border-color, #e2e8f0)',
+                            border: isSelected ? '2px solid var(--brand-primary, #0369a1)' : '1px solid var(--border-color, #e2e8f0)',
                             background: isSelected ? 'rgba(2, 132, 199, 0.05)' : '#ffffff',
                             boxShadow: isSelected ? '0 6px 16px rgba(2, 132, 199, 0.12)' : '0 1px 3px rgba(0,0,0,0.03)',
                             transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -1119,7 +1119,7 @@ export default function OrderPage() {
                               width: '22px',
                               height: '22px',
                               borderRadius: '50%',
-                              background: isSelected ? 'var(--brand-primary, #0284c7)' : 'rgba(255, 255, 255, 0.92)',
+                              background: isSelected ? 'var(--brand-primary, #0369a1)' : 'rgba(255, 255, 255, 0.92)',
                               color: isSelected ? '#ffffff' : '#94a3b8',
                               display: 'flex',
                               alignItems: 'center',
@@ -1132,7 +1132,7 @@ export default function OrderPage() {
                           </div>
 
                           <div style={{ textAlign: 'center', marginTop: '2px' }}>
-                            <span style={{ fontSize: '0.86rem', fontWeight: isSelected ? 800 : 600, color: isSelected ? 'var(--brand-primary, #0284c7)' : 'var(--text-primary)', lineHeight: 1.25 }}>
+                            <span style={{ fontSize: '0.86rem', fontWeight: isSelected ? 800 : 600, color: isSelected ? 'var(--brand-primary, #0369a1)' : 'var(--text-primary)', lineHeight: 1.25 }}>
                               {app.shortLabel}
                             </span>
                           </div>
@@ -1170,7 +1170,7 @@ export default function OrderPage() {
                           <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.05rem' }}>Litres</span>
                         </div>
                         <div className="stepper-delivery-badge" style={{ marginLeft: 'auto' }}>
-                          <span style={{ fontSize: '0.82rem', color: '#ea580c', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                          <span style={{ fontSize: '0.82rem', color: '#c2410c', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
                             <i className="fa-solid fa-truck"></i><span>Delivery Charges: </span><strong>{`Rs. ${standardFee}`}</strong>
                           </span>
                         </div>
@@ -1201,9 +1201,9 @@ export default function OrderPage() {
                                 fontSize: '0.82rem',
                                 borderRadius: '6px',
                                 fontWeight: fuelQty === qty ? 700 : 500,
-                                background: fuelQty === qty ? 'var(--brand-primary, #0284c7)' : 'rgba(0, 0, 0, 0.04)',
+                                background: fuelQty === qty ? 'var(--brand-primary, #0369a1)' : 'rgba(0, 0, 0, 0.04)',
                                 color: fuelQty === qty ? '#ffffff' : 'var(--text-primary)',
-                                border: fuelQty === qty ? '1px solid var(--brand-primary, #0284c7)' : '1px solid rgba(0, 0, 0, 0.1)',
+                                border: fuelQty === qty ? '1px solid var(--brand-primary, #0369a1)' : '1px solid rgba(0, 0, 0, 0.1)',
                                 cursor: 'pointer',
                                 transition: 'all 0.15s ease'
                               }}
@@ -1242,7 +1242,7 @@ export default function OrderPage() {
                           cursor: 'pointer',
                           userSelect: 'none',
                           borderRadius: '12px',
-                          border: '2px solid var(--brand-primary, #0284c7)',
+                          border: '2px solid var(--brand-primary, #0369a1)',
                           background: 'rgba(2, 132, 199, 0.08)',
                           padding: '16px 18px',
                           display: 'flex',
@@ -1256,14 +1256,14 @@ export default function OrderPage() {
                           width: '22px',
                           height: '22px',
                           borderRadius: '50%',
-                          border: '6px solid var(--brand-primary, #0284c7)',
+                          border: '6px solid var(--brand-primary, #0369a1)',
                           backgroundColor: '#ffffff',
                           flexShrink: 0,
                           transition: 'all 0.2s ease'
                         }}></div>
                         <div className="schedule-info" style={{ display: 'flex', flexDirection: 'column' }}>
                           <span className="schedule-title" style={{ fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                            <i className="fa-solid fa-clock" style={{ color: 'var(--brand-primary, #0284c7)' }}></i> Standard Doorstep Dispatch
+                            <i className="fa-solid fa-clock" style={{ color: 'var(--brand-primary, #0369a1)' }}></i> Standard Doorstep Dispatch
                           </span>
                           <span className="schedule-desc" style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
                             Guaranteed delivery within 45 mins on doorstep across Lahore
@@ -1335,9 +1335,9 @@ export default function OrderPage() {
                             }}>
                               <i className="fa-solid fa-money-bill-wave"></i>
                             </div>
-                            <h5 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 800, color: '#064e3b' }}>
+                            <div style={{ margin: 0, fontSize: '0.95rem', fontWeight: 800, color: '#064e3b' }}>
                               Payment Mode: Cash on Delivery (COD) Enabled
-                            </h5>
+                            </div>
                           </div>
                           <span style={{
                             fontSize: '0.72rem',
@@ -1441,7 +1441,7 @@ export default function OrderPage() {
                               width: '32px',
                               height: '32px',
                               borderRadius: '8px',
-                              backgroundColor: '#0284c7',
+                              backgroundColor: '#0369a1',
                               color: '#ffffff',
                               display: 'flex',
                               alignItems: 'center',
@@ -1451,9 +1451,9 @@ export default function OrderPage() {
                             }}>
                               <i className="fa-solid fa-building-columns"></i>
                             </div>
-                            <h5 style={{ margin: 0, fontSize: '0.95rem', fontWeight: 800, color: '#0369a1' }}>
+                            <div style={{ margin: 0, fontSize: '0.95rem', fontWeight: 800, color: '#0369a1' }}>
                               Advance Digital Payment Required
-                            </h5>
+                            </div>
                           </div>
                           <span style={{
                             fontSize: '0.72rem',
@@ -1461,7 +1461,7 @@ export default function OrderPage() {
                             padding: '3px 9px',
                             borderRadius: '999px',
                             backgroundColor: '#e0f2fe',
-                            color: '#0284c7',
+                            color: '#0369a1',
                             border: '1px solid #7dd3fc'
                           }}>
                             11L – 15L Max Orders
@@ -1547,13 +1547,13 @@ export default function OrderPage() {
                       <span style={{ fontSize: '0.84rem', color: 'var(--text-secondary)' }}>
                         {`${fuelQty}L ${FUEL_DISPLAY[selectedFuelType]} • ${DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.shortLabel || 'Standard Delivery'}`}
                       </span>
-                      <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#0284c7' }}>
+                      <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#0369a1' }}>
                         🚚 Express Doorstep Dispatch
                       </span>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', paddingTop: '8px', borderTop: '1px dashed #cbd5e1' }}>
                       <span style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-primary)' }}>Estimated Total:</span>
-                      <span style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--brand-primary, #0284c7)' }}>
+                      <span style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--brand-primary, #0369a1)' }}>
                         {fmt(total)}
                       </span>
                     </div>
@@ -1580,9 +1580,9 @@ export default function OrderPage() {
                         <span>Order Intake Cutoff Active (10:00 PM – 8:00 AM PKT)</span>
                       </div>
 
-                      <h4 style={{ margin: '0 0 10px', fontSize: '1.25rem', color: '#f8fafc', fontWeight: 800 }}>
+                      <div style={{ margin: '0 0 10px', fontSize: '1.25rem', color: '#f8fafc', fontWeight: 800 }}>
                         رات 10 بجے کے بعد آن لائن آرڈرز بند ہیں
-                      </h4>
+                      </div>
                       <p style={{ margin: '0 0 16px', fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.6, maxWidth: '480px', marginLeft: 'auto', marginRight: 'auto' }}>
                         Doorstep fuel delivery order intake closes strictly at <strong>10:00 PM</strong> every night and resumes tomorrow morning at <strong>8:00 AM PKT</strong>. Under operational safety protocols, standard retail dispatch is paused until the morning window opens.
                       </p>
@@ -1722,7 +1722,7 @@ export default function OrderPage() {
                     <span>Dispatch Window</span>
                     <strong>
                       <span style={{ color: 'var(--text-primary)', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-                        <i className="fa-solid fa-clock" style={{ color: '#0284c7' }}></i> Within 45 Mins
+                        <i className="fa-solid fa-clock" style={{ color: '#0369a1' }}></i> Within 45 Mins
                       </span>
                     </strong>
                   </div>
@@ -1744,7 +1744,7 @@ export default function OrderPage() {
                   <div className="summary-row">
                     <span>Payment Mode</span>
                     <strong>
-                      <span style={{ color: isCodEligible ? '#059669' : '#0284c7', fontWeight: 700, fontSize: '0.82rem' }}>
+                      <span style={{ color: isCodEligible ? '#047857' : '#0369a1', fontWeight: 700, fontSize: '0.82rem' }}>
                         {isCodEligible ? 'COD / Online Payments' : 'Advance Digital Transfer'}
                       </span>
                     </strong>
@@ -1832,7 +1832,7 @@ export default function OrderPage() {
                       3. Is Cash on Delivery (COD) supported?
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      Yes! Cash on Delivery (COD) is supported for orders between 5 and 10 Litres of fuel. If you don't have cash on hand upon delivery, our riders and bowser pilots also support instant on-spot digital transfers via <strong>JazzCash</strong>, <strong>Easypaisa</strong>, <strong>NayaPay</strong>, and <strong>Raast</strong> via QR code. For orders exceeding 10 Litres (11L to 15L Max), advance digital payment or online bank transfer is required for high-volume safety and dispatch verification. For commercial bulk refueling and corporate fleet accounts, we provide bank transfer, online payment, and corporate invoicing terms — <Link to="/contact/" style={{ color: '#0284c7', fontWeight: 600 }}>contact our corporate sales team</Link> or explore our <Link to="/services/#b2b" style={{ color: '#0284c7', fontWeight: 600 }}>commercial services</Link>.
+                      Yes! Cash on Delivery (COD) is supported for orders between 5 and 10 Litres of fuel. If you don't have cash on hand upon delivery, our riders and bowser pilots also support instant on-spot digital transfers via <strong>JazzCash</strong>, <strong>Easypaisa</strong>, <strong>NayaPay</strong>, and <strong>Raast</strong> via QR code. For orders exceeding 10 Litres (11L to 15L Max), advance digital payment or online bank transfer is required for high-volume safety and dispatch verification. For commercial bulk refueling and corporate fleet accounts, we provide bank transfer, online payment, and corporate invoicing terms — <Link to="/contact/" style={{ color: '#0369a1', fontWeight: 600 }}>contact our corporate sales team</Link> or explore our <Link to="/services/#b2b" style={{ color: '#0369a1', fontWeight: 600 }}>commercial services</Link>.
                     </p>
                   </div>
 
@@ -1873,7 +1873,7 @@ export default function OrderPage() {
                   <Link to="/services/#b2b" className="btn btn-secondary" style={{ padding: '9px 18px', fontSize: '0.88rem' }}>
                     <i className="fa-solid fa-briefcase"></i> Commercial Services
                   </Link>
-                  <Link to="/contact/" className="btn btn-ghost" style={{ padding: '9px 18px', fontSize: '0.88rem', color: '#0284c7', borderColor: 'rgba(2, 132, 199, 0.3)' }}>
+                  <Link to="/contact/" className="btn btn-ghost" style={{ padding: '9px 18px', fontSize: '0.88rem', color: '#0369a1', borderColor: 'rgba(2, 132, 199, 0.3)' }}>
                     <i className="fa-solid fa-headset"></i> Contact Support
                   </Link>
                 </div>
@@ -1950,7 +1950,7 @@ export default function OrderPage() {
         >
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '6px' }}>
             <span style={{
-              background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
+              background: 'linear-gradient(135deg, #0369a1 0%, #0369a1 100%)',
               color: '#ffffff',
               fontSize: '0.62rem',
               fontWeight: 800,
@@ -2061,7 +2061,7 @@ export default function OrderPage() {
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
                 <span style={{
-                  background: 'var(--brand-primary, #0284c7)',
+                  background: 'var(--brand-primary, #0369a1)',
                   color: '#ffffff',
                   padding: '3px 8px',
                   borderRadius: '6px',
@@ -2139,7 +2139,7 @@ export default function OrderPage() {
 
             {/* Footer with ESC hint */}
             <div style={{ fontSize: '0.78rem', color: '#94a3b8', display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <i className="fa-solid fa-circle-info" style={{ color: 'var(--brand-primary, #0284c7)' }}></i>
+              <i className="fa-solid fa-circle-info" style={{ color: 'var(--brand-primary, #0369a1)' }}></i>
               Click anywhere outside or press ESC to dismiss preview
             </div>
           </div>
@@ -2173,7 +2173,7 @@ export default function OrderPage() {
                 justifyContent: 'center',
                 gap: '8px',
                 fontSize: '0.92rem',
-                color: '#0284c7',
+                color: '#0369a1',
                 marginTop: '10px',
                 fontWeight: 700,
                 background: 'rgba(2, 132, 199, 0.08)',
@@ -2317,7 +2317,7 @@ export default function OrderPage() {
           position: relative;
         }
         .category-card:hover {
-          border-color: var(--brand-primary, #0284c7);
+          border-color: var(--brand-primary, #0369a1);
           transform: translateY(-2px);
           box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
         }
@@ -2328,7 +2328,7 @@ export default function OrderPage() {
           transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
         .fuel-img-frame:hover, .target-img-frame:hover {
-          border-color: var(--brand-primary, #0284c7) !important;
+          border-color: var(--brand-primary, #0369a1) !important;
           box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15) !important;
         }
         @keyframes scaleUp {
@@ -2568,7 +2568,7 @@ export default function OrderPage() {
           background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
           color: #ffffff;
           padding: 22px 24px;
-          border-bottom: 2px solid #0284c7;
+          border-bottom: 2px solid #0369a1;
           position: relative;
         }
         .post-order-badge {
@@ -2624,7 +2624,7 @@ export default function OrderPage() {
           text-decoration: none;
         }
         .btn-flow-pdf {
-          background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+          background: linear-gradient(135deg, #0369a1 0%, #0369a1 100%);
           color: #ffffff;
           box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
         }
@@ -2743,7 +2743,7 @@ export default function OrderPage() {
           border: none;
         }
         .btn-invoice-action.btn-pdf {
-          background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+          background: linear-gradient(135deg, #0369a1 0%, #0369a1 100%);
           color: #ffffff;
           box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
         }
@@ -2795,7 +2795,7 @@ export default function OrderPage() {
           gap: 8px;
           background: rgba(2, 132, 199, 0.12);
           border: 1.5px solid rgba(2, 132, 199, 0.35);
-          color: #0284c7;
+          color: #0369a1;
           font-size: 0.88rem;
           font-weight: 700;
           padding: 6px 16px;
@@ -2822,7 +2822,7 @@ export default function OrderPage() {
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
-          border-bottom: 2px solid #0284c7;
+          border-bottom: 2px solid #0369a1;
           padding-bottom: 18px;
           margin-bottom: 20px;
           gap: 16px;
@@ -2835,7 +2835,7 @@ export default function OrderPage() {
         .inv-gov-badge {
           font-size: 0.68rem;
           font-weight: 800;
-          color: #0284c7;
+          color: #0369a1;
           letter-spacing: 0.04em;
           text-transform: uppercase;
           margin-top: 4px;
@@ -2876,7 +2876,7 @@ export default function OrderPage() {
         .inv-logo-icon {
           width: 30px;
           height: 30px;
-          background: #0284c7;
+          background: #0369a1;
           color: #fff;
           display: flex;
           align-items: center;
@@ -2895,7 +2895,7 @@ export default function OrderPage() {
           margin: 3px 0 0 0;
           font-size: 0.8rem;
           font-weight: 700;
-          color: #0284c7;
+          color: #0369a1;
         }
         .inv-address-line, .inv-contact-line {
           margin: 6px 0 0 0;
@@ -2905,7 +2905,7 @@ export default function OrderPage() {
         .inv-number-pill {
           font-size: 1.15rem;
           font-weight: 900;
-          color: #0284c7;
+          color: #0369a1;
           font-family: monospace;
           margin: 3px 0;
         }
@@ -2964,7 +2964,7 @@ export default function OrderPage() {
           gap: 6px;
         }
         .inv-party-detail i {
-          color: #0284c7;
+          color: #0369a1;
           width: 14px;
         }
         .inv-table-wrapper {
@@ -3088,16 +3088,16 @@ export default function OrderPage() {
           color: #475569;
         }
         .inv-total-line.grand-total-line {
-          border-top: 2px solid #0284c7;
+          border-top: 2px solid #0369a1;
           margin-top: 6px;
           padding-top: 8px;
           font-size: 1rem;
           font-weight: 900;
-          color: #0284c7;
+          color: #0369a1;
         }
         .grand-amount {
           font-size: 1.1rem;
-          color: #0284c7;
+          color: #0369a1;
         }
         .inv-footer-note {
           display: flex;
@@ -3200,7 +3200,7 @@ export default function OrderPage() {
         .inv-barcode-header {
           font-size: 0.62rem;
           font-weight: 800;
-          color: #0284c7;
+          color: #0369a1;
           letter-spacing: 0.05em;
           text-transform: uppercase;
           margin-bottom: 5px;

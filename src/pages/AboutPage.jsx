@@ -228,17 +228,17 @@ export default function AboutPage() {
               <div className="about-values-grid" data-reveal-stagger="0.1" style={{ marginTop: '40px' }}>
                 <div className="value-item" data-reveal="up">
                   <span className="value-icon"><i className="fa-solid fa-truck-ramp-box"></i></span>
-                  <h3 className="value-title">On-Demand Mobility</h3>
+                  <h2 className="value-title">On-Demand Mobility</h2>
                   <p className="value-desc">Certified fleet refuels vehicles and backup generators during downtime with zero delays.</p>
                 </div>
                 <div className="value-item" data-reveal="up">
                   <span className="value-icon"><i className="fa-solid fa-scale-balanced"></i></span>
-                  <h3 className="value-title">Volumetric Honesty</h3>
+                  <h2 className="value-title">Volumetric Honesty</h2>
                   <p className="value-desc">Calibrated digital flow meters with optical encoders guarantee 100% accurate billing.</p>
                 </div>
                 <div className="value-item" data-reveal="up">
                   <span className="value-icon"><i className="fa-solid fa-shield-halved"></i></span>
-                  <h3 className="value-title">Safety Compliance</h3>
+                  <h2 className="value-title">Safety Compliance</h2>
                   <p className="value-desc">Strict adherence to HAZMAT, NFPA 30A, and national OGRA Euro-V regulations.</p>
                 </div>
               </div>
@@ -442,7 +442,7 @@ export default function AboutPage() {
             {/* Regulatory Compliance Ledger */}
             <div className="fade-in-up" style={{ background: '#f8fafc', borderRadius: '12px', border: '1px solid #e2e8f0', padding: '24px 28px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
-                <i className="fa-solid fa-stamp" style={{ color: '#0284c7', fontSize: '1.3rem' }}></i>
+                <i className="fa-solid fa-stamp" style={{ color: '#0369a1', fontSize: '1.3rem' }}></i>
                 <h3 style={{ fontSize: '1.2rem', fontWeight: 700, margin: 0, color: '#0f172a' }}>
                   Regulatory Compliance &amp; Standards Ledger
                 </h3>
@@ -704,7 +704,7 @@ export default function AboutPage() {
                       <span>{faq.question}</span>
                       <i
                         className={`fa-solid ${isOpen ? 'fa-chevron-up' : 'fa-chevron-down'}`}
-                        style={{ color: '#0284c7', flexShrink: 0, transition: 'transform 0.2s ease' }}
+                        style={{ color: '#0369a1', flexShrink: 0, transition: 'transform 0.2s ease' }}
                       ></i>
                     </button>
                     {isOpen && (

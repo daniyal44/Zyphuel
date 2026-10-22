@@ -66,7 +66,7 @@ export default function PrivacyPolicyPage() {
             {/* Minimal Document Security Seal */}
             <div className="fade-in-up" style={{ display: 'flex', alignItems: 'center', gap: '12px', background: 'rgba(2, 132, 199, 0.08)', border: '1px solid rgba(2, 132, 199, 0.25)', borderRadius: '12px', padding: '12px 18px' }}>
               <svg viewBox="0 0 32 32" width="32" height="32" fill="none" aria-hidden="true">
-                <path d="M16 3 L27 7 V15 C27 22 22 27 16 29 C10 27 5 22 5 15 V7 L16 3 Z" fill="rgba(2, 132, 199, 0.15)" stroke="#0284c7" strokeWidth="1.8" />
+                <path d="M16 3 L27 7 V15 C27 22 22 27 16 29 C10 27 5 22 5 15 V7 L16 3 Z" fill="rgba(2, 132, 199, 0.15)" stroke="#0369a1" strokeWidth="1.8" />
                 <path d="M11 15 L14.5 18.5 L21 12" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <div style={{ fontSize: '0.8rem', lineHeight: '1.3' }}>
@@ -82,7 +82,7 @@ export default function PrivacyPolicyPage() {
           <div className="legal-layout">
             {/* Sidebar */}
             <aside className="legal-sidebar fade-in-up" style={{ transitionDelay: '0.15s' }}>
-              <h3 className="legal-sidebar-title">Sections</h3>
+              <h2 className="legal-sidebar-title">Sections</h2>
               <nav className="legal-nav">
                 {sections.map(s => (
                   <a key={s.id} href={`#${s.id}`} className={`legal-nav-link${activeSection === s.id ? ' active' : ''}`}>
@@ -161,13 +161,13 @@ export default function PrivacyPolicyPage() {
                 <h2><i className="fa-solid fa-paper-plane"></i> 8. Contact Us</h2>
                 <p>If you have questions, remarks, or security queries regarding this Privacy Policy or wish to update/delete your data, please contact our support team using the information below:</p>
                 <p>
-                  <strong>Support Desk:</strong> Available via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Official Contact &amp; Support Page</Link><br />
+                  <strong>Support Desk:</strong> Available via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0369a1)', fontWeight: 600 }}>Official Contact &amp; Support Page</Link><br />
                   <strong>Email:</strong> m.daniyalkhan490@gmail.com <em>(For order modifications or data requests)</em><br />
                   <strong>Location:</strong> Lahore, Pakistan <em>(Walk-in corporate meetings by appointment only)</em><br />
                   <strong>Working Hours:</strong> Desk Support: Monday – Thursday: 8:00 AM – 8:00 PM | Friday: 8:00 AM – 1:00 PM | Saturday – Sunday: 10:00 AM – 6:00 PM | Doorstep Ordering: 8:00 AM – 10:00 PM Daily | WhatsApp Helpline: 24/7
                 </p>
                 <p>
-                  Reach out directly via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Zyphuel Contact &amp; Support Desk</Link> or order doorstep fuel online at our <Link to="/order/" style={{ color: 'var(--brand-primary, #0284c7)', fontWeight: 600 }}>Refueling Portal</Link>.
+                  Reach out directly via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0369a1)', fontWeight: 600 }}>Zyphuel Contact &amp; Support Desk</Link> or order doorstep fuel online at our <Link to="/order/" style={{ color: 'var(--brand-primary, #0369a1)', fontWeight: 600 }}>Refueling Portal</Link>.
                 </p>
               </section>
             </div>

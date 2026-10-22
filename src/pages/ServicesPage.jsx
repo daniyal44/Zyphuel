@@ -259,7 +259,7 @@ export default function ServicesPage() {
                   }}
                 >
                   <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm, 6px)', padding: '8px 12px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.03)' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--brand-petrol-dark, #0284c7)', flexShrink: 0 }}></span>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--brand-petrol-dark, #0369a1)', flexShrink: 0 }}></span>
                     <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>Petrol: Rs. {livePrices.petrol.toFixed(2)}/L</span>
                   </div>
                   <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm, 6px)', padding: '8px 12px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.03)' }}>
@@ -271,7 +271,7 @@ export default function ServicesPage() {
                     <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>High-Octane: Rs. {livePrices.highOctane.toFixed(2)}/L</span>
                   </div>
                   <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm, 6px)', padding: '8px 12px', display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 2px 6px rgba(0,0,0,0.03)' }}>
-                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#16a34a', flexShrink: 0 }}></span>
+                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#15803d', flexShrink: 0 }}></span>
                     <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>Delivered: Within 45 Mins</span>
                   </div>
                 </div>
@@ -290,7 +290,7 @@ export default function ServicesPage() {
                   >
                     <i className="fa-solid fa-mobile-screen-button"></i> Download Mobile App v{APP_VERSION}
                   </Link>
-                  <a href="#services-scope" style={{ fontSize: 'var(--fs-sm, 0.875rem)', color: 'var(--text-accent, #0284c7)', fontWeight: 600, padding: '8px 12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <a href="#services-scope" style={{ fontSize: 'var(--fs-sm, 0.875rem)', color: 'var(--text-accent, #0369a1)', fontWeight: 600, padding: '8px 12px', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
                     Service Scope &amp; Safety <i className="fa-solid fa-arrow-down"></i>
                   </a>
                 </div>
@@ -309,7 +309,7 @@ export default function ServicesPage() {
           <div id="b2b" style={{ position: 'relative', top: '-100px' }}></div>
           <div className="container">
             <div className="section-header fade-in-up">
-              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0284c7)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
+              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0369a1)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
                 Complete Service Catalog
               </span>
               <h2 className="section-title">Explore Our Tailored Refueling Services</h2>
@@ -356,7 +356,7 @@ export default function ServicesPage() {
         <section id="services-scope" className="section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
           <div className="container">
             <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0284c7)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
+              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0369a1)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
                 Service Transparency &amp; Safety Compliance
               </span>
               <h2 className="section-title">What We Provide vs. What We Do NOT Provide</h2>
@@ -370,7 +370,7 @@ export default function ServicesPage() {
               {/* Box 1: What We Provide */}
               <div style={{ background: '#ffffff', borderRadius: '14px', padding: '28px', border: '1px solid rgba(34,197,94,0.3)', boxShadow: '0 4px 16px rgba(34,197,94,0.06)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px', paddingBottom: '14px', borderBottom: '1px solid rgba(34,197,94,0.15)' }}>
-                  <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(34,197,94,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#16a34a', fontSize: '1.2rem' }}>
+                  <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(34,197,94,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#15803d', fontSize: '1.2rem' }}>
                     <i className="fa-solid fa-circle-check"></i>
                   </div>
                   <div>
@@ -382,7 +382,7 @@ export default function ServicesPage() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {whatWeProvide.map((item) => (
                     <div key={item.title} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                      <i className={`fa-solid ${item.icon}`} style={{ color: '#16a34a', fontSize: '1.1rem', marginTop: '3px' }}></i>
+                      <i className={`fa-solid ${item.icon}`} style={{ color: '#15803d', fontSize: '1.1rem', marginTop: '3px' }}></i>
                       <div>
                         <strong style={{ display: 'block', fontSize: '0.98rem', color: 'var(--text-primary)', marginBottom: '3px' }}>
                           {item.title}
@@ -433,7 +433,7 @@ export default function ServicesPage() {
         <section className="section-padding" style={{ backgroundColor: '#ffffff' }}>
           <div className="container">
             <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '44px' }}>
-              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0284c7)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
+              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0369a1)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
                 End-to-End Delivery Pipeline
               </span>
               <h2 className="section-title">How Your Fuel Moves From Depot to Destination</h2>
@@ -456,10 +456,10 @@ export default function ServicesPage() {
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
-                    <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--brand-petrol-dark, #0284c7)', opacity: 0.8 }}>
+                    <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--brand-petrol-dark, #0369a1)', opacity: 0.8 }}>
                       Stage {stage.stage}
                     </span>
-                    <span style={{ fontSize: '0.82rem', fontWeight: 600, background: 'rgba(58,134,200,0.1)', color: 'var(--brand-petrol-dark, #0284c7)', padding: '4px 10px', borderRadius: '20px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ fontSize: '0.82rem', fontWeight: 600, background: 'rgba(58,134,200,0.1)', color: 'var(--brand-petrol-dark, #0369a1)', padding: '4px 10px', borderRadius: '20px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <i className={`fa-solid ${stage.roleIcon}`}></i> {stage.role}
                     </span>
                   </div>
@@ -479,7 +479,7 @@ export default function ServicesPage() {
         <section className="section-padding" style={{ backgroundColor: '#f1f5f9', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
           <div className="container">
             <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0284c7)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
+              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0369a1)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
                 Energy Logistics &amp; Technical Insights
               </span>
               <h2 className="section-title">In-Depth Fuel Logistics &amp; Engineering Articles</h2>
@@ -501,7 +501,7 @@ export default function ServicesPage() {
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '14px' }}>
-                    <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--brand-petrol-dark, #0284c7)', background: 'rgba(58,134,200,0.1)', padding: '5px 12px', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--brand-petrol-dark, #0369a1)', background: 'rgba(58,134,200,0.1)', padding: '5px 12px', borderRadius: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                       <i className={`fa-solid ${art.badgeIcon}`}></i> {art.badge}
                     </span>
                     <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
@@ -513,7 +513,7 @@ export default function ServicesPage() {
                     {art.title}
                   </h3>
 
-                  <p style={{ fontSize: '0.96rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '16px', lineHeight: '1.6', background: '#f8fafc', padding: '12px 16px', borderRadius: '8px', borderLeft: '4px solid var(--brand-petrol-dark, #0284c7)' }}>
+                  <p style={{ fontSize: '0.96rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '16px', lineHeight: '1.6', background: '#f8fafc', padding: '12px 16px', borderRadius: '8px', borderLeft: '4px solid var(--brand-petrol-dark, #0369a1)' }}>
                     {art.summary}
                   </p>
 
@@ -534,7 +534,7 @@ export default function ServicesPage() {
         <section id="coverage" className="section-padding" style={{ backgroundColor: '#ffffff', borderTop: '1px solid var(--border-color)' }}>
           <div className="container">
             <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <div className="section-badge-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(2, 132, 199, 0.1)', color: '#0284c7', padding: '6px 14px', borderRadius: '20px', fontWeight: 600, fontSize: '0.85rem', marginBottom: '12px' }}>
+              <div className="section-badge-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(2, 132, 199, 0.1)', color: '#0369a1', padding: '6px 14px', borderRadius: '20px', fontWeight: 600, fontSize: '0.85rem', marginBottom: '12px' }}>
                 <i className="fa-solid fa-map-location-dot"></i>
                 <span>Lahore Metropolitan Coverage</span>
               </div>
@@ -561,10 +561,10 @@ export default function ServicesPage() {
                 >
                   <div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px', gap: '8px', flexWrap: 'wrap' }}>
-                      <span style={{ fontSize: '0.78rem', fontWeight: 700, background: 'rgba(2, 132, 199, 0.12)', color: '#0284c7', padding: '3px 8px', borderRadius: '4px' }}>
+                      <span style={{ fontSize: '0.78rem', fontWeight: 700, background: 'rgba(2, 132, 199, 0.12)', color: '#0369a1', padding: '3px 8px', borderRadius: '4px' }}>
                         {sector.badge}
                       </span>
-                      <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#16a34a', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                      <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#15803d', display: 'flex', alignItems: 'center', gap: '5px' }}>
                         <i className="fa-solid fa-bolt"></i> {sector.eta}
                       </span>
                     </div>
@@ -612,7 +612,7 @@ export default function ServicesPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-ghost btn-sm"
-                  style={{ padding: '10px 20px', fontSize: '0.9rem', color: '#16a34a', border: '1px solid rgba(22,163,74,0.3)' }}
+                  style={{ padding: '10px 20px', fontSize: '0.9rem', color: '#15803d', border: '1px solid rgba(22,163,74,0.3)' }}
                 >
                   <i className="fa-brands fa-whatsapp"></i> Confirm Address on WhatsApp
                 </a>
@@ -625,7 +625,7 @@ export default function ServicesPage() {
         <section className="section-padding" style={{ backgroundColor: '#ffffff' }}>
           <div className="container">
             <div className="section-header fade-in-up" style={{ textAlign: 'center', marginBottom: '40px' }}>
-              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0284c7)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
+              <span className="section-eyebrow" style={{ color: 'var(--brand-petrol-dark, #0369a1)', fontWeight: 700, fontSize: '0.85rem', letterSpacing: '0.5px' }}>
                 Service FAQs
               </span>
               <h2 className="section-title">Frequently Asked Questions</h2>

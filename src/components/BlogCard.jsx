@@ -58,7 +58,7 @@ export default function BlogCard({ article, index, onReadMore }) {
           <Link
             to={`/blog/${article.slug}/`}
             className="blog-card-link"
-            aria-label={`Read full article: ${article.title}`}
+            aria-label={`Read Article: ${article.title}`}
           >
             Read Article <i className="fa-solid fa-chevron-right"></i>
           </Link>

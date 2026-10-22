@@ -11,7 +11,7 @@ export default function NotFoundGraphic() {
             <stop offset="100%" stopColor="#e2e8f0" />
           </linearGradient>
           <linearGradient id="nfTruck" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#0284c7" />
+            <stop offset="0%" stopColor="#0369a1" />
             <stop offset="100%" stopColor="#0369a1" />
           </linearGradient>
         </defs>
@@ -39,16 +39,16 @@ export default function NotFoundGraphic() {
         {/* Radar concentric circles searching for GPS */}
         <circle cx="140" cy="65" r="50" fill="rgba(2, 132, 199, 0.04)" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="4 4" />
         <circle cx="140" cy="65" r="32" fill="rgba(2, 132, 199, 0.06)" stroke="#cbd5e1" strokeWidth="1" />
-        <circle cx="140" cy="65" r="14" fill="rgba(2, 132, 199, 0.12)" stroke="#0284c7" strokeWidth="1.5" />
+        <circle cx="140" cy="65" r="14" fill="rgba(2, 132, 199, 0.12)" stroke="#0369a1" strokeWidth="1.5" />
         
         {/* Pulsing Radar Ring */}
-        <circle cx="140" cy="65" r="8" fill="none" stroke="#0284c7" strokeWidth="1.5">
+        <circle cx="140" cy="65" r="8" fill="none" stroke="#0369a1" strokeWidth="1.5">
           <animate attributeName="r" values="6;48" dur="3s" repeatCount="indefinite" />
           <animate attributeName="opacity" values="1;0" dur="3s" repeatCount="indefinite" />
         </circle>
 
         {/* Radar Sweep Arm */}
-        <line x1="140" y1="65" x2="175" y2="35" stroke="#0284c7" strokeWidth="1.5" strokeLinecap="round" className="radar-sweep-arm" />
+        <line x1="140" y1="65" x2="175" y2="35" stroke="#0369a1" strokeWidth="1.5" strokeLinecap="round" className="radar-sweep-arm" />
 
         {/* 404 Large Silhouette in background */}
         <text x="140" y="75" fontFamily="monospace" fontSize="42" fontWeight="900" fill="rgba(15, 23, 42, 0.06)" textAnchor="middle">

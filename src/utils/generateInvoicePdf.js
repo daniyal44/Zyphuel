@@ -85,7 +85,7 @@ export async function generateInvoicePdf(data) {
   doc.setFillColor(15, 23, 42) // #0f172a
   doc.rect(margin + 1.4, margin + 1.4, contentWidth - 2.8, 30, 'F')
 
-  doc.setFillColor(2, 132, 199) // #0284c7 accent
+  doc.setFillColor(2, 132, 199) // #0369a1 accent
   doc.rect(margin + 1.4, margin + 31.4, contentWidth - 2.8, 1.8, 'F')
 
   // Company Brand Name & Credentials

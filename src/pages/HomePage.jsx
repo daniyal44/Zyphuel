@@ -207,7 +207,7 @@ export default function HomePage() {
                   alignItems: 'center',
                   gap: '8px',
                   fontSize: '0.85rem',
-                  color: 'var(--brand-primary, #0284c7)',
+                  color: 'var(--brand-primary, #0369a1)',
                   maxWidth: '100%',
                   boxSizing: 'border-box'
                 }}>
@@ -221,7 +221,7 @@ export default function HomePage() {
                     style={{
                       background: 'transparent',
                       border: 'none',
-                      color: 'var(--brand-primary, #0284c7)',
+                      color: 'var(--brand-primary, #0369a1)',
                       cursor: 'pointer',
                       padding: '2px 6px',
                       marginLeft: '6px',
@@ -265,7 +265,7 @@ export default function HomePage() {
                   <i className="fa-brands fa-android"></i> Download App
                 </Link>
                 <Link to="/about/" className="btn btn-ghost">
-                  Learn More <i className="fa-solid fa-arrow-right"></i>
+                  Learn More About Zyphuel <i className="fa-solid fa-arrow-right"></i>
                 </Link>
               </div>
 
@@ -301,9 +301,9 @@ export default function HomePage() {
         <div className="container">
           <div className="pump-callout-grid">
             <div className="pump-callout-text">
-              <h3>
+              <h2>
                 <i className="fa-solid fa-location-crosshairs"></i> Searching for a "Petrol Pump Near Me" in Lahore?
-              </h3>
+              </h2>
               <p>
                 Don't wait in long fuel queues at PSO, Shell, or Total Parco stations. We deliver Euro-V Super Petrol &amp; Diesel directly into your car or generator within 45 minutes at official OGRA rates.
               </p>

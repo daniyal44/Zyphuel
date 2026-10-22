@@ -188,7 +188,7 @@
   bottom: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(90deg, #00d26a 0%, #38bdf8 50%, #0284c7 100%);
+  background: linear-gradient(90deg, #00d26a 0%, #38bdf8 50%, #0369a1 100%);
   z-index: 16;
   transition: width 0.06s linear;
   pointer-events: none;

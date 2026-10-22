@@ -73,7 +73,7 @@ export default function BlogListPage() {
     : articles.filter(a => a.category === activeFilter)
 
   return (
-    <div ref={pageRef}>
+    <main ref={pageRef}>
       <section className="blog-section section-padding">
         <div className="container">
           <div className="blog-header" data-reveal="up" style={{ opacity: 1, visibility: 'visible' }}>
@@ -110,7 +110,7 @@ export default function BlogListPage() {
                 width: '48px',
                 height: '48px',
                 borderRadius: '12px',
-                background: 'var(--brand-primary, #0284c7)',
+                background: 'var(--brand-primary, #0369a1)',
                 color: '#ffffff',
                 display: 'flex',
                 alignItems: 'center',
@@ -167,6 +167,7 @@ export default function BlogListPage() {
           </div>
 
           {/* Article Cards */}
+          <h2 style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', whiteSpace: 'nowrap', border: 0 }}>All Fuel Guides &amp; Articles</h2>
           <div className="blog-grid" data-reveal-stagger="0.09">
             {filteredArticles.map((article, idx) => (
               <Link
@@ -228,6 +229,6 @@ export default function BlogListPage() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   )
 }

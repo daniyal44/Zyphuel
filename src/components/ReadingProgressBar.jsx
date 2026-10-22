@@ -32,7 +32,7 @@ export default function ReadingProgressBar() {
         left: 0,
         width: `${progress}%`,
         height: '3.5px',
-        background: 'linear-gradient(90deg, #0284c7 0%, #38bdf8 50%, #10b981 100%)',
+        background: 'linear-gradient(90deg, #0369a1 0%, #38bdf8 50%, #10b981 100%)',
         zIndex: 9999,
         transition: 'width 0.1s ease-out',
         boxShadow: '0 0 10px rgba(14, 165, 233, 0.5)'

@@ -384,7 +384,6 @@ export default function ServicesScrollAnimationSection() {
           className={`services-scroll-hint${scrolled ? ' hidden' : ''}`}
           onClick={handleScrollToContent}
           title="Scroll to animate or click to view doorstep fuel delivery details"
-          aria-label="Scroll to animate or tap to jump to fuel delivery details"
         >
           <i className="fa-solid fa-arrow-down" />
           <span>Scroll to animate</span>

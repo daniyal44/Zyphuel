@@ -300,7 +300,6 @@ export default function ScrollAnimationSection() {
           className={`reference-scroll-hint${scrolled ? ' hidden' : ''}`}
           onClick={handleScrollToContent}
           title="Scroll or click to view doorstep fuel delivery details"
-          aria-label="Scroll to animate or tap to jump to fuel delivery details"
         >
           &#8595; Scroll to animate &#8595;
         </button>
