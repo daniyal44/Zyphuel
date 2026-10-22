@@ -164,10 +164,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .fade-in-up {
-    opacity: 0;
-    transform: translateY(18px);
     transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: opacity, transform;
+}
+
+/* Hidden state applies ONLY while the JS reveal engine is active AND the element
+   has not been revealed yet. Without JS (or before the hook runs) prerendered
+   content sits fully visible, so first paint does not wait on the JS bundle. */
+.reveal-ready .fade-in-up:not(.animated) {
+    opacity: 0;
+    transform: translateY(18px);
 }
 
 .fade-in-up.animated {
