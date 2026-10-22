@@ -19,6 +19,13 @@ import { useEffect, useRef } from 'react'
  * CSS only hides elements while `<html class="reveal-ready">` is present, which this
  * hook adds once it runs — so with JavaScript disabled every page still shows all
  * content instead of a blank page.
+ *
+ * `prefers-reduced-motion: reduce` used to switch the whole system off, which left
+ * these pages looking completely static next to the canvas-driven Home/Services/
+ * Download heroes. It now runs in **soft mode** instead (`<html class="reveal-soft">`):
+ * transforms are removed entirely (no travel, no parallax — nothing vestibular) and
+ * only a plain opacity cross-fade remains, so the page keeps its scroll rhythm while
+ * still honouring the user's setting.
  */
 export function useScrollReveal(dependencies = []) {
   const containerRef = useRef(null)
@@ -32,13 +39,11 @@ export function useScrollReveal(dependencies = []) {
       typeof window.matchMedia === 'function' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-    // Reduced motion: never hide anything, just let content sit in its final state.
-    if (reduceMotion) {
-      root.classList.remove('reveal-ready')
-      return
-    }
-
+    // Soft mode = opacity-only reveal. Every transform is dropped in CSS, so this
+    // path is motion-safe; keeping the observer alive is what makes the cross-fade
+    // happen at all.
     root.classList.add('reveal-ready')
+    root.classList.toggle('reveal-soft', reduceMotion)
 
     // Assign stagger delays to children of `[data-reveal-stagger]` containers.
     container.querySelectorAll('[data-reveal-stagger]').forEach((group) => {

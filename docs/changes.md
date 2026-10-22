@@ -996,3 +996,42 @@ Aligned all corporate credentials, physical location indicators, executive title
 
 - The `/blog/` control proves the spread is machine noise: that page has **zero** code changes in this phase yet moved 80 → 62–63, driven by TBT (97 → 159 / 1,000 ms) and LCP (4.0 → 5.8 / 2.3 s) swings. `/contact/` recovered from 76 to its exact baseline 91 on the repeat run. Stable metrics — CLS and the DOM/CSS delta — show no regression: the change is 13 added attributes, below the fold, `opacity`/`transform` only.
 - Page-level changelogs updated: [`about.md`](./pages/about.md), [`contact.md`](./pages/contact.md), [`order.md`](./pages/order.md). Blog needed no change and therefore no changelog row.
+
+## Phase 27: "Animation Not Showing" Root Cause — Soft Reveal Mode for `prefers-reduced-motion` (2026-10-22)
+
+### 27.1 The Real Cause (measured, not guessed)
+- After phase 26 the reveals were confirmed working in headless Chrome with `prefers-reduced-motion` emulated to `no-preference` — but the reviewer reported them as invisible. Measuring the machine that was actually being used showed why: `matchMedia('(prefers-reduced-motion: reduce)').matches === true`.
+- `useScrollReveal` treated that setting as "switch the whole system off" (`root.classList.remove('reveal-ready')` + early `return`), and the global reduced-motion block forces `[data-reveal]` to `opacity: 1; transform: none`. Net effect on `/about/`, `/contact/`, `/order/` and `/blog/`: **zero motion, ever**.
+- `/`, `/services/` and `/download/` still looked alive because their heroes are **canvas frame sequences** (`ScrollAnimationSection`, `ServicesScrollAnimationSection`, `ServicesSection3ScrollAnimation`, `AppHeroScrollAnimation`, `AppSection3ScrollAnimation`) driven by JS scroll listeners. Canvas drawing is not CSS, so `prefers-reduced-motion` never touched it. That asymmetry is exactly what the report described: "home/service/download mein hai, baki pages mein nahi".
+
+### 27.2 Changes
+| File | Change |
+| :--- | :--- |
+| `src/hooks/useScrollReveal.js` | Under reduced motion the hook no longer bails out. It adds `<html class="reveal-ready reveal-soft">` and runs the same stagger + IntersectionObserver flow. `reveal-soft` is toggled (not appended) so a live change of the OS setting is handled on the next mount. |
+| `src/index.css` | New soft-mode block **inside** the existing `prefers-reduced-motion` query, with specificity high enough to beat the blanket "show everything" rule: `opacity: 0 → 1` over `0.5s linear`, `transform: none !important` in both states. No travel, no scale, no parallax — a cross-fade is not vestibular motion, so the setting is still honoured while the page keeps a visible scroll rhythm. |
+| `src/index.css` | Default (motion-allowed) reveal strengthened so it reads clearly instead of subtly: `data-reveal="up"` 26 → **38 px**, `down` 22 → 30 px, `left`/`right` 32 → 46 px, `scale` 0.94 → 0.92, duration 0.62 → **0.72 s**; legacy `.fade-in-up` 10 → 18 px and 0.28 → 0.5 s. Still `opacity` + `transform` only → compositor work, CLS 0. |
+
+### 27.3 Verification — both media states, dev server **and** production build
+Headless Chrome via CDP with `Emulation.setEmulatedMedia` (confirmed in-page: `reduce => true`, `no-preference => false`), sampling `getComputedStyle().opacity` every animation frame after `scrollIntoView`:
+
+| Page | `no-preference` before → after | mid frames | `reduce` (soft) | mid frames | stuck |
+| :--- | :--- | :---: | :--- | :---: | :---: |
+| `/about/` | `opacity 0` + `matrix(1,0,0,1,0,38)` → `1` + `none` | 17 | `reveal-soft`, `transform: none` → `1` | 28 | 0 / 12 |
+| `/contact/` | same | 14–19 | same | 25–26 | 0 / 7 |
+| `/order/` | same | 14–18 | same | 20–27 | 0 / 12 |
+| `/blog/` | same | 19–21 | same | 27–29 | 0 / 11 |
+| `/blog/future-of-fuel-delivery-lahore/` | same | 17–21 | same | 28–29 | 0 / 5 |
+
+- “Stuck” = elements left hidden after scrolling the full page. Zero on every page and in both states, so nothing can stay invisible.
+- `scrollWidth == clientWidth` on every page (no horizontal overflow added), 0 console errors. The only network error seen during the sweep is the pre-existing 3rd-party fuel-price API (`fuel.trackmate.page` via `api.allorigins.win`), unrelated to motion.
+- Same results re-verified against the **production build** served by `vite preview` (`reveal-soft` present in `dist/assets/*.css`), not just the dev server.
+
+### 27.4 Performance
+- **Mobile A/B on the same machine, build without vs with this change:** `/about/` **53 → 64**, `/blog/` **65 → 67** (TBT 1,140 → 10 ms on about) — the change is a compositor-only CSS delta, so any movement here is the usual machine noise; neither page regressed.
+- **Desktop Lighthouse (2 runs each):** `/about/` 90 / 92, `/order/` 76 / 78; CLS 0.008 / 0.006, TBT 0 ms, a11y 94 on both.
+- Soft mode is strictly *less* work than the normal path (no transform interpolation).
+- Page-level changelogs updated: [`about.md`](./pages/about.md), [`contact.md`](./pages/contact.md), [`order.md`](./pages/order.md), [`blog.md`](./pages/blog.md). While adding those rows, the missing markdown table separator in `order.md` and `blog.md` was fixed as well.
+
+### 27.5 What a user on a "reduce motion" machine will see
+- Home / Services / Download: unchanged (canvas scrub keeps running).
+- About / Contact / Order / Blog: every block now cross-fades in as it enters the viewport, staggered where a stagger is declared — no sliding, no parallax. On a machine with animations enabled the same blocks slide 38 px and ease over 0.72 s.
