@@ -105,7 +105,9 @@ export default function ServicesPage() {
       'doorstep petrol delivery', 'high octane 97 delivery Lahore', 'Zyphuel services',
       'fuel delivery DHA Lahore', 'petrol delivery Gulberg', 'diesel delivery Johar Town',
       'generator diesel Model Town', 'emergency fuel Bahria Town Lahore', 'bulk diesel Sundar Industrial Estate',
-      'petrol pump near me Lahore', 'online fuel order Lahore'
+      'petrol pump near me Lahore', 'online fuel order Lahore',
+      'diesel delivery companies', 'load shedding generator fuel Lahore',
+      'standby generator diesel delivery', 'fuel supplier Lahore'
     ],
     image: 'https://zyphuel.netlify.app/images/fuel.png',
     url: 'https://zyphuel.netlify.app/services/',

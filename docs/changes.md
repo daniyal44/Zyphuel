@@ -1120,3 +1120,15 @@ Headless Chrome via CDP with `Emulation.setEmulatedMedia` (confirmed in-page: `r
 ### 30.4 Competitor gap analysis & master plan
 - New doc: [`docs/plans/2026-10-23-seo-master-plan.md`](./plans/2026-10-23-seo-master-plan.md) — ranking-competitor table (apexenergy, fueldelivery.pk, fuelstation.com.pk, ezfuels, Fuelogic), gap list (third-party proof, trust signals, app footprint), keyword→page map, and a 4-week roadmap tying into the [off-page backlink plan](./plans/2026-10-23-offpage-backlink-plan.md).
 - Verification: Home + `/download/` re-audited after the changes — Accessibility / Best Practices / SEO still **100/100**.
+
+### 31. Wave 2 — trending keyword sweep (fresh SERP research → implementation)
+
+- **Fresh research (Oct 2026 SERP snapshot)**: 4 observed Google PAA questions were unanswered on-site — "Which app delivers petrol?", "Can I have petrol delivered?", "What is doorstep diesel delivery?", "Can diesel be delivered at home?" — plus the **daily fuel-pricing cluster** ("petrol price in Pakistan today", "diesel price in Pakistan today", "OGRA/PSO petrol price today") identified as the biggest untapped volume (Pakistan moved to daily pricing in July 2026).
+- **Home**: Q&A hub 14 → 18 questions (visible accordion + FAQPage schema in `prerender.js` and `index.html`) + 9 Wave-2 keywords incl. price-intent terms.
+- **Schema defect caught during verification**: the 4 new schema objects initially shipped without `"@type": "Question"` (JSON parsed fine but items were semantically incomplete — count showed 14, not 18). Fixed in both files; dist now reports **18 Question items**.
+- **Stale prerendered meta keywords found**: `prerender.js` keeps its own per-route keyword strings, separate from the JSX `useSEO` arrays — all 7 routes (home/about/services/download/order/contact/blog) resynced with the current page arrays, and the static `index.html` meta keywords resynced as well.
+- **Keyword top-ups** (useSEO + prerender meta): Order +6, Download +4, Services +4, Contact +3, About +3, Blog +6 — full map in [master plan §6.3](./plans/2026-10-23-seo-master-plan.md).
+- `llms.txt`: canonical answers extended with the 4 new PAA questions (AI crawlers cite identical facts).
+- **Verification**: build exit 0; all JSON-LD parse; FAQPage = 18 Question items; Wave-2 terms present in every page's prerendered meta keywords; `node --check prerender.js` OK; Home Lighthouse Accessibility/Best-Practices/SEO = **100/100/100**.
+- Deliberately **not** answered: "Is doorstep fuel delivery legal in Pakistan?" — research found no verifiable legal answer; truthfulness rule forbids unqualified compliance claims.
+

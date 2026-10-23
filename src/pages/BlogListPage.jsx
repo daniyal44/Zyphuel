@@ -11,8 +11,10 @@ export default function BlogListPage() {
 
   useSEO({
     title: 'Zyphuel Blog | Fuel Delivery, Energy & Vehicle Guides',
-    description: 'Read the latest articles about fuel delivery, generator refueling, LPG gas delivery, and mobile energy logistics in Lahore, Pakistan.',
-    keywords: ['fuel delivery blog', 'diesel delivery articles', 'generator refueling guide', 'Lahore fuel news', 'Zyphuel blog'],
+    description: 'Read the latest articles about petrol and diesel prices in Pakistan, fuel delivery, generator refueling, LPG gas delivery, and mobile energy logistics in Lahore.',
+    keywords: ['fuel delivery blog', 'diesel delivery articles', 'generator refueling guide', 'Lahore fuel news', 'Zyphuel blog',
+      'petrol price in Pakistan today', 'diesel price today Pakistan', 'OGRA fuel price update',
+      'fuel price news Pakistan', 'load shedding generator fuel', 'high octane petrol price Pakistan'],
     url: 'https://zyphuel.netlify.app/blog/',
     canonicalPath: '/blog/',
     type: 'website',

@@ -59,7 +59,8 @@ export default function AboutPage() {
     keywords: [
       'about Zyphuel', 'fuel delivery company Lahore', 'mobile refueling Pakistan',
       'diesel delivery Lahore', 'generator fuel Pakistan', 'calibrated fuel metering',
-      'Zyphuel team', 'Muhammad Daniyal Zyphuel', 'on-demand fuel delivery Pakistan', 'fuel delivery app Pakistan', 'what is Zyphuel'
+      'Zyphuel team', 'Muhammad Daniyal Zyphuel', 'on-demand fuel delivery Pakistan', 'fuel delivery app Pakistan', 'what is Zyphuel',
+      'fuel delivery startup Pakistan', 'doorstep fuel delivery company', 'Zyphuel fuel company Lahore'
     ],
     image: 'https://zyphuel.netlify.app/images/daniyal.jpeg',
     url: 'https://zyphuel.netlify.app/about/',

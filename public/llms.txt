@@ -28,6 +28,18 @@ Yes. Zyphuel's Android app is available as a direct APK download (currently v2.6
 **How much does Zyphuel charge for delivery?**
 A fixed Rs. 300.00 delivery fee applies to 5–10 litre orders. For 11–15 litre orders the fee scales from Rs. 320.00 to Rs. 400.00 (+Rs. 20/L step). Urgent priority dispatch (10–20 minutes) adds a flat +Rs. 100.00 surcharge; standard dispatch is within 45 minutes.
 
+**Which app delivers petrol in Lahore?**
+The Zyphuel Android app delivers petrol and diesel in Lahore — the customer chooses 5 to 15 litres, pins their location, and a refueling unit reaches them within 45 minutes with cash or online payment. The APK is available on Zyphuel's Download page; the iOS version is in development.
+
+**Can I have petrol delivered to my home?**
+Yes. In Lahore, 5 to 15 litres of Euro-V petrol or diesel can be ordered straight to a home, car, or workplace — delivered within 45 minutes for a flat Rs. 300.00 delivery fee on 5–10 litre orders.
+
+**What is doorstep diesel delivery?**
+Doorstep diesel delivery means ordering diesel online and having it pumped directly into a vehicle, generator, or storage tank at the customer's address — no pump queues, no jerrycans. Zyphuel dispatches a calibrated, metered bows carrying sealed Euro-V diesel anywhere in Lahore within 45 minutes.
+
+**Can diesel be delivered at home?**
+Yes. Households and businesses in Lahore can have diesel delivered to their address for standby generators, cars, and machinery — ordered on the website or Android app, minimum 5 litres up to 15 litres per doorstep order, with an itemised metered invoice.
+
 ---
 
 ## 1. Executive Summary & Core Mission

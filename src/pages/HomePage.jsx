@@ -74,6 +74,22 @@ export default function HomePage() {
     {
       q: 'How fast does Zyphuel deliver fuel to DHA, Gulberg, or Johar Town?',
       a: 'Zyphuel operates decentralized mobile refueler hubs across Lahore, delivering within 45 minutes to Gulberg, Model Town, Cantt, Johar Town, DHA Lahore, and Bahria Town.'
+    },
+    {
+      q: 'Which app delivers petrol in Lahore?',
+      a: "The Zyphuel Android app delivers petrol and diesel in Lahore — choose 5 to 15 litres, pin your location, and a refueling unit reaches you within 45 minutes with cash or online payment. Download the APK from our Download page; the iOS version is in development."
+    },
+    {
+      q: 'Can I have petrol delivered to my home?',
+      a: 'Yes. In Lahore you can order 5 to 15 litres of Euro-V petrol or diesel straight to your home, car, or workplace — delivered within 45 minutes for a flat Rs. 300.00 delivery fee on 5–10 litre orders.'
+    },
+    {
+      q: 'What is doorstep diesel delivery?',
+      a: 'Doorstep diesel delivery means ordering diesel online and having it pumped directly into your vehicle, generator, or storage tank at your address — no pump queues, no jerrycans. Zyphuel dispatches a calibrated, metered bows with sealed Euro-V diesel anywhere in Lahore within 45 minutes.'
+    },
+    {
+      q: 'Can diesel be delivered at home?',
+      a: 'Yes. Households and businesses in Lahore can have diesel delivered to their address for standby generators, cars, and machinery — order on the website or Android app, minimum 5 litres up to 15 litres per doorstep order, with an itemised metered invoice.'
     }
   ]
 
@@ -113,7 +129,10 @@ export default function HomePage() {
       'fuel delivery DHA Lahore', 'petrol delivery Gulberg', 'diesel delivery Johar Town',
       'OGRA compliant fuel rates', 'calibrated flow meter fuel delivery',
       'what is Zyphuel', 'is Zyphuel safe', 'Zyphuel mobile app', 'Zyphuel APK download',
-      'emergency fuel delivery Lahore', 'petrol delivery near me'
+      'emergency fuel delivery Lahore', 'petrol delivery near me',
+      'petrol price in Pakistan today', 'diesel price in Pakistan today', 'today petrol rate in Pakistan',
+      'which app delivers petrol', 'can petrol be delivered at home', 'doorstep diesel delivery',
+      'best delivery app in Pakistan', 'diesel delivery companies', 'petrol delivered to home Lahore'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/',

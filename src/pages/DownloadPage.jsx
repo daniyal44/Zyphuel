@@ -134,7 +134,9 @@ export default function DownloadPage() {
       'download Zyphuel APK', 'Zyphuel Android app', `Zyphuel App v${APP_VERSION}`,
       'petrol delivery app pakistan', 'fuel delivery app Lahore', 'online petrol delivery in lahore',
       'doorstep diesel delivery lahore', 'generator fuel delivery lahore', 'emergency fuel app pakistan',
-      'buy fuel online pakistan', 'mobile fuel delivery app Pakistan', 'fuel rate alerts app Lahore'
+      'buy fuel online pakistan', 'mobile fuel delivery app Pakistan', 'fuel rate alerts app Lahore',
+      'which app delivers petrol', 'best fuel delivery app Pakistan', 'petrol delivery app download',
+      'fuel delivery app with GPS tracking'
     ],
     image: 'https://zyphuel.netlify.app/images/1.jpeg',
     imageAlt: 'Zyphuel Android app screen showing live fuel rates and delivery tracking in Lahore',
