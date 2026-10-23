@@ -96,6 +96,37 @@ export default function DownloadPage() {
     return () => clearInterval(timer)
   }, [slides.length])
 
+  const faqs = [
+    {
+      question: `Is the Zyphuel APK v${APP_VERSION} safe to download and install?`,
+      answer: `Yes, absolutely. The Zyphuel Android Application package (v${APP_VERSION}, ${APP_SIZE}) is safe, verified, and free from any malware. It is compiled and digitally signed by our engineering team. We recommend downloading the APK directly from our official portal to ensure you get the genuine, unaltered app.`
+    },
+    {
+      question: 'How do the 2-hour market fuel price notifications work?',
+      answer: 'Following OGRA’s implementation of the daily fuel pricing mechanism based on international Platts benchmarks, the app monitors official price updates and sends automated lock-screen notifications every 2 hours. This enables drivers and fleet managers to lock current rates before depot price adjustments take effect.'
+    },
+    {
+      question: 'How does Zyphuel ensure 100% volumetric accuracy and prevent short-fueling?',
+      answer: 'Every micro-refueler bowser is equipped with positive-displacement electronic flow meters calibrated to 0.01L precision with automated temperature compensation (15°C standard). The meter streams the live dispensing volume directly to your smartphone screen via an encrypted Bluetooth/cloud bridge, followed by an immutable digital receipt.'
+    },
+    {
+      question: 'Which areas of Lahore are covered by the mobile app?',
+      answer: 'The Zyphuel app features automated GPS coordinate detection covering all major Lahore zones including DHA Phase 1–9, Gulberg, Johar Town, Model Town, Green Town, Bahria Town, Faisal Town, Cantt, and surrounding industrial corridors with average 45-minute dispatch.'
+    },
+    {
+      question: 'Can I pay with Cash on Delivery (COD) or mobile Online Payments?',
+      answer: 'Yes! Household fuel orders from 5 to 10 Litres can be paid via Cash on Delivery (COD). If you do not have cash ready, our delivery pilots carry instant QR codes for on-spot Online Payments transfers via JazzCash, Easypaisa, NayaPay, and Raast / Bank transfer. For larger commercial generator refueling or corporate fleet accounts, we support direct bank transfers and structured 15/30-day corporate billing.'
+    },
+    {
+      question: 'Why is the app distributed via direct APK instead of Google Play?',
+      answer: 'We distribute the APK directly to enable rapid deployment of logistics-focused features, real-time GPS auto-detection updates, and driver foreground telemetry sync directly to our consumers without store delays. The official Google Play Store release is launching soon.'
+    },
+    {
+      question: 'When will the iOS App Store version be available?',
+      answer: 'Our iOS version is currently in closed beta testing and scheduled to launch on the Apple App Store soon. In the meantime, iPhone users can enjoy a seamless ordering experience by accessing our fully responsive web platform at https://zyphuel.netlify.app/order.'
+    }
+  ]
+
   useSEO({
     title: `Download Zyphuel App: On-Demand Fuel Delivery APK for Android | Official v2.6.4`,
     description: `Download the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) for on-demand doorstep petrol and diesel delivery in Lahore. Real-time GPS tracking, 45-minute dispatch, and 2-hour OGRA price-lock alerts.`,
@@ -113,6 +144,18 @@ export default function DownloadPage() {
     schema: {
       "@context": "https://schema.org",
       "@graph": [
+        {
+          "@type": "FAQPage",
+          "@id": "https://zyphuel.netlify.app/download/#faq",
+          "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer
+            }
+          }))
+        },
         {
           "@type": "SoftwareApplication",
           "name": "Zyphuel Mobile Application - Doorstep Fuel Delivery Lahore",
@@ -214,37 +257,6 @@ export default function DownloadPage() {
     setActiveFaq(activeFaq === index ? null : index)
   }
 
-  const faqs = [
-    {
-      question: `Is the Zyphuel APK v${APP_VERSION} safe to download and install?`,
-      answer: `Yes, absolutely. The Zyphuel Android Application package (v${APP_VERSION}, ${APP_SIZE}) is safe, verified, and free from any malware. It is compiled and digitally signed by our engineering team. We recommend downloading the APK directly from our official portal to ensure you get the genuine, unaltered app.`
-    },
-    {
-      question: 'How do the 2-hour market fuel price notifications work?',
-      answer: 'Following OGRA’s implementation of the daily fuel pricing mechanism based on international Platts benchmarks, the app monitors official price updates and sends automated lock-screen notifications every 2 hours. This enables drivers and fleet managers to lock current rates before depot price adjustments take effect.'
-    },
-    {
-      question: 'How does Zyphuel ensure 100% volumetric accuracy and prevent short-fueling?',
-      answer: 'Every micro-refueler bowser is equipped with positive-displacement electronic flow meters calibrated to 0.01L precision with automated temperature compensation (15°C standard). The meter streams the live dispensing volume directly to your smartphone screen via an encrypted Bluetooth/cloud bridge, followed by an immutable digital receipt.'
-    },
-    {
-      question: 'Which areas of Lahore are covered by the mobile app?',
-      answer: 'The Zyphuel app features automated GPS coordinate detection covering all major Lahore zones including DHA Phase 1–9, Gulberg, Johar Town, Model Town, Green Town, Bahria Town, Faisal Town, Cantt, and surrounding industrial corridors with average 45-minute dispatch.'
-    },
-    {
-      question: 'Can I pay with Cash on Delivery (COD) or mobile Online Payments?',
-      answer: 'Yes! Household fuel orders from 5 to 10 Litres can be paid via Cash on Delivery (COD). If you do not have cash ready, our delivery pilots carry instant QR codes for on-spot Online Payments transfers via JazzCash, Easypaisa, NayaPay, and Raast / Bank transfer. For larger commercial generator refueling or corporate fleet accounts, we support direct bank transfers and structured 15/30-day corporate billing.'
-    },
-    {
-      question: 'Why is the app distributed via direct APK instead of Google Play?',
-      answer: 'We distribute the APK directly to enable rapid deployment of logistics-focused features, real-time GPS auto-detection updates, and driver foreground telemetry sync directly to our consumers without store delays. The official Google Play Store release is launching soon.'
-    },
-    {
-      question: 'When will the iOS App Store version be available?',
-      answer: 'Our iOS version is currently in closed beta testing and scheduled to launch on the Apple App Store soon. In the meantime, iPhone users can enjoy a seamless ordering experience by accessing our fully responsive web platform at https://zyphuel.netlify.app/order.'
-    }
-  ]
-
   return (
     <div ref={pageRef} className="download-page-wrapper">
       <main style={{ paddingTop: 'var(--nav-height)' }}>
@@ -265,7 +277,7 @@ export default function DownloadPage() {
                 </div>
                 
                 <h1 className="hero-title">
-                  Download Pakistan's #1 <span>Fuel Delivery App</span>
+                  Download the <span>Zyphuel Fuel Delivery App</span> for Android
                 </h1>
                 
                 <p className="hero-description">

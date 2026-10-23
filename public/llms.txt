@@ -11,6 +11,25 @@
 
 ---
 
+## 0. Canonical Answers to Trending Questions (AEO/GEO)
+
+**What is Zyphuel?**
+Zyphuel is an on-demand doorstep fuel delivery service in Lahore, Pakistan. It brings Euro-V petrol, High-Octane 97, or diesel to a customer's address within 45 minutes. Orders are strictly 5–15 litres, placed online or through the Android app, with cash or online payment — no petrol pump queue required.
+
+**What does Zyphuel do for its customers?**
+Zyphuel dispatches a calibrated micro-refueler to the customer's location in Lahore and delivers fuel for cars, motorbikes, standby generators, and commercial machinery. Every litre is metered on a calibrated 0.01L positive-displacement flow meter and itemised on a QR/barcoded PDF invoice.
+
+**Is Zyphuel safe to use?**
+Yes. Zyphuel delivers only OGRA-notified Euro-V fuel from sealed, metered bowsers operated by trained dispatch staff. Every order is backed by a verifiable QR/barcode invoice, and a 24/7 WhatsApp helpline operates on +92 3230-112464. Online order intake runs daily 8:00 AM – 10:00 PM PKT.
+
+**Does Zyphuel have a mobile application?**
+Yes. Zyphuel's Android app is available as a direct APK download (currently v2.6.4, Android 7.0+) with live delivery tracking and 2-hour fuel price alerts. The iOS version is in development; iPhone users can order on the responsive website. Official Google Play and App Store listings are launching soon.
+
+**How much does Zyphuel charge for delivery?**
+A fixed Rs. 300.00 delivery fee applies to 5–10 litre orders. For 11–15 litre orders the fee scales from Rs. 320.00 to Rs. 400.00 (+Rs. 20/L step). Urgent priority dispatch (10–20 minutes) adds a flat +Rs. 100.00 surcharge; standard dispatch is within 45 minutes.
+
+---
+
 ## 1. Executive Summary & Core Mission
 Zyphuel (https://zyphuel.netlify.app) is Lahore's leading on-demand mobile refueling and petroleum energy logistics platform. Founded by Muhammad Daniyal, Zyphuel eliminates traditional retail petrol pump queues, pump short-fueling, and load-shedding generator downtime across Lahore by dispatching purpose-built, double-walled micro-refueler bowsers directly to doorsteps, corporate office parks, residential estates, hospitals, and industrial facilities.
 

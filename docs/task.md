@@ -105,6 +105,11 @@ This document serves as the centralized master tracking ledger for all completed
 - [x] Made `.fade-in-up` content paint without JavaScript (reveal-ready gate) and compressed `Bank.png` 2 MB → 124 KB; verified **A11y / BP / SEO = 100 on all 9 pages, desktop and mobile** (overall desktop 98/100, mobile 91/100).
 - [x] Published the verified off-page backlink checklist: [`docs/plans/2026-10-23-offpage-backlink-plan.md`](./plans/2026-10-23-offpage-backlink-plan.md).
 
+### 1.16 SEO Master Plan: Trending-Question AEO Hub, /order/ + /download/ Indexing Fix & Keyword Coverage (2026-10-23)
+- [x] Home "What is Zyphuel?" 14-question visible Q&A hub + mirrored FAQPage schema + llms.txt canonical answers (AEO/GEO for AI crawlers).
+- [x] `/download/` FAQPage schema added (was missing), truthful H1; `/order/` FAQ expanded and differentiated from `/services/`; keyword top-ups on Home/Contact/About.
+- [x] Published competitor gap analysis + 4-week roadmap: [`docs/plans/2026-10-23-seo-master-plan.md`](./plans/2026-10-23-seo-master-plan.md).
+
 ## 2. Active Engineering Tasks
 
 - [x] **Task 2.1**: Consolidate and finalize master documentation suite in `docs/`.

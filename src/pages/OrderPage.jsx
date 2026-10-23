@@ -196,6 +196,22 @@ export default function OrderPage() {
                 "@type": "Answer",
                 "text": "100% of Zyphuel fuel supplies are sourced from licensed primary oil marketing depots, strictly compliant with official OGRA regulations and Euro-V environmental standards."
               }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does Zyphuel take to deliver fuel in Lahore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Standard doorstep dispatch arrives within 45 minutes anywhere in covered Lahore areas, and Urgent priority dispatch arrives in 10–20 minutes for a +Rs. 100.00 surcharge. A live countdown runs from order confirmation, with online order intake daily from 8:00 AM to 10:00 PM PKT."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I order fuel for a standby generator or commercial machinery?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Choose one of four refueling targets — Car/Sedan/SUV, Motorbike/Scooter, Standby Generator, or Commercial Machinery. Doorstep orders cover 5–15 litres; larger generator or commercial requirements beyond 15 litres are supplied through scheduled B2B bowsers via our corporate desk."
+              }
             }
           ]
         }
@@ -1842,6 +1858,24 @@ export default function OrderPage() {
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
                       100% of Zyphuel fuel supplies are sourced directly from licensed primary oil marketing depots, compliant with official OGRA regulations and Euro-V environmental standards. Our team conducts regular density, flashpoint, and purity checks.
+                    </p>
+                  </div>
+
+                  <div data-reveal="up" style={{ background: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
+                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>
+                      5. How long does Zyphuel take to deliver fuel in Lahore?
+                    </h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                      Standard doorstep dispatch arrives <strong>within 45 minutes</strong> anywhere in covered Lahore areas, and Urgent priority dispatch arrives in <strong>10–20 minutes</strong> for a +Rs. 100.00 surcharge. A live countdown runs from the moment your order is confirmed, and online order intake operates daily from <strong>8:00 AM to 10:00 PM PKT</strong>.
+                    </p>
+                  </div>
+
+                  <div data-reveal="up" style={{ background: '#fff', padding: '20px', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
+                    <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '8px' }}>
+                      6. Can I order fuel for a standby generator or commercial machinery?
+                    </h4>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                      Yes. Choose one of four refueling targets — <strong>Car/Sedan/SUV, Motorbike/Scooter, Standby Generator, or Commercial Machinery</strong>. Doorstep orders cover 5–15 litres. Larger generator or commercial requirements beyond 15 litres are supplied through scheduled B2B bowsers via our corporate desk — <Link to="/contact/" style={{ color: '#0369a1', fontWeight: 600 }}>contact the corporate desk</Link> for bulk diesel scheduling.
                     </p>
                   </div>
                 </div>

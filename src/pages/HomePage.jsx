@@ -13,6 +13,69 @@ export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All')
   const [selectedArticle, setSelectedArticle] = useState(null)
   const [showStartupTransparency, setShowStartupTransparency] = useState(false)
+  const [openHomeFaq, setOpenHomeFaq] = useState(null)
+
+  // Canonical AEO Q&A hub — mirrors the FAQPage schema in prerender.js / index.html.
+  // Order matters: brand-answer questions first (what is Zyphuel / is it safe / app),
+  // then the operational questions search engines and AI assistants cite most.
+  const homeFaqs = [
+    {
+      q: 'What is Zyphuel?',
+      a: 'Zyphuel is an on-demand doorstep fuel delivery service in Lahore. It brings Euro-V petrol, High-Octane 97, or diesel to your address within 45 minutes — order 5 to 15 litres online or through the Android app and pay cash or online, without visiting a petrol pump.'
+    },
+    {
+      q: 'What does Zyphuel do for its customers?',
+      a: 'Zyphuel dispatches a calibrated micro-refueler to your location in Lahore and delivers fuel for cars, motorbikes, standby generators, and commercial machinery. Every litre is metered on a calibrated 0.01L flow meter and itemised on a QR/barcoded PDF invoice.'
+    },
+    {
+      q: 'Is Zyphuel safe to use?',
+      a: 'Yes. Zyphuel delivers only OGRA-notified Euro-V fuel from sealed, metered bowsers operated by trained dispatch staff, and every order is backed by a verifiable QR/barcode invoice plus a 24/7 WhatsApp helpline on +92 3230-112464.'
+    },
+    {
+      q: 'Does Zyphuel have a mobile application?',
+      a: "Yes. Zyphuel's Android app is available as a direct APK download with live delivery tracking and 2-hour fuel price alerts. The iOS version is in development; iPhone users can order on the website, and official Google Play and App Store listings are launching soon."
+    },
+    {
+      q: 'Which areas of Lahore does Zyphuel deliver to?',
+      a: 'Zyphuel delivers petrol and diesel across Lahore, including Gulberg, DHA, Johar Town, Model Town, Bahria Town, and surrounding industrial zones. Contact us to confirm coverage for your address.'
+    },
+    {
+      q: 'What is the minimum fuel delivery quantity on Zyphuel?',
+      a: 'The fuel delivery volume is strictly 5 Litres minimum up to 15 Litres maximum per doorstep delivery order. Customers can choose from volume chips (5, 7, 10, 12, 15L) or input custom amounts between 5L and 15L in 1-Litre increments.'
+    },
+    {
+      q: 'What are Zyphuel delivery charges for petrol and diesel in Lahore?',
+      a: 'Zyphuel charges a fixed nominal delivery fee of Rs. 300.00 for doorstep fuel orders of 5–10 Litres, delivered within 45 minutes. For high-capacity orders of 11–15 Litres, delivery fees scale linearly between Rs. 300.00 and Rs. 400.00 (+Rs. 20/L step: 11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400 Max). Urgent priority dispatch (10–20 minutes) carries an additional surcharge of +Rs. 100.00.'
+    },
+    {
+      q: 'How do I order fuel from Zyphuel?',
+      a: 'Place an order through the website order page or the Zyphuel Android app. Pin your location, choose petrol or diesel and the quantity you need, and a refueling unit is dispatched to you.'
+    },
+    {
+      q: 'How is the fuel quantity measured?',
+      a: 'Every delivery uses a calibrated digital flow meter. You receive an itemised invoice showing the exact litres dispensed and the rate applied.'
+    },
+    {
+      q: 'Does Zyphuel serve commercial fleets and generators?',
+      a: 'Yes. Zyphuel supplies scheduled and on-demand Euro-V diesel for standby generators, construction equipment, and commercial vehicle fleets with long-reach 50m hoses.'
+    },
+    {
+      q: 'Why choose Zyphuel instead of traditional petrol pumps in Lahore?',
+      a: 'Zyphuel eliminates petrol pump queues and pump short-fueling with 0.01L calibrated digital flow meters, 100% OGRA compliant regulated pricing, genuine terminal-sourced Euro-V fuel, and doorstep delivery within 45 minutes.'
+    },
+    {
+      q: 'Is Zyphuel an authorized commercial fuel agency in Lahore?',
+      a: 'Yes. Zyphuel operates as a compliant mobile refueling and fuel agency supplying bulk Euro-V diesel directly to corporate generator tanks, manufacturing plants, telecommunication towers, and construction yards across Lahore at official OGRA rates with verified batch quality certificates.'
+    },
+    {
+      q: 'What should I do if I run out of petrol or diesel on the road in Lahore?',
+      a: 'Simply open Zyphuel or send your live WhatsApp location to +92 323 0112464. Our rapid mobile bowsers dispatch emergency Euro-V petrol or diesel directly to your stranded vehicle within 45 minutes anywhere in Lahore.'
+    },
+    {
+      q: 'How fast does Zyphuel deliver fuel to DHA, Gulberg, or Johar Town?',
+      a: 'Zyphuel operates decentralized mobile refueler hubs across Lahore, delivering within 45 minutes to Gulberg, Model Town, Cantt, Johar Town, DHA Lahore, and Bahria Town.'
+    }
+  ]
 
   // Show Startup Transparency notice strictly once per day
   useEffect(() => {
@@ -48,7 +111,9 @@ export default function HomePage() {
       'fuel agency Lahore', 'mobile refueling Pakistan', 'doorstep fuel delivery', 'generator diesel delivery',
       'generator refueling service', 'fleet refueling service', 'on-demand fuel delivery app',
       'fuel delivery DHA Lahore', 'petrol delivery Gulberg', 'diesel delivery Johar Town',
-      'OGRA compliant fuel rates', 'calibrated flow meter fuel delivery'
+      'OGRA compliant fuel rates', 'calibrated flow meter fuel delivery',
+      'what is Zyphuel', 'is Zyphuel safe', 'Zyphuel mobile app', 'Zyphuel APK download',
+      'emergency fuel delivery Lahore', 'petrol delivery near me'
     ],
     image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/',
@@ -325,6 +390,42 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
+      {/* Answer-Engine (AEO) Q&A Hub — "What is Zyphuel?" trending questions */}
+      <section className="home-qa-section" id="what-is-zyphuel" style={{ padding: '80px 0', background: 'linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)' }}>
+        <div className="container">
+          <div className="fade-in-up" style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 36px' }}>
+            <div className="section-badge-pill">
+              <i className="fa-solid fa-circle-question"></i>
+              <span>Quick Answers</span>
+            </div>
+            <h2 className="section-title">What Is Zyphuel? — Straight Answers to Common Questions</h2>
+            <p className="section-subtitle">
+              Everything people ask before ordering doorstep fuel delivery in Lahore — what Zyphuel is, how it works, safety, pricing, coverage, and the app.
+            </p>
+          </div>
+          <div className="faq-accordion-container fade-in-up" style={{ maxWidth: '860px', margin: '0 auto' }}>
+            {homeFaqs.map((faq, index) => {
+              const isOpen = openHomeFaq === index
+              return (
+                <div key={index} className={`faq-accordion-item ${isOpen ? 'active' : ''}`}>
+                  <button className="faq-trigger" onClick={() => setOpenHomeFaq(openHomeFaq === index ? null : index)} aria-expanded={isOpen} aria-controls={`home-faq-answer-${index}`}>
+                    <span className="faq-question-text">{faq.q}</span>
+                    <span className="faq-chevron">
+                      <i className="fa-solid fa-chevron-down"></i>
+                    </span>
+                  </button>
+                  <div id={`home-faq-answer-${index}`} className="faq-answer-panel" style={{ maxHeight: isOpen ? '480px' : '0' }}>
+                    <div className="faq-answer-content">
+                      <p>{faq.a}</p>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
 
       {/* Competitive Advantage & Trust Pillars */}
       <section className="competitive-section">

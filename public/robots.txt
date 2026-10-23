@@ -1,7 +1,7 @@
 # ==============================================================================
 # Zyphuel Robots Exclusion Protocol (robots.txt)
 # Official Website: https://zyphuel.netlify.app/
-# Last Updated: 2026-10-12
+# Last Updated: 2026-10-23
 # ==============================================================================
 
 Sitemap: https://zyphuel.netlify.app/sitemap.xml

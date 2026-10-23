@@ -359,6 +359,38 @@ const ROUTES = [
           "mainEntity": [
             {
               "@type": "Question",
+              "name": "What is Zyphuel?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zyphuel is an on-demand doorstep fuel delivery service in Lahore. It brings Euro-V petrol, High-Octane 97, or diesel to your address within 45 minutes — order 5 to 15 litres online or through the Android app and pay cash or online, without visiting a petrol pump."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does Zyphuel do for its customers?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zyphuel dispatches a calibrated micro-refueler to your location in Lahore and delivers fuel for cars, motorbikes, standby generators, and commercial machinery. Every litre is metered on a calibrated 0.01L flow meter and itemised on a QR/barcoded PDF invoice."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Zyphuel safe to use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Zyphuel delivers only OGRA-notified Euro-V fuel from sealed, metered bowsers operated by trained dispatch staff, and every order is backed by a verifiable QR/barcode invoice plus a 24/7 WhatsApp helpline on +92 3230-112464."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Zyphuel have a mobile application?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Zyphuel's Android app is available as a direct APK download with live delivery tracking and 2-hour fuel price alerts. The iOS version is in development; iPhone users can order on the website, and official Google Play and App Store listings are launching soon."
+              }
+            },
+            {
+              "@type": "Question",
               "name": "Which areas of Lahore does Zyphuel deliver to?",
               "acceptedAnswer": {
                 "@type": "Answer",
@@ -707,6 +739,68 @@ const ROUTES = [
             "name": "Adil Farooq"
           },
           "publisher": { "@id": `${DOMAIN}/#organization` }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": `${DOMAIN}/download/#faq`,
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": `Is the Zyphuel APK v${APP_VERSION} safe to download and install?`,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": `Yes, absolutely. The Zyphuel Android Application package (v${APP_VERSION}, ${APP_SIZE}) is safe, verified, and free from any malware. It is compiled and digitally signed by our engineering team. We recommend downloading the APK directly from our official portal to ensure you get the genuine, unaltered app.`
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do the 2-hour market fuel price notifications work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Following OGRA's implementation of the daily fuel pricing mechanism based on international Platts benchmarks, the app monitors official price updates and sends automated lock-screen notifications every 2 hours, so drivers and fleet managers can lock current rates before depot price adjustments take effect."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does Zyphuel ensure volumetric accuracy and prevent short-fueling?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Every micro-refueler bowser is equipped with positive-displacement electronic flow meters calibrated to 0.01L precision with automatic 15°C temperature compensation. The meter streams the live dispensing volume to your smartphone screen, followed by an immutable digital QR/barcoded receipt."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which areas of Lahore are covered by the mobile app?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The Zyphuel app uses automated GPS coordinate detection covering all major Lahore zones including DHA Phase 1–9, Gulberg, Johar Town, Model Town, Green Town, Bahria Town, Faisal Town, Cantt, and surrounding industrial corridors, with average 45-minute dispatch."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I pay with Cash on Delivery (COD) or mobile Online Payments?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Household fuel orders from 5 to 10 Litres can be paid via Cash on Delivery. Riders also carry instant QR codes for on-the-spot online payments via JazzCash, Easypaisa, NayaPay, and Raast / bank transfer. For commercial generator refueling and corporate fleet accounts, we support bank transfers and structured 15/30-day corporate billing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why is the app distributed via direct APK instead of Google Play?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The APK is distributed directly to enable rapid deployment of logistics features, real-time GPS updates, and telemetry sync without store review delays. The official Google Play Store listing is launching soon."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When will the iOS App Store version be available?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The iOS version is in active development. In the meantime, iPhone users can order through the fully responsive web platform at https://zyphuel.netlify.app/order/."
+              }
+            }
+          ]
         }
       ]
     }
@@ -833,6 +927,22 @@ const ROUTES = [
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "100% of Zyphuel fuel supplies are sourced from licensed primary oil marketing depots, strictly compliant with official OGRA regulations and Euro-V environmental standards."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does Zyphuel take to deliver fuel in Lahore?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Standard doorstep dispatch arrives within 45 minutes anywhere in covered Lahore areas, and Urgent priority dispatch arrives in 10–20 minutes for a +Rs. 100.00 surcharge. A live countdown runs from order confirmation, with online order intake daily from 8:00 AM to 10:00 PM PKT."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I order fuel for a standby generator or commercial machinery?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Choose one of four refueling targets — Car/Sedan/SUV, Motorbike/Scooter, Standby Generator, or Commercial Machinery. Doorstep orders cover 5–15 litres; larger generator or commercial requirements beyond 15 litres are supplied through scheduled B2B bowsers via our corporate desk."
               }
             }
           ]
