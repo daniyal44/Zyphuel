@@ -47,6 +47,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-23** | **Heading order fix**: legal sidebar titles demoted from `h3` to `h2` (`.legal-sidebar-title` selector + `PrivacyPolicyPage.jsx`) so no levels are skipped. | Lighthouse Accessibility audit — `/privacy/` Accessibility / Best Practices / SEO **100/100**. |
 | **2026-10-01** | **Schedule Specification**: Updated Section 8 contact disclosure to delineate corporate desk hours, online doorstep order window (8:00 AM – 10:00 PM Daily), and 24/7 WhatsApp emergency assistance. | Maintain unified operational transparency across privacy policies. |
 | **2026-09-27** | Removed direct phone number display; routed to official Contact Page. | User requested: *"contact page ka elova mera phone number kise be or page per show nai hona chaye"*. Replaced raw phone number text with direct link to official Contact Page (`/contact/`) to consolidate personal telephone numbers exclusively to the designated contact gateway. |
 | **2026-09-13** | Updated Contact disclosure with standardized Working Hours schedule. | Ensure complete consistency across all legal disclosures and homepage. |

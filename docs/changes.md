@@ -1075,3 +1075,25 @@ Headless Chrome via CDP with `Emulation.setEmulatedMedia` (confirmed in-page: `r
 ### 28.6 MIT license link on GitHub (404 reason)
 - `package.json` declares `"license": "MIT"`, so GitHub renders a **"MIT license"** entry in the repository sidebar. That entry links to `/blob/main/LICENSE` — and the repository had **no `LICENSE` file**, so the click landed on GitHub's 404 page.
 - Fixed by adding the [`LICENSE`](../LICENSE) file with the standard MIT text and the project's copyright line. MIT is a permissive license: anyone may use, copy, modify, merge, publish, distribute, sublicense and sell the software, provided the copyright notice and permission notice are kept in all copies; the software comes with no warranty.
+
+---
+
+## Phase 29: Lighthouse "All 100" Audit + Off-Page Backlink Plan (2026-10-23)
+
+### 29.1 Accessibility / Best-Practices / SEO → 100 (all 9 pages, desktop + mobile)
+- **Heading order**: Contact `.contact-text h4` → `h2`; About three `.value-title` `h3` → `h2`; Privacy & Terms `.legal-sidebar-title` `h3` → `h2`; Order payment `h5` + night-cutoff `h4` demoted to non-heading `div`s (inline styles kept, visuals identical) because they are labels, not section titles.
+- **WCAG AA colour contrast**: ScrollStory `.scroll-story-step-number` → `#64748b`; the dark-calc `#cbd5e1` `.summary-row` rule scoped so it no longer leaks onto the light order-summary card; Order priority/status badges (`#16a34a` / `#059669` / `#ea580c` class) darkened.
+- **Verified**: Accessibility **100**, Best Practices **100**, SEO **100** on all 9 routes, desktop and mobile (`scratch/perf-matrix.mjs`; reports in `lighthouse/`).
+
+### 29.2 Performance fixes kept (safe, no visual trade-off)
+- `.fade-in-up` hidden state now gated behind `html.reveal-ready` + `:not(.animated)` — prerendered content paints immediately without JavaScript (terms mobile FCP 7.0 s → 4.2 s).
+- `public/images/Bank.png` + carousel copy: 1536×1314 / **2 MB → 600×513 / 124 KB** (sharp-cli palette).
+- Render-blocking audit: **0 ms wasted** — Google Fonts + Font Awesome were already `media="print"` async with a `<noscript>` fallback; only `index.css` is render-blocking and inlining it was rejected as marginal (FOUC/CLS risk).
+- **Rejected**: downscaling the 2560×1440 scroll-animation frames — the hero canvas covers the full viewport at retina scale, so resizing would blur the signature animation. Frame weight stays an accepted trade-off (animation pages: mobile LCP 7–8.5 s under Lighthouse slow-4G).
+
+### 29.3 Final measured matrix (9 pages × desktop/mobile)
+- **Desktop**: performance avg **91** (range 87–94), a11y/BP/SEO 100 → overall **98/100**.
+- **Mobile**: performance avg **65** (range 49–89; contact 89, privacy 86), a11y/BP/SEO 100 → overall **91/100**.
+
+### 29.4 Off-page backlink plan (new doc)
+- [`docs/plans/2026-10-23-offpage-backlink-plan.md`](./plans/2026-10-23-offpage-backlink-plan.md) — verified 2026 checklist: Google/Bing/Apple business listings, official social profiles, Brownbook / Hotfrog / Crunchbase / F6S / YellowPage.pk / Rehbar.pk / B2BMAP / PRLog; explicitly rejected ENIC.pk (paid), Clutch & GoodFirms (category misfit), HARO/Connectively (closed 2024-12-09). Includes the canonical NAP block, four copy-paste templates (short/long boilerplate, outreach email, press angles), a 4-week schedule and a tracking table.

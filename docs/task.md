@@ -100,6 +100,11 @@ This document serves as the centralized master tracking ledger for all completed
 
 ---
 
+### 1.13 Lighthouse Accessibility / Best-Practices / SEO = 100 Audit, Safe Performance Fixes & Off-Page Backlink Plan (2026-10-23)
+- [x] Fixed every heading-order skip (Contact h4→h2, About value h3→h2, Privacy/Terms legal h3→h2, Order checkout labels h5/h4→div) and every WCAG AA colour-contrast failure (ScrollStory step numbers, order summary rows, status badges).
+- [x] Made `.fade-in-up` content paint without JavaScript (reveal-ready gate) and compressed `Bank.png` 2 MB → 124 KB; verified **A11y / BP / SEO = 100 on all 9 pages, desktop and mobile** (overall desktop 98/100, mobile 91/100).
+- [x] Published the verified off-page backlink checklist: [`docs/plans/2026-10-23-offpage-backlink-plan.md`](./plans/2026-10-23-offpage-backlink-plan.md).
+
 ## 2. Active Engineering Tasks
 
 - [x] **Task 2.1**: Consolidate and finalize master documentation suite in `docs/`.

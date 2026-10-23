@@ -1,0 +1,173 @@
+[
+  {
+    "device": "mobile",
+    "page": "home",
+    "url": "http://localhost:5184/",
+    "scores": {
+      "performance": 52,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "fcp": 4960.747399999999,
+    "lcp": 7072.089899999999,
+    "cls": 0,
+    "tbt": 373.7480000000005,
+    "si": 7144.196801008691,
+    "tti": 11406.2954,
+    "byteWeight": 1619561,
+    "ms": 50071
+  },
+  {
+    "device": "mobile",
+    "page": "about",
+    "url": "http://localhost:5184/about/",
+    "scores": {
+      "performance": 65,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "fcp": 5120.746800000001,
+    "lcp": 6053.185300000001,
+    "cls": 0.032072579866090085,
+    "tbt": 0,
+    "si": 5120.746800000001,
+    "tti": 6093.146950000001,
+    "byteWeight": 1142848,
+    "ms": 109472
+  },
+  {
+    "device": "mobile",
+    "page": "services",
+    "url": "http://localhost:5184/services/",
+    "scores": {
+      "performance": 53,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "fcp": 5374.5501,
+    "lcp": 7508.334100000001,
+    "cls": 0.002780116306932454,
+    "tbt": 393.186275,
+    "si": 5374.5501,
+    "tti": 7615.023300000003,
+    "byteWeight": 4495387,
+    "ms": 25567
+  },
+  {
+    "device": "mobile",
+    "page": "order",
+    "url": "http://localhost:5184/order/",
+    "scores": {
+      "performance": 63,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "fcp": 5108.929500000001,
+    "lcp": 8480.37525,
+    "cls": 0,
+    "tbt": 44,
+    "si": 5108.929500000001,
+    "tti": 8647.613475,
+    "byteWeight": 1436986,
+    "ms": 25451
+  },
+  {
+    "device": "mobile",
+    "page": "contact",
+    "url": "http://localhost:5184/contact/",
+    "scores": {
+      "performance": 89,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "fcp": 2926.555,
+    "lcp": 2937.0550000000003,
+    "cls": 0.00191417344014332,
+    "tbt": 45.020249999999805,
+    "si": 3420.680887015162,
+    "tti": 4555.665360000001,
+    "byteWeight": 1124935,
+    "ms": 25337
+  },
+  {
+    "device": "mobile",
+    "page": "blog",
+    "url": "http://localhost:5184/blog/",
+    "scores": {
+      "performance": 64,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "fcp": 4901.6583,
+    "lcp": 6027.3783,
+    "cls": 0.030167419231253108,
+    "tbt": 148,
+    "si": 4901.6583,
+    "tti": 6055.5213,
+    "byteWeight": 959698,
+    "ms": 25218
+  },
+  {
+    "device": "mobile",
+    "page": "download",
+    "url": "http://localhost:5184/download/",
+    "scores": {
+      "performance": 49,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "fcp": 3418.7159000000006,
+    "lcp": 7680.361900000001,
+    "cls": 0.0012081131156995927,
+    "tbt": 786.2019999999998,
+    "si": 4011.7988115817293,
+    "tti": 7831.968300000001,
+    "byteWeight": 4298430,
+    "ms": 24877
+  },
+  {
+    "device": "mobile",
+    "page": "privacy",
+    "url": "http://localhost:5184/privacy/",
+    "scores": {
+      "performance": 86,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "fcp": 2767.6621,
+    "lcp": 2917.897749999999,
+    "cls": 0.0014489882281325847,
+    "tbt": 38.5,
+    "si": 5485.854735237276,
+    "tti": 3071.722575,
+    "byteWeight": 655998,
+    "ms": 25210
+  },
+  {
+    "device": "mobile",
+    "page": "terms",
+    "url": "http://localhost:5184/terms/",
+    "scores": {
+      "performance": 66,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "fcp": 5106.15355,
+    "lcp": 5383.40755,
+    "cls": 0.06692780137377703,
+    "tbt": 0,
+    "si": 5106.15355,
+    "tti": 5383.40755,
+    "byteWeight": 657580,
+    "ms": 22288
+  }
+]
