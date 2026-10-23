@@ -1,53 +1,71 @@
 {
-  "lastUpdated": "2026-10-22T07:18:05.801210",
-  "dateFormatted": "October 22, 2026",
-  "dateISO": "2026-10-22",
+  "lastUpdated": "2026-10-23T07:10:34.327597",
+  "dateFormatted": "October 23, 2026",
+  "dateISO": "2026-10-23",
   "headlinesCount": 10,
   "headlines": [
     {
-      "title": "Govt reduces petrol price by Rs2.71 per litre, ups high-speed diesel rate by Re0.31 - Dawn",
-      "summary": "Govt reduces petrol price by Rs2.71 per litre, ups high-speed diesel rate by Re0.31 &nbsp;&nbsp; Dawn",
-      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE96UUpQNWVXS1dIcTVRSHRjZk4wQk9sR1NySjhfczNYeUgyR3ZxRlVvT0J2VlBDdEhwNTBERG5KSFBOTFJNWU43bg?oc=5",
-      "published": "Wed, 21 Oct 2026 18:16:51 GMT",
+      "title": "Petrol price cut by Rs1.60, diesel rate up by Rs1.64 per litre - The News Pakistan",
+      "summary": "Petrol price cut by Rs1.60, diesel rate up by Rs1.64 per litre &nbsp;&nbsp; The News Pakistan",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBoMVpZUFdtRnVHVEl2eGZzOUpTcVhQR1pQLTUwLTl2SHd3aDdqWUNxSW1WQ0d4cVl0VF9fdG4xZDJncHQ4cWl2eUN3V2NFTDFIRHl1djItZGExUlNKLV9EaGNxMXA4Qk5Va3FoWERjS0tuS2QxenNVVm5R?oc=5",
+      "published": "Thu, 22 Oct 2026 23:47:11 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "f5c259b7024b0f09cb7bbc0f2245066c54b8971ce1ad6ab777c780e9f7590baf"
+      "hash": "9278cf48d740b196f2f61f553930e2a597143015bf11688b7940c24601a09d63"
     },
     {
-      "title": "Pakistan Petrol Price | High Speed Diesel Rate | OGRA Update - Aaj News",
-      "summary": "Pakistan Petrol Price | High Speed Diesel Rate | OGRA Update &nbsp;&nbsp; Aaj News",
-      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE9vVEZGU0dPQ0RUVDlZZG5jaVlQYzc5SVk5a2ZvWk1TNWFZV1V6d1ZLczlCbUNsZzlzOTc1YUVoZ2pEOEU1bDNJYl9oaUE?oc=5",
-      "published": "Wed, 21 Oct 2026 07:00:14 GMT",
+      "title": "Govt reduces petrol price by Rs1.60 per litre, raises high-speed diesel rate by Rs1.64 - Dawn",
+      "summary": "Govt reduces petrol price by Rs1.60 per litre, raises high-speed diesel rate by Rs1.64 &nbsp;&nbsp; Dawn",
+      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBKWmIzblBMTHk1RGI1bk1nMV9Zd0lOMmJxNGh6cDN3QmNnRVlTdzJEeFVvUXQ3M0xFY05HeEh4WFFUWi1lcHlZYw?oc=5",
+      "published": "Thu, 22 Oct 2026 17:49:41 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "28167392e43e32f462541c07295016f0edb43294d5f5c0bcb2763d413f043523"
+      "hash": "b20f2af27e3889c567fed14e2798e71bf9e175f5bf3050096dd43abfd176ccbb"
     },
     {
-      "title": "Petrol price cut by Rs2.71, HSD’s hiked by 31 paise - Business Recorder",
-      "summary": "Petrol price cut by Rs2.71, HSD’s hiked by 31 paise &nbsp;&nbsp; Business Recorder",
-      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1SZTVhS1Bna25iZ1JMWGU5bG1ISjd6S2pFc0lJWTQtYm50WjQwMHNES2pJVk1pV2Fwd3Ztb3ctOGpfMVR4WGRHSnN6bVlvdktUSWR2WHZR0gFWQVVfeXFMTVJlNWFLUGdrbmJnUkxYZTlsbUhKN3pLakVzSUlZNC1ibnRaNDAwc0RLaklWTWlXYXB3dm1vdy04al8xVHhYZEdKc3ptWW92S1RJZHZYdlE?oc=5",
-      "published": "Thu, 22 Oct 2026 00:52:55 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "7b4e7cc3f36327d3efc285344d22a727c7cbc036115c85bae238168a8a895d56"
-    },
-    {
-      "title": "Govt reduces petrol price by Rs2.71, increases diesel by Re0.31 per litre - Geo News",
-      "summary": "Govt reduces petrol price by Rs2.71, increases diesel by Re0.31 per litre &nbsp;&nbsp; Geo News",
+      "title": "Govt slashes petrol price by Rs1.60, hikes diesel by Rs1.64 per litre - Geo News",
+      "summary": "Govt slashes petrol price by Rs1.60, hikes diesel by Rs1.64 per litre &nbsp;&nbsp; Geo News",
       "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9pbXZtZUpsa1JoNmUyZ012SmFiTWdfOFY0Tm56QzE3dzVza1N0SUItZEtwODl0Sm8yU1ZRcDd0YUZMWnRpcWhzWUdhSlNtNkc4eE5TOGJMdFV0ZUpja1RGVjhycU45SzM1TEVnUk5uUmMwZDdt?oc=5",
-      "published": "Wed, 21 Oct 2026 20:28:00 GMT",
+      "published": "Thu, 22 Oct 2026 19:04:42 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "c3a9fb749227241e29f7387059855a72642d1d032a698e438eadde638ee345cd"
+      "hash": "2360a389c021f1f95b6366ee503f7f23bab4553640ddb3b7f5c1ce8cede834e7"
     },
     {
-      "title": "OGRA reduces petrol price, increases diesel rate - ARYnews.tv",
-      "summary": "OGRA reduces petrol price, increases diesel rate &nbsp;&nbsp; ARYnews.tv",
-      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9rWE5DYVBLdTVWWmtaQjNuVzZwb1pjb0F2WVZTV3hGYU1MRng4dk8zUEdiR2VaN1c1OW4wOUktenRmRHZNUkNjQ005dzcwVUdyNTBjcm84UWtqbWpWbFVtYXpfX1N2MXRMTmJENHdBYjRSZlRO?oc=5",
-      "published": "Wed, 21 Oct 2026 18:13:07 GMT",
+      "title": "Petrol price reduced, diesel rate increased by OGRA - ARYnews.tv",
+      "summary": "Petrol price reduced, diesel rate increased by OGRA &nbsp;&nbsp; ARYnews.tv",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5MdEZQUU9JRUUxQjVVenVNVzdSN2VDUGRwVEtZN1JuZGFsaHliMmhrZEdtZ0xfeGppNXpYUjEzZHBQanZpSVpkekg4WWZTMHdNM2E3WUlDZ1pHT1ZhR24zTzl6cEhycmlTclNSWm5peFhfSm5HZHFfVw?oc=5",
+      "published": "Thu, 22 Oct 2026 18:15:34 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "4b3a123129468b73479bb885df4d64a87e3f9fdb0d14de3491ba5a935456963e"
+      "hash": "e6923759bac1e45db37351526d3c53808912ba2405c64d14c03989dc3e4aa5d7"
+    },
+    {
+      "title": "OGRA Announces Updated Petrol & Diesel Prices for Today - TechJuice",
+      "summary": "OGRA Announces Updated Petrol & Diesel Prices for Today &nbsp;&nbsp; TechJuice",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNZlpOS1VoeEFQcVJrYThlQkFnOFJHSGEzRXAySkRhb21sWThtd3dVbkQtU1BFWHRNMldUekZ2ckhHWFJxTmR5aERsMGh4R2gzakNod2JhUGlMNEZqRDJuRjQ3MVlvZjdwVXJrUnQ2NFVxQWRWczY4YkdGRDZqSlc5d2NtOGd2dw?oc=5",
+      "published": "Fri, 23 Oct 2026 04:51:52 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "aeb7b953e22f203d0e4a1f104c4beb31e781b493514eb49638b1b49f6ab58b05"
+    },
+    {
+      "title": "Government increases petrol, diesel prices - Aaj English TV",
+      "summary": "Government increases petrol, diesel prices &nbsp;&nbsp; Aaj English TV",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9Qd3JhbDJxYi1OZ3VibWNZX1FnTkpCZExlMUJlaC1oSFJDZWgyMWZ0TWd5Y1IxWnFsRXVCYThnajhhbmQ5RTdQWjZqcjYwcnc?oc=5",
+      "published": "Thu, 22 Oct 2026 14:52:32 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "41301ae182d25efbfc074e5b5dc8a54cc1c7716394f34db11ca3d266e7ae69ee"
+    },
+    {
+      "title": "Petrol and Diesel Prices Rise Again a Day After Cuts - Hamariweb.com",
+      "summary": "Petrol and Diesel Prices Rise Again a Day After Cuts &nbsp;&nbsp; Hamariweb.com",
+      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQX0NhLUtkSEZlajI0TGR5alJ1Y3RUV2w0bHhLbjRZT0Y3TVRIWjFpX3pNbzlIVGNfMGhOaHotWVE5Y3lFRHE5UE1FRnJlV0NvYlVDQm1vZVVZZ2RZdjI3bWRqUEVHWDE5d0ZneTZqQWhyMnFJb1VLaGVvOERGWFJNaHZSTy13N2N6MVExLVc1YXpvTDdD?oc=5",
+      "published": "Thu, 22 Oct 2026 07:18:58 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "38eb7b7e1a9b2d4f83f5491d936028000bf7a823f4156d66b734dc707e791ba1"
     },
     {
       "title": "Petrol Price Drops Again, Diesel Gets Slight Increase - Pakwheels",
@@ -59,40 +77,22 @@
       "hash": "96a07492e401a5c062df226ccc2842d7f90ec18b0ad812b6f5dd58f685b46e6e"
     },
     {
-      "title": "OGRA reduces petrol price, increases high-speed diesel rate - Pakistan Connect",
-      "summary": "OGRA reduces petrol price, increases high-speed diesel rate &nbsp;&nbsp; Pakistan Connect",
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPejQwYkdUaGJsei0zaFBiSU5Mc2EzdEJod3NyNWJ2QWE3TF9ZN1BtNHQwWXZIZTNROVgtNEYwenhUTGRZN1JrUVFmanJKYW9BTktfelZZLTNQSFg3MkdQMlAtbVNOX281MDJNWHJDSEIyUE1JWVd5ZElsYVpncVRjejN4WTE2dEczdGxnSE1sMlMtcGFk?oc=5",
-      "published": "Wed, 21 Oct 2026 18:33:46 GMT",
+      "title": "Govt raises diesel price, cuts petrol price for Oct 23 - Aaj English TV",
+      "summary": "Govt raises diesel price, cuts petrol price for Oct 23 &nbsp;&nbsp; Aaj English TV",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBFb1lZMUg3bmZSekRIaUpoc3NiWTVKaktTRFBvSmY5TU1mNzhFdFBiQkJTNVM4R19NbThvWTI5ekY1UkRHYnJTYmFDOXV3aUJnVnU4?oc=5",
+      "published": "Thu, 22 Oct 2026 17:50:34 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "7457bba37c0043f0ee3798cdec5c7a91111764595826fdd0d68e6bf8ec15fb33"
+      "hash": "08a6c8561612b342607d0077f9363bce6904407a959f75b29721c99337aafd44"
     },
     {
-      "title": "Petrol and Diesel Prices Rise Again a Day After Cuts - Hamariweb.com",
-      "summary": "Petrol and Diesel Prices Rise Again a Day After Cuts &nbsp;&nbsp; Hamariweb.com",
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQSjJ1RVdSejl2M3ZXSzVTOXhzWkZ6YThsQ1NwY3dwc204NzZ5V2M2VXVzREFBaWU2WGtqc2t4X3FpekgybjVOc1RlSExWVVN5dF8yQ05mT05JNnQzZERiRmkxeGRuOUp0NV93T2RKeWFKY250R2ZJY0l4VGhjZHdad09zWVNZY1FiNmFubHlobkJnU1RF?oc=5",
-      "published": "Wed, 21 Oct 2026 06:53:43 GMT",
+      "title": "OGRA reduces petrol price, increases diesel rate - ARYnews.tv",
+      "summary": "OGRA reduces petrol price, increases diesel rate &nbsp;&nbsp; ARYnews.tv",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9rWE5DYVBLdTVWWmtaQjNuVzZwb1pjb0F2WVZTV3hGYU1MRng4dk8zUEdiR2VaN1c1OW4wOUktenRmRHZNUkNjQ005dzcwVUdyNTBjcm84UWtqbWpWbFVtYXpfX1N2MXRMTmJENHdBYjRSZlRO?oc=5",
+      "published": "Wed, 21 Oct 2026 18:13:07 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "38eb7b7e1a9b2d4f83f5491d936028000bf7a823f4156d66b734dc707e791ba1"
-    },
-    {
-      "title": "Petrol price cut by Rs2.71 per litre, diesel rises by 31 paisa - Profit by Pakistan Today",
-      "summary": "Petrol price cut by Rs2.71 per litre, diesel rises by 31 paisa &nbsp;&nbsp; Profit by Pakistan Today",
-      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPalZPU1AzcWtQR29md0Z6ZkFWQ0Rsb05HTkwtVXFoU2R0aTRaSnVZcjR4bWhpSEZhdWs1WHBpRldpR3lvcThxM29JT0ZCYmJjYlU4OVF3dnZoeUpyczRwUHN5dG8zaFZHeU9KVndDeURmcEZUeDNaQUZIUHdWMTZOMDhiQlRscjRYZjdGVlZrNFFiTGdOX3hNcmJPNHZFbE1zc0V4S19MZEI3WGM?oc=5",
-      "published": "Wed, 21 Oct 2026 18:27:45 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "ce916ca4f3283de46c34ec904aa010eb0c0ffb4a357e936fd0a4d04049598adf"
-    },
-    {
-      "title": "Government reduces petrol price, raises diesel - Aaj English TV",
-      "summary": "Government reduces petrol price, raises diesel &nbsp;&nbsp; Aaj English TV",
-      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE00elVnRElKNVVRV1pGLTJvaFdpZlRWdWY5RGNTSnNPc0pxLWctT1NwbVpTd2NLRnQxMGpjVjhTNHRIVnJ2blNuazN6X1Yxd0VjUEJF?oc=5",
-      "published": "Wed, 21 Oct 2026 18:01:31 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "cb147afc1fe6e9a24737df09878b0242e0f4b3762cf1626dfe0667d52ba03e4c"
+      "hash": "4b3a123129468b73479bb885df4d64a87e3f9fdb0d14de3491ba5a935456963e"
     }
   ],
   "businessRules": {
@@ -108,154 +108,154 @@
   },
   "articles": {
     "future-of-fuel-delivery-lahore": {
-      "date": "October 22, 2026",
-      "headline": "Daily Petroleum Market Intelligence (October 22, 2026)",
+      "date": "October 23, 2026",
+      "headline": "Daily Petroleum Market Intelligence (October 23, 2026)",
       "summary": "OGRA daily rolling Platts benchmark monitor active. Rates adjust daily Monday through Friday, with weekend rates locked. Lock in your doorstep refuel at current rates before depot changes. Fixed Rs. 300.00 delivery fee for 5L–10L; Rs. 320–Rs. 400 for 11L–15L Max.",
       "topic": "daily_pricing_ogra",
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Govt reduces petrol price by Rs2.71 per litre, ups high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price cut by Rs1.60, diesel rate up by Rs1.64 per litre - The News Pakistan (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Pakistan Petrol Price | High Speed Diesel Rate | OGRA Update - Aaj News (Google News (Petrol Price Pakistan))"
+          "text": "Govt reduces petrol price by Rs1.60 per litre, raises high-speed diesel rate by Rs1.64 - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Petrol price cut by Rs2.71, HSD’s hiked by 31 paise - Business Recorder (Google News (Petrol Price Pakistan))"
+          "text": "Govt slashes petrol price by Rs1.60, hikes diesel by Rs1.64 per litre - Geo News (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "download-zyphuel-apk-guide": {
-      "date": "October 22, 2026",
-      "headline": "Daily Petroleum Market Intelligence (October 22, 2026)",
+      "date": "October 23, 2026",
+      "headline": "Daily Petroleum Market Intelligence (October 23, 2026)",
       "summary": "Zyphuel Android APK (v2.6.4+) delivers live lock-screen OGRA rate alerts, GPS sector auto-pinning, and Bluetooth bowser telemetry across Lahore. Orders strictly 5L to 15L Max delivered within 20–45 mins.",
       "topic": "apk_mobile_telemetry",
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Govt reduces petrol price by Rs2.71 per litre, ups high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price cut by Rs1.60, diesel rate up by Rs1.64 per litre - The News Pakistan (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Pakistan Petrol Price | High Speed Diesel Rate | OGRA Update - Aaj News (Google News (Petrol Price Pakistan))"
+          "text": "Govt reduces petrol price by Rs1.60 per litre, raises high-speed diesel rate by Rs1.64 - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Petrol price cut by Rs2.71, HSD’s hiked by 31 paise - Business Recorder (Google News (Petrol Price Pakistan))"
+          "text": "Govt slashes petrol price by Rs1.60, hikes diesel by Rs1.64 per litre - Geo News (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "generator-refueling-services-lahore": {
-      "date": "October 22, 2026",
-      "headline": "Daily Petroleum Market Intelligence (October 22, 2026)",
+      "date": "October 23, 2026",
+      "headline": "Daily Petroleum Market Intelligence (October 23, 2026)",
       "summary": "Emergency load-shedding generator backup: 100% Euro-V Hi-Cetane Diesel delivered directly to your rooftop or basement generator with 50-meter anti-static reels. Zero manual jerrycan risks in residential or commercial plazas.",
       "topic": "generator_diesel_backup",
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Govt reduces petrol price by Rs2.71 per litre, ups high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price cut by Rs1.60, diesel rate up by Rs1.64 per litre - The News Pakistan (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Pakistan Petrol Price | High Speed Diesel Rate | OGRA Update - Aaj News (Google News (Petrol Price Pakistan))"
+          "text": "Govt reduces petrol price by Rs1.60 per litre, raises high-speed diesel rate by Rs1.64 - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Petrol price cut by Rs2.71, HSD’s hiked by 31 paise - Business Recorder (Google News (Petrol Price Pakistan))"
+          "text": "Govt slashes petrol price by Rs1.60, hikes diesel by Rs1.64 per litre - Geo News (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "generator-diesel-lpg-delivery-lahore": {
-      "date": "October 22, 2026",
-      "headline": "Daily Petroleum Market Intelligence (October 22, 2026)",
+      "date": "October 23, 2026",
+      "headline": "Daily Petroleum Market Intelligence (October 23, 2026)",
       "summary": "Certified hazardous materials handling: Positive-displacement calibrated dispensing and sealed utilities. Strict 5L min to 15L max per dispatch with fixed Rs. 300 fee up to 10L, avoiding hazardous loose decanting.",
       "topic": "safe_fuel_handling",
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Govt reduces petrol price by Rs2.71 per litre, ups high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price cut by Rs1.60, diesel rate up by Rs1.64 per litre - The News Pakistan (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Pakistan Petrol Price | High Speed Diesel Rate | OGRA Update - Aaj News (Google News (Petrol Price Pakistan))"
+          "text": "Govt reduces petrol price by Rs1.60 per litre, raises high-speed diesel rate by Rs1.64 - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Petrol price cut by Rs2.71, HSD’s hiked by 31 paise - Business Recorder (Google News (Petrol Price Pakistan))"
+          "text": "Govt slashes petrol price by Rs1.60, hikes diesel by Rs1.64 per litre - Geo News (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "iot-telemetry-fuel-delivery": {
-      "date": "October 22, 2026",
-      "headline": "Daily Petroleum Market Intelligence (October 22, 2026)",
+      "date": "October 23, 2026",
+      "headline": "Daily Petroleum Market Intelligence (October 23, 2026)",
       "summary": "Weights & Measures certified positive-displacement flow meters with 1,000 pulses/litre optical encoders. 15°C Automatic Temperature Compensation (ATC) counteracts Lahore summer heat expansion with 0.01L verified precision.",
       "topic": "metering_telemetry",
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Govt reduces petrol price by Rs2.71 per litre, ups high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price cut by Rs1.60, diesel rate up by Rs1.64 per litre - The News Pakistan (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Pakistan Petrol Price | High Speed Diesel Rate | OGRA Update - Aaj News (Google News (Petrol Price Pakistan))"
+          "text": "Govt reduces petrol price by Rs1.60 per litre, raises high-speed diesel rate by Rs1.64 - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Petrol price cut by Rs2.71, HSD’s hiked by 31 paise - Business Recorder (Google News (Petrol Price Pakistan))"
+          "text": "Govt slashes petrol price by Rs1.60, hikes diesel by Rs1.64 per litre - Geo News (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "zyphuel-calibrated-telemetry-fleet": {
-      "date": "October 22, 2026",
-      "headline": "Daily Petroleum Market Intelligence (October 22, 2026)",
+      "date": "October 23, 2026",
+      "headline": "Daily Petroleum Market Intelligence (October 23, 2026)",
       "summary": "Founder Muhammad Daniyal's agile micro-refueler fleet operates across DHA, Gulberg, Johar Town, Bahria Town, and Model Town. Delivered within 20–45 mins simple dispatch (10–20 mins urgent) with instant Raast, JazzCash, Easypaisa QR payments.",
       "topic": "founder_fleet_network",
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Govt reduces petrol price by Rs2.71 per litre, ups high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price cut by Rs1.60, diesel rate up by Rs1.64 per litre - The News Pakistan (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Pakistan Petrol Price | High Speed Diesel Rate | OGRA Update - Aaj News (Google News (Petrol Price Pakistan))"
+          "text": "Govt reduces petrol price by Rs1.60 per litre, raises high-speed diesel rate by Rs1.64 - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Petrol price cut by Rs2.71, HSD’s hiked by 31 paise - Business Recorder (Google News (Petrol Price Pakistan))"
+          "text": "Govt slashes petrol price by Rs1.60, hikes diesel by Rs1.64 per litre - Geo News (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "global-vs-pakistan-on-demand-fuel-delivery-benchmarks": {
-      "date": "October 22, 2026",
-      "headline": "Daily Petroleum Market Intelligence (October 22, 2026)",
+      "date": "October 23, 2026",
+      "headline": "Daily Petroleum Market Intelligence (October 23, 2026)",
       "summary": "Comparing global leaders (CAFU, Booster, FuelBuddy) with Zyphuel in Lahore. Calibrated 0.01L flow meters, 50m long-reach hoses, dual optical verification (QR + Code 128), and strictly 5L–15L order limits tailored for Pakistan.",
       "topic": "global_benchmarks",
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Govt reduces petrol price by Rs2.71 per litre, ups high-speed diesel rate by Re0.31 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price cut by Rs1.60, diesel rate up by Rs1.64 per litre - The News Pakistan (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Pakistan Petrol Price | High Speed Diesel Rate | OGRA Update - Aaj News (Google News (Petrol Price Pakistan))"
+          "text": "Govt reduces petrol price by Rs1.60 per litre, raises high-speed diesel rate by Rs1.64 - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Petrol price cut by Rs2.71, HSD’s hiked by 31 paise - Business Recorder (Google News (Petrol Price Pakistan))"
+          "text": "Govt slashes petrol price by Rs1.60, hikes diesel by Rs1.64 per litre - Geo News (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
