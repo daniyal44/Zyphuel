@@ -104,6 +104,7 @@ All 13 core documentation files are consolidated directly in this directory (`do
 
 | Report Date | Scope & Key Contents | File Link |
 | :--- | :--- | :--- |
+| **Hub** | Reports Hub — every audit, QA pass and change report in one index, with the QA score chart, the Lighthouse performance graph, the change-mix pie, the commit gantt and the open-items breakdown by owner | [`docs/reports/README.md`](./reports/README.md) |
 | **2026-10-26** | Every website change from `6dfe8ed` → `18db378`: app version sync, performance (113.9 → 28.5 kB gzip entry JS), Technical SEO, AEO, GEO, urgent-tier removal, FAQ overlap bug, order stepper responsiveness, truthfulness audit and open items | [`docs/reports/2026-10-26-website-changes-report.md`](./reports/2026-10-26-website-changes-report.md) |
 
 ---
@@ -112,4 +113,4 @@ All 13 core documentation files are consolidated directly in this directory (`do
 
 | Report Date | Scope & Score | File Link |
 | :--- | :--- | :--- |
-| **2026-10-26** | Full manual + automated QA of all 17 routes with Mermaid score charts (Security 98, AEO 92, GEO 90, SEO 88, Build 87, Mobile 82, Perf 78, A11y 75, Trust 55 — overall 81/100) | [`docs/qa/2026-10-26-full-qa-report.md`](./qa/2026-10-26-full-qa-report.md) |
+| **2026-10-26** | Full manual + automated QA of all 17 routes with Mermaid score charts (Security 98, AEO 92, GEO 90, SEO tech 95, Build 87, Mobile 82, Perf 78, A11y 75, Trust 55 — overall 81/100) | [`docs/qa/2026-10-26-full-qa-report.md`](./qa/2026-10-26-full-qa-report.md) |

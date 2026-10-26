@@ -24,6 +24,7 @@
 - [Project Directory Structure](#-project-directory-structure)
 - [Getting Started & Local Setup](#-getting-started--local-setup)
 - [Production Build & SSR Prerendering](#-production-build--ssr-prerendering)
+- [Documentation, Audits & Reports](#-documentation-audits--reports)
 - [Corporate Identity & Regulatory Credentials](#-corporate-identity--regulatory-credentials)
 
 ---
@@ -486,6 +487,29 @@ npm run build
 To preview the production output locally:
 ```bash
 npm run preview
+```
+
+---
+
+## 📚 Documentation, Audits & Reports
+
+Every audit, QA pass and change report lives under `docs/`. Start at the hub, which carries the graphs:
+
+| Document | What it contains |
+| :--- | :--- |
+| **[Reports Hub](docs/reports/README.md)** | Index of every report with the QA score chart, the Lighthouse performance graph, the change-mix pie, the commit gantt and the open items broken down by owner |
+| [Complete Website Change Report](docs/reports/2026-10-26-website-changes-report.md) | All 9 commits of the 2026-10-26 round — 60 files, +1,812 / −658 lines — with before/after measurements and the truthfulness audit |
+| [Full Manual QA & Health Report](docs/qa/2026-10-26-full-qa-report.md) | Manual and automated QA of all 17 routes, scored **81 / 100** across 9 categories |
+| [Competitor Gap, Responsiveness & Performance Audit](docs/audits/2026-10-21-audit.md) | Lighthouse scores for all 9 pages, responsiveness bugs and measured root causes |
+| [Keyword Map & Routing Plan](docs/plans/2026-10-26-keyword-map.md) | Money keywords, PAA questions, long-tails and AI prompt targets per page |
+| [Project Phase Log](docs/changes.md) | Chronological build history, Phase 1 → 23 |
+| [Documentation Index](docs/README.md) | Full documentation tree: pages, subpages, vibe-coding context and chat logs |
+
+The static audit runs against the production build and prints a per-page PASS/FAIL table:
+
+```bash
+npm run build
+node scripts/qa-static.cjs
 ```
 
 ---

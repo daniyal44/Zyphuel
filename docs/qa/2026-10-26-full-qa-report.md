@@ -75,7 +75,7 @@ xychart-beta
 | **Accessibility** | 75 | 100% of `<img>` have `alt`; 0 broken images. Deductions: a few icon buttons < 32px tall, decorative images use `aria-hidden` without role. |
 | **Content trust (E-E-A-T)** | **55** | **Lowest score.** Unverifiable regulatory claims (OGRA licensed/compliant, NFPA 385/30A, weights-and-measures certified) and a live LPG/water contradiction. |
 
-**Weighted overall: 78/100** — trust is weighted double because it is the only category that can cause a manual penalty or a legal problem.
+**Weighted overall: 81/100** (raised from 78 after the SERP meta-length fix in `18db378`) — trust is weighted double because it is the only category that can cause a manual penalty or a legal problem.
 
 ---
 
