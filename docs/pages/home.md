@@ -143,3 +143,18 @@
 - Added high-intent modifier keywords observed in Google related searches: `petrol delivery lahore price`, `diesel delivery lahore price`, `petrol delivery lahore contact number`, `fuel delivery app lahore`, `petrol delivery near me lahore` — in `prerender.js` route keywords (authoritative), `index.html` and `useSEO` defaults.
 - Removed the fabricated `baidu-site-verification` meta tag (`codeva-zyphuel` is not a valid Baidu token format).
 - Full keyword to page map recorded in `docs/plans/2026-10-26-keyword-map.md`.
+
+### 2026-10-26 — Fix: FAQ answer text overlapped ("double text")
+
+**Reported by user:** the FAQ answers appeared printed on top of each other.
+
+**Root cause:** the home page renders the shared `.faq-accordion-*` markup, but every
+accordion rule lived in `src/pages/styles.css`, which only `AboutPage` and
+`DownloadPage` import. Home never loaded that file, so `.faq-answer-panel` had no
+`overflow: hidden`; the collapsed panel kept `max-height: 0` while all 18 answer
+texts still painted, spilling over each other and over the next questions.
+
+**Fix:** the FAQ accordion block (container, item, trigger, question text, chevron,
+panel, content) now lives in the global `src/index.css`. Verified in the browser:
+`overflow: hidden`, one panel open at a time, and exactly 1 visible answer instead
+of 18.

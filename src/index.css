@@ -6026,3 +6026,86 @@ a.footer-contact-link:hover {
     animation-duration: 1.6s;
   }
 }
+
+/* ==========================================================================
+   FAQ Accordion (global)
+   These rules previously lived only in src/pages/styles.css, which is imported
+   by About and Download but NOT by the home page. The home page renders the
+   same .faq-* markup, so its collapsed answers had no `overflow: hidden` and
+   every answer's text painted on top of the next one (garbled "double text").
+   ========================================================================== */
+.faq-accordion-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-accordion-item {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: var(--radius-sm, 10px);
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-accordion-item:hover {
+  border-color: rgba(14, 165, 233, 0.2);
+}
+
+.faq-accordion-item.active {
+  border-color: var(--accent-color, #0ea5e9);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.08));
+}
+
+.faq-trigger {
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+
+.faq-question-text {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary, #0f172a);
+  padding-right: 20px;
+}
+
+.faq-chevron {
+  flex-shrink: 0;
+  color: var(--text-secondary, #64748b);
+  font-size: 0.95rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.faq-accordion-item.active .faq-chevron {
+  color: var(--accent-color, #0ea5e9);
+  transform: rotate(180deg);
+}
+
+/* The critical rule: clip the collapsed panel so answers never overlap. */
+.faq-answer-panel {
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-answer-content {
+  padding: 0 24px 20px 24px;
+  border-top: 1px solid #f8fafc;
+}
+
+.faq-answer-content p {
+  font-size: 0.95rem;
+  color: var(--text-secondary, #64748b);
+  line-height: 1.6;
+}

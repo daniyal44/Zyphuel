@@ -1222,3 +1222,22 @@ valid Baidu token), which was a dead verification claim in the document head.
 ### Verified baseline
 Google for *"petrol delivery at home Lahore service diesel doorstep order"*
 returns **zyphuel.netlify.app at position #2**.
+
+---
+
+## Phase 20 — FAQ Accordion Rendering Fix (2026-10-26)
+
+**Symptom:** on the home page the FAQ answers were unreadable — every answer was
+painted on top of the others ("text double double").
+
+**Cause:** `.faq-*` styles were only defined in `src/pages/styles.css`, imported by
+`AboutPage` and `DownloadPage` but **not** by `HomePage`. Without
+`.faq-answer-panel { overflow: hidden }` the collapsed panels kept `max-height: 0`
+yet all 18 answer texts still rendered at the same offset.
+
+**Fix:** moved the whole FAQ accordion block into the global `src/index.css`.
+Chevron now also rotates when a question opens.
+
+**Verification:** computed `overflow: hidden`; `aria-expanded` toggles one item at a
+time; only 1 answer panel is visible (previously 18 overlapped); screenshot of the
+rendered section is clean.
