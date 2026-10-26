@@ -28,7 +28,13 @@ const DEFAULT_KEYWORDS = [
   'diesel delivery Johar Town',
   'OGRA compliant fuel rates',
   'calibrated flow meter fuel delivery',
-  'doorstep fuel delivery rates lahore'
+  'doorstep fuel delivery rates lahore',
+  // High-intent modifier clusters (price / number / app / near me)
+  'petrol delivery lahore price',
+  'diesel delivery lahore price',
+  'petrol delivery lahore contact number',
+  'fuel delivery app lahore',
+  'petrol delivery near me lahore'
 ]
 
 // Global Knowledge Graph Objects (AEO, GEO, VSO, Local SEO)
