@@ -66,6 +66,7 @@ All 13 core documentation files are consolidated directly in this directory (`do
 | **IoT Telemetry & Smart Fuel Calibration** | `/blog/iot-telemetry-fuel-delivery/` | `src/data/articles.js` (ID: 5) | [`docs/pages/subpages/iot-telemetry-fuel-delivery.md`](./pages/subpages/iot-telemetry-fuel-delivery.md) |
 | **Calibrated Telemetry Bowser Fleet** | `/blog/zyphuel-calibrated-telemetry-fleet/` | `src/data/articles.js` (ID: 6) | [`docs/pages/subpages/zyphuel-calibrated-telemetry-fleet.md`](./pages/subpages/zyphuel-calibrated-telemetry-fleet.md) |
 | **Global vs Pakistan Fuel Delivery Benchmarks** | `/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/` | `src/data/articles.js` (ID: 7) | [`docs/pages/subpages/global-vs-pakistan-on-demand-fuel-delivery-benchmarks.md`](./pages/subpages/global-vs-pakistan-on-demand-fuel-delivery-benchmarks.md) |
+| **Can You Buy Petrol Online? Complete Ordering Guide** | `/blog/can-you-buy-petrol-online-how-to-order-guide/` | `src/data/articles.js` (ID: 8) | [`docs/pages/subpages/can-you-buy-petrol-online-how-to-order-guide.md`](./pages/subpages/can-you-buy-petrol-online-how-to-order-guide.md) |
 
 ---
 

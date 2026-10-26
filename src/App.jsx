@@ -3,6 +3,7 @@ import { useEffect, lazy, Suspense } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import InterestModal from './components/InterestModal'
+import AnalyticsConsent from './components/AnalyticsConsent'
 import ToastContainer from './components/Toast'
 import { ToastProvider } from './context/ToastContext'
 import { FuelPriceProvider } from './context/FuelPriceContext'
@@ -79,6 +80,7 @@ function App() {
         </Suspense>
         <Footer />
         <InterestModal />
+        <AnalyticsConsent />
         <ToastContainer />
       </FuelPriceProvider>
     </ToastProvider>

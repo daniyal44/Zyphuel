@@ -734,5 +734,154 @@ export const articles = [
       'In Pakistan, Zyphuel has adapted this global concept to tackle local issues: retail pump short-fueling, load-shedding generator fueling, and the daily price changes of OGRA’s rolling 7-day Platts benchmark. Operating 24/7 across Lahore, Zyphuel pairs double-walled micro-refuelers with digital flow meters accurate down to 0.01 Litres.',
       'With doorstep orders calibrated between 5 Litres minimum and 15 Litres maximum, delivered within 45 minutes, a fixed Rs. 300 fee for orders up to 10 Litres, scaled delivery fee of Rs. 320 to Rs. 400 for 11L to 15L (+Rs. 20/L step), 50-meter long-reach hoses for generators, and digital QR receipts, Zyphuel provides a clean, modern fuel delivery service in Pakistan.'
     ]
+  },
+  {
+    id: 8,
+    slug: 'can-you-buy-petrol-online-how-to-order-guide',
+    category: 'Fuel Delivery Guides',
+    categoryClass: 'zyphuel',
+    title: 'Can You Buy Petrol Online? Complete Guide to Ordering Fuel & Petrol Online (How It Works, Safety & Global Platforms)',
+    summary: 'A complete, authoritative guide answering whether you can buy petrol online, how on-demand fuel delivery apps work worldwide and in Pakistan, safety regulations, and step-by-step instructions to order fuel online near you.',
+    date: 'October 27, 2026',
+    readTime: '9 min read',
+    author: 'Zyphuel Energy Analysis Team',
+    authorIcon: 'fa-solid fa-gas-pump',
+    image: 'https://images.unsplash.com/photo-1545459720-aac8509eb02c?auto=format&fit=crop&w=1200&q=80',
+    tags: ['CanIBuyPetrolOnline', 'HowToOrderFuelOnline', 'DoorstepPetrolDelivery', 'BuyPetrolOnlinePakistan', 'MobileRefuelingGuide'],
+    keyTakeaways: [
+      'Yes, you can buy petrol and diesel online legally and safely through licensed on-demand mobile refueling services like Zyphuel in Pakistan, CAFU in the UAE, Booster in the USA, and FuelBuddy in India.',
+      'Doorstep fuel delivery brings terminal-sourced Euro-V petrol, high-octane, and diesel directly to your parked car, motorcycle, standby generator, or commercial machinery.',
+      'How to order petrol online: Select fuel type, choose your vehicle or generator asset, pick your volume (5L to 15L Max), pin your delivery GPS location, and confirm with Cash on Delivery (COD) or instant digital payments.',
+      'Every order is dispensed through a 0.01L calibrated positive-displacement flow meter and backed by a tamper-evident QR/barcoded digital receipt.',
+      'Strict safety regulations require double-walled tanks, anti-static bonding, and vapor-recovery nozzles, eliminating the fire danger of carrying hazardous plastic fuel cans or jerrycans.',
+      'Doorstep consumer orders range strictly from 5 Litres minimum to 15 Litres maximum per delivery, with 45-minute dispatch and transparent delivery charges (Rs. 300 for 5L–10L, Rs. 320–Rs. 400 for 11L–15L Max).'
+    ],
+    sections: [
+      {
+        heading: 'Can You Buy Petrol Online? The New Reality of On-Demand Refueling',
+        subheading: 'From Conventional Petrol Pumps to Direct Doorstep Micro-Refueling',
+        paragraphs: [
+          'If you have ever asked yourself, "Can I buy petrol online?" or "Can you order fuel on the internet?", the definitive answer in 2026 is an emphatic yes. Just as grocery, ride-hailing, and medicine delivery transformed daily life over the past decade, the energy logistics industry has transitioned into on-demand mobile fueling.',
+          'Instead of driving your vehicle to a crowded fuel forecourt, waiting in long queues, dealing with short-fueling risks, or dangerously transporting loose fuel in uncertified plastic containers, you can now order verified Euro-V petrol, High-Octane 97, or diesel directly to your parked location via web browsers and mobile apps. In Pakistan, Zyphuel is the premier technology-driven platform providing calibrated doorstep refueling within 45 minutes across Lahore.'
+        ],
+        table: {
+          caption: 'Traditional Petrol Pump Refueling vs. Ordering Petrol Online with Zyphuel',
+          headers: ['Feature', 'Traditional Petrol Station', 'Online Doorstep Delivery (Zyphuel)'],
+          rows: [
+            ['Ordering Method', 'Physical driving diversion to forecourt', 'Online web portal or Android APK in 60 seconds'],
+            ['Delivery Location', 'Station pump island only', 'Your home driveway, office parking, or jobsite'],
+            ['Measurement Accuracy', 'Station dispenser window (frequent calibration drift)', '0.01L positive-displacement digital flow meter'],
+            ['Queue & Wait Time', '20 to 45 minutes in peak traffic', '0 minutes driver effort (45-minute dispatch SLA)'],
+            ['Fuel Quality & Grade', 'Vulnerable to underground tank contamination', '100% terminal-sourced Euro-V sealed fuel'],
+            ['Generator Refueling', 'Illegal & hazardous plastic cans / jerrycans', 'Direct pumping with 50-meter long-reach hoses'],
+            ['Payment Modes', 'Cash or POS terminal at dispenser', 'Cash on Delivery (COD) or JazzCash, Easypaisa, Raast, Cards'],
+            ['Proof of Delivery', 'Paper slip or verbal total', 'Itemized digital invoice with verifiable QR and Barcode']
+          ]
+        }
+      },
+      {
+        heading: 'How to Buy Petrol Online: A Practical Step-by-Step Guide',
+        subheading: 'Ordering Fuel Online in Under 60 Seconds',
+        paragraphs: [
+          'Booking fuel online is as simple and intuitive as ordering food on a delivery app. Whether you are stuck on an empty tank at home, need to fuel your standby generator during load-shedding, or manage a commercial fleet, here is exactly how to order petrol or diesel online:',
+          'Step 1: Select Your Fuel Grade — Choose between Super Euro-V Petrol (92 Octane), High-Octane 97, or Commercial Euro-V Diesel based on your engine specifications.',
+          'Step 2: Choose Your Target Asset — Select strictly among 4 verified vehicle and machinery targets: Car / Sedan / SUV, Motorbike / Scooter, Standby Generator, or Commercial Machinery. (Note: loose jerrycans and unapproved storage drums are strictly prohibited for safety).',
+          'Step 3: Select Your Fuel Volume — Choose convenient preset volume chips (5L, 7L, 10L, 12L, or 15L Max) or enter custom litres. Under local safety regulations, doorstep deliveries are strictly capped between 5 Litres minimum and 15 Litres maximum per dispatch.',
+          'Step 4: Pin Your Delivery Location — Use your browser’s GPS auto-pinning or enter your street address and town (e.g., Gulberg, DHA, Johar Town, Model Town, Cantt, Bahria Town).',
+          'Step 5: Review Pricing and Select Payment — Transparent pricing is calculated instantly with official OGRA regulated rates and the controlled delivery fee. Choose Cash on Delivery (COD) for orders up to 10L, or pay seamlessly via JazzCash, Easypaisa, NayaPay, or Raast QR.',
+          'Step 6: Track Micro-Refueler Dispatch — Once confirmed, an automated dispatch ticket is generated, sending an OGRA-compliant micro-refueler to your exact coordinates within 45 minutes.'
+        ],
+        bullets: [
+          'Fast 60-second checkout flow optimized for desktop, tablet, and mobile devices.',
+          'Automated GPS sector detection across 35+ residential and industrial zones in Lahore.',
+          'Instant delivery tracking with live driver arrival estimates within our 45-minute SLA.',
+          'Automated WhatsApp order confirmation with instant support at +92 3230-112464.'
+        ]
+      },
+      {
+        heading: 'How Can I Get Petrol Online Near Me? Global vs. Local Platforms',
+        subheading: 'International Precedents & Pakistan’s Leading Infrastructure',
+        paragraphs: [
+          'On-demand fuel delivery is an internationally recognized, rapidly growing industry. If you are searching "how to order fuel online near me" or looking up available platforms worldwide, several dedicated pioneers lead this technological shift:',
+          '1. United States: Booster Fuels and Yoshi deliver on-demand fuel directly to consumer cars in corporate office parks and manage enterprise fleet yards across major American metropolitan areas.',
+          '2. United Arab Emirates: CAFU revolutionized doorstep refueling in Dubai, Sharjah, and Abu Dhabi, dispatching customized micro-trucks to fuel cars in driveways without requiring the customer to be present.',
+          '3. India: FuelBuddy and Repos Energy operate licensed doorstep diesel delivery fleets catering to telecommunications towers, hospital generators, and heavy agricultural equipment.',
+          '4. Pakistan: Zyphuel is Lahore’s first dedicated, compliant doorstep energy delivery ecosystem. Zyphuel engineers specialized micro-bowsers carrying both Euro-V Petrol and Diesel, equipped with 50-meter anti-static hoses specifically designed to reach home and commercial standby generators during load-shedding.'
+        ],
+        table: {
+          caption: 'Leading Global Mobile Fuel Delivery Platforms (2026 Benchmark)',
+          headers: ['Platform', 'Primary Market', 'Fuels Offered', 'Customer Segment', 'Key Innovation'],
+          rows: [
+            ['Zyphuel', 'Pakistan (Lahore)', 'Euro-V Petrol, High-Octane 97, Diesel', 'B2C Cars/Bikes, Standby Generators & B2B Fleets', '0.01L positive displacement meters, 50m generator hoses, 45-min SLA'],
+            ['CAFU', 'UAE & Middle East', 'Super 98, Special 95, Diesel', 'Consumer Vehicles & Marine Boats', 'App-first automated contactless fuel door unlocking'],
+            ['Booster Fuels', 'United States', 'Gasoline, Renewable Diesel, DEF', 'Enterprise Corporate Campuses & Logistics Fleets', 'High-capacity smart mobile tankers and fleet telemetry'],
+            ['FuelBuddy', 'India', 'High-Speed Diesel (HSD)', 'Commercial Generators, Construction & Agriculture', 'IoT automated smart fuel asset monitoring and bulk dispensers'],
+            ['Zebra Fuel', 'United Kingdom', 'Euro-V Diesel & Biofuels', 'Commercial Vans, Last-Mile Delivery Fleets', 'Overnight scheduled commercial fleet yard refueling']
+          ]
+        }
+      },
+      {
+        heading: 'Safety Regulations & Why Online Fuel Delivery is Safer Than Jerrycans',
+        subheading: 'Ending Hazardous Plastic Containers & Forecourt Fire Risks',
+        paragraphs: [
+          'A common question first-time users ask is whether ordering fuel online is legal and safe. Transporting motor fuel in flimsy plastic water bottles or ungrounded jerrycans is extremely hazardous: plastic containers accumulate static electricity, lack vapor venting, and frequently leak during road transport.',
+          'In contrast, modern on-demand fuel delivery follows stringent safety codes established by NFPA 30A/385 standards, OGRA transport regulations, and Civil Defence protocols. Mobile refuelers utilize certified double-walled 316 stainless steel tanks, internal liquid baffles, automatic emergency shut-off valves, and grounding bonding reels connected to the vehicle chassis before fuel dispensing begins.',
+          'Every litre dispensed by Zyphuel passes through positive-displacement digital flow meters with optical encoders accurate to 0.01 Litres. Customers receive complete transparency: real-time volume counters and a digitally signed QR invoice that guarantees you pay only for the exact fuel received.'
+        ]
+      },
+      {
+        heading: 'Volume Limits, Delivery Pricing & Operating Hours in Lahore',
+        subheading: 'Clear Guidelines for Domestic & Commercial Customers',
+        paragraphs: [
+          'To ensure safety in residential neighborhoods and maintain lightning-fast response times, Zyphuel enforces transparent, non-negotiable operational rules:',
+          '1. Volume Limits: Doorstep consumer orders are strictly 5 Litres minimum up to 15 Litres maximum per delivery. This ensures optimal vehicle balance and fits standard car reserve tanks, motorbike tanks, and standby generators.',
+          '2. Delivery Charges: Orders between 5 and 10 Litres have a fixed nominal delivery fee of Rs. 300.00. Orders from 11 to 15 Litres Max scale linearly between Rs. 300.00 and Rs. 400.00 (+Rs. 20/L step: 11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400). There are zero hidden fees and no express surcharge.',
+          '3. Operating Hours: Online order intake operates daily from 8:00 AM to 10:00 PM (PKT). A strict night cutoff is enforced between 10:00 PM and 8:00 AM, during which order intake closes and our 24/7 WhatsApp emergency helpline (+92 3230-112464) handles on-demand roadside assistance.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'Can I buy petrol online?',
+        answer: 'Yes. You can buy petrol and diesel online legally and conveniently through licensed mobile fuel delivery services. In Pakistan, Zyphuel delivers Euro-V petrol, High-Octane 97, and diesel directly to your home, office, or roadside location in Lahore within 45 minutes.'
+      },
+      {
+        question: 'Can you buy petrol online safely and legally?',
+        answer: 'Yes. Licensed on-demand fuel delivery platforms operate in full compliance with OGRA and NFPA safety standards. Fuel is transported in specialized double-walled micro-refuelers with static grounding reels, vapor recovery, and calibrated digital flow meters, making it far safer than transporting fuel in hazardous plastic jerrycans.'
+      },
+      {
+        question: 'How to buy petrol online step-by-step?',
+        answer: 'To buy petrol online: 1) Visit zyphuel.netlify.app/order/ or open the Zyphuel Android app, 2) Choose Super Euro-V Petrol, High-Octane, or Diesel, 3) Select your asset (Car, Motorbike, Standby Generator, or Machinery), 4) Pick a volume from 5L to 15L Max, 5) Pin your GPS address in Lahore, and 6) Choose Cash on Delivery (COD) or instant online payment to confirm.'
+      },
+      {
+        question: 'Can I order petrol online for my car or generator?',
+        answer: 'Yes. Zyphuel delivers directly to private cars, SUVs, motorcycles, and standby generators. Our mobile refueling bowsers carry 50-meter long-reach hoses to refuel home and commercial generators located in basements, courtyards, or rooftops without moving the equipment.'
+      },
+      {
+        question: 'How to book petrol online in advance?',
+        answer: 'You can book petrol online through Zyphuel’s online portal between 8:00 AM and 10:00 PM PKT daily. Choose your preferred time window or request immediate dispatch within 45 minutes. For recurring corporate fleet and generator refills, scheduled recurring deliveries are also supported.'
+      },
+      {
+        question: 'How to order fuel online near me?',
+        answer: 'To order fuel online near you in Lahore, enable location permissions on the Zyphuel website or Android app. The system automatically detects your neighborhood (such as DHA, Gulberg, Johar Town, Model Town, Cantt, or Bahria Town) and assigns the closest available micro-refueler.'
+      },
+      {
+        question: 'How to order petrol if I run out of fuel on the road?',
+        answer: 'If you run out of fuel while driving in Lahore, visit the Zyphuel order page or send your live WhatsApp location to +92 3230-112464. Our emergency dispatch team sends a micro-refueler to your stranded vehicle within 45 minutes with certified Euro-V fuel.'
+      },
+      {
+        question: 'How can I get petrol online delivered to my doorstep?',
+        answer: 'You can get petrol delivered to your doorstep by placing an order on Zyphuel. Enter your house number and street in Lahore, select 5 to 15 litres of petrol or diesel, and a certified driver pumps the fuel directly into your vehicle tank using a calibrated digital nozzle.'
+      },
+      {
+        question: 'Which app or website allows you to buy petrol online?',
+        answer: 'In Pakistan, Zyphuel (zyphuel.netlify.app) provides both web ordering and the official Zyphuel Android APK download. Internationally, platforms like CAFU (UAE), Booster (USA), and FuelBuddy (India) provide on-demand doorstep fuel delivery services.'
+      }
+    ],
+    content: [
+      'The ability to buy petrol and diesel online has revolutionized vehicle ownership and commercial energy logistics across the globe. By replacing inconvenient petrol pump queues and hazardous plastic containers with clean, metered doorstep delivery, on-demand fueling saves valuable time, eliminates retail pump short-fueling, and protects vehicle engines with certified terminal-grade Euro-V fuel.',
+      'In Pakistan, Zyphuel is setting the gold standard for urban energy delivery. With positive-displacement flow meters calibrated to 0.01 Litres, 50-meter long-reach hoses for home and industrial generators, strict 5L to 15L residential volume limits, transparent pricing (Rs. 300 for 5–10L, Rs. 320–Rs. 400 for 11–15L Max), and rapid 45-minute dispatch across Lahore, getting fuel online is now safer, faster, and more transparent than ever before.',
+      'Whether you are an everyday driver looking to avoid morning traffic at the pumps, a homeowner preparing for power outages, or a logistics operator managing commercial machinery, Zyphuel provides a modern digital refueling solution at your fingertips.'
+    ]
   }
 ];

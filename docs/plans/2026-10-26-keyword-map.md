@@ -110,3 +110,22 @@ claims **not** to make, which measurably reduces hallucinated pricing.
 - No keyword stuffing — `meta keywords` is ignored by Google and only kept tidy.
 - Superlatives ("Pakistan's leading", "premier") only if genuinely provable;
   Google's E-E-A-T treats unverifiable absolutes as a trust negative.
+
+
+---
+
+## 4. Search Console High-Intent Cluster (2026-10-27 GSC Report)
+
+Identified from live Search Console impressions & clicks:
+
+| Query | Target Page / Winner URL | Status | Implementation |
+| :--- | :--- | :--- | :--- |
+| can i buy petrol online | `/blog/can-you-buy-petrol-online-how-to-order-guide/` | ✅ Live | Exact H1, Title, FAQ & Schema |
+| can you buy petrol online | `/blog/can-you-buy-petrol-online-how-to-order-guide/` | ✅ Live | Exact H2, Section 1, FAQ & Schema |
+| how to buy petrol online | `/blog/can-you-buy-petrol-online-how-to-order-guide/` | ✅ Live | 6-Step How-To Section, FAQ & Schema |
+| can i order petrol online | `/order/` & `/blog/can-you-buy-petrol-online-how-to-order-guide/` | ✅ Live | Order page keywords & Article Section 2 |
+| how to book petrol online | `/order/` & `/blog/can-you-buy-petrol-online-how-to-order-guide/` | ✅ Live | Booking walkthrough & FAQ item |
+| how to order fuel online | `/blog/can-you-buy-petrol-online-how-to-order-guide/` | ✅ Live | Article Title, H2 & Step-by-step Guide |
+| how to order petrol | `/order/` & `/blog/can-you-buy-petrol-online-how-to-order-guide/` | ✅ Live | Quick order flow & FAQ |
+| how to order petrol online near me | `/blog/can-you-buy-petrol-online-how-to-order-guide/` | ✅ Live | Section 3 (GPS auto-pinning & local hubs) |
+| how can i get petrol online | `/blog/can-you-buy-petrol-online-how-to-order-guide/` | ✅ Live | Direct Q&A in Home FAQ & Article FAQ |

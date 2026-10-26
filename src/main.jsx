@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './index.css'
 import { initOrderGuardPlugin } from './plugins/zyphuelOrderGuard'
+import { initAnalytics } from './analytics/posthog'
 
 const rootElement = document.getElementById('root')
 
@@ -46,3 +47,6 @@ if (rootElement && rootElement.hasChildNodes()) {
 
 // Run Order Guard Plugin after React initialization
 initOrderGuardPlugin()
+
+// Boot the consent-gated PostHog client (inert without VITE_POSTHOG_PROJECT_TOKEN/HOST)
+initAnalytics()

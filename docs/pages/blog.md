@@ -12,7 +12,7 @@
 - **Page Title**: `Zyphuel Blog | Fuel Delivery, Energy & Vehicle Guides`
 - **Meta Description**: `Read the latest articles about fuel delivery, generator refueling, LPG gas delivery, and mobile energy logistics in Lahore, Pakistan.`
 - **Schema Type**: `CollectionPage` / `Blog`
-- **Sitemap Priority**: `0.9` (`daily` change frequency) for `/blog/`; `0.8` (`weekly` change frequency) for all 6 individual article subpages.
+- **Sitemap Priority**: `0.9` (`daily` change frequency) for `/blog/`; `0.8` (`weekly` change frequency) for all 8 individual article subpages.
 - **Canonical URL**: `https://zyphuel.netlify.app/blog/`
 
 ---
@@ -46,7 +46,7 @@
 ---
 
 ## Syndication & Discovery Feeds
-- **RSS 2.0 Feed**: Published at `/feed.xml` with full XML syndication of all 6 articles.
+- **RSS 2.0 Feed**: Published at `/feed.xml` with full XML syndication of all 8 articles.
 - **Search Engine Discovery**: Listed in `public/robots.txt` (`Allow: /feed.xml`), `<link rel="alternate" type="application/rss+xml">` in `index.html`, and direct link in `/sitemap/`.
 
 ---

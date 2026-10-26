@@ -131,3 +131,9 @@ This document serves as the centralized master tracking ledger for all completed
 ### 3.3 Internationalization & Localization
 - [ ] Implement dual-language switcher (English / Urdu) across all public pages and notifications.
 - [ ] Add Urdu audio voice prompts for rider arrival and delivery safety verification.
+
+- [x] **Search Console High-Intent Keywords Optimization & Global Booster (2026-10-27)**:
+  - Created Article #8: "Can You Buy Petrol Online? Complete Guide to Ordering Fuel & Petrol Online".
+  - Mapped and addressed all 9 live GSC queries in Title, Headings, HowTo, and FAQ schemas.
+  - Updated home FAQs (21 total items) and metadata across Home, Order, and Services.
+  - Synced RSS feed, llms.txt, and documentation suite.

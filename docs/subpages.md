@@ -28,6 +28,7 @@ All subpages in the Zyphuel platform are dynamically resolved via React Router D
 | 5 | `iot-telemetry-fuel-delivery` | Combating Pump Short-Fueling: Calibrated Meters & Cloud Telemetry | Zyphuel Energy | Zyphuel Telemetry Engineering | Sept 1, 2026 | `dist/blog/iot-telemetry-fuel-delivery/index.html` |
 | 6 | `zyphuel-calibrated-telemetry-fleet` | Mobile Energy Logistics in Lahore: CEO Muhammad Daniyal on Scaling | Zyphuel Energy | Muhammad Daniyal (CEO) | Aug 28, 2026 | `dist/blog/zyphuel-calibrated-telemetry-fleet/index.html` |
 | 7 | `global-vs-pakistan-on-demand-fuel-delivery-benchmarks` | On-Demand Fuel Delivery in 2026: Global Tech Benchmarks (Zyphuel vs. CAFU, Booster & FuelBuddy) | Zyphuel Intelligence | Muhammad Daniyal (Founder & CEO) | Sept 27, 2026 | `dist/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/index.html` |
+| 8 | `can-you-buy-petrol-online-how-to-order-guide` | Can You Buy Petrol Online? Complete Guide to Ordering Fuel & Petrol Online (How It Works, Safety & Global Platforms) | Fuel Delivery Guides | Zyphuel Energy Analysis Team | Oct 27, 2026 | `dist/blog/can-you-buy-petrol-online-how-to-order-guide/index.html` |
 
 ---
 
@@ -80,3 +81,10 @@ All subpages in the Zyphuel platform are dynamically resolved via React Router D
 - **Architectural Enhancements (Phase 10)**: Key Takeaways box, 10-Dimension Global & Domestic Benchmark Matrix Table, Urban Decarbonization & Dead Mileage Reduction Table, fluid dynamics analysis of 0.01L positive-displacement flow meters with 15°C ATC, executive quote from CEO Muhammad Daniyal, and 6 Schema.org `FAQPage` FAQs.
 - **Standardized Parameters**: Delivered within 45 minutes, flat Rs. 280 fee, strictly 5L min to 15L max, COD (5L–10L), and instant on-spot Online Payments.
 
+
+
+### 3.8 Subpage 8: Can You Buy Petrol Online? Complete Ordering Guide
+- **Route**: `/blog/can-you-buy-petrol-online-how-to-order-guide/`
+- **Word Count**: 2,800+ words (Cornerstone Search-Console Intent Hub)
+- **Primary Target Keywords**: `can i buy petrol online`, `can you buy petrol online`, `how to buy petrol online`, `can i order petrol online`, `how to book petrol online`, `how to order fuel online`, `how to order petrol`, `how to order petrol online near me`, `how can i get petrol online`.
+- **Architectural Elements**: Key Takeaways Box (AEO/GEO summary), Traditional Petrol Pump vs Online Refueling Comparison Table, 6-Step How-To Walkthrough, Global Platform Matrix (Zyphuel, CAFU, Booster, FuelBuddy, Zebra Fuel), Safety and Metering Analysis, and 9 Schema.org `FAQPage` items answering each Search Console query verbatim.

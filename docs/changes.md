@@ -1302,3 +1302,33 @@ Mermaid blocks did not display for readers of the repository, so every chart in 
 - Layout was verified by measuring the rendered DOM in a browser: 12/12 charts, 0 clipped elements, 0 text collisions. One real collision was found and fixed (`lighthouse.svg` legend overlapping the first bar's value label, resolved by widening the plot's top margin).
 - `scripts/report-stats.cjs` extracts per-page facts from the built HTML (title and description length, word count, HTML weight, image and alt counts, internal links, JSON-LD types, sitemap membership) into `scratch/report-stats.json`.
 - New `docs/reports/2026-10-26-whole-website-report.md`: all 17 routes with weight, depth, meta, schema coverage, indexing state and a feature inventory, plus the eight still-open items. Measured totals: 17 routes, 25,129 words, 148 images (100% with `alt`), 693 internal links, 0 title or description violations.
+
+## Sprint 2026-10-27: Search Console High-Intent Keywords Optimization & Global Booster
+
+### 1. Objective & Driver
+- Live Google Search Console performance report revealed 9 high-intent customer search queries generating impressions and clicks:
+  1. `can i buy petrol online`
+  2. `can you buy petrol online`
+  3. `how to buy petrol online`
+  4. `can i order petrol online`
+  5. `how to book petrol online`
+  6. `how to order fuel online`
+  7. `how to order petrol`
+  8. `how to order petrol online near me`
+  9. `how can i get petrol online`
+
+### 2. Implementation Deliverables
+- **Flagship Cornerstone Pillar Guide (Article #8)**:
+  - Published `/blog/can-you-buy-petrol-online-how-to-order-guide/` in `src/data/articles.js` (2,800+ words).
+  - Comprehensive 6-step How-To guide for ordering fuel online.
+  - Comparative benchmark tables for traditional petrol pump vs. online delivery and global platforms (Zyphuel, CAFU, Booster, FuelBuddy, Zebra Fuel).
+  - Complete Schema.org (`Article`, `FAQPage`, `HowTo`, `BreadcrumbList`) with verbatim Q&A for all 9 queries.
+- **Home, Order & Services Keyword & FAQ Expansion**:
+  - Added 3 high-intent FAQ items to `HomePage.jsx` (`homeFaqs`), `index.html` (#seo-schema), and `prerender.js` (home FAQPage graph).
+  - Expanded `<meta name="keywords">` across `index.html`, `HomePage.jsx`, `OrderPage.jsx`, and `ServicesPage.jsx`.
+- **Syndication & AI Context**:
+  - Added Article #8 to `public/feed.xml` RSS feed.
+  - Added canonical AEO/GEO answers for online fuel purchasing to `public/llms.txt`.
+- **Documentation**:
+  - Created `docs/pages/subpages/can-you-buy-petrol-online-how-to-order-guide.md`.
+  - Updated `docs/README.md`, `docs/subpages.md`, `docs/articles.md`, `docs/pages/blog.md`, `docs/pages/home.md`, and `docs/plans/2026-10-26-keyword-map.md`.

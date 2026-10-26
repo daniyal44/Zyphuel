@@ -7,6 +7,12 @@ import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
 import { FUEL_PRICES } from '../data/fuelPrices'
 import { checkOfficeHours, isOrderGateBypassed, setTestBypass } from '../utils/officeHours'
+import {
+  captureFuelVolumeSelected,
+  captureOrderPageViewed,
+  captureOrderRequestSubmitted,
+  captureRefuelTargetSelected,
+} from '../analytics/posthog'
 
 const FUEL_DISPLAY = {
   petrol: 'Petrol',
@@ -119,6 +125,9 @@ export default function OrderPage() {
     title: 'Order Fuel Online in Lahore | 45-Min Dispatch | Zyphuel',
     description: 'Book petrol, high-octane 97 or diesel delivery in Lahore. 5-15 L, 45-minute dispatch, COD or online payment, metered invoice.',
     keywords: [
+      'can i buy petrol online', 'can you buy petrol online', 'how to buy petrol online',
+      'can i order petrol online', 'how to book petrol online', 'how to order fuel online',
+      'how to order petrol', 'how to order petrol online near me', 'how can i get petrol online',
       'order fuel online Lahore', 'book petrol delivery Lahore', 'order diesel Lahore', 'online fuel ordering Lahore',
       'doorstep petrol delivery booking', 'generator diesel order', 'petrol cash on delivery Lahore', 'Zyphuel fuel booking',
       'order petrol online near me', 'buy petrol online Lahore', 'fuel home delivery near me',
@@ -467,6 +476,13 @@ export default function OrderPage() {
     }
   }, []) // eslint-disable-line
 
+  // Product analytics funnel entry (no-op unless analytics is configured and consent granted)
+  useEffect(() => {
+    captureOrderPageViewed({
+      entry_source: location.state && location.state.fuelType ? 'fuel_deeplink' : 'direct'
+    })
+  }, [])
+
   // Restore Active Order from localStorage
   useEffect(() => {
     try {
@@ -483,11 +499,16 @@ export default function OrderPage() {
   }, [])
 
   // Quantity sync helpers (Increments default +1 unit, minimum fuel 5L, maximum fuel 15L)
-  const syncFuelQty = (val) => {
+  const syncFuelQty = (val, selectionSource = 'input') => {
     let v = parseInt(val) || 0
     if (v < 5) v = 5
     if (v > 15) v = 15
     setFuelQty(v)
+    captureFuelVolumeSelected({
+      fuel_grade: selectedFuelType,
+      volume_litres: v,
+      selection_source: selectionSource
+    })
   }
 
   const syncGasQty = (val) => {
@@ -601,6 +622,16 @@ export default function OrderPage() {
     try {
       localStorage.setItem('zyphuel_active_order', JSON.stringify(newActiveOrder))
     } catch (e) { }
+
+    // Funnel success step: the order request reached the dispatch hand-off
+    captureOrderRequestSubmitted({
+      fuel_grade: selectedFuelType,
+      refuel_target: deliveryApplication,
+      volume_litres: fuelQty,
+      delivery_fee_pkr: deliveryFee,
+      total_pkr: total,
+      payment_option: isCodEligible ? 'cash_on_delivery' : 'advance_digital'
+    })
 
     setTrackerOpen(true)
   }
@@ -1037,7 +1068,13 @@ export default function OrderPage() {
                       return (
                         <div
                           key={app.id}
-                          onClick={() => setDeliveryApplication(app.id)}
+                          onClick={() => {
+                            setDeliveryApplication(app.id)
+                            captureRefuelTargetSelected({
+                              refuel_target: app.id,
+                              fuel_grade: selectedFuelType
+                            })
+                          }}
                           style={{
                             cursor: 'pointer',
                             userSelect: 'none',
@@ -1168,14 +1205,14 @@ export default function OrderPage() {
                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                           <div className="quantity-stepper">
                             <button type="button" className="stepper-btn" aria-label="Decrease fuel quantity"
-                              onClick={() => syncFuelQty(fuelQty - 1)}
+                              onClick={() => syncFuelQty(fuelQty - 1, 'stepper')}
                               disabled={fuelQty <= 5}>-</button>
                             <input type="number" className="stepper-input"
                               value={fuelQty} min="5" max="15" step="1"
-                              onChange={e => syncFuelQty(e.target.value)}
+                              onChange={e => syncFuelQty(e.target.value, 'input')}
                               aria-label="Fuel quantity in Litres" />
                             <button type="button" className="stepper-btn" aria-label="Increase fuel quantity"
-                              onClick={() => syncFuelQty(fuelQty + 1)}
+                              onClick={() => syncFuelQty(fuelQty + 1, 'stepper')}
                               disabled={fuelQty >= 15}>+</button>
                           </div>
                           <span style={{ fontWeight: 700, color: 'var(--text-secondary)', fontSize: '1.05rem' }}>Litres</span>
@@ -1189,7 +1226,7 @@ export default function OrderPage() {
 
                       <input type="range" className="slider-control"
                         min="5" max="15" step="1" value={fuelQty}
-                        onChange={e => syncFuelQty(e.target.value)}
+                        onChange={e => syncFuelQty(e.target.value, 'slider')}
                         aria-label="Fuel quantity slider" />
                       <div className="limits-row">
                         <span>Min: 5 L</span>
@@ -1206,7 +1243,7 @@ export default function OrderPage() {
                             <button
                               key={qty}
                               type="button"
-                              onClick={() => syncFuelQty(qty)}
+                              onClick={() => syncFuelQty(qty, 'preset')}
                               style={{
                                 padding: '5px 11px',
                                 fontSize: '0.82rem',

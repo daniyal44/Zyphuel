@@ -392,6 +392,23 @@ const ARTICLES_SCHEMA = [
       "@id": `${DOMAIN}/#organization`
     },
     "mainEntityOfPage": `${DOMAIN}/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/`
+  },
+  {
+    "@type": "Article",
+    "@id": `${DOMAIN}/#article-8`,
+    "headline": "Can You Buy Petrol Online? Complete Guide to Ordering Fuel & Petrol Online (How It Works, Safety & Global Platforms)",
+    "description": "A complete, authoritative guide answering whether you can buy petrol online, how on-demand fuel delivery apps work worldwide and in Pakistan, safety regulations, and step-by-step instructions to order fuel online near you.",
+    "image": "https://images.unsplash.com/photo-1545459720-aac8509eb02c?auto=format&fit=crop&w=1200&q=80",
+    "datePublished": "2026-10-27T08:00:00+05:00",
+    "dateModified": "2026-10-27T08:00:00+05:00",
+    "author": {
+      "@type": "Organization",
+      "name": "Zyphuel Energy Analysis Team"
+    },
+    "publisher": {
+      "@id": `${DOMAIN}/#organization`
+    },
+    "mainEntityOfPage": `${DOMAIN}/blog/can-you-buy-petrol-online-how-to-order-guide/`
   }
 ]
 
@@ -445,7 +462,7 @@ const ROUTES = [
     outFile: 'dist/index.html',
     title: 'Online Petrol & Diesel Delivery in Lahore | Zyphuel',
     description: 'Order Euro-V petrol or diesel to your doorstep in Lahore within 45 mins. Cash on delivery, calibrated meters, OGRA rates.',
-    keywords: "online petrol delivery in lahore, petrol home delivery lahore, petrol delivery lahore price, petrol delivery lahore contact number, petrol delivery near me lahore, online petrol delivery near me, diesel home delivery near me, petrol delivery app pakistan, emergency petrol delivery lahore, buy petrol online pakistan, fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore, petrol pump near me Lahore, fuel station near me, petrol price today Lahore, diesel price today Lahore, diesel supplier Lahore, fuel agency Lahore, mobile refueling Pakistan, doorstep fuel delivery, generator diesel delivery, generator refueling service, fleet refueling service, on-demand fuel delivery app, fuel delivery DHA Lahore, petrol delivery Gulberg, diesel delivery Johar Town, OGRA compliant fuel rates, what is Zyphuel, is Zyphuel safe, Zyphuel mobile app, Zyphuel APK download, emergency fuel delivery Lahore, petrol delivery near me, petrol price in Pakistan today, diesel price in Pakistan today, today petrol rate in Pakistan, which app delivers petrol, can petrol be delivered at home, doorstep diesel delivery, best delivery app in Pakistan, diesel delivery companies",
+    keywords: "can i buy petrol online, can you buy petrol online, how to buy petrol online, can i order petrol online, how to book petrol online, how to order fuel online, how to order petrol, how to order petrol online near me, how can i get petrol online, online petrol delivery in lahore, petrol home delivery lahore, petrol delivery lahore price, petrol delivery lahore contact number, petrol delivery near me lahore, online petrol delivery near me, diesel home delivery near me, petrol delivery app pakistan, emergency petrol delivery lahore, buy petrol online pakistan, fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore, petrol pump near me Lahore, fuel station near me, petrol price today Lahore, diesel price today Lahore, diesel supplier Lahore, fuel agency Lahore, mobile refueling Pakistan, doorstep fuel delivery, generator diesel delivery, generator refueling service, fleet refueling service, on-demand fuel delivery app, fuel delivery DHA Lahore, petrol delivery Gulberg, diesel delivery Johar Town, OGRA compliant fuel rates, what is Zyphuel, is Zyphuel safe, Zyphuel mobile app, Zyphuel APK download, emergency fuel delivery Lahore, petrol delivery near me, petrol price in Pakistan today, diesel price in Pakistan today, today petrol rate in Pakistan, which app delivers petrol, can petrol be delivered at home, doorstep diesel delivery, best delivery app in Pakistan, diesel delivery companies",
     canonical: `${DOMAIN}/`,
     ogImage: `${DOMAIN}/images/og-cover.jpg`,
     ogType: 'website',
@@ -606,6 +623,30 @@ const ROUTES = [
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Yes. Households and businesses in Lahore can have diesel delivered to their address for standby generators, cars, and machinery — order on the website or Android app, minimum 5 litres up to 15 litres per doorstep order, with an itemised metered invoice."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I buy petrol online?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. You can buy petrol and diesel online legally and conveniently in Lahore through Zyphuel. Select your fuel grade (Euro-V Petrol, High-Octane 97, or Diesel) and quantity (5L to 15L Max) on the website or Android app, and a calibrated mobile refueler reaches your location within 45 minutes with Cash on Delivery or online payment."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How to buy petrol online near me?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "To buy petrol online near you in Lahore, visit the Zyphuel order page or open the Android app, allow GPS auto-detection to pin your address in DHA, Gulberg, Johar Town, Model Town, Cantt, or Bahria Town, select 5 to 15 litres, and submit. An automated micro-refueler arrives within 45 minutes."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How to order fuel online or book petrol in advance?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can order fuel online immediately or schedule delivery between 8:00 AM and 10:00 PM PKT daily. Choose your vehicle or generator asset, set the litres required, and confirm. For emergency roadside dispatch or after-hours inquiries, our 24/7 WhatsApp helpline is accessible on +92 3230-112464."
               }
             }
           ]

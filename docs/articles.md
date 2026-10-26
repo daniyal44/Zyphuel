@@ -15,6 +15,7 @@ This document catalogs the full editorial repository, SEO keyword mappings, targ
 | 5 | Combating Pump Short-Fueling: Calibrated Meters & Telemetry | `iot-telemetry-fuel-delivery` | Motorists concerned about fuel fraud | `ZeroShortFueling` | 7 min | 1,150+ words, Key Takeaways, Metering Calibration Comparison Table, 5 FAQs |
 | 6 | Mobile Energy Logistics in Lahore: CEO Muhammad Daniyal | `zyphuel-calibrated-telemetry-fleet` | Energy investors, tech sector | `MuhammadDaniyal` | 7 min | 1,150+ words, Key Takeaways, Traditional Pump vs Mobile Fleet Table, 5 FAQs |
 | 7 | On-Demand Fuel Delivery in 2026: Global Tech Benchmarks (Zyphuel vs. CAFU, Booster & FuelBuddy) | `global-vs-pakistan-on-demand-fuel-delivery-benchmarks` | Global logistics analysts, energy researchers, enterprise fleets | `OnDemandFuel` | 14 min | 3,500+ words, Key Takeaways, 10-Point Global Benchmark Matrix Table, Urban Decarb Table, 6 FAQs |
+| 8 | Can You Buy Petrol Online? Complete Guide to Ordering Fuel Online | `can-you-buy-petrol-online-how-to-order-guide` | Global & local searchers, vehicle owners, generator operators | `CanIBuyPetrolOnline` | 9 min | 2,800+ words, Key Takeaways, 2 Comprehensive Benchmark Tables, 6-Step How-To Walkthrough, 9 High-Intent FAQs |
 
 ---
 
@@ -85,3 +86,10 @@ graph TD
 - **2026-09-27 (Phase 10: Global SEO/AEO/GEO Optimization)**: Authored flagship 3,500+ word research pillar Article 7 (`global-vs-pakistan-on-demand-fuel-delivery-benchmarks`) evaluating CAFU, Booster, and FuelBuddy against Zyphuel. Enhanced XML sitemap with comprehensive Google Image extension tags (`<image:caption>`, `<image:geo_location>`, `<image:license>`). Integrated `HowTo` and `SpeakableSpecification` schemas, upgraded `robots.txt` for 25+ search engines & AI crawlers, and synced `llms.txt` and `llms-full.txt`.
 - **2026-09-25 (Phase 9)**: Transformed all 6 articles into comprehensive 1,000+ word technical pillar guides with Key Takeaways boxes, comparative data tables, expert quotes, 5 structured Schema.org `FAQPage` FAQs, and syndicated them via RSS 2.0 Feed (`/feed.xml`).
 - **2026-09-25 (Phase 8)**: Standardized delivery SLA to "Delivered: Within 45 Mins", fixed delivery fee to Rs. 300.00 for &le;10L, Cash on Delivery to 5L–10L, and added instant Online Payments (JazzCash, Easypaisa, NayaPay, Raast) across all articles in `src/data/articles.js`.
+
+
+### Article 8: Can You Buy Petrol Online? Complete Guide to Ordering Fuel Online
+- **Slug**: `can-you-buy-petrol-online-how-to-order-guide`
+- **Core Narrative**: Authoritative pillar guide answering whether consumers and businesses can buy petrol and diesel online, how on-demand mobile refueling works internationally (CAFU, Booster, FuelBuddy) and in Pakistan (Zyphuel), safety protocols, volume limits, and step-by-step instructions.
+- **Search Intent Target**: Directly addresses all 9 Search Console high-intent queries: `can i buy petrol online`, `can you buy petrol online`, `how to buy petrol online`, `can i order petrol online`, `how to book petrol online`, `how to order fuel online`, `how to order petrol`, `how to order petrol online near me`, `how can i get petrol online`.
+- **Standardized Invariants**: Strictly 5L min to 15L max volume limits, delivery fee fixed at Rs. 300.00 (5L–10L) and scaled Rs. 320.00–Rs. 400.00 (11L–15L Max), 45-minute dispatch SLA, Cash on Delivery for orders up to 10L, and instant mobile Online Payments (JazzCash, Easypaisa, NayaPay, Raast QR).

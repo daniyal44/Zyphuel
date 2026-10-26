@@ -90,6 +90,18 @@ export default function HomePage() {
     {
       q: 'Can diesel be delivered at home?',
       a: 'Yes. Households and businesses in Lahore can have diesel delivered to their address for standby generators, cars, and machinery — order on the website or Android app, minimum 5 litres up to 15 litres per doorstep order, with an itemised metered invoice.'
+    },
+    {
+      q: 'Can I buy petrol online?',
+      a: 'Yes. You can buy petrol and diesel online legally and conveniently in Lahore through Zyphuel. Select your fuel grade (Euro-V Petrol, High-Octane 97, or Diesel) and quantity (5L to 15L Max) on the website or Android app, and a calibrated mobile refueler reaches your location within 45 minutes with Cash on Delivery or online payment.'
+    },
+    {
+      q: 'How to buy petrol online near me?',
+      a: 'To buy petrol online near you in Lahore, visit the Zyphuel order page or open the Android app, allow GPS auto-detection to pin your address in DHA, Gulberg, Johar Town, Model Town, Cantt, or Bahria Town, select 5 to 15 litres, and submit. An automated micro-refueler arrives within 45 minutes.'
+    },
+    {
+      q: 'How to order fuel online or book petrol in advance?',
+      a: 'You can order fuel online immediately or schedule delivery between 8:00 AM and 10:00 PM PKT daily. Choose your vehicle or generator asset, set the litres required, and confirm. For emergency roadside dispatch or after-hours inquiries, our 24/7 WhatsApp helpline is accessible on +92 3230-112464.'
     }
   ]
 
@@ -119,6 +131,9 @@ export default function HomePage() {
     title: 'Online Petrol & Diesel Delivery in Lahore | Zyphuel',
     description: 'Order Euro-V petrol or diesel to your doorstep in Lahore within 45 mins. Cash on delivery, calibrated meters, OGRA rates.',
     keywords: [
+      'can i buy petrol online', 'can you buy petrol online', 'how to buy petrol online',
+      'can i order petrol online', 'how to book petrol online', 'how to order fuel online',
+      'how to order petrol', 'how to order petrol online near me', 'how can i get petrol online',
       'online petrol delivery in lahore', 'petrol home delivery lahore', 'online petrol delivery near me',
       'diesel home delivery near me', 'petrol delivery app pakistan', 'emergency petrol delivery lahore',
       'buy petrol online pakistan', 'fuel delivery Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
