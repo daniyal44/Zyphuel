@@ -22,46 +22,13 @@
 
 ## 2. QA pipeline actually executed
 
-```mermaid
-flowchart TD
-    A[Source change] --> B[Vite client build]
-    B --> C[Vite SSR build]
-    C --> D[prerender.js - 17 routes]
-    D --> E{Static audit}
-    E -->|h1 / title / desc / canonical| E1[PASS or FAIL per page]
-    E -->|duplicate id scan| E2[PASS or FAIL]
-    E -->|JSON-LD parse| E3[PASS or FAIL]
-    E -->|img alt / missing assets| E4[PASS or FAIL]
-    E -->|internal link resolution| E5[PASS or FAIL]
-    E -->|"urgent" leak scan| E6[Must be zero]
-    E1 --> F[Browser session]
-    E2 --> F
-    E3 --> F
-    E4 --> F
-    E5 --> F
-    E6 --> F
-    F --> G{Hydration + console}
-    G -->|no React errors| H[Layout probe]
-    H -->|doc scrollWidth vs viewport| H1[Horizontal overflow]
-    H -->|inner scroll containers| H2[Overflowing blocks]
-    H -->|form controls| H3[Touch target width]
-    H1 --> I[Score + report]
-    H2 --> I
-    H3 --> I
-    I --> J[Commit + push to main]
-```
+![qa pipeline](../reports/charts/qa-pipeline.svg)
 
 ---
 
 ## 3. Score by area
 
-```mermaid
-xychart-beta
-    title "Zyphuel QA score out of 100"
-    x-axis ["Security", "AEO", "GEO", "SEO tech", "Build", "Mobile", "Perf", "A11y", "Trust"]
-    y-axis "Score" 0 --> 100
-    bar [98, 92, 90, 95, 87, 82, 78, 75, 55]
-```
+![qa scores](../reports/charts/qa-scores.svg)
 
 | Area | Score | Evidence |
 | :--- | :---: | :--- |

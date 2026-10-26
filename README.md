@@ -497,7 +497,8 @@ Every audit, QA pass and change report lives under `docs/`. Start at the hub, wh
 
 | Document | What it contains |
 | :--- | :--- |
-| **[Reports Hub](docs/reports/README.md)** | Index of every report with the QA score chart, the Lighthouse performance graph, the change-mix pie, the commit gantt and the open items broken down by owner |
+| **[Reports Hub](docs/reports/README.md)** | Index of every report, with all charts committed as SVG images so they display directly on GitHub |
+| [Whole Website Report](docs/reports/2026-10-26-whole-website-report.md) | Every route with its weight, word count, meta length, schema coverage and feature status — 17 routes, 25,129 words, 148 images |
 | [Complete Website Change Report](docs/reports/2026-10-26-website-changes-report.md) | All 9 commits of the 2026-10-26 round — 60 files, +1,812 / −658 lines — with before/after measurements and the truthfulness audit |
 | [Full Manual QA & Health Report](docs/qa/2026-10-26-full-qa-report.md) | Manual and automated QA of all 17 routes, scored **81 / 100** across 9 categories |
 | [Competitor Gap, Responsiveness & Performance Audit](docs/audits/2026-10-21-audit.md) | Lighthouse scores for all 9 pages, responsiveness bugs and measured root causes |

@@ -1290,3 +1290,15 @@ Added a single evidence-backed report covering every change made to the website 
 - Report: `docs/reports/2026-10-26-website-changes-report.md`
 - Includes a Mermaid timeline, the app-version comparison table (website showed v2.6.4.0.0.31 / Build 59 / 31.7 MB; the APK actually contains v2.6.4.0.0.33 / Build 61 / 35,321,064 bytes), before/after performance numbers, the Technical SEO / AEO / GEO change logs, the two render bugs (FAQ overlap, order stepper overflow), the trust-audit findings with their risk ratings, the final verification output and the eight still-open items.
 - Indexed from `docs/README.md` under new sections 7 (Consolidated Change Reports) and 8 (Quality Assurance).
+
+---
+
+## Phase 24 — Charts as images + Whole Website Report (2026-10-26)
+
+Mermaid blocks did not display for readers of the repository, so every chart in the reports is now a committed SVG image.
+
+- `scripts/make-report-charts.cjs` generates 12 SVGs into `docs/reports/charts/` using presentation attributes only (no `<style>`, no external fonts), so they render identically on GitHub, in the editor and in a plain browser.
+- The 13 Mermaid blocks across the hub, the change report, the QA report and the 2026-10-21 audit were replaced with image references. Two charts were redesigned in the process: the commit timeline became a horizontal bar chart with time on the x axis (the old label layout collided), and the four per-page charts use horizontal bars because 16 long route names cannot be read under rotated vertical labels.
+- Layout was verified by measuring the rendered DOM in a browser: 12/12 charts, 0 clipped elements, 0 text collisions. One real collision was found and fixed (`lighthouse.svg` legend overlapping the first bar's value label, resolved by widening the plot's top margin).
+- `scripts/report-stats.cjs` extracts per-page facts from the built HTML (title and description length, word count, HTML weight, image and alt counts, internal links, JSON-LD types, sitemap membership) into `scratch/report-stats.json`.
+- New `docs/reports/2026-10-26-whole-website-report.md`: all 17 routes with weight, depth, meta, schema coverage, indexing state and a feature inventory, plus the eight still-open items. Measured totals: 17 routes, 25,129 words, 148 images (100% with `alt`), 693 internal links, 0 title or description violations.

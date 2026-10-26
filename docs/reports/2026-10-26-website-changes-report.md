@@ -23,64 +23,11 @@
 
 This report records **every change made to the live website** during this engagement — what was broken, what was changed, why, and how it was verified. Nothing here is planned work: every item below is committed and pushed.
 
-```mermaid
-timeline
-    title Change timeline (commit order)
-    section Release
-      6dfe8ed : APK version sync to v2.6.4.0.0.33
-               : First-load JS cut by 85 kB gzip
-      f5a2b05 : Download page doc corrected
-    section SEO / GEO
-      d0a3b16 : Truthful OG image + one business entity
-               : GEO knowledge-base pricing fixed
-      d8e1c03 : Price/number/app keywords + fake tag removed
-    section Reporting
-      500bcf7 : Trust audit + keyword map documented
-      b815052 : Sitemap lastmod refreshed
-    section Bug fixes
-      ee3405a : FAQ answers no longer overlap
-    section Delivery model
-      a23f80c : Urgent removed permanently
-               : Order stepper now responsive
-               : Full QA report scored 78/100
-    section meta
-      18db378 : All 23 title/description lengths fixed
-```
+![timeline](./charts/timeline.svg)
 
-### 0.1 When each change landed
+### 0.1 What kind of work this was
 
-```mermaid
-gantt
-    title Zyphuel website work — 2026-10-26 (PKT)
-    dateFormat YYYY-MM-DD HH:mm
-    axisFormat %H:%M
-    section 1 — Release
-    6dfe8ed Android v2.6.4.0.0.33 sync and 85 kB gzip cut :done, a1, 2026-10-26 18:44, 3m
-    f5a2b05 Download page doc correction                  :done, a2, 2026-10-26 18:49, 3m
-    section 2 — SEO and GEO
-    d0a3b16 Truthful OG card and one business entity      :done, b1, 2026-10-26 20:04, 3m
-    d8e1c03 Price and app keyword clusters                :done, b2, 2026-10-26 20:11, 3m
-    500bcf7 Trust audit and keyword map                   :done, b3, 2026-10-26 20:12, 3m
-    b815052 Sitemap lastmod refresh                       :done, b4, 2026-10-26 20:13, 3m
-    section 3 — Bug fixes
-    ee3405a FAQ panels clipped                            :done, c1, 2026-10-26 20:33, 3m
-    a23f80c 45 minute window and responsive stepper       :done, c2, 2026-10-26 20:53, 3m
-    section 4 — Reporting
-    18db378 Meta lengths normalised                       :done, d1, 2026-10-26 21:10, 3m
-    f71a319 Consolidated change report                    :done, d2, 2026-10-26 21:14, 3m
-```
-
-### 0.2 What kind of work this was
-
-```mermaid
-pie showData
-    title "Files changed by area"
-    "src/ — components and pages" : 24
-    "docs/ — reports, plans, page docs" : 20
-    "public/ — sitemap, robots, llms, og image" : 7
-    "root config — package, netlify, README, AGENTS" : 7
-    "scripts/ — qa-static, fuel updater" : 2
-```
+![change mix](./charts/change-mix.svg)
 
 The size of the `src/` column is itself a finding: the urgent-delivery removal reached 24 source files, and the meta-length fix had to be applied twice for every page (static prerender and client `useSEO`) because only fixing one of them lets hydration undo it.
 
@@ -116,16 +63,9 @@ All routes previously shipped in one 452 KB bundle.
 | Home first-load JS | 623 kB / 166.9 kB gzip | 260.6 kB / **81.6 kB gzip** |
 | `/order/` first-load | 166.9 kB gzip | **105.7 kB gzip** |
 
-```mermaid
-xychart-beta
-    title "First-load JavaScript, kB gzip (lower is better)"
-    x-axis ["Entry JS", "Home route", "Order route"]
-    y-axis "kB gzip" 0 --> 180
-    bar [113.9, 166.9, 166.9]
-    line [28.5, 81.6, 105.7]
-```
+![performance](./charts/performance.svg)
 
-> Bar = before · Line = after. Global CSS fell from 150.4 kB to 93.5 kB on top of this.
+> Grey = before, green = after. Global CSS fell from 150.4 kB to 93.5 kB on top of this.
 
 **How:** route-level `React.lazy` in `App.jsx`; `entry-server.jsx` moved from `renderToString` to `renderToPipeableStream` + `onAllReady` so lazy pages still prerender full HTML (verified — no Suspense fallback leaked into any of the 17 pages). Below-the-fold images lazied; 328 MB of scroll frames and `/video/*` given immutable caching in `netlify.toml` + `_headers`.
 
