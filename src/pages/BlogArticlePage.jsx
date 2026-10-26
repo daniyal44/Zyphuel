@@ -1,4 +1,12 @@
 import { useState } from 'react'
+
+const clipText = (text, max) => {
+  const value = String(text || '').trim()
+  if (value.length <= max) return value
+  const cut = value.slice(0, max)
+  const space = cut.lastIndexOf(' ')
+  return (space > max * 0.6 ? cut.slice(0, space) : cut).replace(/[\s,;:.\u2013\u2014-]+$/, '')
+}
 import { useParams, Link } from 'react-router-dom'
 import { articles } from '../data/articles'
 import fuelMarketIntel from '../data/fuelMarketIntel.json'
@@ -80,8 +88,8 @@ export default function BlogArticlePage() {
   }
 
   useSEO({
-    title: article ? `${article.title} | Zyphuel Blog` : 'Article Not Found | Zyphuel',
-    description: article ? article.summary : 'The requested article could not be found.',
+    title: article ? `${clipText(article.title, 46)} | Zyphuel` : 'Article Not Found | Zyphuel',
+    description: article ? clipText(article.summary, 155) : 'The requested article could not be found.',
     keywords: article ? [...article.tags, 'fuel delivery Lahore', 'diesel delivery Lahore', 'Zyphuel energy guide'] : [],
     image: article ? article.image : undefined,
     url: articleUrl,

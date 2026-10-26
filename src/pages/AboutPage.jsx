@@ -55,7 +55,7 @@ export default function AboutPage() {
 
   useSEO({
     title: 'About Zyphuel | On-Demand Fuel Delivery in Lahore',
-    description: "Learn about Zyphuel's mission to deliver reliable on-demand petrol and diesel across Lahore. Founded by Muhammad Daniyal, bringing calibrated digital flow meters to doorstep refueling.",
+    description: 'How Zyphuel delivers on-demand petrol and diesel across Lahore, founded by Muhammad Daniyal with calibrated digital flow meters.',
     keywords: [
       'about Zyphuel', 'fuel delivery company Lahore', 'mobile refueling Pakistan',
       'diesel delivery Lahore', 'generator fuel Pakistan', 'calibrated fuel metering',

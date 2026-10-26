@@ -3,7 +3,7 @@
 **Date:** 2026-10-26
 **Build tested:** `d0a3b16 → ee3405a` + this round's changes (17 prerendered routes)
 **Method:** automated static audit of every generated HTML file + manual browser testing in a real Chromium session at mobile (414px) and desktop widths.
-**Overall score: 78 / 100**
+**Overall score: 81 / 100**
 
 ---
 
@@ -60,7 +60,7 @@ xychart-beta
     title "Zyphuel QA score out of 100"
     x-axis ["Security", "AEO", "GEO", "SEO tech", "Build", "Mobile", "Perf", "A11y", "Trust"]
     y-axis "Score" 0 --> 100
-    bar [98, 92, 90, 88, 87, 82, 78, 75, 55]
+    bar [98, 92, 90, 95, 87, 82, 78, 75, 55]
 ```
 
 | Area | Score | Evidence |
@@ -68,7 +68,7 @@ xychart-beta
 | **Security / anti-spam** | 98 | No hidden text, cloaking, base64 payloads, `eval`, injected scripts, spam keywords or `meta refresh` in 17 pages. One fake Baidu verification token found and removed. |
 | **AEO** | 92 | Home FAQ schema (18 Q&As) survives hydration; every visually shown FAQ is mirrored in `FAQPage` JSON-LD. |
 | **GEO** | 90 | `llms.txt` + `llms-full.txt` carry canonical facts, a verification date and explicit "do not claim" guidance; wrong 11–15 L pricing corrected. |
-| **Technical SEO** | 88 | One valid JSON-LD block per page, single H1, self-canonical, truthful `lastmod`, image sitemap, 30+ crawler rules. Deduction: 23 title/description length issues (see §6). |
+| **Technical SEO** | 95 | One valid JSON-LD block per page, single H1, self-canonical, truthful `lastmod`, image sitemap, 30+ crawler rules, and every title ≤60 / description ≤160 characters. Static audit: **17/17 pages PASS, 0 issues**. |
 | **Build integrity** | 87 | 17/17 routes prerendered, 0 build errors, 0 console errors, 0 hydration failures across tested pages. |
 | **Mobile responsiveness** | 82 | Doc overflow = 0 on home, order, services, download, contact at 414px. Order stepper fixed. Deduction: contact coverage table scrolls inside a 380px box. |
 | **Performance** | 78 | Entry JS 28.7 kB gzip, CSS 93.5 kB. Deductions: 73 MB of unused video still deployed, 328 MB frame images, 55 hotlinked Unsplash images, `dist` ≈ 460 MB. |
@@ -149,11 +149,11 @@ Also: fuel-type and target-asset card images changed from `loading="lazy"` to ea
 | :--- | :--- | :--- | :--- |
 | 1 | **Unverifiable regulatory claims** | High | "OGRA licensed", "NFPA 385/30A compliant", "weights-and-measures certified", "cryptographically verified". Only the owner can confirm these. |
 | 2 | **LPG / water contradiction** | High | `/order/` still sells LPG (Rs. 450/kg) and water (Rs. 100/gal) while the schema says those services are unavailable, and one whole article targets them. |
-| 3 | **23 meta length issues** | Medium | Blog titles 104–124 chars (Google truncates ~60); 10 descriptions 166–252 chars. |
-| 4 | Contact coverage table | Low | 529px table inside a 380px scroll container on phones. |
-| 5 | 73 MB unused video | Medium | `public/video/*.mp4` has no reference in any build input yet is deployed and publicly downloadable. |
-| 6 | 55 hotlinked Unsplash images | Medium | Blog art breaks if Unsplash blocks hotlinking; no `width`/`height` → layout shift. |
-| 7 | No custom domain | Medium | Everything depends on `zyphuel.netlify.app` (and one `netlify.app` origin is shared infrastructure). |
+| 3 | Contact coverage table | Low | 529px table inside a 380px scroll container on phones. |
+| 4 | 73 MB unused video | Medium | `public/video/*.mp4` has no reference in any build input yet is deployed and publicly downloadable. |
+| 5 | 55 hotlinked Unsplash images | Medium | Blog art breaks if Unsplash blocks hotlinking; no `width`/`height` → layout shift. |
+| 6 | No custom domain | Medium | Everything depends on `zyphuel.netlify.app` (and one `netlify.app` origin is shared infrastructure). |
+| 7 | `/order/` + `/download/` not yet indexed | Medium | Technically perfect (200, index/follow, canonical, in sitemap) — this is a crawl-queue issue. Fixed by Request Indexing in Search Console. |
 
 ---
 

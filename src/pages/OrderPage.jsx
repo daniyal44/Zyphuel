@@ -116,8 +116,8 @@ export const INSTANT_PAYMENT_METHODS = [
 
 export default function OrderPage() {
   useSEO({
-    title: 'Order Fuel Online in Lahore | Doorstep Petrol & Diesel Booking Portal | Zyphuel',
-    description: 'Book verified Euro-V petrol, high-octane 97, and generator diesel delivery online in Lahore with Zyphuel. Fast 45 min dispatch, 5L–15L Max capacity, Cash on Delivery (COD) & digital meters.',
+    title: 'Order Fuel Online in Lahore | 45-Min Dispatch | Zyphuel',
+    description: 'Book petrol, high-octane 97 or diesel delivery in Lahore. 5-15 L, 45-minute dispatch, COD or online payment, metered invoice.',
     keywords: [
       'order fuel online Lahore', 'book petrol delivery Lahore', 'order diesel Lahore', 'online fuel ordering Lahore',
       'doorstep petrol delivery booking', 'generator diesel order', 'petrol cash on delivery Lahore', 'Zyphuel fuel booking',

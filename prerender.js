@@ -10,6 +10,17 @@ const toAbsolute = (p) => path.resolve(__dirname, p)
 
 const DOMAIN = 'https://zyphuel.netlify.app'
 
+// Keeps SERP titles/descriptions inside Google's visible limits without
+// cutting a word in half.
+const clipText = (text, max) => {
+  const value = String(text || '').trim()
+  if (value.length <= max) return value
+  const cut = value.slice(0, max)
+  const space = cut.lastIndexOf(' ')
+  return (space > max * 0.6 ? cut.slice(0, space) : cut).replace(/[\s,;:.\u2013\u2014-]+$/, '')
+}
+
+
 // Reads the real pixel dimensions of a locally hosted image so the declared
 // og:image:width/height can never contradict the file actually being served.
 // Returns null for remote URLs (e.g. CDN-hosted article art) or unreadable files.
@@ -432,8 +443,8 @@ const ROUTES = [
   {
     path: '/',
     outFile: 'dist/index.html',
-    title: "Online Petrol Delivery in Lahore | Doorstep Fuel & Diesel (COD) | Zyphuel",
-    description: "Order verified Euro-V petrol and diesel delivered directly to your doorstep in Lahore within 45 mins. Cash on delivery (COD), calibrated digital meters, and official OGRA rates.",
+    title: 'Online Petrol & Diesel Delivery in Lahore | Zyphuel',
+    description: 'Order Euro-V petrol or diesel to your doorstep in Lahore within 45 mins. Cash on delivery, calibrated meters, OGRA rates.',
     keywords: "online petrol delivery in lahore, petrol home delivery lahore, petrol delivery lahore price, petrol delivery lahore contact number, petrol delivery near me lahore, online petrol delivery near me, diesel home delivery near me, petrol delivery app pakistan, emergency petrol delivery lahore, buy petrol online pakistan, fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore, petrol pump near me Lahore, fuel station near me, petrol price today Lahore, diesel price today Lahore, diesel supplier Lahore, fuel agency Lahore, mobile refueling Pakistan, doorstep fuel delivery, generator diesel delivery, generator refueling service, fleet refueling service, on-demand fuel delivery app, fuel delivery DHA Lahore, petrol delivery Gulberg, diesel delivery Johar Town, OGRA compliant fuel rates, what is Zyphuel, is Zyphuel safe, Zyphuel mobile app, Zyphuel APK download, emergency fuel delivery Lahore, petrol delivery near me, petrol price in Pakistan today, diesel price in Pakistan today, today petrol rate in Pakistan, which app delivers petrol, can petrol be delivered at home, doorstep diesel delivery, best delivery app in Pakistan, diesel delivery companies",
     canonical: `${DOMAIN}/`,
     ogImage: `${DOMAIN}/images/og-cover.jpg`,
@@ -607,7 +618,7 @@ const ROUTES = [
     path: '/about/',
     outFile: 'dist/about/index.html',
     title: "About Zyphuel | On-Demand Fuel Delivery in Lahore",
-    description: "Learn about Zyphuel's mission to deliver reliable on-demand petrol and diesel across Lahore. Founded by Muhammad Daniyal, bringing calibrated digital flow meters to doorstep refueling.",
+    description: 'How Zyphuel delivers on-demand petrol and diesel across Lahore, founded by Muhammad Daniyal with calibrated digital flow meters.',
     keywords: "about Zyphuel, fuel delivery company Lahore, mobile refueling Pakistan, diesel delivery Lahore, generator fuel Pakistan, calibrated fuel metering, Zyphuel team, Muhammad Daniyal Zyphuel, on-demand fuel delivery Pakistan, fuel delivery app Pakistan, what is Zyphuel, fuel delivery startup Pakistan, doorstep fuel delivery company, Zyphuel fuel company Lahore",
     canonical: `${DOMAIN}/about/`,
     ogImage: `${DOMAIN}/images/og-cover.jpg`,
@@ -686,8 +697,8 @@ const ROUTES = [
   {
     path: '/services/',
     outFile: 'dist/services/index.html',
-    title: "Fuel Delivery Services in Lahore | Petrol, Diesel & High-Octane | Zyphuel",
-    description: "On-demand fuel delivery in Lahore: Euro-V Super Petrol, High-Octane 97, and Euro-V Diesel for vehicles and standby generators across DHA, Gulberg, Johar Town & Bahria Town. Fast dispatch within 45 minutes.",
+    title: 'Fuel Delivery Services in Lahore | Petrol & Diesel | Zyphuel',
+    description: 'Euro-V Super Petrol, High-Octane 97 and Euro-V Diesel to vehicles and standby generators across DHA, Gulberg and Johar Town.',
     keywords: "fuel delivery services Lahore, diesel delivery Lahore, petrol delivery Lahore, generator diesel refueling Lahore, commercial diesel supply Lahore, fleet refueling Pakistan, doorstep petrol delivery, high octane 97 delivery Lahore, Zyphuel services, fuel delivery DHA Lahore, petrol delivery Gulberg, diesel delivery Johar Town, generator diesel Model Town, emergency fuel Bahria Town Lahore, bulk diesel Sundar Industrial Estate, petrol pump near me Lahore, online fuel order Lahore, diesel delivery companies, load shedding generator fuel Lahore, standby generator diesel delivery, fuel supplier Lahore",
     canonical: `${DOMAIN}/services/`,
     ogImage: `${DOMAIN}/images/og-cover.jpg`,
@@ -792,8 +803,8 @@ const ROUTES = [
   {
     path: '/download/',
     outFile: 'dist/download/index.html',
-    title: "Download Zyphuel App: On-Demand Fuel Delivery APK for Android | Official v2.6.4",
-    description: `Download the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) for on-demand doorstep petrol and diesel delivery in Lahore. Real-time GPS tracking, 45-minute dispatch, and 2-hour OGRA price-lock alerts.`,
+    title: 'Download Zyphuel APK | Doorstep Fuel App for Android',
+    description: `Download the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}): live GPS tracking, 45-minute dispatch and 2-hour price alerts.`,
     keywords: `Download Zyphuel APK, Zyphuel App v${APP_VERSION}, petrol delivery app pakistan, fuel delivery app Lahore, online petrol delivery in lahore, doorstep diesel delivery lahore, generator fuel delivery lahore, emergency fuel app pakistan, buy fuel online pakistan, mobile fuel delivery app Pakistan, fuel rate alerts app Lahore, which app delivers petrol, best fuel delivery app Pakistan, petrol delivery app download, fuel delivery app with GPS tracking`,
     canonical: `${DOMAIN}/download/`,
     ogImage: `${DOMAIN}/images/og-cover.jpg`,
@@ -936,8 +947,8 @@ const ROUTES = [
   {
     path: '/order/',
     outFile: 'dist/order/index.html',
-    title: "Order Fuel Online in Lahore | Doorstep Petrol & Diesel Booking Portal | Zyphuel",
-    description: "Book verified Euro-V petrol, high-octane 97, and generator diesel delivery online in Lahore with Zyphuel. Fast 45 min dispatch, 5L–15L Max capacity, Cash on Delivery (COD) & digital meters.",
+    title: 'Order Fuel Online in Lahore | 45-Min Dispatch | Zyphuel',
+    description: 'Book petrol, high-octane 97 or diesel delivery in Lahore. 5-15 L, 45-minute dispatch, COD or online payment, metered invoice.',
     keywords: "order fuel online Lahore, book petrol delivery Lahore, order diesel Lahore, petrol delivery lahore price, diesel delivery lahore price, online fuel ordering Lahore, doorstep petrol delivery booking, generator diesel order, petrol cash on delivery Lahore, Zyphuel fuel booking, order petrol online near me, buy petrol online Lahore, fuel home delivery near me, doorstep fuel delivery cost, can I buy petrol online in Pakistan, 24/7 fuel delivery Lahore",
     canonical: `${DOMAIN}/order/`,
     ogImage: `${DOMAIN}/images/og-cover.jpg`,
@@ -1082,7 +1093,7 @@ const ROUTES = [
     path: '/contact/',
     outFile: 'dist/contact/index.html',
     title: "Contact Zyphuel | Fuel Delivery Support in Lahore",
-    description: "Reach Zyphuel for fuel orders, generator diesel, and commercial fleet accounts in Lahore. Call, WhatsApp, or send an enquiry — support available 24/7 in English and Urdu.",
+    description: 'Reach Zyphuel for fuel orders, generator diesel and fleet accounts in Lahore. Call or WhatsApp +92 3230-112464, support in English and Urdu.',
     keywords: "Contact Zyphuel, fuel delivery helpline Lahore, diesel supplier contact Lahore, fleet fuel account Pakistan, generator diesel enquiry, Zyphuel support, emergency fuel delivery Lahore, 24/7 fuel delivery Pakistan, fuel delivery WhatsApp number, Zyphuel WhatsApp number, petrol delivery contact number Lahore, fuel delivery customer care",
     canonical: `${DOMAIN}/contact/`,
     ogImage: `${DOMAIN}/images/og-cover.jpg`,
@@ -1312,8 +1323,8 @@ const ROUTES = [
     return {
       path: `/blog/${article.slug}/`,
       outFile: `dist/blog/${article.slug}/index.html`,
-      title: `${article.title} | Zyphuel Blog`,
-      description: article.summary,
+      title: `${clipText(article.title, 46)} | Zyphuel`,
+      description: clipText(article.summary, 155),
       keywords: `${article.tags.join(', ')}, fuel delivery Lahore, diesel delivery Lahore, Zyphuel`,
       canonical: `${DOMAIN}/blog/${article.slug}/`,
       ogImage: article.image || `${DOMAIN}/images/og-cover.jpg`,

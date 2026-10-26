@@ -1260,3 +1260,23 @@ rendered section is clean.
 - Added `scripts/qa-static.cjs` — audits every prerendered page for H1 count, title/description length, canonical, duplicate ids, JSON-LD validity, `<img alt>`, missing assets, broken internal links and rogue "urgent" copy.
 - Result: 17/17 pages build and render, 0 console errors, 0 hydration failures, 0 broken images, 0 broken internal links.
 - Report with Mermaid charts and scores: `docs/qa/2026-10-26-full-qa-report.md` (overall 78/100).
+
+---
+
+## Phase 22 — SERP Meta Length Normalisation (2026-10-26)
+
+All 23 title/description length violations fixed, in **both** places (static prerender and the client `useSEO` props, otherwise hydration reverted them).
+
+| Page | Title | Description |
+| :--- | :--- | :--- |
+| `/` | 73 → **51** | 177 → **121** |
+| `/about/` | 49 | 184 → **128** |
+| `/services/` | 73 → **60** | 205 → **124** |
+| `/download/` | 79 → **52** | 212 → **136** |
+| `/order/` | 79 → **55** | 189 → **125** |
+| `/contact/` | 49 | 170 → **140** |
+| 6 blog posts | 104–124 → **≤60** | 176–252 → **≤155** |
+
+Blog routes now use a `clipText()` helper that trims at a word boundary, so titles never end mid-word.
+
+Result: `node scripts/qa-static.cjs` → **17/17 pages PASS, 0 issues**. QA score raised 78 → 81.

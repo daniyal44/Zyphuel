@@ -128,8 +128,8 @@ export default function DownloadPage() {
   ]
 
   useSEO({
-    title: `Download Zyphuel App: On-Demand Fuel Delivery APK for Android | Official v2.6.4`,
-    description: `Download the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) for on-demand doorstep petrol and diesel delivery in Lahore. Real-time GPS tracking, 45-minute dispatch, and 2-hour OGRA price-lock alerts.`,
+    title: 'Download Zyphuel APK | Doorstep Fuel App for Android',
+    description: `Download the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}): live GPS tracking, 45-minute dispatch and 2-hour price alerts.`,
     keywords: [
       'download Zyphuel APK', 'Zyphuel Android app', `Zyphuel App v${APP_VERSION}`,
       'petrol delivery app pakistan', 'fuel delivery app Lahore', 'online petrol delivery in lahore',

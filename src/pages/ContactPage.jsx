@@ -11,7 +11,7 @@ export default function ContactPage() {
 
   useSEO({
     title: 'Contact Zyphuel | Fuel Delivery Support in Lahore',
-    description: 'Reach Zyphuel for fuel orders, generator diesel, and commercial fleet accounts in Lahore. Call, WhatsApp, or send an enquiry — support available 24/7 in English and Urdu.',
+    description: 'Reach Zyphuel for fuel orders, generator diesel and fleet accounts in Lahore. Call or WhatsApp +92 3230-112464, support in English and Urdu.',
     keywords: [
       'contact Zyphuel', 'fuel delivery helpline Lahore', 'diesel supplier contact Lahore',
       'fleet fuel account Pakistan', 'generator diesel enquiry', 'Zyphuel support', 'emergency fuel delivery Lahore', '24/7 fuel delivery Pakistan', 'fuel delivery WhatsApp number',
