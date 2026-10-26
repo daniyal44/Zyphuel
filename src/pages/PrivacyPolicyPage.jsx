@@ -26,7 +26,6 @@ export default function PrivacyPolicyPage() {
       'Zyphuel privacy policy', 'fuel delivery data protection', 'Zyphuel app privacy',
       'customer data policy Pakistan', 'Zyphuel terms and privacy'
     ],
-    image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/privacy/',
     canonicalPath: '/privacy/',
     type: 'website',

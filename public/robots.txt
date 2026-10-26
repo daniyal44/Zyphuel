@@ -1,7 +1,7 @@
 # ==============================================================================
 # Zyphuel Robots Exclusion Protocol (robots.txt)
 # Official Website: https://zyphuel.netlify.app/
-# Last Updated: 2026-10-23
+# Last Updated: 2026-10-26
 # ==============================================================================
 
 Sitemap: https://zyphuel.netlify.app/sitemap.xml
@@ -10,6 +10,8 @@ Sitemap: https://zyphuel.netlify.app/sitemap.xml
 User-agent: *
 Allow: /
 Disallow: /404.html
+Disallow: /api/
+Disallow: /plugins/
 
 # Google Search & Inspection Tooling
 User-agent: Googlebot
@@ -110,4 +112,47 @@ User-agent: Diffbot
 Allow: /
 
 User-agent: cohere-ai
+Allow: /
+
+# AI Answer Engines & Retrieval Agents (added 2026-10-26)
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Google-CloudVertexBot
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: AI2Bot
+Allow: /
+
+User-agent: Ai2Bot-Dolma
+Allow: /
+
+User-agent: Timpibot
+Allow: /
+
+User-agent: ImagesiftBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
+User-agent: Qwantbot
 Allow: /

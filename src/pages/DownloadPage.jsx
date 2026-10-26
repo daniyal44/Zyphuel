@@ -138,7 +138,6 @@ export default function DownloadPage() {
       'which app delivers petrol', 'best fuel delivery app Pakistan', 'petrol delivery app download',
       'fuel delivery app with GPS tracking'
     ],
-    image: 'https://zyphuel.netlify.app/images/1.jpeg',
     imageAlt: 'Zyphuel Android app screen showing live fuel rates and delivery tracking in Lahore',
     url: 'https://zyphuel.netlify.app/download/',
     canonicalPath: '/download/',

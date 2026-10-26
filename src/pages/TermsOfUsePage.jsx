@@ -25,7 +25,6 @@ export default function TermsOfUsePage() {
       'Zyphuel terms of use', 'fuel delivery terms and conditions', 'Zyphuel service agreement',
       'fuel order terms Pakistan', 'Zyphuel app terms'
     ],
-    image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/terms/',
     canonicalPath: '/terms/',
     type: 'website',

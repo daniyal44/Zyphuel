@@ -124,7 +124,6 @@ export default function OrderPage() {
       'order petrol online near me', 'buy petrol online Lahore', 'fuel home delivery near me',
       'doorstep fuel delivery cost', 'can I buy petrol online in Pakistan', '24/7 fuel delivery Lahore'
     ],
-    image: 'https://zyphuel.netlify.app/images/tank.png',
     url: 'https://zyphuel.netlify.app/order/',
     canonicalPath: '/order/',
     type: 'website',

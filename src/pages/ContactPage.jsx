@@ -17,7 +17,6 @@ export default function ContactPage() {
       'fleet fuel account Pakistan', 'generator diesel enquiry', 'Zyphuel support', 'emergency fuel delivery Lahore', '24/7 fuel delivery Pakistan', 'fuel delivery WhatsApp number',
       'Zyphuel WhatsApp number', 'petrol delivery contact number Lahore', 'fuel delivery customer care'
     ],
-    image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/contact/',
     canonicalPath: '/contact/',
     type: 'website',

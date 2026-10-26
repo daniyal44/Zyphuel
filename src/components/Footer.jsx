@@ -21,72 +21,6 @@ const LogoFallbackSVG = () => (
   </svg>
 );
 
-/* ---------- JSON‑LD Structured Data (LocalBusiness) ---------- */
-const LocalBusinessSchema = () => {
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'Zyphuel',
-    image: [
-      'https://zyphuel.netlify.app/images/logo.png',
-      'https://zyphuel.netlify.app/images/Zyphuel-logo.png',
-      'https://zyphuel.netlify.app/images/fuel.png'
-    ],
-    logo: 'https://zyphuel.netlify.app/images/logo.png',
-    '@id': 'https://zyphuel.netlify.app/#organization',
-    url: 'https://zyphuel.netlify.app',
-    telephone: footerData.contact.phone,
-    email: footerData.contact.email,
-    description: footerData.brand.description,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '75-Main Boulevard, Gulberg III',
-      addressLocality: 'Lahore',
-      addressRegion: 'Punjab',
-      postalCode: '54000',
-      addressCountry: 'PK',
-    },
-    sameAs: [
-      'https://www.linkedin.com/company/zyphuel/?viewAsMember=true',
-      'https://www.linkedin.com/in/muhammad-daniyal490',
-      'https://share.google/Nb4XGKYq5aU0nzLr3',
-      'https://github.com/daniyal44',
-      'https://www.facebook.com/muhammad.daniyal.522942/'
-    ],
-    areaServed: footerData.lahoreTowns.map((town) => ({
-      '@type': 'City',
-      name: town,
-    })),
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
-        "opens": "08:00",
-        "closes": "20:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Friday"],
-        "opens": "08:00",
-        "closes": "13:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Saturday", "Sunday"],
-        "opens": "10:00",
-        "closes": "18:00"
-      }
-    ],
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
-};
-
 /* ---------- Footer Component ---------- */
 export default function Footer() {
   const [logoError, setLogoError] = useState(false);
@@ -97,7 +31,6 @@ export default function Footer() {
 
   return (
     <footer className="footer" itemScope itemType="https://schema.org/WPFooter">
-      <LocalBusinessSchema />
 
       <div className="container">
         <div className="footer-grid">

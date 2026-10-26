@@ -25,7 +25,7 @@
   <meta name="theme-color" content="#1a4f7c" />
   <link rel="icon" type="image/png" href="/images/logo.png" />
   <link rel="apple-touch-icon" href="/images/logo.png" />
-  <link rel="image_src" href="https://zyphuel.netlify.app/images/logo.png" />
+  <link rel="image_src" href="https://zyphuel.netlify.app/images/og-cover.jpg" />
   <link rel="manifest" href="/manifest.json" />
   <link rel="alternate" type="application/rss+xml" title="Zyphuel Energy &amp; Fuel Guides RSS Feed"
     href="https://zyphuel.netlify.app/feed.xml" />
@@ -90,12 +90,12 @@
   <meta property="og:title" content="Zyphuel | Doorstep Petrol &amp; Diesel Delivery in Lahore" />
   <meta property="og:description"
     content="Zyphuel provides convenient doorstep petrol, diesel, and high-octane fuel delivery in Lahore with calibrated digital flow meters and fast dispatch within 45 minutes." />
-  <meta property="og:image" content="https://zyphuel.netlify.app/images/logo.png" />
-  <meta property="og:image:secure_url" content="https://zyphuel.netlify.app/images/logo.png" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Zyphuel – on-demand petrol &amp; diesel delivery in Lahore" />
+  <meta property="og:image" content="https://zyphuel.netlify.app/images/og-cover.jpg" />
+  <meta property="og:image:secure_url" content="https://zyphuel.netlify.app/images/og-cover.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="Calibrated Zyphuel refueling nozzle delivering Euro-V petrol — doorstep fuel delivery in Lahore" />
   <meta property="og:site_name" content="Zyphuel" />
 
   <!-- Twitter Card -->
@@ -106,8 +106,8 @@
   <meta name="twitter:title" content="Zyphuel | Doorstep Petrol &amp; Diesel Delivery in Lahore" />
   <meta name="twitter:description"
     content="Zyphuel provides convenient doorstep petrol, diesel, and high-octane fuel delivery in Lahore with calibrated digital flow meters and fast dispatch within 45 minutes." />
-  <meta name="twitter:image" content="https://zyphuel.netlify.app/images/logo.png" />
-  <meta name="twitter:image:alt" content="Zyphuel – on-demand petrol &amp; diesel delivery in Lahore" />
+  <meta name="twitter:image" content="https://zyphuel.netlify.app/images/og-cover.jpg" />
+  <meta name="twitter:image:alt" content="Calibrated Zyphuel refueling nozzle delivering Euro-V petrol — doorstep fuel delivery in Lahore" />
 
   <!-- Local SEO Geo Meta Tags (Lahore, Pakistan) -->
   <meta name="geo.region" content="PK-PB" />
@@ -136,8 +136,26 @@
           }
         },
         {
-          "@type": "LocalBusiness",
+          "@type": "Organization",
           "@id": "https://zyphuel.netlify.app/#organization",
+          "name": "Zyphuel",
+          "url": "https://zyphuel.netlify.app",
+          "logo": "https://zyphuel.netlify.app/images/logo.png",
+          "telephone": "+923230112464",
+          "email": "m.daniyalkhan490@gmail.com",
+          "sameAs": [
+            "https://www.linkedin.com/company/zyphuel/",
+            "https://www.linkedin.com/in/muhammad-daniyal490",
+            "https://github.com/daniyal44",
+            "https://www.facebook.com/muhammad.daniyal.522942/"
+          ]
+        },
+        {
+          "@type": ["LocalBusiness", "GasStation"],
+          "@id": "https://zyphuel.netlify.app/#localbusiness",
+          "parentOrganization": {
+            "@id": "https://zyphuel.netlify.app/#organization"
+          },
           "name": "Zyphuel",
           "alternateName": [
             "Zyphuel Mobile Petrol Pump Lahore",
@@ -167,11 +185,41 @@
           ],
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Lahore",
+            "streetAddress": "75-Main Boulevard, Gulberg III",
             "addressLocality": "Lahore",
             "addressRegion": "Punjab",
             "postalCode": "54000",
             "addressCountry": "PK"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+              "opens": "08:00",
+              "closes": "20:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Friday"],
+              "opens": "08:00",
+              "closes": "13:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Saturday", "Sunday"],
+              "opens": "10:00",
+              "closes": "18:00"
+            }
+          ],
+          "currenciesAccepted": "PKR",
+          "paymentAccepted": "Cash on Delivery, JazzCash, Easypaisa, NayaPay, Raast",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+923230112464",
+            "contactType": "customer service",
+            "availableLanguage": ["en", "ur"],
+            "areaServed": "PK",
+            "contactOption": "TollFree"
           },
           "geo": {
             "@type": "GeoCoordinates",

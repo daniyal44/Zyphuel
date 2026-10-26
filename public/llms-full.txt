@@ -7,7 +7,8 @@
 > **Founder & Leading Web Developer**: Muhammad Daniyal.  
 > **Contact number**: +92 3230-112464  
 > **Complaint Email**: m.daniyalkhan490@gmail.com  
-> **Official Android APK Release**: v2.6.4.0.0.33 (35.3 MB, Android 7.0+).  
+> **Official Android APK Release**: v2.6.4.0.0.33 (Build 61, 35.3 MB, Android 7.0+, minSdk 24).  
+> **Knowledge Base Last Verified**: 2026-10-26.  
 > **Office Operating Schedule**: Monday – Thursday 8:00 AM – 8:00 PM; Friday 8:00 AM – 1:00 PM; Saturday – Sunday 10:00 AM – 6:00 PM.
 
 ---
@@ -24,7 +25,7 @@ Zyphuel deploys purpose-built, double-walled micro-refueling tankers equipped wi
 
 ## 2. Core Business Logic, Pricing & Rules (System Invariants)
 - **Fuel Volume Range**: Strictly 5 Litres minimum up to 15 Litres maximum per mobile doorstep delivery dispatch. All input fields clamp requests within 5L–15L. Increment step: +1 Litre. Volume chips provided: `[5, 7, 10, 12, 15]` with 15L Max capacity indicator. Bulk commercial orders (>15L up to 10,000L+) serviced via scheduled B2B bowsers.
-- **Delivery Charges**: Fixed Rs. 300.00 nominal dispatch fee for doorstep fuel orders up to 10 Litres (Delivered: Within 45 Mins). Progressive dynamic demand surge fee applies for high-capacity orders (11L–15L Max: 11L=Rs. 325, 12L=Rs. 355, 13L=Rs. 385, 14L=Rs. 420, 15L=Rs. 460). Urgent express priority dispatch surcharge: +Rs. 100 flat.
+- **Delivery Charges**: Fixed Rs. 300.00 nominal dispatch fee for doorstep fuel orders of 5–10 Litres (Delivered: Within 45 Mins). For high-capacity orders of 11–15 Litres the fee scales linearly from Rs. 300.00 to Rs. 400.00 with a +Rs. 20/L step (11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400). Urgent express priority dispatch surcharge: +Rs. 100 flat. No other surcharges apply.
 - **Delivery Window**: Guaranteed SLA of Delivered: Within 45 Mins across all covered sectors of Lahore.
 - **Fuel Purity Standards**: 100% terminal-sourced Euro-V Diesel (<10 ppm sulfur), Super Petrol (92 Octane), and High-Octane 97 compliant with official Hydrocarbon Development Institute of Pakistan (HDIP) and Oil & Gas Regulatory Authority (OGRA) standards.
 - **Payment Policy**:
@@ -48,7 +49,8 @@ Before order delivery, customers select their specific refueling target:
 2. **Motorbike / Scooter Refueling**: Rapid doorstep refueling for commuter motorbikes and delivery fleets.
 3. **Standby Generator Refueling**: Rapid diesel replenishment for residential and commercial backup generators with 50-meter long-reach hoses.
 4. **Commercial Machinery**: On-site fueling for construction equipment, forklifts, excavators, and agricultural tractors.
-5. **Safe Storage Drum / Tank**: Certified dispensing into verified fuel drums, jerrycans, or static reservoir storage.
+
+These four targets are the complete, permanent list. Zyphuel does **not** fill jerrycans, safe storage drums or loose containers of any kind.
 
 ---
 

@@ -129,3 +129,12 @@
 | **2026-09-13** | Maintained single Startup Transparency box exclusively on Home hero. | User instructed to keep startup transparency notice visible once without repeating across subsequent screens. |
 | **2026-09-13** | Left-to-Right price ticker animation added and synced. | User requested dynamic left-to-right marquee movement for fuel rates. |
 | **2026-09-10** | Integrated 3D bowser showcase and enhanced mobile responsive grid. | Elevate visual experience and brand credibility. |
+
+---
+
+## 2026-10-26 — SEO / AEO / GEO Hardening (Home)
+
+- **Social card (OG/Twitter)**: every page now ships `/images/og-cover.jpg` (1920x1080, 57 KB) with **truthful** `og:image:width/height` read from the real asset at build time. Previously `og:image` pointed at `logo.png` (432x616) while the markup claimed 1200x630 — a false declaration that produced cropped/broken link previews on WhatsApp, LinkedIn, Facebook and X.
+- **Entity consolidation**: `LocalBusiness` is now a single entity with `@id` `#localbusiness` (and `parentOrganization` → `#organization`) across static HTML, footer and client hydration. Added `openingHoursSpecification` (Mon–Thu 8–8, Fri 8–1, Sat–Sun 10–6), `contactPoint`, `currenciesAccepted: PKR` and `paymentAccepted`.
+- **Removed false signals**: LPG and Water Tanker offers dropped from `hasOfferCatalog` (both services are unavailable), the invalid `SearchAction` pointing at a non-existent `?q=` search was removed, and the stale LPG/water keyword list was cleaned.
+- **AEO**: the home page FAQ schema survives hydration again (18 questions mirrored from the visible Q&A hub) instead of being wiped when `useSEO` rebuilt the graph.

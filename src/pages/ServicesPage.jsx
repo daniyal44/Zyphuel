@@ -109,7 +109,6 @@ export default function ServicesPage() {
       'diesel delivery companies', 'load shedding generator fuel Lahore',
       'standby generator diesel delivery', 'fuel supplier Lahore'
     ],
-    image: 'https://zyphuel.netlify.app/images/fuel.png',
     url: 'https://zyphuel.netlify.app/services/',
     type: 'website',
     schema: {

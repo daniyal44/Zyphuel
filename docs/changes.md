@@ -1169,3 +1169,32 @@ Headless Chrome via CDP with `Emulation.setEmulatedMedia` (confirmed in-page: `r
 - **Verification**: build exit 0; all JSON-LD parse; FAQPage = 18 Question items; Wave-2 terms present in every page's prerendered meta keywords; `node --check prerender.js` OK; Home Lighthouse Accessibility/Best-Practices/SEO = **100/100/100**.
 - Deliberately **not** answered: "Is doorstep fuel delivery legal in Pakistan?" — research found no verifiable legal answer; truthfulness rule forbids unqualified compliance claims.
 
+---
+
+## Phase 17 — SEO / AEO / GEO Hardening (2026-10-26)
+
+User request: *"SEO, AEO & GEO karo har taraqe se har field me."*
+
+### 1. Social / Open Graph correctness
+- Added `public/images/og-cover.jpg` — a branded 1920x1080 cinematic refueling-nozzle hero frame (57 KB), reused from the existing home hero animation set so no new design dependency was introduced.
+- `index.html`, `src/hooks/useSEO.js` and `prerender.js` now all declare **real** dimensions. `prerender.js` gained a `localImageDims()` helper (PNG IHDR + JPEG SOF parsing) that reads each route's actual asset; remote images (article art) emit **no** dimension hints instead of repeating a wrong 1200x630 claim.
+- Removed the nine per-page `image:` overrides that forced `logo.png` (432x616) or portrait photos, so every non-article page shares one correct large-card asset.
+
+### 2. Structured-data entity consolidation
+- Canonical model: `#organization` = `Organization`; `#localbusiness` = `["LocalBusiness","GasStation"]` with `parentOrganization` → `#organization`.
+- Added `openingHoursSpecification`, `contactPoint`, `currenciesAccepted`, `paymentAccepted` to the LocalBusiness node in `prerender.js`, `index.html` and `src/hooks/useSEO.js`; `Organization` address corrected from bare "Lahore" to "75-Main Boulevard, Gulberg III".
+- Deleted the duplicate `LocalBusiness` script that `src/components/Footer.jsx` injected on every page (it defined the same entity a second time).
+- Removed LPG and Water Tanker offers from `hasOfferCatalog` (both are unavailable per `docs/pages/services.md`) and `SearchAction` (the site has no `?q=` search endpoint).
+
+### 3. AEO
+- Home page now passes `@graph` = [LocalBusiness, FAQPage] built from the visible `homeFaqs` array, so the 18-question FAQ schema is no longer erased by client hydration. Verified in the browser: 18 questions present after hydration, single valid JSON-LD block, zero parse errors.
+
+### 4. GEO (generative answer engines)
+- `public/llms-full.txt`: corrected the **wrong** 11–15 L delivery pricing (was Rs. 325/355/385/420/460; now the canonical Rs. 320/340/360/380/400) and removed the retired fifth target "Safe Storage Drum / Tank" (jerrycan/drum refueling is not offered).
+- `public/llms.txt`: added the 8 AM–10 PM order window, a verification date, and a new `## 9. Citation & Answer Guidance for AI Assistants` block listing stable facts plus claims assistants must **not** make (store availability, jerrycan filling, off-spec pricing, delivery outside Lahore).
+- `public/robots.txt`: added 13 more AI/retrieval agents (Claude-User, Claude-SearchBot, Perplexity-User, DuckAssistBot, Amazonbot, Google-CloudVertexBot, MistralAI-User, AI2Bot, Ai2Bot-Dolma, Timpibot, ImagesiftBot, YouBot, PetalBot, Qwantbot) and disallowed `/api/` and `/plugins/`.
+
+### 5. Verification
+- Rebuild clean: 17 routes prerendered, 0 build errors.
+- Automated audit over 11 output HTML files: **1 valid JSON-LD block per page**, zero parse errors, zero duplicate entity definitions, correct `og:image` + 1920x1080 on every non-article page, `article:published_time/modified_time/author/section/tag` on blog posts.
+- Browser check (localhost preview): hydrated home page keeps 18 FAQ questions and the correct OG image; `/order/` has no duplicate ids and retains OrderAction + DeliveryService + FAQPage.

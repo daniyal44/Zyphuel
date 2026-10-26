@@ -134,12 +134,13 @@ export default function HomePage() {
       'which app delivers petrol', 'can petrol be delivered at home', 'doorstep diesel delivery',
       'best delivery app in Pakistan', 'diesel delivery companies', 'petrol delivered to home Lahore'
     ],
-    image: 'https://zyphuel.netlify.app/images/logo.png',
     url: 'https://zyphuel.netlify.app/',
     type: 'website',
     schema: {
       "@context": "https://schema.org",
+      "@graph": [{
       "@type": "LocalBusiness",
+      "@id": "https://zyphuel.netlify.app/#localbusiness",
       "name": "Zyphuel",
       "description": "Zyphuel delivers certified Euro-V petrol and diesel to your doorstep in Lahore, Pakistan — serving households, generator owners, and commercial fleets with calibrated digital metering and live GPS tracking.",
       "url": "https://zyphuel.netlify.app",
@@ -213,6 +214,16 @@ export default function HomePage() {
           "https://github.com/daniyal44"
         ]
       }
+      }, {
+        // Mirrors the visible AEO Q&A hub so the FAQ schema survives hydration
+        "@type": "FAQPage",
+        "@id": "https://zyphuel.netlify.app/#faq",
+        "mainEntity": homeFaqs.map(({ q, a }) => ({
+          "@type": "Question",
+          "name": q,
+          "acceptedAnswer": { "@type": "Answer", "text": a }
+        }))
+      }]
     }
   })
 

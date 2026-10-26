@@ -18,7 +18,6 @@ export default function BlogListPage() {
     url: 'https://zyphuel.netlify.app/blog/',
     canonicalPath: '/blog/',
     type: 'website',
-    image: 'https://zyphuel.netlify.app/images/logo.png',
     imageAlt: 'Zyphuel Blog – fuel delivery, generator refueling and energy guides for Lahore',
     schema: {
       '@graph': [

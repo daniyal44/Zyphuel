@@ -10,6 +10,36 @@ const toAbsolute = (p) => path.resolve(__dirname, p)
 
 const DOMAIN = 'https://zyphuel.netlify.app'
 
+// Reads the real pixel dimensions of a locally hosted image so the declared
+// og:image:width/height can never contradict the file actually being served.
+// Returns null for remote URLs (e.g. CDN-hosted article art) or unreadable files.
+function localImageDims(imageUrl) {
+  try {
+    if (!imageUrl || !imageUrl.startsWith(DOMAIN)) return null
+    const relative = imageUrl.slice(DOMAIN.length).split('?')[0]
+    const file = toAbsolute(path.join('public', relative))
+    if (!fs.existsSync(file)) return null
+    const buf = fs.readFileSync(file)
+    if (buf.slice(1, 4).toString() === 'PNG') {
+      return { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) }
+    }
+    if (buf[0] === 0xFF && buf[1] === 0xD8) {
+      let i = 2
+      while (i < buf.length) {
+        if (buf[i] !== 0xFF) { i++; continue }
+        const marker = buf[i + 1]
+        if (marker >= 0xC0 && marker <= 0xCF && marker !== 0xC4 && marker !== 0xC8 && marker !== 0xCC) {
+          return { height: buf.readUInt16BE(i + 5), width: buf.readUInt16BE(i + 7) }
+        }
+        i += 2 + buf.readUInt16BE(i + 2)
+      }
+    }
+  } catch (err) {
+    return null
+  }
+  return null
+}
+
 // Common knowledge entities
 const ORGANIZATION_SCHEMA = {
   "@type": "Organization",
@@ -39,11 +69,18 @@ const ORGANIZATION_SCHEMA = {
   ],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Lahore",
+    "streetAddress": "75-Main Boulevard, Gulberg III",
     "addressLocality": "Lahore",
     "addressRegion": "Punjab",
     "postalCode": "54000",
     "addressCountry": "PK"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+923230112464",
+    "contactType": "customer service",
+    "availableLanguage": ["en", "ur"],
+    "areaServed": "PK"
   },
   "geo": {
     "@type": "GeoCoordinates",
@@ -86,6 +123,9 @@ const ORGANIZATION_SCHEMA = {
 const LOCAL_BUSINESS_SCHEMA = {
   "@type": ["LocalBusiness", "GasStation"],
   "@id": `${DOMAIN}/#localbusiness`,
+  "parentOrganization": {
+    "@id": `${DOMAIN}/#organization`
+  },
   "name": "Zyphuel Mobile Refueling & Fuel Agency",
   "alternateName": [
     "Zyphuel Mobile Petrol Pump Lahore",
@@ -111,6 +151,35 @@ const LOCAL_BUSINESS_SCHEMA = {
     "@type": "GeoCoordinates",
     "latitude": 31.507534,
     "longitude": 74.334949
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+      "opens": "08:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Friday"],
+      "opens": "08:00",
+      "closes": "13:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday", "Sunday"],
+      "opens": "10:00",
+      "closes": "18:00"
+    }
+  ],
+  "currenciesAccepted": "PKR",
+  "paymentAccepted": "Cash on Delivery, JazzCash, Easypaisa, NayaPay, Raast",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+923230112464",
+    "contactType": "customer service",
+    "availableLanguage": ["en", "ur"],
+    "areaServed": "PK"
   },
   "areaServed": [
     { "@type": "City", "name": "Lahore", "sameAs": "https://en.wikipedia.org/wiki/Lahore" },
@@ -155,22 +224,6 @@ const LOCAL_BUSINESS_SCHEMA = {
           "@type": "Service",
           "name": "Commercial Logistics Fleet Yard Refueling",
           "description": "Bulk fuel replenishment for logistics vans, corporate vehicle fleets, and construction equipment."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Potable Clean Water Tanker Dispatch",
-          "description": "Commercial and residential clean water delivery across Lahore."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Certified Sealed LPG Cylinder Delivery",
-          "description": "Weight-verified 11.8kg and 45.4kg LPG cylinders delivered with safety valve inspection."
         }
       }
     ]
@@ -383,7 +436,7 @@ const ROUTES = [
     description: "Order verified Euro-V petrol and diesel delivered directly to your doorstep in Lahore within 45 mins. Cash on delivery (COD), calibrated digital meters, and official OGRA rates.",
     keywords: "online petrol delivery in lahore, petrol home delivery lahore, online petrol delivery near me, diesel home delivery near me, petrol delivery app pakistan, emergency petrol delivery lahore, buy petrol online pakistan, fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore, petrol pump near me Lahore, fuel station near me, petrol price today Lahore, diesel price today Lahore, diesel supplier Lahore, fuel agency Lahore, mobile refueling Pakistan, doorstep fuel delivery, generator diesel delivery, generator refueling service, fleet refueling service, on-demand fuel delivery app, fuel delivery DHA Lahore, petrol delivery Gulberg, diesel delivery Johar Town, OGRA compliant fuel rates, what is Zyphuel, is Zyphuel safe, Zyphuel mobile app, Zyphuel APK download, emergency fuel delivery Lahore, petrol delivery near me, petrol price in Pakistan today, diesel price in Pakistan today, today petrol rate in Pakistan, which app delivers petrol, can petrol be delivered at home, doorstep diesel delivery, best delivery app in Pakistan, diesel delivery companies",
     canonical: `${DOMAIN}/`,
-    ogImage: `${DOMAIN}/images/logo.png`,
+    ogImage: `${DOMAIN}/images/og-cover.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -557,7 +610,7 @@ const ROUTES = [
     description: "Learn about Zyphuel's mission to deliver reliable on-demand petrol and diesel across Lahore. Founded by Muhammad Daniyal, bringing calibrated digital flow meters to doorstep refueling.",
     keywords: "about Zyphuel, fuel delivery company Lahore, mobile refueling Pakistan, diesel delivery Lahore, generator fuel Pakistan, calibrated fuel metering, Zyphuel team, Muhammad Daniyal Zyphuel, on-demand fuel delivery Pakistan, fuel delivery app Pakistan, what is Zyphuel, fuel delivery startup Pakistan, doorstep fuel delivery company, Zyphuel fuel company Lahore",
     canonical: `${DOMAIN}/about/`,
-    ogImage: `${DOMAIN}/images/daniyal.jpeg`,
+    ogImage: `${DOMAIN}/images/og-cover.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -637,7 +690,7 @@ const ROUTES = [
     description: "On-demand fuel delivery in Lahore: Euro-V Super Petrol, High-Octane 97, and Euro-V Diesel for vehicles and standby generators across DHA, Gulberg, Johar Town & Bahria Town. Fast dispatch within 45 minutes.",
     keywords: "fuel delivery services Lahore, diesel delivery Lahore, petrol delivery Lahore, generator diesel refueling Lahore, commercial diesel supply Lahore, fleet refueling Pakistan, doorstep petrol delivery, high octane 97 delivery Lahore, Zyphuel services, fuel delivery DHA Lahore, petrol delivery Gulberg, diesel delivery Johar Town, generator diesel Model Town, emergency fuel Bahria Town Lahore, bulk diesel Sundar Industrial Estate, petrol pump near me Lahore, online fuel order Lahore, diesel delivery companies, load shedding generator fuel Lahore, standby generator diesel delivery, fuel supplier Lahore",
     canonical: `${DOMAIN}/services/`,
-    ogImage: `${DOMAIN}/images/fuel.png`,
+    ogImage: `${DOMAIN}/images/og-cover.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -743,7 +796,7 @@ const ROUTES = [
     description: `Download the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) for on-demand doorstep petrol and diesel delivery in Lahore. Real-time GPS tracking, 45-minute dispatch, and 2-hour OGRA price-lock alerts.`,
     keywords: `Download Zyphuel APK, Zyphuel App v${APP_VERSION}, petrol delivery app pakistan, fuel delivery app Lahore, online petrol delivery in lahore, doorstep diesel delivery lahore, generator fuel delivery lahore, emergency fuel app pakistan, buy fuel online pakistan, mobile fuel delivery app Pakistan, fuel rate alerts app Lahore, which app delivers petrol, best fuel delivery app Pakistan, petrol delivery app download, fuel delivery app with GPS tracking`,
     canonical: `${DOMAIN}/download/`,
-    ogImage: `${DOMAIN}/images/1.jpeg`,
+    ogImage: `${DOMAIN}/images/og-cover.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -887,7 +940,7 @@ const ROUTES = [
     description: "Book verified Euro-V petrol, high-octane 97, and generator diesel delivery online in Lahore with Zyphuel. Fast 45 min dispatch, 5L–15L Max capacity, Cash on Delivery (COD) & digital meters.",
     keywords: "order fuel online Lahore, book petrol delivery Lahore, order diesel Lahore, online fuel ordering Lahore, doorstep petrol delivery booking, generator diesel order, petrol cash on delivery Lahore, Zyphuel fuel booking, order petrol online near me, buy petrol online Lahore, fuel home delivery near me, doorstep fuel delivery cost, can I buy petrol online in Pakistan, 24/7 fuel delivery Lahore",
     canonical: `${DOMAIN}/order/`,
-    ogImage: `${DOMAIN}/images/tank.png`,
+    ogImage: `${DOMAIN}/images/og-cover.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -1032,7 +1085,7 @@ const ROUTES = [
     description: "Reach Zyphuel for fuel orders, generator diesel, and commercial fleet accounts in Lahore. Call, WhatsApp, or send an enquiry — support available 24/7 in English and Urdu.",
     keywords: "Contact Zyphuel, fuel delivery helpline Lahore, diesel supplier contact Lahore, fleet fuel account Pakistan, generator diesel enquiry, Zyphuel support, emergency fuel delivery Lahore, 24/7 fuel delivery Pakistan, fuel delivery WhatsApp number, Zyphuel WhatsApp number, petrol delivery contact number Lahore, fuel delivery customer care",
     canonical: `${DOMAIN}/contact/`,
-    ogImage: `${DOMAIN}/images/logo.png`,
+    ogImage: `${DOMAIN}/images/og-cover.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -1108,7 +1161,7 @@ const ROUTES = [
     description: "How Zyphuel collects, uses, and protects your personal data when you order fuel delivery in Lahore through our website and Android app.",
     keywords: "Zyphuel privacy policy, data protection, user security, Android app permissions, Lahore privacy standards",
     canonical: `${DOMAIN}/privacy/`,
-    ogImage: `${DOMAIN}/images/logo.png`,
+    ogImage: `${DOMAIN}/images/og-cover.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -1138,7 +1191,7 @@ const ROUTES = [
     description: "The terms that govern your use of the Zyphuel website and Android app for fuel delivery in Lahore, including orders, payment, delivery, and dispute resolution.",
     keywords: "Terms of use, service contract, fuel order terms, cancellation rules, Zyphuel legal terms",
     canonical: `${DOMAIN}/terms/`,
-    ogImage: `${DOMAIN}/images/logo.png`,
+    ogImage: `${DOMAIN}/images/og-cover.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -1168,7 +1221,7 @@ const ROUTES = [
     description: "Read the latest articles about fuel delivery, generator refueling, LPG gas delivery, and mobile energy logistics in Lahore, Pakistan.",
     keywords: "fuel delivery blog, diesel delivery articles, generator refueling guide, Lahore fuel news, Zyphuel blog, petrol price in Pakistan today, diesel price today Pakistan, OGRA fuel price update, fuel price news Pakistan, load shedding generator fuel, high octane petrol price Pakistan",
     canonical: `${DOMAIN}/blog/`,
-    ogImage: `${DOMAIN}/images/logo.png`,
+    ogImage: `${DOMAIN}/images/og-cover.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -1193,7 +1246,7 @@ const ROUTES = [
     description: "The page you are looking for could not be found. Return to Zyphuel homepage or browse fuel delivery services in Lahore.",
     keywords: "404 not found, Zyphuel",
     canonical: `${DOMAIN}/404.html`,
-    ogImage: `${DOMAIN}/images/logo.png`,
+    ogImage: `${DOMAIN}/images/og-cover.jpg`,
     ogType: 'website',
     noIndex: true,
     schema: {
@@ -1225,7 +1278,7 @@ const ROUTES = [
         "description": article.summary,
         "image": article.image,
         "datePublished": toISO(article.date),
-        "dateModified": "2026-09-27T00:00:00+05:00",
+        "dateModified": toISO(article.date),
         "author": {
           "@type": article.author.includes('CEO') || article.author.includes('Founder') ? "Person" : "Organization",
           "name": article.author
@@ -1263,8 +1316,15 @@ const ROUTES = [
       description: article.summary,
       keywords: `${article.tags.join(', ')}, fuel delivery Lahore, diesel delivery Lahore, Zyphuel`,
       canonical: `${DOMAIN}/blog/${article.slug}/`,
-      ogImage: article.image || `${DOMAIN}/images/logo.png`,
+      ogImage: article.image || `${DOMAIN}/images/og-cover.jpg`,
       ogType: 'article',
+      articleMeta: {
+        published: `${toISO(article.date)}T08:00:00+05:00`,
+        modified: `${toISO(article.date)}T08:00:00+05:00`,
+        author: article.author,
+        section: article.category,
+        tags: article.tags
+      },
       schema: {
         "@graph": articleGraph
       }
@@ -1364,10 +1424,43 @@ async function prerender() {
       `<meta property="og:image:type" content="${ogImgExt}" />`
     )
 
+    // Truthful og:image dimensions — read from the actual asset per route.
+    const ogDims = localImageDims(route.ogImage)
+    if (ogDims) {
+      html = html.replace(
+        /<meta\s+property=["']og:image:width["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
+        `<meta property="og:image:width" content="${ogDims.width}" />`
+      )
+      html = html.replace(
+        /<meta\s+property=["']og:image:height["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
+        `<meta property="og:image:height" content="${ogDims.height}" />`
+      )
+    } else {
+      // Unknown/remote image: drop the hints rather than ship a wrong number.
+      html = html.replace(/\s*<meta\s+property=["']og:image:width["'][^>]*>/i, '')
+      html = html.replace(/\s*<meta\s+property=["']og:image:height["'][^>]*>/i, '')
+    }
+
     html = html.replace(
       /<meta\s+property=["']og:type["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
       `<meta property="og:type" content="${route.ogType || 'website'}" />`
     )
+
+    // Article-specific Open Graph properties for blog guides. These let search
+    // engines and AI crawlers resolve authorship and freshness without guessing.
+    if (route.articleMeta) {
+      const { published, modified, author, section, tags } = route.articleMeta
+      const escapeAttr = (v) => String(v).replace(/"/g, '&quot;')
+      const articleTags = [
+        `<meta property="article:published_time" content="${published}" />`,
+        `<meta property="article:modified_time" content="${modified}" />`,
+        `<meta property="article:author" content="${escapeAttr(author)}" />`,
+        `<meta property="article:publisher" content="${DOMAIN}/" />`,
+        section ? `<meta property="article:section" content="${escapeAttr(section)}" />` : '',
+        ...(tags || []).map(tag => `<meta property="article:tag" content="${escapeAttr(tag)}" />`)
+      ].filter(Boolean).join('\n    ')
+      html = html.replace('</head>', `    ${articleTags}\n  </head>`)
+    }
 
     // Handle noIndex routes (e.g. 404 page)
     if (route.noIndex) {

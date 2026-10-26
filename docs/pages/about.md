@@ -93,3 +93,12 @@
 | **2026-09-12** | Integrated 3D Interactive Card Carousel with 6 leadership and equipment cards. | Modernize visual presentation of team, QR code, and calibrated bowser fleet. |
 | **2026-09-08** | Updated executive roles and verified Schema.org Organization metadata. | Strengthen local business trust signals and SEO indexing. |
 | **2026-09-05** | Linked dynamic app version references to `APP_VERSION` data constant. | Ensure version numbers stay synchronous across web and mobile downloads. |
+
+---
+
+## 2026-10-26 — SEO / AEO / GEO Hardening (About)
+
+- **Social card (OG/Twitter)**: every page now ships `/images/og-cover.jpg` (1920x1080, 57 KB) with **truthful** `og:image:width/height` read from the real asset at build time. Previously `og:image` pointed at `logo.png` (432x616) while the markup claimed 1200x630 — a false declaration that produced cropped/broken link previews on WhatsApp, LinkedIn, Facebook and X.
+- **Entity consolidation**: `LocalBusiness` is now a single entity with `@id` `#localbusiness` (and `parentOrganization` → `#organization`) across static HTML, footer and client hydration. Added `openingHoursSpecification` (Mon–Thu 8–8, Fri 8–1, Sat–Sun 10–6), `contactPoint`, `currenciesAccepted: PKR` and `paymentAccepted`.
+- **Removed false signals**: LPG and Water Tanker offers dropped from `hasOfferCatalog` (both services are unavailable), the invalid `SearchAction` pointing at a non-existent `?q=` search was removed, and the stale LPG/water keyword list was cleaned.
+- **AEO**: the home page FAQ schema survives hydration again (18 questions mirrored from the visible Q&A hub) instead of being wiped when `useSEO` rebuilt the graph.

@@ -28,9 +28,7 @@ const DEFAULT_KEYWORDS = [
   'diesel delivery Johar Town',
   'OGRA compliant fuel rates',
   'calibrated flow meter fuel delivery',
-  'doorstep fuel delivery rates lahore',
-  'LPG gas cylinder delivery Lahore',
-  'clean water tanker Lahore'
+  'doorstep fuel delivery rates lahore'
 ]
 
 // Global Knowledge Graph Objects (AEO, GEO, VSO, Local SEO)
@@ -40,6 +38,15 @@ const GLOBAL_ORGANIZATION = {
   "name": "Zyphuel",
   "url": "https://zyphuel.netlify.app",
   "logo": "https://zyphuel.netlify.app/images/logo.png",
+  "telephone": "+923230112464",
+  "email": "m.daniyalkhan490@gmail.com",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+923230112464",
+    "contactType": "customer service",
+    "availableLanguage": ["en", "ur"],
+    "areaServed": "PK"
+  },
   "sameAs": [
     "https://www.linkedin.com/company/zyphuel/",
     "https://www.linkedin.com/in/muhammad-daniyal490",
@@ -49,9 +56,12 @@ const GLOBAL_ORGANIZATION = {
 }
 
 const GLOBAL_LOCAL_BUSINESS = {
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "GasStation"],
   "@id": "https://zyphuel.netlify.app/#localbusiness",
   "name": "Zyphuel Mobile Refueling",
+  "parentOrganization": {
+    "@id": "https://zyphuel.netlify.app/#organization"
+  },
   "url": "https://zyphuel.netlify.app",
   "logo": "https://zyphuel.netlify.app/images/logo.png",
   "image": "https://zyphuel.netlify.app/images/logo.png",
@@ -71,6 +81,28 @@ const GLOBAL_LOCAL_BUSINESS = {
     "latitude": 31.507534,
     "longitude": 74.334949
   },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+      "opens": "08:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Friday"],
+      "opens": "08:00",
+      "closes": "13:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday", "Sunday"],
+      "opens": "10:00",
+      "closes": "18:00"
+    }
+  ],
+  "currenciesAccepted": "PKR",
+  "paymentAccepted": "Cash on Delivery, JazzCash, Easypaisa, NayaPay, Raast",
   "areaServed": [
     { "@type": "City", "name": "Lahore", "sameAs": "https://en.wikipedia.org/wiki/Lahore" },
     { "@type": "AdministrativeArea", "name": "Gulberg, Lahore" },
@@ -107,22 +139,6 @@ const GLOBAL_LOCAL_BUSINESS = {
           "name": "Commercial Logistics Fleet Yard Refueling",
           "description": "Bulk fuel replenishment for logistics vans, corporate vehicle fleets, and construction equipment."
         }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Potable Clean Water Tanker Dispatch",
-          "description": "Commercial and residential clean water delivery across Lahore."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Certified Sealed LPG Cylinder Delivery",
-          "description": "Weight-verified 11.8kg and 45.4kg LPG cylinders delivered with safety valve inspection."
-        }
       }
     ]
   },
@@ -157,11 +173,6 @@ const GLOBAL_WEBSITE = {
   "publisher": {
     "@id": "https://zyphuel.netlify.app/#organization"
   },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://zyphuel.netlify.app/services/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  },
   "speakable": {
     "@type": "SpeakableSpecification",
     "cssSelector": [".hero-title", ".hero-description", "h1", "h2"]
@@ -190,20 +201,28 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
     } else if (!fullUrl.endsWith('/') && !fullUrl.includes('?')) {
       fullUrl = fullUrl + '/'
     }
-    const defaultImage = image || `${domain}/images/logo.png`
+    // Branded social card (1920x1080). Declared dimensions always match the
+    // real asset — pages that pass a custom image report no dimensions at all
+    // instead of repeating the old, wrong 1200x630 claim.
+    const hasCustomImage = Boolean(image)
+    const defaultImage = image || `${domain}/images/og-cover.jpg`
     const defaultType = type || 'website'
-    const defaultAlt = imageAlt || 'Zyphuel – on-demand petrol & diesel delivery in Lahore'
-    const defaultWidth = imageWidth || '1200'
-    const defaultHeight = imageHeight || '630'
+    const defaultAlt = imageAlt || 'Calibrated Zyphuel refueling nozzle delivering Euro-V petrol — doorstep fuel delivery in Lahore'
+    const defaultWidth = imageWidth || (hasCustomImage ? null : '1920')
+    const defaultHeight = imageHeight || (hasCustomImage ? null : '1080')
 
-    // Helper to set/update meta tag
+    // Helper to set/update meta tag. A null/empty content removes the tag so a
+    // stale value can never contradict the image actually being served.
     const setMetaTag = (name, property, content) => {
-      if (!content) return
       let el = null
       if (name) {
         el = document.querySelector(`meta[name='${name}']`)
       } else if (property) {
         el = document.querySelector(`meta[property='${property}']`)
+      }
+      if (!content) {
+        if (el && el.parentNode) el.parentNode.removeChild(el)
+        return
       }
       if (!el) {
         el = document.createElement('meta')
