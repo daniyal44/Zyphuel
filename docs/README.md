@@ -97,3 +97,19 @@ All 13 core documentation files are consolidated directly in this directory (`do
 | Audit Date | Scope & Key Findings | File Link |
 | :--- | :--- | :--- |
 | **2026-10-21** | Competitor Gap Analysis (PK + global), Responsiveness Fixes (Order page 233px mobile overflow, 3D carousel page scroll), Full Lighthouse Scores (Home Desktop 99 / Mobile 64; Order Desktop 98 / Mobile 56) with measured root causes and next-step backlog | [`docs/audits/2026-10-21-audit.md`](./audits/2026-10-21-audit.md) |
+
+---
+
+## 7. Consolidated Change Reports (`docs/reports/`)
+
+| Report Date | Scope & Key Contents | File Link |
+| :--- | :--- | :--- |
+| **2026-10-26** | Every website change from `6dfe8ed` → `18db378`: app version sync, performance (113.9 → 28.5 kB gzip entry JS), Technical SEO, AEO, GEO, urgent-tier removal, FAQ overlap bug, order stepper responsiveness, truthfulness audit and open items | [`docs/reports/2026-10-26-website-changes-report.md`](./reports/2026-10-26-website-changes-report.md) |
+
+---
+
+## 8. Quality Assurance (`docs/qa/`)
+
+| Report Date | Scope & Score | File Link |
+| :--- | :--- | :--- |
+| **2026-10-26** | Full manual + automated QA of all 17 routes with Mermaid score charts (Security 98, AEO 92, GEO 90, SEO 88, Build 87, Mobile 82, Perf 78, A11y 75, Trust 55 — overall 81/100) | [`docs/qa/2026-10-26-full-qa-report.md`](./qa/2026-10-26-full-qa-report.md) |

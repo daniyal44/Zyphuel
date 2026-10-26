@@ -1280,3 +1280,13 @@ All 23 title/description length violations fixed, in **both** places (static pre
 Blog routes now use a `clipText()` helper that trims at a word boundary, so titles never end mid-word.
 
 Result: `node scripts/qa-static.cjs` → **17/17 pages PASS, 0 issues**. QA score raised 78 → 81.
+
+---
+
+## Phase 23 — Consolidated Change Report (2026-10-26)
+
+Added a single evidence-backed report covering every change made to the website across commits `6dfe8ed` → `18db378`, so the full scope can be reviewed without reading seven separate commit diffs.
+
+- Report: `docs/reports/2026-10-26-website-changes-report.md`
+- Includes a Mermaid timeline, the app-version comparison table (website showed v2.6.4.0.0.31 / Build 59 / 31.7 MB; the APK actually contains v2.6.4.0.0.33 / Build 61 / 35,321,064 bytes), before/after performance numbers, the Technical SEO / AEO / GEO change logs, the two render bugs (FAQ overlap, order stepper overflow), the trust-audit findings with their risk ratings, the final verification output and the eight still-open items.
+- Indexed from `docs/README.md` under new sections 7 (Consolidated Change Reports) and 8 (Quality Assurance).
