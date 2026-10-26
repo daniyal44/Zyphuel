@@ -226,3 +226,8 @@
 - **Entity consolidation**: `LocalBusiness` is now a single entity with `@id` `#localbusiness` (and `parentOrganization` → `#organization`) across static HTML, footer and client hydration. Added `openingHoursSpecification` (Mon–Thu 8–8, Fri 8–1, Sat–Sun 10–6), `contactPoint`, `currenciesAccepted: PKR` and `paymentAccepted`.
 - **Removed false signals**: LPG and Water Tanker offers dropped from `hasOfferCatalog` (both services are unavailable), the invalid `SearchAction` pointing at a non-existent `?q=` search was removed, and the stale LPG/water keyword list was cleaned.
 - **AEO**: the home page FAQ schema survives hydration again (18 questions mirrored from the visible Q&A hub) instead of being wiped when `useSEO` rebuilt the graph.
+
+### 2026-10-26 (later) — Keyword targeting + trust cleanup
+- Added high-intent modifier keywords observed in Google related searches: `petrol delivery lahore price`, `diesel delivery lahore price`, `petrol delivery lahore contact number`, `fuel delivery app lahore`, `petrol delivery near me lahore` — in `prerender.js` route keywords (authoritative), `index.html` and `useSEO` defaults.
+- Removed the fabricated `baidu-site-verification` meta tag (`codeva-zyphuel` is not a valid Baidu token format).
+- Full keyword to page map recorded in `docs/plans/2026-10-26-keyword-map.md`.

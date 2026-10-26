@@ -1198,3 +1198,27 @@ User request: *"SEO, AEO & GEO karo har taraqe se har field me."*
 - Rebuild clean: 17 routes prerendered, 0 build errors.
 - Automated audit over 11 output HTML files: **1 valid JSON-LD block per page**, zero parse errors, zero duplicate entity definitions, correct `og:image` + 1920x1080 on every non-article page, `article:published_time/modified_time/author/section/tag` on blog posts.
 - Browser check (localhost preview): hydrated home page keeps 18 FAQ questions and the correct OG image; `/order/` has no duplicate ids and retains OrderAction + DeliveryService + FAQPage.
+
+---
+
+## Phase 19 — Trust Audit & Keyword Targeting (2026-10-26)
+
+### Trust audit (no security issues found)
+Scanned all 18 generated HTML files for cloaking, hidden text, `display:none` copy,
+`font-size:0` text, base64 payloads, `eval/atob`, injected scripts, spam keywords and
+`meta refresh`. **All clean.** External dependencies are limited to Google Fonts,
+cdnjs (Font Awesome), Unsplash and first-party assets. No `aggregateRating` or
+`Review` markup is fabricated anywhere.
+
+Fixed: removed the `baidu-site-verification` meta tag (`codeva-zyphuel` is not a
+valid Baidu token), which was a dead verification claim in the document head.
+
+### Keyword targeting
+- Added the price / contact-number / app / near-me modifier clusters that Google
+  surfaces as related searches, in `prerender.js`, `index.html` and `useSEO`.
+- Documented the complete keyword to page map, question clusters, AI-prompt map,
+  open content gaps and guardrails in `docs/plans/2026-10-26-keyword-map.md`.
+
+### Verified baseline
+Google for *"petrol delivery at home Lahore service diesel doorstep order"*
+returns **zyphuel.netlify.app at position #2**.
