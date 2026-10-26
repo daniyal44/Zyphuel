@@ -1,7 +1,7 @@
 # Zyphuel — Whole Website Report
 
-**Date:** 2026-10-26
-**Build measured:** `npm run build` → `dist/` (17 routes prerendered)
+**Date:** 2026-10-26  
+**Build measured:** `npm run build` → `dist/` (17 routes prerendered)  
 **Data source:** `node scripts/report-stats.cjs` reading the built HTML — every number on this page comes from the build, not from memory.
 
 > Charts on this page are committed SVG files under [`docs/reports/charts/`](./charts/). They are real images, so they display on GitHub, in the editor and in any browser.

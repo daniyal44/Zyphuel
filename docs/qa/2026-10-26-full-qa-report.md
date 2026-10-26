@@ -1,8 +1,8 @@
 # Zyphuel — Full Manual QA & Health Report
 
-**Date:** 2026-10-26
-**Build tested:** `d0a3b16 → ee3405a` + this round's changes (17 prerendered routes)
-**Method:** automated static audit of every generated HTML file + manual browser testing in a real Chromium session at mobile (414px) and desktop widths.
+**Date:** 2026-10-26  
+**Build tested:** `d0a3b16 → ee3405a` + this round's changes (17 prerendered routes)  
+**Method:** automated static audit of every generated HTML file + manual browser testing in a real Chromium session at mobile (414px) and desktop widths.  
 **Overall score: 81 / 100**
 
 ---

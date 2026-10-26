@@ -1,7 +1,7 @@
 # Zyphuel — Complete Website Change Report
 
-**Report date:** 2026-10-26
-**Repository:** `github.com/daniyal44/Zyphuel` (branch `main`)
+**Report date:** 2026-10-26  
+**Repository:** `github.com/daniyal44/Zyphuel` (branch `main`)  
 **Commits covered:** `6dfe8ed` → `18db378` — **9 commits** (this report itself is `f71a319`)
 
 | | |
