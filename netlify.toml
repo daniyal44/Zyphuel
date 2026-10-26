@@ -57,6 +57,39 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Scroll-animation frame sequences (1,200+ JPEGs across the 4 canvas heroes).
+# Without these rules they inherited the global `max-age=0, must-revalidate` and every
+# page view revalidated hundreds of frames.
+[[headers]]
+  for = "/ezgif-2f1a39c97e5b173b-jpg/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/services-hero-frames/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/services-section3-frames/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/app-hero-frames/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/app-section3-frames/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/video/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
 [[headers]]
   for = "/images/*"
   [headers.values]

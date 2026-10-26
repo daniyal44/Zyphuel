@@ -14,13 +14,11 @@ export default function BlogCard({ article, index, onReadMore }) {
           {article.category}
         </span>
         <Link to={`/blog/${article.slug}/`} tabIndex="-1" aria-hidden="true">
-          <img
+          <img loading="lazy" decoding="async"
             src={article.image}
             alt={article.title}
             title={article.title}
             className="blog-card-img"
-            loading="lazy"
-            decoding="async"
             width="360"
             height="240"
             itemProp="image"

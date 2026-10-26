@@ -694,6 +694,7 @@ export default function ServicesPage() {
             <iframe
               src="https://bookssection.netlify.app/"   
               title="Book Animation"
+              loading="lazy"
               style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
             />
           </div>

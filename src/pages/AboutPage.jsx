@@ -291,7 +291,7 @@ export default function AboutPage() {
             <div className="founder-grid fade-in-up">
               <div className="founder-image-col">
                 <div className="founder-card-frame" itemScope itemType="https://schema.org/Person">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src="/images/daniyal.jpeg"
                     alt="Muhammad Daniyal, Founder & Leading Web Developer of Zyphuel"
                     title="Muhammad Daniyal – Founder & Leading Web Developer of Zyphuel"
@@ -299,7 +299,6 @@ export default function AboutPage() {
                     data-scrub="parallax"
                     width="320"
                     height="320"
-                    loading="lazy"
                     itemProp="image"
                   />
                   <div className="founder-badge">Founder &amp; Leading Web Developer</div>
@@ -592,11 +591,9 @@ export default function AboutPage() {
                       data-index={i}
                       onClick={() => updateCarousel(i)}
                     >
-                      <img
+                      <img loading="lazy" decoding="async"
                         src={src}
                         alt={`${teamMembers[i]?.name || 'Team Member'} - ${teamMembers[i]?.role || 'Staff'}`}
-                        loading="lazy"
-                        decoding="async"
                         width="320"
                         height="380"
                       />

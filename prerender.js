@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { execFileSync } from 'node:child_process'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { articles } from './src/data/articles.js'
 import { APP_VERSION, APP_SIZE, RELEASE_DATE } from './src/data/appVersion.js'
@@ -331,6 +332,48 @@ const ARTICLES_SCHEMA = [
 ]
 
 const RELEVANT_KEYWORDS = "fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore, generator refueling Lahore, mobile refueling Pakistan"
+
+// ── Truthful <lastmod> resolution ───────────────────────────────────────────
+// Google deprioritises sitemaps whose every <lastmod> moves on every single deploy.
+// Stamping the build date on all 16 URLs makes the freshness signal worthless, so
+// resolve the last commit date of the source files that actually produce each page
+// instead. Degrades to the build date when git history is unavailable (shallow CI clone).
+const ROUTE_SOURCE_FILES = {
+  '/': ['src/pages/HomePage.jsx', 'src/index.css', 'src/data/fuelPrices.js'],
+  '/about/': ['src/pages/AboutPage.jsx', 'src/data/aboutData.js'],
+  '/services/': ['src/pages/ServicesPage.jsx', 'src/data/servicesData.js'],
+  '/order/': ['src/pages/OrderPage.jsx', 'src/utils/officeHours.js'],
+  '/contact/': ['src/pages/ContactPage.jsx', 'src/data/companyInfo.js'],
+  '/download/': ['src/pages/DownloadPage.jsx', 'src/data/appVersion.js'],
+  '/blog/': ['src/pages/BlogListPage.jsx', 'src/data/articles.js'],
+  '/privacy/': ['src/pages/PrivacyPolicyPage.jsx'],
+  '/terms/': ['src/pages/TermsOfUsePage.jsx'],
+}
+
+const gitDateCache = new Map()
+function gitLastCommitDate(relPath) {
+  if (gitDateCache.has(relPath)) return gitDateCache.get(relPath)
+  let value = null
+  try {
+    const out = execFileSync('git', ['log', '-1', '--format=%cs', '--', relPath], {
+      cwd: __dirname,
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim()
+    if (/^\d{4}-\d{2}-\d{2}$/.test(out)) value = out
+  } catch {
+    value = null
+  }
+  gitDateCache.set(relPath, value)
+  return value
+}
+
+function lastModifiedForRoute(routePath, fallback) {
+  const sources = ROUTE_SOURCE_FILES[routePath]
+  if (!sources) return fallback
+  const dates = sources.map(gitLastCommitDate).filter(Boolean).sort()
+  return dates.length ? dates[dates.length - 1] : fallback
+}
 
 const ROUTES = [
   {
@@ -1252,7 +1295,7 @@ async function prerender() {
     // Render React tree to HTML
     let appHtml = ''
     try {
-      appHtml = render(route.path)
+      appHtml = await render(route.path)
     } catch (err) {
       console.error(`❌ Failed to render route ${route.path}:`, err)
       throw err
@@ -1399,7 +1442,7 @@ async function prerender() {
     .map(r => {
       let priority = '0.8'
       let changefreq = 'weekly'
-      let lastmod = today
+      let lastmod = lastModifiedForRoute(r.path, today)
       let imageLoc = ''
       let imageTitle = ''
       let imageCaption = ''
@@ -1461,7 +1504,10 @@ async function prerender() {
             try {
               const d = new Date(article.date)
               if (!isNaN(d.getTime())) {
-                lastmod = d.toISOString().split('T')[0]
+                // Format in the build machine's local calendar day. Using toISOString() here
+                // shifted every article date back one day on UTC+5 build hosts.
+                const pad = (n) => String(n).padStart(2, '0')
+                lastmod = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
               }
             } catch (e) {}
           }

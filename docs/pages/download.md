@@ -9,19 +9,19 @@
 ---
 
 ## Technical Specifications & Constants
-- **Current Version**: `v2.6.4.0.0.31 (Build 59)` (dynamically imported from `src/data/appVersion.js`)
-- **File Size**: `31.7 MB`
+- **Current Version**: `v2.6.4.0.0.33 (Build 61)` (dynamically imported from `src/data/appVersion.js`)
+- **File Size**: `35.3 MB` (35,321,064 bytes)
 - **Minimum OS Requirement**: Android 7.0 (Nougat) and above (API level 24+)
 - **Target OS Requirement**: Android 15/16 Ready (API level 36)
 - **Architecture**: Native Android with Jetpack Compose & Material 3 UI
 - **Direct APK Endpoint**: `/APK/Zyphuel.apk`
-- **Security Check**: SHA-256 signed (`e2ceae40c3949a9942a2e508447067bdc5207c5ea1c9c34bc3a94991c4e79510`), zero malware/adware, direct release build.
+- **Security Check**: SHA-256 signed (`f8236bf06c8923ee22f992a964c95ed6fd43d4fe65afe8c9b4e623d75436aadb`), zero malware/adware, direct release build.
 
 ---
 
 ## SEO & Structured Data
 - **Page Title**: `Download Zyphuel App: On-Demand Fuel Delivery APK for Android | Official v2.6.4`
-- **Meta Description**: `Download the official Zyphuel Android APK (v2.6.4.0.0.31, 31.7 MB) for on-demand doorstep petrol and diesel delivery in Lahore. Real-time GPS tracking, 45-minute dispatch, and 2-hour OGRA price-lock alerts.`
+- **Meta Description**: `Download the official Zyphuel Android APK (v2.6.4.0.0.33, 35.3 MB) for on-demand doorstep petrol and diesel delivery in Lahore. Real-time GPS tracking, 45-minute dispatch, and 2-hour OGRA price-lock alerts.`
 - **Schema Type**: `SoftwareApplication` / `MobileApplication`
   - Operating System: `Android 7.0+`
   - Application Category: `UtilitiesApplication, ShoppingApplication`
@@ -59,6 +59,8 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-26** | **Lazy media, split route CSS and long-lived frame caching**: QR card + app-slide `<img>`s now carry `loading="lazy" decoding="async"`, this page's CSS is emitted as its own `DownloadPage-*.css` chunk (10.3 kB), and `netlify.toml` / `public/_headers` now serve the four scroll-animation frame directories plus `/video/*` as `max-age=31536000, immutable` — previously they fell through to the global `max-age=0, must-revalidate`, revalidating hundreds of JPEGs on every view. | User: *"performance & speed ko be improve karo"*. |
+| **2026-10-24** | **Release of Android APK v2.6.4.0.0.33 (Build 61) — verified from the binary itself**: parsed `public/APK/Zyphuel.apk`'s compressed `AndroidManifest.xml` rather than trusting stale docs, reading `versionName 2.6.4.0.0.33`, `versionCode 61`, `compileSdk 36`, `minSdk 24` (Android 7.0), package `com.aistudio.zyphuel.appv2` and AGP 9.1.1. Synchronized payload size to `35.3 MB` (35,321,064 bytes) and SHA-256 to `f8236bf06c89…aadb`. Android compatibility matrix extended down to Android 7.0 (API 24) and up to Android 16 (API 36), and the stale `Targeting Android 14 (API 34)` spec label corrected to API 36. | User: *"website ama mobile latest version ko update kro, har gja per"* — every page, article and `.md` file now matches the shipped APK. |
 | **2026-10-23 (Wave 2)** | **App-intent keyword top-ups** in `useSEO` + prerendered meta: `which app delivers petrol`, `best fuel delivery app Pakistan`, `petrol delivery app download`, `fuel delivery app with GPS tracking`. | User: har field mein trending keywords se rank karo. |
 | **2026-10-23** | **FAQPage schema + truthful H1**: the 7 visible FAQs (APK safety, 2-hour price alerts, 0.01L accuracy, coverage, COD/online payments, direct-APK rationale, iOS status) are now emitted as `FAQPage` JSON-LD (generated from the `faqs` array via `useSEO` schema + the `/download/` route graph in `prerender.js` — page previously shipped zero FAQ schema). `const faqs` hoisted above the `useSEO` call. H1 changed to "Download the Zyphuel Fuel Delivery App for Android" (the previous "Pakistan’s #1" superlative was unverifiable and violated the site truthfulness rule). | User: fix indexing of `/download/` and keep every claim genuine. |
 | **2026-10-16** | **Global Responsiveness Engine & Google Search Console Indexing Optimization**: (1) Updated page title to `Download Zyphuel App: On-Demand Fuel Delivery APK for Android | Official v2.6.4` and enhanced Schema entity name to resolve Google Search Console non-indexing; (2) Added canonical `Link: <https://zyphuel.netlify.app/download/>; rel="canonical"` HTTP header in `_headers` and `netlify.toml`; (3) Scaled interactive scroll animations (`AppHeroScrollAnimation` and `AppSection3ScrollAnimation`) for extra-small mobile devices down to 320px with fit-to-frame staging, scaled badges, and 0px black gaps; (4) Deployed full multi-device responsiveness engine across header, footer, comparison matrix, download buttons, and FAQ accordions. | User requested: *"website ka all pages ko responsive karo... order page & download page index nai ha in dono pages ka title tags and conicail tags and content and context ko google search per index karo"*. |

@@ -34,14 +34,12 @@ export default function BlogModal({ article, onClose }) {
             <span className={`blog-modal-category ${article.categoryClass}`}>
               {article.category}
             </span>
-            <img
+            <img loading="lazy" decoding="async"
               src={article.image}
               alt={article.title}
               className="blog-modal-img"
               width="600"
               height="340"
-              loading="lazy"
-              decoding="async"
             />
           </div>
           <div className="blog-modal-body-wrapper">

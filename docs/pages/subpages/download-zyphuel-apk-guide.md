@@ -30,7 +30,7 @@
 ## Pillar Guide Architecture & Content Structure
 
 ### 1. Key Takeaways (AEO & GEO Optimization)
-- Official Android APK v2.6.4.0.0.31 available via direct cryptographic download (`31.7 MB`).
+- Official Android APK v2.6.4.0.0.33 (Build 61) available via direct cryptographic download (`35.3 MB`).
 - Built with Jetpack Compose, Material 3, and Kotlin Coroutines for zero battery drain.
 - Hardware-backed biometric authentication (Class 3 Strong BiometricPrompt) replaces passwords.
 - Real-time GPS auto-pinning accurate within <3 meters across Lahore sectors (DHA, Gulberg, Johar Town, Bahria Town).
@@ -38,11 +38,13 @@
 
 ### 2. Comprehensive H2/H3 Body Sections
 - **Why Direct APK Distribution Empowers Pakistani Consumers**: Zero Play Store approval delays, instant access to OGRA rate alert patches.
-- **System Architecture & Hardware Requirements**: Minimum Android 8.0 Oreo (API 26) through Android 15 (API 35).
+- **System Architecture & Hardware Requirements**: Minimum Android 7.0 Nougat (API 24) through Android 16 (API 36).
 - **Comparative Data Matrix: Android Hardware & Software Compatibility Breakdown**:
+  - Android 7.0–7.1 (API 24–25): Fingerprint only, basic location, 60 FPS.
   - Android 8.0–9.0 (API 26–28): Fingerprint only, basic location, 60 FPS.
   - Android 10–12 (API 29–31): BiometricPrompt Face/Fingerprint, high-accuracy FusedLocationProvider, 90 FPS.
   - Android 13–15 (API 33–35): Dynamic themed icons, exact alarm scheduler, ultra-wideband BLE, 120 FPS.
+  - Android 16 (API 36): Target SDK level — Keystore hardware enclave, precise Lahore polygon bounds, 120 FPS.
 - **Step-by-Step Installation Walkthrough with Zero Security Vulnerabilities**:
   - Step 1: Downloading verified binary from official domain (`/APK/Zyphuel.apk`).
   - Step 2: Android unknown sources permission for browser.
@@ -52,7 +54,7 @@
   - Google Play Services Fused Location Provider.
   - Rider Foreground Service for real-time bowser telemetry.
 - **Expert Perspective: Mobile Engineering Lead**:
-  > *"When dealing with volatile petroleum rates and mobile refuelers navigating Lahore traffic, milliseconds matter. We compiled our APK using R8 optimization and AGP 9.1.1 to deliver a lightweight 31.7 MB footprint that launches in under 400 milliseconds."*
+  > *"When dealing with volatile petroleum rates and mobile refuelers navigating Lahore traffic, milliseconds matter. We compiled our APK using R8 optimization and AGP 9.1.1 to deliver a lightweight 35.3 MB footprint that launches in under 400 milliseconds."*
 - **Order Limits & Payment Integration**: 5L–15L Max doorstep volume, COD for 5L–10L and instant Online Payments (JazzCash, Easypaisa, NayaPay, Raast).
 
 ### 3. Structured 5-Question FAQ Section (Schema.org FAQPage)
@@ -76,6 +78,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
+| **2026-10-24** | Synchronized APK guide version references to `v2.6.4.0.0.33` (Build 61, `35.3 MB`, `35,321,064 bytes`) and extended the compatibility matrix down to Android 7.0 Nougat (API 24) and up to Android 16 (API 36). | Match latest production APK release `v2.6.4.0.0.33`, verified by parsing the shipped binary's `AndroidManifest.xml`. |
 | **2026-10-15** | Ensured all in-guide references to the Download portal enforce canonical trailing slash (`https://zyphuel.netlify.app/download/`) to eliminate 301 crawler redirect delays. | Standardize canonical linking and prevent GSC redirect indexing flags. |
 | **2026-10-13** | Synchronized APK guide version references to `v2.6.4.0.0.31` (Build 59, Target SDK 36, Android 15/16 Ready, `31.7 MB`). | Match latest production APK release `v2.6.4.0.0.31`. |
 | **2026-10-04** | Synchronized APK guide version references to `v2.6.4.0.0.22` (Build 50, Target SDK 36, Android 15/16 Ready). | Match latest production APK release `v2.6.4.0.0.22`. |

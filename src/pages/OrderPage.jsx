@@ -866,7 +866,7 @@ export default function OrderPage() {
                           }}
                         >
                           {st.img ? (
-                            <img
+                            <img loading="lazy" decoding="async"
                               src={st.img}
                               alt=""
                               aria-hidden="true"
@@ -957,11 +957,10 @@ export default function OrderPage() {
                               cursor: 'zoom-in'
                             }}
                           >
-                            <img
+                            <img loading="lazy" decoding="async"
                               src={FUEL_IMAGES[type]}
                               alt=""
                               aria-hidden="true"
-                              loading="lazy"
                               onError={(e) => { e.currentTarget.style.display = 'none'; }}
                               style={{
                                 maxWidth: '100%',
@@ -1091,11 +1090,10 @@ export default function OrderPage() {
                               cursor: 'zoom-in'
                             }}
                           >
-                            <img
+                            <img loading="lazy" decoding="async"
                               src={app.image}
                               alt=""
                               aria-hidden="true"
-                              loading="lazy"
                               onError={(e) => { e.currentTarget.style.display = 'none'; }}
                               style={{
                                 maxWidth: '100%',
@@ -1419,11 +1417,9 @@ export default function OrderPage() {
                                 transition: 'transform 0.15s ease'
                               }}
                             >
-                              <img
+                              <img loading="lazy" decoding="async"
                                 src={method.img}
                                 alt={method.name}
-                                loading="lazy"
-                                decoding="async"
                                 width={16}
                                 height={16}
                                 style={{
@@ -1526,11 +1522,9 @@ export default function OrderPage() {
                                 transition: 'transform 0.15s ease'
                               }}
                             >
-                              <img
+                              <img loading="lazy" decoding="async"
                                 src={method.img}
                                 alt={method.name}
-                                loading="lazy"
-                                decoding="async"
                                 width={16}
                                 height={16}
                                 style={{
@@ -1662,7 +1656,7 @@ export default function OrderPage() {
                       <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
                         <span>Fuel Type</span>
                         <strong style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                          <img
+                          <img loading="lazy" decoding="async"
                             src={FUEL_IMAGES[selectedFuelType]}
                             alt=""
                             aria-hidden="true"
@@ -1690,7 +1684,7 @@ export default function OrderPage() {
                       <div className="summary-row" style={{ marginTop: '2px', marginBottom: '2px' }}>
                         <span>Refueling Target</span>
                         <strong style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-                          <img
+                          <img loading="lazy" decoding="async"
                             src={DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.image}
                             alt=""
                             aria-hidden="true"
@@ -2018,7 +2012,7 @@ export default function OrderPage() {
             padding: '6px',
             border: '1px solid rgba(255, 255, 255, 0.08)'
           }}>
-            <img
+            <img loading="lazy" decoding="async"
               src={hoverPreview.src}
               alt={hoverPreview.title}
               style={{
@@ -2157,7 +2151,7 @@ export default function OrderPage() {
               background: '#020617',
               padding: '12px'
             }}>
-              <img
+              <img loading="lazy" decoding="async"
                 src={magnifiedImage.src}
                 alt={magnifiedImage.title}
                 style={{

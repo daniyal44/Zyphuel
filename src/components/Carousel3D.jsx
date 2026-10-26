@@ -249,12 +249,10 @@ export default function Carousel3D() {
                       opacity: isVisible ? (isActive ? 1 : Math.max(0.3, 0.75 - Math.abs(offsetAngle) / 50)) : 0
                     }}
                   >
-                    <img
+                    <img loading="lazy" decoding="async"
                       className="carousel-img"
                       src={item.url}
                       alt={item.alt}
-                      loading="lazy"
-                      decoding="async"
                       width={cardWidth}
                       height={cardWidth}
                     />

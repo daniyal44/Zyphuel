@@ -106,17 +106,15 @@ export default function Footer() {
             <h3 className="footer-title">About Zyphuel</h3>
             <Link to="/" className="footer-logo" aria-label={`${brand.name} Home`}>
               {!logoError ? (
-                <img
+                <img loading="lazy" decoding="async"
                   src={brand.logoPath}
                   alt={brand.logoAlt}
                   title="Zyphuel - Doorstep Fuel Delivery in Lahore"
                   className="logo-icon"
                   width="120"
                   height="32"
-                  decoding="async"
                   style={{ height: '32px', width: 'auto', marginTop: '4px' }}
                   onError={() => setLogoError(true)}
-                  loading="lazy"
                   itemProp="logo"
                 />
               ) : (

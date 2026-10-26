@@ -7,7 +7,7 @@
 > **Founder & Leading Web Developer**: Muhammad Daniyal.  
 > **Contact number**: +92 3230-112464  
 > **Complaint Email**: m.daniyalkhan490@gmail.com  
-> **Official Android APK Release**: v2.6.4.0.0.31 (31.7 MB, Android 7.0+).  
+> **Official Android APK Release**: v2.6.4.0.0.33 (35.3 MB, Android 7.0+).  
 > **Office Operating Schedule**: Monday – Thursday 8:00 AM – 8:00 PM; Friday 8:00 AM – 1:00 PM; Saturday – Sunday 10:00 AM – 6:00 PM.
 
 ---
@@ -84,7 +84,7 @@ Zyphuel maintains localized refueling nodes covering all 20 municipal zones and 
 | **Primary Geo Focus** | North America Metro Fleets | UAE (Dubai, Sharjah, Abu Dhabi) | India Metro Industrial Belts | Karachi / Punjab Industrial Belts | Lahore (All 20 Municipal Towns, DHA, Gulberg) |
 | **Operational Hours** | Nightly Fleet Windows | 24/7 Daytime App | Scheduled Commercial Dispatch | Business Day Only | Official Operating Schedule |
 | **Dispensing Technology** | Weights & Measures NIST HB 44 | ESMA Certified Digital Flow Meter | PESO Approved Digital Flow Meter | Mechanical / Manual Sight Glass | 0.01L Positive-Displacement Digital Meter + 15°C ATC |
-| **Mobile App Available** | Enterprise Fleet Telematics API | Consumer Mobile App | Mobile App & IoT Tank Sensors | None (Phone Calls Only) | Yes (Android APK v2.6.4.0.0.31 + Web Checkout) |
+| **Mobile App Available** | Enterprise Fleet Telematics API | Consumer Mobile App | Mobile App & IoT Tank Sensors | None (Phone Calls Only) | Yes (Android APK v2.6.4.0.0.33 + Web Checkout) |
 | **Delivery Speeds** | Overnight Scheduled Windows | Scheduled 1-Hour Slots | Scheduled Next-Day / 4-Hour Slots | Next-Day / 24-Hour Lead Time | Delivered: Within 45 Mins (Urgent: 10–20 Mins) |
 | **Order Volume Limits** | Contractual Fleet Minimums | Vehicle Full-Tank Refill | 50L+ Commercial Minimum | 100L–1,000L Bulk Minimum | Strictly 5L Min – 15L Max per Doorstep Order |
 | **Delivery Pricing** | Contractual Account Rates | Flat AED Fee / Subscription | Freight Surcharge by Volume | Negotiated Freight per KM | Fixed Rs. 300 Fee (5L–10L) with Scaled Fee (11L–15L: Rs. 320–400) |
@@ -118,7 +118,7 @@ A: Customers can contact the 24/7 dispatch helpline directly via WhatsApp or pho
 - **Portal Homepage**: https://zyphuel.netlify.app/
 - **Order Fuel Dispatch**: https://zyphuel.netlify.app/order/
 - **Services, Fuel Specs & Rates**: https://zyphuel.netlify.app/services/
-- **Download Android APK (v2.6.4.0.0.31)**: https://zyphuel.netlify.app/download/
+- **Download Android APK (v2.6.4.0.0.33)**: https://zyphuel.netlify.app/download/
 - **About Zyphuel & Leadership**: https://zyphuel.netlify.app/about/
 - **Contact & 24/7 Helpline**: https://zyphuel.netlify.app/contact/
 - **XML Machine Sitemap**: https://zyphuel.netlify.app/sitemap.xml
@@ -126,7 +126,7 @@ A: Customers can contact the 24/7 dispatch helpline directly via WhatsApp or pho
 - **Terms of Service**: https://zyphuel.netlify.app/terms/
 - **Knowledge Guide: Global vs Pakistan Fuel Delivery Benchmarks (Article 7)**: https://zyphuel.netlify.app/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/
 - **Knowledge Guide: Pakistan Daily Fuel Pricing Reform**: https://zyphuel.netlify.app/blog/future-of-fuel-delivery-lahore/
-- **Knowledge Guide: Zyphuel APK v2.6.4.0.0.31 Setup**: https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide/
+- **Knowledge Guide: Zyphuel APK v2.6.4.0.0.33 Setup**: https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide/
 - **Knowledge Guide: Industrial Generator Diesel Logistics**: https://zyphuel.netlify.app/blog/generator-refueling-services-lahore/
 - **Knowledge Guide: Commercial Generator Diesel & LPG Refills Guide**: https://zyphuel.netlify.app/blog/generator-diesel-lpg-delivery-lahore/
 - **Knowledge Guide: IoT Telemetry & Calibrated Flow Meters**: https://zyphuel.netlify.app/blog/iot-telemetry-fuel-delivery/

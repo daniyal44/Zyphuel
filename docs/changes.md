@@ -871,6 +871,43 @@ Aligned all corporate credentials, physical location indicators, executive title
   - Synchronized repository `README.md` badges, TOC links, competitor comparison tables, and mobile application specs table.
   - Updated all system documentation files (`docs/pages/download.md`, `docs/pages/about.md`, `docs/pages/subpages/download-zyphuel-apk-guide.md`, `docs/informtion.md`, `docs/pages.md`, `docs/subpages.md`, `docs/articles.md`, `docs/task.md`, `docs/phases.md`).
 
+### 21.23 Mobile App v2.6.4.0.0.33 (Build 61) Release & Full-Platform Version Synchronization
+- **User Directive**: *"website ama mobile latest version ko update kro, har gja per, include articles, files folder .md files etc."*
+- **Source-of-Truth Extraction (no more stale metadata)**: The shipped `public/APK/Zyphuel.apk` (24 Oct 2026) was parsed directly instead of trusting the previous documentation — its compressed `AndroidManifest.xml` was inflated from the ZIP central directory and read attribute-by-attribute, yielding `versionName = 2.6.4.0.0.33`, `versionCode = 61`, `compileSdk = 36`, `minSdk = 24` (Android 7.0), package `com.aistudio.zyphuel.appv2`, and `androidGradlePluginVersion = 9.1.1`.
+- **Stale Metadata Corrected**: The website had been advertising `v2.6.4.0.0.31` (Build 59, `31.7 MB`, SHA `e2ceae40…`) while the repository actually shipped **v2.6.4.0.0.33 (Build 61)** at **35.3 MB (35,321,064 bytes)**, SHA-256 `f8236bf06c8923ee22f992a964c95ed6fd43d4fe65afe8c9b4e623d75436aadb`.
+- **Centralized Configuration**: `src/data/appVersion.js` updated to `APP_VERSION = 2.6.4.0.0.33`, `BUILD_NUMBER = 61`, `RELEASE_DATE = October 24, 2026`, `APP_SIZE = 35.3 MB`, new `APP_BYTES` and `APP_PACKAGE` constants, `MIN_ANDROID = 7.0 (Nougat)+`, and the verified SHA-256; a truthful Build 61 changelog entry was prepended above Build 59 (history preserved).
+- **Android 7.0 Compatibility Truth Fix**: `src/data/companyInfo.js` previously declared `minAndroid: '8.0 (Oreo)+'` and `src/data/articles.js` claimed Android 8.0 — both contradicted the verified `minSdk 24`. Both now read Android 7.0 (Nougat), `companyInfo.js` imports `MIN_ANDROID` from `appVersion.js`, and the download compatibility matrix gained an Android 7.0–7.1 (API 24–25) row plus an Android 16 (API 36) row. The stale `Targeting Android 14 (API 34)` spec label was corrected to `Targeting Android 16 (API 36)`.
+- **Platform-Wide Synchronization**:
+  - `package.json` version bumped to `2.6.4.0.0.33`.
+  - AI/LLM knowledge files `public/llms.txt` and `public/llms-full.txt` synced.
+  - RSS 2.0 editorial feed `public/feed.xml` synced (version, size, APK-guide `pubDate` and `lastBuildDate` → 24 Oct 2026).
+  - Repository `README.md` badges, TOC anchor, comparison tables and app spec table (new Build Number + SHA-256 rows) synced.
+  - All page/subpage documentation synced: `docs/pages/download.md`, `docs/pages/about.md`, `docs/pages/subpages/download-zyphuel-apk-guide.md`, `docs/informtion.md`, `docs/pages.md`, `docs/subpages.md`, `docs/articles.md`, `docs/task.md`, `docs/phases.md`.
+
+### 21.24 Performance & Speed Pass — Route Code Splitting, Deferred Media, Frame Caching & Search-Engine Indexing Fixes
+- **User Directive**: *"perfromance & speed ko be improve karo... 3 pages index nai h service, order & download ese kia voja ha"*
+- **Diagnosis (measured, not guessed)**: The client entry was a single **460.6 kB** bundle (113.9 kB gzip) containing all 11 pages, and a single **150.4 kB** stylesheet. `dist/` also carried 328 MB of scroll-animation frame JPEGs and 73 MB of unused `public/video/*.mp4` files, and the four frame directories had **no cache rule**, so they inherited the global `Cache-Control: max-age=0, must-revalidate` and revalidated hundreds of JPEGs on every page view.
+- **Indexing Root Causes Found**:
+  - `prerender.js` stamped **every** `<lastmod>` with the build date, so all 16 URLs changed on every deploy — Google distrusts such freshness signals and deprioritises recrawl. `lastmod` is now resolved per URL from `git log -1 --format=%cs` of that page's real source files, with a build-date fallback.
+  - Article dates were formatted with `toISOString()`, shifting every blog `lastmod` back one day on UTC+5 build hosts.
+  - `site:` queries confirmed `/order/` and `/download/` were absent from Google's index while `/services/` was present; the IndexNow submission now reaches Yandex (HTTP 202) but **Bing and the IndexNow hub return 403 `UserForbiddedToAccessSite`** — the site is not yet verified in Bing Webmaster Tools, which is an account-side action, not a code defect. The key file `https://zyphuel.netlify.app/185084a8fa7dac10b46ec58d30c56792.txt` was re-verified live (HTTP 200, content matches filename).
+- **Performance Implementation**:
+  - **Route-level code splitting**: `src/App.jsx` lazy-loads all pages except `/` behind one `Suspense` boundary; a minimal `.route-loading` spinner was added to `src/index.css`.
+  - **SSR made split-safe**: `renderToString` writes Suspense fallbacks, which would have shipped empty pages to crawlers. `src/entry-server.jsx` now uses `renderToPipeableStream` + `onAllReady` and resolves the complete HTML string; `prerender.js` awaits it. All 17 routes still prerender full markup (verified: no `route-loading` string in any `dist/**/index.html`).
+  - **Media**: `loading="lazy" decoding="async"` added to every below-the-fold `<img>` (BlogCard, BlogModal, Carousel3D, Footer, AboutPage portraits, DownloadPage QR + slides, OrderPage tiles) plus the Services bookshelf iframe. Header logo and the blog-article hero deliberately stay eager.
+  - **Caching**: `netlify.toml` and `public/_headers` now serve the four frame directories and `/video/*` as `max-age=31536000, immutable`.
+- **Measured Results** (gzip, from the same build config):
+
+  | Asset | Before | After |
+  | :--- | ---: | ---: |
+  | Entry JS (`index-*.js`) | 460.6 kB / **113.9 kB gzip** | 97.7 kB / **28.5 kB gzip** |
+  | Global CSS (`index-*.css`) | 150.4 kB / 25.9 kB gzip | 93.5 kB / **17.8 kB gzip** |
+  | Home first-load JS | 623 kB / 166.9 kB gzip | 260.6 kB / **81.6 kB gzip** |
+  | `/order/` first-load JS | 623 kB / 166.9 kB gzip | 366.3 kB / 105.7 kB gzip |
+
+- **Verification**: `npm run build` exit 0, all 17 routes prerendered; prerendered `<h1>`/content byte counts unchanged in shape (Home 91,335 bytes of `#root`, Order 99,161, Download 75,475); browser check against `vite preview` showed no console errors, no visible Suspense fallback, working client-side navigation (lazy `ServicesPage-*.js` + its CSS fetched on demand) and a working order calculator (15 L Max chip recalculates Delivery Charges Rs. 300 → Rs. 400). Screenshot artefacts not required; DOM/network/log checks used.
+- **Known Remaining Opportunities (not changed, reported to the user)**: `articles-data` (73.4 kB / 24.2 kB gzip) is still modulepreloaded on every page because the home page renders blog cards from it; ~73 MB of `public/video/*.mp4` and the Font Awesome CDN stylesheet remain unused/oversized respectively.
+
 ## Phase 22: Full Site Audit — Competitor Gap Analysis, Responsiveness Fixes & Lighthouse Scores (2026-10-21)
 
 ### 22.1 Mobile Responsiveness Fixes (`src/index.css`)

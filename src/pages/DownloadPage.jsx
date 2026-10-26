@@ -161,7 +161,7 @@ export default function DownloadPage() {
         {
           "@type": "SoftwareApplication",
           "name": "Zyphuel Mobile Application - Doorstep Fuel Delivery Lahore",
-          "operatingSystem": "Android 8.0 and above (Android 15/16 Ready)",
+          "operatingSystem": `Android 7.0 and above (Android 16 Ready)`,
           "applicationCategory": "UtilitiesApplication, ShoppingApplication",
           "downloadUrl": "https://zyphuel.netlify.app/APK/Zyphuel.apk",
           "fileSize": APP_SIZE,
@@ -342,15 +342,13 @@ export default function DownloadPage() {
                 {/* QR Code Scanner Card */}
                 <div className="qr-scanner-box">
                   <div className="qr-svg-container">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src="/images/Qr-code.png"
                       alt="Scan QR Code to Download Zyphuel Mobile Application for Fuel Suppliers"
                       title="Zyphuel Mobile App Download QR Code"
                       className="qr-code-img"
                       width="160"
                       height="160"
-                      loading="lazy"
-                      decoding="async"
                     />
                   </div>
                   <div className="qr-info">
@@ -397,7 +395,7 @@ export default function DownloadPage() {
                       <div className="phone-slider-container">
                         {slides.map((slide, idx) => (
                           <div key={idx} className={`phone-slide ${currentSlide === idx ? 'active' : ''}`}>
-                            <img
+                            <img decoding="async"
                               src={slide.img}
                               alt={`Zyphuel Mobile Application for Fuel Suppliers - ${slide.title}`}
                               title={`Zyphuel App Feature - ${slide.title}`}
@@ -405,7 +403,6 @@ export default function DownloadPage() {
                               width="280"
                               height="560"
                               loading={idx === 0 ? "eager" : "lazy"}
-                              decoding="async"
                               itemProp="screenshot"
                             />
                           </div>
@@ -794,7 +791,7 @@ export default function DownloadPage() {
                 <div className="spec-item-content">
                   <h3>Minimum OS Requirement</h3>
                   <div className="spec-value">{MIN_ANDROID}</div>
-                  <div className="spec-subtext">Targeting Android 14 (API 34)</div>
+                  <div className="spec-subtext">Targeting Android 16 (API 36)</div>
                 </div>
               </div>
 
@@ -855,7 +852,7 @@ export default function DownloadPage() {
               </span>
               <h2 className="section-title">Android OS Compatibility &amp; Performance Matrix</h2>
               <p className="section-subtitle" style={{ maxWidth: '780px', margin: '0 auto' }}>
-                Zyphuel APK v{APP_VERSION} is optimized for Android devices across 8 major generations, ensuring rapid GPS resolution and low background battery consumption.
+                Zyphuel APK v{APP_VERSION} is optimized for Android devices from Android 7.0 (Nougat) through Android 16, ensuring rapid GPS resolution and low background battery consumption.
               </p>
             </div>
 
@@ -871,6 +868,13 @@ export default function DownloadPage() {
                   </tr>
                 </thead>
                 <tbody>
+                  <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#f8fafc' }}>
+                    <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Android 7.0 - 7.1 (Nougat)</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>API 24 - 25</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>FingerprintManager fallback</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Standard Fused Location (&lt;12m)</td>
+                    <td style={{ padding: '14px 18px', color: '#10b981', fontWeight: 600 }}>Supported (Baseline)</td>
+                  </tr>
                   <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#ffffff' }}>
                     <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Android 8.0 - 8.1 (Oreo)</td>
                     <td style={{ padding: '14px 18px', color: '#475569' }}>API 26 - 27</td>
@@ -899,12 +903,19 @@ export default function DownloadPage() {
                     <td style={{ padding: '14px 18px', color: '#475569' }}>Precise Lahore Polygon Bounds (&lt;3m)</td>
                     <td style={{ padding: '14px 18px', color: '#10b981', fontWeight: 700 }}>Optimal (90-120 FPS)</td>
                   </tr>
-                  <tr style={{ background: '#ffffff' }}>
+                  <tr style={{ borderBottom: '1px solid #e2e8f0', background: '#ffffff' }}>
                     <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Android 15 (Vanilla Ice Cream)</td>
                     <td style={{ padding: '14px 18px', color: '#475569' }}>API 35</td>
                     <td style={{ padding: '14px 18px', color: '#475569' }}>Private Space &amp; Edge-to-Edge</td>
                     <td style={{ padding: '14px 18px', color: '#475569' }}>Carrier-Assisted Sub-Meter GNSS</td>
                     <td style={{ padding: '14px 18px', color: '#10b981', fontWeight: 700 }}>Next-Gen Ready</td>
+                  </tr>
+                  <tr style={{ background: '#f8fafc' }}>
+                    <td style={{ padding: '14px 18px', fontWeight: 600, color: '#0f172a' }}>Android 16 (Baklava)</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>API 36</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Keystore Hardware Enclave</td>
+                    <td style={{ padding: '14px 18px', color: '#475569' }}>Precise Lahore Polygon Bounds (&lt;3m)</td>
+                    <td style={{ padding: '14px 18px', color: '#10b981', fontWeight: 700 }}>Target SDK &amp; Ready</td>
                   </tr>
                 </tbody>
               </table>

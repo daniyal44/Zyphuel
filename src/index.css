@@ -5992,3 +5992,37 @@ a.footer-contact-link:hover {
         gap: 12px;
     }
 }
+
+/* ==========================================================================
+   Route-level code-splitting placeholder
+   Shown only during a client-side navigation while a lazy route chunk loads,
+   or briefly if the network is slow. Server-rendered HTML stays on screen
+   during hydration, so this never appears on a first paint.
+   ========================================================================== */
+.route-loading {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.route-loading-spinner {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid rgba(26, 79, 124, 0.18);
+  border-top-color: var(--brand-petrol, #1a4f7c);
+  animation: routeSpinner 0.7s linear infinite;
+}
+
+@keyframes routeSpinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-loading-spinner {
+    animation-duration: 1.6s;
+  }
+}

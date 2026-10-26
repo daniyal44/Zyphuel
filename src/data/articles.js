@@ -115,9 +115,9 @@ export const articles = [
     author: 'Zyphuel App Engineering',
     authorIcon: 'fa-solid fa-mobile-screen-button',
     image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=720&q=80',
-    tags: ['ZyphuelAPK', 'DownloadApp', 'Android8', 'BiometricSecurity', 'LahoreFuelApp'],
+    tags: ['ZyphuelAPK', 'DownloadApp', 'Android7', 'BiometricSecurity', 'LahoreFuelApp'],
     keyTakeaways: [
-      `The official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) is built for Android devices running Android 8.0 Oreo through Android 15.`,
+      `The official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) is built for Android devices running Android 7.0 Nougat through Android 16.`,
       'Supports fingerprint and face unlock for fast, secure checkout without having to type passwords every time.',
       'Uses high-precision GPS sector auto-pinning calibrated for all Lahore residential and commercial sectors.',
       'A low-power background service tracks the approaching micro-refueler bowser on a live map in real time.',
@@ -135,9 +135,9 @@ export const articles = [
           caption: `Zyphuel Android APK v${APP_VERSION} Compatibility and Hardware Specs`,
           headers: ['Specification', 'Minimum Requirement', 'Recommended Spec', 'Technical Details'],
           rows: [
-            ['Operating System', 'Android 8.0 (API 26) Oreo', 'Android 12 to 15', 'Full backward compatibility down to Android 8.0'],
+            ['Operating System', 'Android 7.0 (API 24) Nougat', 'Android 12 to 16', 'Full backward compatibility down to Android 7.0'],
             ['RAM Memory', '2.0 GB RAM', '4.0 GB or higher', 'Active memory consumption stays under 65 MB'],
-            ['Storage Space', '25 MB free space', '100 MB free space', `APK download payload is exactly ${APP_SIZE}`],
+            ['Storage Space', '50 MB free space', '100 MB free space', `APK download payload is exactly ${APP_SIZE}`],
             ['Biometric Support', 'Android BiometricPrompt API', 'Fingerprint or Face Unlock', 'Encrypted local keystore verification'],
             ['Location Accuracy', 'Standard GPS and Cellular Triangulation', 'Dual-Band GNSS', 'Fused Location Provider with sub-5m accuracy'],
             ['Mobile Network', '3G (256 kbps)', '4G LTE or Wi-Fi', 'Optimized data payloads that load on weak signals']
@@ -188,7 +188,7 @@ export const articles = [
       },
       {
         question: 'What Android version is required to run the app?',
-        answer: 'The app works on Android 8.0 (Oreo) and all newer versions through Android 15. You only need 2GB of RAM and about 25MB of free storage space.'
+        answer: `The app works on Android 7.0 (Nougat) and all newer versions through Android 16. You only need 2GB of RAM and about 50MB of free storage space for the ${APP_SIZE} installation payload.`
       },
       {
         question: 'How do the 2-hour fuel price push notifications work?',
@@ -200,7 +200,7 @@ export const articles = [
       }
     ],
     content: [
-      `If you need a reliable fuel delivery app in Lahore, the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) is available for direct download. It works on any phone running Android 8.0 or newer and takes less than a minute to install.`,
+      `If you need a reliable fuel delivery app in Lahore, the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) is available for direct download. It works on any phone running Android 7.0 or newer and takes less than a minute to install.`,
       'To install it directly, download the APK file from https://zyphuel.netlify.app/download/, tap "Download Anyway" when prompted by your browser, and allow installation from your browser settings. Once installed, grant location permission so the app can locate your address automatically.',
       `Version ${APP_VERSION} includes fast fingerprint checkout, precise GPS address pinning across all major Lahore neighborhoods, and a live map showing your approaching delivery bowser.`,
       'With automatic 2-hour price alerts, 45-minute delivery, a fixed Rs. 300 fee for orders up to 10 Litres, and flexible payments (Cash on Delivery up to 10L, plus JazzCash, Easypaisa, NayaPay, and Raast QR), the app gives you certified fuel without station queues.'

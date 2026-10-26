@@ -1,15 +1,38 @@
 // Centralized Zyphuel Mobile App Version Configuration
 // Update this file on every application release to dynamically sync versions across the platform.
+//
+// Verified source of truth: parsed directly from public/APK/Zyphuel.apk (AndroidManifest.xml)
+//   versionName = 2.6.4.0.0.33 | versionCode = 61 | compileSdk = 36 | minSdk = 24 (Android 7.0)
+//   package = com.aistudio.zyphuel.appv2 | AGP 9.1.1 | 35,321,064 bytes
+//
+// NOTE: Every user-visible version, build, size, minimum-Android and SHA-256 string on the
+// website, in the SEO/GEO metadata and in the knowledge files is derived from this file.
+// Never hardcode these values anywhere else.
 
-export const APP_VERSION = '2.6.4.0.0.31';
-export const BUILD_NUMBER = '59';
-export const RELEASE_DATE = 'October 13, 2026';
-export const APP_SIZE = '31.7 MB';
+export const APP_VERSION = '2.6.4.0.0.33';
+export const BUILD_NUMBER = '61';
+export const RELEASE_DATE = 'October 24, 2026';
+export const APP_SIZE = '35.3 MB';
+export const APP_BYTES = '35,321,064';
 export const MIN_ANDROID = '7.0 (Nougat)+';
 export const TARGET_SDK = '36 (Android 15/16 Ready)';
-export const APP_SHA256 = 'e2ceae40c3949a9942a2e508447067bdc5207c5ea1c9c34bc3a94991c4e79510';
+export const APP_SHA256 = 'f8236bf06c8923ee22f992a964c95ed6fd43d4fe65afe8c9b4e623d75436aadb';
+export const APP_PACKAGE = 'com.aistudio.zyphuel.appv2';
 
 export const CHANGELOG = [
+  {
+    version: '2.6.4.0.0.33',
+    build: '61',
+    date: 'October 24, 2026',
+    title: 'Verified Production Build 61 (versionName 2.6.4.0.0.33) — Android 7.0+ Compatibility Retention & Signed Binary Release',
+    features: [
+      'Compiled production release v2.6.4.0.0.33 (versionCode 61) with Android Gradle Plugin 9.1.1, compileSdk 36 and minSdk 24 (full Android 7.0 Nougat support retained)',
+      'Signed universal APK refreshed at 35.3 MB (35,321,064 bytes) with published SHA-256 integrity hash f8236bf06c89...aadb for on-device verification',
+      'Firebase Cloud Messaging push pipeline retained (ZyphuelFcmService, zyphuel_fcm_channel) for high-priority OGRA rate and dispatch alerts',
+      'Calibrated BLE flow-meter telemetry bridge retained for live 0.01L digital dispenser metering on every doorstep delivery',
+      'Doorstep dispatch compliance unchanged: strict 5L–15L Max capacity with synchronized tariff (Rs. 300 flat up to 10L, Rs. 320–Rs. 400 for 11L–15L Max)'
+    ]
+  },
   {
     version: '2.6.4.0.0.31',
     build: '59',

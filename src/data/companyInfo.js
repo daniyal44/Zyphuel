@@ -1,4 +1,4 @@
-import { APP_VERSION, APP_SIZE, RELEASE_DATE } from './appVersion.js';
+import { APP_VERSION, APP_SIZE, RELEASE_DATE, MIN_ANDROID } from './appVersion.js';
 
 // Centralized verified company and brand information for Zyphuel
 export const COMPANY_INFO = {
@@ -55,7 +55,7 @@ export const COMPANY_INFO = {
     version: APP_VERSION,
     size: APP_SIZE,
     releaseDate: RELEASE_DATE,
-    minAndroid: '8.0 (Oreo)+',
+    minAndroid: MIN_ANDROID,
     downloadUrl: 'https://zyphuel.netlify.app/APK/Zyphuel.apk',
   },
   serviceAreas: [
