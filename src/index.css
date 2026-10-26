@@ -6109,3 +6109,43 @@ a.footer-contact-link:hover {
   color: var(--text-secondary, #64748b);
   line-height: 1.6;
 }
+
+/* ==========================================================================
+   Order page responsiveness
+   The 5-step progress stepper is a single flex row with inline
+   `overflow-x: auto`; on phones it became a 663px-wide strip inside a 350px
+   box (visible scrollbar + clipped labels). Below 720px the steps now wrap
+   into a tidy grid and the connector lines are dropped.
+   ========================================================================== */
+@media (max-width: 720px) {
+  .order-progress-stepper {
+    flex-wrap: wrap !important;
+    overflow-x: visible !important;
+    justify-content: flex-start !important;
+    row-gap: 12px !important;
+    column-gap: 8px !important;
+    padding: 12px !important;
+  }
+
+  .order-progress-stepper .stepper-step {
+    flex: 1 1 calc(33.333% - 8px);
+    min-width: 0;
+  }
+
+  .order-progress-stepper .stepper-connector {
+    display: none !important;
+  }
+
+  .order-progress-stepper .stepper-step > span {
+    font-size: 0.72rem !important;
+    line-height: 1.2;
+    min-width: 0;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 420px) {
+  .order-progress-stepper .stepper-step {
+    flex: 1 1 calc(50% - 8px);
+  }
+}

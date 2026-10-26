@@ -58,7 +58,7 @@ export default function ContactPage() {
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "How do I contact Zyphuel for urgent fuel dispatch in Lahore?",
+              "name": "How do I contact Zyphuel for emergency fuel dispatch in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "For fuel dispatch inquiries, message or call our support team at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app during operating Working Hours."
@@ -98,7 +98,7 @@ export default function ContactPage() {
 
   const contactFaqs = [
     {
-      q: "How do I contact Zyphuel for urgent fuel dispatch in Lahore?",
+      q: "How do I contact Zyphuel for emergency fuel dispatch in Lahore?",
       a: "For fuel dispatch inquiries, message or call our support team at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app during operating Working Hours."
     },
     {
@@ -479,8 +479,8 @@ ${form.message.trim()}`
               short: 'Scheduling',
               icon: 'fa-truck-fast',
               title: 'A dispatch slot is scheduled',
-              desc: 'Standard doorstep orders are scheduled inside the within-45-minute delivery window. Urgent priority requests are routed ahead of the queue for 10–20 minute dispatch and carry the flat Rs. 100 priority fee.',
-              meta: 'Within 45 mins · Urgent 10–20 mins'
+              desc: 'Every doorstep order is scheduled inside the single within-45-minute delivery window. There is no priority tier and no express surcharge.',
+              meta: 'Within 45 mins · 8 AM–10 PM PKT'
             },
             {
               short: 'WhatsApp confirmation',

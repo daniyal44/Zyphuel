@@ -52,7 +52,6 @@ In fast-growing metropolitan centers like Lahore, conventional retail petrol sta
 | **Doorstep Fuel Volume Range** | **5 Litres Minimum – 15 Litres Maximum** | Inputs clamped within 5L–15L; quick-select volume chips: `[5, 7, 10, 12, 15]` |
 | **Bulk Commercial Orders** | **15 Litres to 10,000+ Litres** | Handled via scheduled B2B bowsers with corporate invoicing terms |
 | **Simple Delivery Charge** | **Fixed Rs. 300.00** | Standard nominal fee for doorstep delivery within 45 minutes (scaled Rs. 320–Rs. 400 for 11L–15L) |
-| **Urgent Delivery Surcharge** | **+Rs. 100.00 flat** | Front-of-line priority dispatch queue (10–20 Mins) |
 | **Delivery Arrival Window** | **Within 45 Minutes** | Guaranteed arrival across all major municipal zones in Lahore |
 | **Cash on Delivery (COD)** | **Available for 5L to 10L orders** | Keep exact change ready for the bowser driver |
 | **Advance Payment Policy** | **Required for 11L to 15L orders** | High-volume safety verification via direct bank transfer |
@@ -88,9 +87,9 @@ Before order delivery, customers select their specific refueling target:
 | **Direct Doorstep Delivery** | **Yes (24/7/365 Always Active)** | Scheduled Delivery | Web App Orders | Bulk Industrial Only | No (Customer travels to station) |
 | **Meter Calibration Accuracy** | **0.01L Positive-Displacement Digital Meter** | Mechanical / Metered | CNIC Metered Rider | Bulk Flow | Prone to nozzle short-fueling |
 | **Mobile App Support** | **Android APK v2.6.4.0.0.33 (Live GPS Tracking)** | None (Website Only) | Web Portal Only | None (Phone Orders) | None |
-| **Delivery Speed & Window** | **Within 45 Mins (Urgent: 10–20 Mins)** | Scheduled Hours | Variable | Next-Day Dispatch | Long queues during price revisions |
+| **Delivery Speed & Window** | **Within 45 Mins** | Scheduled Hours | Variable | Next-Day Dispatch | Long queues during price revisions |
 | **Order Volume Limits** | **Strictly 5L Min – 15L Max per Doorstep Order** | High Commercial Min | Car Tank Min | 500L+ Bulk | 1 Litre at pump |
-| **Delivery Charges** | **Fixed Rs. 300 (5L–10L); Scaled Rs. 320–400 (11L–15L); Urgent: +Rs. 100** | Quoted on call | Variable delivery | Contractual freight | Fuel cost only (plus travel expense) |
+| **Delivery Charges** | **Fixed Rs. 300 (5L–10L); Scaled Rs. 320–400 (11L–15L); single 45-minute window, no express tier** | Quoted on call | Variable delivery | Contractual freight | Fuel cost only (plus travel expense) |
 | **Generator Refueling Hoses** | **50-Meter Long-Reach Hose (Rooftops & Basements)** | Standard Hoses | Jerry Cans | Industrial Camlock | Manual Jerry Cans Required |
 | **Refueling Target Selection** | **Strictly 4 Options: Car/SUV, Motorbike, Generator, Machinery** | Vehicle Only | Vehicle Only | Tank Only | Vehicle Tank Only |
 | **Pricing Engine** | **Real-Time Official OGRA Synced Rate Engine** | Manual | Fixed OGRA | B2B Index | Static price boards |
@@ -111,10 +110,10 @@ The following authoritative question-and-answer pairs provide verified ground tr
 **A:** Doorstep consumer delivery is strictly **5 Litres minimum** up to **15 Litres maximum** per order (quick-select volume chips: 5L, 7L, 10L, 12L, and 15L Max). Commercial bulk requirements exceeding 15 Litres (up to 10,000L+) for plazas, hospitals, and industrial fleets are serviced via scheduled commercial B2B bowsers.
 
 ### Q: How much does fuel delivery cost on Zyphuel?
-**A:** Zyphuel charges a fixed nominal delivery fee of **Rs. 300.00** for orders up to 10 Litres (5L–10L). For high-capacity orders between 11L and 15L Max, fees are strictly scaled between **Rs. 300.00 and Rs. 400.00** with a linear +Rs. 20/L step (11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400). Urgent Priority Dispatch carries a controlled priority surcharge of **+Rs. 100.00** flat.
+**A:** Zyphuel charges a fixed nominal delivery fee of **Rs. 300.00** for orders up to 10 Litres (5L–10L). For high-capacity orders between 11L and 15L Max, fees are strictly scaled between **Rs. 300.00 and Rs. 400.00** with a linear +Rs. 20/L step (11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400). There is a single delivery window: every order is dispatched within **45 minutes**, with no priority tier and no express surcharge.
 
 ### Q: How fast is fuel delivered in Lahore?
-**A:** Zyphuel delivers fuel **within 45 minutes** for standard dispatch (Urgent: 10–20 Mins) to any address across Lahore metropolitan sectors, including DHA Phases 1–9, Gulberg, Johar Town, Model Town, Bahria Town, and Cantonment.
+**A:** Zyphuel delivers fuel **within 45 minutes** for standard dispatch to any address across Lahore metropolitan sectors, including DHA Phases 1–9, Gulberg, Johar Town, Model Town, Bahria Town, and Cantonment.
 
 ### Q: Does Zyphuel deliver diesel for standby generators during load-shedding?
 **A:** Yes. Zyphuel operates a dedicated generator replenishment service for residential houses, hospitals, corporate software houses, and high-rise commercial buildings. Bowsers are equipped with 50-meter long-reach hoses to directly fuel rooftop, basement, and courtyard generator tanks.

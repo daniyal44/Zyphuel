@@ -18,7 +18,6 @@ Compliance & Business Logic (Permanent Memory Rules):
     - Doorstep Delivery Charges: Fixed Rs. 300.00 nominal fee for orders up to 10L (5L–10L).
       For 11L to 15L Max, fees are strictly scaled between Rs. 300.00 and Rs. 400.00
       (+Rs. 20/L step: 11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400).
-    - Delivery Windows: Simple Dispatch 20–45 Mins, Urgent Dispatch 10–20 Mins (+Rs. 100 flat).
     - Refueling Targets: Strictly 4 application targets (Car/Sedan/SUV, Motorbike/Scooter,
       Standby Generator, Commercial Machinery). Jerrycans strictly excluded.
     - Night Cutoff: 10:00 PM – 8:00 AM PKT (intake: 8:00 AM – 10:00 PM PKT).
@@ -87,8 +86,6 @@ ZYPHUEL_CONTEXT = {
     "apk_download_url": "/APK/Zyphuel.apk",
     "delivery_city": "Lahore, Pakistan",
     "delivery_sla_simple": "20–45 Mins Simple Dispatch",
-    "delivery_sla_urgent": "10–20 Mins Urgent Priority",
-    "urgent_surcharge": "Rs. 100.00 Flat",
     "delivery_fee_up_to_10l": "Rs. 300.00 Fixed",
     "delivery_fee_11l_to_15l": "Rs. 320.00 to Rs. 400.00 (+Rs. 20/L step)",
     "order_bounds": "5 Litres min to 15 Litres max per order",
@@ -327,7 +324,7 @@ class IntelligenceSynthesizer:
             "title": "Mobile Energy Logistics in Lahore",
             "advice": (
                 "Founder Muhammad Daniyal's agile micro-refueler fleet operates across DHA, Gulberg, Johar Town, Bahria Town, and Model Town. "
-                "Delivered within 20–45 mins simple dispatch (10–20 mins urgent) with instant Raast, JazzCash, Easypaisa QR payments."
+                "Delivered within within 45 minutes (single delivery window) with instant Raast, JazzCash, Easypaisa QR payments."
             )
         },
         "global-vs-pakistan-on-demand-fuel-delivery-benchmarks": {
@@ -419,9 +416,7 @@ class PlatformSynchronizer:
                 "maxVolume": 15,
                 "deliveryFeeUpTo10L": 300,
                 "deliveryFee11To15L": "320-400 (+20/L step)",
-                "urgentSurcharge": 100,
-                "simpleSLA": "20–45 Mins",
-                "urgentSLA": "10–20 Mins",
+                "simpleSLA": "Within 45 Mins",
                 "orderHours": "8:00 AM - 10:00 PM PKT",
                 "helpline": "+92 3230-112464"
             },
@@ -446,7 +441,7 @@ class PlatformSynchronizer:
         banner = f"""{self.START_MARKER}
 > [!NOTE]
 > **⚡ Live Daily Fuel Intelligence & Market Monitor ({intel['date']})**
-> - **Operational SLA**: 20–45 Mins Simple Dispatch | 10–20 Mins Urgent (+Rs. 100) across Lahore.
+> - **Operational SLA**: Within 45 Mins (single delivery window) across Lahore.
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: {intel['summary']}
 >

@@ -399,7 +399,7 @@ export const articles = [
       'Businesses, commercial kitchens, and residential societies need a dependable, safe supply of essential utilities: clean Euro-V diesel for backup generators, sealed LPG gas cylinders for commercial cooking, and bulk potable water. Zyphuel brings these services together under one dispatch system.',
       'Our prices strictly follow official government notifications: Euro-V Petrol at Rs 345.87/L, Euro-V Diesel at Rs 378.05/L, High-Octane 97 at Rs 365.00/L, and LPG Gas at Rs 450.00/kg, alongside bulk clean water tanker refills at Rs 100 per gallon.',
       'LPG cylinder delivery focuses on consumer safety. Every 5 kg, 11.8 kg, and 45.4 kg cylinder undergoes pressure checks and tare-weight inspection. Our delivery technicians bring portable digital scales directly to your doorstep so you can personally confirm the full net weight before mandatory leak testing.',
-      'Whether you need emergency diesel during a monsoon storm or an urgent cylinder replacement during evening dinner service, Zyphuel provides 45-minute doorstep delivery across Lahore. Orders are bounded between 5L and 15L, with a fixed Rs. 300 fee under 10L, scaled delivery fee of Rs. 320 to Rs. 400 for 11L to 15L (+Rs. 20/L step), and flexible payment options including COD and digital mobile wallets.'
+      'Whether you need emergency diesel during a monsoon storm or an emergency cylinder replacement during evening dinner service, Zyphuel provides 45-minute doorstep delivery across Lahore. Orders are bounded between 5L and 15L, with a fixed Rs. 300 fee under 10L, scaled delivery fee of Rs. 320 to Rs. 400 for 11L to 15L (+Rs. 20/L step), and flexible payment options including COD and digital mobile wallets.'
     ]
   },
   {

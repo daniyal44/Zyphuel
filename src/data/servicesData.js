@@ -203,7 +203,7 @@ export const steps = [
     number: '2',
     icon: 'fa-clock-rotate-left',
     title: 'Select Delivery Speed',
-    desc: 'Choose instant 45-minute express dispatch or schedule refueling during convenient vehicle downtime.'
+    desc: 'Every order is dispatched within 45 minutes; you can also schedule refueling during convenient vehicle downtime.'
   },
   {
     number: '3',

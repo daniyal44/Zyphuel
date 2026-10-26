@@ -506,7 +506,7 @@ const ROUTES = [
               "name": "What are Zyphuel delivery charges for petrol and diesel in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Zyphuel charges a fixed nominal delivery fee of Rs. 300.00 for doorstep fuel orders of 5–10 Litres, delivered within 45 minutes. For high-capacity orders of 11–15 Litres, delivery fees scale linearly between Rs. 300.00 and Rs. 400.00 (+Rs. 20/L step: 11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400 Max). Urgent priority dispatch (10–20 minutes) carries an additional surcharge of +Rs. 100.00."
+                "text": "Zyphuel charges a fixed nominal delivery fee of Rs. 300.00 for doorstep fuel orders of 5–10 Litres, delivered within 45 minutes. For high-capacity orders of 11–15 Litres, delivery fees scale linearly between Rs. 300.00 and Rs. 400.00 (+Rs. 20/L step: 11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400 Max). There is a single delivery window: every order is dispatched within 45 minutes, with no express tier and no priority surcharge."
               }
             },
             {
@@ -1016,7 +1016,7 @@ const ROUTES = [
               "@type": "HowToStep",
               "position": 4,
               "name": "Enter Lahore Address & Dispatch Priority",
-              "text": "Provide your delivery address in Lahore, select Simple (Within 45 mins, Rs. 300 for 5–10L, dynamic surge for 11–15L) or Urgent (+Rs. 100) priority, choose payment mode (COD or instant QR Online Payments), and submit.",
+              "text": "Provide your delivery address in Lahore, the delivery fee for your volume is applied automatically (Rs. 300 for 5–10L, Rs. 320–Rs. 400 for 11–15L); choose payment mode (COD or instant QR Online Payments) and submit.",
               "url": `${DOMAIN}/order/#step-address`
             }
           ]
@@ -1062,7 +1062,7 @@ const ROUTES = [
               "name": "How long does Zyphuel take to deliver fuel in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Standard doorstep dispatch arrives within 45 minutes anywhere in covered Lahore areas, and Urgent priority dispatch arrives in 10–20 minutes for a +Rs. 100.00 surcharge. A live countdown runs from order confirmation, with online order intake daily from 8:00 AM to 10:00 PM PKT."
+                "text": "Every doorstep dispatch arrives within 45 minutes anywhere in covered Lahore areas. There is one delivery speed only — no priority tier and no express surcharge. A live countdown runs from order confirmation, with online order intake daily from 8:00 AM to 10:00 PM PKT."
               }
             },
             {
@@ -1119,7 +1119,7 @@ const ROUTES = [
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "How do I contact Zyphuel for urgent fuel dispatch in Lahore?",
+              "name": "How do I contact Zyphuel for emergency fuel dispatch in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "For emergency fuel dispatch, message or call our 24/7 hotline at +92 3230-112464 with your live WhatsApp location pin. You can also order directly via our online order portal or Android app for rapid arrival within 45 minutes."

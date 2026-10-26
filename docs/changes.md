@@ -1241,3 +1241,22 @@ Chevron now also rotates when a question opens.
 **Verification:** computed `overflow: hidden`; `aria-expanded` toggles one item at a
 time; only 1 answer panel is visible (previously 18 overlapped); screenshot of the
 rendered section is clean.
+
+---
+
+## Phase 21 — 45-Minute Single Window, Order Page Responsiveness & Full QA (2026-10-26)
+
+### Delivery model
+- Urgent / express delivery **permanently removed**. The site now advertises exactly one window: within 45 minutes.
+- Removed from: `OrderPage.jsx` (state + payload + FAQ/HowTo copy), `generateInvoicePdf.js`, `HomePage`, `ContactPage`, `AboutPage`, `TermsOfUsePage`, `servicesData.js`, `index.html`, `prerender.js`, `llms.txt`, `llms-full.txt`, `README.md`.
+- `src/data/fuelMarketIntel.json` and `scripts/zyphuel_fuel_updater_master.py` were also cleaned, so the **daily auto-update can no longer re-introduce** the urgent tier (8 → 0 references).
+- `AGENTS.md` now records a permanent prohibition on priority tiers and express surcharges.
+
+### Order page responsiveness
+- The 5-step stepper was a 663px single row inside a 350px box with an inline `overflow-x: auto`. Added `stepper-step` / `stepper-connector` classes and a <=720px media query: the steps wrap into a grid and the connectors are hidden. Verified: `scrollWidth === clientWidth === 350`, zero inner scroll, 2 rows.
+- Fuel-type and target-asset card images switched from lazy to eager (above the fold).
+
+### Full QA
+- Added `scripts/qa-static.cjs` — audits every prerendered page for H1 count, title/description length, canonical, duplicate ids, JSON-LD validity, `<img alt>`, missing assets, broken internal links and rogue "urgent" copy.
+- Result: 17/17 pages build and render, 0 console errors, 0 hydration failures, 0 broken images, 0 broken internal links.
+- Report with Mermaid charts and scores: `docs/qa/2026-10-26-full-qa-report.md` (overall 78/100).

@@ -264,8 +264,8 @@ export default function AboutPage() {
               short: 'Dispatch',
               icon: 'fa-truck-fast',
               title: 'The nearest bowser is dispatched',
-              desc: 'Your order is routed to the closest calibrated micro-tanker for a within-45-minute doorstep delivery. Urgent priority requests jump the queue for 10–20 minute dispatch and carry the flat Rs. 100 priority fee.',
-              meta: 'Within 45 mins · Urgent 10–20 mins'
+              desc: 'Your order is routed to the closest calibrated micro-tanker for a within-45-minute doorstep delivery. Every order uses the same single dispatch window — there is no priority tier and no express surcharge.',
+              meta: 'Within 45 mins · Every order'
             },
             {
               short: 'Calibrated fill',

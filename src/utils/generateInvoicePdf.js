@@ -221,8 +221,8 @@ export async function generateInvoicePdf(data) {
   doc.setTextColor(71, 85, 105)
   doc.text('Speed Window: ', rightCardX + 4, cardY + 31)
   doc.setFont('helvetica', 'bold')
-  doc.setTextColor(data.isUrgent ? 234 : 2, data.isUrgent ? 88 : 132, data.isUrgent ? 12 : 199)
-  doc.text(data.isUrgent ? '⚡ Urgent Priority (Within 45 Mins)' : 'Standard Rapid Dispatch (Within 45 Mins)', rightCardX + 26, cardY + 31)
+  doc.setTextColor(2, 132, 199)
+  doc.text('Within 45 Mins (Single Delivery Window)', rightCardX + 26, cardY + 31)
 
   // 4. Itemized Products & Services Table
   const tableY = cardY + cardH + 6
@@ -386,13 +386,6 @@ export async function generateInvoicePdf(data) {
     : (typeof data.deliveryFee === 'number' ? 'Rs. ' + data.deliveryFee.toLocaleString('en-US', { minimumFractionDigits: 2 }) : String(data.deliveryFee))
   doc.text(deliveryFmt, totalsX + totalsW - 5, summaryY + 16.5, { align: 'right' })
 
-  // Urgent Surcharge (if urgent)
-  if (data.isUrgent) {
-    doc.setFont('helvetica', 'normal')
-    doc.setTextColor(234, 88, 12)
-    doc.text('Urgent Priority Express Surcharge:', totalsX + 5, summaryY + 21.5)
-    doc.text('+Rs. 100.00 (Included)', totalsX + totalsW - 5, summaryY + 21.5, { align: 'right' })
-  }
 
   // Grand Total Highlight Banner
   doc.setFillColor(2, 132, 199)

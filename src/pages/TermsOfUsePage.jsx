@@ -119,7 +119,7 @@ export default function TermsOfUsePage() {
                   <li><strong>Order Limits:</strong> Fuel orders are strictly structured between a <strong>minimum of 5 Litres</strong> and a <strong>maximum of 15 Litres</strong> per doorstep mobile delivery dispatch to ensure transit safety and rapid routing across Lahore.</li>
                   <li><strong>Order Intake Window:</strong> Online doorstep orders are accepted daily from <strong>8:00 AM to 10:00 PM (PKT)</strong>. Between 10:00 PM and 8:00 AM, order intake is closed for the night, during which the Complete Order button is disabled and hidden.</li>
                   <li><strong>Delivery Zones:</strong> Active delivery zones are limited to designated Lahore postal codes. Expansion alerts are communicated via our website and badge notifications.</li>
-                  <li><strong>Urgent Express Deliveries:</strong> Priority express dispatch carries a reasonable flat surcharge of +Rs. 100 (10–20 minute delivery target).</li>
+                  <li><strong>Single Delivery Window:</strong> Every doorstep order is dispatched within 45 minutes. There is no priority tier, express option or fast-delivery surcharge of any kind.</li>
                 </ul>
                 <div className="legal-highlight-box">
                   <p>All delivery quantities are verified at the point of delivery using tamper-evident, calibrated metering equipment. Receipt documentation is issued post-delivery.</p>

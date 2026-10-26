@@ -99,10 +99,8 @@
     "minVolume": 5,
     "maxVolume": 15,
     "deliveryFeeUpTo10L": 300,
-    "deliveryFee11To15L": "320-400 (+20/L step)",
-    "urgentSurcharge": 100,
-    "simpleSLA": "20–45 Mins",
-    "urgentSLA": "10–20 Mins",
+    "deliveryFee11To15L": "320-400 (+20/L step)",
+    "simpleSLA": "Within 45 Mins",
     "orderHours": "8:00 AM - 10:00 PM PKT",
     "helpline": "+92 3230-112464"
   },
@@ -220,7 +218,7 @@
     "zyphuel-calibrated-telemetry-fleet": {
       "date": "October 26, 2026",
       "headline": "Daily Petroleum Market Intelligence (October 26, 2026)",
-      "summary": "Founder Muhammad Daniyal's agile micro-refueler fleet operates across DHA, Gulberg, Johar Town, Bahria Town, and Model Town. Delivered within 20–45 mins simple dispatch (10–20 mins urgent) with instant Raast, JazzCash, Easypaisa QR payments.",
+      "summary": "Founder Muhammad Daniyal's agile micro-refueler fleet operates across DHA, Gulberg, Johar Town, Bahria Town, and Model Town. Delivered within within 45 minutes (single delivery window) with instant Raast, JazzCash, Easypaisa QR payments.",
       "topic": "founder_fleet_network",
       "points": [
         {

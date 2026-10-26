@@ -45,7 +45,7 @@ export default function HomePage() {
     },
     {
       q: 'What are Zyphuel delivery charges for petrol and diesel in Lahore?',
-      a: 'Zyphuel charges a fixed nominal delivery fee of Rs. 300.00 for doorstep fuel orders of 5–10 Litres, delivered within 45 minutes. For high-capacity orders of 11–15 Litres, delivery fees scale linearly between Rs. 300.00 and Rs. 400.00 (+Rs. 20/L step: 11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400 Max). Urgent priority dispatch (10–20 minutes) carries an additional surcharge of +Rs. 100.00.'
+      a: 'Zyphuel charges a fixed nominal delivery fee of Rs. 300.00 for doorstep fuel orders of 5–10 Litres, delivered within 45 minutes. For high-capacity orders of 11–15 Litres, delivery fees scale linearly between Rs. 300.00 and Rs. 400.00 (+Rs. 20/L step: 11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400 Max). There is one delivery speed only: every order is dispatched within 45 minutes, with no express tier and no priority surcharge.'
     },
     {
       q: 'How do I order fuel from Zyphuel?',
@@ -504,7 +504,7 @@ export default function HomePage() {
               </div>
               <h3>Within 45-Minute Rapid Dispatch</h3>
               <p>
-                Our decentralized micro-refueler fleet is strategically staged across major Lahore sectors. Whether you ran dry on the road or need urgent generator diesel during a power outage, delivery is guaranteed within 45 minutes across Lahore.
+                Our decentralized micro-refueler fleet is strategically staged across major Lahore sectors. Whether you ran dry on the road or need emergency generator diesel during a power outage, delivery is guaranteed within 45 minutes across Lahore.
               </p>
               <div className="comp-proof-tag">
                 <i className="fa-solid fa-truck-fast text-warning"></i> Express Local Response

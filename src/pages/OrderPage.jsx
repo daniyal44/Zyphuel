@@ -203,7 +203,7 @@ export default function OrderPage() {
               "name": "How long does Zyphuel take to deliver fuel in Lahore?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Standard doorstep dispatch arrives within 45 minutes anywhere in covered Lahore areas, and Urgent priority dispatch arrives in 10–20 minutes for a +Rs. 100.00 surcharge. A live countdown runs from order confirmation, with online order intake daily from 8:00 AM to 10:00 PM PKT."
+                "text": "Every doorstep dispatch arrives within 45 minutes anywhere in covered Lahore areas. There is a single delivery speed — no priority tier and no express surcharge. A live countdown runs from order confirmation, with online order intake daily from 8:00 AM to 10:00 PM PKT."
               }
             },
             {
@@ -257,7 +257,6 @@ export default function OrderPage() {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
-  const [deliverySpeed, setDeliverySpeed] = useState('simple') // 'simple' or 'urgent'
 
   const { prices: livePrices, basePrices: liveBasePrices, pumpMarkup = 5.00 } = useFuelPrices()
   const [prices, setPrices] = useState({ ...livePrices })
@@ -465,7 +464,6 @@ export default function OrderPage() {
         setAssetIdentifier(parsed.assetIdentifier)
       }
       if (parsed.fuelQty) setFuelQty(Math.min(15, Math.max(5, Number(parsed.fuelQty) || 5)))
-      if (parsed.deliverySpeed) setDeliverySpeed(parsed.deliverySpeed)
     }
   }, []) // eslint-disable-line
 
@@ -595,7 +593,6 @@ export default function OrderPage() {
       assetIdentifier,
       deliveryApplicationLabel: appConfig.label,
       orderFuel: true,
-      deliverySpeed,
       total,
       status: 'confirmed',
       waUrl: waUrl
@@ -641,7 +638,6 @@ export default function OrderPage() {
       fuelQty,
       deliveryApplication,
       assetIdentifier,
-      deliverySpeed,
       isSandbox: isSandboxOrder,
       orderMode: isSandboxOrder ? 'QA_SANDBOX_VERIFICATION' : 'PRODUCTION_DISPATCH',
       submittedAt: new Date().toISOString()
@@ -838,7 +834,7 @@ export default function OrderPage() {
                       { num: '04', label: 'Delivery', active: Boolean(address.trim().length > 3), icon: 'fa-location-dot', img: '/images/Delivery.jpg' },
                       { num: '05', label: 'Contact', active: Boolean(name && phone), icon: 'fa-truck-fast', img: '/images/Contact.jpg' }
                     ].map((st, i) => (
-                      <div key={st.num} style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
+                      <div key={st.num} className="stepper-step" style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
                         <div
                           onMouseEnter={(e) => handleImageMouseEnter(st.img, st.label, `Step ${st.num} Overview`, e)}
                           onMouseMove={handleImageMouseMove}
@@ -884,7 +880,7 @@ export default function OrderPage() {
                           {st.label}
                         </span>
                         {i < 4 && (
-                          <div style={{
+                          <div className="stepper-connector" style={{
                             width: '20px',
                             height: '2px',
                             background: st.active ? 'var(--accent-color, #0369a1)' : 'rgba(15, 23, 42, 0.1)',
@@ -956,7 +952,7 @@ export default function OrderPage() {
                               cursor: 'zoom-in'
                             }}
                           >
-                            <img loading="lazy" decoding="async"
+                            <img loading="eager" fetchpriority="high" decoding="async"
                               src={FUEL_IMAGES[type]}
                               alt=""
                               aria-hidden="true"
@@ -1089,7 +1085,7 @@ export default function OrderPage() {
                               cursor: 'zoom-in'
                             }}
                           >
-                            <img loading="lazy" decoding="async"
+                            <img loading="eager" decoding="async"
                               src={app.image}
                               alt=""
                               aria-hidden="true"
@@ -1559,7 +1555,7 @@ export default function OrderPage() {
                         {`${fuelQty}L ${FUEL_DISPLAY[selectedFuelType]} • ${DELIVERY_APPLICATION_CONFIG[deliveryApplication]?.shortLabel || 'Standard Delivery'}`}
                       </span>
                       <span style={{ fontSize: '0.8rem', fontWeight: 700, color: '#0369a1' }}>
-                        🚚 Express Doorstep Dispatch
+                        🚚 Doorstep Dispatch (Within 45 Mins)
                       </span>
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', paddingTop: '8px', borderTop: '1px dashed #cbd5e1' }}>
@@ -1806,7 +1802,7 @@ export default function OrderPage() {
 
                 <div data-reveal="up" style={{ background: '#fff', padding: '24px', borderRadius: '12px', border: '1px solid var(--border-color)', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
                   <div style={{ fontSize: '1.8rem', color: '#6366f1', marginBottom: '12px' }}><i className="fa-solid fa-clock-rotate-left"></i></div>
-                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>45-Min Express Dispatch</h3>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, marginBottom: '8px', color: 'var(--text-primary)' }}>45-Min Doorstep Dispatch</h3>
                   <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
                     Strategic micro-hubs located across DHA Phase 1-9, Gulberg, Johar Town, Bahria Town, Model Town, and Cantonment ensure rapid delivery during operating hours.
                   </p>
@@ -1861,7 +1857,7 @@ export default function OrderPage() {
                       5. How long does Zyphuel take to deliver fuel in Lahore?
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      Standard doorstep dispatch arrives <strong>within 45 minutes</strong> anywhere in covered Lahore areas, and Urgent priority dispatch arrives in <strong>10–20 minutes</strong> for a +Rs. 100.00 surcharge. A live countdown runs from the moment your order is confirmed, and online order intake operates daily from <strong>8:00 AM to 10:00 PM PKT</strong>.
+                      Every doorstep dispatch arrives <strong>within 45 minutes</strong> anywhere in covered Lahore areas. There is one delivery speed only — no priority tier and no express surcharge. A live countdown runs from the moment your order is confirmed, and online order intake operates daily from <strong>8:00 AM to 10:00 PM PKT</strong>.
                     </p>
                   </div>
 
@@ -1930,7 +1926,7 @@ export default function OrderPage() {
               short: 'Verification',
               icon: 'fa-clipboard-check',
               title: 'Requirement verification',
-              desc: 'Our desk confirms the grade, volume and address, then schedules the slot — within 45 minutes for a standard dispatch, or 10–20 minutes when you select Urgent.',
+              desc: 'Our desk confirms the grade, volume and address, then schedules the slot for a within-45-minute doorstep dispatch.',
               meta: 'WhatsApp confirmation at +92 3230-112464'
             },
             {
