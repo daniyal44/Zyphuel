@@ -18,14 +18,14 @@
 
 <!-- ZYPHUEL_FUEL_UPDATE_START -->
 > [!NOTE]
-> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 26, 2026)**
-> - **Operational SLA**: 20–45 Mins Simple Dispatch | 10–20 Mins Urgent (+Rs. 100) across Lahore.
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 27, 2026)**
+> - **Operational SLA**: Within 45 Mins (single delivery window) across Lahore.
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Comparing global leaders (CAFU, Booster, FuelBuddy) with Zyphuel in Lahore. Calibrated 0.01L flow meters, 50m long-reach hoses, dual optical verification (QR + Code 128), and strictly 5L–15L order limits tailored for Pakistan.
 >
-- **Market Intelligence**: OGRA allows MMI to sell gas under new TPA regime - Business Recorder (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Residents turn to alternative fuel amid gas shortages and rising LPG prices - Dawn (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: LPG Price In Pakistan Exceeds Rs600 Per Kilogram: Statistics Bureau - Mashriq TV (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Petrol price rises by Rs1.54 per litre, diesel by Rs2.16 - The News Pakistan (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt raises petrol price by Rs1.54 per litre, high-speed diesel rate by Rs2.16 - Dawn (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt increases diesel price by Rs2.16, petrol by Rs1.54 per litre - Business Recorder (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
