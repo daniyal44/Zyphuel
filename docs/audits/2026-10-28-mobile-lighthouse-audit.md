@@ -121,3 +121,46 @@ npx lighthouse@12 http://localhost:5300/services/ \
   --output=json --output-path=./lh-services.json \
   --chrome-flags="--headless=new --no-sandbox"
 ```
+
+---
+
+## 8. Follow-up: per-frame `setScrubProgress` removed, then re-measured
+
+**Change applied** (all five scroll components): the progress bar is now written directly to a ref (`bar.style.width = pct + '%'`) instead of calling `setScrubProgress(...)` inside the animation loop. The `stageInfo` narrative was moved to a 3-state `scrubStage` that only re-renders when the scroll crosses a threshold (35% / 75%), so a re-render happens at most twice per pass instead of on every frame.
+
+**Re-measured** (`/services/`, same tooling and settings as §1, two runs):
+
+| Run | Score | FCP | LCP | TBT | Transfer | Style & Layout |
+|---|---|---|---|---|---|---|
+| Before the change (§2 row B) | 32 | 7.7 s | 10.9 s | 1,490 ms | 4,052 KiB | 6,189 ms |
+| After — run 1 | **33** | 7.2 s | 8.7 s | 1,400 ms | 4,053 KiB | 6,051 ms |
+| After — run 2 | **35** | 6.9 s | 10.6 s | 1,160 ms | 4,053 KiB | 5,736 ms |
+
+**Verdict: not a measurable improvement.** 32 → 34 (median of two) sits inside the run-to-run spread of a page this heavy, and Style & Layout is still ~5.7–6.0 s. The change is still correct — it removes ~60 wasted renders per second of scrolling, which is the right thing for a real device — but it was **not** the dominant Lighthouse cost.
+
+### What the trace actually blames
+
+```
+bootup: vendor-react      6,335 ms
+bootup: (unattributed)    6,170 ms
+bootup: zyphuel-order-guard.js  742 ms
+DOM size                  757 elements, depth 14
+long tasks                14 found
+   1,153 ms  (unattributed)
+     606 ms  zyphuel-order-guard.js   <-- a single blocking task
+     522 ms  vendor-react.js
+```
+
+So the remaining cost is **React hydration of a 757-element page** plus the **order-guard plugin**, which despite its name runs on every route and contributes a single **606 ms** blocking task plus 742 ms of bootup. That is the next target, not the progress bar, and not the frames.
+
+---
+
+## 9. Updated next steps
+
+| Priority | Change | Expected effect | Evidence |
+|---|---|---|---|
+| 1 | Make `zyphuel-order-guard.js` a no-op outside `/order/` (or defer it and skip the countdown work elsewhere) | Removes a 606 ms blocking task and 742 ms bootup from every non-order page | `long-tasks`, `bootup-time` |
+| 2 | Lazy-load `vendor-pdf-barcode` only on invoice download | −492 KiB JS per page | `unused-javascript` |
+| 3 | Reduce hydration work on content-heavy pages (defer below-the-fold sections) | Cuts the 6.3 s `vendor-react` bootup and the ~6 s of Style & Layout | `bootup-time`, `mainthread-work-breakdown` |
+| 4 | Text LCP candidate above the `/download/` canvas | Makes that page measurable at all | `NO_LCP` |
+| 5 | Font subsetting (253 KB of Font Awesome woff2) | Faster FCP | network list |

@@ -22,7 +22,23 @@ export default function AppSection3ScrollAnimation() {
   const hasLoadedInitialRef = useRef(false)
 
   const [scrolled, setScrolled] = useState(false)
-  const [scrubProgress, setScrubProgress] = useState(0)
+  // The progress bar is written straight to the DOM. Driving it through React state
+  // re-rendered the whole section on every animation frame and forced a style
+  // recalculation each time - 6.2 s of Style & Layout in the Lighthouse trace.
+  const [scrubStage, setScrubStage] = useState(0)
+  const progressBarRef = useRef(null)
+  const scrubStageRef = useRef(0)
+
+  const updateScrubUi = useCallback((frame) => {
+    const pct = Math.min(100, Math.max(0, (frame / (FRAME_COUNT - 1)) * 100))
+    const bar = progressBarRef.current
+    if (bar) bar.style.width = pct + '%'
+    const stage = pct < 35 ? 0 : pct < 75 ? 1 : 2
+    if (stage !== scrubStageRef.current) {
+      scrubStageRef.current = stage
+      setScrubStage(stage)
+    }
+  }, [])
 
   // High-performance canvas buffer sizing (sharp visuals with zero GPU bloat)
   const resizeCanvasBuffer = useCallback(() => {
@@ -114,12 +130,12 @@ export default function AppSection3ScrollAnimation() {
       if (Math.abs(diff) > 0.02) {
         currentFrameRef.current += diff * 0.12
         renderFrame(currentFrameRef.current)
-        setScrubProgress(Math.min(100, Math.max(0, (currentFrameRef.current / (FRAME_COUNT - 1)) * 100)))
+        updateScrubUi(currentFrameRef.current)
         animIdRef.current = requestAnimationFrame(loop)
       } else {
         currentFrameRef.current = targetFrameRef.current
         renderFrame(currentFrameRef.current)
-        setScrubProgress(Math.min(100, Math.max(0, (currentFrameRef.current / (FRAME_COUNT - 1)) * 100)))
+        updateScrubUi(currentFrameRef.current)
         isLoopingRef.current = false
       }
     }
@@ -280,13 +296,13 @@ export default function AppSection3ScrollAnimation() {
 
   // Dynamic storytelling stages
   const stageInfo = useMemo(() => {
-    if (scrubProgress < 35) {
+    if (scrubStage === 0) {
       return {
         stage: 'Stage 01',
         title: 'Direct APK App Distribution',
         desc: 'Verified malware-free build, BiometricPrompt authentication, and instant background sync.'
       }
-    } else if (scrubProgress < 75) {
+    } else if (scrubStage === 1) {
       return {
         stage: 'Stage 02',
         title: 'Real-Time Dispensing Telemetry',
@@ -299,7 +315,7 @@ export default function AppSection3ScrollAnimation() {
         desc: 'HAZMAT-certified micro-refuelers delivering Super Petrol, Diesel, and HOBC 97 to your doorstep.'
       }
     }
-  }, [scrubProgress])
+  }, [scrubStage])
 
   return (
     <section
@@ -344,7 +360,8 @@ export default function AppSection3ScrollAnimation() {
         {/* Real-time 3D scrub progress line */}
         <div
           className="app-sec3-progress-bar"
-          style={{ width: `${scrubProgress}%` }}
+          ref={progressBarRef}
+          style={{ width: '0%' }}
           aria-hidden="true"
         />
 

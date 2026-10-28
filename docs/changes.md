@@ -1413,3 +1413,11 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Rebalanced the loader after measuring**: the first fix filled all 300 frames on idle, which pulled ~20 MB during load. `framePreloader.js` now loads keyframes only (every 8 desktop / 12 mobile, plus a short head window) and the per-component scroll lookahead widened from ±8/+10 to ±14/+16, so the frames a visitor actually reaches are still loaded ahead of them. Transfer: **21 MB -> 4.05 MB**.
 - **Known follow-ups, not applied** (each needs its own verification): per-frame `setScrubProgress` state removal (root of the layout cost), lazy-loading the PDF/barcode vendor chunk, a text LCP candidate on `/download/`, and font subsetting.
 - **Documentation**: added the audit report and this entry. `docs/README.md` section updated via the audits table.
+
+## [2026-10-28] Scrub Progress Without Per-Frame Re-Renders (measured, no score gain)
+
+- **Changed**: all five scroll components no longer call `setScrubProgress` inside the animation loop. The progress bar width is written straight to a `progressBarRef`, and the narrative `stageInfo` moved to a 3-state `scrubStage` that only updates when the scrub crosses 35% or 75% — so a pass re-renders twice instead of ~60 times per second.
+- **Re-measured** (`/services/`, Lighthouse 12 mobile, two runs): **33** and **35** (median **34**) vs **32** before, with Style & Layout still **5.7–6.0 s**. **No measurable improvement** — the difference is inside run-to-run variance. Recorded as such rather than presented as a win.
+- **What the trace actually blames**: `vendor-react` bootup **6,335 ms**, unattributed **6,170 ms**, and `zyphuel-order-guard.js` **742 ms** bootup with a single **606 ms** blocking task. DOM is 757 elements. The order-guard plugin runs on every route, not just `/order/`, and is the cheapest next win.
+- **Kept anyway** because it is correct: removing ~60 renders/second of scrolling is right for real devices even if Lighthouse does not score it.
+- **Documentation**: audit report gained §8 (follow-up measurement) and §9 (revised next steps).

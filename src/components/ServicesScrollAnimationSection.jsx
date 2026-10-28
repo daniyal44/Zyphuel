@@ -20,7 +20,23 @@ export default function ServicesScrollAnimationSection() {
   const isVisibleRef = useRef(true)
 
   const [scrolled, setScrolled] = useState(false)
-  const [scrubProgress, setScrubProgress] = useState(0)
+  // The progress bar is written straight to the DOM. Driving it through React state
+  // re-rendered the whole section on every animation frame and forced a style
+  // recalculation each time - 6.2 s of Style & Layout in the Lighthouse trace.
+  const [scrubStage, setScrubStage] = useState(0)
+  const progressBarRef = useRef(null)
+  const scrubStageRef = useRef(0)
+
+  const updateScrubUi = useCallback((frame) => {
+    const pct = Math.min(100, Math.max(0, (frame / (FRAME_COUNT - 1)) * 100))
+    const bar = progressBarRef.current
+    if (bar) bar.style.width = pct + '%'
+    const stage = pct < 35 ? 0 : pct < 75 ? 1 : 2
+    if (stage !== scrubStageRef.current) {
+      scrubStageRef.current = stage
+      setScrubStage(stage)
+    }
+  }, [])
 
   // High-performance canvas buffer sizing
   const resizeCanvasBuffer = useCallback(() => {
@@ -112,12 +128,12 @@ export default function ServicesScrollAnimationSection() {
       if (Math.abs(diff) > 0.02) {
         currentFrameRef.current += diff * 0.12
         renderFrame(currentFrameRef.current)
-        setScrubProgress(Math.min(100, Math.max(0, (currentFrameRef.current / (FRAME_COUNT - 1)) * 100)))
+        updateScrubUi(currentFrameRef.current)
         animIdRef.current = requestAnimationFrame(loop)
       } else {
         currentFrameRef.current = targetFrameRef.current
         renderFrame(currentFrameRef.current)
-        setScrubProgress(Math.min(100, Math.max(0, (currentFrameRef.current / (FRAME_COUNT - 1)) * 100)))
+        updateScrubUi(currentFrameRef.current)
         isLoopingRef.current = false
       }
     }
@@ -277,13 +293,13 @@ export default function ServicesScrollAnimationSection() {
 
   // Dynamic storytelling stages
   const stageInfo = useMemo(() => {
-    if (scrubProgress < 35) {
+    if (scrubStage === 0) {
       return {
         stage: 'Stage 01',
         title: 'Euro-V Industrial Power',
         desc: 'Advanced heavy-duty generator architecture designed for mission-critical standby power.'
       }
-    } else if (scrubProgress < 75) {
+    } else if (scrubStage === 1) {
       return {
         stage: 'Stage 02',
         title: 'Precision Engine Assembly',
@@ -296,7 +312,7 @@ export default function ServicesScrollAnimationSection() {
         desc: 'Direct doorstep Euro-V diesel delivery with 50-meter high-reach hoses and 0.01L digital accuracy.'
       }
     }
-  }, [scrubProgress])
+  }, [scrubStage])
 
   return (
     <section
@@ -341,7 +357,8 @@ export default function ServicesScrollAnimationSection() {
         {/* Real-time 3D scrub progress line */}
         <div
           className="services-progress-bar"
-          style={{ width: `${scrubProgress}%` }}
+          ref={progressBarRef}
+          style={{ width: '0%' }}
           aria-hidden="true"
         />
 
