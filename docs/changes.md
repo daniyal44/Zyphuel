@@ -1365,3 +1365,12 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Verification** (built page, not source): 9 visible questions, 9 declared, 0 schema-only, 0 visible-only, 0 invalid JSON-LD blocks. `/services/` 2,207 → 2,445 words. `qa-static.cjs` 20 pages / 0 issues; `link-audit.cjs` exit 0.
 - **Also fixed**: `scripts/gsc_indexing.js` still audited and instructed the owner to inspect `/blog/`, `/contact/`, `/terms/` — the wrong pages. Its drilldown list and printed instructions now point at the actual three: `/services/`, `/download/`, `/order/`. All three pass title, canonical, hreflang, robots, description and schema checks.
 - **Documentation**: updated `docs/pages/services.md` and this log.
+
+## [2026-10-28] Search Console & Bing Webmaster Operations Playbook
+
+- **Added** `docs/seo/2026-10-28-search-console-bing-indexing-playbook.md` — exact click-by-click steps for `/services/`, `/download/` and `/order/`, with the expected result at every stage.
+- **Pre-flight table recorded so it is never re-litigated**: all three pages return 200 (3,949 / 4,932 / 5,700 words), `index, follow`, self-canonical, full hreflang, 0 invalid JSON-LD, sitemap 19 URLs, `.html` duplicates all 301, and `google-site-verification` ×2 + `msvalidate.01` + `yandex-verification` metas already deployed in `index.html`.
+- **IndexNow root cause narrowed**: the key file returns **200** with `Content-Type: text/plain` and content exactly matching the key, and the identical POST is accepted by **Yandex with 200** while Bing returns `403 UserForbiddedToAccessSite`. That proves the payload and key hosting are correct and isolates the failure to Bing's ownership record — fixed by verifying the site in Bing Webmaster Tools with the already-deployed `msvalidate.01` meta tag, then retrying.
+- **Correction to earlier guidance**: previous notes said to run "Import from Google Search Console" as the only remedy. The site already carries a Bing verification tag, so a plain **Add site → Meta tag → Verify** is the direct route; import is offered as the fallback.
+- **Documented the GSC "Pages" Reason column** as the decision point ("Crawled – currently not indexed" vs "Discovered – currently not indexed" vs "Page with redirect"), the Live Test acceptance criteria (200, available, real screenshot, 0 failed resources), the one-URL-per-day request order, and the explicit do-not-do list (Removals, daily re-requests, editing canonical/robots).
+- **Documentation**: added Section 9 to `docs/README.md` and this entry.

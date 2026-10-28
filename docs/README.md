@@ -119,3 +119,13 @@ All 13 core documentation files are consolidated directly in this directory (`do
 | Report Date | Scope & Score | File Link |
 | :--- | :--- | :--- |
 | **2026-10-26** | Full manual + automated QA of all 17 routes with Mermaid score charts (Security 98, AEO 92, GEO 90, SEO tech 95, Build 87, Mobile 82, Perf 78, A11y 75, Trust 55 — overall 81/100) | [`docs/qa/2026-10-26-full-qa-report.md`](./qa/2026-10-26-full-qa-report.md) |
+
+---
+
+## 9. Search Engine Operations Playbooks (`docs/seo/`)
+
+Owner-only steps that no script or agent can perform on the owner's behalf, written as exact clicks with the expected result at each stage.
+
+| Date | Scope | File Link |
+| :--- | :--- | :--- |
+| **2026-10-28** | **Search Console & Bing Webmaster playbook for the 3 un-indexed URLs** (`/services/`, `/download/`, `/order/`): pre-flight proof table (all 3 return 200, index/follow, self-canonical, sitemap 19 URLs, key file 200 `text/plain`), GSC 7 steps with the Reason-column decision table and Live Test acceptance criteria, Bing 6 steps incl. the `msvalidate.01` verification that clears the IndexNow `403 UserForbiddedToAccessSite`, expected timeline, 14-day decision tree, and the list of what no code change can fix | [`docs/seo/2026-10-28-search-console-bing-indexing-playbook.md`](./seo/2026-10-28-search-console-bing-indexing-playbook.md) |
