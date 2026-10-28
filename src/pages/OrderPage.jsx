@@ -13,6 +13,7 @@ import {
   captureOrderRequestSubmitted,
   captureRefuelTargetSelected,
 } from '../analytics/posthog'
+import { GOOGLE_REVIEW_ENABLED, GOOGLE_REVIEW_URL, REVIEW_PROMPT } from '../data/reviewConfig'
 
 const FUEL_DISPLAY = {
   petrol: 'Petrol',
@@ -596,6 +597,55 @@ export default function OrderPage() {
     const waUrl = `https://wa.me/923230112464?text=${encodeURIComponent(waLines)}`
     setGeneratedWaUrl(waUrl)
 
+    // Immutable invoice snapshot: the confirmation card can download the PDF even
+    // after the form state is reset or the page is reloaded.
+    const invoiceItems = []
+    if (orderFuel) {
+      invoiceItems.push({
+        title: `${FUEL_DISPLAY[selectedFuelType]} — ${appLabel}`,
+        detail: 'Calibrated digital flow-meter refueling • Sealed OGRA Euro-V depot batch',
+        qty: `${fuelQty} L`,
+        rate: fuelRate.toFixed(2),
+        cost: fuelCost
+      })
+    }
+    if (orderGas) {
+      invoiceItems.push({
+        title: 'LPG Gas Cylinder Refill',
+        detail: 'Sealed cylinder refill delivered to your doorstep',
+        qty: `${gasQty} kg`,
+        rate: gasRate.toFixed(2),
+        cost: gasCost
+      })
+    }
+    if (orderWater) {
+      invoiceItems.push({
+        title: 'Water Tanker Supply',
+        detail: 'Filtered water delivery in Lahore',
+        qty: `${waterQty} gal`,
+        rate: waterRate.toFixed(2),
+        cost: waterCost
+      })
+    }
+
+    const invoiceSnapshot = {
+      orderId: id,
+      date: fullOrderDateTime,
+      customerName: orderName || name || 'Valued Customer',
+      phone: phone || '',
+      email: email || '',
+      address: address || '',
+      deliveryApplication: appConfig.label,
+      assetIdentifier: assetIdentifier,
+      paymentMethod: isCodEligible
+        ? 'Cash on Delivery (COD) / Instant Wallet'
+        : 'Advance Digital Payment (JazzCash, Easypaisa, NayaPay, Bank)',
+      items: invoiceItems,
+      subtotal: baseCost,
+      deliveryFee: deliveryFee,
+      total: total
+    }
+
     // Persist new active order in state and localStorage
     const newActiveOrder = {
       orderId: id,
@@ -617,7 +667,8 @@ export default function OrderPage() {
       orderFuel: true,
       total,
       status: 'confirmed',
-      waUrl: waUrl
+      waUrl: waUrl,
+      invoice: invoiceSnapshot
     }
     setActiveOrder(newActiveOrder)
     try {
@@ -636,6 +687,22 @@ export default function OrderPage() {
 
     setTrackerOpen(true)
   }
+
+  // Invoice PDF download — jsPDF is dynamically imported so it stays out of the
+  // initial bundle and only loads when the customer actually asks for the PDF.
+  const handleInvoiceDownload = useCallback(async () => {
+    const invoiceData = activeOrder?.invoice
+    if (!invoiceData) {
+      showToast('Invoice data is not available for this order.', 'error')
+      return
+    }
+    try {
+      const { generateInvoicePdf } = await import('../utils/generateInvoicePdf')
+      await generateInvoicePdf(invoiceData)
+    } catch (err) {
+      showToast('Could not generate the invoice PDF. Please try again.', 'error')
+    }
+  }, [activeOrder, showToast])
 
   // Truck button submit
   const handleTruckClick = (isSandbox = false) => {
@@ -2306,6 +2373,68 @@ export default function OrderPage() {
               </a>
             </div>
           )}
+          {GOOGLE_REVIEW_ENABLED && (
+            <div
+              id="google-review-card"
+              style={{
+                marginTop: '16px',
+                padding: '14px 16px',
+                borderRadius: '10px',
+                background: 'linear-gradient(180deg, #f8fbff 0%, #ffffff 100%)',
+                border: '1px solid rgba(26, 115, 232, 0.22)',
+                textAlign: 'center'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-primary, #0f172a)' }}>
+                <i className="fa-brands fa-google" style={{ color: '#4285F4' }}></i>
+                {REVIEW_PROMPT.title}
+              </div>
+              <div style={{ fontSize: '0.82rem', color: 'var(--text-muted, #475569)', margin: '6px 0 12px', lineHeight: 1.45 }}>
+                {REVIEW_PROMPT.subtitle}
+              </div>
+              <a
+                id="google-review-cta"
+                href={GOOGLE_REVIEW_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '9px',
+                  backgroundColor: '#1a73e8',
+                  color: '#ffffff',
+                  fontWeight: 700,
+                  fontSize: '0.92rem',
+                  padding: '12px 22px',
+                  borderRadius: '9px',
+                  textDecoration: 'none',
+                  width: '100%'
+                }}
+              >
+                <i className="fa-solid fa-star" style={{ fontSize: '0.9rem' }}></i>
+                {REVIEW_PROMPT.cta}
+              </a>
+              <div style={{ fontSize: '0.72rem', color: 'var(--text-muted, #94a3b8)', marginTop: '9px' }}>
+                {REVIEW_PROMPT.note}
+              </div>
+            </div>
+          )}
+
+          <div style={{ display: 'flex', gap: '10px', justifyContent: 'space-between', alignItems: 'center', marginTop: '15px', flexWrap: 'wrap' }}>
+            <button
+              type="button"
+              className="btn btn-ghost"
+              id="download-invoice-pdf-btn"
+              style={{ flex: 1, fontSize: '0.88rem' }}
+              onClick={handleInvoiceDownload}
+            >
+              <i className="fa-solid fa-file-pdf" style={{ marginRight: '7px' }}></i>
+              Download Invoice PDF
+            </button>
+          </div>
+
           <div style={{ display: 'flex', gap: '10px', justifyContent: 'space-between', alignItems: 'center', marginTop: '15px', flexWrap: 'wrap' }}>
             <button
               type="button"

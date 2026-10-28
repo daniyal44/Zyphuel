@@ -3,6 +3,7 @@
  * Powered by jsPDF (100% Client-Side Vector Rendering, Zero-CORS, Zero-External-Font Issues)
  */
 import { drawBarcodeToPdf, drawQrToPdf } from './barcode128.js'
+import { GOOGLE_REVIEW_ENABLED, GOOGLE_REVIEW_URL, REVIEW_PROMPT } from '../data/reviewConfig.js'
 
 export function numberToWords(num) {
   if (isNaN(num) || num <= 0) return 'Pakistani Rupees Zero Only'
@@ -478,6 +479,46 @@ export async function generateInvoicePdf(data) {
   doc.setTextColor(100, 116, 139)
   doc.text('Automated Depots Dispatch Gateway • Lahore Hub #01', signX + (signW / 2), stampY + 18.2, { align: 'center' })
   doc.text('Valid without physical signature under Electronic Transactions Ordinance 2002', signX + (signW / 2), stampY + 22.4, { align: 'center' })
+
+  // 7.5 Google Review Request (rendered only when a review link is configured)
+  const footerTopY = pageHeight - margin - 12
+  const reviewY = stampY + blockH + 4
+  const reviewH = 14
+
+  // Guarded by available space so a long item table can never push this block
+  // over the footer.
+  if (GOOGLE_REVIEW_ENABLED && (reviewY + reviewH) < (footerTopY - 2)) {
+    const reviewX = margin + 5
+    const reviewW = contentWidth - 10
+
+    doc.setFillColor(255, 255, 255)
+    doc.setDrawColor(226, 232, 240)
+    doc.roundedRect(reviewX, reviewY, reviewW, reviewH, 1.5, 1.5, 'FD')
+
+    doc.setFillColor(26, 115, 232)
+    doc.rect(reviewX, reviewY, 1.5, reviewH, 'F')
+
+    drawQrToPdf(doc, GOOGLE_REVIEW_URL, reviewX + 3, reviewY + 1.8, 10.4, {
+      margin: 0.5,
+      color: [0, 0, 0],
+      background: [255, 255, 255]
+    })
+
+    doc.setFont('helvetica', 'bold')
+    doc.setFontSize(6.6)
+    doc.setTextColor(15, 23, 42)
+    doc.text(REVIEW_PROMPT.invoiceTitle, reviewX + 16, reviewY + 4.6)
+
+    doc.setFont('helvetica', 'normal')
+    doc.setFontSize(5.6)
+    doc.setTextColor(71, 85, 105)
+    doc.text(doc.splitTextToSize(REVIEW_PROMPT.invoiceBody, reviewW - 30), reviewX + 16, reviewY + 8.2)
+
+    doc.setFont('helvetica', 'bold')
+    doc.setFontSize(5.6)
+    doc.setTextColor(26, 115, 232)
+    doc.text(REVIEW_PROMPT.invoiceFooter, reviewX + reviewW - 3, reviewY + reviewH - 2.6, { align: 'right' })
+  }
 
   // 8. Footer Legal Bar & Helpline Hotline
   const footY = pageHeight - margin - 12

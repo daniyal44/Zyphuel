@@ -119,6 +119,7 @@
  
  ## Changelog
  | Date | Changes Made | Rationale / User Request |
+| **2026-10-28** | **Google review request flow**: the post-order tracker modal now renders `#google-review-card` (heading, honest-review note, `#google-review-cta` → Google review URL in a new tab with `rel="noopener noreferrer"`), and `#download-invoice-pdf-btn` generates the itemised **PDF invoice** from an immutable `invoice` snapshot stored on the order. The snapshot is built inside `startTracking()` from the same variables that produce the on-screen totals (`fuelCost`/`gasCost`/`waterCost`, `baseCost`, `deliveryFee`, `total`), so the PDF can never disagree with what the customer saw. jsPDF stays out of the initial bundle (dynamic `import()` on click). Link + copy live in `src/data/reviewConfig.js`; set `GOOGLE_REVIEW_URL = ''` to disable the whole flow. | User: *"Build the Google review request flow into the order confirmation and PDF invoice for Zyphuel."* |
 | **2026-10-26** | **Native lazy-loading on below-the-fold images + lazy route**: every decorative `<img>` in `src/pages/OrderPage.jsx` (refueling-target tiles, fuel-grade chips, payment-method artwork, summary thumbnail) now carries `loading="lazy" decoding="async"`, and the page is code-split into `OrderPage-*.js` (105.7 kB) so it is no longer part of the landing-page bundle. Re-verified after the change: selecting the **15 L Max** chip recalculates Delivery Charges **Rs. 300 → Rs. 400** and refreshes the order total; the Complete Order button renders `display: block` while the order window is open. | User: *"performance & speed ko be improve karo"*. |
 | **2026-10-23 (Wave 2)** | **Transactional keyword top-ups** in `useSEO` + prerendered meta: `order petrol online near me`, `buy petrol online Lahore`, `fuel home delivery near me`, `doorstep fuel delivery cost`, `can I buy petrol online in Pakistan`, `24/7 fuel delivery Lahore`. | User: har field mein trending keywords se rank karo. |
 | **2026-10-23** | **Indexing-fix FAQ expansion**: added FAQ **Q5 (How long does Zyphuel take to deliver fuel in Lahore?** — 45-min standard / 10–20-min urgent, live countdown, 8 AM–10 PM PKT intake) and **Q6 (Can I order fuel for a standby generator or commercial machinery?** — four refueling targets, >15 L routed to B2B bowsers) to BOTH the visible FAQ accordion and the `FAQPage` schema (`OrderPage.jsx` + `prerender.js`, now 6 Qs). Differentiates `/order/` from `/services/` (near-duplicate FAQ items were the likely GSC "Discovered – currently not indexed" trigger). | User reported `/order/` + `/download/` not indexing and asked to fix everything. |
@@ -231,3 +232,52 @@
 - Added high-intent modifier keywords observed in Google related searches: `petrol delivery lahore price`, `diesel delivery lahore price`, `petrol delivery lahore contact number`, `fuel delivery app lahore`, `petrol delivery near me lahore` — in `prerender.js` route keywords (authoritative), `index.html` and `useSEO` defaults.
 - Removed the fabricated `baidu-site-verification` meta tag (`codeva-zyphuel` is not a valid Baidu token format).
 - Full keyword to page map recorded in `docs/plans/2026-10-26-keyword-map.md`.
+
+---
+
+## Google Review Request Flow (2026-10-28)
+
+Single source: [`src/data/reviewConfig.js`](../../src/data/reviewConfig.js) exports `GOOGLE_REVIEW_URL`, `GOOGLE_REVIEW_ENABLED` and `REVIEW_PROMPT`. Setting `GOOGLE_REVIEW_URL = ''` disables the card and the invoice QR together — no component edits needed.
+
+### 1. Where it appears
+
+| Surface | Element | Behaviour |
+|---|---|---|
+| Post-order tracker modal | `#google-review-card` | Heading "Rate your delivery on Google", honest-review note ("koi incentive nahi, koi script nahi"), full-width CTA |
+| Post-order tracker modal | `#google-review-cta` | Opens `GOOGLE_REVIEW_URL` in a new tab, `rel="noopener noreferrer"` |
+| Tracker modal actions | `#download-invoice-pdf-btn` | Generates the vector PDF from `activeOrder.invoice` |
+| PDF invoice | Review strip below the verification block | QR + "HOW WAS YOUR DELIVERY?" + "★ RATE ZYPHUEL ON GOOGLE" |
+
+### 2. Invoice snapshot contract
+
+`startTracking()` stores `invoice` on the order (and in `localStorage.zyphuel_active_order`), so the PDF still works after the form is reset or the page reloads:
+
+```js
+invoice: {
+  orderId, date, customerName, phone, email, address,
+  deliveryApplication, assetIdentifier, paymentMethod,
+  items: [{ title, detail, qty, rate, cost }],
+  subtotal, deliveryFee, total
+}
+```
+
+Totals are taken from the same computed values as the on-screen summary, so the PDF cannot drift from the page.
+
+### 3. PDF layout guard
+
+The review strip is drawn at `stampY + 30` and **only when** `reviewY + 14 < footerTopY - 2`. Measured: 1–5 line items render it (bottom 210–262 mm, limit 271 mm); 6+ items skip it silently rather than colliding with the footer.
+
+### 4. Policy position
+
+The ask is neutral and identical for every customer — no incentive, no discount, no review gating, no scripted wording. This matches Google's review policy, as researched in [`docs/seo/2026-10-28-backlink-and-gbp-90-day-plan.md`](../seo/2026-10-28-backlink-and-gbp-90-day-plan.md) §2.5.
+
+### 5. Verification (2026-10-28)
+
+| Check | Result |
+|---|---|
+| `npm run build` | exit 0 |
+| Card renders in browser | yes — heading, subtitle, note, CTA all present; `href` = review URL, `target="_blank"`, `rel="noopener noreferrer"` |
+| PDF generation via `generateInvoicePdf` | returned `true`, no exception, valid `%PDF-` output, 15,700 bytes |
+| `qa-static.cjs` | 20 pages, 0 issues |
+| `link-audit.cjs` | exit 0, 0 dangling |
+| Order-submit path with night guard active | not exercised — the 10 PM–8 AM cutoff was live during testing, so `#truck-submit-btn` is absent from the DOM by design. The snapshot builder was reviewed identifier-by-identifier against the component scope instead. |
