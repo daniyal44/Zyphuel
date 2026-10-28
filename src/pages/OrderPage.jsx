@@ -125,7 +125,8 @@ export default function OrderPage() {
     title: 'Order Fuel Online in Lahore | 45-Min Dispatch | Zyphuel',
     description: 'Book petrol, high-octane 97 or diesel delivery in Lahore. 5-15 L, 45-minute dispatch, COD or online payment, metered invoice.',
     keywords: [
-      'can i buy petrol online', 'can you buy petrol online', 'how to buy petrol online',
+      'emergency petrol delivery near me', 'petrol price today lahore', 'fuel delivery charges calculator', 'car out of fuel roadside',
+'can i buy petrol online', 'can you buy petrol online', 'how to buy petrol online',
       'can i order petrol online', 'how to book petrol online', 'how to order fuel online',
       'how to order petrol', 'how to order petrol online near me', 'how can i get petrol online',
       'order fuel online Lahore', 'book petrol delivery Lahore', 'order diesel Lahore', 'online fuel ordering Lahore',

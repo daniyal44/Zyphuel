@@ -93,3 +93,21 @@ graph TD
 - **Core Narrative**: Authoritative pillar guide answering whether consumers and businesses can buy petrol and diesel online, how on-demand mobile refueling works internationally (CAFU, Booster, FuelBuddy) and in Pakistan (Zyphuel), safety protocols, volume limits, and step-by-step instructions.
 - **Search Intent Target**: Directly addresses all 9 Search Console high-intent queries: `can i buy petrol online`, `can you buy petrol online`, `how to buy petrol online`, `can i order petrol online`, `how to book petrol online`, `how to order fuel online`, `how to order petrol`, `how to order petrol online near me`, `how can i get petrol online`.
 - **Standardized Invariants**: Strictly 5L min to 15L max volume limits, delivery fee fixed at Rs. 300.00 (5L–10L) and scaled Rs. 320.00–Rs. 400.00 (11L–15L Max), 45-minute dispatch SLA, Cash on Delivery for orders up to 10L, and instant mobile Online Payments (JazzCash, Easypaisa, NayaPay, Raast QR).
+
+### 9. Emergency Petrol Delivery Near Me: What to Do When Your Fuel Runs Out on the Road
+- **Route**: `/blog/emergency-petrol-delivery-near-me-roadside-guide/`
+- **ID**: 9
+- **Category**: Zyphuel Energy
+- **Author**: Zyphuel Emergency Logistics Team
+- **Read Time**: 9 min read
+- **Target Keywords**: `emergency petrol delivery near me`, `car ran out of petrol`, `petrol delivery near me`, `roadside emergency fuel assistance`, `emergency fuel delivery lahore`
+- **Documentation**: [`docs/pages/subpages/emergency-petrol-delivery-near-me-roadside-guide.md`](./pages/subpages/emergency-petrol-delivery-near-me-roadside-guide.md)
+
+### 10. Petrol Price Today in Pakistan: Daily OGRA Fuel Rate Tracker & Doorstep Delivery Cost Calculator
+- **Route**: `/blog/petrol-price-today-pakistan-fuel-delivery-cost-calculator/`
+- **ID**: 10
+- **Category**: Zyphuel Energy
+- **Author**: Zyphuel Energy Analysis Team
+- **Read Time**: 10 min read
+- **Target Keywords**: `petrol price today pakistan`, `petrol price today lahore`, `today diesel rate pakistan`, `fuel delivery charges calculator`, `how much does petrol delivery cost`
+- **Documentation**: [`docs/pages/subpages/petrol-price-today-pakistan-fuel-delivery-cost-calculator.md`](./pages/subpages/petrol-price-today-pakistan-fuel-delivery-cost-calculator.md)

@@ -19,6 +19,26 @@
   VITE_DISABLE_ORDER_CUTOFF = "false"
   VITE_ENABLE_QA_ORDER_BYPASS = "false"
 
+# ---------------------------------------------------------------------------
+# Canonical URL hygiene (crawl budget)
+# ---------------------------------------------------------------------------
+# Every page also existed at its /x/index.html path, which returned HTTP 200:
+# a second full copy of the same document for crawlers to index and spend
+# budget on. 301 those shapes onto the one canonical trailing-slash URL.
+# `force = true` is required, otherwise an existing file wins over the rule.
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*/index.html"
+  to = "/:splat/"
+  status = 301
+  force = true
+
 # HTML files - always fresh for crawlers and visitors
 [[headers]]
   for = "/*"

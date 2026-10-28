@@ -1,6 +1,6 @@
 # Zyphuel — Reports Hub
 
-**Last updated:** 2026-10-26  
+**Last updated:** 2026-10-28  
 **Repository:** `github.com/daniyal44/Zyphuel` (branch `main`)
 
 This is the single entry point for every audit, QA pass and change report on the Zyphuel website. Each report below is committed and pushed; the graphs in this file are rendered from the same numbers the reports themselves contain.
@@ -27,6 +27,7 @@ This is the single entry point for every audit, QA pass and change report on the
 
 | Date | Report | Type | Score / Headline | File |
 | :--- | :--- | :--- | :--- | :--- |
+| **2026-10-28** | **Search Console Indexing & Visibility Report** — read from the owner's Coverage + Performance exports | Report | 14 indexed / 3 not · 1 click / 17 impressions (question-filtered) · 5 code fixes | [`docs/reports/2026-10-28-search-console-indexing-report.md`](./2026-10-28-search-console-indexing-report.md) |
 | **2026-10-26** | **Whole Website Report** — every route, its weight, depth, meta, schema and features | Report | 17 routes · 25,129 words · 148 images · 0 meta violations | [`docs/reports/2026-10-26-whole-website-report.md`](./2026-10-26-whole-website-report.md) |
 | **2026-10-21** | Competitor Gap, Responsiveness & Performance Audit | Audit | Home desktop 86–99, mobile 66; `/download/` mobile **34** | [`docs/audits/2026-10-21-audit.md`](../audits/2026-10-21-audit.md) |
 | **2026-10-26** | Full Manual QA & Health Report | QA | **81 / 100** across 9 categories | [`docs/qa/2026-10-26-full-qa-report.md`](../qa/2026-10-26-full-qa-report.md) |

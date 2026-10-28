@@ -100,7 +100,8 @@ export default function ServicesPage() {
     title: 'Fuel Delivery Services in Lahore | Petrol & Diesel | Zyphuel',
     description: 'Euro-V Super Petrol, High-Octane 97 and Euro-V Diesel to vehicles and standby generators across DHA, Gulberg and Johar Town.',
     keywords: [
-      'can i buy petrol online', 'can you buy petrol online', 'how to buy petrol online',
+      'emergency petrol delivery near me', 'emergency roadside refueling', 'fuel delivery charges calculator',
+'can i buy petrol online', 'can you buy petrol online', 'how to buy petrol online',
       'can i order petrol online', 'how to book petrol online', 'how to order fuel online',
       'fuel delivery services Lahore', 'diesel delivery Lahore', 'petrol delivery Lahore',
       'generator diesel refueling Lahore', 'commercial diesel supply Lahore', 'fleet refueling Pakistan',

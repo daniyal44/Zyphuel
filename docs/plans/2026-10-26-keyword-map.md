@@ -129,3 +129,17 @@ Identified from live Search Console impressions & clicks:
 | how to order petrol | `/order/` & `/blog/can-you-buy-petrol-online-how-to-order-guide/` | ✅ Live | Quick order flow & FAQ |
 | how to order petrol online near me | `/blog/can-you-buy-petrol-online-how-to-order-guide/` | ✅ Live | Section 3 (GPS auto-pinning & local hubs) |
 | how can i get petrol online | `/blog/can-you-buy-petrol-online-how-to-order-guide/` | ✅ Live | Direct Q&A in Home FAQ & Article FAQ |
+
+---
+
+## 5. Broad High-Intent Expansion Clusters (2026-10-27)
+
+| Query / Cluster | Winner URL | Implementation | Status |
+| :--- | :--- | :--- | :--- |
+| emergency petrol delivery near me | `/blog/emergency-petrol-delivery-near-me-roadside-guide/` | Full guide, H1, H2, FAQ schema & 45-min SLA | ✅ Live |
+| car ran out of petrol what to do | `/blog/emergency-petrol-delivery-near-me-roadside-guide/` | Safety steps, hazard lights, fuel pump care | ✅ Live |
+| roadside emergency fuel assistance | `/blog/emergency-petrol-delivery-near-me-roadside-guide/` | WhatsApp live location dispatch (+92 3230-112464) | ✅ Live |
+| petrol price today pakistan | `/blog/petrol-price-today-pakistan-fuel-delivery-cost-calculator/` | OGRA Platts daily review mechanism | ✅ Live |
+| petrol price today lahore | `/blog/petrol-price-today-pakistan-fuel-delivery-cost-calculator/` | Ex-depot + Rs. 5 markup transparent tracking | ✅ Live |
+| fuel delivery charges calculator | `/blog/petrol-price-today-pakistan-fuel-delivery-cost-calculator/` | Worked pricing table (5L, 7L, 10L, 12L, 15L) | ✅ Live |
+| how much does petrol delivery cost | `/blog/petrol-price-today-pakistan-fuel-delivery-cost-calculator/` | Rs. 300 (5-10L), Rs. 320-Rs. 400 (11-15L) | ✅ Live |

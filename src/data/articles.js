@@ -884,4 +884,264 @@ export const articles = [
       'Whether you are an everyday driver looking to avoid morning traffic at the pumps, a homeowner preparing for power outages, or a logistics operator managing commercial machinery, Zyphuel provides a modern digital refueling solution at your fingertips.'
     ]
   }
+,
+  {
+    id: 9,
+    slug: 'emergency-petrol-delivery-near-me-roadside-guide',
+    category: 'Zyphuel Energy',
+    categoryClass: 'zyphuel',
+    title: 'Emergency Petrol Delivery Near Me: What to Do When Your Fuel Runs Out on the Road (Lahore Roadside Guide)',
+    summary: 'Stranded with an empty fuel tank in Lahore? Complete roadside safety guide on emergency petrol delivery, why walking with plastic bottles is hazardous, and how Zyphuel dispatches certified Euro-V fuel within 45 minutes.',
+    date: 'October 27, 2026',
+    readTime: '9 min read',
+    author: 'Zyphuel Emergency Logistics Team',
+    authorIcon: 'fa-solid fa-truck-fast',
+    image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=720&q=80',
+    tags: ['EmergencyPetrolDelivery', 'RoadsideFuelAssistance', 'PetrolDeliveryNearMe', 'LahoreFuelHelp', 'CarOutOfFuel', 'RoadSafety'],
+    keyTakeaways: [
+      'Pull over safely to the road shoulder, turn on hazard warning flashers, and place a reflective triangle 50 meters behind the vehicle.',
+      'Never walk along busy expressways carrying ungrounded plastic beverage bottles or unapproved jerrycans — it violates traffic safety and poses high fire risk.',
+      'Repeatedly cranking an empty fuel tank overheats the electric in-tank fuel pump and can cause permanent pump failure; keep the ignition turned off.',
+      'Zyphuel dispatches purpose-built micro-refuelers with Euro-V Super Petrol, High-Octane 97, and Diesel directly to stranded vehicles across Lahore within 45 minutes.',
+      'Emergency roadside deliveries strictly observe 5 Litres minimum to 15 Litres maximum, with fixed Rs. 300.00 delivery fee (5L–10L) or Rs. 320–Rs. 400 (11L–15L Max) and 24/7 WhatsApp emergency helpline at +92 3230-112464.'
+    ],
+    sections: [
+      {
+        heading: 'What to Do Immediately When Your Engine Shuts Down from Fuel Starvation',
+        subheading: 'Critical Safety Steps to Avoid Accidents on Lahore Roads',
+        paragraphs: [
+          'Running out of fuel on a crowded urban artery or high-speed bypass — such as Lahore Ring Road, Ferozepur Road, Canal Bank Road, or Main Boulevard Gulberg — is an unnerving experience. Modern fuel-injected engines typically give brief warnings: engine hesitation, stuttering under acceleration, and an aggressive drop in throttle response seconds before the engine stalls completely.',
+          'When this happens, do not panic or brake abruptly. Press your hazard warning flashers immediately to alert vehicles trailing behind you. Use your vehicle’s remaining kinetic momentum to glide toward the leftmost shoulder, an emergency layby, or an off-ramp exit. Once the vehicle comes to a complete halt, shift into park (or neutral with handbrake engaged for manual transmissions) and switch off the ignition key completely.',
+          'Under no circumstances should you keep cranking the starter motor. Modern vehicles utilize submersible electric fuel pumps located inside the fuel tank that depend entirely on liquid fuel for cooling and lubrication. Cranking on an empty tank runs the pump dry, rapidly overheating the electric armature and risking permanent fuel pump failure.'
+        ]
+      },
+      {
+        heading: 'The Hidden Dangers of Walking to a Petrol Pump with Plastic Bottles',
+        subheading: 'Why Improvised Containers Risk Fires, Contamination & Police Action',
+        paragraphs: [
+          'A dangerous instinct for many stranded drivers is to lock their car and walk along the highway with a disposable 1.5-litre beverage bottle or ungrounded plastic can to find the nearest petrol station. This practice creates severe hazards:',
+          '1. Electrostatic Discharge (ESD): Fuel sloshing against polyethylene or PET plastic builds static electricity. Without an electrical bonding wire to ground the container, a spark can ignite gasoline vapors instantly while filling or pouring, leading to severe burns.',
+          '2. Station Sales Restrictions: Under OGRA safety guidelines and Civil Defence directives, licensed petrol pumps across Lahore strictly forbid dispensing motor fuel into loose plastic bottles, soft drink containers, or uncertified open cans.',
+          '3. High-Speed Pedestrian Risk: Walking along the unlit shoulder of Lahore Ring Road or Canal Road exposes drivers to fast-moving traffic, especially at night or during foggy winter weather.',
+          '4. Engine Contamination: Residual water or syrup in beverage bottles causes severe injector clogging and water contamination in your car engine.'
+        ],
+        quote: {
+          text: 'Walking along highway shoulders carrying plastic bottles of petrol is one of the most hazardous roadside mistakes a motorist can make. Modern energy logistics allows us to bring calibrated, sealed fuel bowsers directly to stranded drivers safely within 45 minutes.',
+          author: 'Muhammad Daniyal, Founder & Leading Web Developer of Zyphuel'
+        }
+      },
+      {
+        heading: 'How Zyphuel’s 45-Minute Emergency Roadside Dispatch Works in Lahore',
+        subheading: 'Rapid GPS Localization & Direct Mobile Bowser Refueling',
+        paragraphs: [
+          'Zyphuel eliminates the danger of abandoning your stranded vehicle. Our decentralized fleet of micro-refuelers is strategically staged across major operational hubs in Lahore, including Gulberg, DHA, Johar Town, Model Town, Cantt, Bahria Town, and Ring Road interchanges.',
+          'When you run out of fuel, access zyphuel.netlify.app/order/ on your mobile browser or send your live WhatsApp location to our emergency hotline (+92 3230-112464). Our intelligent dispatch system identifies the closest micro-refueler, confirms your fuel grade (Euro-V Petrol, High-Octane 97, or Euro-V Diesel), and dispatches the unit directly to your parked coordinates within 45 minutes.',
+          'Upon arrival, our certified driver deploys safety cones, attaches an anti-static grounding clamp to your vehicle chassis to neutralize static potential, and pumps the required volume directly into your fuel filler neck using a calibrated digital nozzle accurate to 0.01 Litres.'
+        ],
+        table: {
+          caption: 'Roadside Fuel Emergency: Response Options Comparison in Lahore',
+          headers: ['Response Method', 'Average Time', 'Estimated Cost', 'Safety & Compliance', 'Vehicle Risk'],
+          rows: [
+            ['Zyphuel Doorstep Refueling', 'Within 45 Mins', 'Official Fuel Rate + Rs. 300 fee', '100% OGRA Compliant, Grounded Bowser, Zero Spill', 'Zero: Engine fueled directly on-site'],
+            ['Walking to Pump with Bottle', '60 to 120 Mins', 'Dangerous + Pump refusal likely', 'Extremely Hazardous: Static fire risk, banned by law', 'High: Fuel contamination from dirty bottles'],
+            ['Hiring a Flatbed Tow Truck', '90 to 180 Mins', 'Rs. 3,500 – Rs. 7,000 towing fee', 'Moderate: Requires waiting on active road', 'Moderate: Tow hook damage, bumper scrapes']
+          ]
+        }
+      },
+      {
+        heading: 'Volume Limits, Delivery Charges & Transparent Roadside Pricing',
+        subheading: 'Affordable Nominal Fees with Zero Express Extortion',
+        paragraphs: [
+          'Many emergency roadside services take advantage of stranded motorists by charging extortionate surge fees or emergency surcharges. Zyphuel strictly rejects this practice. Every emergency roadside delivery is governed by our transparent and honest pricing model:',
+          '1. Delivery Fees: Standard emergency roadside dispatch is fixed at Rs. 300.00 for orders between 5 and 10 Litres. For orders from 11 to 15 Litres Max, fees scale smoothly from Rs. 320.00 to Rs. 400.00 (+Rs. 20/L step). There is zero emergency surcharge and no express fee.',
+          '2. Volume Thresholds: Deliveries range strictly from 5 Litres minimum to 15 Litres maximum per order. A 5-litre emergency fill provides 40 to 65 kilometres of city driving range — more than enough to safely complete your trip or reach your preferred primary fueling station.',
+          '3. Transparent Margin: Fuel is billed at official OGRA ex-depot rates plus a controlled retail pump margin markup of +Rs. 5.00/L, identical to standard forecourt pricing.',
+          '4. Payment Flexibility: Pay securely via Cash on Delivery (COD) once fuel is in your tank, or complete an instant bank transfer upon delivery.'
+        ]
+      },
+      {
+        heading: 'Preventative Driving: Protecting Your Fuel Pump & Sensor Electronics',
+        subheading: 'Best Practices to Prevent Fuel Starvation Breakdown',
+        paragraphs: [
+          'Consistently driving with the low-fuel warning lamp illuminated accelerates fuel pump wear. The electric fuel pump motor generates heat during operation and relies on being submerged in cold fuel to dissipate that heat. When the tank drops below 10% capacity, the pump draws in vapor pockets, causing cavitation, pressure drops, and elevated operating temperatures.',
+          'Furthermore, any sediment, condensation, or particulate matter that naturally settles at the bottom of the fuel tank gets pulled directly into the fuel filter and fuel injectors when the tank runs dry. To protect your vehicle, refuel as soon as the gauge drops to one-quarter tank, or keep the Zyphuel Android app installed on your phone with GPS auto-pinning for instant peace of mind.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'What should I do if my car runs out of petrol on the road in Lahore?',
+        answer: 'Pull over safely to the leftmost road shoulder, turn on your emergency hazard lights, and place a reflective warning triangle 50 meters behind the vehicle. Switch off the ignition, stay away from moving traffic, and request emergency fuel delivery through zyphuel.netlify.app/order/ or WhatsApp +92 3230-112464.'
+      },
+      {
+        question: 'How fast does emergency petrol delivery arrive near me?',
+        answer: 'Zyphuel dispatches micro-refuelers within 45 minutes across all major sectors of Lahore including DHA, Gulberg, Johar Town, Model Town, Cantt, Bahria Town, and Ring Road interchanges.'
+      },
+      {
+        question: 'Can you buy emergency petrol online at night in Lahore?',
+        answer: 'Standard online order intake operates daily from 8:00 AM to 10:00 PM PKT. During night hours (10:00 PM to 8:00 AM), our dedicated 24/7 WhatsApp emergency helpline (+92 3230-112464) coordinates on-demand roadside assistance for stranded motorists.'
+      },
+      {
+        question: 'How much fuel can be delivered during a roadside emergency?',
+        answer: 'Deliveries strictly range from 5 Litres minimum up to 15 Litres maximum. A 5-litre fill provides 40 to 65 km of driving range, comfortably allowing you to reach your destination or nearest station.'
+      },
+      {
+        question: 'What is the emergency delivery charge for petrol in Lahore?',
+        answer: 'Delivery charges are fixed at Rs. 300.00 for orders between 5 and 10 Litres, and scaled between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) for 11 to 15 Litres Max. Zyphuel does not charge surge fees or emergency extortion premiums.'
+      },
+      {
+        question: 'Is it safe to pour petrol into a completely empty car engine?',
+        answer: 'Yes, when dispensed safely through a calibrated, grounded nozzle. Zyphuel operators connect an anti-static grounding clamp to your car chassis before fueling to ensure complete safety and prevent static discharge.'
+      },
+      {
+        question: 'How do I send my live location for emergency roadside fuel delivery?',
+        answer: 'You can tap \'Use Live GPS\' on the Zyphuel order page, or share your live WhatsApp location directly with our dispatch dispatch desk at +92 3230-112464.'
+      },
+      {
+        question: 'Can emergency diesel be delivered for stranded trucks or commercial machinery?',
+        answer: 'Yes. Zyphuel bowsers carry both Euro-V Super Petrol and High-Speed Diesel (HSD) with 50-meter long-reach hoses to refuel commercial trucks, vans, and stationary generators on-site.'
+      },
+      {
+        question: 'Does emergency petrol delivery cover motorbikes and scooters?',
+        answer: 'Yes. Motorbikes and scooters can order 5 Litres of Euro-V petrol delivered directly to their roadside location or home in Lahore.'
+      },
+      {
+        question: 'Which areas of Lahore are covered for emergency fuel dispatch?',
+        answer: 'Coverage includes DHA (Phases 1–9), Gulberg I–III, Johar Town, Model Town, Cantt, Bahria Town, Wapda Town, Faisal Town, Garden Town, Township, and Lahore Ring Road entry points.'
+      }
+    ],
+    content: [
+      'Running out of fuel on the road is a stressful experience, but modern on-demand refueling technology has made roadside recovery faster, safer, and more dignified than ever. Gone are the days when drivers had to hitchhike along dark expressways carrying leaky beverage bottles or pay thousands of rupees for unnecessary flatbed tow trucks.',
+      'Zyphuel brings mobile energy logistics to your exact coordinates across Lahore. With 45-minute dispatch, weights-and-measures calibrated flow meters accurate to 0.01 Litres, certified Euro-V motor fuel, transparent pricing (Rs. 300 for 5–10L, Rs. 320–Rs. 400 for 11–15L Max), and 24/7 emergency WhatsApp support (+92 3230-112464), roadside fuel emergencies are solved with a single click.',
+      'Save the Zyphuel emergency contact in your phone or install the official Android APK today to ensure you and your family are never left stranded on the road without fuel.'
+    ]
+  },
+  {
+    id: 10,
+    slug: 'petrol-price-today-pakistan-fuel-delivery-cost-calculator',
+    category: 'Zyphuel Energy',
+    categoryClass: 'zyphuel',
+    title: 'Petrol Price Today in Pakistan: Daily OGRA Fuel Rate Tracker & Doorstep Delivery Cost Calculator (2026 Guide)',
+    summary: 'Track live petrol and diesel rates in Pakistan, understand OGRA’s daily rolling pricing mechanism, and calculate exact doorstep fuel delivery costs with our transparent pricing formula and worked examples.',
+    date: 'October 27, 2026',
+    readTime: '10 min read',
+    author: 'Zyphuel Energy Analysis Team',
+    authorIcon: 'fa-solid fa-calculator',
+    image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=720&q=80',
+    tags: ['PetrolPriceToday', 'PakistanFuelRates', 'DoorstepDeliveryCalculator', 'OGRADailyPricing', 'FuelCostBreakdown', 'LahorePetrolRates'],
+    keyTakeaways: [
+      'Under OGRA’s daily fuel pricing mechanism, ex-depot petrol and diesel rates are calculated using a rolling 7-day international Platts Arab Gulf index with locked weekend rates.',
+      'Zyphuel maintains a transparent and controlled retail pump margin markup of +Rs. 5.00/L over ex-depot rates, matching compliant forecourt pricing.',
+      'Doorstep delivery charges are fixed at Rs. 300.00 for orders between 5 and 10 Litres, and scaled strictly between Rs. 320.00 and Rs. 400.00 (+Rs. 20/L step) for 11 to 15 Litres Max.',
+      'The transparent pricing formula is: Total Cost = (Fuel Volume in Litres × [Official Ex-Depot Rate + Rs. 5.00]) + Delivery Fee.',
+      'Real-time 2-hour price alerts through the Zyphuel Android APK allow motorists and generator owners to lock in fuel orders before depot rate increases take effect.'
+    ],
+    sections: [
+      {
+        heading: 'How Pakistan’s Daily Fuel Rates Are Calculated in 2026',
+        subheading: 'Understanding Ex-Depot Rates, Platts Arab Gulf Benchmark & IFEM',
+        paragraphs: [
+          'In 2026, Pakistan’s fuel market operates under a modern daily pricing system administered by the Oil and Gas Regulatory Authority (OGRA). Instead of the legacy fortnightly price notifications that created massive forecourt queues every 15 days, prices for Euro-V Super Petrol (92 Octane) and High-Speed Diesel (HSD) now track global energy markets dynamically.',
+          'Each weekday morning (Monday through Friday), OGRA notifies revised ex-depot fuel prices based on a rolling seven-day average of international Platts Arab Gulf market prices, prevailing PKR-to-USD currency exchange rates, the Inland Freight Equalization Margin (IFEM) to harmonize transport across provinces, and the Petroleum Development Levy (PDL).',
+          'Crucially, rates notified on Friday midnight remain legally locked throughout Saturday and Sunday. This weekend rate stability provides motorists, logistics providers, and residential standby generator operators a predictable window to refuel without unexpected mid-weekend price jumps.'
+        ]
+      },
+      {
+        heading: 'The Zyphuel Transparent Doorstep Delivery Cost Formula',
+        subheading: 'Simple Mathematical Breakdown with Zero Hidden Fees',
+        paragraphs: [
+          'Transparency is the core foundation of Zyphuel’s energy logistics ecosystem. Unlike ride-hailing or food delivery apps that obscure final pricing behind dynamic surge fees, rain surcharges, and distance-based toll add-ons, Zyphuel calculates every doorstep fuel order using a simple, open formula:',
+          'Total Order Cost = (Fuel Litres × [Official Ex-Depot Rate + Rs. 5.00/L]) + Delivery Charge',
+          'Here is what each component represents:',
+          '1. Official Ex-Depot Rate: The government-notified base rate per litre published by OGRA for Euro-V Super Petrol, High-Octane 97, or High-Speed Diesel.',
+          '2. Controlled Retail Pump Markup (+Rs. 5.00/L): Standard regulatory margin that aligns doorstep pricing with compliant retail forecourts, covering depot handling, quality filtering, and vapor recovery.',
+          '3. Delivery Charge: Fixed at Rs. 300.00 for orders from 5 to 10 Litres. For larger orders from 11 to 15 Litres Max, the fee scales predictably (+Rs. 20/L step: 11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400). Delivery is a single tier only, so there is no priority surcharge and no express fee.'
+        ],
+        table: {
+          caption: 'Doorstep Fuel Delivery Cost Calculator: Worked Pricing Examples (Lahore)',
+          headers: ['Order Volume', 'Fuel Grade', 'Delivery Fee', 'Total Delivered Cost Calculation (Illustrative Rate)'],
+          rows: [
+            ['5 Litres', 'Euro-V Super Petrol', 'Rs. 300.00 (Fixed)', '5L × (Rate + Rs. 5.00) + Rs. 300.00'],
+            ['7 Litres', 'Euro-V Super Petrol', 'Rs. 300.00 (Fixed)', '7L × (Rate + Rs. 5.00) + Rs. 300.00'],
+            ['10 Litres', 'Euro-V Super Petrol', 'Rs. 300.00 (Fixed)', '10L × (Rate + Rs. 5.00) + Rs. 300.00'],
+            ['12 Litres', 'Euro-V Super Petrol', 'Rs. 340.00 (Scaled)', '12L × (Rate + Rs. 5.00) + Rs. 340.00'],
+            ['15 Litres Max', 'Euro-V Super Petrol', 'Rs. 400.00 (Scaled)', '15L × (Rate + Rs. 5.00) + Rs. 400.00'],
+            ['10 Litres', 'High-Speed Diesel (HSD)', 'Rs. 300.00 (Fixed)', '10L × (Rate + Rs. 5.00) + Rs. 300.00'],
+            ['15 Litres Max', 'High-Speed Diesel (HSD)', 'Rs. 400.00 (Scaled)', '15L × (Rate + Rs. 5.00) + Rs. 400.00']
+          ]
+        }
+      },
+      {
+        heading: 'Why Doorstep Refueling Saves More Money Than Driving to a Petrol Pump',
+        subheading: 'Factoring in Traffic Idling, Time Loss & Forecourt Short-Fueling Risks',
+        paragraphs: [
+          'Many motorists assume that driving to a retail petrol station is cheaper than ordering doorstep delivery. However, an honest total-cost analysis proves that doorstep delivery frequently saves money overall:',
+          '1. Traffic Fuel Burn: Driving 4 to 8 kilometres through Lahore traffic congestion (Main Boulevard Gulberg, Canal Road, Ferozepur Road) consumes 0.6 to 1.2 litres of fuel purely while idling at red signals and navigating forecourt queues.',
+          '2. Retail Short-Fueling Losses: Mechanical pump wear and uncalibrated forecourt dispensers often short-fuel customers by 30 to 80 millilitres per 10-litre transaction. Zyphuel’s weights-and-measures certified positive-displacement flow meters measure down to 0.01 Litres with electronic pulse encoders, ensuring you receive 100% of the volume you paid for.',
+          '3. Time Valuation: Spending 30 to 45 minutes driving to a station, waiting behind three cars, and returning home takes valuable personal and professional time.',
+          '4. Engine Health: Zyphuel dispenses terminal-fresh Euro-V fuel directly from sealed, moisture-filtered tanks, preventing contaminated underground storage tank sludge from entering your car tank.'
+        ],
+        quote: {
+          text: 'When drivers calculate the hidden cost of traffic fuel burn, queue delays, and retail dispenser short-fueling, doorstep refueling with a fixed Rs. 300 fee is both economical and stress-free.',
+          author: 'Muhammad Daniyal, Founder & Leading Web Developer of Zyphuel'
+        }
+      },
+      {
+        heading: 'How to Track Daily Rates & Save Money with Zyphuel Price Alerts',
+        subheading: 'Locking In Deliveries Before Midnight Depot Price Increases',
+        paragraphs: [
+          'Because Pakistan’s fuel rates update on daily Platts calculations, proactive consumers can save substantial money across monthly refueling budgets. The official Zyphuel Android APK includes an automated 2-hour price notification alert engine.',
+          'When OGRA notifies an upcoming upward price adjustment, Zyphuel users receive an instant push notification on their phone lock screen 2 hours before the new depot rates take effect. This allows motorists, transport managers, and standby generator operators to place their orders at the current lower rate.',
+          'Online order intake operates daily from 8:00 AM to 10:00 PM PKT. Placing your order before the 10:00 PM evening cutoff ensures your delivery is locked at today’s verified price with guaranteed 45-minute dispatch.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'What is the petrol price today in Lahore, Pakistan?',
+        answer: 'Today’s petrol price in Lahore follows the official ex-depot rate notified by OGRA plus the standard retail pump margin (+Rs. 5.00/L). Live rates are tracked and updated dynamically on the Zyphuel order page and mobile app.'
+      },
+      {
+        question: 'How is the total cost of doorstep fuel delivery calculated?',
+        answer: 'The total cost is calculated as: Total Cost = (Litres Ordered × [Ex-Depot Fuel Rate + Rs. 5.00 markup]) + Delivery Fee. For example, 10 Litres of petrol is billed as: 10 × (Current Rate + 5) + Rs. 300.00 delivery fee.'
+      },
+      {
+        question: 'How much is the delivery charge for 5 to 10 litres of petrol?',
+        answer: 'Delivery is a fixed nominal fee of Rs. 300.00 for orders between 5 and 10 Litres across all serviced sectors of Lahore, with 45-minute dispatch.'
+      },
+      {
+        question: 'What is the delivery fee for 11 to 15 litres max?',
+        answer: 'For orders between 11 and 15 Litres Max, delivery fees scale linearly between Rs. 320.00 and Rs. 400.00 with a +Rs. 20/L step (11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400).'
+      },
+      {
+        question: 'Why is there a +Rs. 5.00/L markup on fuel rates?',
+        answer: 'The +Rs. 5.00/L markup represents the controlled retail pump margin, aligning doorstep rates with licensed retail petrol forecourts while covering certified filtration, vapor recovery, and 0.01L digital meter calibration.'
+      },
+      {
+        question: 'Are there any hidden fees, distance charges, or surge pricing?',
+        answer: 'Zero hidden fees. There are no distance surcharges within serviced Lahore sectors, no rain or peak-hour surge pricing, and no express delivery tier.'
+      },
+      {
+        question: 'How does daily OGRA pricing affect weekend fuel orders?',
+        answer: 'Under OGRA rules, fuel rates notified on Friday midnight remain locked throughout Saturday and Sunday. Weekday daily pricing resumes on Monday morning.'
+      },
+      {
+        question: 'How can I verify that I received the exact volume I paid for?',
+        answer: 'Every Zyphuel bowser features calibrated positive-displacement flow meters with a digital volume display. After refueling, you receive a tamper-proof QR/barcoded invoice detailing the exact litres dispensed down to 0.01 Litres.'
+      },
+      {
+        question: 'What payment methods are accepted for doorstep fuel delivery?',
+        answer: 'Zyphuel accepts Cash on Delivery (COD) once fuel is pumped into your vehicle or generator, as well as instant online bank transfers.'
+      },
+      {
+        question: 'What are the operating hours for ordering fuel at today’s rate?',
+        answer: 'Online order intake operates daily from 8:00 AM to 10:00 PM PKT. Between 10:00 PM and 8:00 AM, online orders close and our 24/7 WhatsApp helpline (+92 3230-112464) handles on-demand emergency assistance.'
+      }
+    ],
+    content: [
+      'Understanding Pakistan’s fuel market dynamics gives everyday drivers, homeowners, and commercial business operators total control over their energy expenses. By removing price uncertainty, long queues at congested filling stations, and mechanical pump short-fueling, Zyphuel provides an honest, metered, and transparent doorstep refueling experience.',
+      'Our mathematical pricing formula — combining official OGRA rates with a fixed Rs. 300 delivery fee (5–10L) and scaled Rs. 320–Rs. 400 fee (11–15L Max) — ensures you know the exact final price before confirming an order. With certified positive-displacement metering, 45-minute dispatch, and instant 2-hour price alerts on our Android APK, managing fuel costs in Lahore has never been simpler.',
+      'Check today’s live fuel rates on zyphuel.netlify.app/order/ and schedule your doorstep refueling with complete financial transparency.'
+    ]
+  }
 ];

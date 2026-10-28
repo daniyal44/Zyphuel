@@ -18,10 +18,28 @@
     "internalLinks": 16
   },
   {
+    "route": "/blog/can-you-buy-petrol-online-how-to-order-guide/",
+    "issues": [],
+    "title": 54,
+    "desc": 148,
+    "h1": 1,
+    "imgs": 6,
+    "internalLinks": 16
+  },
+  {
     "route": "/blog/download-zyphuel-apk-guide/",
     "issues": [],
     "title": 49,
     "desc": 148,
+    "h1": 1,
+    "imgs": 6,
+    "internalLinks": 16
+  },
+  {
+    "route": "/blog/emergency-petrol-delivery-near-me-roadside-guide/",
+    "issues": [],
+    "title": 55,
+    "desc": 150,
     "h1": 1,
     "imgs": 6,
     "internalLinks": 16
@@ -68,13 +86,22 @@
     "title": 53,
     "desc": 133,
     "h1": 1,
-    "imgs": 9,
-    "internalLinks": 16
+    "imgs": 12,
+    "internalLinks": 19
   },
   {
     "route": "/blog/iot-telemetry-fuel-delivery/",
     "issues": [],
     "title": 46,
+    "desc": 152,
+    "h1": 1,
+    "imgs": 6,
+    "internalLinks": 16
+  },
+  {
+    "route": "/blog/petrol-price-today-pakistan-fuel-delivery-cost-calculator/",
+    "issues": [],
+    "title": 52,
     "desc": 152,
     "h1": 1,
     "imgs": 6,
@@ -113,8 +140,8 @@
     "title": 51,
     "desc": 121,
     "h1": 1,
-    "imgs": 48,
-    "internalLinks": 16
+    "imgs": 51,
+    "internalLinks": 19
   },
   {
     "route": "/order/",

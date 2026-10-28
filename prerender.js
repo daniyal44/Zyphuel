@@ -409,6 +409,40 @@ const ARTICLES_SCHEMA = [
       "@id": `${DOMAIN}/#organization`
     },
     "mainEntityOfPage": `${DOMAIN}/blog/can-you-buy-petrol-online-how-to-order-guide/`
+  },
+  {
+    "@type": "Article",
+    "@id": `${DOMAIN}/#article-9`,
+    "headline": "Emergency Petrol Delivery Near Me: What to Do When Your Fuel Runs Out on the Road (Lahore Roadside Guide)",
+    "description": "Stranded with an empty fuel tank in Lahore? Complete roadside safety guide on emergency petrol delivery, why walking with plastic bottles is hazardous, and how Zyphuel dispatches certified Euro-V fuel within 45 minutes.",
+    "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=720&q=80",
+    "datePublished": "2026-10-27T08:00:00+05:00",
+    "dateModified": "2026-10-27T08:00:00+05:00",
+    "author": {
+      "@type": "Organization",
+      "name": "Zyphuel Emergency Logistics Team"
+    },
+    "publisher": {
+      "@id": `${DOMAIN}/#organization`
+    },
+    "mainEntityOfPage": `${DOMAIN}/blog/emergency-petrol-delivery-near-me-roadside-guide/`
+  },
+  {
+    "@type": "Article",
+    "@id": `${DOMAIN}/#article-10`,
+    "headline": "Petrol Price Today in Pakistan: Daily OGRA Fuel Rate Tracker & Doorstep Delivery Cost Calculator (2026 Guide)",
+    "description": "Track live petrol and diesel rates in Pakistan, understand OGRA’s daily rolling pricing mechanism, and calculate exact doorstep fuel delivery costs with our transparent pricing formula and worked examples.",
+    "image": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=720&q=80",
+    "datePublished": "2026-10-27T08:00:00+05:00",
+    "dateModified": "2026-10-27T08:00:00+05:00",
+    "author": {
+      "@type": "Organization",
+      "name": "Zyphuel Energy Analysis Team"
+    },
+    "publisher": {
+      "@id": `${DOMAIN}/#organization`
+    },
+    "mainEntityOfPage": `${DOMAIN}/blog/petrol-price-today-pakistan-fuel-delivery-cost-calculator/`
   }
 ]
 

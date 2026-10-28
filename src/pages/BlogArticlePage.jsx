@@ -564,6 +564,41 @@ export default function BlogArticlePage() {
           </div>
         </div>
 
+        {/* Contextual service links: gives every article a real body-level path into
+            the three commercial pages (services, order, download) instead of relying
+            on the nav/footer alone. Anchor text is keyword-bearing but factual. */}
+        <div className="fade-in-up" style={{ marginTop: '2.5rem', padding: '1.5rem', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '12px' }}>
+          <h3 style={{ fontSize: '1.15rem', fontWeight: 800, margin: '0 0 1rem 0', color: 'var(--text-primary)' }}>
+            Related Zyphuel Services in Lahore
+          </h3>
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gap: '14px' }}>
+            <li>
+              <Link to="/services/" style={{ color: 'var(--brand-petrol, #0369a1)', fontWeight: 700, textDecoration: 'none' }}>
+                Doorstep petrol, diesel and generator refueling services in Lahore
+              </Link>
+              <p style={{ margin: '4px 0 0 0', fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
+                Euro-V Super Petrol, High-Octane 97 and Euro-V Diesel for cars, motorbikes, standby generators and commercial machinery.
+              </p>
+            </li>
+            <li>
+              <Link to="/order/" style={{ color: 'var(--brand-petrol, #0369a1)', fontWeight: 700, textDecoration: 'none' }}>
+                Order fuel online in Lahore, 5 to 15 litres within 45 minutes
+              </Link>
+              <p style={{ margin: '4px 0 0 0', fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
+                Pin your location, pick petrol, High-Octane 97 or diesel, and pay cash or online. Every order arrives with a metered QR/barcoded invoice.
+              </p>
+            </li>
+            <li>
+              <Link to="/download/" style={{ color: 'var(--brand-petrol, #0369a1)', fontWeight: 700, textDecoration: 'none' }}>
+                Download the Zyphuel Android app (direct APK)
+              </Link>
+              <p style={{ margin: '4px 0 0 0', fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text-secondary)' }}>
+                Live order tracking and 2-hour fuel price alerts. The iOS app is still in development, and official Google Play and App Store listings launch soon.
+              </p>
+            </li>
+          </ul>
+        </div>
+
         {/* Bottom Call to Action */}
         <div className="fade-in-up" style={{ marginTop: '3.5rem', background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)', borderRadius: '16px', padding: '2.5rem 2rem', textAlign: 'center', color: '#ffffff', boxShadow: '0 12px 32px rgba(0,0,0,0.15)' }}>
           <span style={{ display: 'inline-block', background: 'rgba(56,189,248,0.15)', color: '#38bdf8', padding: '4px 14px', borderRadius: '20px', fontSize: '0.82rem', fontWeight: 700, marginBottom: '12px' }}>

@@ -1332,3 +1332,26 @@ Mermaid blocks did not display for readers of the repository, so every chart in 
 - **Documentation**:
   - Created `docs/pages/subpages/can-you-buy-petrol-online-how-to-order-guide.md`.
   - Updated `docs/README.md`, `docs/subpages.md`, `docs/articles.md`, `docs/pages/blog.md`, `docs/pages/home.md`, and `docs/plans/2026-10-26-keyword-map.md`.
+
+## [2026-10-27] Broad High-Intent SEO Expansion: Articles 9 & 10 + Keyword Optimization
+- **New Article 9**: Created `/blog/emergency-petrol-delivery-near-me-roadside-guide/` targeting `emergency petrol delivery near me`, `car ran out of petrol`, and roadside assistance.
+- **New Article 10**: Created `/blog/petrol-price-today-pakistan-fuel-delivery-cost-calculator/` targeting `petrol price today pakistan`, `today diesel rate`, and `fuel delivery charges calculator`.
+- **SSG & Schema**: Added Articles 9 and 10 to `prerender.js` `ARTICLES_SCHEMA`, automatically producing static prerendered HTML and dynamic XML sitemap entries.
+- **Syndication**: Added articles 9 and 10 to `public/feed.xml` RSS feed.
+- **AI Crawlers**: Enriched `public/llms.txt` and `public/llms-full.txt` with canonical Q&As for emergency roadside fuel and transparent price calculation.
+- **Meta Keywords**: Enriched `index.html`, `HomePage.jsx`, `OrderPage.jsx`, and `ServicesPage.jsx` with new target keywords.
+- **Documentation**: Added dedicated subpage docs in `docs/pages/subpages/` and updated indices in `docs/README.md`, `docs/subpages.md`, `docs/articles.md`, `docs/pages/blog.md`, and `docs/plans/2026-10-26-keyword-map.md`.
+
+## [2026-10-28] Search Console-Driven Indexing Repair (Coverage + Performance Exports)
+
+Acted directly on the owner's two local Search Console exports (`Coverage-2026-10-28`, `Performance-on-Search-2026-10-28`). Full analysis: [`docs/reports/2026-10-28-search-console-indexing-report.md`](reports/2026-10-28-search-console-indexing-report.md).
+
+- **Duplicate `…/index.html` URLs now 301**: `/index.html`, `/about/index.html`, `/services/index.html`, `/order/index.html`, `/download/index.html` and `/blog/index.html` were each serving a second full copy of a page with HTTP 200. Added `[[redirects]]` with `force = true` in `netlify.toml` so they permanently 301 to the canonical trailing-slash URL. This is the concrete cause of the 1 `Page with redirect` row and part of the wasted crawl budget behind `Discovered – currently not indexed` (2).
+- **Build was broken and is fixed**: `npm run build` failed with `Expected "]" but found ":"` — the `keywords` arrays in `HomePage.jsx`, `ServicesPage.jsx` and `OrderPage.jsx` had lost their closing bracket. Restored all three; build exits 0 again. This mattered because Netlify deploys whatever the build produces.
+- **Two articles were missing from the live sitemap**: articles 9 and 10 existed in `src/data/articles.js`, `feed.xml` and `llms.txt` but the deployed sitemap still listed 17 URLs. Fresh build now produces **19** URLs, identical in `public/` and `dist/`, with both new pages prerendered.
+- **Blog articles were dead ends**: article bodies contained zero outbound links. Added a "Related Zyphuel Services in Lahore" block to `BlogArticlePage.jsx` (renders on all 10 articles) with keyword-bearing anchors to `/services/`, `/order/` and `/download/`. Each article went from 41 to 44 internal links.
+- **Urgent-tier wording removed from article 10**: `qa-static.cjs` failed it on `contains "urgent"`. Reworded to "Delivery is a single tier only, so there is no priority surcharge and no express fee." QA now reports 20 pages audited, 0 issues.
+- **New regression gate**: `scripts/link-audit.cjs` audits the build for links without a trailing slash, dangling targets and weak inbound linking, and exits non-zero on regression.
+- **Documentation**: created the report above, updated `docs/reports/README.md`, `docs/pages/blog.md` and `docs/changes.md`.
+
+**Owner actions that code cannot perform** (documented in the report): buy a real domain and 301 the Netlify subdomain to it; add the site in Bing Webmaster Tools (IndexNow returns 403 `UserForbiddedToAccessSite` even though the key file is live and correct); request indexing for the 3 URLs in Search Console; clear the Query filter on the performance export to see true totals.

@@ -67,6 +67,8 @@ All 13 core documentation files are consolidated directly in this directory (`do
 | **Calibrated Telemetry Bowser Fleet** | `/blog/zyphuel-calibrated-telemetry-fleet/` | `src/data/articles.js` (ID: 6) | [`docs/pages/subpages/zyphuel-calibrated-telemetry-fleet.md`](./pages/subpages/zyphuel-calibrated-telemetry-fleet.md) |
 | **Global vs Pakistan Fuel Delivery Benchmarks** | `/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/` | `src/data/articles.js` (ID: 7) | [`docs/pages/subpages/global-vs-pakistan-on-demand-fuel-delivery-benchmarks.md`](./pages/subpages/global-vs-pakistan-on-demand-fuel-delivery-benchmarks.md) |
 | **Can You Buy Petrol Online? Complete Ordering Guide** | `/blog/can-you-buy-petrol-online-how-to-order-guide/` | `src/data/articles.js` (ID: 8) | [`docs/pages/subpages/can-you-buy-petrol-online-how-to-order-guide.md`](./pages/subpages/can-you-buy-petrol-online-how-to-order-guide.md) |
+| **Emergency Petrol Delivery Near Me Roadside Guide** | `/blog/emergency-petrol-delivery-near-me-roadside-guide/` | `src/data/articles.js` (ID: 9) | [`docs/pages/subpages/emergency-petrol-delivery-near-me-roadside-guide.md`](./pages/subpages/emergency-petrol-delivery-near-me-roadside-guide.md) |
+| **Petrol Price Today Pakistan & Cost Calculator** | `/blog/petrol-price-today-pakistan-fuel-delivery-cost-calculator/` | `src/data/articles.js` (ID: 10) | [`docs/pages/subpages/petrol-price-today-pakistan-fuel-delivery-cost-calculator.md`](./pages/subpages/petrol-price-today-pakistan-fuel-delivery-cost-calculator.md) |
 
 ---
 
@@ -106,6 +108,7 @@ All 13 core documentation files are consolidated directly in this directory (`do
 | Report Date | Scope & Key Contents | File Link |
 | :--- | :--- | :--- |
 | **Hub** | Reports Hub — every audit, QA pass and change report in one index, with all charts committed as SVG images | [`docs/reports/README.md`](./reports/README.md) |
+| **2026-10-28** | Search Console Indexing & Visibility Report — read from the owner's Coverage + Performance exports: 14 indexed / 3 not, the two critical reasons, 1 click / 17 question-filtered impressions, five code fixes, and the items only the owner can resolve | [`docs/reports/2026-10-28-search-console-indexing-report.md`](./reports/2026-10-28-search-console-indexing-report.md) |
 | **2026-10-26** | Whole Website Report — every route with its HTML weight, word count, title/description length, JSON-LD coverage, indexing state and feature status | [`docs/reports/2026-10-26-whole-website-report.md`](./reports/2026-10-26-whole-website-report.md) |
 | **2026-10-26** | Every website change from `6dfe8ed` → `18db378`: app version sync, performance (113.9 → 28.5 kB gzip entry JS), Technical SEO, AEO, GEO, urgent-tier removal, FAQ overlap bug, order stepper responsiveness, truthfulness audit and open items | [`docs/reports/2026-10-26-website-changes-report.md`](./reports/2026-10-26-website-changes-report.md) |
 

@@ -131,7 +131,8 @@ export default function HomePage() {
     title: 'Online Petrol & Diesel Delivery in Lahore | Zyphuel',
     description: 'Order Euro-V petrol or diesel to your doorstep in Lahore within 45 mins. Cash on delivery, calibrated meters, OGRA rates.',
     keywords: [
-      'can i buy petrol online', 'can you buy petrol online', 'how to buy petrol online',
+      'emergency petrol delivery near me', 'car ran out of petrol', 'fuel delivery charges calculator', 'petrol delivery cost calculator', 'today petrol price lahore',
+'can i buy petrol online', 'can you buy petrol online', 'how to buy petrol online',
       'can i order petrol online', 'how to book petrol online', 'how to order fuel online',
       'how to order petrol', 'how to order petrol online near me', 'how can i get petrol online',
       'online petrol delivery in lahore', 'petrol home delivery lahore', 'online petrol delivery near me',
