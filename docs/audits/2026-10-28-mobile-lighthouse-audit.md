@@ -268,3 +268,30 @@ The old headline further down the page became `<h2 class="hero-title">`, keeping
 The LCP element is `div.app-hero-sticky-stage` — its `app-frame-001.jpg` poster is the largest paint in the first viewport (985 ms resource load delay + 696 ms render delay), not the new heading. The heading is the first real *text* the page paints, and the paragraph and H1 now give the page indexable above-the-fold copy that it never had.
 
 **Still remaining on `/download/`:** TBT 6.6–7.5 s is now the dominant problem (it was hidden before because the page crashed before doing any work). The hero's progressive frame preloader and the 34,000 px page's hydration both need work, and `app-frame-001.jpg` should be preloaded with `fetchpriority="high"` to cut the 985 ms LCP resource delay.
+
+---
+
+## 13. `/download/` hero poster preload — measured, and what it did not fix
+
+**Change.** The LCP element is `div.app-hero-sticky-stage`; its paint is the CSS background `url('/app-hero-frames/app-frame-001.jpg')`, and the browser only discovered that URL after the route's CSS chunk parsed. Added to `index.html`:
+
+```html
+<link rel="preload" as="image" href="/app-hero-frames/app-frame-001.jpg" type="image/jpeg" fetchpriority="high" />
+```
+
+and `prerender.js` strips that tag on every route except `/download/` (same pattern already used for the Home hero frame), verified in the build: `/download/index.html` has the tag, `/`, `/services/`, `/order/`, `/blog/`, `/about/`, `/contact/` have none.
+
+**Measured** (Lighthouse 13, mobile, simulated throttling, static `dist`, two runs each):
+
+| | Score | LCP | LCP resource load delay | Poster request start | TBT |
+|---|---|---|---|---|---|
+| Before — run 1 | 35 | 9,003 ms | 985 ms | 996 ms | 6,657 ms |
+| Before — run 2 | 34 | 9,029 ms | 1,155 ms | 1,167 ms | 7,451 ms |
+| After — run 1 | **43** | 9,334 ms | **15 ms** | **30 ms** | 2,254 ms |
+| After — run 2 | 38 | 8,809 ms | **33 ms** | **74 ms** | 4,243 ms |
+
+**What actually improved (deterministic):** the poster request now starts at **30–74 ms instead of ~1,000–1,170 ms**, priority `High`, 15 KB transferred, and no "preloaded but not used" warning (the CSS background URL matches the preload exactly). That part is a straight win and is not noise — the timings come from the request log, not the score.
+
+**What did not improve:** LCP stayed at **~8.8–9.3 s**. The preload removed ~1 s of resource delay but LCP did not move, which proves the poster was never the critical path — the paint is held by main-thread work instead (`mainthread-work-breakdown` **8.9–14.0 s**, TBT 2.3–4.2 s after the change). The scores rose from 34–35 to 38–43 and TBT fell, but those two numbers vary run to run, so they are reported as a range, not as a guaranteed gain.
+
+**Next real target:** stop the hero's 300-frame progressive preloader from filling the sequence during initial load (defer it until after `load`, or window it around the scroll position). That is the work saturating the main thread before the hero can paint.

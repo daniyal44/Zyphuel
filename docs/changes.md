@@ -1445,3 +1445,11 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Measured** (Lighthouse 13, mobile, simulated throttling, static `dist` build, `/download/`): score **null / NO_LCP before → 35 and 34** after (two runs), FCP 2.1 s, LCP 9.0 s, TBT 6,660 / 7,450 ms, CLS 0.05. The new LCP element is `div.app-hero-sticky-stage` (its frame-001 poster is the largest paint), and the new H1 is the first real text the page paints.
 - **Verification**: prerendered `/download/index.html` contains exactly one `<h1>`; in-browser `#root` now has 6 children, the intro band sits at `top: 148px, height: 96px`, canvas mounts; `node scripts/qa-static.cjs` → **20/20 pages PASS, 0 issues**.
 - **Documentation**: `docs/pages/download.md` changelog + new section; audit report gained §12.
+
+## [2026-10-29] `/download/` hero poster preload (high priority)
+
+- **What**: `index.html` now preloads `/app-hero-frames/app-frame-001.jpg` (`as="image"`, `type="image/jpeg"`, `fetchpriority="high"`); `prerender.js` strips that tag on every route except `/download/`, so the 15 KB frame is never fetched on pages that do not show it. Build verified: present in `dist/download/index.html`, absent on `/`, `/services/`, `/order/`, `/blog/`, `/about/`, `/contact/`.
+- **Why**: the page's LCP element is `div.app-hero-sticky-stage`, whose paint is that CSS background; the browser only discovered the URL after the route CSS chunk parsed (~1 s).
+- **Measured** (Lighthouse 13, mobile, 2 runs each): poster request start **996 / 1,167 ms → 30 / 74 ms**, LCP resource load delay **985 / 1,155 ms → 15 / 33 ms**, no preload warnings. Score **34–35 → 38–43**, TBT 6.7–7.5 s → 2.3–4.2 s (both vary run to run).
+- **Honest limit**: LCP itself stayed at **8.8–9.3 s**. Main-thread work (8.9–14.0 s) holds the paint, so the preload was not the critical path. Deferring/windowing the 300-frame hero preloader is the next step.
+- **Docs**: audit report gained §13; `/download/` QA still 20/20 pages PASS, 0 issues.

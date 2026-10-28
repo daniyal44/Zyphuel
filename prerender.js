@@ -1563,6 +1563,15 @@ async function prerender() {
       )
     }
 
+    // Strip the Download-only hero poster preload on every other route, so the
+    // 15 KB frame is not requested on pages that never show it.
+    if (route.path !== '/download/') {
+      html = html.replace(
+        /\s*<link\s+rel=["']preload["']\s+as=["']image["']\s+href=["']\/app-hero-frames\/app-frame-001\.jpg["'][^>]*\/?>/i,
+        ''
+      )
+    }
+
     // Inject Pre-rendered App Content into <div id="root">
     html = html.replace(
       '<div id="root"></div>',
