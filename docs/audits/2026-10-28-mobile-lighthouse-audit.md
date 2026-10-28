@@ -295,3 +295,42 @@ and `prerender.js` strips that tag on every route except `/download/` (same patt
 **What did not improve:** LCP stayed at **~8.8–9.3 s**. The preload removed ~1 s of resource delay but LCP did not move, which proves the poster was never the critical path — the paint is held by main-thread work instead (`mainthread-work-breakdown` **8.9–14.0 s**, TBT 2.3–4.2 s after the change). The scores rose from 34–35 to 38–43 and TBT fell, but those two numbers vary run to run, so they are reported as a range, not as a guaranteed gain.
 
 **Next real target:** stop the hero's 300-frame progressive preloader from filling the sequence during initial load (defer it until after `load`, or window it around the scroll position). That is the work saturating the main thread before the hero can paint.
+
+---
+
+## 14. Deferring the `/download/` frame fill until after `load`
+
+**Change (`AppHeroScrollAnimation.jsx` only).** Two sources were fetching frames before the page had loaded:
+
+1. `startProgressivePreload()` was called straight from the mount effect.
+2. The scroll effect runs `handleScroll()` on mount, which fills a ±16-frame lookahead window around frame 0 — so even with the preloader deferred, ~17 JPEGs were requested at mount.
+
+Both are now gated: `allowFrameFillRef` stays `false` until the `load` event (with a 4 s fallback if `load` never fires), and the lookahead runs only when `allowFrameFillRef.current || hasScrolled`. A visitor who scrolls before `load` still gets the lookahead immediately, so the scrub is never left with a single frame.
+
+**Verified in the request log** (Lighthouse trace, two runs each):
+
+| | Frame requests | First frame request | `load` event |
+|---|---|---|---|
+| Before — run 1 | 40 | **1,013 ms** (pre-load) | 1,515 ms |
+| Before — run 2 | 40 | **904 ms** (pre-load) | 1,267 ms |
+| After — run 1 | **31** | **1,276 ms** (post-load) | 1,179 ms |
+| After — run 2 | **31** | **1,455 ms** (post-load) | 1,333 ms |
+
+Scroll behaviour re-tested in a real browser: after `window.scrollTo(0, 3000)` the lookahead loaded frames (42 → 71 frame resources), canvas sized `388×566`, one H1, intro band present, no console errors.
+
+**Measured performance** (same settings):
+
+| Run | Score | FCP | LCP | TBT | Main-thread work |
+|---|---|---|---|---|---|
+| Before (§13) | 43 / 38 | 1.7 / 2.1 s | 9.3 / 8.8 s | 2.3 / 4.2 s | — |
+| After | 40 / 38 | 1.7 / 1.8 s | **8.9 / 8.8 s** | 3.7 / 4.5 s | 11.9 / 13.5 s |
+
+**Honest result: LCP did not improve.** The deferral does exactly what it was asked to do (no frame is requested before `load`, and the count drops 40 → 31), but the paint was never waiting on frames. Ruled out during the same measurement:
+
+- **Poster**: requested at 45 ms (`High`), finished at 68 ms.
+- **Route CSS**: `DownloadPage-*.css` starts at 728 ms, ends at 741 ms.
+- **JS chunk**: `DownloadPage-*.js` at 727–732 ms.
+
+All three land inside the first second, yet LCP stays at ~9 s while `mainthread-work-breakdown` sits at **11.9–13.5 s**. The largest paint is therefore gated by main-thread work (hydration of a 34,000 px page plus the canvas loop), not by any resource. Deferring the frame fill slightly *reduces* pre-load contention but cannot move LCP on its own.
+
+**Next target:** the hydration/main-thread cost itself — profile the 11.9–13.5 s of main-thread work and reduce the number of hydrated elements/sections on `/download/`. Any further preloading or deferral tweak will show the same flat LCP.

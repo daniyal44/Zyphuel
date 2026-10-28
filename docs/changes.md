@@ -1453,3 +1453,11 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Measured** (Lighthouse 13, mobile, 2 runs each): poster request start **996 / 1,167 ms → 30 / 74 ms**, LCP resource load delay **985 / 1,155 ms → 15 / 33 ms**, no preload warnings. Score **34–35 → 38–43**, TBT 6.7–7.5 s → 2.3–4.2 s (both vary run to run).
 - **Honest limit**: LCP itself stayed at **8.8–9.3 s**. Main-thread work (8.9–14.0 s) holds the paint, so the preload was not the critical path. Deferring/windowing the 300-frame hero preloader is the next step.
 - **Docs**: audit report gained §13; `/download/` QA still 20/20 pages PASS, 0 issues.
+
+## [2026-10-29] Defer `/download/` frame fill until after `load`
+
+- **Change** (`src/components/AppHeroScrollAnimation.jsx`): `startProgressivePreload()` no longer starts on mount — it waits for the `load` event (4 s fallback), and the mount-time scroll lookahead only fills frames when `allowFrameFillRef.current || hasScrolled`. This removed the second, less obvious pre-load source: `handleScroll()` on mount was pulling a ±16-frame window (~17 JPEGs) even with the preloader deferred.
+- **Verified** (Lighthouse request log, 2 runs each): frame requests **40 → 31**, first frame request **904–1,013 ms (pre-load) → 1,276–1,455 ms (post-load**; `load` fires at 1,179–1,333 ms). Scroll re-tested in a real browser: `scrollTo(0,3000)` → 42 → 71 frame resources, canvas `388×566`, one H1, no console errors.
+- **Measured**: LCP **8.8–9.3 s → 8.8–8.9 s** (no improvement), score 38–43 → 38–40, TBT 2.3–4.2 s → 3.7–4.5 s, main-thread work 11.9–13.5 s.
+- **Ruled out as LCP causes**: poster (request 45 ms, done 68 ms), `DownloadPage-*.css` (728–741 ms), `DownloadPage-*.js` (727–732 ms). The paint is gated by main-thread work, so the next step is hydration cost, not preloading.
+- **Docs**: audit report gained §14.

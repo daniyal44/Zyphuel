@@ -20,6 +20,10 @@ export default function AppHeroScrollAnimation() {
   const isVisibleRef = useRef(true)
 
   const [scrolled, setScrolled] = useState(false)
+  // Frame fetching (preloader + scroll lookahead) stays off until the page has
+  // loaded, so the poster and Frame 1 paint before dozens of JPEGs compete for the
+  // main thread. A real scroll turns the lookahead back on immediately.
+  const allowFrameFillRef = useRef(false)
   // The progress bar is written straight to the DOM. Driving it through React state
   // re-rendered the whole section on every animation frame and forced a style
   // recalculation each time - 6.2 s of Style & Layout in the Lighthouse trace.
@@ -181,17 +185,41 @@ export default function AppHeroScrollAnimation() {
       renderFrame(0)
     }
 
-    // Priority 2: progressive fill of the whole sequence on idle, so a fast scroll
-    // never lands on an unloaded frame (see src/utils/framePreloader.js).
-    const cancelPreload = startProgressivePreload({
-      frameCount: FRAME_COUNT,
-      loadSingle: loadSingleFrame,
-      isCancelled: () => !isMounted
-    })
+    // Priority 2: progressive fill of the whole sequence, started only after the
+    // page's load event. The hero poster and Frame 1 are already painted by then, so
+    // the sequence stream no longer competes with hydration and the first paint
+    // (this page's LCP paint was being held back by that work). A bounded fallback
+    // still starts the fill if `load` never fires, and the scroll lookahead below
+    // keeps loading the frames a visitor actually reaches in the meantime.
+    let cancelPreload = null
+    let startTimer = null
+
+    const beginPreload = () => {
+      if (!isMounted || cancelPreload) return
+      if (startTimer) {
+        clearTimeout(startTimer)
+        startTimer = null
+      }
+      allowFrameFillRef.current = true
+      cancelPreload = startProgressivePreload({
+        frameCount: FRAME_COUNT,
+        loadSingle: loadSingleFrame,
+        isCancelled: () => !isMounted
+      })
+    }
+
+    if (document.readyState === 'complete') {
+      startTimer = setTimeout(beginPreload, 0)
+    } else {
+      window.addEventListener('load', beginPreload, { once: true })
+      startTimer = setTimeout(beginPreload, 4000)
+    }
 
     return () => {
       isMounted = false
-      cancelPreload()
+      window.removeEventListener('load', beginPreload)
+      if (startTimer) clearTimeout(startTimer)
+      if (cancelPreload) cancelPreload()
     }
   }, [renderFrame])
 
@@ -242,9 +270,10 @@ export default function AppHeroScrollAnimation() {
       const fraction = Math.min(1, Math.max(0, scrollTop / maxScroll))
       targetFrameRef.current = fraction * (FRAME_COUNT - 1)
 
-      // Lookahead Window: load +/- 8 frames around current position
+      // Lookahead Window: load +/- 8 frames around current position. Skipped until
+      // the page has loaded unless the visitor has already started scrolling.
       const imgs = imagesRef.current
-      if (imgs) {
+      if (imgs && (allowFrameFillRef.current || hasScrolled)) {
         const center = Math.round(targetFrameRef.current)
         const minW = Math.max(0, center - 14)
         const maxW = Math.min(FRAME_COUNT - 1, center + 16)
