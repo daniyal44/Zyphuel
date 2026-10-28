@@ -233,8 +233,8 @@ export default function ServicesSection3ScrollAnimation() {
       const imgs = imagesRef.current
       if (imgs) {
         const center = Math.round(targetFrameRef.current)
-        const minW = Math.max(0, center - 8)
-        const maxW = Math.min(FRAME_COUNT - 1, center + 10)
+        const minW = Math.max(0, center - 14)
+        const maxW = Math.min(FRAME_COUNT - 1, center + 16)
         for (let w = minW; w <= maxW; w++) {
           if (!imgs[w]) {
             const img = new Image()

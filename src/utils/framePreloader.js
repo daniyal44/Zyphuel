@@ -71,10 +71,12 @@ export function startProgressivePreload({ frameCount, loadSingle, isCancelled = 
   const metered = connection.saveData === true || /(^|-)2g$/.test(connection.effectiveType || '')
   const isMobile = window.innerWidth <= 768
 
-  // Dense keyframes first: a scrub that starts within the first second still has a
-  // neighbouring frame within a few indices instead of dozens.
-  const keyStep = metered ? 24 : isMobile ? 10 : 6
-  const chunkSize = metered ? 1 : isMobile ? 3 : 5
+  // Keyframes only: enough that the scrub always has a neighbour a few indices away,
+  // without pulling the whole sequence during page load. Loading all 300 frames cost
+  // ~20 MB up front and dropped the mobile Lighthouse score to 37; the scroll
+  // lookahead in each component fills the frames the visitor actually reaches.
+  const keyStep = metered ? 30 : isMobile ? 12 : 8
+  const chunkSize = metered ? 1 : 2
 
   const seen = new Set()
   const queue = []
@@ -89,10 +91,10 @@ export function startProgressivePreload({ frameCount, loadSingle, isCancelled = 
   for (let k = 0; k < frameCount; k += keyStep) enqueue(k)
   enqueue(frameCount - 1)
 
-  // Priority 2: fill everything else.
-  if (!metered) {
-    for (let k = 0; k < frameCount; k++) enqueue(k)
-  }
+  // A handful of frames around the start position, so the first scrub movement is
+  // already covered before the scroll lookahead kicks in.
+  const headWindow = metered ? 2 : isMobile ? 6 : 10
+  for (let k = 0; k <= headWindow; k++) enqueue(k)
 
   let cursor = 0
   let handle = null
