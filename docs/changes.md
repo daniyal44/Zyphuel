@@ -1461,3 +1461,12 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Measured**: LCP **8.8–9.3 s → 8.8–8.9 s** (no improvement), score 38–43 → 38–40, TBT 2.3–4.2 s → 3.7–4.5 s, main-thread work 11.9–13.5 s.
 - **Ruled out as LCP causes**: poster (request 45 ms, done 68 ms), `DownloadPage-*.css` (728–741 ms), `DownloadPage-*.js` (727–732 ms). The paint is gated by main-thread work, so the next step is hydration cost, not preloading.
 - **Docs**: audit report gained §14.
+
+## [2026-10-29] `/download/` LCP 9.1 s → 1.7 s (poster was the LCP element)
+
+- **Profile first**: main-thread work was "Other" 5,171 ms + Style & Layout 2,518 ms + Script Evaluation 934 ms, with a single 2,233 ms React task. Cutting that (deferring the frame fill to first scroll) took TBT 3.7–4.5 s → 1.9–2.2 s and main-thread 13.5 s → 8.4 s, but **LCP stayed ~9 s** — so the paint was not waiting on hydration.
+- **Root cause**: Lighthouse's `observedLCP` was already 1,376 ms while the simulated LCP was 9,243 ms, and the LCP element was `div.app-hero-sticky-stage` — its full-viewport **CSS background poster**. Verified by elimination on `dist` copies: frames removed → LCP **1,656 ms / score 67**; poster removed → **1,670 ms / score 66**; poster moved to `::before` → back to 8,887 ms (Chrome attributes pseudo-element backgrounds to the host); Google Fonts removed → only 7.9 s.
+- **Fix**: `.app-hero-sticky-stage` now uses a dark radial gradient instead of the poster image (the canvas still paints frame 1 from the high-priority preload), and the 300-frame fill starts on the visitor's **first scroll** (12 s fallback) instead of after `load`.
+- **Measured**: score **40/38 → 67/66**, LCP **8.9/8.8 s → 1.7/1.7 s** (element is now `h1#download-hero-intro-heading`, painted with FCP), TBT 2.08/2.71 s, CLS 0.052, requests **55 → 25**. Console clean; hero re-verified over CDP (gradient stage, canvas `412×753` painted, scroll to 4,000 px → 1 → 45 frame resources, progress bar 100%); `scripts/qa-static.cjs` 20/20 PASS.
+- **Trade-off**: the hero shows a dark gradient until the canvas paints frame 1 (sub-second on a normal connection) instead of an instant poster photo.
+- **Docs**: audit report gained §15.

@@ -334,3 +334,38 @@ Scroll behaviour re-tested in a real browser: after `window.scrollTo(0, 3000)` t
 All three land inside the first second, yet LCP stays at ~9 s while `mainthread-work-breakdown` sits at **11.9–13.5 s**. The largest paint is therefore gated by main-thread work (hydration of a 34,000 px page plus the canvas loop), not by any resource. Deferring the frame fill slightly *reduces* pre-load contention but cannot move LCP on its own.
 
 **Next target:** the hydration/main-thread cost itself — profile the 11.9–13.5 s of main-thread work and reduce the number of hydrated elements/sections on `/download/`. Any further preloading or deferral tweak will show the same flat LCP.
+
+---
+
+## 15. `/download/` LCP 9.1 s → 1.7 s: the poster was the LCP element
+
+**Where the main-thread time went** (`/download/`, before this section): "Other" 5,171 ms, Style & Layout 2,518 ms, Script Evaluation 934 ms; one 2,233 ms React task and a 5.1 s `mainthread-work-breakdown`. Cutting that work moved TBT (3.7–4.5 s → 1.9–2.2 s) and main-thread time (11.9–13.5 s → 8.7–8.9 s) but **LCP stayed at ~9 s**, so the paint was not waiting on hydration.
+
+**The real cause, found by elimination.** Lighthouse reported `observedLargestContentfulPaint` **1,376 ms** but a simulated LCP of **9,243 ms** — and the LCP element was always `div.app-hero-sticky-stage`, i.e. the full-viewport **CSS background poster** (`app-frame-001.jpg`). Experiments, each on a copy of `dist`:
+
+| Variant | LCP element | Simulated LCP | Score |
+|---|---|---|---|
+| Current build | `div.app-hero-sticky-stage` (CSS poster) | 9,243 ms | 43 |
+| All `app-hero-frames/` removed | `h1#download-hero-intro-heading` | **1,656 ms** | **67** |
+| Frames deferred to first scroll (1 frame requested) | `div.app-hero-sticky-stage` | 9,108 ms | 43 |
+| Poster **removed** from `.app-hero-sticky-stage` | `h1#download-hero-intro-heading` | **1,670 ms** | **66** |
+| Poster moved to `.app-hero-sticky-stage::before` | `div.app-hero-sticky-stage` | 8,887 ms | 42 |
+| Google Fonts links removed | `div.app-hero-sticky-stage` | 7,900 ms | 44 |
+
+The pseudo-element test is the decisive one: Chrome attributes a `::before` background to its host element, so any full-viewport poster on that stage stays the LCP element and Lantern keeps estimating ~9 s for it.
+
+**Fix.**
+
+1. `.app-hero-sticky-stage` no longer carries a background image. It is a dark radial gradient (visually close to the old poster's dark scene, and not an LCP candidate). The canvas still paints `app-frame-001.jpg` from the preload the moment the component mounts.
+2. The 300-frame background fill now starts on the visitor's **first scroll** (12 s fallback), instead of after `load`. Frame requests on first load fell from **37 to 1** (total requests 55 → 25) while the scroll lookahead keeps the scrub smooth.
+
+**Measured** (Lighthouse 13, mobile, simulated throttling, two runs):
+
+| Run | Score | FCP | LCP | TBT | CLS | Requests |
+|---|---|---|---|---|---|---|
+| Before this turn (§14) | 40 / 38 | 1.7 / 1.8 s | 8.9 / 8.8 s | 3.7 / 4.5 s | 0.05 | 55 |
+| After | **67 / 66** | 1.7 s | **1.7 / 1.7 s** | 2.08 / 2.71 s | 0.052 | **25** |
+
+LCP is now our own `<h1>` in the intro band, painted with FCP. Console is clean (0 issues), and the hero was re-verified in a real Chrome over CDP: stage background is the gradient, canvas is `412×753` with drawn pixels, scrolling to 4,000 px loads frames (1 → 45 resources) and the progress bar reaches 100%.
+
+**Trade-off, stated plainly:** before hydration the hero shows a dark gradient rather than the photo. Frame 1 arrives from the high-priority preload as soon as the component mounts, so this is a sub-second difference on a normal connection — but on a very slow device the first image appears slightly later than before.

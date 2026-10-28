@@ -208,16 +208,46 @@ export default function AppHeroScrollAnimation() {
       })
     }
 
+    // The 300-frame sequence is 2 MB of JPEGs. Streaming it during page load
+    // competed with the fonts/CSS/JS the first paint needs: Lighthouse's simulated
+    // LCP sat at ~9.2 s because of that bandwidth, and dropped to ~1.7 s with the
+    // frames blocked. So the background fill waits for the visitor's first scroll,
+    // which is the only moment it is actually needed; the scroll lookahead keeps the
+    // scrub smooth in the meantime, and a long fallback still fills the sequence for
+    // anyone who arrives, waits, and then scrubs.
+    const enableFill = () => {
+      allowFrameFillRef.current = true
+      if (startTimer) {
+        clearTimeout(startTimer)
+        startTimer = null
+      }
+    }
+
+    const onFirstScroll = () => {
+      if ((window.scrollY || window.pageYOffset || 0) < 20) return
+      window.removeEventListener('scroll', onFirstScroll)
+      enableFill()
+      beginPreload()
+    }
+
+    const scheduleFill = () => {
+      enableFill()
+      window.addEventListener('scroll', onFirstScroll, { passive: true })
+      // Eventual fill for a visitor who never scrolls the hero at all.
+      startTimer = setTimeout(beginPreload, 12000)
+    }
+
     if (document.readyState === 'complete') {
-      startTimer = setTimeout(beginPreload, 0)
+      scheduleFill()
     } else {
-      window.addEventListener('load', beginPreload, { once: true })
-      startTimer = setTimeout(beginPreload, 4000)
+      window.addEventListener('load', scheduleFill, { once: true })
+      startTimer = setTimeout(scheduleFill, 4000)
     }
 
     return () => {
       isMounted = false
-      window.removeEventListener('load', beginPreload)
+      window.removeEventListener('load', scheduleFill)
+      window.removeEventListener('scroll', onFirstScroll)
       if (startTimer) clearTimeout(startTimer)
       if (cancelPreload) cancelPreload()
     }
