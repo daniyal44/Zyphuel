@@ -457,8 +457,19 @@
 
 <body>
   <div id="root"></div>
-  <!-- Zyphuel Order Guard Plugin (Strict 10:00 PM – 8:00 AM PKT Cutoff) -->
-  <script src="/plugins/zyphuel-order-guard/zyphuel-order-guard.js" defer></script>
+  <!-- Zyphuel Order Guard Plugin (Strict 10:00 PM – 8:00 AM PKT Cutoff).
+       Loaded only on /order/ — every other route paid ~140 ms of script work for
+       a guard whose submit button does not exist there. -->
+  <script>
+    (function () {
+      if (!/^\/order(\/|$)/.test(window.location.pathname)) return;
+      var s = document.createElement('script');
+      s.src = '/plugins/zyphuel-order-guard/zyphuel-order-guard.js';
+      s.defer = true;
+      s.id = 'zyphuel-order-guard-script';
+      document.head.appendChild(s);
+    })();
+  </script>
   <script type="module" src="/src/main.jsx"></script>
 
 

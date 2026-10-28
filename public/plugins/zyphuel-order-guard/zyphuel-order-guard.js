@@ -1,11 +1,18 @@
 /**
- * Zyphuel Order Guard Plugin (v2.0.0 - Browser & SPA Edition)
- * 
+ * Zyphuel Order Guard Plugin (v2.1.0 - Route-Scoped Browser Edition)
+ *
  * Strict 10:00 PM (22:00) to 8:00 AM (08:00) PKT Order Intake Cutoff Enforcement.
- * This plugin runs directly in the browser across all pages, continuously monitoring
- * Asia/Karachi time. During cutoff hours, it unconditionally suppresses and removes
- * any order submission triggers (.truck-button, #truck-submit-btn).
- * 
+ *
+ * v2.1.0 — route-scoped. The previous version installed a subtree MutationObserver
+ * and a 5 s interval on EVERY page and formatted an Intl date on every DOM mutation
+ * batch. On a 757-element page that produced a single 606 ms blocking task plus
+ * 742 ms of bootup on pages that have no order button at all (Lighthouse audit,
+ * 2026-10-28). The enforcement machinery now starts only on /order/ and stops when
+ * the route changes, while the public API stays available everywhere.
+ *
+ * Server-side enforcement (plugins/zyphuel-order-guard/zyphuel-order-guard.php,
+ * Vite dev middleware) is unchanged and remains the authoritative guard.
+ *
  * Author: Zyphuel Engineering
  * Timezone: Asia/Karachi (PKT)
  */
@@ -13,11 +20,20 @@
   'use strict';
 
   var PLUGIN_NAME = 'Zyphuel Order Guard Plugin';
-  var VERSION = '2.0.0';
+  var VERSION = '2.1.0';
   var TIMEZONE = 'Asia/Karachi';
   var CUTOFF_START_HOUR = 22; // 10:00 PM PKT
   var CUTOFF_END_HOUR = 8;    // 8:00 AM PKT
   var WHATSAPP_HELPLINE = '+92 3230-112464';
+  var ORDER_ROUTE = /^\/order(\/|$)/;
+
+  function isOrderRoute() {
+    try {
+      return ORDER_ROUTE.test(window.location.pathname || '');
+    } catch (e) {
+      return false;
+    }
+  }
 
   function getKarachiHour() {
     try {
@@ -52,6 +68,14 @@
   function isNightCutoffActive() {
     var hour = getKarachiHour();
     return (hour >= CUTOFF_START_HOUR || hour < CUTOFF_END_HOUR);
+  }
+
+  // Cached cutoff state. The hot paths (MutationObserver callback) read this
+  // boolean instead of building an Intl formatter for every mutation batch.
+  var cachedCutoff = false;
+  function refreshCutoffState() {
+    cachedCutoff = isNightCutoffActive();
+    return cachedCutoff;
   }
 
   var styleInjected = false;
@@ -119,7 +143,7 @@
     if (isEnforcing) return;
     isEnforcing = true;
     try {
-      var isCutoff = isNightCutoffActive();
+      var isCutoff = refreshCutoffState();
       var body = document.body;
 
       if (isCutoff) {
@@ -157,63 +181,127 @@
   }
 
   // Intercept any programmatic form submissions on order forms during cutoff
+  var submitHandler = null;
   function setupSubmissionInterceptor() {
-    document.addEventListener('submit', function (e) {
-      if (isNightCutoffActive()) {
+    if (submitHandler) return;
+    submitHandler = function (e) {
+      if (cachedCutoff) {
         var form = e.target;
         if (form && (form.classList.contains('order-form') || form.closest('.order-form-container'))) {
           e.preventDefault();
           e.stopImmediatePropagation();
           alert('Online doorstep fuel orders close strictly at 10:00 PM PKT. Orders reopen tomorrow at 8:00 AM PKT.\n\nFor emergency generator refueling, please contact our 24/7 WhatsApp helpline: ' + WHATSAPP_HELPLINE);
-          return false;
         }
       }
-    }, true);
+    };
+    document.addEventListener('submit', submitHandler, true);
   }
 
-  // Initialize MutationObserver to catch dynamically rendered buttons by React without performance thrashing
+  var observer = null;
   function observeDOM() {
-    if (typeof MutationObserver !== 'undefined') {
-      var observer = new MutationObserver(function () {
-        if (!isEnforcing && isNightCutoffActive()) {
-          scheduleEnforce();
-        }
-      });
-      observer.observe(document.body || document.documentElement, {
-        childList: true,
-        subtree: true
-      });
-    }
+    if (observer || typeof MutationObserver === 'undefined') return;
+    observer = new MutationObserver(function () {
+      if (!isEnforcing && cachedCutoff) {
+        scheduleEnforce();
+      }
+    });
+    observer.observe(document.body || document.documentElement, {
+      childList: true,
+      subtree: true
+    });
   }
 
-  function init() {
+  var intervalId = null;
+  var monitoring = false;
+
+  function startMonitoring() {
+    if (monitoring) return;
+    monitoring = true;
+
     enforceCutoff();
     setupSubmissionInterceptor();
     observeDOM();
 
     // Check every 5 seconds to smoothly transition at 10:00 PM and 8:00 AM
-    setInterval(enforceCutoff, 5000);
+    intervalId = setInterval(enforceCutoff, 5000);
 
-    var currentPKT = getKarachiTimeFormatted();
-    var status = isNightCutoffActive() ? 'LOCKED (10:00 PM – 8:00 AM Night Cutoff Active)' : 'OPEN (Accepting Orders)';
     console.log(
-      '%c[' + PLUGIN_NAME + ' v' + VERSION + ']%c Current PKT Time: ' + currentPKT + ' | Status: ' + status,
+      '%c[' + PLUGIN_NAME + ' v' + VERSION + ']%c Current PKT Time: ' + getKarachiTimeFormatted() +
+        ' | Status: ' + (cachedCutoff ? 'LOCKED (10:00 PM – 8:00 AM Night Cutoff Active)' : 'OPEN (Accepting Orders)'),
       'background: #ea580c; color: #fff; font-weight: bold; padding: 2px 6px; border-radius: 4px;',
       'color: #38bdf8; font-weight: 600;'
     );
   }
 
-  // Expose global controller
+  function stopMonitoring() {
+    if (!monitoring) return;
+    monitoring = false;
+
+    if (observer) {
+      try { observer.disconnect(); } catch (e) { /* already gone */ }
+      observer = null;
+    }
+    if (intervalId) {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+    if (submitHandler) {
+      document.removeEventListener('submit', submitHandler, true);
+      submitHandler = null;
+    }
+  }
+
+  // Keep the guard attached to the order route only, including SPA navigation.
+  function sync() {
+    if (isOrderRoute()) {
+      if (!monitoring) startMonitoring();
+      return;
+    }
+    if (monitoring) {
+      stopMonitoring();
+      var body = document.body;
+      if (body && body.classList.contains('zyphuel-night-cutoff-active')) {
+        body.classList.remove('zyphuel-night-cutoff-active');
+      }
+      removeGuardStyles();
+    }
+  }
+
+  function watchRouteChanges() {
+    ['pushState', 'replaceState'].forEach(function (method) {
+      var original = window.history && window.history[method];
+      if (typeof original !== 'function') return;
+      window.history[method] = function () {
+        var result = original.apply(this, arguments);
+        try { sync(); } catch (e) { /* never break navigation */ }
+        return result;
+      };
+    });
+    window.addEventListener('popstate', function () {
+      try { sync(); } catch (e) { /* never break navigation */ }
+    });
+  }
+
+  // Expose global controller on every route — the enforcement itself is scoped.
   window.ZyphuelOrderGuard = {
     name: PLUGIN_NAME,
     version: VERSION,
     timezone: TIMEZONE,
     isNightCutoffActive: isNightCutoffActive,
+    isOrderRoute: isOrderRoute,
+    isMonitoring: function () { return monitoring; },
     getKarachiHour: getKarachiHour,
     getKarachiTimeFormatted: getKarachiTimeFormatted,
     enforce: enforceCutoff,
+    sync: sync,
     helpline: WHATSAPP_HELPLINE
   };
+
+  function init() {
+    refreshCutoffState();
+    sync();
+    watchRouteChanges();
+  }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

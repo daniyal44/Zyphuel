@@ -164,3 +164,34 @@ So the remaining cost is **React hydration of a 757-element page** plus the **or
 | 3 | Reduce hydration work on content-heavy pages (defer below-the-fold sections) | Cuts the 6.3 s `vendor-react` bootup and the ~6 s of Style & Layout | `bootup-time`, `mainthread-work-breakdown` |
 | 4 | Text LCP candidate above the `/download/` canvas | Makes that page measurable at all | `NO_LCP` |
 | 5 | Font subsetting (253 KB of Font Awesome woff2) | Faster FCP | network list |
+
+---
+
+## 10. Order-guard scoped to `/order/` — re-measured
+
+**What was wrong:** the guard (and its twin ES-module copy) initialised on every route — a subtree `MutationObserver` plus a 5 s interval, with `Intl.DateTimeFormat` built on every mutation batch. On `/services/` that produced a **606 ms blocking task** and **742 ms bootup** for a submit button that does not exist there.
+
+**What changed:**
+
+1. `public/plugins/zyphuel-order-guard/zyphuel-order-guard.js` — v2.1.0. Enforcement machinery (`enforceCutoff`, mutation observer, 5 s interval, submit interceptor) starts only on `/order/` and stops on route change; SPA navigation is tracked via patched `pushState`/`replaceState` + `popstate`. The hot observer callback now reads a **cached** cutoff boolean instead of formatting a date per mutation. The global `window.ZyphuelOrderGuard` API remains available everywhere.
+2. `src/plugins/zyphuelOrderGuard.js` — returns a no-op off-route, injects the browser plugin on demand, and keeps its own 5 s interval only while on `/order/`.
+3. `index.html` — the plugin `<script>` is no longer a global tag. A ~200-byte inline check appends it only when `location.pathname` is `/order/`, so other routes never request the file.
+
+**Behaviour verified on the production build:**
+
+| Route | Guard script requested | `ZyphuelOrderGuard` global | Body cutoff class | Submit button |
+|---|---|---|---|---|
+| `/services/` | **no** | undefined | absent | n/a |
+| `/order/` | **yes** (v2.1.0) | present | applied | **absent** (cutoff enforced) |
+
+**Re-measured** (`/services/`, two runs, same settings):
+
+| Run | Score | TBT | Long tasks | Guard long tasks | Style & Layout |
+|---|---|---|---|---|---|
+| Before this change (§8, median) | 34 | 1,160–1,490 ms | 14 | **1 × 606 ms** | 5,736–6,189 ms |
+| After — run 1 | **44** | **500 ms** | 11 | **0** | 3,802 ms |
+| After — run 2 | **35** | 1,070 ms | 12 | **0** | 6,264 ms |
+
+**Honest read:** the targeted metric is decisively fixed — the guard contributes **zero** long tasks and is no longer downloaded on non-order pages, and best-case TBT roughly halved (1,490 ms → 500 ms). The score moved from a median of **34 to ~39.5**, but run-to-run spread is still wide (35–44) because Style & Layout fluctuates between 3.8 s and 6.3 s — that is React hydration of a 757-element page, which the guard was never responsible for. Anyone quoting a single run of 44 as the page's score would be overstating it.
+
+**Remaining dominant cost (unchanged):** hydration/layout. Next targets from §9 remain valid: lazy-load `vendor-pdf-barcode` (−492 KiB), reduce hydration on content-heavy pages, add an LCP candidate to `/download/`.

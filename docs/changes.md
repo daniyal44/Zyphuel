@@ -1421,3 +1421,12 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **What the trace actually blames**: `vendor-react` bootup **6,335 ms**, unattributed **6,170 ms**, and `zyphuel-order-guard.js` **742 ms** bootup with a single **606 ms** blocking task. DOM is 757 elements. The order-guard plugin runs on every route, not just `/order/`, and is the cheapest next win.
 - **Kept anyway** because it is correct: removing ~60 renders/second of scrolling is right for real devices even if Lighthouse does not score it.
 - **Documentation**: audit report gained §8 (follow-up measurement) and §9 (revised next steps).
+
+## [2026-10-28] Order Guard Scoped to /order/ (measured win)
+
+- **Problem**: the order guard initialised on every route — subtree `MutationObserver` + 5 s interval + `Intl` date per mutation batch — producing a **606 ms blocking task** and **742 ms bootup** on `/services/`, where no submit button exists.
+- **Fix**: `public/plugins/zyphuel-order-guard/zyphuel-order-guard.js` v2.1.0 starts enforcement only on `/order/` and stops on route change (patched `pushState`/`replaceState`, `popstate`), with a cached cutoff boolean so the observer callback never formats a date. `src/plugins/zyphuelOrderGuard.js` no-ops off-route, injects the browser plugin on demand and only keeps its interval on `/order/`. `index.html` now carries a ~200-byte conditional loader instead of a global `<script>`, so other routes never request the file.
+- **Verified on the production build**: `/services/` → no guard request, no global, no body class; `/order/` → script v2.1.0 loaded, monitoring active, body class applied, submit button absent during the cutoff.
+- **Re-measured** (`/services/`, Lighthouse 12 mobile, 2 runs): score **44** and **35** (median ~39.5, up from ~34), TBT **500 ms** and 1,070 ms (best case roughly a third of the previous 1,490 ms), guard long tasks **0** (was one at 606 ms).
+- **Honest caveat**: run-to-run spread stays wide because Style & Layout swings 3.8–6.3 s from React hydration of a 757-element page. The guard fix is real and measurable; it is not the last bottleneck.
+- **Documentation**: audit report gained §10.
