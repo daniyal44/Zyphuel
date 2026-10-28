@@ -190,7 +190,7 @@ export default function AppSection3ScrollAnimation() {
     if (cancelPreloadRef.current) cancelPreloadRef.current()
     cancelPreloadRef.current = startProgressivePreload({
       frameCount: FRAME_COUNT,
-      loadSingle
+      loadSingle: loadSingleFrame
     })
   }, [renderFrame])
 

@@ -225,3 +225,46 @@ So the remaining cost is **React hydration of a 757-element page** plus the **or
 **Honest read:** this is the first change in the whole audit with a clearly measurable gain — median score **39.5 → ~46.5**, TBT best case **330 ms** (from 1,490 ms at the start of the day), transfer **−477 KiB** on every non-order page, and unused JS down from 492 KiB to 113 KiB. Byte weight and the request list are deterministic, so those numbers are not noise; the score still varies run to run and should be quoted as a range.
 
 **Still remaining:** Style & Layout (~4–6 s, React hydration of a 757-element page) and the missing LCP candidate on `/download/`.
+
+---
+
+## 12. `/download/` — give the page an LCP candidate (and why it was blank)
+
+**Symptom.** Lighthouse refused to score `/download/` at all: `largest-contentful-paint` was `null` with no element, `speed-index` returned `SPEEDINDEX_OF_ZERO` ("Chrome didn't collect any screenshots"), and the category score was `null`.
+
+**First fix — real text above the canvas.** The page opened with a full-viewport `<canvas>`; a canvas is never an LCP candidate and nothing else painted in the first screen. Added `section.download-hero-intro` above `<AppHeroScrollAnimation />`:
+
+```jsx
+<section className="download-hero-intro" aria-labelledby="download-hero-intro-heading">
+  <p className="download-hero-intro-eyebrow">Official Zyphuel Android App • v{APP_VERSION} • {APP_SIZE}</p>
+  <h1 id="download-hero-intro-heading" className="download-hero-intro-title">
+    Zyphuel Android App: <span>Doorstep Petrol &amp; Diesel Delivery in Lahore</span>
+  </h1>
+  <p className="download-hero-intro-desc">…45 minutes…</p>
+</section>
+```
+
+The old headline further down the page became `<h2 class="hero-title">`, keeping exactly one H1 per page (`scripts/qa-static.cjs` enforces `h1 count !== 1` as a failure).
+
+**Second fix — the page was rendering blank.** With an LCP element present the score was still `null`, so the page was opened in a real browser instead of trusting the report:
+
+| Probe | Result before | Result after |
+|---|---|---|
+| `#root` children | **0** | 6 |
+| console | `ReferenceError: loadSingle is not defined` | clean |
+| headless screenshot (412×823) | **blank white, 2.6 KB** | full page |
+| `/`, `/services/`, `/order/` screenshots | normal | normal |
+
+`AppHeroScrollAnimation` called `startProgressivePreload({ frameCount, loadSingle })` but the loader function is named `loadSingleFrame`. The `ReferenceError` was thrown inside the mount effect, React unmounted the tree, and `/download/` was a **blank white page for real visitors and for Googlebot** — which is a much better explanation for "downloaded not indexed" than meta tags. The same latent bug existed in `AppSection3ScrollAnimation.jsx`. Both now pass `loadSingle: loadSingleFrame`.
+
+**Measured** (Lighthouse 13, mobile, simulated throttling, static `dist` build, `/download/`, two runs):
+
+| Run | Score | FCP | LCP | TBT | CLS | Filmstrip |
+|---|---|---|---|---|---|---|
+| Before | **null** (`NO_LCP`, no screenshots) | 2.3 s | — | 1,260 ms (page crashed, so nothing ran) | 0 | missing |
+| After — run 1 | **35** | 2.1 s | 9.0 s | 6,660 ms | 0.053 | present |
+| After — run 2 | **34** | 2.1 s | 9.0 s | 7,450 ms | 0.052 | present |
+
+The LCP element is `div.app-hero-sticky-stage` — its `app-frame-001.jpg` poster is the largest paint in the first viewport (985 ms resource load delay + 696 ms render delay), not the new heading. The heading is the first real *text* the page paints, and the paragraph and H1 now give the page indexable above-the-fold copy that it never had.
+
+**Still remaining on `/download/`:** TBT 6.6–7.5 s is now the dominant problem (it was hidden before because the page crashed before doing any work). The hero's progressive frame preloader and the 34,000 px page's hydration both need work, and `app-frame-001.jpg` should be preloaded with `fetchpriority="high"` to cut the 985 ms LCP resource delay.

@@ -185,7 +185,7 @@ export default function AppHeroScrollAnimation() {
     // never lands on an unloaded frame (see src/utils/framePreloader.js).
     const cancelPreload = startProgressivePreload({
       frameCount: FRAME_COUNT,
-      loadSingle,
+      loadSingle: loadSingleFrame,
       isCancelled: () => !isMounted
     })
 

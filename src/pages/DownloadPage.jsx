@@ -262,6 +262,25 @@ export default function DownloadPage() {
     <div ref={pageRef} className="download-page-wrapper">
       <main style={{ paddingTop: 'var(--nav-height)' }}>
         
+        {/* Above-the-fold intro: real H1 + paragraph in the first viewport.
+            The canvas hero paints no text, so without this band the page had no
+            eligible Largest Contentful Paint element (Lighthouse reported NO_LCP
+            and refused to score /download/ at all). */}
+        <section className="download-hero-intro" aria-labelledby="download-hero-intro-heading">
+          <div className="download-hero-intro-inner">
+            <p className="download-hero-intro-eyebrow">
+              <span className="intro-live-dot" aria-hidden="true"></span>
+              {`Official Zyphuel Android App • v${APP_VERSION} • ${APP_SIZE}`}
+            </p>
+            <h1 id="download-hero-intro-heading" className="download-hero-intro-title">
+              Zyphuel Android App: <span>Doorstep Petrol &amp; Diesel Delivery in Lahore</span>
+            </h1>
+            <p className="download-hero-intro-desc">
+              {`Download the official Zyphuel APK and get Euro-V petrol, diesel or High-Octane 97 delivered to your car, generator or home anywhere in Lahore within 45 minutes.`}
+            </p>
+          </div>
+        </section>
+
         {/* Top Hero: 3D App Mobile Experience Scroll Animation */}
         <AppHeroScrollAnimation />
 
@@ -277,9 +296,9 @@ export default function DownloadPage() {
                   <span>{`Pakistan's #1 On-Demand Fuel App • v${APP_VERSION} (Latest Release)`}</span>
                 </div>
                 
-                <h1 className="hero-title">
+                <h2 className="hero-title">
                   Download the <span>Zyphuel Fuel Delivery App</span> for Android
-                </h1>
+                </h2>
                 
                 <p className="hero-description">
                   Order Euro-V Super Petrol, Euro-V Diesel &amp; High-Octane 97 delivered directly to your vehicle, generator, or home across Lahore in minutes. Skip long fuel station queues, eliminate short-fueling fraud with 0.01L digital flow meters, and receive automated 2-hour OGRA price-lock alerts.

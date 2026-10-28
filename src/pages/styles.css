@@ -464,6 +464,76 @@
   color: var(--text-primary);
 }
 
+/* Download Hero Intro Band (above the canvas hero)
+   Gives the first viewport a real headline + paragraph, so /download/ has a
+   genuine LCP candidate instead of the canvas (which is never eligible). */
+.download-hero-intro {
+  background: #000000;
+  color: #f8fafc;
+  padding: 44px 24px 38px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.download-hero-intro-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.download-hero-intro-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px 0;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #94a3b8;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.download-hero-intro-eyebrow .intro-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #00d26a;
+  box-shadow: 0 0 8px #00d26a;
+}
+
+.download-hero-intro-title {
+  margin: 0 0 12px 0;
+  font-size: clamp(1.7rem, 4.2vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.download-hero-intro-title span {
+  color: #38bdf8;
+}
+
+.download-hero-intro-desc {
+  margin: 0 auto;
+  max-width: 780px;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+@media (max-width: 600px) {
+  .download-hero-intro {
+    padding: 30px 18px 26px;
+  }
+
+  .download-hero-intro-desc {
+    font-size: 0.95rem;
+  }
+}
+
 /* Download Hero */
 .download-hero {
   padding: 60px 0 100px 0;
