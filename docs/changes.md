@@ -1430,3 +1430,10 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Re-measured** (`/services/`, Lighthouse 12 mobile, 2 runs): score **44** and **35** (median ~39.5, up from ~34), TBT **500 ms** and 1,070 ms (best case roughly a third of the previous 1,490 ms), guard long tasks **0** (was one at 606 ms).
 - **Honest caveat**: run-to-run spread stays wide because Style & Layout swings 3.8–6.3 s from React hydration of a 757-element page. The guard fix is real and measurable; it is not the last bottleneck.
 - **Documentation**: audit report gained §10.
+
+## [2026-10-28] PDF/Barcode Bundle Lazy (first clear Lighthouse gain)
+
+- **Root cause found**: `manualChunks` in `vite.config.js` pinned `jspdf`, `qrcode` and `jsbarcode` into a named `vendor-pdf-barcode` chunk. Rollup put Vite's `__vitePreload` helper inside that chunk, so the entry imported the helper — and therefore all **471 KB** — on every route, with a `<link rel="modulepreload">` in each prerendered page.
+- **Fix**: removed that `manualChunks` branch. The packages now live inside the lazily-imported `generateInvoicePdf` chunk and load only when an invoice is downloaded. Verified end-to-end: clicking `#download-invoice-pdf-btn` loads `generateInvoicePdf-*.js` + `jspdf.es.min-*.js` on demand and produces a valid `%PDF-` (15,596 bytes).
+- **Measured** (`/services/`, Lighthouse 12 mobile, 2 runs): score **42** and **51** (median ~46.5, up from ~39.5), TBT **660 / 330 ms**, transfer **4,053 -> 3,576 KiB** (−477 KiB on every non-order page), `unused-javascript` **492 -> 113 KiB**. No `vendor-pdf-barcode` chunk exists in the build any more, and `/services/` has only two modulepreloads.
+- **Documentation**: audit report gained §11.

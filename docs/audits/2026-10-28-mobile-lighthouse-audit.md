@@ -195,3 +195,33 @@ So the remaining cost is **React hydration of a 757-element page** plus the **or
 **Honest read:** the targeted metric is decisively fixed — the guard contributes **zero** long tasks and is no longer downloaded on non-order pages, and best-case TBT roughly halved (1,490 ms → 500 ms). The score moved from a median of **34 to ~39.5**, but run-to-run spread is still wide (35–44) because Style & Layout fluctuates between 3.8 s and 6.3 s — that is React hydration of a 757-element page, which the guard was never responsible for. Anyone quoting a single run of 44 as the page's score would be overstating it.
 
 **Remaining dominant cost (unchanged):** hydration/layout. Next targets from §9 remain valid: lazy-load `vendor-pdf-barcode` (−492 KiB), reduce hydration on content-heavy pages, add an LCP candidate to `/download/`.
+
+---
+
+## 11. PDF/barcode bundle made lazy — re-measured (first clear score gain)
+
+**Root cause (not what §9 assumed).** The 471 KB `vendor-pdf-barcode` chunk was not being pulled in by a stray component import. `vite.config.js` pinned `jspdf`, `qrcode` and `jsbarcode` into one named chunk via `manualChunks`; Rollup then placed **Vite's own `__vitePreload` helper** inside that chunk, and because the entry chunk uses dynamic imports it statically imported the helper — dragging all 471 KB onto every page and emitting `<link rel="modulepreload">` for it in each prerendered HTML file.
+
+**Fix.** Removed the `manualChunks` branch for those three packages. Rollup now keeps them inside the lazily-imported `generateInvoicePdf` chunk, which only loads when a customer downloads an invoice.
+
+**Verified:**
+
+| Check | Before | After |
+|---|---|---|
+| `dist/assets/vendor-pdf-barcode-*.js` | 471 KB, preloaded on every page | **does not exist** |
+| `modulepreload` links in `/services/` HTML | vendor-react, **vendor-pdf-barcode**, articles-data | vendor-react, articles-data |
+| Entry chunk references `jspdf`/`qrcode` | yes | **no** |
+| Invoice PDF (click `#download-invoice-pdf-btn`) | worked | **worked** — `generateInvoicePdf-*.js` + `jspdf.es.min-*.js` loaded on demand, output `%PDF-`, 15,596 bytes |
+| Page status (`/`, `/services/`, `/download/`, `/order/`, `/blog/`) | 200 | 200 |
+
+**Re-measured** (`/services/`, two runs, same settings):
+
+| Run | Score | TBT | FCP | LCP | Bytes | Unused JS |
+|---|---|---|---|---|---|---|
+| Before (§10, median) | 39.5 | 500–1,070 ms | 7.6–9.6 s | 10.2–11.0 s | 4,053 KiB | 492 KiB |
+| After — run 1 | **42** | 660 ms | 7.0 s | 8.0 s | **3,576 KiB** | **113 KiB** |
+| After — run 2 | **51** | **330 ms** | 6.7 s | 8.6 s | **3,576 KiB** | **113 KiB** |
+
+**Honest read:** this is the first change in the whole audit with a clearly measurable gain — median score **39.5 → ~46.5**, TBT best case **330 ms** (from 1,490 ms at the start of the day), transfer **−477 KiB** on every non-order page, and unused JS down from 492 KiB to 113 KiB. Byte weight and the request list are deterministic, so those numbers are not noise; the score still varies run to run and should be quoted as a range.
+
+**Still remaining:** Style & Layout (~4–6 s, React hydration of a 757-element page) and the missing LCP candidate on `/download/`.

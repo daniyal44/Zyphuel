@@ -223,9 +223,13 @@ export default defineConfig(({ isSsrBuild }) => ({
               if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/') || id.includes('node_modules/react-router-dom/')) {
                 return 'vendor-react';
               }
-              if (id.includes('node_modules/jspdf') || id.includes('node_modules/qrcode') || id.includes('node_modules/jsbarcode')) {
-                return 'vendor-pdf-barcode';
-              }
+              // NOTE: jspdf / qrcode / jsbarcode are deliberately NOT pinned to a
+              // shared chunk here. Forcing them into one 'vendor-pdf-barcode' chunk
+              // made Rollup place Vite's own __vitePreload helper inside it, so the
+              // entry chunk (and therefore every page) statically imported 471 KB of
+              // PDF/barcode code. Left to itself, Rollup keeps them in the lazily
+              // imported generateInvoicePdf chunk, which only the invoice download
+              // pulls in (Lighthouse audit 2026-10-28, -492 KiB per page).
               if (id.includes('articles')) {
                 return 'articles-data';
               }
