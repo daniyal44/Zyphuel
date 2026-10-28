@@ -22,7 +22,7 @@
   height: calc(100vh - var(--nav-height, 0px));
   height: calc(100dvh - var(--nav-height, 0px));
   overflow: hidden;
-  background: #000 url('/services-section3-frames/section3-frame-001.jpg') center center / cover no-repeat;
+  background: radial-gradient(ellipse at 50% 45%, #0b1220 0%, #05080f 55%, #000000 100%);
   z-index: 10;
   user-select: none;
   margin: 0;
