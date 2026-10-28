@@ -374,6 +374,8 @@ LCP is now our own `<h1>` in the intro band, painted with FCP. Console is clean 
 
 ## 16. Home and Services poster change follow-up (2026-10-29)
 
+**Standalone report and graph:** [Mobile Lighthouse — Home & Services](../reports/2026-10-29-mobile-lighthouse-home-services.md) · ![Home/Services scores](../reports/charts/lighthouse-mobile-2026-10-29.svg)
+
 The Home (`.cinematic-sticky-stage`) and Services (`.services-sticky-stage`, `.section3-sticky-stage`) CSS frame-001 backgrounds were also replaced with radial gradients, to avoid a full-viewport background poster being an LCP candidate. The CSS edits build successfully, but a fresh Lighthouse 13.6 **mobile, simulated-throttling** run on the built site shows this change did **not** deliver a 67+ performance score on these routes.
 
 | Route | Performance | FCP | LCP | TBT | CLS | Accessibility | Best Practices | SEO |

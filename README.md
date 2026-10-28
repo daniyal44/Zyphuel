@@ -10,6 +10,14 @@
 
 > **Zyphuel** is Pakistan’s premier on-demand doorstep fuel delivery and petroleum energy logistics platform. Engineered for Lahore’s residential, commercial, and industrial landscape, Zyphuel eliminates traditional petrol pump queues, pump short-fueling, and power blackout generator downtime by dispatching certified, double-walled mobile micro-bowsers fitted with 0.01L calibrated positive-displacement flow meters directly to your GPS coordinates within 45 minutes.
 
+## Latest Mobile Lighthouse Report — 2026-10-29
+
+**Home: 46/100 · Services: 46/100 · target: 67.** The requested target was not met; these are simulated-mobile local production-build measurements.
+
+![Latest mobile Lighthouse 2D graph for Home and Services](docs/reports/charts/lighthouse-mobile-2026-10-29.svg)
+
+[Open the full report, metrics and method](docs/reports/2026-10-29-mobile-lighthouse-home-services.md) · [Browse all reports](docs/reports/README.md)
+
 ---
 
 ## 📑 Table of Contents
@@ -497,6 +505,7 @@ Every audit, QA pass and change report lives under `docs/`. Start at the hub, wh
 
 | Document | What it contains |
 | :--- | :--- |
+| **[Latest Mobile Lighthouse Report — Home & Services (2026-10-29)](docs/reports/2026-10-29-mobile-lighthouse-home-services.md)** | Direct report page with a committed 2D SVG graph of the measured mobile Performance scores (46/100 each), axes, 67-point target, LCP/TBT and test limitations |
 | **[Reports Hub](docs/reports/README.md)** | Index of every report, with all charts committed as SVG images so they display directly on GitHub |
 | [Whole Website Report](docs/reports/2026-10-26-whole-website-report.md) | Every route with its weight, word count, meta length, schema coverage and feature status — 17 routes, 25,129 words, 148 images |
 | [Complete Website Change Report](docs/reports/2026-10-26-website-changes-report.md) | All 9 commits of the 2026-10-26 round — 60 files, +1,812 / −658 lines — with before/after measurements and the truthfulness audit |
