@@ -99,7 +99,7 @@ All 13 core documentation files are consolidated directly in this directory (`do
 
 | Audit Date | Scope & Key Findings | File Link |
 | :--- | :--- | :--- |
-| **2026-10-28** | **Mobile Lighthouse audit** — Lighthouse 12 on the production build: /services/ **32** (LCP 10.9 s, TBT 1,490 ms, 4,052 KiB) after the frame work vs **37** (21,055 KiB) with the eager loader; /download/ unscored (). Diagnosis: Style & Layout 6,189 ms and a 471 KB PDF/barcode chunk, not frames. Five prioritised next steps. | [`docs/audits/2026-10-28-mobile-lighthouse-audit.md`](./audits/2026-10-28-mobile-lighthouse-audit.md) |
+| **2026-10-28** | **Mobile Lighthouse audit** — Lighthouse 12 on the production build: /services/ **32** (LCP 10.9 s, TBT 1,490 ms, 4,052 KiB) after the frame work vs **37** (21,055 KiB) with the eager loader; /download/ unscored (`NO_LCP`). Diagnosis: Style & Layout 6,189 ms and a 471 KB PDF/barcode chunk, not frames. Five prioritised next steps. | [`docs/audits/2026-10-28-mobile-lighthouse-audit.md`](./audits/2026-10-28-mobile-lighthouse-audit.md) |
 | **2026-10-21** | Competitor Gap Analysis (PK + global), Responsiveness Fixes (Order page 233px mobile overflow, 3D carousel page scroll), Full Lighthouse Scores (Home Desktop 99 / Mobile 64; Order Desktop 98 / Mobile 56) with measured root causes and next-step backlog | [`docs/audits/2026-10-21-audit.md`](./audits/2026-10-21-audit.md) |
 
 ---
