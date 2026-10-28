@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import './ScrollAnimationSection.css'
+import { startProgressivePreload } from '../utils/framePreloader'
 
 const FRAME_COUNT = 300
 const FOLDER = '/ezgif-2f1a39c97e5b173b-jpg'
@@ -38,7 +39,7 @@ export default function ScrollAnimationSection() {
     // If target frame is not yet fully loaded, find nearest loaded neighbor
     if (!img || !img.complete || img.naturalWidth === 0) {
       let fallback = null
-      for (let offset = 1; offset < 35; offset++) {
+      for (let offset = 1; offset < 13; offset++) {
         const prev = safeIndex - offset >= 0 ? images[safeIndex - offset] : null
         if (prev && prev.complete && prev.naturalWidth > 0) {
           fallback = prev
@@ -143,48 +144,17 @@ export default function ScrollAnimationSection() {
       renderFrame(0)
     }
 
-    // Priority 2: Sparse Keyframes loaded gently during idle periods
-    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
-    const step = isMobile ? 40 : 8
-    const keyframeIndices = []
-    for (let k = step; k < FRAME_COUNT; k += step) {
-      keyframeIndices.push(k)
-    }
-    if (keyframeIndices[keyframeIndices.length - 1] !== FRAME_COUNT - 1) {
-      keyframeIndices.push(FRAME_COUNT - 1)
-    }
-
-    let kIdx = 0
-    let keyframeTimer = null
-
-    const loadNextBatch = () => {
-      if (!isMounted || !isVisibleRef.current) return
-      if (kIdx >= keyframeIndices.length) return
-
-      const batch = keyframeIndices.slice(kIdx, kIdx + 4)
-      batch.forEach((idx) => loadSingle(idx))
-      kIdx += 4
-
-      if (kIdx < keyframeIndices.length) {
-        if ('requestIdleCallback' in window) {
-          window.requestIdleCallback(loadNextBatch, { timeout: 150 })
-        } else {
-          keyframeTimer = setTimeout(loadNextBatch, 60)
-        }
-      }
-    }
-
-    keyframeTimer = setTimeout(() => {
-      if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(loadNextBatch, { timeout: 200 })
-      } else {
-        loadNextBatch()
-      }
-    }, 100)
+    // Priority 2: progressive fill of the whole sequence on idle, so a fast scroll
+    // never lands on an unloaded frame (see src/utils/framePreloader.js).
+    const cancelPreload = startProgressivePreload({
+      frameCount: FRAME_COUNT,
+      loadSingle,
+      isCancelled: () => !isMounted
+    })
 
     return () => {
       isMounted = false
-      if (keyframeTimer) clearTimeout(keyframeTimer)
+      cancelPreload()
     }
   }, [renderFrame])
 
