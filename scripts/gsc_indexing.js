@@ -18,13 +18,15 @@ const DOMAIN = 'https://zyphuel.netlify.app'
 const SITEMAP_URL = `${DOMAIN}/sitemap.xml`
 const GOOGLE_VERIFY_FILE = 'google1ab7400cf65ca469.html'
 
-// The 5 URLs flagged in GSC Coverage Drilldown (Discovered – currently not indexed)
+// URLs flagged in the 2026-10-28 GSC Coverage export
+// (1 x "Page with redirect" + 2 x "Discovered – currently not indexed").
+// The owner reports these three as not indexed: services, download, order.
+// Keep this list in sync with the live export — it previously listed blog,
+// contact, download, order and terms, which sent the owner to the wrong pages.
 const DRILLDOWN_PAGES = [
-  { path: '/blog/', file: 'dist/blog/index.html' },
-  { path: '/contact/', file: 'dist/contact/index.html' },
+  { path: '/services/', file: 'dist/services/index.html' },
   { path: '/download/', file: 'dist/download/index.html' },
-  { path: '/order/', file: 'dist/order/index.html' },
-  { path: '/terms/', file: 'dist/terms/index.html' }
+  { path: '/order/', file: 'dist/order/index.html' }
 ]
 
 async function runGscInspection() {
@@ -77,7 +79,7 @@ async function runGscInspection() {
 
   // 4. Audit Drilldown Pages (Title, Canonical, Robots, Hreflang, Schema)
   console.log('\n================================================================');
-  console.log('  📑 AUDITING THE 5 GSC DRILLDOWN PAGES                         ');
+  console.log('  📑 AUDITING THE 3 GSC DRILLDOWN PAGES                         ');
   console.log('================================================================');
 
   for (const page of DRILLDOWN_PAGES) {
@@ -134,12 +136,10 @@ async function runGscInspection() {
 3. Under "Indexing" -> "Sitemaps":
    - Submit: "sitemap.xml"
    - Confirm Status is "Success".
-4. For the 5 Drilldown Pages:
-   - https://zyphuel.netlify.app/blog/
-   - https://zyphuel.netlify.app/contact/
+4. For the 3 Drilldown Pages:
+   - https://zyphuel.netlify.app/services/
    - https://zyphuel.netlify.app/download/
    - https://zyphuel.netlify.app/order/
-   - https://zyphuel.netlify.app/terms/
    Inspect each URL in the top search bar:
    - Click "TEST LIVE URL" (verifies Googlebot can fetch without error)
    - Click "REQUEST INDEXING"

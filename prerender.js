@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { articles } from './src/data/articles.js'
 import { APP_VERSION, APP_SIZE, RELEASE_DATE } from './src/data/appVersion.js'
+import { ALL_SERVICE_FAQS } from './src/data/servicesFaqs.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const toAbsolute = (p) => path.resolve(__dirname, p)
@@ -829,46 +830,11 @@ const ROUTES = [
           "@type": "FAQPage",
           "@id": `${DOMAIN}/services/#faq`,
           "mainEntity": [
-            {
+            ...ALL_SERVICE_FAQS.map((f) => ({
               "@type": "Question",
-              "name": "What services does Zyphuel provide in Lahore?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Zyphuel provides on-demand doorstep fuel delivery including Euro-V Super Petrol (92 Octane), High-Octane 97, and Euro-V Diesel for vehicles and backup generators across Lahore with calibrated digital flow-meters."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What does Zyphuel NOT do?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Zyphuel does NOT supply uncertified or open-market fuel, does NOT decant fuel through manual uncalibrated jerrycans or plastic funnels, does NOT outsource deliveries to uncertified bike riders, and does NOT charge hidden surcharges above official OGRA rates."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How is fuel measured and calibrated during doorstep delivery?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Every Zyphuel mobile micro-tanker is equipped with electronic positive-displacement flow meters with digital pulse encoders that measure volume to 0.01 Liter precision, generating an instant digital and printed volumetric receipt."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Can I order diesel for commercial generator backup during load shedding?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. Zyphuel specializes in commercial standby generator diesel replenishment with 50-meter high-pressure delivery hoses capable of fueling rooftop, basement, and ground-level generator tanks for corporate offices, hospitals, factories, and residential buildings."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is Cash on Delivery (COD) supported for fuel orders?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for doorstep orders from 5 to 10 liters of fuel. If you don't have cash, instant on-spot Online Payments payments via JazzCash, Easypaisa, NayaPay, and Raast are accepted. For orders exceeding 10 liters (up to 15L Max) or commercial fleets, advance payment and billing accounts are available."
-              }
-            }
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
+            }))
           ]
         },
         ...ARTICLES_SCHEMA.filter(a => a["@id"].includes('article-3') || a["@id"].includes('article-4'))

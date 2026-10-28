@@ -18,6 +18,9 @@ import { APP_VERSION } from '../data/appVersion'
 import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
 
+import { AREA_FAQS, ALL_SERVICE_FAQS } from '../data/servicesFaqs'
+
+
 const lahoreServiceSectors = [
   {
     name: 'DHA Lahore (Phases 1–9)',
@@ -172,46 +175,11 @@ export default function ServicesPage() {
           "@type": "FAQPage",
           "@id": "https://zyphuel.netlify.app/services/#faq",
           "mainEntity": [
-            {
+            ...ALL_SERVICE_FAQS.map((f) => ({
               "@type": "Question",
-              "name": "What services does Zyphuel provide in Lahore?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Zyphuel provides on-demand doorstep fuel delivery including Euro-V Super Petrol (92 Octane), High-Octane 97, and Euro-V Diesel for vehicles and backup generators across Lahore."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What does Zyphuel NOT do?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Zyphuel does NOT supply uncertified or open-market fuel, does NOT decant fuel through manual uncalibrated jerrycans or plastic funnels, does NOT outsource deliveries to uncertified bike riders, and does NOT charge hidden surcharges above official OGRA rates."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How is fuel measured and calibrated during doorstep delivery?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Every Zyphuel mobile micro-tanker is equipped with electronic positive-displacement flow meters with digital pulse encoders that measure volume to 0.01 Liter precision, generating an instant digital and printed volumetric receipt."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Can I order diesel for commercial generator backup during load shedding?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. Zyphuel specializes in commercial standby generator diesel replenishment with 50-meter high-pressure delivery hoses capable of fueling rooftop, basement, and ground-level generator tanks for corporate offices, hospitals, factories, and residential buildings."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Is Cash on Delivery (COD) supported for fuel orders?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes! Cash on Delivery (COD) is supported for domestic orders from 5 to 10 liters of fuel. If you don't have cash, instant on-spot Online Payments payments via JazzCash, Easypaisa, NayaPay, and Raast are also accepted. For larger orders or corporate fleets, online bank transfers and 30-day billing accounts are available."
-              }
-            }
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
+            }))
           ]
         }
       ]
@@ -674,6 +642,16 @@ export default function ServicesPage() {
                   Yes! Cash on Delivery (COD) is available for domestic orders from 5 to 10 liters of fuel. If you do not have cash ready, our delivery pilots carry instant QR codes for on-spot mobile wallet transfers via JazzCash, Easypaisa, NayaPay, and Raast / Bank transfer. For commercial orders and fleets, direct bank transfers and monthly billing accounts are supported.
                 </p>
               </div>
+              {AREA_FAQS.map((faq) => (
+                <div key={faq.q} style={{ background: '#f8fafc', borderRadius: '10px', padding: '20px', border: '1px solid var(--border-color)' }}>
+                  <h3 style={{ margin: '0 0 8px 0', fontSize: '1.05rem', color: 'var(--text-primary)', fontWeight: 700 }}>
+                    <i className="fa-solid fa-circle-question" style={{ color: 'var(--accent-color, #0ea5e9)', marginRight: '8px' }}></i> {faq.q}
+                  </h3>
+                  <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+                    {faq.a}
+                  </p>
+                </div>
+              ))}
             </div>
 
             <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', marginTop: '36px', flexWrap: 'wrap' }}>

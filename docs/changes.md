@@ -1355,3 +1355,13 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Documentation**: created the report above, updated `docs/reports/README.md`, `docs/pages/blog.md` and `docs/changes.md`.
 
 **Owner actions that code cannot perform** (documented in the report): buy a real domain and 301 the Netlify subdomain to it; add the site in Bing Webmaster Tools (IndexNow returns 403 `UserForbiddedToAccessSite` even though the key file is live and correct); request indexing for the 3 URLs in Search Console; clear the Query filter on the performance export to see true totals.
+
+## [2026-10-28] Services FAQ Schema Unification + Area-Level Coverage
+
+- **Found a structured-data violation**: `/services/` shipped **two** FAQ definitions. `prerender.js` wrote the static `FAQPage` with 5 questions (including "What does Zyphuel NOT do?", which was never rendered on the page) while `ServicesPage.jsx` rendered 4 different ones. Google requires declared FAQ content to be visible, so the static markup was wrong.
+- **Single source of truth**: created `src/data/servicesFaqs.js` exporting `BASE_SERVICE_FAQS` (the 4 rendered questions), `AREA_FAQS` (5 new area questions) and `ALL_SERVICE_FAQS`. Both `ServicesPage.jsx` and `prerender.js` now build their FAQ data from it, so the two can no longer drift apart.
+- **Area-level coverage for Lahore**: added 5 visibly rendered Q&As targeting DHA Phase 1–9, Gulberg I–III and MM Alam Road, Johar Town / PIA Society / Model Town / Garden Town, Bahria Town / Cantt / Cavalry / Askari, and doorstep delivery pricing. Every answer stays inside the permanent rules (5–15 L, Rs. 300 for 5–10 L, +Rs. 20/L up to Rs. 400 at 15 L, 45 minutes, single delivery tier, Rs. 5.00/L margin, no urgent tier).
+- **Why area FAQs instead of new pages**: all 17–19 URLs still share one host with low crawl budget, so adding six thin area URLs would have diluted it further. Deepening the page that already exists adds the same keyword coverage without new crawl targets.
+- **Verification** (built page, not source): 9 visible questions, 9 declared, 0 schema-only, 0 visible-only, 0 invalid JSON-LD blocks. `/services/` 2,207 → 2,445 words. `qa-static.cjs` 20 pages / 0 issues; `link-audit.cjs` exit 0.
+- **Also fixed**: `scripts/gsc_indexing.js` still audited and instructed the owner to inspect `/blog/`, `/contact/`, `/terms/` — the wrong pages. Its drilldown list and printed instructions now point at the actual three: `/services/`, `/download/`, `/order/`. All three pass title, canonical, hreflang, robots, description and schema checks.
+- **Documentation**: updated `docs/pages/services.md` and this log.
