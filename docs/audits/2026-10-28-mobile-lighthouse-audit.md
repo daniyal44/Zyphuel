@@ -369,3 +369,20 @@ The pseudo-element test is the decisive one: Chrome attributes a `::before` back
 LCP is now our own `<h1>` in the intro band, painted with FCP. Console is clean (0 issues), and the hero was re-verified in a real Chrome over CDP: stage background is the gradient, canvas is `412×753` with drawn pixels, scrolling to 4,000 px loads frames (1 → 45 resources) and the progress bar reaches 100%.
 
 **Trade-off, stated plainly:** before hydration the hero shows a dark gradient rather than the photo. Frame 1 arrives from the high-priority preload as soon as the component mounts, so this is a sub-second difference on a normal connection — but on a very slow device the first image appears slightly later than before.
+
+---
+
+## 16. Home and Services poster change follow-up (2026-10-29)
+
+The Home (`.cinematic-sticky-stage`) and Services (`.services-sticky-stage`, `.section3-sticky-stage`) CSS frame-001 backgrounds were also replaced with radial gradients, to avoid a full-viewport background poster being an LCP candidate. The CSS edits build successfully, but a fresh Lighthouse 13.6 **mobile, simulated-throttling** run on the built site shows this change did **not** deliver a 67+ performance score on these routes.
+
+| Route | Performance | FCP | LCP | TBT | CLS | Accessibility | Best Practices | SEO |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| `/` | **46** | 2.2 s | **9.7 s** | 1,000 ms | 0 | 100 | 100 | 100 |
+| `/services/` | **46** | 2.0 s | **8.4 s** | 1,240 ms | 0.001 | 100 | 100 | 100 |
+
+**LCP diagnosis:** Lighthouse identifies the analytics-consent notice text (`.analytics-consent > p`) as the LCP element on both pages. The frame-poster CSS was therefore not the final LCP candidate in these runs. Main-thread work remained high: Home **12.3 s** (Other 6.09 s, Style & Layout 4.65 s, Script Evaluation 0.94 s); Services **9.6 s** (Other 4.42 s, Style & Layout 3.79 s, Script Evaluation 0.79 s). This is a measured result, not evidence that hydration cost has been eliminated.
+
+**Comparison caveat:** earlier exploratory files recorded Performance 97 / 98 with `--throttlingMethod=provided`, which disables Lighthouse's simulated mobile network/CPU throttling. Those values are not comparable to the standard simulated-mobile scores above and must not be presented as mobile throttled results. The fresh, standard mobile runs are the values to use for this follow-up.
+
+**Verification:** `npm run build` passed. Both audited routes returned HTTP 200; Lighthouse 13.6 mobile simulated audits completed. The poster CSS change did not reach the requested 67+ threshold; the analytics-consent LCP candidate and expensive style/layout work remain follow-up items.

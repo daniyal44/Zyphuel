@@ -1470,3 +1470,12 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Measured**: score **40/38 → 67/66**, LCP **8.9/8.8 s → 1.7/1.7 s** (element is now `h1#download-hero-intro-heading`, painted with FCP), TBT 2.08/2.71 s, CLS 0.052, requests **55 → 25**. Console clean; hero re-verified over CDP (gradient stage, canvas `412×753` painted, scroll to 4,000 px → 1 → 45 frame resources, progress bar 100%); `scripts/qa-static.cjs` 20/20 PASS.
 - **Trade-off**: the hero shows a dark gradient until the canvas paints frame 1 (sub-second on a normal connection) instead of an instant poster photo.
 - **Docs**: audit report gained §15.
+
+## [2026-10-29] Home + Services hero poster follow-up (Lighthouse 13.6 mobile)
+
+- **CSS change**: replaced the frame-001 full-screen CSS backgrounds on Home `.cinematic-sticky-stage` and Services `.services-sticky-stage` / `.section3-sticky-stage` with radial gradients; canvas rendering remains responsible for the animation.
+- **Fresh measured result** (built site, Lighthouse 13.6, mobile form factor, simulated throttling): Home Performance **46**, FCP **2.2 s**, LCP **9.7 s**, TBT **1,000 ms**, CLS **0**; Services Performance **46**, FCP **2.0 s**, LCP **8.4 s**, TBT **1,240 ms**, CLS **0.001**. Accessibility, Best Practices and SEO each scored **100** on both routes. The intended **67+ performance threshold was not met**.
+- **Root cause clue**: Lighthouse selected the analytics-consent notice (`.analytics-consent > p`) as LCP on both pages. Main-thread work was 12.3 s on Home and 9.6 s on Services, dominated by Other and Style & Layout. Removing the frame backgrounds did not fix that candidate or the high mobile LCP.
+- **Correction to preliminary numbers**: exploratory scores 97/98 were collected using `--throttlingMethod=provided`, which is not Lighthouse's simulated mobile throttling. They must not be represented as throttled mobile results; the simulated-mobile scores above are the comparable measurements.
+- **Verification**: `npm run build` passed; both routes returned HTTP 200; both fresh Lighthouse runs completed. The follow-up still needs a fix aimed at the consent notice and page style/layout cost.
+- **Audit**: [`docs/audits/2026-10-28-mobile-lighthouse-audit.md`](audits/2026-10-28-mobile-lighthouse-audit.md) §16; per-page notes are in `docs/pages/home.md` and `docs/pages/services.md`.
