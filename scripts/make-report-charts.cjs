@@ -497,5 +497,19 @@ if (fs.existsSync(statsPath)) {
   }));
 }
 
+made.push(groupedBarChart({
+  file: 'frame-payload-2026-10-30.svg',
+  title: 'Delivered image bytes per scroll surface — JPEG vs WebP',
+  subtitle: 'Each canvas hero owns a 300-frame sequence. Before this pass a full scroll pulled the whole sequence as mozjpeg JPEGs.',
+  categories: ['Home hero', 'Services hero', 'Services §3', 'Download hero', 'Download §3', 'Carousel (39 cards)'],
+  series: [
+    { name: 'JPEG (before)', color: C.red, values: [11.5, 19.0, 18.9, 22.5, 25.6, 18.7] },
+    { name: 'WebP (after)', color: C.green, values: [7.5, 9.2, 9.2, 10.6, 14.5, 1.0] },
+  ],
+  yMax: 30,
+  unit: 'MB',
+  note: 'Measured on disk 2026-10-30 · 1,500 frames 97.5 MB -> 50.9 MB (48% smaller) · carousel 18.7 MB -> 1.0 MB (94% smaller)',
+}));
+
 console.log(made.join('\n'));
 console.log(`\n${made.length} charts written to ${OUT_DIR}/`);

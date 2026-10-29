@@ -276,10 +276,12 @@ ${form.message.trim()}`
                 <div className="contact-item" style={{ borderTop: '1px solid var(--border-color)', paddingTop: '20px' }}>
                   <div className="contact-icon"><i className="fa-solid fa-clock"></i></div>                    <div className="contact-text" style={{ width: '100%' }}>
                       <h2>Working Hours</h2>
+                    <p style={{ margin: '0 0 8px' }}><strong>Online doorstep orders: 8:00 AM – 10:00 PM daily</strong></p>
+                    <p style={{ margin: '0 0 12px', fontSize: '0.85rem', opacity: 0.85 }}>WhatsApp dispatch helpline: 24/7 &middot; Customer support desk &amp; office verification below</p>
                     <table className="hours-table">
                       <tbody>
                         <tr><td>Monday – Thursday</td><td>8:00 AM – 8:00 PM</td></tr>
-                        <tr><td>Friday</td><td>8:00 AM – 1:00 PM</td></tr>
+                        <tr><td>Friday (half-day)</td><td>8:00 AM – 1:00 PM</td></tr>
                         <tr><td>Saturday – Sunday</td><td>10:00 AM – 6:00 PM</td></tr>
                       </tbody>
                     </table>

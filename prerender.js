@@ -167,21 +167,9 @@ const LOCAL_BUSINESS_SCHEMA = {
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
       "opens": "08:00",
-      "closes": "20:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Friday"],
-      "opens": "08:00",
-      "closes": "13:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Saturday", "Sunday"],
-      "opens": "10:00",
-      "closes": "18:00"
+      "closes": "22:00"
     }
   ],
   "currenciesAccepted": "PKR",
@@ -191,6 +179,29 @@ const LOCAL_BUSINESS_SCHEMA = {
     "telephone": "+923230112464",
     "contactType": "customer service",
     "availableLanguage": ["en", "ur"],
+    "hoursAvailable": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+        "opens": "08:00",
+        "closes": "20:00",
+        "name": "Customer support desk & office verification"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Friday"],
+        "opens": "08:00",
+        "closes": "13:00",
+        "name": "Customer support desk (Friday half-day)"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "18:00",
+        "name": "Customer support desk & office verification"
+      }
+    ],
     "areaServed": "PK"
   },
   "areaServed": [
@@ -1558,7 +1569,7 @@ async function prerender() {
     // Strip Home-only hero animation preload on non-home pages to eliminate browser preload warnings
     if (route.path !== '/') {
       html = html.replace(
-        /\s*<link\s+rel=["']preload["']\s+as=["']image["']\s+href=["']\/ezgif-2f1a39c97e5b173b-jpg\/ezgif-frame-001\.jpg["'][^>]*\/?>/i,
+        /\s*<link\s+rel=["']preload["']\s+as=["']image["']\s+href=["']\/ezgif-2f1a39c97e5b173b-jpg\/ezgif-frame-001\.webp["'][^>]*\/?>/i,
         ''
       )
     }
@@ -1567,7 +1578,7 @@ async function prerender() {
     // 15 KB frame is not requested on pages that never show it.
     if (route.path !== '/download/') {
       html = html.replace(
-        /\s*<link\s+rel=["']preload["']\s+as=["']image["']\s+href=["']\/app-hero-frames\/app-frame-001\.jpg["'][^>]*\/?>/i,
+        /\s*<link\s+rel=["']preload["']\s+as=["']image["']\s+href=["']\/app-hero-frames\/app-frame-001\.webp["'][^>]*\/?>/i,
         ''
       )
     }

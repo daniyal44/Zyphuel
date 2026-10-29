@@ -284,7 +284,7 @@ export default function HomePage() {
     {
       name: "Lahore Cantt & Cavalry Ground",
       eta: "Within 45 Mins",
-      desc: "Priority gated-community fuel logistics, Askari I–XI apartments, and executive transport fleet replenishment.",
+      desc: "Gated-community fuel logistics, Askari I–XI apartments, and executive transport fleet replenishment.",
       link: "/order/#cantt"
     },
     {
@@ -523,7 +523,7 @@ export default function HomePage() {
                 Our decentralized micro-refueler fleet is strategically staged across major Lahore sectors. Whether you ran dry on the road or need emergency generator diesel during a power outage, delivery is guaranteed within 45 minutes across Lahore.
               </p>
               <div className="comp-proof-tag">
-                <i className="fa-solid fa-truck-fast text-warning"></i> Express Local Response
+                <i className="fa-solid fa-truck-fast text-warning"></i> Single 45-Minute Dispatch Window
               </div>
             </div>
 
@@ -819,7 +819,7 @@ export default function HomePage() {
                 Zyphuel Operating &amp; Working Hours
               </h3>
               <p style={{ color: '#94a3b8', fontSize: '0.92rem', lineHeight: '1.6', marginBottom: '20px' }}>
-                Online doorstep fuel orders are accepted from <strong>8:00 AM to 10:00 PM (PKT)</strong> daily across all Lahore sectors. Corporate support desk and office verification operate during the schedule on the right, with 24/7 WhatsApp emergency assistance.
+                Doorstep order intake and customer-support desk hours are separate schedules. Online orders are accepted daily from <strong>8:00 AM to 10:00 PM (PKT)</strong>. WhatsApp emergency assistance is available 24/7.
               </p>
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                 <Link to="/order/" className="btn btn-primary" style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
@@ -857,22 +857,31 @@ export default function HomePage() {
                 <i className="fa-solid fa-clock"></i> Working Hours &amp; Timings
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(56, 189, 248, 0.25)', paddingBottom: '8px', background: 'rgba(56, 189, 248, 0.08)', padding: '6px 8px', borderRadius: '6px' }}>
-                  <span style={{ color: '#38bdf8', fontWeight: 700 }}>Doorstep Orders</span>
-                  <strong style={{ color: '#38bdf8' }}>8:00 AM – 10:00 PM Daily</strong>
+                <div style={{ color: '#38bdf8', fontWeight: 800, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.04em', marginTop: '2px' }}>
+                  Online Doorstep Order Window (PKT)
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(56, 189, 248, 0.25)', paddingBottom: '8px', background: 'rgba(56, 189, 248, 0.08)', padding: '6px 8px', borderRadius: '6px', gap: '12px' }}>
+                  <span style={{ color: '#38bdf8', fontWeight: 700 }}>Every day</span>
+                  <strong style={{ color: '#38bdf8', textAlign: 'right' }}>8:00 AM – 10:00 PM</strong>
+                </div>
+                <div style={{ color: '#cbd5e1', fontWeight: 800, fontSize: '0.82rem', textTransform: 'uppercase', letterSpacing: '0.04em', marginTop: '8px' }}>
+                  Customer Support Desk &amp; Office Verification
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '8px', gap: '12px' }}>
                   <span style={{ color: '#cbd5e1' }}>Monday – Thursday</span>
-                  <strong style={{ color: '#ffffff' }}>8:00 AM – 8:00 PM</strong>
+                  <strong style={{ color: '#ffffff', textAlign: 'right' }}>8:00 AM – 8:00 PM</strong>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '8px', gap: '12px' }}>
                   <span style={{ color: '#cbd5e1' }}>Friday</span>
-                  <strong style={{ color: '#ffffff' }}>8:00 AM – 1:00 PM</strong>
+                  <strong style={{ color: '#ffffff', textAlign: 'right' }}>8:00 AM – 1:00 PM</strong>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px' }}>
                   <span style={{ color: '#cbd5e1' }}>Saturday – Sunday</span>
-                  <strong style={{ color: '#ffffff' }}>10:00 AM – 6:00 PM</strong>
+                  <strong style={{ color: '#ffffff', textAlign: 'right' }}>10:00 AM – 6:00 PM</strong>
                 </div>
+                <p style={{ color: '#94a3b8', fontSize: '0.78rem', lineHeight: '1.55', margin: '10px 0 0', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '10px' }}>
+                  Friday is a half-day for the support desk (closes 1:00 PM). Doorstep fuel ordering is unaffected and stays open until 10:00 PM every day, including Friday.
+                </p>
               </div>
             </div>
           </div>

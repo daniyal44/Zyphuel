@@ -1,45 +1,45 @@
 import { useState, useEffect, useRef } from 'react'
 
 const DATA_3D = [
-  { url: '/images/Zyphuel-logo.png', alt: 'Zyphuel Official Brand Emblem' },
-  { url: '/images/1.jpeg', alt: 'Zyphuel Mobile App Rate & Telemetry Interface' },
-  { url: '/images/2.jpeg', alt: 'Zyphuel Live Bowser GPS Location Tracking' },
-  { url: '/images/3.jpeg', alt: 'Zyphuel Calibrated Digital Flow Meter Verification' },
-  { url: '/images/4.jpeg', alt: 'Zyphuel Doorstep Refueling Dispatch Confirmation' },
-  { url: '/images/Petrol.jpg', alt: 'Zyphuel Super Petrol Euro-V Delivery' },
-  { url: '/images/Diesel.jpg', alt: 'Zyphuel Euro-V High-Speed Diesel Delivery' },
-  { url: '/images/High-Octane.jpg', alt: 'Zyphuel Premium High-Octane 97 Delivery' },
-  { url: '/images/Car.jpg', alt: 'Zyphuel Doorstep Refueling for Cars & SUVs' },
-  { url: '/images/Motorbike.jpg', alt: 'Zyphuel On-Demand Fueling for Motorbikes & Scooters' },
-  { url: '/images/Generator.jpg', alt: 'Zyphuel Standby Generator Refueling Logistics' },
-  { url: '/images/Machinery.jpg', alt: 'Zyphuel Commercial & Heavy Machinery Refueling' },
-  { url: '/images/fuel.jpg', alt: 'Zyphuel Certified Fuel Dispenser & Calibration' },
-  { url: '/images/Delivery.jpg', alt: 'Zyphuel 45-Minute Rapid Doorstep Dispatch' },
+  { url: '/images/carousel/zyphuel-logo.webp', alt: 'Zyphuel Official Brand Emblem' },
+  { url: '/images/carousel/1.webp', alt: 'Zyphuel Mobile App Rate & Telemetry Interface' },
+  { url: '/images/carousel/2.webp', alt: 'Zyphuel Live Bowser GPS Location Tracking' },
+  { url: '/images/carousel/3.webp', alt: 'Zyphuel Calibrated Digital Flow Meter Verification' },
+  { url: '/images/carousel/4.webp', alt: 'Zyphuel Doorstep Refueling Dispatch Confirmation' },
+  { url: '/images/carousel/petrol.webp', alt: 'Zyphuel Super Petrol Euro-V Delivery' },
+  { url: '/images/carousel/diesel.webp', alt: 'Zyphuel Euro-V High-Speed Diesel Delivery' },
+  { url: '/images/carousel/high-octane.webp', alt: 'Zyphuel Premium High-Octane 97 Delivery' },
+  { url: '/images/carousel/car.webp', alt: 'Zyphuel Doorstep Refueling for Cars & SUVs' },
+  { url: '/images/carousel/motorbike.webp', alt: 'Zyphuel On-Demand Fueling for Motorbikes & Scooters' },
+  { url: '/images/carousel/generator.webp', alt: 'Zyphuel Standby Generator Refueling Logistics' },
+  { url: '/images/carousel/machinery.webp', alt: 'Zyphuel Commercial & Heavy Machinery Refueling' },
+  { url: '/images/carousel/fuel.webp', alt: 'Zyphuel Certified Fuel Dispenser & Calibration' },
+  { url: '/images/carousel/delivery.webp', alt: 'Zyphuel 45-Minute Rapid Doorstep Dispatch' },
   { url: '/images/Volume L.jpg', alt: 'Zyphuel 5L to 15L Max Volume Metering' },
   { url: '/images/Target Asset.jpg', alt: 'Zyphuel Refueling Target Asset Identification' },
-  { url: '/images/Contact.jpg', alt: 'Zyphuel 24/7 Helpline & Dispatch Desk' },
-  { url: '/images/Qr-code.png', alt: 'Zyphuel Dual QR & Barcode Verification' },
-  { url: '/images/JazzCash.png', alt: 'Zyphuel JazzCash Instant Payment Gateway' },
-  { url: '/images/Easypaisa.jpg', alt: 'Zyphuel Easypaisa Mobile Wallet Gateway' },
-  { url: '/images/NayaPay.png', alt: 'Zyphuel NayaPay Digital Payment Gateway' },
-  { url: '/images/Naypay.png', alt: 'Zyphuel Instant Mobile Wallet Transfer' },
-  { url: '/images/SadaPay.jpg', alt: 'Zyphuel SadaPay Instant Payment Gateway' },
-  { url: '/images/Bank.png', alt: 'Zyphuel Instant Bank Transfer & Raast' },
-  { url: '/images/Mashreq.jpg', alt: 'Zyphuel Mashreq Digital Banking Channel' },
-  { url: '/images/book.png', alt: 'Zyphuel Corporate Brand Book & Operating Guidelines' },
-  { url: '/images/wall.png', alt: 'Zyphuel Corporate Office Headquarters Branding Wall' },
-  { url: '/images/tablet.png', alt: 'Zyphuel Mobile Fuel Ordering on Driver Tablet' },
-  { url: '/images/cup.png', alt: 'Zyphuel Official Brand Cup and Merchandise' },
-  { url: '/images/pen.png', alt: 'Zyphuel Executive Corporate Pen' },
-  { url: '/images/card.png', alt: 'Zyphuel Corporate Business Card' },
-  { url: '/images/fuel.png', alt: 'Zyphuel Premium Fuel Pump Dispenser Unit' },
-  { url: '/images/helmet.png', alt: 'Zyphuel Fuel Logistics Rider Safety Helmet' },
-  { url: '/images/collab.png', alt: 'Zyphuel Enterprise Logistics Partnerships' },
-  { url: '/images/tank.png', alt: 'Zyphuel Bulk Fuel Storage Tank Logistics' },
-  { url: '/images/Shirt.png', alt: 'Zyphuel Official Delivery Agent Uniform' },
-  { url: '/images/Gallen.png', alt: 'Zyphuel Portable Safe Fuel Canister' },
-  { url: '/images/Cap.png', alt: 'Zyphuel Official Brand Cap' },
-  { url: '/images/logo.png', alt: 'Zyphuel Official Brand Logo' }
+  { url: '/images/carousel/contact.webp', alt: 'Zyphuel 24/7 Helpline & Dispatch Desk' },
+  { url: '/images/carousel/qr-code.webp', alt: 'Zyphuel Dual QR & Barcode Verification' },
+  { url: '/images/carousel/jazzcash.webp', alt: 'Zyphuel JazzCash Instant Payment Gateway' },
+  { url: '/images/carousel/easypaisa.webp', alt: 'Zyphuel Easypaisa Mobile Wallet Gateway' },
+  { url: '/images/carousel/nayapay.webp', alt: 'Zyphuel NayaPay Digital Payment Gateway' },
+  { url: '/images/carousel/naypay.webp', alt: 'Zyphuel Instant Mobile Wallet Transfer' },
+  { url: '/images/carousel/sadapay.webp', alt: 'Zyphuel SadaPay Instant Payment Gateway' },
+  { url: '/images/carousel/bank.webp', alt: 'Zyphuel Instant Bank Transfer & Raast' },
+  { url: '/images/carousel/mashreq.webp', alt: 'Zyphuel Mashreq Digital Banking Channel' },
+  { url: '/images/carousel/book.webp', alt: 'Zyphuel Corporate Brand Book & Operating Guidelines' },
+  { url: '/images/carousel/wall.webp', alt: 'Zyphuel Corporate Office Headquarters Branding Wall' },
+  { url: '/images/carousel/tablet.webp', alt: 'Zyphuel Mobile Fuel Ordering on Driver Tablet' },
+  { url: '/images/carousel/cup.webp', alt: 'Zyphuel Official Brand Cup and Merchandise' },
+  { url: '/images/carousel/pen.webp', alt: 'Zyphuel Executive Corporate Pen' },
+  { url: '/images/carousel/card.webp', alt: 'Zyphuel Corporate Business Card' },
+  { url: '/images/carousel/fuel.webp', alt: 'Zyphuel Premium Fuel Pump Dispenser Unit' },
+  { url: '/images/carousel/helmet.webp', alt: 'Zyphuel Fuel Logistics Rider Safety Helmet' },
+  { url: '/images/carousel/collab.webp', alt: 'Zyphuel Enterprise Logistics Partnerships' },
+  { url: '/images/carousel/tank.webp', alt: 'Zyphuel Bulk Fuel Storage Tank Logistics' },
+  { url: '/images/carousel/shirt.webp', alt: 'Zyphuel Official Delivery Agent Uniform' },
+  { url: '/images/carousel/gallen.webp', alt: 'Zyphuel Portable Safe Fuel Canister' },
+  { url: '/images/carousel/cap.webp', alt: 'Zyphuel Official Brand Cap' },
+  { url: '/images/carousel/logo.webp', alt: 'Zyphuel Official Brand Logo' }
 ]
 
 export default function Carousel3D() {
@@ -234,7 +234,7 @@ export default function Carousel3D() {
               {DATA_3D.map((item, i) => {
                 const cardAngle = (i * angle + normalizedAngle) % 360
                 const offsetAngle = cardAngle > 180 ? cardAngle - 360 : cardAngle
-                const isVisible = Math.abs(offsetAngle) <= 38
+                const isCardVisible = Math.abs(offsetAngle) <= 38
                 const isActive = i === targetCardIndex
 
                 return (
@@ -245,13 +245,15 @@ export default function Carousel3D() {
                     title={`Click to view: ${item.alt}`}
                     style={{ 
                       transform: `rotateY(${i * angle}deg) translateZ(${radius}px)`,
-                      visibility: isVisible ? 'visible' : 'hidden',
-                      opacity: isVisible ? (isActive ? 1 : Math.max(0.3, 0.75 - Math.abs(offsetAngle) / 50)) : 0
+                      visibility: isCardVisible ? 'visible' : 'hidden',
+                      opacity: isCardVisible ? (isActive ? 1 : Math.max(0.3, 0.75 - Math.abs(offsetAngle) / 50)) : 0
                     }}
                   >
-                    <img loading="lazy" decoding="async"
+                    <img
+                      loading="lazy"
+                      decoding="async"
                       className="carousel-img"
-                      src={item.url}
+                      src={isVisible && isCardVisible ? item.url : undefined}
                       alt={item.alt}
                       width={cardWidth}
                       height={cardWidth}

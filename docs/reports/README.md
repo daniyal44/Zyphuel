@@ -1,9 +1,11 @@
 # Zyphuel — Reports Hub
 
-**Last updated:** 2026-10-29
+**Last updated:** 2026-10-30
 **Repository:** `github.com/daniyal44/Zyphuel` (branch `main`)
 
 This is the single entry point for every audit, QA pass and change report on the Zyphuel website. Each report below is committed and pushed; the graphs in this file are rendered from the same numbers the reports themselves contain.
+
+> **Fresh production-path observation (2026-10-29):** three no-cache requests each for `/`, `/services/`, `/download/`, and `/order/` returned 200. Uncached TTFB ranged **139–1,392 ms** on Home, **148–525 ms** on Services, **131–339 ms** on Download, and **244–632 ms** on Order. The observed variation is edge/network response time, distinct from localhost application work; headers show `public,max-age=0,must-revalidate`. A live Home browser visit also fetched five below-fold carousel images totalling about **2.4 MiB** while rendering the `/order/` route; see the current report for a targeted fix and caveats.
 
 > **Latest mobile Lighthouse result (2026-10-29): Home 46/100, Services 46/100.** The 67-point target was not met. [Open the standalone report](./2026-10-29-mobile-lighthouse-home-services.md).
 
@@ -31,7 +33,9 @@ This is the single entry point for every audit, QA pass and change report on the
 
 | Date | Report | Type | Score / Headline | File |
 | :--- | :--- | :--- | :--- | :--- |
+| **2026-10-30** | **Scroll animation, live-site speed & hours/indexing** | Report | 1,500 frames 97.5 MB → 50.9 MB · carousel 18.7 MB → 1.0 MB · 3 URLs technically indexable, owner actions listed | [`2026-10-30-scroll-frames-speed-indexing-report.md`](./2026-10-30-scroll-frames-speed-indexing-report.md) |
 | **2026-10-29** | **Mobile Lighthouse — Home & Services** | Report | Home 46 · Services 46 · target 67 not met | [`2026-10-29-mobile-lighthouse-home-services.md`](./2026-10-29-mobile-lighthouse-home-services.md) |
+| **2026-10-29** | **Scroll, production speed & operating-hours investigation** | Report | 5 canvas heroes, 4 routes, 19-URL sitemap; 3 unindexed claims are not fixed by code alone | [`2026-10-29-scroll-speed-indexing-report.md`](./2026-10-29-scroll-speed-indexing-report.md) |
 | **2026-10-28** | **Search Console Indexing & Visibility Report** — read from the owner's Coverage + Performance exports | Report | 14 indexed / 3 not · 1 click / 17 impressions (question-filtered) · 5 code fixes | [`docs/reports/2026-10-28-search-console-indexing-report.md`](./2026-10-28-search-console-indexing-report.md) |
 | **2026-10-26** | **Whole Website Report** — every route, its weight, depth, meta, schema and features | Report | 17 routes · 25,129 words · 148 images · 0 meta violations | [`docs/reports/2026-10-26-whole-website-report.md`](./2026-10-26-whole-website-report.md) |
 | **2026-10-21** | Competitor Gap, Responsiveness & Performance Audit | Audit | Home desktop 86–99, mobile 66; `/download/` mobile **34** | [`docs/audits/2026-10-21-audit.md`](../audits/2026-10-21-audit.md) |
@@ -69,6 +73,16 @@ The latest local production-build run used Lighthouse 13.6 with simulated mobile
 ![Latest measured mobile scores](./charts/lighthouse-mobile-2026-10-29.svg)
 
 See the [standalone report](./2026-10-29-mobile-lighthouse-home-services.md) and the [detailed audit notes](../audits/2026-10-28-mobile-lighthouse-audit.md#16-home-and-services-poster-change-follow-up).
+
+## 4a. Scroll animation, live delivery speed, indexing & operating hours — 2026-10-29
+
+The five frame-based canvases now use a shared, idempotent loader and repaint the current target after its image load; the Home carousel defers assigning sources to its visible cards until its section is near the viewport. The Home operating-hours card now labels the daily 08:00–22:00 PKT order window separately from weekday/weekend support-desk hours. These are code changes; no claim is made that the local edits are deployed yet.
+
+A direct production `fetch` sample measured the four canonical pages at HTTP 200, with uncached TTFB ranges above. In the live browser session, a route transition to `/` timed out twice, while a separate page session initially remained on `/order/` and fetched five hidden carousel images (~2.4 MiB); thus real browser rendering felt slower than local dev and the remote session itself was unstable. Current production HTML has canonical + index/follow directives, and the sitemap includes all three `/services/`, `/download/`, `/order/` URLs (19 total); these facts do not establish that Google has indexed them.
+
+The GSC export summary dated 2026-10-28 reports 14 indexed / 3 not indexed and only question-query-filtered performance (1 click, 17 impressions). The referenced `D:\\Games\\...` report folders are outside this workspace and not accessible here; the earlier checked-in export-derived report is the source available in this checkout. Search Console must be checked again after requesting a crawl; ranking citywide or at the top for every keyword cannot be guaranteed by site edits.
+
+![Two-dimensional production response-time range chart](./charts/production-ttfb-2026-10-29.svg)
 
 ---
 

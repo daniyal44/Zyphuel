@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="600" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Zyphuel live production TTFB ranges on 2026-10-29</title>
+  <desc id="desc">A two-dimensional range plot. Horizontal axis lists Home, Services, Download, and Order. Vertical axis is response-header time in milliseconds from 0 to 1750. Three no-cache fetch samples per route: Home 139 to 1392 ms, Services 148 to 525 ms, Download 131 to 339 ms, and Order 244 to 632 ms. Horizontal capped lines show the min-to-max range and a dot marks the median.</desc>
+  <rect width="960" height="600" fill="#ffffff"/>
+  <text x="480" y="34" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="middle">Live production response-header time (TTFB)</text>
+  <text x="480" y="58" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#475569" text-anchor="middle">Three direct no-cache fetch samples per canonical route · milliseconds</text>
+  <g stroke="#e2e8f0" stroke-width="1">
+    <line x1="130" y1="500" x2="900" y2="500"/><line x1="130" y1="380" x2="900" y2="380"/><line x1="130" y1="260" x2="900" y2="260"/><line x1="130" y1="140" x2="900" y2="140"/><line x1="130" y1="80" x2="900" y2="80"/>
+    <line x1="220" y1="80" x2="220" y2="500"/><line x1="420" y1="80" x2="420" y2="500"/><line x1="620" y1="80" x2="620" y2="500"/><line x1="820" y1="80" x2="820" y2="500"/>
+  </g>
+  <g fill="#475569" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" text-anchor="end">
+    <text x="116" y="505">0</text><text x="116" y="385">500</text><text x="116" y="265">1000</text><text x="116" y="145">1500</text><text x="116" y="85">1750</text>
+  </g>
+  <line x1="130" y1="80" x2="130" y2="500" stroke="#334155" stroke-width="2"/><line x1="130" y1="500" x2="900" y2="500" stroke="#334155" stroke-width="2"/>
+  <text x="36" y="290" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#334155" text-anchor="middle" transform="rotate(-90 36 290)">TTFB (milliseconds)</text>
+  <g stroke="#0284c7" stroke-width="10" stroke-linecap="round">
+    <line x1="220" y1="466.6" x2="220" y2="165.9"/>
+    <line x1="420" y1="464.5" x2="420" y2="374.0"/>
+    <line x1="620" y1="468.6" x2="620" y2="418.6"/>
+    <line x1="820" y1="441.4" x2="820" y2="348.3"/>
+  </g>
+  <g stroke="#075985" stroke-width="2">
+    <line x1="206" y1="466.6" x2="234" y2="466.6"/><line x1="206" y1="165.9" x2="234" y2="165.9"/>
+    <line x1="406" y1="464.5" x2="434" y2="464.5"/><line x1="406" y1="374.0" x2="434" y2="374.0"/>
+    <line x1="606" y1="468.6" x2="634" y2="468.6"/><line x1="606" y1="418.6" x2="634" y2="418.6"/>
+    <line x1="806" y1="441.4" x2="834" y2="441.4"/><line x1="806" y1="348.3" x2="834" y2="348.3"/>
+  </g>
+  <g fill="#dc2626" stroke="#ffffff" stroke-width="3">
+    <circle cx="220" cy="420.4" r="8"/><circle cx="420" cy="410.2" r="8"/><circle cx="620" cy="439.8" r="8"/><circle cx="820" cy="440.2" r="8"/>
+  </g>
+  <g fill="#0f172a" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" text-anchor="middle">
+    <text x="220" y="532">Home (/)</text><text x="420" y="532">Services</text><text x="620" y="532">Download</text><text x="820" y="532">Order</text>
+  </g>
+  <g fill="#334155" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle">
+    <text x="220" y="552">139–1,392 ms</text><text x="420" y="552">148–525 ms</text><text x="620" y="552">131–339 ms</text><text x="820" y="552">244–632 ms</text>
+  </g>
+  <circle cx="670" cy="578" r="6" fill="#dc2626"/><text x="684" y="582" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" fill="#475569">sample median</text>
+  <line x1="820" y1="578" x2="854" y2="578" stroke="#0284c7" stroke-width="8" stroke-linecap="round"/><text x="864" y="582" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="11" fill="#475569">min–max range</text>
+</svg>

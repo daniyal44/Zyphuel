@@ -89,7 +89,9 @@ function ezgifServerPlugin() {
       if (targetPath) {
         const stat = fs.statSync(targetPath)
         const mtime = stat.mtime.toUTCString()
-        res.setHeader('Content-Type', 'image/jpeg')
+        // Frames ship as WebP (about half the bytes of the mozjpeg originals);
+        // any remaining JPEG copy is still served with the correct type.
+        res.setHeader('Content-Type', /\.webp$/i.test(targetPath) ? 'image/webp' : 'image/jpeg')
         res.setHeader('Content-Length', stat.size)
         res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
         res.setHeader('Last-Modified', mtime)

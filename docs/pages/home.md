@@ -27,13 +27,14 @@
      - Replaced legacy 2500vh runway with balanced, responsive depths: **420vh** on desktop (~14px per frame), **350vh** on tablet, and **280vh** on mobile (~7px per frame). Eliminates user fatigue, endless swiping, and mobile browser jank.
    - **Staged Progressive Keyframe Preloading**:
      - Frame 1 is preloaded in `<head>` and rendered instantly.
-     - Sparse Keyframe grid (every 8th frame, ~37 frames total, ~1.5 MB) is loaded in <300ms, making the entire 0-300 range scrubbable immediately via nearest-neighbor fallback with zero blank flashes.
+     - The shared `requestFrame` loader deduplicates preload/lookahead requests, and the current target is repainted on `load` when its image has arrived so the final frame does not remain stale after the RAF loop settles.
      - Remaining frames progressively fill in via `requestIdleCallback` / gentle idle background chunking without network or main thread contention.
    - **Full-Bleed Responsive Cover Canvas — Zero Black Side Boxes**:
      - Fills 100% of the viewport stage across all devices with integer pixel alignment, `will-change: transform`, and hardware acceleration.
    - **Interactive User Controls**:
      - Interactive clickable/tappable scroll hint pill (`↓ Scroll to animate ↓` / `Skip to Details`) that smoothly scrolls directly to `#home` upon tap/click.
      - Real-time scrub progress indicator (`.cinematic-progress-bar`) at the bottom of the sticky stage.
+   - **Loading-race repair**: preload and scroll lookahead use one idempotent frame loader; when an async frame load completes, the current target is repainted if ready, preventing stale fallback frames after the RAF loop settles.
 
 1. **Main Home Hero Section (`#home`)**:
    - Headline: `Doorstep Fuel Delivery in Lahore`.
@@ -52,20 +53,18 @@
 
 4. **Service Value Pillars**:
    - 0.01L Positive-Displacement Digital Flow Meter Calibration.
-   - Rapid Within 45 Minute Lahore Dispatch (10–20 min Urgent).
+   - One standard delivery window: within 45 minutes (no urgent/express tier or surcharge).
    - Certified Euro-V Low-Sulfur Quality.
    - Dedicated Generator & Emergency Support.
 
 5. **Lahore Coverage Sectors**:
    - DHA Lahore (Phases 1–9), Gulberg (I–III), Johar Town & Faisal Town, Bahria Town Lahore, Model Town & Garden Town, Cantt & Cavalary Ground, Industrial Zones (Sundar & Kot Lakhpat).
 
-6. **Office & Delivery Schedule Card**:
-   - Prominently placed box displaying operational schedule:
-     - **Monday – Thursday**: 8:00 AM – 8:00 PM
-     - **Friday**: 8:00 AM – 1:00 PM
-     - **Saturday – Sunday**: 10:00 AM – 6:00 PM
-     - **Delivery**: Active (Operating Hours) (Green active glowing indicator)
-     - **Helpline**: WhatsApp priority desk available 24/7
+6. **Order Intake & Support Schedule Card**:
+   - Lists two separately labelled schedules so office/desk hours cannot be mistaken for online order availability:
+     - **Online doorstep order window (PKT)**: Daily, 8:00 AM – 10:00 PM
+     - **Customer support desk & office verification**: Monday–Thursday 8:00 AM–8:00 PM; Friday 8:00 AM–1:00 PM; Saturday–Sunday 10:00 AM–6:00 PM
+     - **Emergency WhatsApp assistance**: 24/7
 
 7. **Featured Blog / Guides Section**:
    - Categorized article cards with instant modal preview and deep links to `/blog/`.
@@ -73,16 +72,20 @@
 ---
 
 ## Operational Parameters & Rules
-- **Delivery Service**: Operates during official working hours across Lahore.
-- **Office Operating Schedule**: Mon–Thu 8am–8pm, Fri 8am–1pm, Sat–Sun 10am–6pm.
-- **WhatsApp Support**: Dedicated 24/7 hotline at `+92 3230-112464`.
+- **Online Doorstep Order Intake**: Daily 8:00 AM–10:00 PM PKT; strict 10:00 PM cutoff.
+- **Customer Support Desk & Office Verification**: Mon–Thu 8:00 AM–8:00 PM, Fri 8:00 AM–1:00 PM, Sat–Sun 10:00 AM–6:00 PM.
+- **WhatsApp Emergency Assistance**: 24/7 at `+92 3230-112464`.
 - **Service Hub Location**: Gulberg III, Lahore.
 - **Transparency Policy**: Displayed strictly once per calendar day on Home hero; never duplicated on child pages; auto-persisted via `localStorage` with manual dismiss.
+- **Schedule Display**: Daily 8:00 AM–10:00 PM PKT online order intake is labelled independently from support-desk hours; 24/7 refers to WhatsApp emergency assistance only.
 
 ---
 
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
+| **2026-10-30** | **Live-site payload cut: hero frames converted to WebP (11.5 MB -> 7.5 MB) and the 39-card 3D carousel moved to 560 px WebP with visible-arc-only loading (18.7 MB of sources -> 1.0 MB delivered).** The preload in `index.html` and the `prerender.js` strip rule now point at `ezgif-frame-001.webp` / `image/webp`; the dev middleware in `vite.config.js` answers `.webp` with the right MIME type. Verified on the local production build: 67 frames / 1.6 MB / 0 failed requests for a 1,200 px scroll, canvas pixels change, progress bar 0% -> 95.2%, carousel loads 3 of 39 cards (63 KB) instead of megabytes. See [`2026-10-30 report`](../reports/2026-10-30-scroll-frames-speed-indexing-report.md). | Live site is slow while localhost is fast; the whole 300-frame JPEG sequence was being pulled on scroll. |
+| **2026-10-30** | **Schedule card disambiguated**: the Home card now separates **Online Doorstep Order Window (PKT)** (every day 8:00 AM – 10:00 PM) from **Customer Support Desk & Office Verification** (Mon–Thu 8:00 AM – 8:00 PM, Fri 8:00 AM – 1:00 PM, Sat–Sun 10:00 AM – 6:00 PM) and adds a note that Friday is a support-desk half-day while doorstep ordering continues to 10:00 PM. `openingHoursSpecification` is now daily 08:00–22:00 and the desk windows moved to `contactPoint.hoursAvailable`. | User found the two mixed schedules contradictory and suspicious. |
+| **2026-10-29 (2)** | **Scroll canvases repaint their current frame after async load; Home image requests wait until the carousel is near view; schedule card explicitly separates daily order intake from support-desk hours; Home copy removes obsolete urgent/express wording.** | Prevent stale frames during fast scrolls, avoid the below-fold carousel's large images downloading on initial page load, keep one standard 45-minute delivery window, and clarify that the weekday/weekend rows describe support-desk/office hours. |
 | **2026-10-29** | **Home canvas poster removed; mobile Lighthouse result documented**: `.cinematic-sticky-stage` now uses a radial-gradient fallback instead of the full-viewport frame-001 CSS background, avoiding that poster as an LCP candidate while the canvas animation remains in place. Fresh Lighthouse 13 simulated-mobile run on the local built site: Performance **46**, FCP **2.2 s**, LCP **9.7 s**, TBT **1,000 ms**, CLS **0**; Accessibility, Best Practices and SEO each **100**. The LCP candidate was the analytics consent notice, so the poster change did **not** produce the hoped-for 67+ score. See [`2026-10-28 mobile Lighthouse audit`](../audits/2026-10-28-mobile-lighthouse-audit.md#16-home-and-services-poster-change-follow-up). | Follow-up to the canvas-hero LCP work; record the measured result accurately. |
 | **2026-10-28** | **Scroll-scrub animation fixed**: frames recompressed (max width 1600px, mozjpeg q70) — services/download sequences went from **69–98 MB per folder to 19–26 MB** (repo total **321.6 MB -> 97.5 MB**), and the sparse-keyframe preloader was replaced by `src/utils/framePreloader.js`, which fills the whole sequence on idle with keyframes first and a timeout fallback. Nearest-frame fallback window reduced 35 -> 13 frames. Before: only 1 frame loaded in the first 9 s, so a fast scroll held a stale frame. After: 190 frames loaded in 7 s with no gap larger than 10 indices. | User: *"scroll animation sai sa kam nai kar rahi har page ma us ko sai karo"*. |
 | **2026-10-26** | **Route-level code splitting (site-wide, entry route kept eager)**: `src/App.jsx` now lazy-loads every page except `/` through `React.lazy` inside one `Suspense` boundary. Because `renderToString` renders a Suspense fallback, the SSR entry `src/entry-server.jsx` was switched to `renderToPipeableStream` + `onAllReady` (resolving a full HTML string) and `prerender.js` awaits it, so all 17 prerendered pages still ship complete markup. Entry JS **460.6 kB (113.9 kB gzip) → 97.7 kB (28.5 kB gzip)**; global CSS **150.4 kB → 93.5 kB**. Added the `.route-loading` spinner to `src/index.css` (visible only during client-side navigation). | User: *"performance & speed ko be improve karo"*. |

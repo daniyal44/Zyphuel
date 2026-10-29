@@ -6,7 +6,7 @@ const FRAME_COUNT = 300
 const FOLDER = '/app-hero-frames'
 
 const framePath = (i) =>
-  `${FOLDER}/app-frame-${String(i).padStart(3, '0')}.jpg`
+  `${FOLDER}/app-frame-${String(i).padStart(3, '0')}.webp`
 
 export default function AppHeroScrollAnimation() {
   const containerRef = useRef(null)
@@ -145,6 +145,26 @@ export default function AppHeroScrollAnimation() {
     animIdRef.current = requestAnimationFrame(loop)
   }, [renderFrame])
 
+  // Frames fetched by the lookahead can finish after the RAF loop settles on a
+  // fallback image. Repaint when a nearby requested frame completes to prevent
+  // the scrubber from appearing frozen until the next scroll event.
+  const requestFrame = useCallback((images, index) => {
+    if (images[index]) return images[index]
+    const img = new Image()
+    img.decoding = 'async'
+    img.onload = () => {
+      const targetIndex = Math.round(targetFrameRef.current)
+      const targetImage = images[targetIndex]
+      if (isVisibleRef.current && targetImage?.complete && targetImage.naturalWidth > 0) {
+        renderFrame(targetIndex)
+        updateScrubUi(targetIndex)
+      }
+    }
+    img.src = framePath(index + 1)
+    images[index] = img
+    return img
+  }, [renderFrame, updateScrubUi])
+
   // Cleanup loop on unmount
   useEffect(() => {
     return () => {
@@ -159,14 +179,7 @@ export default function AppHeroScrollAnimation() {
     const imgs = new Array(FRAME_COUNT)
     imagesRef.current = imgs
 
-    const loadSingleFrame = (idx) => {
-      if (imgs[idx]) return imgs[idx]
-      const img = new Image()
-      img.decoding = 'async'
-      img.src = framePath(idx + 1)
-      imgs[idx] = img
-      return img
-    }
+    const loadSingleFrame = (idx) => requestFrame(imgs, idx)
 
     // Priority 1: Instant load and render Frame 1 immediately
     const firstImg = new Image()
@@ -251,7 +264,7 @@ export default function AppHeroScrollAnimation() {
       if (startTimer) clearTimeout(startTimer)
       if (cancelPreload) cancelPreload()
     }
-  }, [renderFrame])
+  }, [renderFrame, requestFrame])
 
   // Viewport observer: pause completely when scrolled out of view
   useEffect(() => {
@@ -308,12 +321,7 @@ export default function AppHeroScrollAnimation() {
         const minW = Math.max(0, center - 14)
         const maxW = Math.min(FRAME_COUNT - 1, center + 16)
         for (let w = minW; w <= maxW; w++) {
-          if (!imgs[w]) {
-            const img = new Image()
-            img.decoding = 'async'
-            img.src = framePath(w + 1)
-            imgs[w] = img
-          }
+          requestFrame(imgs, w)
         }
       }
 
@@ -340,7 +348,7 @@ export default function AppHeroScrollAnimation() {
       window.removeEventListener('resize', handleResize)
       window.removeEventListener('orientationchange', handleResize)
     }
-  }, [renderFrame, resizeCanvasBuffer, startLoop])
+  }, [renderFrame, requestFrame, resizeCanvasBuffer, startLoop])
 
   // Smooth scroll down to main download hero section
   const handleScrollToContent = () => {

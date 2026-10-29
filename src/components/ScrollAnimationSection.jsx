@@ -6,7 +6,7 @@ const FRAME_COUNT = 300
 const FOLDER = '/ezgif-2f1a39c97e5b173b-jpg'
 
 const framePath = (i) =>
-  `${FOLDER}/ezgif-frame-${String(i).padStart(3, '0')}.jpg`
+  `${FOLDER}/ezgif-frame-${String(i).padStart(3, '0')}.webp`
 
 export default function ScrollAnimationSection() {
   const containerRef = useRef(null)
@@ -120,6 +120,26 @@ export default function ScrollAnimationSection() {
     animIdRef.current = requestAnimationFrame(loop)
   }, [renderFrame])
 
+  // A requested frame may finish loading after the smoothing loop has settled on a
+  // nearby fallback. Repaint the current target when that frame arrives so a quick
+  // scroll cannot leave the canvas showing a stale frame until the next scroll event.
+  const requestFrame = useCallback((images, index) => {
+    if (images[index]) return images[index]
+    const img = new Image()
+    img.decoding = 'async'
+    img.onload = () => {
+      const targetIndex = Math.round(targetFrameRef.current)
+      const targetImage = images[targetIndex]
+      if (isVisibleRef.current && targetImage?.complete && targetImage.naturalWidth > 0) {
+        renderFrame(targetIndex)
+        updateScrubUi(targetIndex)
+      }
+    }
+    img.src = framePath(index + 1)
+    images[index] = img
+    return img
+  }, [renderFrame, updateScrubUi])
+
   // Cleanup loop on unmount
   useEffect(() => {
     return () => {
@@ -134,14 +154,7 @@ export default function ScrollAnimationSection() {
     const imgs = new Array(FRAME_COUNT)
     imagesRef.current = imgs
 
-    const loadSingle = (idx) => {
-      if (imgs[idx]) return imgs[idx]
-      const img = new Image()
-      img.decoding = 'async'
-      img.src = framePath(idx + 1)
-      imgs[idx] = img
-      return img
-    }
+    const loadSingle = (idx) => requestFrame(imgs, idx)
 
     // Priority 1: Instant load and render Frame 1 immediately (0ms blocking)
     const firstImg = new Image()
@@ -172,7 +185,7 @@ export default function ScrollAnimationSection() {
       isMounted = false
       cancelPreload()
     }
-  }, [renderFrame])
+  }, [renderFrame, requestFrame])
 
   // Viewport observer: pause completely when scrolled out of view
   useEffect(() => {
@@ -228,12 +241,7 @@ export default function ScrollAnimationSection() {
         const minW = Math.max(0, center - 14)
         const maxW = Math.min(FRAME_COUNT - 1, center + 16)
         for (let w = minW; w <= maxW; w++) {
-          if (!imgs[w]) {
-            const img = new Image()
-            img.decoding = 'async'
-            img.src = framePath(w + 1)
-            imgs[w] = img
-          }
+          requestFrame(imgs, w)
         }
       }
 
@@ -251,7 +259,7 @@ export default function ScrollAnimationSection() {
       window.removeEventListener('resize', handleScroll)
       window.removeEventListener('orientationchange', handleScroll)
     }
-  }, [startLoop])
+  }, [requestFrame, startLoop])
 
   // Smooth scroll down to main doorstep fuel delivery hero
   const handleScrollToContent = () => {

@@ -51,7 +51,30 @@ const GLOBAL_ORGANIZATION = {
     "telephone": "+923230112464",
     "contactType": "customer service",
     "availableLanguage": ["en", "ur"],
-    "areaServed": "PK"
+    "areaServed": "PK",
+    "hoursAvailable": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+        "opens": "08:00",
+        "closes": "20:00",
+        "name": "Customer support desk & office verification"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Friday"],
+        "opens": "08:00",
+        "closes": "13:00",
+        "name": "Customer support desk (Friday half-day)"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "18:00",
+        "name": "Customer support desk & office verification"
+      }
+    ]
   },
   "sameAs": [
     "https://www.linkedin.com/company/zyphuel/",
@@ -90,21 +113,9 @@ const GLOBAL_LOCAL_BUSINESS = {
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
       "opens": "08:00",
-      "closes": "20:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Friday"],
-      "opens": "08:00",
-      "closes": "13:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Saturday", "Sunday"],
-      "opens": "10:00",
-      "closes": "18:00"
+      "closes": "22:00"
     }
   ],
   "currenciesAccepted": "PKR",
