@@ -119,3 +119,22 @@ remaining steps are:
    (the build log currently shows that exact error for Bing).
 4. Keep the sitemap `lastmod` truthful — it now comes from the last commit date of each page's source
    files, not from the build clock.
+
+---
+
+## 6. Post-deploy verification (live origin)
+
+| Check | Result |
+| :--- | :--- |
+| `https://zyphuel.netlify.app/` operating card | shows only `8:00 AM – 10:00 PM` and `10:00 AM – 6:00 PM`; no "half-day"; no 8 AM–8 PM or 8 AM–1 PM string |
+| `/blog/petrol-pump-near-me-lahore-doorstep-alternative/` | `200`, one `<h1>`, ~1,229 words, quotes 5–15 L and the 45-minute window, no urgent-tier claim |
+| `/blog/diesel-delivery-lahore-price-per-litre-fleet-budget/` | `200` |
+| `/sitemap.xml` | 21 `<loc>` entries |
+| `<title>` tags | `Online Petrol &amp; Diesel Delivery in Lahore | Zyphuel`, `Petrol Pump Near Me in Lahore: Doorstep Fuel Guide | Zyphuel` (valid HTML, no half-sentence truncation) |
+
+### Limitation
+
+Lighthouse is not installed in this workspace, so no new Performance score was produced for this round.
+The performance work here is limited to the request-level fixes named above (broken frame requests,
+section-3 loader trigger, Unsplash preconnect); the previously reported 46/100 mobile score stands until
+a fresh Lighthouse run is possible.

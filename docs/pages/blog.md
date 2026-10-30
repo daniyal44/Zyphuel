@@ -117,3 +117,11 @@
 - `/blog/petrol-pump-near-me-lahore-doorstep-alternative/` — "Petrol Pump Near Me in Lahore: Queues, Short-Fueling and the Doorstep Alternative (2026 Guide)". Targets `petrol pump near me Lahore`, `Lahore petrol pump`, pump short-fueling.
 - `/blog/diesel-delivery-lahore-price-per-litre-fleet-budget/` — "Diesel Delivery in Lahore: Per-Litre Price, Delivery Charges and Fleet Budget Planning (2026)". Targets `diesel delivery Lahore`, `diesel price per litre Lahore`, `generator refueling Lahore`.
 - Both use only the verified commercial facts (5–15 L, Rs. 300 / Rs. 320–400 delivery band, Rs. 5.00/L margin, one 45-minute window, 8 AM–10 PM ordering, 24/7 WhatsApp) and are prerendered, added to `sitemap.xml` (21 URLs) and `feed.xml` (12 items).
+
+## 2026-10-30 — Clean snippet titles for the new articles
+
+- Article objects may now declare `metaTitle`. `prerender.js` and `BlogArticlePage.jsx` use it before
+  falling back to `clipText(article.title, 46)`, so a long headline no longer ships as a half-sentence
+  `<title>` (the petrol-pump article previously rendered as "…Petrol Pump Near Me in Lahore: Queues | Zyphuel").
+- Prerendered `<title>` tags now escape a bare `&` to `&amp;`. Four existing pages (home, `/blog/`,
+  `/services/`, the telemetry article) had been emitting invalid HTML there.
