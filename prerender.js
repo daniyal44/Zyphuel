@@ -466,12 +466,22 @@ const RELEVANT_KEYWORDS = "fuel delivery Lahore, diesel delivery Lahore, petrol 
 // resolve the last commit date of the source files that actually produce each page
 // instead. Degrades to the build date when git history is unavailable (shallow CI clone).
 const ROUTE_SOURCE_FILES = {
-  '/': ['src/pages/HomePage.jsx', 'src/index.css', 'src/data/fuelPrices.js'],
+  '/': ['src/pages/HomePage.jsx', 'src/index.css', 'src/data/fuelPrices.js', 'src/components/ScrollAnimationSection.jsx'],
   '/about/': ['src/pages/AboutPage.jsx', 'src/data/aboutData.js'],
-  '/services/': ['src/pages/ServicesPage.jsx', 'src/data/servicesData.js'],
+  '/services/': [
+    'src/pages/ServicesPage.jsx',
+    'src/data/servicesData.js',
+    'src/components/ServicesScrollAnimationSection.jsx',
+    'src/components/ServicesSection3ScrollAnimation.jsx',
+  ],
   '/order/': ['src/pages/OrderPage.jsx', 'src/utils/officeHours.js'],
   '/contact/': ['src/pages/ContactPage.jsx', 'src/data/companyInfo.js'],
-  '/download/': ['src/pages/DownloadPage.jsx', 'src/data/appVersion.js'],
+  '/download/': [
+    'src/pages/DownloadPage.jsx',
+    'src/data/appVersion.js',
+    'src/components/AppHeroScrollAnimation.jsx',
+    'src/components/AppSection3ScrollAnimation.jsx',
+  ],
   '/blog/': ['src/pages/BlogListPage.jsx', 'src/data/articles.js'],
   '/privacy/': ['src/pages/PrivacyPolicyPage.jsx'],
   '/terms/': ['src/pages/TermsOfUsePage.jsx'],
