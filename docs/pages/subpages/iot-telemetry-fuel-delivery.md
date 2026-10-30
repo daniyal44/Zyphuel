@@ -17,13 +17,13 @@
 
 <!-- ZYPHUEL_FUEL_UPDATE_START -->
 > [!NOTE]
-> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 29, 2026)**
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 30, 2026)**
 > - **Operational SLA**: Within 45 Mins (single delivery window) across Lahore.
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Weights & Measures certified positive-displacement flow meters with 1,000 pulses/litre optical encoders. 15°C Automatic Temperature Compensation (ATC) counteracts Lahore summer heat expansion with 0.01L verified precision.
 >
-- **Market Intelligence**: Petrol price up by Rs1.85 per litre, diesel by Rs1.75 - The News Pakistan (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Diesel price nears Rs400 as govt adds over a rupee to petrol, HSD rates - Dawn (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt raises diesel price by Re0.85 per litre, keeps petrol unchanged - The News Pakistan (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: High-speed diesel price crosses Rs400 with Re0.85 increase; no change in petrol rate - Dawn (Google News (Petrol Price Pakistan))
 - **Market Intelligence**: Petrol price hiked by Rs1.85, HSD’s by Rs1.75 - Business Recorder (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
