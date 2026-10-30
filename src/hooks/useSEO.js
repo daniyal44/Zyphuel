@@ -57,19 +57,12 @@ const GLOBAL_ORGANIZATION = {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
         "opens": "08:00",
-        "closes": "20:00",
+        "closes": "22:00",
         "name": "Customer support desk & office verification"
       },
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Friday"],
-        "opens": "08:00",
-        "closes": "13:00",
-        "name": "Customer support desk (Friday half-day)"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Saturday", "Sunday"],
+        "dayOfWeek": ["Friday", "Saturday", "Sunday"],
         "opens": "10:00",
         "closes": "18:00",
         "name": "Customer support desk & office verification"

@@ -281,3 +281,8 @@ The ask is neutral and identical for every customer — no incentive, no discoun
 | `qa-static.cjs` | 20 pages, 0 issues |
 | `link-audit.cjs` | exit 0, 0 dangling |
 | Order-submit path with night guard active | not exercised — the 10 PM–8 AM cutoff was live during testing, so `#truck-submit-btn` is absent from the DOM by design. The snapshot builder was reviewed identifier-by-identifier against the component scope instead. |
+
+## 2026-10-30 — Hours fallback aligned
+
+`OrderPage`'s fallback `todaySchedule` now reads `8:00 AM – 10:00 PM`, matching `checkOfficeHours()`
+after the schedule change (Mon–Thu desk/order to 10 PM, Fri–Sun desk 10 AM–6 PM, order intake daily 8 AM–10 PM).

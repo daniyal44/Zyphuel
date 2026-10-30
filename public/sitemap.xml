@@ -217,4 +217,28 @@
       <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
     </image:image>
   </url>
+  <url>
+    <loc>https://zyphuel.netlify.app/blog/petrol-pump-near-me-lahore-doorstep-alternative/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1545262810-77515befe149?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
+      <image:title>Petrol Pump Near Me in Lahore: Queues, Short-Fueling and the Doorstep Alternative (2026 Guide)</image:title>
+      <image:caption>What drivers in Lahore should check before trusting a neighbourhood petrol pump, how pump short-fueling and queue idling inflate the real cost per litre, and when ordering 5 to 15 litres of Euro-V fuel to your doorstep is the cheaper choice.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zyphuel.netlify.app/blog/diesel-delivery-lahore-price-per-litre-fleet-budget/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1615828636374-ee3e7b6fbb3e?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
+      <image:title>Diesel Delivery in Lahore: Per-Litre Price, Delivery Charges and Fleet Budget Planning (2026)</image:title>
+      <image:caption>A practical cost model for diesel delivery in Lahore: how the per-litre price is built from the OGRA ex-depot rate plus a Rs. 5.00/L margin, how the Rs. 300.00 to Rs. 400.00 delivery band works between 5 and 15 litres, and how to budget generator and fleet refueling without hidden fees.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+    </image:image>
+  </url>
 </urlset>

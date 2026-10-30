@@ -173,7 +173,7 @@ export default function TermsOfUsePage() {
                   <strong>Support Desk:</strong> Available via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0369a1)', fontWeight: 600 }}>Official Contact &amp; Support Page</Link><br />
                   <strong>Email:</strong> m.daniyalkhan490@gmail.com <em>(For order modifications or legal inquiries)</em><br />
                   <strong>Location:</strong> Lahore, Pakistan <em>(Walk-in corporate meetings by appointment only)</em><br />
-                  <strong>Working Hours:</strong> Desk Support: Monday – Thursday: 8:00 AM – 8:00 PM | Friday: 8:00 AM – 1:00 PM | Saturday – Sunday: 10:00 AM – 6:00 PM | Doorstep Ordering: 8:00 AM – 10:00 PM Daily | WhatsApp Helpline: 24/7
+                  <strong>Working Hours:</strong> Desk Support: Monday – Thursday: 8:00 AM – 10:00 PM | Friday – Sunday: 10:00 AM – 6:00 PM | Doorstep Ordering: 8:00 AM – 10:00 PM Daily | WhatsApp Helpline: 24/7
                 </p>
                 <p>
                   To file a dispute, request dedicated corporate account terms, or inquire about logistics agreements, submit an inquiry via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0369a1)', fontWeight: 600 }}>Contact &amp; Support Page</Link> or review our <Link to="/services/" style={{ color: 'var(--brand-primary, #0369a1)', fontWeight: 600 }}>Fuel Services &amp; Delivery Terms</Link>.

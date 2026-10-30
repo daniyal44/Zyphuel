@@ -1143,5 +1143,133 @@ export const articles = [
       'Our mathematical pricing formula — combining official OGRA rates with a fixed Rs. 300 delivery fee (5–10L) and scaled Rs. 320–Rs. 400 fee (11–15L Max) — ensures you know the exact final price before confirming an order. With certified positive-displacement metering, 45-minute dispatch, and instant 2-hour price alerts on our Android APK, managing fuel costs in Lahore has never been simpler.',
       'Check today’s live fuel rates on zyphuel.netlify.app/order/ and schedule your doorstep refueling with complete financial transparency.'
     ]
+  },
+  {
+    id: 11,
+    slug: 'petrol-pump-near-me-lahore-doorstep-alternative',
+    category: 'Zyphuel Energy',
+    categoryClass: 'zyphuel',
+    title: 'Petrol Pump Near Me in Lahore: Queues, Short-Fueling and the Doorstep Alternative (2026 Guide)',
+    summary: 'What drivers in Lahore should check before trusting a neighbourhood petrol pump, how pump short-fueling and queue idling inflate the real cost per litre, and when ordering 5 to 15 litres of Euro-V fuel to your doorstep is the cheaper choice.',
+    date: 'October 30, 2026',
+    readTime: '9 min read',
+    author: 'Zyphuel Energy Analysis Team',
+    authorIcon: 'fa-solid fa-gas-pump',
+    image: 'https://images.unsplash.com/photo-1545262810-77515befe149?auto=format&fit=crop&w=720&q=80',
+    tags: ['PetrolPumpNearMe', 'LahorePetrolPump', 'FuelDeliveryLahore', 'PumpShortFueling', 'DoorstepRefueling'],
+    keyTakeaways: [
+      'Searching for a petrol pump near me in Lahore returns dozens of stations, but distance is not the only cost: queue idling, detours and unverified dispenser calibration all add to the price you actually pay per litre.',
+      'Every Zyphuel delivery is metered on a calibrated digital flow meter and itemised on a QR/barcoded PDF invoice, so the litres you are billed for are the litres that entered your tank.',
+      'Doorstep refueling in Lahore is limited to 5 Litres minimum and 15 Litres maximum per order, with a 45-minute delivery window and a single delivery tier (there is no urgent or express surcharge).',
+      'Delivery charges are Rs. 300.00 for 5 to 10 Litre orders and scale from Rs. 320.00 to Rs. 400.00 for 11 to 15 Litres, while the fuel itself is priced at the official OGRA ex-depot rate plus a controlled Rs. 5.00/L retail pump margin.'
+    ],
+    sections: [
+      {
+        heading: 'What to Check at Any Petrol Pump in Lahore',
+        subheading: 'Five checks that decide whether a station is worth your fuel',
+        paragraphs: [
+          'A petrol pump near you in Lahore can look busy and still be a bad deal. The five checks that matter are dispenser calibration stickers, the zero-reset before the nozzle opens, the printed rate on the pump versus the notified OGRA rate, whether the attendant shows you the meter start, and whether you receive a receipt you can verify later.',
+          'Short-fueling is the most common complaint. If the dispenser is not zeroed, or if the meter jumps before fuel flows, you pay for air. A calibrated 0.01-litre digital flow meter with an itemised invoice removes that ambiguity: the litres are recorded, printed and traceable through a QR code.'
+        ]
+      },
+      {
+        heading: 'Queues, Detours and Idling: The Hidden Cost Per Litre',
+        subheading: 'Why the cheapest pump on the board is often the most expensive trip',
+        paragraphs: [
+          'In dense sectors such as Gulberg, DHA, Johar Town or Model Town, a five to ten minute queue at peak hours burns fuel that no board price accounts for. Add the detour to reach the station and back, and the real cost of a ten litre top-up rises well above the notified rate.',
+          'For a standby generator, the maths is worse: the generator cannot run while you are queueing, so load-shedding downtime is added to the bill. A doorstep delivery replaces the trip entirely and keeps the machine running on schedule.'
+        ]
+      },
+      {
+        heading: 'When Doorstep Fuel Delivery Beats a Pump Trip in Lahore',
+        subheading: 'The 5 to 15 litre rule and where it makes sense',
+        paragraphs: [
+          'Zyphuel is built for the volume band most Lahore drivers actually need: strictly 5 Litres minimum and 15 Litres maximum per doorstep order, chosen from 5, 7, 10, 12 or 15 litre chips or entered manually in 1 litre steps.',
+          'For 5 to 10 litres the delivery charge is a fixed Rs. 300.00. From 11 to 15 litres it scales linearly between Rs. 300.00 and Rs. 400.00 in a Rs. 20 per litre step (11L = Rs. 320, 12L = Rs. 340, 13L = Rs. 360, 14L = Rs. 380, 15L = Rs. 400 maximum). There is one delivery window only, within 45 minutes, and no urgent or express surcharge exists in any tier.'
+        ]
+      },
+      {
+        heading: 'Playing It Safe: Hours, Payments and Verification',
+        subheading: 'What to expect from the first order',
+        paragraphs: [
+          'Online doorstep ordering runs every day from 8:00 AM to 10:00 PM PKT. Between 10:00 PM and 8:00 AM the order button is disabled by design and the WhatsApp emergency helpline on +92 3230-112464 stays available around the clock for roadside emergencies.',
+          'Payment is cash on delivery or instant mobile wallet (JazzCash, Easypaisa, NayaPay, Raast). After delivery you receive a metered invoice with a verifiable QR/barcode, so the litres and the rate can be checked later instead of being taken on trust.'
+        ]
+      }
+    ],
+    faqs: [
+      { question: 'Is there a petrol pump near me in Lahore that delivers to my car?', answer: 'A conventional petrol pump cannot deliver, because fuel must move in a sealed and metered bowser. Zyphuel is a mobile refueling service: you order 5 to 15 litres online and a calibrated unit reaches your car, generator or machinery within 45 minutes anywhere in Lahore, subject to the 8:00 AM to 10:00 PM order window.' },
+      { question: 'How much does doorstep petrol delivery cost in Lahore?', answer: 'The fuel is billed at the official OGRA ex-depot rate plus a controlled Rs. 5.00 per litre retail pump margin. Delivery adds a fixed Rs. 300.00 for 5 to 10 litre orders, and scales from Rs. 320.00 to Rs. 400.00 for 11 to 15 litres. The invoice shows every line separately.' },
+      { question: 'Can I order less than 5 litres or more than 15 litres?', answer: 'No. The doorstep limit is strictly 5 litres minimum and 15 litres maximum per order. Requests below 5 litres are clamped to 5 and anything above 15 is capped. Larger scheduled volumes are handled as separate commercial supply arrangements rather than a single doorstep order.' },
+      { question: 'Which fuel types are available for doorstep delivery?', answer: 'Euro-V petrol, High-Octane 97 and diesel, sourced from OGRA-notified supply and delivered in sealed, metered bowsers by trained dispatch staff.' }
+    ],
+    content: [
+      'Searching for a petrol pump near me in Lahore is usually a search for certainty: will the pump be open, will the meter be honest, and how long will the trip take. Doorstep refueling answers the same questions with a written price, a metered invoice and a 45-minute window.',
+      'Order on zyphuel.netlify.app/order/ or through the Android APK, choose 5 to 15 litres, and keep the QR invoice for your records.'
+    ]
+  },
+  {
+    id: 12,
+    slug: 'diesel-delivery-lahore-price-per-litre-fleet-budget',
+    category: 'Zyphuel Enterprise',
+    categoryClass: 'enterprise',
+    title: 'Diesel Delivery in Lahore: Per-Litre Price, Delivery Charges and Fleet Budget Planning (2026)',
+    summary: 'A practical cost model for diesel delivery in Lahore: how the per-litre price is built from the OGRA ex-depot rate plus a Rs. 5.00/L margin, how the Rs. 300.00 to Rs. 400.00 delivery band works between 5 and 15 litres, and how to budget generator and fleet refueling without hidden fees.',
+    date: 'October 30, 2026',
+    readTime: '10 min read',
+    author: 'Zyphuel Commercial Fuel Desk',
+    authorIcon: 'fa-solid fa-truck-fast',
+    image: 'https://images.unsplash.com/photo-1615828636374-ee3e7b6fbb3e?auto=format&fit=crop&w=720&q=80',
+    tags: ['DieselDeliveryLahore', 'DieselPricePerLitre', 'GeneratorRefueling', 'FleetFuelBudget', 'OGRAExDepot'],
+    keyTakeaways: [
+      'The diesel price you pay on a Zyphuel doorstep order is the official OGRA ex-depot rate for the day plus a controlled retail pump margin of Rs. 5.00 per litre, with no seasonal or demand surcharge.',
+      'Delivery is charged separately: Rs. 300.00 flat for 5 to 10 litres, and a linear Rs. 20 per litre step from Rs. 320.00 (11L) to Rs. 400.00 (15L).',
+      'Every order is capped at 15 litres maximum and floor-limited at 5 litres minimum, which keeps single deliveries within the safe capacity of a calibrated micro-refueler.',
+      'Generator and fleet budgeting is simpler when the invoice is metered: litres dispensed, rate applied and delivery fee appear separately, backed by a verifiable QR/barcode.'
+    ],
+    sections: [
+      {
+        heading: 'How the Diesel Price Per Litre Is Built',
+        subheading: 'Ex-depot rate plus a fixed margin, nothing else',
+        paragraphs: [
+          'Zyphuel does not invent a diesel price. Each day the official OGRA ex-depot rate for High-Speed Diesel is read, and a controlled retail pump margin of Rs. 5.00 per litre is added. That is the entire per-litre build-up: no time-of-day multiplier, no weekend premium, no urgency fee.',
+          'Because the margin is fixed in rupees rather than a percentage, a price movement in the ex-depot rate passes through one-for-one. You can therefore audit any invoice against the published rate on the same date.'
+        ]
+      },
+      {
+        heading: 'Delivery Charges Between 5 and 15 Litres',
+        subheading: 'The exact band, with no urgent tier',
+        paragraphs: [
+          'The doorstep delivery fee is Rs. 300.00 for orders from 5 to 10 litres. From 11 litres it scales linearly to a maximum of Rs. 400.00 at 15 litres, in a Rs. 20 per litre step: 11L Rs. 320, 12L Rs. 340, 13L Rs. 360, 14L Rs. 380, 15L Rs. 400.',
+          'There is exactly one delivery window, within 45 minutes. Urgent, express and priority dispatch tiers do not exist on this platform, so no order can be silently upgraded into a surcharge.'
+        ]
+      },
+      {
+        heading: 'Budgeting a Standby Generator',
+        subheading: 'A worked example for a 15 litre order',
+        paragraphs: [
+          'Take a 15 litre diesel order on a day when the ex-depot diesel rate is R. The fuel line is 15 multiplied by (R + 5.00). The delivery line is a single Rs. 400.00. The invoice total is those two lines added together, and the litrage is confirmed by a calibrated 0.01 litre flow meter rather than by a dipstick estimate.',
+          'For load-shedding planning, keep two things in mind: orders are accepted daily from 8:00 AM to 10:00 PM PKT, and the WhatsApp helpline on +92 3230-112464 remains available 24/7 when a generator dies outside those hours.'
+        ]
+      },
+      {
+        heading: 'Fleet and Commercial Refueling Without the Paperwork Trap',
+        subheading: 'What a compliant diesel delivery record contains',
+        paragraphs: [
+          'A compliant delivery record shows the date and time, the vehicle or generator identity, the litres dispensed, the rate applied, the delivery charge and a unique invoice number with a QR/barcode. That is what an auditor, a landlord or a fleet accountant needs in order to reconcile spend.',
+          'Zyphuel issues exactly that on every order, which is why commercial machinery, telecom sites, construction yards and standby generator owners use it as their primary diesel record instead of handwritten slips.'
+        ]
+      }
+    ],
+    faqs: [
+      { question: 'What is the diesel price per litre for doorstep delivery in Lahore?', answer: 'It is the official OGRA ex-depot diesel rate for the day plus a controlled retail pump margin of Rs. 5.00 per litre. Delivery charges are added separately: Rs. 300.00 for 5 to 10 litres and Rs. 320.00 to Rs. 400.00 for 11 to 15 litres.' },
+      { question: 'Can I order more than 15 litres of diesel for a generator?', answer: 'Not in a single doorstep order. The platform enforces a strict 5 litre minimum and 15 litre maximum per delivery. Larger requirements are handled as scheduled commercial supply rather than one oversized doorstep order.' },
+      { question: 'Is there an urgent diesel delivery option?', answer: 'No. Urgent and express tiers were removed permanently. There is one delivery window of within 45 minutes and no priority surcharge of any kind.' },
+      { question: 'How do I prove how much diesel was actually delivered?', answer: 'Every delivery is metered on a calibrated 0.01 litre digital flow meter and itemised on a PDF invoice with a verifiable QR/barcode, so the litres billed match the litres dispensed.' }
+    ],
+    content: [
+      'Diesel delivery in Lahore is only useful if the numbers hold up under scrutiny. A fixed Rs. 5.00 per litre margin over the OGRA ex-depot rate, a published delivery band and a metered invoice make that possible.',
+      'Place a diesel order for 5 to 15 litres on zyphuel.netlify.app/order/ any day between 8:00 AM and 10:00 PM PKT.'
+    ]
   }
 ];

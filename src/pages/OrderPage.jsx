@@ -366,7 +366,7 @@ export default function OrderPage() {
     timeInMinutes: 720,
     currentTime: '',
     currentDateTimeStr: '',
-    todaySchedule: '8:00 AM – 8:00 PM',
+    todaySchedule: '8:00 AM – 10:00 PM',
     nextOpening: '',
     mismatchMessage: ''
   }))

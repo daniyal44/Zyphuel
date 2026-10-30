@@ -869,18 +869,14 @@ export default function HomePage() {
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '8px', gap: '12px' }}>
                   <span style={{ color: '#cbd5e1' }}>Monday – Thursday</span>
-                  <strong style={{ color: '#ffffff', textAlign: 'right' }}>8:00 AM – 8:00 PM</strong>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', paddingBottom: '8px', gap: '12px' }}>
-                  <span style={{ color: '#cbd5e1' }}>Friday</span>
-                  <strong style={{ color: '#ffffff', textAlign: 'right' }}>8:00 AM – 1:00 PM</strong>
+                  <strong style={{ color: '#ffffff', textAlign: 'right' }}>8:00 AM – 10:00 PM</strong>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px' }}>
-                  <span style={{ color: '#cbd5e1' }}>Saturday – Sunday</span>
+                  <span style={{ color: '#cbd5e1' }}>Friday – Sunday</span>
                   <strong style={{ color: '#ffffff', textAlign: 'right' }}>10:00 AM – 6:00 PM</strong>
                 </div>
                 <p style={{ color: '#94a3b8', fontSize: '0.78rem', lineHeight: '1.55', margin: '10px 0 0', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '10px' }}>
-                  Friday is a half-day for the support desk (closes 1:00 PM). Doorstep fuel ordering is unaffected and stays open until 10:00 PM every day, including Friday.
+                  Support desk and doorstep ordering both run 8:00 AM – 10:00 PM Monday to Thursday. Friday to Sunday the desk runs 10:00 AM – 6:00 PM, while online doorstep ordering stays open 8:00 AM – 10:00 PM every day.
                 </p>
               </div>
             </div>

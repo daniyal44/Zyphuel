@@ -30,10 +30,12 @@ This project has access to **425 specialized subagents** across 28 functional do
 - **Online Order Intake & Strict 10:00 PM Cutoff**:
   - Online doorstep fuel order intake operates daily from **8:00 AM to 10:00 PM (PKT)**.
   - **Strict Night Cutoff (10:00 PM – 8:00 AM PKT)**: The "Complete Order" button (`.truck-button`, `#truck-submit-btn`) is strictly hidden and never shown under any circumstances. A dedicated Night Cutoff alert card is rendered with countdown/notice to 8:00 AM and direct 24/7 WhatsApp emergency helpline. Server-side guard (`plugins/zyphuel-order-guard/zyphuel-order-guard.php`) rejects order submissions with 403 Forbidden.
-  - Corporate support & desk verification schedule:
-    - Monday – Thursday: 8:00 AM – 8:00 PM
-    - Friday: 8:00 AM – 1:00 PM
-    - Saturday – Sunday: 10:00 AM – 6:00 PM
+  - Customer support desk & office verification schedule (separate from the order window above):
+    - Monday – Thursday: 8:00 AM – 10:00 PM
+    - Friday: 10:00 AM – 6:00 PM
+    - Saturday: 10:00 AM – 6:00 PM
+    - Sunday: 10:00 AM – 6:00 PM
+    - There is NO Friday half-day. Do not reintroduce an 8:00 AM – 1:00 PM or 8:00 AM – 8:00 PM desk row.
   - WhatsApp emergency helpline operates **24/7 on-demand** at `+92 3230-112464`.
 - **Startup Identity**: Single persistent transparency statement on Home hero; never duplicated on child pages.
 - **Automated Dispatch & WhatsApp**: Direct WhatsApp pre-filled dispatch link to `+92 3230-112464`.

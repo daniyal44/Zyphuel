@@ -118,3 +118,10 @@ Added interactive 4-item accordion addressing core user intent and eliminating t
 - **Entity consolidation**: `LocalBusiness` is now a single entity with `@id` `#localbusiness` (and `parentOrganization` → `#organization`) across static HTML, footer and client hydration. Added `openingHoursSpecification` (Mon–Thu 8–8, Fri 8–1, Sat–Sun 10–6), `contactPoint`, `currenciesAccepted: PKR` and `paymentAccepted`.
 - **Removed false signals**: LPG and Water Tanker offers dropped from `hasOfferCatalog` (both services are unavailable), the invalid `SearchAction` pointing at a non-existent `?q=` search was removed, and the stale LPG/water keyword list was cleaned.
 - **AEO**: the home page FAQ schema survives hydration again (18 questions mirrored from the visible Q&A hub) instead of being wiped when `useSEO` rebuilt the graph.
+
+## 2026-10-30 — Hours table corrected
+
+Contact page hours table now shows only two rows, matching the rest of the site:
+`Monday – Thursday 8:00 AM – 10:00 PM` and `Friday – Sunday 10:00 AM – 6:00 PM`, above the separate
+`Online doorstep orders: 8:00 AM – 10:00 PM daily` line. The "Friday (half-day) 8:00 AM – 1:00 PM"
+row was removed, and the FAQ answers plus the SEO/Voice schema text were rewritten to the same values.

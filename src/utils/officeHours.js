@@ -1,41 +1,38 @@
 /**
  * Official Zyphuel Working Hours & Order Placement Validation
  * 
- * Schedule:
- * - Monday – Thursday: 8:00 AM – 8:00 PM (08:00 – 20:00 PKT)
- * - Friday:            8:00 AM – 1:00 PM (08:00 – 13:00 PKT)
- * - Saturday – Sunday: 10:00 AM – 6:00 PM (10:00 – 18:00 PKT)
+ * Customer support desk & office verification hours:
+ * - Monday – Thursday: 8:00 AM – 10:00 PM (08:00 – 22:00 PKT)
+ * - Friday – Sunday:   10:00 AM – 6:00 PM (10:00 – 18:00 PKT)
+ *
+ * Online doorstep order intake is a separate window: every day 8:00 AM – 10:00 PM PKT.
  */
 
 export const OFFICE_HOURS_SCHEDULE = [
-  { 
-    days: 'Monday – Thursday', 
-    hours: '8:00 AM – 8:00 PM', 
-    urduDays: 'پیر تا جمعرات', 
-    urduHours: 'صبح 8:00 تا رات 8:00' 
+  {
+    days: 'Monday – Thursday',
+    hours: '8:00 AM – 10:00 PM',
+    urduDays: 'پیر تا جمعرات',
+    urduHours: 'صبح 8:00 تا رات 10:00'
   },
-  { 
-    days: 'Friday', 
-    hours: '8:00 AM – 1:00 PM', 
-    urduDays: 'جمعہ', 
-    urduHours: 'صبح 8:00 تا دوپہر 1:00' 
-  },
-  { 
-    days: 'Saturday – Sunday', 
-    hours: '10:00 AM – 6:00 PM', 
-    urduDays: 'ہفتہ تا اتوار', 
-    urduHours: 'صبح 10:00 تا شام 6:00' 
+  {
+    days: 'Friday – Sunday',
+    hours: '10:00 AM – 6:00 PM',
+    urduDays: 'جمعہ تا اتوار',
+    urduHours: 'صبح 10:00 تا شام 6:00'
   }
 ]
 
 export function getNextOpening(day, hour, minute) {
   const timeInMinutes = hour * 60 + minute
 
+  const WEEKDAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday']
+
   // Before opening today
-  if (['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].includes(day) && timeInMinutes < 8 * 60) {
+  if (WEEKDAYS.includes(day) && timeInMinutes < 8 * 60) {
     return `Today (${day}) at 8:00 AM`
   }
-  if (['Saturday', 'Sunday'].includes(day) && timeInMinutes < 10 * 60) {
+  if (['Friday', 'Saturday', 'Sunday'].includes(day) && timeInMinutes < 10 * 60) {
     return `Today (${day}) at 10:00 AM`
   }
 
@@ -43,7 +40,7 @@ export function getNextOpening(day, hour, minute) {
   if (day === 'Monday') return 'Tomorrow (Tuesday) at 8:00 AM'
   if (day === 'Tuesday') return 'Tomorrow (Wednesday) at 8:00 AM'
   if (day === 'Wednesday') return 'Tomorrow (Thursday) at 8:00 AM'
-  if (day === 'Thursday') return 'Tomorrow (Friday) at 8:00 AM'
+  if (day === 'Thursday') return 'Tomorrow (Friday) at 10:00 AM'
   if (day === 'Friday') return 'Tomorrow (Saturday) at 10:00 AM'
   if (day === 'Saturday') return 'Tomorrow (Sunday) at 10:00 AM'
   if (day === 'Sunday') return 'Tomorrow (Monday) at 8:00 AM'
@@ -175,16 +172,11 @@ export function checkOfficeHours(date = new Date(), options = {}) {
     let closeTimeMinutes = 0
 
     if (['Monday', 'Tuesday', 'Wednesday', 'Thursday'].includes(day)) {
-      todaySchedule = '8:00 AM – 8:00 PM'
+      todaySchedule = '8:00 AM – 10:00 PM'
       openTimeMinutes = 8 * 60 // 480
-      closeTimeMinutes = 20 * 60 // 1200
+      closeTimeMinutes = 22 * 60 // 1320
       isOfficeOpen = timeInMinutes >= openTimeMinutes && timeInMinutes < closeTimeMinutes
-    } else if (day === 'Friday') {
-      todaySchedule = '8:00 AM – 1:00 PM'
-      openTimeMinutes = 8 * 60 // 480
-      closeTimeMinutes = 13 * 60 // 780
-      isOfficeOpen = timeInMinutes >= openTimeMinutes && timeInMinutes < closeTimeMinutes
-    } else if (['Saturday', 'Sunday'].includes(day)) {
+    } else if (['Friday', 'Saturday', 'Sunday'].includes(day)) {
       todaySchedule = '10:00 AM – 6:00 PM'
       openTimeMinutes = 10 * 60 // 600
       closeTimeMinutes = 18 * 60 // 1080
@@ -243,7 +235,7 @@ export function checkOfficeHours(date = new Date(), options = {}) {
       timeInMinutes: 720,
       currentTime: '',
       currentDateTimeStr: '',
-      todaySchedule: '8:00 AM – 8:00 PM',
+      todaySchedule: '8:00 AM – 10:00 PM',
       nextOpening: '',
       mismatchMessage: ''
     }

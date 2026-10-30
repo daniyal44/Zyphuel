@@ -5,7 +5,7 @@
     <link>https://zyphuel.netlify.app/blog/</link>
     <description>Authoritative guides, downstream petroleum pricing analysis, IoT telemetry breakdowns, global mobile fueling benchmarks, and doorstep fuel delivery insights in Lahore, Pakistan by Zyphuel.</description>
     <language>en-pk</language>
-    <lastBuildDate>Tue, 27 Oct 2026 08:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://zyphuel.netlify.app/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://zyphuel.netlify.app/images/logo.png</url>
@@ -14,6 +14,25 @@
     </image>
     <copyright>Copyright 2026 Zyphuel Technologies. All rights reserved.</copyright>
 
+    <item>
+      <title>Petrol Pump Near Me in Lahore: Queues, Short-Fueling and the Doorstep Alternative (2026 Guide)</title>
+      <link>https://zyphuel.netlify.app/blog/petrol-pump-near-me-lahore-doorstep-alternative/</link>
+      <guid isPermaLink="true">https://zyphuel.netlify.app/blog/petrol-pump-near-me-lahore-doorstep-alternative/</guid>
+      <pubDate>Fri, 30 Oct 2026 09:00:00 GMT</pubDate>
+      <dc:creator>Zyphuel Energy Analysis Team</dc:creator>
+      <category>Fuel Delivery</category>
+      <description><![CDATA[What to check at a petrol pump in Lahore, how queue idling and short-fueling inflate the real cost per litre, and when a 5 to 15 litre doorstep order with a 45-minute window is the cheaper choice.]]></description>
+    </item>
+
+    <item>
+      <title>Diesel Delivery in Lahore: Per-Litre Price, Delivery Charges and Fleet Budget Planning (2026)</title>
+      <link>https://zyphuel.netlify.app/blog/diesel-delivery-lahore-price-per-litre-fleet-budget/</link>
+      <guid isPermaLink="true">https://zyphuel.netlify.app/blog/diesel-delivery-lahore-price-per-litre-fleet-budget/</guid>
+      <pubDate>Fri, 30 Oct 2026 10:00:00 GMT</pubDate>
+      <dc:creator>Zyphuel Commercial Fuel Desk</dc:creator>
+      <category>Enterprise Fuel</category>
+      <description><![CDATA[A practical diesel delivery cost model for Lahore: OGRA ex-depot rate plus a Rs. 5.00/L margin, the Rs. 300 to Rs. 400 delivery band between 5 and 15 litres, and metered invoices for generator and fleet budgeting.]]></description>
+    </item>
     <item>
       <title>Emergency Petrol Delivery Near Me: What to Do When Your Fuel Runs Out on the Road (Lahore Roadside Guide)</title>
       <link>https://zyphuel.netlify.app/blog/emergency-petrol-delivery-near-me-roadside-guide/</link>

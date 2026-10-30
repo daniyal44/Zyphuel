@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img">
+  <title>Frame requests per canvas hero after the index fix</title>
+  <rect width="960" height="560" fill="#ffffff"/>
+  <text x="480.0" y="34" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="middle">Frame requests per canvas hero after the fix</text>
+  <text x="480.0" y="58" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569" text-anchor="middle">Local production build · one scroll pass per page · failed requests = 0 on every row</text>
+  <line x1="210" y1="470.0" x2="900" y2="470.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="198" y="475.0" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569" text-anchor="end">0</text>
+  <line x1="210" y1="377.5" x2="900" y2="377.5" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="198" y="382.5" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569" text-anchor="end">20</text>
+  <line x1="210" y1="285.0" x2="900" y2="285.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="198" y="290.0" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569" text-anchor="end">40</text>
+  <line x1="210" y1="192.5" x2="900" y2="192.5" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="198" y="197.5" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569" text-anchor="end">60</text>
+  <line x1="210" y1="100.0" x2="900" y2="100.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="198" y="105.0" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569" text-anchor="end">80</text>
+  <line x1="210" y1="100" x2="210" y2="470" stroke="#334155" stroke-width="2"/>
+  <line x1="210" y1="470" x2="900" y2="470" stroke="#334155" stroke-width="2"/>
+  <rect x="216" y="146.2" width="630" height="22" fill="#0284c7" opacity="0.9"/>
+  <text x="196" y="162.2" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#334155" text-anchor="end">Home hero</text>
+  <text x="228" y="162.2" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#ffffff">70 frames · 0 failed</text>
+  <rect x="216" y="137.0" width="630" height="22" fill="#0284c7" opacity="0.9"/>
+  <text x="196" y="153.0" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#334155" text-anchor="end">Services hero</text>
+  <text x="228" y="153.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#ffffff">72 frames · 0 failed</text>
+  <rect x="216" y="220.2" width="630" height="22" fill="#0284c7" opacity="0.9"/>
+  <text x="196" y="236.2" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#334155" text-anchor="end">Services section 3</text>
+  <text x="228" y="236.2" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#ffffff">54 frames · 0 failed</text>
+  <rect x="216" y="183.2" width="630" height="22" fill="#0284c7" opacity="0.9"/>
+  <text x="196" y="199.2" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#334155" text-anchor="end">Download hero</text>
+  <text x="228" y="199.2" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#ffffff">62 frames · 0 failed</text>
+  <rect x="216" y="174.0" width="630" height="22" fill="#0284c7" opacity="0.9"/>
+  <text x="196" y="190.0" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#334155" text-anchor="end">Download section 3</text>
+  <text x="228" y="190.0" font-family="Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#ffffff">64 frames · 0 failed</text>
+  <text x="555.0" y="516" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#334155" text-anchor="middle">Canvas stage</text>
+  <text x="46" y="285.0" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#334155" text-anchor="middle" transform="rotate(-90 46 285.0)">Frame requests (count)</text>
+</svg>

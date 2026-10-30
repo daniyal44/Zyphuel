@@ -69,7 +69,7 @@ export default function ContactPage() {
               "name": "What are Zyphuel's customer support and delivery operating hours?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Online doorstep fuel orders are accepted from 8:00 AM to 10:00 PM (PKT) daily (night cutoff 10:00 PM – 8:00 AM). Corporate support desk operates: Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, Saturday–Sunday 10:00 AM–6:00 PM. Our WhatsApp emergency helpline (+92 3230-112464) operates 24/7."
+                "text": "Online doorstep fuel orders are accepted from 8:00 AM to 10:00 PM (PKT) daily (night cutoff 10:00 PM – 8:00 AM). Corporate support desk operates: Monday–Thursday 8:00 AM–10:00 PM, Friday–Sunday 10:00 AM–6:00 PM. Our WhatsApp emergency helpline (+92 3230-112464) operates 24/7."
               }
             },
             {
@@ -103,7 +103,7 @@ export default function ContactPage() {
     },
     {
       q: "What are Zyphuel’s customer support and delivery operating hours?",
-      a: "Online doorstep fuel orders are accepted from 8:00 AM to 10:00 PM (PKT) daily (night cutoff 10:00 PM – 8:00 AM). Corporate support desk operates: Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, and Saturday–Sunday 10:00 AM–6:00 PM. Our WhatsApp emergency helpline (+92 3230-112464) operates 24/7."
+      a: "Online doorstep fuel orders are accepted from 8:00 AM to 10:00 PM (PKT) daily (night cutoff 10:00 PM – 8:00 AM). Corporate support desk operates: Monday–Thursday 8:00 AM–10:00 PM, and Friday–Sunday 10:00 AM–6:00 PM. Our WhatsApp emergency helpline (+92 3230-112464) operates 24/7."
     },
     {
       q: "Where is Zyphuel’s corporate office located in Lahore?",
@@ -280,9 +280,8 @@ ${form.message.trim()}`
                     <p style={{ margin: '0 0 12px', fontSize: '0.85rem', opacity: 0.85 }}>WhatsApp dispatch helpline: 24/7 &middot; Customer support desk &amp; office verification below</p>
                     <table className="hours-table">
                       <tbody>
-                        <tr><td>Monday – Thursday</td><td>8:00 AM – 8:00 PM</td></tr>
-                        <tr><td>Friday (half-day)</td><td>8:00 AM – 1:00 PM</td></tr>
-                        <tr><td>Saturday – Sunday</td><td>10:00 AM – 6:00 PM</td></tr>
+                        <tr><td>Monday – Thursday</td><td>8:00 AM – 10:00 PM</td></tr>
+                        <tr><td>Friday – Sunday</td><td>10:00 AM – 6:00 PM</td></tr>
                       </tbody>
                     </table>
                   </div>
@@ -468,7 +467,7 @@ ${form.message.trim()}`
               icon: 'fa-inbox',
               title: 'Your message reaches the operations desk',
               desc: 'Every form submission is logged with your name, phone number, sector and fuel requirement. Requests sent outside desk hours stay queued and are picked up when the desk opens — nothing is discarded overnight.',
-              meta: 'Mon–Thu 8 AM–8 PM · Fri 8 AM–1 PM · Sat–Sun 10 AM–6 PM'
+              meta: 'Mon–Thu 8 AM–10 PM · Fri–Sun 10 AM–6 PM'
             },
             {
               short: 'Verification',

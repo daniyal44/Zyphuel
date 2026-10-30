@@ -184,19 +184,12 @@ const LOCAL_BUSINESS_SCHEMA = {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
         "opens": "08:00",
-        "closes": "20:00",
+        "closes": "22:00",
         "name": "Customer support desk & office verification"
       },
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Friday"],
-        "opens": "08:00",
-        "closes": "13:00",
-        "name": "Customer support desk (Friday half-day)"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Saturday", "Sunday"],
+        "dayOfWeek": ["Friday", "Saturday", "Sunday"],
         "opens": "10:00",
         "closes": "18:00",
         "name": "Customer support desk & office verification"
@@ -1203,7 +1196,7 @@ const ROUTES = [
               "name": "What are Zyphuel's customer support and delivery operating hours?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Our doorstep mobile refueling fleet operates across all Lahore sectors during business hours (Mon–Thu 8AM–8PM, Fri 8AM–1PM, Sat–Sun 10AM–6PM). Corporate office and billing desk hours are Monday–Thursday 8:00 AM–8:00 PM, Friday 8:00 AM–1:00 PM, and Saturday–Sunday 10:00 AM–6:00 PM."
+                "text": "Online doorstep fuel ordering is open every day from 8:00 AM to 10:00 PM (PKT) across all Lahore sectors. The customer support desk and office verification run Monday–Thursday 8:00 AM–10:00 PM and Friday–Sunday 10:00 AM–6:00 PM."
               }
             },
             {

@@ -171,3 +171,19 @@ of 18.
 - **Second bug in the same call sites:** the instant first paint still used `framePath(1)`, i.e. the *fourth* source frame instead of frame 0, so the opening still was not the intended first frame.
 - **Fix (`src/components/ScrollAnimationSection.jsx`):** `img.src = framePath(index)`, first paint `framePath(0)`. No visual/behaviour change otherwise.
 - **Verified on the local production build** (1366×768, `vite preview`): hero canvas changed on **all** sampled scroll positions, **0** failed frame requests, 0 console errors.
+
+## 2026-10-30 — Working hours corrected (single source of truth)
+
+**What was wrong:** the hero operating card showed two different schedules under one heading ("Every day 8:00 AM – 10:00 PM" for order intake, then Mon–Thu 8–8 / Fri 8–1 / Sat–Sun 10–6 for the desk) with no labels telling the visitor which row applied to what. Friday's half-day made the two blocks look like a contradiction.
+
+**New canonical schedule (applies to every page, schema and doc):**
+
+| Schedule | Days | Hours (PKT) |
+| :--- | :--- | :--- |
+| Online doorstep order intake | Every day | 8:00 AM – 10:00 PM |
+| Customer support desk & office verification | Monday – Thursday | 8:00 AM – 10:00 PM |
+| Customer support desk & office verification | Friday – Sunday | 10:00 AM – 6:00 PM |
+
+- Removed the "Friday is a half-day (closes 1:00 PM)" note.
+- `src/utils/officeHours.js`: `OFFICE_HOURS_SCHEDULE`, `checkOfficeHours()` (Mon–Thu close `22:00`, Fri–Sun `10:00–18:00`), `getNextOpening()` and the error fallback all follow the table above.
+- `openingHoursSpecification` / `contactPoint.hoursAvailable` in `index.html`, `prerender.js` and `src/hooks/useSEO.js` now emit `Mo–Th 08:00–22:00` and `Fr–Su 10:00–18:00`.

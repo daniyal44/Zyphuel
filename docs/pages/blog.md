@@ -111,3 +111,9 @@
 
 - **Article 9 (Emergency Roadside Guide)**: `/blog/emergency-petrol-delivery-near-me-roadside-guide/` — Roadside empty fuel recovery, safety warnings, and 45-minute dispatch.
 - **Article 10 (Today Petrol Price & Cost Calculator)**: `/blog/petrol-price-today-pakistan-fuel-delivery-cost-calculator/` — Daily OGRA Platts tracking, transparent mathematical formula, worked pricing examples.
+
+## 2026-10-30 — Two new search-intent articles
+
+- `/blog/petrol-pump-near-me-lahore-doorstep-alternative/` — "Petrol Pump Near Me in Lahore: Queues, Short-Fueling and the Doorstep Alternative (2026 Guide)". Targets `petrol pump near me Lahore`, `Lahore petrol pump`, pump short-fueling.
+- `/blog/diesel-delivery-lahore-price-per-litre-fleet-budget/` — "Diesel Delivery in Lahore: Per-Litre Price, Delivery Charges and Fleet Budget Planning (2026)". Targets `diesel delivery Lahore`, `diesel price per litre Lahore`, `generator refueling Lahore`.
+- Both use only the verified commercial facts (5–15 L, Rs. 300 / Rs. 320–400 delivery band, Rs. 5.00/L margin, one 45-minute window, 8 AM–10 PM ordering, 24/7 WhatsApp) and are prerendered, added to `sitemap.xml` (21 URLs) and `feed.xml` (12 items).

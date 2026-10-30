@@ -18,6 +18,18 @@
 
 [Open the full report, metrics and method](docs/reports/2026-10-29-mobile-lighthouse-home-services.md) · [Browse all reports](docs/reports/README.md)
 
+## Latest Fix Verification — 2026-10-30
+
+**Working hours:** order intake daily 8:00 AM – 10:00 PM · support desk Mon–Thu 8:00 AM – 10:00 PM, Fri–Sun 10:00 AM – 6:00 PM (no Friday half-day).
+
+**Canvas scroll animations:** the frame index bug that froze the scrub is fixed; all five canvas stages now request only files that exist.
+
+![Source frame requested versus scrub position](docs/reports/charts/frame-index-mapping-2026-10-30.svg)
+
+![Frame requests per canvas hero after the fix](docs/reports/charts/frame-verify-2026-10-30.svg)
+
+[Open the full report](docs/reports/2026-10-30-hours-fix-and-performance.md)
+
 ---
 
 ## 📑 Table of Contents

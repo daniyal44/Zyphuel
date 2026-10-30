@@ -163,7 +163,7 @@ export default function PrivacyPolicyPage() {
                   <strong>Support Desk:</strong> Available via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0369a1)', fontWeight: 600 }}>Official Contact &amp; Support Page</Link><br />
                   <strong>Email:</strong> m.daniyalkhan490@gmail.com <em>(For order modifications or data requests)</em><br />
                   <strong>Location:</strong> Lahore, Pakistan <em>(Walk-in corporate meetings by appointment only)</em><br />
-                  <strong>Working Hours:</strong> Desk Support: Monday – Thursday: 8:00 AM – 8:00 PM | Friday: 8:00 AM – 1:00 PM | Saturday – Sunday: 10:00 AM – 6:00 PM | Doorstep Ordering: 8:00 AM – 10:00 PM Daily | WhatsApp Helpline: 24/7
+                  <strong>Working Hours:</strong> Desk Support: Monday – Thursday: 8:00 AM – 10:00 PM | Friday – Sunday: 10:00 AM – 6:00 PM | Doorstep Ordering: 8:00 AM – 10:00 PM Daily | WhatsApp Helpline: 24/7
                 </p>
                 <p>
                   Reach out directly via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0369a1)', fontWeight: 600 }}>Zyphuel Contact &amp; Support Desk</Link> or order doorstep fuel online at our <Link to="/order/" style={{ color: 'var(--brand-primary, #0369a1)', fontWeight: 600 }}>Refueling Portal</Link>.

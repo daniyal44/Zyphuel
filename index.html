@@ -33,6 +33,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <!-- Article and card imagery is served from Unsplash; opening the connection early removes a
+       full TLS round trip from the blog LCP path (previously paid on every /blog/ navigation). -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="dns-prefetch" href="https://images.unsplash.com" />
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
@@ -199,17 +203,11 @@
               "@type": "OpeningHoursSpecification",
               "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
               "opens": "08:00",
-              "closes": "20:00"
+              "closes": "22:00"
             },
             {
               "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Friday"],
-              "opens": "08:00",
-              "closes": "13:00"
-            },
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Saturday", "Sunday"],
+              "dayOfWeek": ["Friday", "Saturday", "Sunday"],
               "opens": "10:00",
               "closes": "18:00"
             }
