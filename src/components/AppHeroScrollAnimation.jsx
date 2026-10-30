@@ -2,11 +2,13 @@ import { useEffect, useRef, useState, useCallback, useMemo } from 'react'
 import './AppHeroScrollAnimation.css'
 import { startProgressivePreload } from '../utils/framePreloader'
 
-const FRAME_COUNT = 300
+// Only every third source frame is used: see the note in ScrollAnimationSection.jsx.
+const SOURCE_STRIDE = 3
+const FRAME_COUNT = 100
 const FOLDER = '/app-hero-frames'
 
 const framePath = (i) =>
-  `${FOLDER}/app-frame-${String(i).padStart(3, '0')}.webp`
+  `${FOLDER}/app-frame-${String(i * SOURCE_STRIDE + 1).padStart(3, '0')}.webp`
 
 export default function AppHeroScrollAnimation() {
   const containerRef = useRef(null)
@@ -313,12 +315,13 @@ export default function AppHeroScrollAnimation() {
       const fraction = Math.min(1, Math.max(0, scrollTop / maxScroll))
       targetFrameRef.current = fraction * (FRAME_COUNT - 1)
 
-      // Lookahead Window: load +/- 8 frames around current position. Skipped until
-      // the page has loaded unless the visitor has already started scrolling.
+      // Ahead-biased lookahead: guarantee the frames in front of the scrub, keep
+      // only a short tail. A symmetric +/- window or the full sequence starved the
+      // scrub and, at 300 frames, froze decode on the main thread.
       const imgs = imagesRef.current
       if (imgs && (allowFrameFillRef.current || hasScrolled)) {
         const center = Math.round(targetFrameRef.current)
-        const minW = Math.max(0, center - 14)
+        const minW = Math.max(0, center - 4)
         const maxW = Math.min(FRAME_COUNT - 1, center + 16)
         for (let w = minW; w <= maxW; w++) {
           requestFrame(imgs, w)

@@ -1,28 +1,27 @@
 /**
  * Progressive frame preloader for the scroll-scrub sections.
  *
- * The previous implementation loaded only *sparse keyframes* on idle (every 8th or
- * 10th frame, and every 40th/45th on mobile) and then relied on a ±10 frame
- * lookahead while scrolling. On a fast scroll most target frames were simply not
- * loaded, so the renderer fell back to the nearest available neighbour — which
- * could be dozens of frames away. The visible result was an animation that froze
- * for long stretches or jumped in big steps.
+ * History of this file:
+ *   1. Sparse keyframes only -> the scrub fell back dozens of frames away and froze.
+ *   2. Keyframes + a scroll lookahead -> better, but gaps were only filled while the
+ *      visitor was scrolling, and each frame takes 0.3-1.8 s from the deployed
+ *      origin. A visitor scrolling at normal speed outran the loader, so the canvas
+ *      jumped between the two or three frames that happened to be cached.
  *
- * This loader fills the sequence completely:
- *   1. keyframes first, so every scroll position has something close by;
- *   2. then the gaps are filled in ascending order.
+ * This version keeps the anchor frames plus a bounded idle trickle. A full
+ * 300-frame preload was tried and had to be reverted: decoding that many 1120 px
+ * WebP frames froze the main thread (wheel scrolling stalled for 15 s on a
+ * software-rasterised browser). The fill is now capped, and each scroll handler
+ * separately guarantees the frames *ahead* of the scrub direction, which is what
+ * actually keeps a downward scroll smooth.
  *
- * Work is chunked into idle callbacks so decoding never competes with scrolling.
- * On metered or slow connections the dense fill is skipped and only keyframes load.
+ * Work is chunked so decoding never competes with scrolling, and a hard timeout
+ * guarantees the queue keeps draining on browsers that never report an idle period.
+ * On metered / 2G connections the fill is skipped and only keyframes load.
  */
 
-// A frame budget is requested through requestIdleCallback, but a parallel timeout
-// guarantees the sequence keeps filling even when the browser never reports an idle
-// period (background tabs, throttled idle callbacks, low-power devices). Without
-// that guarantee the loader can silently stall, which is exactly the frozen-scrub
-// symptom this module exists to remove.
-const IDLE_TIMEOUT_MS = 300
-const HARD_TIMEOUT_MS = 60
+const IDLE_TIMEOUT_MS = 200
+const HARD_TIMEOUT_MS = 40
 
 function schedule(fn) {
   if (typeof window === 'undefined') return null
@@ -71,34 +70,76 @@ export function startProgressivePreload({ frameCount, loadSingle, isCancelled = 
   const metered = connection.saveData === true || /(^|-)2g$/.test(connection.effectiveType || '')
   const isMobile = window.innerWidth <= 768
 
-  // Keyframes only: enough that the scrub always has a neighbour a few indices away,
-  // without pulling the whole sequence during page load. Loading all 300 frames cost
-  // ~20 MB up front and dropped the mobile Lighthouse score to 37; the scroll
-  // lookahead in each component fills the frames the visitor actually reaches.
-  const keyStep = metered ? 30 : isMobile ? 12 : 8
+  // Keyframe spacing. Dense enough that even a scrub that outruns the fill lands
+  // within a few frames of the truth, which is invisible at full-screen size.
+  const keyStep = metered ? 24 : isMobile ? 8 : 6
+  // Frames fetched per idle slice. Kept small on purpose: the cost here is image
+  // decode on the main thread, not bandwidth.
   const chunkSize = metered ? 1 : 2
+  // Hard ceiling on background-loaded frames per hero. The scroll lookahead covers
+  // the rest of the sequence that the visitor actually reaches.
+  const idleBudget = metered ? 24 : isMobile ? 90 : 150
 
   const seen = new Set()
   const queue = []
+  // The dense fill waits for the page `load` event: those bytes are the largest
+  // single block on the page, and starting them while the document is still
+  // loading pushes LCP out by seconds on a throttled connection.
+  const fillQueue = []
 
-  const enqueue = (index) => {
+  const enqueue = (index, into = queue) => {
     if (index < 0 || index >= frameCount || seen.has(index)) return
     seen.add(index)
-    queue.push(index)
+    into.push(index)
   }
 
-  // Priority 1: evenly spaced keyframes.
+  // Pass 1: the opening frames, so frame 1 and the first scrub step are instant.
+  const headWindow = metered ? 2 : isMobile ? 6 : 10
+  for (let k = 0; k <= headWindow; k++) enqueue(k)
+
+  // Pass 2: evenly spaced keyframes across the whole sequence.
   for (let k = 0; k < frameCount; k += keyStep) enqueue(k)
   enqueue(frameCount - 1)
 
-  // A handful of frames around the start position, so the first scrub movement is
-  // already covered before the scroll lookahead kicks in.
-  const headWindow = metered ? 2 : isMobile ? 6 : 10
-  for (let k = 0; k <= headWindow; k++) enqueue(k)
+  // Pass 3: a bounded trickle through the rest of the sequence, so a jump further
+  // down the page still lands on a nearby frame.
+  if (!metered) {
+    const stride = isMobile ? 2 : 1
+    let added = 0
+    for (let k = 0; k < frameCount && added < idleBudget; k += stride) {
+      if (seen.has(k)) continue
+      enqueue(k, fillQueue)
+      added++
+    }
+  }
 
   let cursor = 0
   let handle = null
   let cancelled = false
+  let fillStarted = false
+
+  const startFill = () => {
+    if (cancelled || isCancelled() || fillStarted || fillQueue.length === 0) return
+    fillStarted = true
+    for (const index of fillQueue) queue.push(index)
+    fillQueue.length = 0
+    handle = schedule(pump)
+  }
+
+  const waitForLoadThenFill = () => {
+    if (typeof document === 'undefined') return
+    if (document.readyState === 'complete') {
+      startFill()
+      return
+    }
+    const onLoad = () => {
+      document.removeEventListener('load', onLoad)
+      startFill()
+    }
+    document.addEventListener('load', onLoad, { once: true })
+    // Safety net: a stalled sub-resource must not block the fill forever.
+    setTimeout(onLoad, 8000)
+  }
 
   const pump = () => {
     handle = null
@@ -113,7 +154,12 @@ export function startProgressivePreload({ frameCount, loadSingle, isCancelled = 
       }
     }
 
-    if (cursor < queue.length) handle = schedule(pump)
+    if (cursor < queue.length) {
+      handle = schedule(pump)
+      return
+    }
+
+    if (!fillStarted && fillQueue.length) waitForLoadThenFill()
   }
 
   handle = schedule(pump)
@@ -122,5 +168,6 @@ export function startProgressivePreload({ frameCount, loadSingle, isCancelled = 
     cancelled = true
     unschedule(handle)
     handle = null
+    fillQueue.length = 0
   }
 }

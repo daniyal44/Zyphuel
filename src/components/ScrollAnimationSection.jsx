@@ -2,11 +2,17 @@ import { useEffect, useRef, useState, useCallback } from 'react'
 import './ScrollAnimationSection.css'
 import { startProgressivePreload } from '../utils/framePreloader'
 
-const FRAME_COUNT = 300
+// 300 source frames exist on disk, but only every third one is used. Three hundred
+// 1280 px images is ~1 500 requests across the five heroes; on a phone that queue
+// never drained before the visitor had scrolled past, so the canvas froze. A 100
+// frame scrub over the same runway is indistinguishable at full-screen size and
+// loads roughly three times faster.
+const SOURCE_STRIDE = 3
+const FRAME_COUNT = 100
 const FOLDER = '/ezgif-2f1a39c97e5b173b-jpg'
 
 const framePath = (i) =>
-  `${FOLDER}/ezgif-frame-${String(i).padStart(3, '0')}.webp`
+  `${FOLDER}/ezgif-frame-${String(i * SOURCE_STRIDE + 1).padStart(3, '0')}.webp`
 
 export default function ScrollAnimationSection() {
   const containerRef = useRef(null)
@@ -234,11 +240,13 @@ export default function ScrollAnimationSection() {
       const fraction = Math.min(1, Math.max(0, scrollTop / maxScroll))
       targetFrameRef.current = fraction * (FRAME_COUNT - 1)
 
-      // Proactive lookahead: load frames around current position (+/- 8 frames)
+      // Ahead-biased lookahead: the visitor scrolls downward, so guarantee the
+      // frames in front of the scrub (not a symmetric window) and keep only a few
+      // behind. Loading the whole sequence froze the main thread during decode.
       const imgs = imagesRef.current
       if (imgs) {
         const center = Math.round(targetFrameRef.current)
-        const minW = Math.max(0, center - 14)
+        const minW = Math.max(0, center - 4)
         const maxW = Math.min(FRAME_COUNT - 1, center + 16)
         for (let w = minW; w <= maxW; w++) {
           requestFrame(imgs, w)

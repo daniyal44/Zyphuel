@@ -92,3 +92,13 @@
 - **Entity consolidation**: `LocalBusiness` is now a single entity with `@id` `#localbusiness` (and `parentOrganization` → `#organization`) across static HTML, footer and client hydration. Added `openingHoursSpecification` (Mon–Thu 8–8, Fri 8–1, Sat–Sun 10–6), `contactPoint`, `currenciesAccepted: PKR` and `paymentAccepted`.
 - **Removed false signals**: LPG and Water Tanker offers dropped from `hasOfferCatalog` (both services are unavailable), the invalid `SearchAction` pointing at a non-existent `?q=` search was removed, and the stale LPG/water keyword list was cleaned.
 - **AEO**: the home page FAQ schema survives hydration again (18 questions mirrored from the visible Q&A hub) instead of being wiped when `useSEO` rebuilt the graph.
+
+---
+
+## 2026-10-30 — 100-frame scroll sequences for both canvas heroes
+
+- **What changed**: `ServicesScrollAnimationSection` (hero) and `ServicesSection3ScrollAnimation` (section 3) both use `SOURCE_STRIDE = 3` and `FRAME_COUNT = 100`. `framePath(i)` now resolves to every third file (`service-frame-001`, `004`, … `298`; `section3-frame-001`, `004`, …), so each hero loads 100 images instead of 300 while the 300 WebP files stay on disk.
+- **Lookahead**: the scroll handler guarantees the frames *ahead* of the scrub (`center - 4` … `center + 16`) rather than a symmetric window. The visitor only ever scrolls one way, so the tail of a large symmetric window was wasted requests.
+- **Idle fill**: `src/utils/framePreloader.js` now caps background loading (150 frames desktop, 90 mobile, 24 on metered/2G) and fetches two frames per idle slice. A full 300-frame preload was measured to freeze image decode and stall wheel scrolling.
+- **Measured on the local production build** (1366×768): services hero **102 frame requests**, canvas changed on **5 of 5** scroll positions; section 3 **91 requests**, **5 of 5** positions. No console errors.
+- **Not changed**: the 45-minute single delivery window, 5–15 L pricing, and all Services copy. This is a rendering-only change.

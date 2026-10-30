@@ -84,6 +84,10 @@ The GSC export summary dated 2026-10-28 reports 14 indexed / 3 not indexed and o
 
 ![Two-dimensional production response-time range chart](./charts/production-ttfb-2026-10-29.svg)
 
+**Same day follow-up (2026-10-30, later):** the WebP pass cut bytes but the scrub still stalled. The five canvas heroes moved from a 300-frame sequence to every third frame (100 files each) with an ahead-only lookahead and a capped idle fill. On the local production build a real wheel scroll on `/` went from *timing out after 15 s* to completing instantly, and Home's mobile frame requests dropped from 242 to 102 (Services hero 102, Services §3 91, Download hero 91 — each changing the canvas at every sampled position). Full detail and the before/after chart are in [`2026-10-30-scroll-frames-speed-indexing-report.md`](./2026-10-30-scroll-frames-speed-indexing-report.md) §8.
+
+![Frame requests per canvas hero, before and after](./charts/frame-requests-2026-10-30.svg)
+
 ---
 
 ## 5. Where the site stood before the 2026-10-26 fixes

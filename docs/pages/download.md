@@ -113,3 +113,12 @@
 - **Entity consolidation**: `LocalBusiness` is now a single entity with `@id` `#localbusiness` (and `parentOrganization` → `#organization`) across static HTML, footer and client hydration. Added `openingHoursSpecification` (Mon–Thu 8–8, Fri 8–1, Sat–Sun 10–6), `contactPoint`, `currenciesAccepted: PKR` and `paymentAccepted`.
 - **Removed false signals**: LPG and Water Tanker offers dropped from `hasOfferCatalog` (both services are unavailable), the invalid `SearchAction` pointing at a non-existent `?q=` search was removed, and the stale LPG/water keyword list was cleaned.
 - **AEO**: the home page FAQ schema survives hydration again (18 questions mirrored from the visible Q&A hub) instead of being wiped when `useSEO` rebuilt the graph.
+
+---
+
+## 2026-10-30 — 100-frame scroll sequences for both canvas heroes
+
+- `AppHeroScrollAnimation` and `AppSection3ScrollAnimation` now use `SOURCE_STRIDE = 3` / `FRAME_COUNT = 100`, so `framePath(i)` maps to every third file under `public/app-hero-frames` and `public/app-section3-frames`.
+- The scroll lookahead is ahead-biased (`center - 4` … `center + 16`) instead of a symmetric 300-frame window, and the idle preloader is capped (150 / 90 / 24 frames depending on device and connection).
+- Measured on the local production build: download hero **91 frame requests**, canvas changed on **5 of 5** scroll positions.
+- APK link, version metadata, and the disabled Play Store badge are untouched.

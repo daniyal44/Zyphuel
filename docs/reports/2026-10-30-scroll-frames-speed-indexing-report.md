@@ -205,3 +205,50 @@ What this pass does is remove the technical objections and cut 48% of the bytes 
 3. Verify the Bing property so IndexNow stops returning 403.
 4. Re-run mobile Lighthouse on `/` and `/services/` to record the score movement; the byte reduction is 48% on
    frames and 94% on carousel art, so the scroll-fill time is the number that should improve most visibly.
+
+---
+
+## 8. Follow-up the same day — the scrub was still stalling, so the frame count came down
+
+The WebP pass in §4 cut bytes but did not fix the symptom the user kept reporting: *"scroll animation still not working, not loading"*.
+A direct measurement on the local production build showed why.
+
+### 8.1 What was measured
+
+| Check (headless Chromium, local build) | Before | After |
+| :--- | :--- | :--- |
+| Real wheel scroll on `/` | **did not complete — 15 s timeout** | completes immediately (`scrollY` 1,333 px, progress 48.8%) |
+| Mobile (`390×844`) frame requests, Home hero | **242** | **102** |
+| Home hero, distinct canvas pixels over 9 scroll steps | 9 / 9 | 9 / 9 |
+| Services hero | 300-frame window | **102** requests, 5 / 5 positions |
+| Services section 3 | 300-frame window | **91** requests, 5 / 5 positions |
+| Download hero | 300-frame window | **91** requests, 5 / 5 positions |
+| Console errors | none | none |
+
+The 15-second stall was **image decode**, not bandwidth: the previous preloader queued all 300 frames and the scroll handler asked for a symmetric window, so the browser was decoding 1280 px WebP images on the main thread while the visitor was trying to scroll.
+
+### 8.2 The three changes
+
+1. **100 frames instead of 300** — every canvas component now uses `SOURCE_STRIDE = 3` / `FRAME_COUNT = 100` and `framePath(i)` resolves to `frame-(i*3+1)`. The files on disk are unchanged; only a third of them are requested. At full-screen size the difference is not visible.
+2. **Ahead-only lookahead** — the scroll handler guarantees `center - 4` … `center + 16` instead of a symmetric window. Visitors scroll one way; the tail of a symmetric window was spent on frames that were never displayed.
+3. **Bounded idle fill** — `src/utils/framePreloader.js` caps background loading at 150 frames (desktop) / 90 (mobile) / 24 (metered or 2G), two per idle slice, and the file header now records that a full-sequence fill was tried and reverted.
+
+![Frame requests before and after](charts/frame-requests-2026-10-30.svg)
+
+*Chart: [`charts/frame-requests-2026-10-30.svg`](charts/frame-requests-2026-10-30.svg) — x-axis is the canvas hero, y-axis is the number of image requests.*
+
+### 8.3 What this does and does not fix for Google
+
+The three un-indexed URLs were re-checked on the live origin with a Googlebot user agent:
+
+| URL | Status | Title | Canonical | Robots | H1 | HTML |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `/order/` | 200 | Order Fuel Online in Lahore \| 45-Min Dispatch \| Zyphuel | self | `index, follow` | 1 | 124 KB |
+| `/download/` | 200 | Download Zyphuel APK \| Doorstep Fuel App for Android | self | `index, follow` | 1 | 100 KB |
+| `/services/` | 200 | Fuel Delivery Services in Lahore \| Petrol & Diesel \| Zyphuel | self | `index, follow` | 1 | 107 KB |
+
+So the technical side is already correct and **no code change forces indexing or ranking**. What is left is off-site: Search Console "Request indexing" for each URL, Bing property verification (IndexNow currently returns 403 because the property is unverified), a complete Google Business Profile, and real local citations/backlinks. The step-by-step list is still §5 of this report.
+
+### 8.4 Limitation to be honest about
+
+These numbers come from a headless Chromium on the build machine. They show the render path is no longer blocked and that a third of the requests are gone, but they are not a phone measurement on a real 4G connection. After the deploy, the number to watch is how quickly the first 16 look-ahead frames arrive from the deployed origin.

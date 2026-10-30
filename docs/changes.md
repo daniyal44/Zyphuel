@@ -1492,3 +1492,18 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Indexing**: all three URLs answer 200 with self-canonical, `index, follow`, one H1, JSON-LD, 1.2k–3.6k words, present in `sitemap.xml` and allowed by `robots.txt`; `lastmod` refreshed to 2026-10-30. Internal links from Home: 2 / 4 / 5. IndexNow runs on every build — Yandex 200, Bing 403 because the Bing property is not verified.
 - **Honest limit**: no code change forces indexing or guarantees ranking; the remaining levers are Search Console requests, Bing verification, Google Business Profile and real backlinks.
 - **Report**: [`docs/reports/2026-10-30-scroll-frames-speed-indexing-report.md`](reports/2026-10-30-scroll-frames-speed-indexing-report.md), chart [`docs/reports/charts/frame-payload-2026-10-30.svg`](reports/charts/frame-payload-2026-10-30.svg).
+
+---
+
+## Phase 25 — 2026-10-30 · Scroll scrub fixed: 100 frames + ahead-only lookahead
+
+- **Reported again**: the scroll animation still did not work / did not load, “and that is why Google is not visiting the site”.
+- **What was actually measured (local production build, headless Chromium, 1366×768 and 390×844)**:
+  - Before: a real wheel scroll on `/` did not complete — the preview action timed out after **15 s** while ~150 of 300 frames were decoding, and the mobile hero issued **242** frame requests.
+  - After: wheel scrolling on `/` completes immediately (`scrollY` 1,333 px, progress bar 48.8%, canvas pixels changed). Per page: Home **102** requests / 9 of 9 sampled positions differed; Services hero **102** / 5 of 5; Services section 3 **91** / 5 of 5; Download hero **91** / 5 of 5. No console errors (only the pre-existing `link preload unused` and `getImageData` warnings from the measurement itself).
+- **Fix 1 — fewer frames**: all five canvas components moved to `SOURCE_STRIDE = 3` and `FRAME_COUNT = 100`; `framePath(i)` resolves to `frame-(i*3+1)`. The 300 WebP files stay on disk, but each hero now requests a third of them, which is invisible at full-screen size.
+- **Fix 2 — ahead-biased lookahead**: the scroll handler guarantees `center - 4` … `center + 16` instead of a symmetric ±window. A visitor scrolls one way only, so the tail of a symmetric window was spent on frames that were never shown.
+- **Fix 3 — bounded idle fill**: `src/utils/framePreloader.js` caps background loading at 150 frames (desktop) / 90 (mobile) / 24 (metered or 2G), two frames per idle slice. The previous “fill all 300” pass was the direct cause of the 15 s main-thread stall; that attempt is documented in the file header so it is not repeated.
+- **Files**: `src/components/ScrollAnimationSection.jsx`, `AppHeroScrollAnimation.jsx`, `AppSection3ScrollAnimation.jsx`, `ServicesScrollAnimationSection.jsx`, `ServicesSection3ScrollAnimation.jsx`, `src/utils/framePreloader.js`.
+- **Not changed**: no pricing, delivery-window, hours, or copy edits. The 45-minute single window and 5–15 L range are untouched.
+- **On indexing** (asked again in the same message): the three URLs `/order/`, `/download/`, `/services/` already answer 200 with their own prerendered HTML — unique `<title>`, self-referencing canonical, `index, follow`, exactly one `<h1>`, in `sitemap.xml`, allowed by `robots.txt`. Nothing in the code prevents indexing; the open items are Search Console “Request indexing”, Bing property verification, and real local signals. Details and the exact steps are in [`docs/reports/2026-10-30-scroll-frames-speed-indexing-report.md`](reports/2026-10-30-scroll-frames-speed-indexing-report.md) §5.
