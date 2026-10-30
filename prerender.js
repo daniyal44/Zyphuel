@@ -1378,7 +1378,7 @@ const ROUTES = [
     return {
       path: `/blog/${article.slug}/`,
       outFile: `dist/blog/${article.slug}/index.html`,
-      title: `${clipText(article.title, 46)} | Zyphuel`,
+      title: `${article.metaTitle || clipText(article.title, 46)} | Zyphuel`,
       description: clipText(article.summary, 155),
       keywords: `${article.tags.join(', ')}, fuel delivery Lahore, diesel delivery Lahore, Zyphuel`,
       canonical: `${DOMAIN}/blog/${article.slug}/`,
@@ -1431,7 +1431,9 @@ async function prerender() {
     let html = baseTemplate
 
     // Replace Title
-    html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${route.title}</title>`)
+    // Escape a bare & so the title stays valid HTML ("Petrol & Diesel" must be "Petrol &amp; Diesel").
+    const titleHtml = String(route.title).replace(/&(?!#?\w+;)/g, '&amp;')
+    html = html.replace(/<title>[\s\S]*?<\/title>/i, `<title>${titleHtml}</title>`)
 
     // Replace Description
     html = html.replace(

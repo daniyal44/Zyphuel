@@ -1147,6 +1147,7 @@ export const articles = [
   {
     id: 11,
     slug: 'petrol-pump-near-me-lahore-doorstep-alternative',
+    metaTitle: 'Petrol Pump Near Me in Lahore: Doorstep Fuel Guide',
     category: 'Zyphuel Energy',
     categoryClass: 'zyphuel',
     title: 'Petrol Pump Near Me in Lahore: Queues, Short-Fueling and the Doorstep Alternative (2026 Guide)',
@@ -1211,6 +1212,7 @@ export const articles = [
   {
     id: 12,
     slug: 'diesel-delivery-lahore-price-per-litre-fleet-budget',
+    metaTitle: 'Diesel Delivery in Lahore: Price Per Litre and Fees',
     category: 'Zyphuel Enterprise',
     categoryClass: 'enterprise',
     title: 'Diesel Delivery in Lahore: Per-Litre Price, Delivery Charges and Fleet Budget Planning (2026)',

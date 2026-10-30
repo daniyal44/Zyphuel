@@ -88,7 +88,7 @@ export default function BlogArticlePage() {
   }
 
   useSEO({
-    title: article ? `${clipText(article.title, 46)} | Zyphuel` : 'Article Not Found | Zyphuel',
+    title: article ? `${article.metaTitle || clipText(article.title, 46)} | Zyphuel` : 'Article Not Found | Zyphuel',
     description: article ? clipText(article.summary, 155) : 'The requested article could not be found.',
     keywords: article ? [...article.tags, 'fuel delivery Lahore', 'diesel delivery Lahore', 'Zyphuel energy guide'] : [],
     image: article ? article.image : undefined,
