@@ -122,3 +122,9 @@
 - The scroll lookahead is ahead-biased (`center - 4` … `center + 16`) instead of a symmetric 300-frame window, and the idle preloader is capped (150 / 90 / 24 frames depending on device and connection).
 - Measured on the local production build: download hero **91 frame requests**, canvas changed on **5 of 5** scroll positions.
 - APK link, version metadata, and the disabled Play Store badge are untouched.
+
+## 2026-10-30 — Hero + Section 3 scrub frame index fix
+
+- `AppHeroScrollAnimation.jsx` and `AppSection3ScrollAnimation.jsx` requested `framePath(index + 1)` and painted `framePath(1)` first, while the preloader indexes frames with `framePath(index)`. With `SOURCE_STRIDE = 3` every lazy frame loaded one stride early and the final request 404'd (`app-hero-frame-301.webp`), which is why the canvas appeared to freeze instead of animating.
+- Now `framePath(index)` for lazy loads and `framePath(0)` for the instant first paint.
+- Verified on the local production build: both stages (`app-hero-sticky-stage`, `app-sec3-sticky-stage`) animate, **126** frame requests, **0** failures, 0 console errors. APK download and the disabled Play Store badge are untouched.

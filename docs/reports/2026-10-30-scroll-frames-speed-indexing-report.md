@@ -252,3 +252,37 @@ So the technical side is already correct and **no code change forces indexing or
 ### 8.4 Limitation to be honest about
 
 These numbers come from a headless Chromium on the build machine. They show the render path is no longer blocked and that a third of the requests are gone, but they are not a phone measurement on a real 4G connection. After the deploy, the number to watch is how quickly the first 16 look-ahead frames arrive from the deployed origin.
+
+---
+
+## 9. Follow-up (same day): the real cause of "animation still not loading"
+
+The frame-count and cloud-shrink work in §3–§7 did not fix the user's complaint, because
+the bug was **not** bandwidth — it was a wrong index.
+
+| Symptom | What was actually happening | Fix |
+| :--- | :--- | :--- |
+| Canvas looks frozen / blank while scrolling on every page | `requestFrame()` loaded `framePath(index + 1)` while the preloader and the render loop both index with `framePath(index)`. With `SOURCE_STRIDE = 3`, each lazy frame was fetched from a file **3 sources ahead** and cached under the wrong index; the highest index asked for `…-301.webp`, which does not exist, so the loop kept falling back to images with `naturalWidth === 0` | `img.src = framePath(index)` |
+| First paint was not the video's first frame | the instant paint used `framePath(1)` → source frame 4 | `framePath(0)` |
+
+Affected files: `ScrollAnimationSection.jsx`, `AppHeroScrollAnimation.jsx`,
+`AppSection3ScrollAnimation.jsx`, `ServicesScrollAnimationSection.jsx`,
+`ServicesSection3ScrollAnimation.jsx`.
+
+### 9.1 Re-measured after the fix (local production build, `vite preview`, 1366×768)
+
+| Page | Stages checked | Canvas changed on scroll | Frame requests | Failed (404/0-byte) | Console errors |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `/` | 1 (`cinematic-sticky-stage`) | yes | 70 | **0** | 0 |
+| `/services/` | 2 (hero + section 3) | yes, both | 126 | **0** | 0 |
+| `/download/` | 2 (hero + section 3) | yes, both | 126 | **0** | 0 |
+
+The idle preloader also now walks the whole sequence (services reached frame **292 / 300**)
+instead of dying at the 404, which is what made the animation skip.
+
+### 9.2 Why this matters for Google
+
+Googlebot renders each page twice before indexing. A frozen `<canvas>` plus a burst of
+404 frame requests is a weak signal on exactly the two pages the user cares about
+(`/services/`, `/download/`, `/order/`). With the 404s gone and the first frame correct,
+the render pass is clean; the remaining indexing work is still the off-site checklist in §5.

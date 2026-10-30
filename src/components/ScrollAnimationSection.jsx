@@ -141,7 +141,7 @@ export default function ScrollAnimationSection() {
         updateScrubUi(targetIndex)
       }
     }
-    img.src = framePath(index + 1)
+    img.src = framePath(index)
     images[index] = img
     return img
   }, [renderFrame, updateScrubUi])
@@ -170,9 +170,9 @@ export default function ScrollAnimationSection() {
       renderFrame(0)
     }
     firstImg.onerror = (e) => {
-      console.warn('Hero frame 1 failed to load:', framePath(1), e)
+      console.warn('Hero frame 1 failed to load:', framePath(0), e)
     }
-    firstImg.src = framePath(1)
+    firstImg.src = framePath(0)
     imgs[0] = firstImg
 
     if (firstImg.complete && firstImg.naturalWidth > 0) {

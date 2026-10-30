@@ -164,3 +164,10 @@ texts still painted, spilling over each other and over the next questions.
 panel, content) now lives in the global `src/index.css`. Verified in the browser:
 `overflow: hidden`, one panel open at a time, and exactly 1 visible answer instead
 of 18.
+
+## 2026-10-30 — Hero scrub fix: wrong frame index (the real "animation not loading" cause)
+
+- **Root cause:** after the 100-frame/`SOURCE_STRIDE = 3` refactor, `requestFrame()` still called `framePath(index + 1)` while the preloader looks frames up with `framePath(index)`. Every lazily-requested frame was therefore loaded from a file one stride (3 sources) ahead and cached under the wrong index, and the last index requested `ezgif-frame-301.webp`, which does not exist (404). The smoothing loop kept falling back to frames whose `naturalWidth === 0`, so the canvas looked frozen / blank while scrolling.
+- **Second bug in the same call sites:** the instant first paint still used `framePath(1)`, i.e. the *fourth* source frame instead of frame 0, so the opening still was not the intended first frame.
+- **Fix (`src/components/ScrollAnimationSection.jsx`):** `img.src = framePath(index)`, first paint `framePath(0)`. No visual/behaviour change otherwise.
+- **Verified on the local production build** (1366×768, `vite preview`): hero canvas changed on **all** sampled scroll positions, **0** failed frame requests, 0 console errors.
