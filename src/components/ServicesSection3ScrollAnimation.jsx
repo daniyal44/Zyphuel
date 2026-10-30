@@ -235,7 +235,34 @@ export default function ServicesSection3ScrollAnimation() {
     )
 
     observer.observe(container)
-    return () => observer.disconnect()
+
+    // Fallback for the cases where the first intersection entry never arrives (some
+    // embedded webviews and prerendered pages skip it, which left the stage blank and
+    // the scrub dead). A cheap proximity check on scroll/resize starts the loader as
+    // soon as the stage is near the viewport; initFrameLoading is idempotent.
+    const checkProximity = () => {
+      const rect = container.getBoundingClientRect()
+      const vh = window.innerHeight || 0
+      if (rect.top < vh * 1.5 && rect.bottom > -vh * 0.5) initFrameLoading()
+      const inView = rect.top < vh && rect.bottom > 0
+      isVisibleRef.current = inView
+      if (inView) {
+        startLoop()
+      } else {
+        isLoopingRef.current = false
+        if (animIdRef.current) cancelAnimationFrame(animIdRef.current)
+      }
+    }
+    window.addEventListener('scroll', checkProximity, { passive: true })
+    window.addEventListener('resize', checkProximity, { passive: true })
+    const proximityRaf = requestAnimationFrame(checkProximity)
+
+    return () => {
+      cancelAnimationFrame(proximityRaf)
+      window.removeEventListener('scroll', checkProximity)
+      window.removeEventListener('resize', checkProximity)
+      observer.disconnect()
+    }
   }, [initFrameLoading, startLoop])
 
   // Direct, low-latency scroll tracker updating target frame with lookahead preloading
