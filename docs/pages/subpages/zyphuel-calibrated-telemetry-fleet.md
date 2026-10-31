@@ -17,14 +17,14 @@
 
 <!-- ZYPHUEL_FUEL_UPDATE_START -->
 > [!NOTE]
-> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 30, 2026)**
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (October 31, 2026)**
 > - **Operational SLA**: Within 45 Mins (single delivery window) across Lahore.
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Founder Muhammad Daniyal's agile micro-refueler fleet operates across DHA, Gulberg, Johar Town, Bahria Town, and Model Town. Delivered within within 45 minutes (single delivery window) with instant Raast, JazzCash, Easypaisa QR payments.
 >
-- **Market Intelligence**: Govt raises diesel price by Re0.85 per litre, keeps petrol unchanged - The News Pakistan (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: High-speed diesel price crosses Rs400 with Re0.85 increase; no change in petrol rate - Dawn (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Petrol price hiked by Rs1.85, HSD’s by Rs1.75 - Business Recorder (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt raises diesel price by Rs2.29 per litre, keeps petrol unchanged - The News Pakistan (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: OGRA raises RLNG prices by up to 15.27% for October 2026 - Business Recorder (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
