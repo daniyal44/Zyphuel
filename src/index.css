@@ -6199,3 +6199,24 @@ a.footer-contact-link:hover {
     contain-intrinsic-size: none;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Canvas heroes: reserve their box before the route stylesheet arrives
+   ---------------------------------------------------------------------------
+   The hero canvases carry width/height attributes (2560x1440) and get their real
+   size from the route CSS chunk. On /download/ that chunk is loaded with the lazy
+   route, so for a few frames the canvas rendered at its intrinsic 2560x1440 and the
+   page collapsed when the CSS applied — Lighthouse reported 0.115 CLS split across
+   the hero section and the canvas. These base rules live in the always-loaded entry
+   stylesheet, so the box is correct from the first paint.
+--------------------------------------------------------------------------- */
+.app-hero-canvas,
+.app-section3-canvas,
+.services-hero-canvas,
+.services-section3-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
