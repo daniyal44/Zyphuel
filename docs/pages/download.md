@@ -147,3 +147,10 @@
 - **Shared performance work**: AdSense (the largest third-party TBT source on this page — Lighthouse measured a 5.93 s TBT and attributed 167 KB + 56 KB of unused JS to `pagead2.googlesyndication.com`) is now deferred until after paint; HTML is edge-cached for 10 minutes; below-the-fold sections are paint-contained.
 - **Baseline before the changes** (Lighthouse 13.6.0 mobile, live URL): performance 48, SEO 100, accessibility 100, LCP 3.3 s, TBT 5.93 s, CLS 0.052.
 - **Unchanged**: APK link `/APK/Zyphuel.apk`, disabled Play "Launch Soon" and App Store "Coming Soon" badges, build facts, schema.
+
+## 2026-10-31 — TBT profiling round
+
+- **Profiled** the remaining 3.08 s TBT: the largest task (3.26 s) is React hydration of this 1,259-element page, starting at 5.8 s — the same moment the AdSense iframe is inserted, which also takes Style & Layout to 6.17 s.
+- **AdSense timing** was tested in three configurations. Head-parse: 5.93 s TBT. 20 s ceiling: 5.9–7.1 s (worse — a late ad insert keeps the page from reaching network quiet). Idle-after-load with a 12 s ceiling: best measured, and what ships.
+- **Reverted**: lazy HomePage (did not remove the `articles-data` transfer), lower-section paint containment (CLS 0.052 → 0.115), entry-stylesheet canvas sizing (CLS 0.237).
+- **Unchanged**: APK link, disabled store badges, build facts, schema, both canvas sequences.

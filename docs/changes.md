@@ -1546,3 +1546,11 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **IndexNow**: Yandex accepted (200). Bing and the shared hub returned 403 `UserForbiddedToAccessSite` — the key file is live and correct, so this is Bing property verification, not a code fault.
 - **Duplicate content ruled out**: 5-gram overlap between the three pages is 3.0–10.8 %, 1.9–3.5 % against Home.
 - **New artifacts**: `docs/seo/2026-10-31-indexing-master-plan.md`, `docs/reports/2026-10-31-coverage-and-speed-report.md`, `scripts/make-seo-charts.mjs`, archived GSC + Lighthouse data under `docs/reports/data/`.
+
+## Phase 19 (2026-10-31): /download/ TBT Profiling
+
+- **Profiled** `/download/` (3.08 s TBT): longest task 3.26 s in `vendor-react` at 5.8 s, coinciding with the AdSense iframe insert; Style & Layout 3.8–6.2 s; 398 KB of script of which 223 KB is AdSense; `articles-data` (41 KB) shipped to a page that renders no article.
+- **Tried and reverted**: lazy `HomePage` (the articles chunk also carries modules other routes import, so the transfer stayed), `content-visibility` on the lower download sections (CLS 0.052 → 0.115), entry-stylesheet canvas sizing (CLS 0.237), and a 20 s AdSense ceiling (TBT 5.9–7.1 s — a late ad insert extends the blocking window).
+- **Kept**: AdSense on idle-after-load with a 12 s ceiling — the best measured timing of the three variants.
+- **Honest limit**: identical production code measured 1.44–7.14 s TBT across runs on this machine, so no sub-second improvement is claimed. Removing AdSense is the remaining lever and needs owner approval.
+- Report: `docs/reports/2026-10-31-download-tbt-profiling.md`.

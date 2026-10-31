@@ -193,3 +193,8 @@ of 18.
 - **New content**: the Lahore coverage section now ends with a contextual paragraph linking to `/services/` ("See every Zyphuel fuel delivery service in Lahore"), `/order/` ("place a doorstep fuel order online") and `/download/` ("download the Zyphuel Android APK").
 - **Why**: `/services/` was reachable from the home page only through the sitewide navigation, and `Discovered – currently not indexed` is driven by exactly that — no in-content links from pages Google already crawls. `href="/services/"` occurrences in the prerendered home HTML went from 2 to 3, with the new one carrying descriptive anchor text.
 - **Unchanged**: pricing, 45-minute single window, hours table, hero animation, schema.
+
+## 2026-10-31 — HomePage route kept eager
+
+- `HomePage` was briefly converted to a lazy route to keep the 135 KB `articles-data` chunk off other pages. Measured live, the chunk still loaded on `/download/` — it also carries modules those routes import — and the route gained an extra request, so the change was reverted.
+- Home's prerendered markup was verified complete (1,301 elements, 144 KB) while the lazy variant was live, which confirms the streaming SSR path handles lazy routes correctly if this is revisited.

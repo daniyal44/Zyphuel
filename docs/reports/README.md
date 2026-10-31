@@ -7,6 +7,18 @@ This is the single entry point for every audit, QA pass and change report on the
 
 > **Fresh production-path observation (2026-10-29):** three no-cache requests each for `/`, `/services/`, `/download/`, and `/order/` returned 200. Uncached TTFB ranged **139–1,392 ms** on Home, **148–525 ms** on Services, **131–339 ms** on Download, and **244–632 ms** on Order. The observed variation is edge/network response time, distinct from localhost application work; headers show `public,max-age=0,must-revalidate`. A live Home browser visit also fetched five below-fold carousel images totalling about **2.4 MiB** while rendering the `/order/` route; see the current report for a targeted fix and caveats.
 
+## Latest: /download/ TBT profiling — causes found, no reliable win
+
+Profiling pinned the 3.08 s TBT on `/download/` to two things: a **3.26 s `vendor-react` hydration task starting at 5.8 s** — the exact moment AdSense injects its iframe — and **3.8–6.2 s of Style & Layout** across a 1,259-element document. AdSense is 223 KB of the 398 KB of script on that page.
+
+Five fixes were tried and measured live: lazy HomePage (chunk still loaded — reverted), download paint containment (TBT better, **CLS 0.052 → 0.115** — removed), entry-stylesheet canvas sizing (CLS 0.237 — reverted), ads on a 20 s ceiling (**TBT 5.9–7.1 s, worse** — reverted), and idle-after-load ads (best measured state — kept).
+
+The honest limit: the same URL measured **1.44 s to 7.14 s TBT** for identical code on this machine, so no sub-second claim is defensible. The one change that would genuinely move it is removing AdSense, which is a revenue decision, not a code one.
+
+[Open the profiling report](./2026-10-31-download-tbt-profiling.md)
+
+---
+
 ## Latest: 2026-10-31 coverage actions, third-party deferral and edge caching
 
 The 2026-10-31 Search Console coverage export shows **14 indexed / 3 not indexed**, flat since 10 October, with **9–57 impressions a day**. Critical issues: `Page with redirect` (1) and `Discovered – currently not indexed` (2).
@@ -37,7 +49,7 @@ The repository change-velocity graph is back, generated from real git history by
 
 ![Zyphuel repository change velocity: commits and files changed per ISO week](./charts/development-activity.svg)
 
-[PNG](./charts/development-activity.png) · x-axis = ISO week, left y-axis = commits, right y-axis = files changed · 325 commits, 12,121 file changes through `8ec3a01`.
+[PNG](./charts/development-activity.png) · x-axis = ISO week, left y-axis = commits, right y-axis = files changed · 332 commits, 12,133 file changes through `bc8112e`.
 
 [Open the full report](./2026-10-31-sitemap-loop-and-activity-graph.md)
 
