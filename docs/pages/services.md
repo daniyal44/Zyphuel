@@ -114,3 +114,9 @@
 - **Schema**: `FAQPage.mainEntity` is now `[...ALL_SERVICE_FAQS, ...SERVICES_DEEP_DIVE.faqs]` — 13 questions, all visible on the page (verified 0 missing). A `WebPage` node with `dateModified` was added to the `@graph`.
 - **Sitemap**: `lastModifiedForRoute` now also watches `src/data/pageDeepDives.js` and `src/components/PageDeepDive.jsx`.
 - **Unchanged**: 45-minute single window, 5–15 L limits, Rs. 5.00/L margin, 8 AM–10 PM order intake, canvas frame sequences.
+
+## 2026-10-31 — Coverage round: internal link equity and page cost
+
+- **Internal linking**: the home page now links here from body copy ("See every Zyphuel fuel delivery service in Lahore"), not just from navigation. This is the first in-content inbound link from an indexed page.
+- **Shared performance work**: HTML edge caching (`s-maxage=600`), deferred AdSense, and `content-visibility: auto` on below-the-fold sections. Baseline before the changes was performance 32 with an 8.4 s LCP and a 1.81 s TBT (Lighthouse mobile, live URL).
+- **Unchanged**: 45-minute single window, 5–15 L limits, Rs. 300–400 fee ladder, canvas frame sequences, FAQ schema.

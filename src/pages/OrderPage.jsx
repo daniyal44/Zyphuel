@@ -1932,7 +1932,7 @@ export default function OrderPage() {
                       1. How can I order diesel or petrol online in Lahore?
                     </h4>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                      Simply choose your required fuel grade (Super Petrol, High-Octane 97, or Euro-V Diesel), select your refueling target asset (Car/SUV, Motorbike, Standby Generator, or Commercial Machinery), set your volume (5L to 15L Max), enter your delivery address in Lahore, and select your delivery speed. Our dispatcher immediately routes the nearest certified bowser to your location.
+                      Simply choose your required fuel grade (Super Petrol, High-Octane 97, or Euro-V Diesel), select your refueling target asset (Car/SUV, Motorbike, Standby Generator, or Commercial Machinery), set your volume (5L to 15L Max) and enter your delivery address in Lahore. There is a single delivery window — within 45 minutes, with no express tier or priority surcharge. Our dispatcher immediately routes the nearest certified bowser to your location.
                     </p>
                   </div>
 

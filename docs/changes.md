@@ -1533,3 +1533,16 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
   - Numbers through `6c95658`: 321 commits, 74 active days across 16 weeks, 12,083 file changes, peak 14 commits on 2026-10-26.
 - **README**: the stale hand-copied commit table ("182 total changes") was replaced with the live `commits/main` link plus the graph and a truthful telemetry table.
 - **Memory**: `AGENTS.md` now records that this graph must never be removed again and must be regenerated on every push, while staying off the customer-facing website.
+
+## Phase 18 (2026-10-31): Coverage Repair, Third-Party Load Deferral & Edge Caching
+
+- **Search Console coverage export analysed** (`httpszyphuel.netlify.app-Coverage-2026-10-31`): indexed 14, not-indexed 3, impressions 9–57/day. Critical issues: `Page with redirect` (1) and `Discovered – currently not indexed` (2).
+- **Lighthouse 13.6.0 mobile baseline** against the live URLs: `/services/` perf 32 (LCP 8.4 s, TBT 1.81 s), `/download/` perf 48 (TBT 5.93 s), `/order/` perf 36 (LCP 5.7 s). SEO 100 and accessibility 100 on all three — the SEO layer was never the blocker.
+- **AdSense deferred** in `index.html`: the script loaded during head parse and pulled ~223 KB of third-party JS plus 1.5–4 s of main-thread work. It now loads after `load` + `requestIdleCallback`, on first interaction, or after a 12 s ceiling. The verification meta tag is untouched and ads still render.
+- **Edge caching enabled**: `netlify.toml` and `public/_headers` now send `s-maxage=600, stale-while-revalidate=86400` for HTML, `/services/`, `/download/` and `/order/`. The previous `max-age=0, must-revalidate` made the edge forward to origin on every request (635–808 ms TTFB).
+- **Paint containment**: below-the-fold sections use `content-visibility: auto` with `contain-intrinsic-size`, cutting the 5.5–8.3 s Style & Layout bucket. Sticky scroll stages are excluded and the rule is disabled under `prefers-reduced-motion`.
+- **Internal linking**: the home page now carries an in-body contextual paragraph linking to `/services/`, `/order/` and `/download/`. Before this, `/services/` had only two sitewide nav links pointing at it.
+- **Order FAQ corrected**: "select your delivery speed" removed; the page now states the single 45-minute window with no priority tier.
+- **IndexNow**: Yandex accepted (200). Bing and the shared hub returned 403 `UserForbiddedToAccessSite` — the key file is live and correct, so this is Bing property verification, not a code fault.
+- **Duplicate content ruled out**: 5-gram overlap between the three pages is 3.0–10.8 %, 1.9–3.5 % against Home.
+- **New artifacts**: `docs/seo/2026-10-31-indexing-master-plan.md`, `docs/reports/2026-10-31-coverage-and-speed-report.md`, `scripts/make-seo-charts.mjs`, archived GSC + Lighthouse data under `docs/reports/data/`.

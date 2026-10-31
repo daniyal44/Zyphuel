@@ -6149,3 +6149,42 @@ a.footer-contact-link:hover {
     flex: 1 1 calc(50% - 8px);
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Below-the-fold paint containment
+   ---------------------------------------------------------------------------
+   Lighthouse mobile runs reported 5.5-8.3 s of "Style & Layout" on the long
+   marketing pages: every section was styled and laid out during the first
+   paint even though the visitor cannot see past the hero. `content-visibility:
+   auto` lets the engine skip style/layout/paint for off-screen sections and
+   only do the work as they scroll in, while the markup stays in the DOM (and
+   in the prerendered HTML) so crawlers still see every word.
+
+   The tall scroll-animation stages are deliberately excluded: they are sticky
+   and driven frame-by-frame, so skipping their layout would break the scrub.
+--------------------------------------------------------------------------- */
+.competitive-section,
+.comparison-section,
+.agency-section,
+.sector-section,
+.operating-hours-section,
+.blog-section,
+.order-seo-info,
+.order-trust-section,
+.page-deep-dive {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .competitive-section,
+  .comparison-section,
+  .agency-section,
+  .sector-section,
+  .operating-hours-section,
+  .blog-section,
+  .order-seo-info {
+    content-visibility: visible;
+    contain-intrinsic-size: none;
+  }
+}

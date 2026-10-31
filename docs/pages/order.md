@@ -293,3 +293,10 @@ after the schedule change (Mon–Thu desk/order to 10 PM, Fri–Sun desk 10 AM�
 - **HowTo schema fixed**: step 4 was named "Enter Lahore Address & Dispatch Priority" and told users to "select your delivery speed". That contradicted the permanent removal of the urgent tier. It is now "Enter Lahore Address and Confirm Payment Mode" and states explicitly that every order uses the same 45-minute window with no priority tier.
 - **Title/description**: now "Order Petrol or Diesel Online in Lahore | 45-Min Delivery"; `useSEO` matches.
 - **Schema**: order `FAQPage` is 6 original + 4 deep-dive questions = 10, all visible on the page (verified 0 missing). A `WebPage` node with `dateModified` was added.
+
+## 2026-10-31 — Coverage round: FAQ contradiction removed, shared speed work
+
+- **Copy fix**: FAQ #1 told visitors to "select your delivery speed". The urgent/priority tier is permanently removed, so it now reads: set your volume (5–15 L) and enter your delivery address — one delivery window, within 45 minutes, no express tier or surcharge.
+- **Shared performance work affecting this route**: HTML now ships `s-maxage=600, stale-while-revalidate=86400` (previously revalidated on every request); AdSense is deferred until after paint; below-the-fold sections use `content-visibility: auto`.
+- **Baseline before the changes** (Lighthouse 13.6.0 mobile, live URL): performance 36, SEO 100, accessibility 100, FCP/LCP 5.7 s, TBT 1.50 s, TTFB 786 ms.
+- **Unchanged**: order flow, night cutoff guard, 5–15 L limits, fee ladder, schema.

@@ -10,15 +10,27 @@
   X-Robots-Tag: noindex, follow
   Cache-Control: no-cache, no-store, must-revalidate
 
+# Prerendered HTML: keep the document instantly revalidatable in the browser but let the
+# CDN hold it for 10 minutes (stale-while-revalidate for a day). Every request previously
+# answered `max-age=0, must-revalidate` and the edge forwarded to origin each time, which is
+# where the 640-810 ms TTFB Lighthouse reported came from.
+/
+  Cache-Control: public, max-age=0, s-maxage=600, stale-while-revalidate=86400
+
 /order/
   Link: <https://zyphuel.netlify.app/order/>; rel="canonical"
   X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=0, s-maxage=600, stale-while-revalidate=86400
 
 /download/
   Link: <https://zyphuel.netlify.app/download/>; rel="canonical"
   X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=0, s-maxage=600, stale-while-revalidate=86400
+
+/services/
+  Link: <https://zyphuel.netlify.app/services/>; rel="canonical"
+  X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+  Cache-Control: public, max-age=0, s-maxage=600, stale-while-revalidate=86400
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
@@ -69,4 +81,4 @@
   Cache-Control: public, max-age=86400
 
 /*.html
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=0, s-maxage=600, stale-while-revalidate=86400

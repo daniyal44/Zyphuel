@@ -141,3 +141,9 @@
 - **New content**: `<PageDeepDive {...DOWNLOAD_DEEP_DIVE} />` adds a verified build table (version 2.6.4.0.0.33, build 61, 35.3 MB / 35,321,064 bytes, package `com.aistudio.zyphuel.appv2`, release 24 October 2026), a five-step install sequence, an app-contents list, and troubleshooting for Play Protect warnings, "app not installed" on update and managed devices.
 - **Schema**: download `FAQPage` is 7 original + 4 deep-dive questions = 11, all visible on the page (verified 0 missing). A `WebPage` node with `dateModified` was added.
 - **Unchanged**: APK link `/APK/Zyphuel.apk`, disabled Google Play "Launch Soon" and Apple App Store "Coming Soon" badges, direct-APK distribution rule.
+
+## 2026-10-31 — Coverage round: main-thread relief
+
+- **Shared performance work**: AdSense (the largest third-party TBT source on this page — Lighthouse measured a 5.93 s TBT and attributed 167 KB + 56 KB of unused JS to `pagead2.googlesyndication.com`) is now deferred until after paint; HTML is edge-cached for 10 minutes; below-the-fold sections are paint-contained.
+- **Baseline before the changes** (Lighthouse 13.6.0 mobile, live URL): performance 48, SEO 100, accessibility 100, LCP 3.3 s, TBT 5.93 s, CLS 0.052.
+- **Unchanged**: APK link `/APK/Zyphuel.apk`, disabled Play "Launch Soon" and App Store "Coming Soon" badges, build facts, schema.

@@ -7,6 +7,22 @@ This is the single entry point for every audit, QA pass and change report on the
 
 > **Fresh production-path observation (2026-10-29):** three no-cache requests each for `/`, `/services/`, `/download/`, and `/order/` returned 200. Uncached TTFB ranged **139–1,392 ms** on Home, **148–525 ms** on Services, **131–339 ms** on Download, and **244–632 ms** on Order. The observed variation is edge/network response time, distinct from localhost application work; headers show `public,max-age=0,must-revalidate`. A live Home browser visit also fetched five below-fold carousel images totalling about **2.4 MiB** while rendering the `/order/` route; see the current report for a targeted fix and caveats.
 
+## Latest: 2026-10-31 coverage actions, third-party deferral and edge caching
+
+The 2026-10-31 Search Console coverage export shows **14 indexed / 3 not indexed**, flat since 10 October, with **9–57 impressions a day**. Critical issues: `Page with redirect` (1) and `Discovered – currently not indexed` (2).
+
+Lighthouse mobile against the live URLs: `/services/` **32** (LCP 8.4 s, TBT 1.81 s) · `/download/` **48** (TBT 5.93 s) · `/order/` **36** (LCP 5.7 s) — with **SEO 100** on all three. The SEO layer was never the blocker; crawl economics and page cost were.
+
+![Search Console coverage: indexed vs not-indexed pages and daily impressions](charts/coverage-indexing-2026-10-31.svg)
+
+![Lighthouse mobile baseline for the three pages](charts/lighthouse-3-pages-2026-10-31.svg)
+
+Shipped: AdSense moved off the critical path (~223 KB of third-party JS), HTML and the three commercial routes are edge-cached with `s-maxage=600`, below-the-fold sections are paint-contained, the home page links to the three commercial pages from body copy, and the `/order/` FAQ contradiction about "delivery speed" is gone.
+
+[Open the full report](./2026-10-31-coverage-and-speed-report.md) · [Master plan](../seo/2026-10-31-indexing-master-plan.md)
+
+---
+
 ## Latest: 2026-10-31 sitemap redirect loop + restored activity graph
 
 `/sitemap/` was answering **301 → itself**, 50 hops, so any trailing-slash sitemap submission failed to fetch. `netlify.toml` now sends both `/sitemap` and `/sitemap/` to `/sitemap.xml` in one hop. The live artifact itself was already valid: 200, `application/xml`, 23 URLs, 23 `lastmod` values, no duplicates.

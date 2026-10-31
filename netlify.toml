@@ -39,7 +39,11 @@
   status = 301
   force = true
 
-# HTML files - always fresh for crawlers and visitors
+# HTML files - fresh for visitors but held briefly at the CDN edge.
+# `max-age=0, must-revalidate` alone made the edge forward every single request to
+# origin (Lighthouse measured 640-810 ms TTFB). `s-maxage` lets Netlify serve the
+# prerendered document from its cache for 10 minutes and keep serving it stale for a
+# day while it revalidates in the background.
 [[headers]]
   for = "/*"
   [headers.values]
@@ -47,7 +51,7 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(self), camera=(), microphone=()"
-    Cache-Control = "public, max-age=0, must-revalidate"
+    Cache-Control = "public, max-age=0, s-maxage=600, stale-while-revalidate=86400"
     X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
 
 # 404 error page header - tell search engines not to index error pages
@@ -62,14 +66,21 @@
   [headers.values]
     Link = "<https://zyphuel.netlify.app/order/>; rel=\"canonical\""
     X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-    Cache-Control = "public, max-age=0, must-revalidate"
+    Cache-Control = "public, max-age=0, s-maxage=600, stale-while-revalidate=86400"
 
 [[headers]]
   for = "/download/*"
   [headers.values]
     Link = "<https://zyphuel.netlify.app/download/>; rel=\"canonical\""
     X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-    Cache-Control = "public, max-age=0, must-revalidate"
+    Cache-Control = "public, max-age=0, s-maxage=600, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/services/*"
+  [headers.values]
+    Link = "<https://zyphuel.netlify.app/services/>; rel=\"canonical\""
+    X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    Cache-Control = "public, max-age=0, s-maxage=600, stale-while-revalidate=86400"
 
 # Cache static assets immutably
 [[headers]]

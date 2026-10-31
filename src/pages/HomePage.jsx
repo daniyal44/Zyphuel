@@ -778,6 +778,27 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+
+          {/* Contextual in-body links to the three commercial pages. Crawl priority for a
+              URL is driven by in-content links from pages Google already indexes; before this
+              block /services/ had only two sitewide navigation links pointing at it. */}
+          <p className="fade-in-up" style={{ marginTop: '26px', fontSize: '0.98rem', lineHeight: 1.8, color: 'var(--text-secondary)', maxWidth: '980px' }}>
+            Comparing options before you order?{' '}
+            <Link to="/services/" style={{ color: 'var(--brand-petrol, #0369a1)', fontWeight: 600 }}>
+              See every Zyphuel fuel delivery service in Lahore
+            </Link>
+            , including calibrated Euro-V petrol, High-Octane 97, diesel for standby generators and
+            on-site refuelling for commercial machinery. You can{' '}
+            <Link to="/order/" style={{ color: 'var(--brand-petrol, #0369a1)', fontWeight: 600 }}>
+              place a doorstep fuel order online
+            </Link>{' '}
+            in about a minute — 5 to 15 litres, a Rs. 300–400 delivery fee and a 45-minute dispatch
+            window — or{' '}
+            <Link to="/download/" style={{ color: 'var(--brand-petrol, #0369a1)', fontWeight: 600 }}>
+              download the Zyphuel Android APK
+            </Link>{' '}
+            to follow your refueller live from your phone.
+          </p>
         </div>
       </section>
 

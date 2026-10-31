@@ -1,0 +1,4 @@
+Reason,Source,Validation,Pages
+Page with redirect,Website,Started,1
+Discovered – currently not indexed,Google systems,Started,2
+Alternative page with proper canonical tag,Website,Passed,0

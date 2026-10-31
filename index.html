@@ -10,13 +10,39 @@
   <meta name="google-site-verification" content="JzNOy0ir_miGagPjOHDG8yS-KvJgpazQRprKJRJmkJU" />
   <meta name="google-adsense-account" content="ca-pub-5869892726772309" />
   <script>
-    if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5869892726772309";
-      s.crossOrigin = "anonymous";
-      document.head.appendChild(s);
-    }
+    /* AdSense is loaded only after the page has painted and the main thread is idle.
+       Loading it during head parse pulled in ~223 KB of third-party JavaScript and
+       1.5-4 s of main-thread work on every first visit, which pushed LCP and TBT out
+       of the "good" band on mobile. The meta tag above keeps site verification and
+       the account association intact, and a hard ceiling still loads ads for
+       visitors who never interact. */
+    (function () {
+      if (typeof window === 'undefined') return;
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') return;
+      var loaded = false;
+      function loadAds() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5869892726772309';
+        s.crossOrigin = 'anonymous';
+        document.head.appendChild(s);
+      }
+      function afterIdle() {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(loadAds, { timeout: 3000 });
+        } else {
+          window.setTimeout(loadAds, 1500);
+        }
+      }
+      if (document.readyState === 'complete') afterIdle();
+      else window.addEventListener('load', afterIdle, { once: true });
+      ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (evt) {
+        window.addEventListener(evt, loadAds, { once: true, passive: true });
+      });
+      window.setTimeout(loadAds, 12000);
+    })();
   </script>
   <meta name="msvalidate.01" content="41EAE944985226D1AAFA5E4D1FF56350" />
   <meta name="yandex-verification" content="a8cf680ff524ad7b" />

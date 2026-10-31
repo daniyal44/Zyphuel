@@ -187,3 +187,9 @@ of 18.
 - Removed the "Friday is a half-day (closes 1:00 PM)" note.
 - `src/utils/officeHours.js`: `OFFICE_HOURS_SCHEDULE`, `checkOfficeHours()` (Mon–Thu close `22:00`, Fri–Sun `10:00–18:00`), `getNextOpening()` and the error fallback all follow the table above.
 - `openingHoursSpecification` / `contactPoint.hoursAvailable` in `index.html`, `prerender.js` and `src/hooks/useSEO.js` now emit `Mo–Th 08:00–22:00` and `Fr–Su 10:00–18:00`.
+
+## 2026-10-31 — In-body links to the three commercial pages
+
+- **New content**: the Lahore coverage section now ends with a contextual paragraph linking to `/services/` ("See every Zyphuel fuel delivery service in Lahore"), `/order/` ("place a doorstep fuel order online") and `/download/` ("download the Zyphuel Android APK").
+- **Why**: `/services/` was reachable from the home page only through the sitewide navigation, and `Discovered – currently not indexed` is driven by exactly that — no in-content links from pages Google already crawls. `href="/services/"` occurrences in the prerendered home HTML went from 2 to 3, with the new one carrying descriptive anchor text.
+- **Unchanged**: pricing, 45-minute single window, hours table, hero animation, schema.
