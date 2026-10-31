@@ -89,7 +89,7 @@ git history** rather than hand-typed:
 | Left y-axis | commits merged that week |
 | Right y-axis | files touched that week |
 | Window | last 12 ISO weeks (default; `--weeks N` to change) |
-| Totals at generation | 320 commits, 12,072 file changes across 16 active weeks |
+| Totals through `6c95658` | 321 commits, 12,083 file changes across 16 active weeks |
 | Peak day | 14 commits on 2026-10-26 |
 
 The README used to draw this with a Mermaid `xychart-beta` block. GitHub does not render

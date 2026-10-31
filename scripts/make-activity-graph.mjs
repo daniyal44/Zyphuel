@@ -36,6 +36,7 @@ function git(args) {
 }
 
 const log = git(['log', '--date=short', '--pretty=format:%ad', '--shortstat'])
+const headSha = git(['rev-parse', '--short', 'HEAD']).trim()
 
 function isoWeek(dateStr) {
   const [y, m, d] = dateStr.split('-').map(Number)
@@ -220,7 +221,7 @@ const svg = `<?xml version="1.0" encoding="UTF-8"?>
   ${labels}
   ${years}
 
-  <text x="${M.left}" y="${H - 16}" font-size="10.5" fill="#94a3b8">Generated ${generated} from git log · ${fmt(totals.commits)} commits · ${fmt(totals.files)} file changes across ${allWeeks.length} active weeks</text>
+  <text x="${M.left}" y="${H - 16}" font-size="10.5" fill="#94a3b8">Generated ${generated} from git log through ${headSha} · ${fmt(totals.commits)} commits · ${fmt(totals.files)} file changes across ${allWeeks.length} active weeks</text>
 </svg>
 `
 
@@ -233,7 +234,7 @@ fs.writeFileSync(svgPath, cleanSvg, 'utf8')
 await sharp(Buffer.from(cleanSvg), { density: 200 }).png().toFile(pngPath)
 
 console.log(`Wrote ${path.relative(root, svgPath)} and ${path.relative(root, pngPath)}`)
-console.log(`Window: ${series[0].key} → ${series.at(-1).key} (${series.length} weeks)`)
+console.log(`Window: ${series[0].key} → ${series.at(-1).key} (${series.length} weeks) through ${headSha}`)
 console.log(`Totals: ${totals.commits} commits, ${totals.files} files, +${totals.insertions}/-${totals.deletions}`)
 for (const w of series) {
   console.log(`  ${w.key}  commits=${String(w.commits).padStart(3)}  files=${String(w.files).padStart(5)}`)

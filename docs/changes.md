@@ -1530,6 +1530,6 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Three un-indexed URLs re-verified on live** with Googlebot UA: `/services/` 200 · 3,287 words · FAQPage; `/download/` 200 · 4,216 words · FAQPage; `/order/` 200 · 1,982 words · DeliveryService + FAQPage. All self-canonical, `index, follow` in both meta and `X-Robots-Tag`, one `<h1>`, no `noindex`. No technical blocker remains on the serving side.
 - **Activity graph restored** (it was purged on 2026-10-01): new `scripts/make-activity-graph.mjs` reads `git log --shortstat` and renders a committed 2D chart — x-axis ISO week, left y-axis commits, right y-axis files changed — to `docs/reports/charts/development-activity.svg` + `.png`.
   - Why it looked missing before: the README drew it with a Mermaid `xychart-beta` block, which GitHub does not render. The README now embeds the committed SVG.
-  - Numbers at generation: 320 commits, 74 active days across 16 weeks, 12,072 file changes, peak 14 commits on 2026-10-26.
+  - Numbers through `6c95658`: 321 commits, 74 active days across 16 weeks, 12,083 file changes, peak 14 commits on 2026-10-26.
 - **README**: the stale hand-copied commit table ("182 total changes") was replaced with the live `commits/main` link plus the graph and a truthful telemetry table.
 - **Memory**: `AGENTS.md` now records that this graph must never be removed again and must be regenerated on every push, while staying off the customer-facing website.

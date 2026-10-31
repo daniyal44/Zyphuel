@@ -17,7 +17,7 @@ The repository change-velocity graph is back, generated from real git history by
 
 ![Zyphuel repository change velocity: commits and files changed per ISO week](./charts/development-activity.svg)
 
-[PNG](./charts/development-activity.png) · x-axis = ISO week, left y-axis = commits, right y-axis = files changed · 320 commits, 12,072 file changes at generation.
+[PNG](./charts/development-activity.png) · x-axis = ISO week, left y-axis = commits, right y-axis = files changed · 321 commits, 12,083 file changes through `6c95658`.
 
 [Open the full report](./2026-10-31-sitemap-loop-and-activity-graph.md)
 
