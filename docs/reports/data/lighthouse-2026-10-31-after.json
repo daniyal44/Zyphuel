@@ -1,0 +1,45 @@
+{
+  "generatedAt": "2026-10-31 (post-fix)",
+  "source": "Lighthouse 13.6.0, mobile emulation, live production URLs, after the s-maxage/AdSense/content-visibility deploy",
+  "pages": {
+    "services": {
+      "url": "https://zyphuel.netlify.app/services/",
+      "performance": 53,
+      "seo": 100,
+      "accessibility": 100,
+      "bestPractices": 77,
+      "fcp_ms": 3564,
+      "lcp_ms": 4055,
+      "tbt_ms": 703,
+      "cls": 0.001,
+      "speedIndex_ms": 12854,
+      "ttfb_ms": 708
+    },
+    "download": {
+      "url": "https://zyphuel.netlify.app/download/",
+      "performance": 51,
+      "seo": 100,
+      "accessibility": 100,
+      "bestPractices": 77,
+      "fcp_ms": 2923,
+      "lcp_ms": 2923,
+      "tbt_ms": 3077,
+      "cls": 0.115,
+      "speedIndex_ms": 6439,
+      "ttfb_ms": 663
+    },
+    "order": {
+      "url": "https://zyphuel.netlify.app/order/",
+      "performance": 56,
+      "seo": 100,
+      "accessibility": 100,
+      "bestPractices": 77,
+      "fcp_ms": 3076,
+      "lcp_ms": 4734,
+      "tbt_ms": 711,
+      "cls": 0.005,
+      "speedIndex_ms": 5667,
+      "ttfb_ms": 424
+    }
+  }
+}

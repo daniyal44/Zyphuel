@@ -53,16 +53,42 @@ Diagnosed directly against the live site, not inferred:
 | [`scripts/make-seo-charts.mjs`](../../scripts/make-seo-charts.mjs) | New generator for the two 2-D SVG charts above, drawn from the committed CSV/JSON rather than hand-typed numbers. |
 | `docs/reports/data/*` | Archived GSC coverage CSV, critical-issues CSV and the Lighthouse metrics JSON used by the charts. |
 
-## 5. Verification performed
+## 5. Measured result after the deploy
+
+![Lighthouse mobile performance score before and after the 2026-10-31 fixes](charts/lighthouse-before-after-2026-10-31.svg)
+
+The same Lighthouse 13.6.0 mobile profile was re-run against the live URLs once the deploy was confirmed (the edge was already answering with `s-maxage=600`):
+
+| Page | Perf before | Perf after | Δ | LCP before | LCP after | TBT before | TBT after | TTFB before | TTFB after |
+| :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| `/services/` | 32 | **53** | +21 | 8.4 s | **4.1 s** | 1.81 s | **0.70 s** | 635 ms | 708 ms |
+| `/download/` | 48 | **51** | +3 | 3.3 s | **2.9 s** | 5.93 s | **3.08 s** | 808 ms | **663 ms** |
+| `/order/` | 36 | **56** | +20 | 5.7 s | **4.7 s** | 1.50 s | **0.71 s** | 786 ms | **424 ms** |
+
+Raw data: [`lighthouse-2026-10-31-after.json`](data/lighthouse-2026-10-31-after.json).
+
+What the numbers say, including the parts that did not go perfectly:
+
+- **Service page LCP fell by half** (8.4 s → 4.1 s) and its TBT dropped by 61 %. The page no longer waits on AdSense before it can paint.
+- **Order page is the biggest jump** (+20) with TTFB more than halving (786 → 424 ms) — the edge caching did exactly what it was supposed to do.
+- **Download page barely moved** (+3) and still carries a 3.08 s TBT. That page hydrates the heaviest client bundle and still runs the frame preloader; ads are no longer the main cost, so the remaining work is JavaScript, not third-party scripts.
+- **Service TTFB went *up* 73 ms** on this run. That is a single-run measurement right after a fresh deploy (empty edge cache), not a regression to fix — but it is reported rather than hidden.
+- These are **single runs**. Lighthouse variance on mobile emulation is typically ±5 points, so +3 on `/download/` should be treated as "no clear change" and +21/+20 as real.
+
+Nothing here reaches a 90+ score yet. Reaching it needs the client bundle and the canvas frame loading reworked, which is a larger change than this round.
+
+## 6. Verification performed
 
 - `npm run build` completes: Vite client build, SSR build, prerender of 23 routes, IndexNow dispatch.
 - Built output confirmed: deferred AdSense loader present, three `href="/services/"` links on the home page (was 2), corrected order FAQ text, `content-visibility:auto` present in the emitted CSS bundle, canonical tags unchanged on all three pages.
 - IndexNow: **Yandex 200 Success**, **Bing 403** (verification), shared hub 403 (same root cause).
 - Charts rendered to PNG and visually inspected before being committed as SVG.
 
-**Not yet verified:** the post-change Lighthouse numbers and the live cache headers. Both require the Netlify deploy that follows this push; the master plan puts the re-measure at +7 days, and it can be run sooner on request.
+Post-deploy live checks: `Cache-Control: public,max-age=0,s-maxage=600,stale-while-revalidate=86400` on `/services/`, the new in-body link present on the home page, and the corrected order copy present on `/order/`.
 
-## 6. What is waiting on you
+**Still not verified:** whether Google indexes the three URLs. That is decided by crawl budget and authority, not by anything in this repository.
+
+## 7. What is waiting on you
 
 1. **Bing Webmaster Tools → Import from Google Search Console.** Without this, IndexNow will keep returning 403 and Bing will not be pinged.
 2. **Search Console**: delete the `/sitemap/` sitemap entry, submit `https://zyphuel.netlify.app/sitemap.xml`, then use URL Inspection → Request Indexing on the three URLs. Indexing itself is Google's decision; no code change can force it.
@@ -70,6 +96,6 @@ Diagnosed directly against the live site, not inferred:
    - The `/services/` and `/download/` JSON-LD graphs contain invisible `Article` nodes (2 and 3 respectively) that describe content not present on those pages. Search engines can treat that as a structured-data mismatch. Removing them is a one-line edit per page, but it is a deletion, so it waits for your word.
    - AdSense is deferred, not removed. If ads earn little, removing the script frees ~220 KB and several hundred ms of TBT.
 
-## 7. Honest expectation
+## 8. Honest expectation
 
 The technical defects are fixed. Whether the three URLs enter the index within days or weeks is decided by crawl budget and authority, and this domain currently has 14 indexed pages and under 60 impressions a day. Expect the first movement within 3–7 days of the Search Console requests, and treat the 90-day plan in the master plan as the realistic path to ranking — not another round of tag edits.

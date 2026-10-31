@@ -19,6 +19,10 @@ Lighthouse mobile against the live URLs: `/services/` **32** (LCP 8.4 s, TBT 1.8
 
 Shipped: AdSense moved off the critical path (~223 KB of third-party JS), HTML and the three commercial routes are edge-cached with `s-maxage=600`, below-the-fold sections are paint-contained, the home page links to the three commercial pages from body copy, and the `/order/` FAQ contradiction about "delivery speed" is gone.
 
+**Measured after the deploy, same Lighthouse profile:** `/services/` 32 → **53** (LCP 8.4 s → 4.1 s), `/order/` 36 → **56** (TTFB 786 → 424 ms), `/download/` 48 → **51** (TBT still 3.08 s — that page's cost is its own bundle, not third-party JS).
+
+![Lighthouse mobile performance before and after](charts/lighthouse-before-after-2026-10-31.svg)
+
 [Open the full report](./2026-10-31-coverage-and-speed-report.md) · [Master plan](../seo/2026-10-31-indexing-master-plan.md)
 
 ---

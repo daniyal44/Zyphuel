@@ -199,10 +199,64 @@ ${legend(L, 74, series.map(s => [s.color, s.label]))}
 `;
 }
 
+/* ------------------------------------------------------------------ chart 3 */
+
+function beforeAfterChart() {
+  const before = JSON.parse(fs.readFileSync(path.join(DATA, 'lighthouse-2026-10-31.json'), 'utf8'));
+  const after = JSON.parse(fs.readFileSync(path.join(DATA, 'lighthouse-2026-10-31-after.json'), 'utf8'));
+  const pages = Object.keys(before.pages);
+
+  const W = 900, H = 470;
+  const L = 66, R = 30, T = 112, B = 92;
+  const iw = W - L - R, ih = H - T - B;
+  const groupW = iw / pages.length;
+  const barGap = 10;
+  const barW = (groupW * 0.5 - barGap) / 2;
+
+  let grid = '';
+  for (let v = 0; v <= 100; v += 20) {
+    const y = T + ih - (v / 100) * ih;
+    grid += `<line x1="${L}" y1="${y.toFixed(1)}" x2="${L + iw}" y2="${y.toFixed(1)}" stroke="${v === 0 ? '#94a3b8' : '#e2e8f0'}" stroke-width="1"/>`;
+    grid += `<text x="${L - 12}" y="${(y + 4).toFixed(1)}" ${FONT} font-size="12" fill="#64748b" text-anchor="end">${v}</text>`;
+  }
+
+  let bars = '', labels = '';
+  pages.forEach((p, gi) => {
+    const gx = L + gi * groupW + groupW * 0.25;
+    const b = before.pages[p].performance;
+    const a = after.pages[p].performance;
+    [[b, '#94a3b8'], [a, '#059669']].forEach(([v, color], i) => {
+      const h = (v / 100) * ih;
+      const bx = gx + i * (barW + barGap);
+      const by = T + ih - h;
+      bars += `<rect x="${bx.toFixed(1)}" y="${by.toFixed(1)}" width="${barW.toFixed(1)}" height="${h.toFixed(1)}" fill="${color}" rx="3"/>`;
+      bars += `<text x="${(bx + barW / 2).toFixed(1)}" y="${(by - 6).toFixed(1)}" ${FONT} font-size="12" font-weight="700" fill="#334155" text-anchor="middle">${v}</text>`;
+    });
+    const delta = a - b;
+    labels += `<text x="${(L + gi * groupW + groupW / 2).toFixed(1)}" y="${T + ih + 24}" ${FONT} font-size="13" font-weight="700" fill="#0f172a" text-anchor="middle">/${p}/</text>`;
+    labels += `<text x="${(L + gi * groupW + groupW / 2).toFixed(1)}" y="${T + ih + 44}" ${FONT} font-size="11.5" font-weight="600" fill="#047857" text-anchor="middle">+${delta} points</text>`;
+    const lcpB = (before.pages[p].lcp_ms / 1000).toFixed(1);
+    const lcpA = (after.pages[p].lcp_ms / 1000).toFixed(1);
+    labels += `<text x="${(L + gi * groupW + groupW / 2).toFixed(1)}" y="${T + ih + 62}" ${FONT} font-size="11" fill="#64748b" text-anchor="middle">LCP ${lcpB}s → ${lcpA}s</text>`;
+  });
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="Lighthouse mobile performance score before and after the 2026-10-31 fixes">
+<rect width="${W}" height="${H}" fill="#ffffff"/>
+<text x="${L}" y="34" ${FONT} font-size="18" font-weight="700" fill="#0f172a">Zyphuel — Lighthouse mobile performance, before vs after</text>
+<text x="${L}" y="56" ${FONT} font-size="12.5" fill="#64748b">Same device profile, same URLs; “after” was measured once the deploy with deferred AdSense and edge caching was live</text>
+${grid}${bars}${labels}
+${legend(L, 74, [['#94a3b8', 'Before (2026-10-31)'], ['#059669', 'After (2026-10-31)']])}
+<text x="${L}" y="${H - 14}" ${FONT} font-size="11" fill="#94a3b8">Source: docs/reports/data/lighthouse-2026-10-31.json and lighthouse-2026-10-31-after.json — single run each, so treat small deltas as noise</text>
+</svg>
+`;
+}
+
 /* ------------------------------------------------------------------- output */
 
 fs.mkdirSync(OUT, { recursive: true });
 fs.writeFileSync(path.join(OUT, 'coverage-indexing-2026-10-31.svg'), coverageChart(), 'utf8');
 fs.writeFileSync(path.join(OUT, 'lighthouse-3-pages-2026-10-31.svg'), lighthouseChart(), 'utf8');
+fs.writeFileSync(path.join(OUT, 'lighthouse-before-after-2026-10-31.svg'), beforeAfterChart(), 'utf8');
 console.log('wrote docs/reports/charts/coverage-indexing-2026-10-31.svg');
 console.log('wrote docs/reports/charts/lighthouse-3-pages-2026-10-31.svg');
+console.log('wrote docs/reports/charts/lighthouse-before-after-2026-10-31.svg');
