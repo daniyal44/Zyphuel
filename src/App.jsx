@@ -7,12 +7,16 @@ import AnalyticsConsent from './components/AnalyticsConsent'
 import ToastContainer from './components/Toast'
 import { ToastProvider } from './context/ToastContext'
 import { FuelPriceProvider } from './context/FuelPriceContext'
-import HomePage from './pages/HomePage'
 
-// Route-level code splitting: only the landing route ships in the entry chunk.
-// Every other page is fetched on demand, which keeps the critical JS bundle small
-// for first paint. Prerendered HTML for all pages is produced by the streaming SSR
-// renderer (see src/entry-server.jsx), so no crawler ever sees an empty shell.
+// Route-level code splitting. HomePage is lazy as well, deliberately: it is the only
+// route that imports the 135 kB article dataset (`articles-data` chunk), and while it
+// sat in the entry chunk every other route — download, services, order — preloaded and
+// parsed that data for nothing. Lighthouse showed `articles-data` as a 40 kB transfer
+// on /download/, where no article is ever rendered.
+//
+// Streaming SSR (src/entry-server.jsx) waits for `onAllReady`, so lazy routes still
+// emit complete markup for every prerendered page.
+const HomePage = lazy(() => import('./pages/HomePage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const OrderPage = lazy(() => import('./pages/OrderPage'))
