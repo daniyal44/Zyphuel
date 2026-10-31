@@ -6172,20 +6172,6 @@ a.footer-contact-link:hover {
 .order-seo-info,
 .order-trust-section,
 .page-deep-dive,
-/* /download/: everything below the second canvas stage. These sections used to be
-   styled and laid out during the first paint; the containment gets skipped there and
-   they are laid out as the visitor approaches them. They sit after both sticky
-   animation tracks, so expanding them cannot shift a scrub offset. */
-.why-choose-section,
-.how-it-helps-section,
-.app-changelog-section,
-.installation-steps,
-.app-specs-section,
-.app-articles-section,
-.download-faqs {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 900px;
-}
 
 @media (prefers-reduced-motion: reduce) {
   .competitive-section,
