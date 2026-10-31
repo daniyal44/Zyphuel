@@ -18,6 +18,8 @@
 | The new content is live | Open each URL in a normal browser, scroll to the bottom of the hero | You should see the heading "Fuel delivery services in Lahore…", "Installing the Zyphuel APK…", "How to order fuel online in Lahore…" |
 | Property is the right one | Search Console top-left property selector | `https://zyphuel.netlify.app/` (URL-prefix property, **not** a `sc-domain` one) |
 | You are signed in as an owner/full user | Top-right avatar | Your own account, not a shared viewer |
+> **2026-10-31 fix — submit the `.xml` path exactly.** `/sitemap/` used to answer `301 → itself` in an infinite loop, so a trailing-slash submission could never be fetched. Both `/sitemap` and `/sitemap/` now `301` to `/sitemap.xml` in one hop. If a `/sitemap/` entry already exists in your Sitemaps list, delete it and add `https://zyphuel.netlify.app/sitemap.xml`.
+
 | Sitemap has 23 URLs | Open `https://zyphuel.netlify.app/sitemap.xml` | 23 `<loc>` entries, the three target URLs read `lastmod` 2026-10-31 |
 
 If the live pages do **not** show the new sections, stop: a Netlify deploy is still pending, and requesting indexing now would ask Google to crawl the old version.

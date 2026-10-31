@@ -50,6 +50,12 @@ This project has access to **425 specialized subagents** across 28 functional do
   - Zero discrepancies: hours, pricing, targets, and contact details must match identically across all pages.
 - **No Git Graphs / Telemetry on Customer-Facing Web**:
   - Git commit activity, graphs, engineering charts, and repository telemetry must NEVER be displayed on the customer-facing website.
+- **Repository Activity Graph (Permanent — Do Not Remove)**:
+  - The user explicitly requires the codebase-change graph to stay in the repository. It was once purged and had to be restored; never delete it again.
+  - Files: `docs/reports/charts/development-activity.svg` + `.png`, generator `scripts/make-activity-graph.mjs`. It is embedded in `README.md` and `docs/reports/README.md`.
+  - Every push that changes repository history must refresh it: `node scripts/make-activity-graph.mjs` (x-axis = ISO week, left y-axis = commits, right y-axis = files changed).
+  - Never draw it with Mermaid `xychart-beta` — GitHub does not render that diagram type, which is exactly why the graph looked missing. Use the committed SVG/PNG.
+  - Numbers must come from `git log`, never be hand-typed, and the committed image must stay consistent with the table above it.
 - **MANDATORY Language & Communication Rule (PERMANENT & HIGHEST PRIORITY)**:
   - **User ki strictly preferred language ROMAN URDU hai**.
   - **Har jawab Roman Urdu mein dena hai** (Latin script only, e.g. "Theek hai bhai, sab samajh aa gaya").

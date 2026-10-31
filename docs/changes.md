@@ -1521,3 +1521,15 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Articles**: two new prerendered guides — `fuel-delivery-charges-lahore-explained` and `generator-diesel-consumption-lahore-load-shedding-plan`. Sitemap is now 23 URLs, feed 14 items.
 - **Charts**: `scripts/charts-to-png.mjs` rasterises all 20 report SVGs to PNG; every dashboard reference now points at a PNG so the graphs render in clients that refuse SVG. Two new 2D charts: delivery fee by volume, and an index-coverage audit.
 - **Verified**: build exit 0; prerender saved `/services/` 124,835 B, `/download/` 111,791 B, `/order/` 139,573 B; one `<h1>` each; JSON-LD parses; live Googlebot fetch of `/` shows the new hours and none of the legacy strings.
+
+## Phase 17 (2026-10-31): Sitemap Redirect Loop Repair & Activity Graph Restoration
+
+- **Sitemap loop (live defect)**: `GET /sitemap/` returned `301 Location: /sitemap/` indefinitely (curl stopped at 50 hops, error 47). `netlify.toml` sent `/sitemap → /sitemap/`, and no `/sitemap/` document existed, so Netlify answered that path with a self-redirect. Any trailing-slash sitemap submission therefore failed to fetch.
+  - Fixed: `/sitemap` **and** `/sitemap/` now `301 force` to `/sitemap.xml`, one hop.
+- **Sitemap artifact audit**: `/sitemap.xml` → 200, `application/xml`, 16,086 bytes, valid `urlset`, 23 URLs, all trailing-slash, 23 `lastmod` values, no duplicates; `robots.txt` points at it and disallows only `/404.html`, `/api/`, `/plugins/`.
+- **Three un-indexed URLs re-verified on live** with Googlebot UA: `/services/` 200 · 3,287 words · FAQPage; `/download/` 200 · 4,216 words · FAQPage; `/order/` 200 · 1,982 words · DeliveryService + FAQPage. All self-canonical, `index, follow` in both meta and `X-Robots-Tag`, one `<h1>`, no `noindex`. No technical blocker remains on the serving side.
+- **Activity graph restored** (it was purged on 2026-10-01): new `scripts/make-activity-graph.mjs` reads `git log --shortstat` and renders a committed 2D chart — x-axis ISO week, left y-axis commits, right y-axis files changed — to `docs/reports/charts/development-activity.svg` + `.png`.
+  - Why it looked missing before: the README drew it with a Mermaid `xychart-beta` block, which GitHub does not render. The README now embeds the committed SVG.
+  - Numbers at generation: 320 commits, 74 active days across 16 weeks, 12,072 file changes, peak 14 commits on 2026-10-26.
+- **README**: the stale hand-copied commit table ("182 total changes") was replaced with the live `commits/main` link plus the graph and a truthful telemetry table.
+- **Memory**: `AGENTS.md` now records that this graph must never be removed again and must be regenerated on every push, while staying off the customer-facing website.

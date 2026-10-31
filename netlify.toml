@@ -218,10 +218,20 @@
 # Blog sub-pages are prerendered as /blog/slug/index.html
 # No redirect needed — Netlify serves them directly
 
+# Both spellings must land on the real XML file. The previous rule sent
+# /sitemap -> /sitemap/ while /sitemap/ had no file behind it and 301'd to
+# itself, producing an infinite redirect loop that made sitemap fetches fail.
 [[redirects]]
   from = "/sitemap"
-  to = "/sitemap/"
+  to = "/sitemap.xml"
   status = 301
+  force = true
+
+[[redirects]]
+  from = "/sitemap/"
+  to = "/sitemap.xml"
+  status = 301
+  force = true
 
 # Direct APK delivery routes (aliases, lowercase paths & root links served with 200)
 [[redirects]]

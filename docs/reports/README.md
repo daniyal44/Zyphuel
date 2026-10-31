@@ -7,6 +7,22 @@ This is the single entry point for every audit, QA pass and change report on the
 
 > **Fresh production-path observation (2026-10-29):** three no-cache requests each for `/`, `/services/`, `/download/`, and `/order/` returned 200. Uncached TTFB ranged **139–1,392 ms** on Home, **148–525 ms** on Services, **131–339 ms** on Download, and **244–632 ms** on Order. The observed variation is edge/network response time, distinct from localhost application work; headers show `public,max-age=0,must-revalidate`. A live Home browser visit also fetched five below-fold carousel images totalling about **2.4 MiB** while rendering the `/order/` route; see the current report for a targeted fix and caveats.
 
+## Latest: 2026-10-31 sitemap redirect loop + restored activity graph
+
+`/sitemap/` was answering **301 → itself**, 50 hops, so any trailing-slash sitemap submission failed to fetch. `netlify.toml` now sends both `/sitemap` and `/sitemap/` to `/sitemap.xml` in one hop. The live artifact itself was already valid: 200, `application/xml`, 23 URLs, 23 `lastmod` values, no duplicates.
+
+The three un-indexed URLs were re-checked with a Googlebot user agent and all pass — 200, `index, follow`, self-canonical, one `<h1>`, 1,982–4,216 visible words, valid `FAQPage`. Nothing in their HTML blocks indexing.
+
+The repository change-velocity graph is back, generated from real git history by `node scripts/make-activity-graph.mjs`:
+
+![Zyphuel repository change velocity: commits and files changed per ISO week](./charts/development-activity.svg)
+
+[PNG](./charts/development-activity.png) · x-axis = ISO week, left y-axis = commits, right y-axis = files changed · 320 commits, 12,072 file changes at generation.
+
+[Open the full report](./2026-10-31-sitemap-loop-and-activity-graph.md)
+
+---
+
 > **Latest mobile Lighthouse result (2026-10-29): Home 46/100, Services 46/100.** The 67-point target was not met. [Open the standalone report](./2026-10-29-mobile-lighthouse-home-services.md).
 
 ## Latest: 2026-10-31 indexing depth, chart PNGs and hours verification
@@ -61,6 +77,7 @@ Every chart in `charts/` now ships as both SVG and PNG (`node scripts/charts-to-
 
 | Date | Report | Type | Score / Headline | File |
 | :--- | :--- | :--- | :--- | :--- |
+| **2026-10-31** | **Sitemap redirect loop + restored activity graph** | Report | `/sitemap/` 301→itself loop fixed; three URLs re-verified as indexable; activity graph regenerated from git | [`2026-10-31-sitemap-loop-and-activity-graph.md`](./2026-10-31-sitemap-loop-and-activity-graph.md) |
 | **2026-10-31** | **Indexing depth, chart PNGs, hours verification** | Report | 3 URLs proven indexable; 34/34 FAQ questions visible; Android 7.0 and iOS claims corrected; 2 new articles; every chart now has a PNG twin | [`2026-10-31-indexing-depth-and-hours-verification.md`](./2026-10-31-indexing-depth-and-hours-verification.md) |
 | **2026-10-30** | **Scroll animation, live-site speed & hours/indexing** | Report | 1,500 frames 97.5 MB → 50.9 MB · carousel 18.7 MB → 1.0 MB · 3 URLs technically indexable, owner actions listed | [`2026-10-30-scroll-frames-speed-indexing-report.md`](./2026-10-30-scroll-frames-speed-indexing-report.md) |
 | **2026-10-29** | **Mobile Lighthouse — Home & Services** | Report | Home 46 · Services 46 · target 67 not met | [`2026-10-29-mobile-lighthouse-home-services.md`](./2026-10-29-mobile-lighthouse-home-services.md) |
