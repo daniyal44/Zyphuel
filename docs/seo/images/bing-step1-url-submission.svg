@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img">
+<title>Bing — submit the three URLs after verifying the site</title>
+<rect width="1200" height="820" fill="#eef2f7"/>
+<rect x="24" y="24" width="1152" height="772" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="24" y="24" width="1152" height="44" rx="12" fill="#f1f5f9"/>
+<rect x="24" y="56" width="1152" height="12" fill="#f1f5f9"/>
+<circle cx="48" cy="46" r="6" fill="#ef4444"/><circle cx="68" cy="46" r="6" fill="#f59e0b"/><circle cx="88" cy="46" r="6" fill="#22c55e"/>
+<rect x="112" y="34" width="900" height="24" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="128" y="51" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#64748b">search.google.com / bing.com/webmasters — diagram, not a screenshot</text>
+<text x="1140" y="51" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#f97316" text-anchor="end">DIAGRAM</text>
+<text x="48" y="104" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#0f172a">Bing — submit the three URLs after verifying the site</text>
+<text x="48" y="130" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#475569">Bing Webmaster Tools › URL Submission</text>
+<rect x="48" y="146" width="1104" height="1" fill="#e2e8f0"/>
+
+<rect x="48" y="182" width="212" height="600" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="70" y="206" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#64748b" letter-spacing="0.8">BING WEBMASTER TOOLS</text><rect x="58" y="223" width="192" height="30" rx="7" fill="#e0f2fe"/><text x="70" y="242" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#0369a1" font-weight="bold">URL Submission</text><text x="70" y="280" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#475569" font-weight="normal">Dashboard</text><text x="70" y="318" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#475569" font-weight="normal">Sitemaps</text><text x="70" y="356" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#475569" font-weight="normal">Site Explorer</text><text x="70" y="394" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#475569" font-weight="normal">Site Scan</text><text x="70" y="432" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#475569" font-weight="normal">IndexNow</text>
+
+<text x="284" y="190" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#64748b" letter-spacing="1.2">SUBMIT URLS</text>
+<rect x="284" y="200" width="868" height="180" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="304" y="234" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#0f172a">Submit up to 10,000 URLs per day for a verified site.</text>
+<rect x="304" y="248" width="640" height="110" rx="8" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="322" y="274" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#0f172a">https://zyphuel.netlify.app/services/</text>
+<text x="322" y="300" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#0f172a">https://zyphuel.netlify.app/download/</text>
+<text x="322" y="326" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#0f172a">https://zyphuel.netlify.app/order/</text>
+
+<circle cx="296" cy="262" r="15" fill="#dc2626"/>
+<text x="296" y="267" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text>
+
+<rect x="968" y="300" width="120" height="38" rx="6" fill="#1a73e8" stroke="#1a73e8"/>
+<text x="1028" y="324" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">Submit</text>
+
+<circle cx="1106" cy="319" r="15" fill="#dc2626"/>
+<text x="1106" y="324" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text>
+
+
+<text x="284" y="406" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#64748b" letter-spacing="1.2">BEFORE YOU CAN SUBMIT</text>
+<rect x="284" y="416" width="868" height="190" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="304" y="452" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#0f172a">1. bing.com/webmasters → Add site → https://zyphuel.netlify.app/</text>
+<text x="304" y="480" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#0f172a">2. Verify with "Import from Google Search Console" (one click, fastest).</text>
+<text x="304" y="508" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#0f172a">3. Wait for the verification email, then reopen URL Submission.</text>
+<text x="304" y="544" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569">Without verification IndexNow answers 403 — exactly what the build's IndexNow</text>
+<text x="304" y="566" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569">step returned for Bing while Yandex accepted the same three URLs.</text>
+
+
+<text x="284" y="632" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#64748b" letter-spacing="1.2">EXPECTED RESULT</text>
+<rect x="284" y="642" width="868" height="124" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="304" y="676" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#0f172a">"URLs submitted successfully" with a count of 3.</text>
+<text x="304" y="702" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569">Bing usually recrawls within 24–72 hours; Index Explorer shows the outcome.</text>
+<text x="304" y="728" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569">If a URL is rejected, the message names the reason (blocked, redirect, 404).</text>
+
+<text x="600" y="786" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Annotated interface diagram drawn for this guide. Button labels are exactly as they appear in the live tools; your screen may differ slightly.</text>
+</svg>

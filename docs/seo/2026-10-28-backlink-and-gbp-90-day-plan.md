@@ -17,7 +17,7 @@ Facts verified on 2026-10-28, before any of this plan:
 | Google Business Profile | A `share.google/Nb4XGKYq5aU0nzLr3` link is referenced in `companyInfo.js` — **status unverified** | Step 1 is to find out whether it exists, is verified, and is complete. Do not create a duplicate. |
 | Google clicks / 90 days | **1 click, 17 impressions** (and that export was filtered to question-type queries) | There is no brand demand yet. |
 | Reviews | Unknown, assumed near zero | Reviews are the fastest local lever available. |
-| Technical SEO | **Clean** — 200s, index/follow, self-canonical, 19-URL sitemap, 0 schema errors | Nothing on-site is blocking. Everything that follows is off-site. |
+| Technical SEO | **Clean** — 200s, index/follow, self-canonical, 23-URL sitemap, 0 schema errors | Nothing on-site is blocking. Everything that follows is off-site. |
 
 **What this plan will not do:** put Zyphuel at #1 for "petrol delivery Lahore" or every neighbourhood keyword. Google's local pack is proximity-weighted, and a service-area business with a hidden address cannot rank across all of Lahore simultaneously. Anyone promising otherwise is selling something.
 
@@ -228,7 +228,7 @@ Never: paid link packages, PBNs, guest posts on unrelated blogs, comment spam, o
 | GBP calls / direction requests / website clicks | GBP → Performance | Trend, not absolute |
 | GBP searches that showed the profile | GBP → Performance → Searches | Which queries find you |
 | Impressions + average position | Search Console → Performance (with **no filter**) | The 17-impression export was filtered — always clear filters |
-| Which of the 19 URLs are indexed | Search Console → Pages | Must reach 19 |
+| Which of the 23 URLs are indexed | Search Console → Pages | Must reach 23 |
 | Review count and average rating | GBP | Must climb ~2/week |
 | Referring domains | Any free backlink checker | Monthly |
 | Local rank for 10 keywords × 6 zones | Manual incognito search from each area, or a rank-grid tool | Monthly |
@@ -237,7 +237,7 @@ Never: paid link packages, PBNs, guest posts on unrelated blogs, comment spam, o
 
 | Checkpoint | Realistic target |
 |---|---|
-| **Day 30** | GBP verified and complete (categories, 20 service areas, 10 photos, services with prices); Bing Places + Apple + Facebook + LinkedIn live; 4 Pakistan citations live; 8–10 reviews; all 19 URLs indexed |
+| **Day 30** | GBP verified and complete (categories, 20 service areas, 10 photos, services with prices); Bing Places + Apple + Facebook + LinkedIn live; 4 Pakistan citations live; 8–10 reviews; all 23 URLs indexed |
 | **Day 60** | 15–18 reviews; 4–6 referring domains; first local-pack appearance in the base's own zone; organic impressions for area long-tail queries |
 | **Day 90** | ~25 reviews; 8–12 referring domains; visible in the pack for 2–3 nearest zones; 5–10 genuine clicks/week instead of 1 per quarter; all 19 pages indexed |
 

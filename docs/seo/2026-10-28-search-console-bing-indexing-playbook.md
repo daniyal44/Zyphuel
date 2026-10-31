@@ -2,6 +2,8 @@
 
 **Date:** 2026-10-28
 **Scope:** `/services/`, `/download/`, `/order/`
+> **Newer visual version (2026-10-31):** [`2026-10-31-request-indexing-walkthrough.md`](./2026-10-31-request-indexing-walkthrough.md) has annotated interface diagrams for each screen plus a copy-paste checklist. Use it for the clicks; use this document for the decision tree when a step fails.
+
 **Owner-only actions:** every step below requires signing in to the owner's Google / Microsoft account. No agent or script can perform them.
 
 ---
@@ -19,7 +21,7 @@ Do not repeat these checks. They are done and the results are recorded here so e
 | Canonical | self-referencing on all three | prerendered HTML |
 | Hreflang | `en`, `en-PK`, `x-default` present | prerendered HTML |
 | JSON-LD | valid, 0 parse errors, 0 schema-only FAQ drift | `scripts/gsc_indexing.js` |
-| Sitemap | **19 URLs**, all 200, all with `<lastmod>` | live `/sitemap.xml` |
+| Sitemap | **23 URLs** (19 on 2026-10-28, 23 after the 2026-10-31 articles), all 200, all with `<lastmod>` | live `/sitemap.xml` |
 | `robots.txt` | `Sitemap:` line present, nothing blocked | live `/robots.txt` |
 | Duplicate `.html` URLs | all **301** to clean URLs | live `curl` |
 | Google verification | **2 × `google-site-verification` meta** already in `<head>` | `index.html` lines 9–10 |
@@ -143,7 +145,7 @@ Shortcut: Bing also offers **"Import from Google Search Console"** on the Add-si
 - Left nav → **Sitemaps** → **Submit sitemap**.
 - Enter `https://zyphuel.netlify.app/sitemap.xml` → **Submit**.
 
-**Expected:** Status **Success**, 19 URLs discovered (Bing may take a few hours to process).
+**Expected:** Status **Success**, 23 URLs discovered (Bing may take a few hours to process).
 
 ### Step 3 — Submit the three URLs directly (2 minutes) — Bing's fast path
 
@@ -227,7 +229,7 @@ These are the actual reasons a 90-day-old site shows 1 click and 17 impressions,
 2. **A free `netlify.app` subdomain.** Free-subdomain sites are treated as low-trust by default. A real domain (`zyphuel.com` / `zyphuel.pk`) is the single highest-impact change available.
 3. **No Google Business Profile.** For "petrol delivery in Lahore"-type local intent, the map pack takes most of the clicks, and a verified Business Profile is the entry ticket.
 4. **No brand search volume.** Nobody searches "Zyphuel" yet, so there is no signal telling Google this entity matters.
-5. **Crawl priority on 19 new URLs.** New sites get a small crawl allowance; 19 URLs plus 10 long articles exceeds what a 90-day-old site is given per week.
+5. **Crawl priority on 23 URLs.** New sites get a small crawl allowance; 23 URLs plus 14 long articles exceeds what a 90-day-old site is given per week.
 
 **Honest expectation:** completing every step in this playbook makes the pages indexable and *likely* indexed within 2–14 days. It does not put the site "top for every keyword in the city" — no on-page action can. That requires the five items above over months.
 

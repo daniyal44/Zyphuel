@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img">
+<title>Step 3 — Pages report: group the three URLs and validate the fix</title>
+<rect width="1200" height="820" fill="#eef2f7"/>
+<rect x="24" y="24" width="1152" height="772" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<rect x="24" y="24" width="1152" height="44" rx="12" fill="#f1f5f9"/>
+<rect x="24" y="56" width="1152" height="12" fill="#f1f5f9"/>
+<circle cx="48" cy="46" r="6" fill="#ef4444"/><circle cx="68" cy="46" r="6" fill="#f59e0b"/><circle cx="88" cy="46" r="6" fill="#22c55e"/>
+<rect x="112" y="34" width="900" height="24" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="128" y="51" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#64748b">search.google.com / bing.com/webmasters — diagram, not a screenshot</text>
+<text x="1140" y="51" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#f97316" text-anchor="end">DIAGRAM</text>
+<text x="48" y="104" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#0f172a">Step 3 — Pages report: group the three URLs and validate the fix</text>
+<text x="48" y="130" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#475569">Google Search Console › Indexing › Pages</text>
+<rect x="48" y="146" width="1104" height="1" fill="#e2e8f0"/>
+
+<rect x="48" y="182" width="212" height="600" rx="10" fill="#f8fafc" stroke="#e2e8f0"/><text x="70" y="218" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#475569" font-weight="normal">Overview</text><text x="70" y="256" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#475569" font-weight="normal">URL Inspection</text><text x="70" y="294" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#475569" font-weight="normal">Performance</text><rect x="58" y="313" width="192" height="30" rx="7" fill="#e0f2fe"/><text x="70" y="332" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#0369a1" font-weight="bold">Indexing › Pages</text><text x="70" y="370" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#475569" font-weight="normal">Sitemaps</text><text x="70" y="408" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#475569" font-weight="normal">Settings</text>
+
+<text x="284" y="190" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#64748b" letter-spacing="1.2">INDEXING › PAGES</text>
+<rect x="284" y="200" width="868" height="156" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="304" y="236" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#0f172a">Page indexing</text>
+<text x="304" y="262" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569">Why pages aren't indexed</text>
+<rect x="304" y="274" width="828" height="62" rx="8" fill="#fef2f2" stroke="#fecaca"/>
+<text x="324" y="300" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#991b1b">Crawled - currently not indexed</text>
+<text x="324" y="322" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#7f1d1d">3 pages · /services/ · /download/ · /order/</text>
+
+<circle cx="1108" cy="305" r="15" fill="#dc2626"/>
+<text x="1108" y="310" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text>
+
+
+<text x="284" y="378" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#64748b" letter-spacing="1.2">DRILL-DOWN</text>
+<rect x="284" y="388" width="868" height="236" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="304" y="424" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#0f172a">Click the reason row to open the list of affected URLs.</text>
+<text x="304" y="450" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#0f172a">Select all three URLs, then use the action button:</text>
+
+<rect x="304" y="470" width="190" height="40" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="399" y="495" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" font-weight="bold" fill="#1e293b" text-anchor="middle">VALIDATE FIX</text>
+
+<circle cx="294" cy="460" r="15" fill="#dc2626"/>
+<text x="294" y="465" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text>
+<text x="524" y="494" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569">starts a monitored recrawl for the whole issue</text>
+<text x="304" y="534" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569">Status moves "Started" → "Passed" or "Failed" over about 1–4 weeks.</text>
+<text x="304" y="558" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569">Do this only after the new content is live, otherwise Google validates the old version.</text>
+<text x="304" y="590" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#94a3b8">While you are here, check that the count in "Indexed" rises by three.</text>
+
+
+<text x="284" y="646" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" font-weight="bold" fill="#64748b" letter-spacing="1.2">SITEMAPS — SAME VISIT, ONE TIME</text>
+<rect x="284" y="656" width="868" height="110" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="304" y="690" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#0f172a">Indexing › Sitemaps → enter "sitemap.xml" → Submit</text>
+<text x="304" y="716" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569">Status should become "Success" with 23 discovered URLs.</text>
+
+<circle cx="1108" cy="700" r="15" fill="#dc2626"/>
+<text x="1108" y="705" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">3</text>
+
+<text x="600" y="786" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Annotated interface diagram drawn for this guide. Button labels are exactly as they appear in the live tools; your screen may differ slightly.</text>
+</svg>
