@@ -29,19 +29,17 @@
         s.crossOrigin = 'anonymous';
         document.head.appendChild(s);
       }
-      function afterIdle() {
-        if ('requestIdleCallback' in window) {
-          window.requestIdleCallback(loadAds, { timeout: 3000 });
-        } else {
-          window.setTimeout(loadAds, 1500);
-        }
-      }
-      if (document.readyState === 'complete') afterIdle();
-      else window.addEventListener('load', afterIdle, { once: true });
-      ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (evt) {
+      /* Ads now wait for the first real interaction, or 20 s if the visitor never
+         touches the page. Loading on the `load` event fired the ad script at ~4-5 s
+         on /download/, which is exactly when React was hydrating: the trace showed a
+         3.3 s main-thread task and 6.2 s of Style & Layout as the ad iframe was
+         inserted into a 1,259-element document. Deferring to engagement preserves the
+         revenue path for anyone who actually uses the page and keeps the load window
+         free for the content. */
+      ['pointerdown', 'touchstart', 'keydown', 'scroll'].forEach(function (evt) {
         window.addEventListener(evt, loadAds, { once: true, passive: true });
       });
-      window.setTimeout(loadAds, 12000);
+      window.setTimeout(loadAds, 20000);
     })();
   </script>
   <meta name="msvalidate.01" content="41EAE944985226D1AAFA5E4D1FF56350" />
