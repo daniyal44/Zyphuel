@@ -1,4 +1,5 @@
 import { APP_VERSION, APP_SIZE, RELEASE_DATE } from './appVersion.js';
+import { NEW_ARTICLES_2026_10_30 } from './articles-2026-10-30.js';
 
 export const articles = [
   {
@@ -1274,4 +1275,6 @@ export const articles = [
       'Place a diesel order for 5 to 15 litres on zyphuel.netlify.app/order/ any day between 8:00 AM and 10:00 PM PKT.'
     ]
   }
+  ,
+  ...NEW_ARTICLES_2026_10_30
 ];

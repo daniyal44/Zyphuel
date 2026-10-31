@@ -286,3 +286,10 @@ The ask is neutral and identical for every customer — no incentive, no discoun
 
 `OrderPage`'s fallback `todaySchedule` now reads `8:00 AM – 10:00 PM`, matching `checkOfficeHours()`
 after the schedule change (Mon–Thu desk/order to 10 PM, Fri–Sun desk 10 AM–6 PM, order intake daily 8 AM–10 PM).
+
+## 2026-10-31 — Ordering guide block, HowTo cleanup and FAQ alignment
+
+- **New content**: `<PageDeepDive {...ORDER_DEEP_DIVE} />` renders the six-step order flow, the volume-by-volume delivery fee table, payment options by volume (COD 5–10 L, advance digital 11–15 L, corporate invoicing), the 10:00 PM cut-off explanation and what the QR/barcoded invoice contains.
+- **HowTo schema fixed**: step 4 was named "Enter Lahore Address & Dispatch Priority" and told users to "select your delivery speed". That contradicted the permanent removal of the urgent tier. It is now "Enter Lahore Address and Confirm Payment Mode" and states explicitly that every order uses the same 45-minute window with no priority tier.
+- **Title/description**: now "Order Petrol or Diesel Online in Lahore | 45-Min Delivery"; `useSEO` matches.
+- **Schema**: order `FAQPage` is 6 original + 4 deep-dive questions = 10, all visible on the page (verified 0 missing). A `WebPage` node with `dateModified` was added.

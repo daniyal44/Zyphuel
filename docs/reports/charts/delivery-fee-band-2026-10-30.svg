@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+<title id="title">Doorstep delivery fee by order volume</title>
+<desc id="desc">X axis: litres per order (5-15 L, 1 L step) · Y axis: delivery fee in PKR · source: order page fee table</desc>
+<rect x="0" y="0" width="960" height="560" fill="#ffffff"/>
+<text x="480.0" y="38" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="22" fill="#0f172a" text-anchor="middle" font-weight="bold">Doorstep delivery fee by order volume</text>
+<text x="480.0" y="64" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#475569" text-anchor="middle">X axis: litres per order (5-15 L, 1 L step) · Y axis: delivery fee in PKR · source: order page fee table</text>
+<line x1="150" y1="110" x2="150" y2="470" stroke="#64748b" stroke-width="1.5"/>
+<line x1="150" y1="470" x2="900" y2="470" stroke="#64748b" stroke-width="1.5"/>
+<line x1="150" y1="470.0" x2="900" y2="470.0" stroke="#e2e8f0" stroke-width="1"/>
+<text x="140" y="474.0" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="end">Rs. 280</text>
+<line x1="150" y1="418.6" x2="900" y2="418.6" stroke="#e2e8f0" stroke-width="1"/>
+<text x="140" y="422.6" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="end">Rs. 300</text>
+<line x1="150" y1="367.1" x2="900" y2="367.1" stroke="#e2e8f0" stroke-width="1"/>
+<text x="140" y="371.1" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="end">Rs. 320</text>
+<line x1="150" y1="315.7" x2="900" y2="315.7" stroke="#e2e8f0" stroke-width="1"/>
+<text x="140" y="319.7" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="end">Rs. 340</text>
+<line x1="150" y1="264.3" x2="900" y2="264.3" stroke="#e2e8f0" stroke-width="1"/>
+<text x="140" y="268.3" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="end">Rs. 360</text>
+<line x1="150" y1="212.9" x2="900" y2="212.9" stroke="#e2e8f0" stroke-width="1"/>
+<text x="140" y="216.9" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="end">Rs. 380</text>
+<line x1="150" y1="161.4" x2="900" y2="161.4" stroke="#e2e8f0" stroke-width="1"/>
+<text x="140" y="165.4" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="end">Rs. 400</text>
+<line x1="150" y1="110.0" x2="900" y2="110.0" stroke="#e2e8f0" stroke-width="1"/>
+<text x="140" y="114.0" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="end">Rs. 420</text>
+<text x="150.0" y="490" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="middle">5 L</text>
+<text x="225.0" y="490" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="middle">6 L</text>
+<text x="300.0" y="490" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="middle">7 L</text>
+<text x="375.0" y="490" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="middle">8 L</text>
+<text x="450.0" y="490" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="middle">9 L</text>
+<text x="525.0" y="490" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="middle">10 L</text>
+<text x="600.0" y="490" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="middle">11 L</text>
+<text x="675.0" y="490" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="middle">12 L</text>
+<text x="750.0" y="490" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="middle">13 L</text>
+<text x="825.0" y="490" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="middle">14 L</text>
+<text x="900.0" y="490" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#475569" text-anchor="middle">15 L</text>
+<rect x="150.0" y="392.9" width="375.0" height="51.4" fill="#e0f2fe"/>
+<polyline points="150.0,418.6 225.0,418.6 300.0,418.6 375.0,418.6 450.0,418.6 525.0,418.6 600.0,367.1 675.0,315.7 750.0,264.3 825.0,212.9 900.0,161.4" fill="none" stroke="#0369a1" stroke-width="3"/>
+<circle cx="150.0" cy="418.6" r="5" fill="#0369a1"/>
+<text x="150.0" y="404.6" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="bold">Rs. 300</text>
+<circle cx="225.0" cy="418.6" r="5" fill="#0369a1"/>
+<circle cx="300.0" cy="418.6" r="5" fill="#0369a1"/>
+<circle cx="375.0" cy="418.6" r="5" fill="#0369a1"/>
+<circle cx="450.0" cy="418.6" r="5" fill="#0369a1"/>
+<circle cx="525.0" cy="418.6" r="5" fill="#0369a1"/>
+<text x="525.0" y="404.6" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="bold">Rs. 300</text>
+<circle cx="600.0" cy="367.1" r="5" fill="#0369a1"/>
+<text x="600.0" y="353.1" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="bold">Rs. 320</text>
+<circle cx="675.0" cy="315.7" r="5" fill="#0369a1"/>
+<circle cx="750.0" cy="264.3" r="5" fill="#0369a1"/>
+<circle cx="825.0" cy="212.9" r="5" fill="#0369a1"/>
+<circle cx="900.0" cy="161.4" r="5" fill="#0369a1"/>
+<text x="900.0" y="147.4" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="bold">Rs. 400</text>
+<text x="525.0" y="538" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#334155" text-anchor="middle">Order volume (litres)</text>
+<text x="24" y="290.0" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="13" fill="#334155" text-anchor="middle" transform="rotate(-90 24 290.0)">Delivery fee (PKR)</text>
+<rect x="158" y="120" width="212" height="42" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="170" y="138" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">Rs. 300 flat for 5-10 L</text>
+<text x="170" y="154" font-family="Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif" font-size="12" fill="#334155">+Rs. 20/L for 11-15 L (max Rs. 400)</text>
+</svg>

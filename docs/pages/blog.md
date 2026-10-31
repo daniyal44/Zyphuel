@@ -125,3 +125,9 @@
   `<title>` (the petrol-pump article previously rendered as "…Petrol Pump Near Me in Lahore: Queues | Zyphuel").
 - Prerendered `<title>` tags now escape a bare `&` to `&amp;`. Four existing pages (home, `/blog/`,
   `/services/`, the telemetry article) had been emitting invalid HTML there.
+
+## 2026-10-31 — Two more long-form guides
+
+- `/blog/fuel-delivery-charges-lahore-explained/` — "Fuel Delivery Charges in Lahore: What the Rs. 300 Base Fee Really Covers". Targets `fuel delivery charges Lahore`, `fuel delivery charges`, `petrol delivery fee`. Includes the complete 5–15 L fee table and two worked examples.
+- `/blog/generator-diesel-consumption-lahore-load-shedding-plan/` — "How Much Diesel a Standby Generator Uses Per Hour — and How to Plan Refills in Lahore". Targets `generator diesel consumption per hour`, `how long will 15 litres last`, generator refill planning. States the 0.21 L/kWh figure as a planning approximation with the formula shown, not as manufacturer data.
+- Both live in `src/data/articles-2026-10-30.js` and are spread into `articles` at the end of `src/data/articles.js`, so blog list, prerender routes, sitemap and feed pick them up automatically. Sitemap is now 23 URLs, feed 14 items.

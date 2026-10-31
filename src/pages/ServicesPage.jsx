@@ -19,6 +19,8 @@ import { useSEO } from '../hooks/useSEO'
 import { useFuelPrices } from '../context/FuelPriceContext'
 
 import { AREA_FAQS, ALL_SERVICE_FAQS } from '../data/servicesFaqs'
+import PageDeepDive from '../components/PageDeepDive'
+import { SERVICES_DEEP_DIVE } from '../data/pageDeepDives'
 
 
 const lahoreServiceSectors = [
@@ -100,8 +102,8 @@ export default function ServicesPage() {
   }, [location.hash])
 
   useSEO({
-    title: 'Fuel Delivery Services in Lahore | Petrol & Diesel | Zyphuel',
-    description: 'Euro-V Super Petrol, High-Octane 97 and Euro-V Diesel to vehicles and standby generators across DHA, Gulberg and Johar Town.',
+    title: 'Doorstep Petrol & Diesel Delivery in Lahore | Zyphuel',
+    description: 'Euro-V petrol, High-Octane 97 and diesel delivered to your car, bike or generator in Lahore: 5–15 L, Rs. 300–400 fee, 45 minutes, metered invoice.',
     keywords: [
       'emergency petrol delivery near me', 'emergency roadside refueling', 'fuel delivery charges calculator',
 'can i buy petrol online', 'can you buy petrol online', 'how to buy petrol online',
@@ -592,6 +594,10 @@ export default function ServicesPage() {
             </div>
           </div>
         </section>
+
+        {/* Page-specific depth: scope, fee table, coverage and unique Q&A.
+            Rendered into the prerendered HTML so a crawler gets it without JS. */}
+        <PageDeepDive {...SERVICES_DEEP_DIVE} />
 
         {/* Frequently Asked Questions */}
         <section className="section-padding" style={{ backgroundColor: '#ffffff' }}>

@@ -133,3 +133,11 @@
 
 - `AppSection3ScrollAnimation` used to start its frame loader only inside the `IntersectionObserver` callback. When no `scroll` event ever reaches the document (anchored/restored scroll positions), the stage stayed blank with a dead scrub.
 - It now also runs a cheap proximity check on `scroll`/`resize` plus one `requestAnimationFrame` pass at mount; `initFrameLoading()` is guarded by `hasLoadedInitialRef`, so nothing is loaded twice. The same check keeps `isVisibleRef` in sync, so the RAF loop still stops off-screen.
+
+## 2026-10-31 — Verified build block, Android claim fixed, FAQ schema aligned
+
+- **Android minimum corrected**: the `SoftwareApplication` schema said "Android 8.0 and above" while the APK is `minSdk 24` (Android 7.0). It now derives from `MIN_ANDROID` in `src/data/appVersion.js` and reads "Android 7.0 (Nougat)+ (target SDK 36, Android 15/16 ready)".
+- **iOS claim corrected**: the visible FAQ no longer says the app is in a "closed beta scheduled to launch soon". It states the iOS version is in active development and not on the App Store, and points iPhone users to the website order page.
+- **New content**: `<PageDeepDive {...DOWNLOAD_DEEP_DIVE} />` adds a verified build table (version 2.6.4.0.0.33, build 61, 35.3 MB / 35,321,064 bytes, package `com.aistudio.zyphuel.appv2`, release 24 October 2026), a five-step install sequence, an app-contents list, and troubleshooting for Play Protect warnings, "app not installed" on update and managed devices.
+- **Schema**: download `FAQPage` is 7 original + 4 deep-dive questions = 11, all visible on the page (verified 0 missing). A `WebPage` node with `dateModified` was added.
+- **Unchanged**: APK link `/APK/Zyphuel.apk`, disabled Google Play "Launch Soon" and Apple App Store "Coming Soon" badges, direct-APK distribution rule.

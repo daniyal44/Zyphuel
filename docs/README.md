@@ -99,6 +99,7 @@ All 13 core documentation files are consolidated directly in this directory (`do
 
 | Audit Date | Scope & Key Findings | File Link |
 | :--- | :--- | :--- |
+| **2026-10-31** | **Indexing depth, chart PNGs and hours verification**: the three un-indexed URLs were confirmed technically indexable and given unique prerendered depth, fee tables and schema; FAQ structured data now matches visible content 34/34; Android 7.0 and iOS availability claims corrected; 2 new articles; all 20 charts rasterised to PNG for reliable GitHub display. | [`docs/reports/2026-10-31-indexing-depth-and-hours-verification.md`](./reports/2026-10-31-indexing-depth-and-hours-verification.md) |
 | **2026-10-30** | **Scroll animation, live-site speed, hours and indexing**: 1,500 hero frames converted to WebP (97.5 MB → 50.9 MB), 3D carousel art 18.7 MB → 1.0 MB, canvas/progress verified on the built site, operating-hours cards labelled and schema split, and the three un-indexed URLs proven indexable with the remaining owner-only actions listed. | [`docs/reports/2026-10-30-scroll-frames-speed-indexing-report.md`](./reports/2026-10-30-scroll-frames-speed-indexing-report.md) |
 | **2026-10-29** | **Latest mobile Lighthouse report — Home + Services**: both Performance **46/100**, LCP 9.7 s / 8.4 s; target 67 not met. Includes a committed 2D SVG graph and full metrics. | [`docs/reports/2026-10-29-mobile-lighthouse-home-services.md`](./reports/2026-10-29-mobile-lighthouse-home-services.md) |
 | **2026-10-29** | **Scroll/speed/indexing/hour investigation** — 5 canvas frame redraw fixes, remote TTFB ranges, hidden Home carousel transfer, schedule-card clarification, sitemap/indexability facts, and honest indexing/deployment limits; includes a GitHub-rendered 2D chart. | [`docs/reports/2026-10-29-scroll-speed-indexing-report.md`](./reports/2026-10-29-scroll-speed-indexing-report.md) |
@@ -111,7 +112,7 @@ All 13 core documentation files are consolidated directly in this directory (`do
 
 | Report Date | Scope & Key Contents | File Link |
 | :--- | :--- | :--- |
-| **Hub** | Reports Hub — every audit, QA pass and change report in one index, with all charts committed as SVG images | [`docs/reports/README.md`](./reports/README.md) |
+| **Hub** | Reports Hub — every audit, QA pass and change report in one index, with every chart committed as both SVG and PNG | [`docs/reports/README.md`](./reports/README.md) |
 | **2026-10-29** | Latest mobile Lighthouse report — Home/Services 46/100 each, 67 target not met, includes GitHub-visible 2D chart | [`docs/reports/2026-10-29-mobile-lighthouse-home-services.md`](./reports/2026-10-29-mobile-lighthouse-home-services.md) |
 | **2026-10-29** | Scroll animation, production response times, indexing state and operating-hours clarification, with 2D TTFB range chart | [`docs/reports/2026-10-29-scroll-speed-indexing-report.md`](./reports/2026-10-29-scroll-speed-indexing-report.md) |
 | **2026-10-28** | Search Console Indexing & Visibility Report — read from the owner's Coverage + Performance exports: 14 indexed / 3 not, the two critical reasons, 1 click / 17 question-filtered impressions, five code fixes, and the items only the owner can resolve | [`docs/reports/2026-10-28-search-console-indexing-report.md`](./reports/2026-10-28-search-console-indexing-report.md) |

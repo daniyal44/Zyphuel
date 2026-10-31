@@ -5,6 +5,8 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 import { APP_VERSION, BUILD_NUMBER, TARGET_SDK, RELEASE_DATE, APP_SIZE, MIN_ANDROID, CHANGELOG } from '../data/appVersion'
 import AppHeroScrollAnimation from '../components/AppHeroScrollAnimation'
 import AppSection3ScrollAnimation from '../components/AppSection3ScrollAnimation'
+import PageDeepDive from '../components/PageDeepDive'
+import { DOWNLOAD_DEEP_DIVE } from '../data/pageDeepDives'
 import './styles.css'
 
 const appArticles = [
@@ -123,7 +125,7 @@ export default function DownloadPage() {
     },
     {
       question: 'When will the iOS App Store version be available?',
-      answer: 'Our iOS version is currently in closed beta testing and scheduled to launch on the Apple App Store soon. In the meantime, iPhone users can enjoy a seamless ordering experience by accessing our fully responsive web platform at https://zyphuel.netlify.app/order.'
+      answer: 'The iOS version is in active development and is not on the App Store yet. In the meantime, iPhone users can order through the fully responsive website at https://zyphuel.netlify.app/order/, which covers the same 5–15 litre doorstep flow and metered invoice.'
     }
   ]
 
@@ -985,6 +987,10 @@ export default function DownloadPage() {
             </div>
           </div>
         </section>
+
+        {/* Page-specific depth: verified build facts, install steps and troubleshooting.
+            Rendered into the prerendered HTML so a crawler gets it without JS. */}
+        <PageDeepDive {...DOWNLOAD_DEEP_DIVE} />
 
         {/* =========================================================================
             App Insights & Guides (3 SEO Articles with Left-to-Right Animations)

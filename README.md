@@ -10,11 +10,28 @@
 
 > **Zyphuel** is Pakistan’s premier on-demand doorstep fuel delivery and petroleum energy logistics platform. Engineered for Lahore’s residential, commercial, and industrial landscape, Zyphuel eliminates traditional petrol pump queues, pump short-fueling, and power blackout generator downtime by dispatching certified, double-walled mobile micro-bowsers fitted with 0.01L calibrated positive-displacement flow meters directly to your GPS coordinates within 45 minutes.
 
+## Latest Indexing Work — 2026-10-31
+
+The three URLs that Google kept out of the index — `/services/`, `/download/` and `/order/` — were verified as technically indexable (200, self-canonical, `index, follow`, in `sitemap.xml`, prerendered, one `<h1>`, valid JSON-LD). Each now also renders a unique depth block with fee tables, coverage, build facts and ordering steps, plus a `WebPage` node and a FAQ schema that matches the visible questions exactly (34/34).
+
+| Page | Words in prerendered HTML | Index status (28 Oct export) |
+| :--- | ---: | :--- |
+| `/services/` | 2,444 | not indexed |
+| `/download/` | 3,593 | not indexed |
+| `/order/` | 1,262 | not indexed |
+| `/contact/` | 684 | indexed |
+
+![Index coverage audit: unique on-page words vs index status](docs/reports/charts/index-audit-2026-10-30.png)
+
+![Doorstep delivery fee by order volume](docs/reports/charts/delivery-fee-band-2026-10-30.png)
+
+[Open the 2026-10-31 report](docs/reports/2026-10-31-indexing-depth-and-hours-verification.md) · [Browse all reports](docs/reports/README.md)
+
 ## Latest Mobile Lighthouse Report — 2026-10-29
 
-**Home: 46/100 · Services: 46/100 · target: 67.** The requested target was not met; these are simulated-mobile local production-build measurements.
+**Home: 46/100 · Services: 46/100 · target: 67.** The requested target was not met; these are simulated-mobile local production-build measurements. No newer Lighthouse run has been made since, because Lighthouse is not installed in this workspace.
 
-![Latest mobile Lighthouse 2D graph for Home and Services](docs/reports/charts/lighthouse-mobile-2026-10-29.svg)
+![Latest mobile Lighthouse 2D graph for Home and Services](docs/reports/charts/lighthouse-mobile-2026-10-29.png)
 
 [Open the full report, metrics and method](docs/reports/2026-10-29-mobile-lighthouse-home-services.md) · [Browse all reports](docs/reports/README.md)
 
@@ -24,9 +41,9 @@
 
 **Canvas scroll animations:** the frame index bug that froze the scrub is fixed; all five canvas stages now request only files that exist.
 
-![Source frame requested versus scrub position](docs/reports/charts/frame-index-mapping-2026-10-30.svg)
+![Source frame requested versus scrub position](docs/reports/charts/frame-index-mapping-2026-10-30.png)
 
-![Frame requests per canvas hero after the fix](docs/reports/charts/frame-verify-2026-10-30.svg)
+![Frame requests per canvas hero after the fix](docs/reports/charts/frame-verify-2026-10-30.png)
 
 [Open the full report](docs/reports/2026-10-30-hours-fix-and-performance.md)
 

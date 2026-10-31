@@ -1507,3 +1507,17 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Files**: `src/components/ScrollAnimationSection.jsx`, `AppHeroScrollAnimation.jsx`, `AppSection3ScrollAnimation.jsx`, `ServicesScrollAnimationSection.jsx`, `ServicesSection3ScrollAnimation.jsx`, `src/utils/framePreloader.js`.
 - **Not changed**: no pricing, delivery-window, hours, or copy edits. The 45-minute single window and 5–15 L range are untouched.
 - **On indexing** (asked again in the same message): the three URLs `/order/`, `/download/`, `/services/` already answer 200 with their own prerendered HTML — unique `<title>`, self-referencing canonical, `index, follow`, exactly one `<h1>`, in `sitemap.xml`, allowed by `robots.txt`. Nothing in the code prevents indexing; the open items are Search Console “Request indexing”, Bing property verification, and real local signals. Details and the exact steps are in [`docs/reports/2026-10-30-scroll-frames-speed-indexing-report.md`](reports/2026-10-30-scroll-frames-speed-indexing-report.md) §5.
+
+## 2026-10-31 — Indexing depth for /services/, /download/ and /order/
+
+- **Diagnosis**: all three URLs already returned 200 with prerendered HTML, unique `<title>`, self-referencing canonical, `index, follow` (meta and `X-Robots-Tag`), one `<h1>`, valid JSON-LD and a sitemap entry. No technical blocker existed, so the missing ingredient was unique on-page value and a matching FAQ schema.
+- **New component** `src/components/PageDeepDive.jsx` with data in `src/data/pageDeepDives.js`; rendered statically into all three pages.
+  - `/services/`: fuel grade table, full 5–15 L fee table, Lahore coverage list, corporate-supply boundary, explicit "not offered" list.
+  - `/download/`: verified build table (version, build, bytes, minSdk, target SDK, package), five install steps, app contents, install troubleshooting.
+  - `/order/`: six-step flow, fee table, payment matrix, 10:00 PM cut-off, invoice contents.
+- **Schema**: FAQPage now generated from the same arrays that render the visible Q&A — 13 / 11 / 10 questions, **34/34 visible**. A `WebPage` node with `dateModified: 2026-10-31` was added to all three `@graph` payloads.
+- **Truth fixes**: download schema said `Android 8.0 and above` while the APK is `minSdk 24` — now derived from `MIN_ANDROID`. The iOS FAQ no longer claims a "closed beta"; it states the app is in development and not on the App Store. Order `HowTo` step 4 no longer mentions a delivery-speed choice, which had contradicted the permanent urgent-tier removal.
+- **Titles**: `/services/` → "Doorstep Petrol & Diesel Delivery in Lahore | Zyphuel"; `/order/` → "Order Petrol or Diesel Online in Lahore | 45-Min Delivery"; `useSEO` updated to match so the title does not change after hydration.
+- **Articles**: two new prerendered guides — `fuel-delivery-charges-lahore-explained` and `generator-diesel-consumption-lahore-load-shedding-plan`. Sitemap is now 23 URLs, feed 14 items.
+- **Charts**: `scripts/charts-to-png.mjs` rasterises all 20 report SVGs to PNG; every dashboard reference now points at a PNG so the graphs render in clients that refuse SVG. Two new 2D charts: delivery fee by volume, and an index-coverage audit.
+- **Verified**: build exit 0; prerender saved `/services/` 124,949 B, `/download/` 111,829 B, `/order/` 139,630 B; one `<h1>` each; JSON-LD parses; live Googlebot fetch of `/` shows the new hours and none of the legacy strings.

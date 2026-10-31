@@ -3,8 +3,24 @@ import path from 'node:path'
 import { execFileSync } from 'node:child_process'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { articles } from './src/data/articles.js'
-import { APP_VERSION, APP_SIZE, RELEASE_DATE } from './src/data/appVersion.js'
+import { APP_VERSION, APP_SIZE, RELEASE_DATE, MIN_ANDROID } from './src/data/appVersion.js'
 import { ALL_SERVICE_FAQS } from './src/data/servicesFaqs.js'
+import { SERVICES_DEEP_DIVE, DOWNLOAD_DEEP_DIVE, ORDER_DEEP_DIVE } from './src/data/pageDeepDives.js'
+
+// Shared helper: a WebPage node that dates each page honestly. Google uses
+// dateModified as a freshness signal, so it is set to the day the page copy
+// actually changed rather than rebuilt on every deploy.
+const DEEP_DIVE_REVIEWED = '2026-10-31T00:00:00+05:00'
+const deepDiveWebPage = (path, name, description) => ({
+  "@type": "WebPage",
+  "@id": `${DOMAIN}${path}#webpage`,
+  "url": `${DOMAIN}${path}`,
+  "name": name,
+  "description": description,
+  "inLanguage": "en-PK",
+  "dateModified": DEEP_DIVE_REVIEWED,
+  "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", "h2"] }
+})
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const toAbsolute = (p) => path.resolve(__dirname, p)
@@ -464,18 +480,22 @@ const ROUTE_SOURCE_FILES = {
   '/services/': [
     'src/pages/ServicesPage.jsx',
     'src/data/servicesData.js',
+    'src/data/pageDeepDives.js',
+    'src/components/PageDeepDive.jsx',
     'src/components/ServicesScrollAnimationSection.jsx',
     'src/components/ServicesSection3ScrollAnimation.jsx',
   ],
-  '/order/': ['src/pages/OrderPage.jsx', 'src/utils/officeHours.js'],
+  '/order/': ['src/pages/OrderPage.jsx', 'src/data/pageDeepDives.js', 'src/components/PageDeepDive.jsx', 'src/utils/officeHours.js'],
   '/contact/': ['src/pages/ContactPage.jsx', 'src/data/companyInfo.js'],
   '/download/': [
     'src/pages/DownloadPage.jsx',
+    'src/data/pageDeepDives.js',
+    'src/components/PageDeepDive.jsx',
     'src/data/appVersion.js',
     'src/components/AppHeroScrollAnimation.jsx',
     'src/components/AppSection3ScrollAnimation.jsx',
   ],
-  '/blog/': ['src/pages/BlogListPage.jsx', 'src/data/articles.js'],
+  '/blog/': ['src/pages/BlogListPage.jsx', 'src/data/articles.js', 'src/data/articles-2026-10-30.js'],
   '/privacy/': ['src/pages/PrivacyPolicyPage.jsx'],
   '/terms/': ['src/pages/TermsOfUsePage.jsx'],
 }
@@ -787,8 +807,8 @@ const ROUTES = [
   {
     path: '/services/',
     outFile: 'dist/services/index.html',
-    title: 'Fuel Delivery Services in Lahore | Petrol & Diesel | Zyphuel',
-    description: 'Euro-V Super Petrol, High-Octane 97 and Euro-V Diesel to vehicles and standby generators across DHA, Gulberg and Johar Town.',
+    title: 'Doorstep Petrol & Diesel Delivery in Lahore | Zyphuel',
+    description: 'Euro-V petrol, High-Octane 97 and diesel delivered to your car, bike or generator in Lahore: 5–15 L, Rs. 300–400 fee, 45 minutes, metered invoice.',
     keywords: "fuel delivery services Lahore, diesel delivery Lahore, petrol delivery Lahore, generator diesel refueling Lahore, commercial diesel supply Lahore, fleet refueling Pakistan, doorstep petrol delivery, high octane 97 delivery Lahore, Zyphuel services, fuel delivery DHA Lahore, petrol delivery Gulberg, diesel delivery Johar Town, generator diesel Model Town, emergency fuel Bahria Town Lahore, bulk diesel Sundar Industrial Estate, petrol pump near me Lahore, online fuel order Lahore, diesel delivery companies, load shedding generator fuel Lahore, standby generator diesel delivery, fuel supplier Lahore",
     canonical: `${DOMAIN}/services/`,
     ogImage: `${DOMAIN}/images/og-cover.jpg`,
@@ -805,6 +825,7 @@ const ROUTES = [
             { "@type": "ListItem", "position": 2, "name": "Services", "item": `${DOMAIN}/services/` }
           ]
         },
+        deepDiveWebPage('/services/', 'Fuel delivery services in Lahore: grades, volumes, fees and coverage', 'What Zyphuel delivers across Lahore, the 5–15 litre doorstep fee slabs, and which zones are covered.'),
         {
           "@type": "Service",
           "@id": `${DOMAIN}/services/#service`,
@@ -844,7 +865,7 @@ const ROUTES = [
           "@type": "FAQPage",
           "@id": `${DOMAIN}/services/#faq`,
           "mainEntity": [
-            ...ALL_SERVICE_FAQS.map((f) => ({
+            ...[...ALL_SERVICE_FAQS, ...SERVICES_DEEP_DIVE.faqs].map((f) => ({
               "@type": "Question",
               "name": f.q,
               "acceptedAnswer": { "@type": "Answer", "text": f.a }
@@ -859,7 +880,7 @@ const ROUTES = [
     path: '/download/',
     outFile: 'dist/download/index.html',
     title: 'Download Zyphuel APK | Doorstep Fuel App for Android',
-    description: `Download the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}): live GPS tracking, 45-minute dispatch and 2-hour price alerts.`,
+    description: `Official Zyphuel Android APK v${APP_VERSION} (${APP_SIZE}, Android ${MIN_ANDROID}): live tracking, 45-minute dispatch and fuel price alerts.`,
     keywords: `Download Zyphuel APK, Zyphuel App v${APP_VERSION}, petrol delivery app pakistan, fuel delivery app Lahore, online petrol delivery in lahore, doorstep diesel delivery lahore, generator fuel delivery lahore, emergency fuel app pakistan, buy fuel online pakistan, mobile fuel delivery app Pakistan, fuel rate alerts app Lahore, which app delivers petrol, best fuel delivery app Pakistan, petrol delivery app download, fuel delivery app with GPS tracking`,
     canonical: `${DOMAIN}/download/`,
     ogImage: `${DOMAIN}/images/og-cover.jpg`,
@@ -876,11 +897,12 @@ const ROUTES = [
             { "@type": "ListItem", "position": 2, "name": "Download App", "item": `${DOMAIN}/download/` }
           ]
         },
+        deepDiveWebPage('/download/', 'Installing the Zyphuel APK: build details, requirements and setup', 'Verified build information, minimum Android version, install steps and troubleshooting for the official Zyphuel APK.'),
         {
           "@type": "SoftwareApplication",
           "@id": `${DOMAIN}/download/#app`,
           "name": "Zyphuel Mobile Application - Doorstep Fuel Delivery Lahore",
-          "operatingSystem": "Android 8.0 and above (Android 15/16 Ready)",
+          "operatingSystem": `Android ${MIN_ANDROID} (target SDK 36, Android 15/16 ready)`,
           "applicationCategory": "UtilitiesApplication, ShoppingApplication",
           "downloadUrl": `${DOMAIN}/APK/Zyphuel.apk`,
           "fileSize": APP_SIZE,
@@ -993,7 +1015,12 @@ const ROUTES = [
                 "@type": "Answer",
                 "text": "The iOS version is in active development. In the meantime, iPhone users can order through the fully responsive web platform at https://zyphuel.netlify.app/order/."
               }
-            }
+            },
+            ...DOWNLOAD_DEEP_DIVE.faqs.map((f) => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
+            }))
           ]
         }
       ]
@@ -1002,8 +1029,8 @@ const ROUTES = [
   {
     path: '/order/',
     outFile: 'dist/order/index.html',
-    title: 'Order Fuel Online in Lahore | 45-Min Dispatch | Zyphuel',
-    description: 'Book petrol, high-octane 97 or diesel delivery in Lahore. 5-15 L, 45-minute dispatch, COD or online payment, metered invoice.',
+    title: 'Order Petrol or Diesel Online in Lahore | 45-Min Delivery',
+    description: 'Order 5–15 L of Euro-V petrol, High-Octane 97 or diesel to your door in Lahore. Rs. 300–400 fee, 45-minute dispatch, COD or online, metered invoice.',
     keywords: "order fuel online Lahore, book petrol delivery Lahore, order diesel Lahore, petrol delivery lahore price, diesel delivery lahore price, online fuel ordering Lahore, doorstep petrol delivery booking, generator diesel order, petrol cash on delivery Lahore, Zyphuel fuel booking, order petrol online near me, buy petrol online Lahore, fuel home delivery near me, doorstep fuel delivery cost, can I buy petrol online in Pakistan, 24/7 fuel delivery Lahore",
     canonical: `${DOMAIN}/order/`,
     ogImage: `${DOMAIN}/images/og-cover.jpg`,
@@ -1045,6 +1072,7 @@ const ROUTES = [
           },
           "agent": { "@id": `${DOMAIN}/#organization` }
         },
+        deepDiveWebPage('/order/', 'How to order fuel online in Lahore: steps, fees and payment', 'The six-step doorstep order flow, the 5–15 litre delivery fee table, payment options and the 10:00 PM cut-off explained.'),
         {
           "@type": "HowTo",
           "@id": `${DOMAIN}/order/#howto`,
@@ -1081,8 +1109,8 @@ const ROUTES = [
             {
               "@type": "HowToStep",
               "position": 4,
-              "name": "Enter Lahore Address & Dispatch Priority",
-              "text": "Provide your delivery address in Lahore, the delivery fee for your volume is applied automatically (Rs. 300 for 5–10L, Rs. 320–Rs. 400 for 11–15L); choose payment mode (COD or instant QR Online Payments) and submit.",
+              "name": "Enter Lahore Address and Confirm Payment Mode",
+              "text": "Provide your delivery address in Lahore. The delivery fee for your volume is applied automatically (Rs. 300 for 5–10L, Rs. 320–Rs. 400 for 11–15L). Choose the payment mode (COD for 5–10L or instant QR online payment) and submit. Every order uses the same 45-minute delivery window; there is no priority tier.",
               "url": `${DOMAIN}/order/#step-address`
             }
           ]
@@ -1138,7 +1166,12 @@ const ROUTES = [
                 "@type": "Answer",
                 "text": "Yes. Choose one of four refueling targets — Car/Sedan/SUV, Motorbike/Scooter, Standby Generator, or Commercial Machinery. Doorstep orders cover 5–15 litres; larger generator or commercial requirements beyond 15 litres are supplied through scheduled B2B bowsers via our corporate desk."
               }
-            }
+            },
+            ...ORDER_DEEP_DIVE.faqs.map((f) => ({
+              "@type": "Question",
+              "name": f.q,
+              "acceptedAnswer": { "@type": "Answer", "text": f.a }
+            }))
           ]
         }
       ]

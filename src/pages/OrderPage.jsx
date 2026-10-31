@@ -14,6 +14,8 @@ import {
   captureRefuelTargetSelected,
 } from '../analytics/posthog'
 import { GOOGLE_REVIEW_ENABLED, GOOGLE_REVIEW_URL, REVIEW_PROMPT } from '../data/reviewConfig'
+import PageDeepDive from '../components/PageDeepDive'
+import { ORDER_DEEP_DIVE } from '../data/pageDeepDives'
 
 const FUEL_DISPLAY = {
   petrol: 'Petrol',
@@ -123,8 +125,8 @@ export const INSTANT_PAYMENT_METHODS = [
 
 export default function OrderPage() {
   useSEO({
-    title: 'Order Fuel Online in Lahore | 45-Min Dispatch | Zyphuel',
-    description: 'Book petrol, high-octane 97 or diesel delivery in Lahore. 5-15 L, 45-minute dispatch, COD or online payment, metered invoice.',
+    title: 'Order Petrol or Diesel Online in Lahore | 45-Min Delivery',
+    description: 'Order 5–15 L of Euro-V petrol, High-Octane 97 or diesel to your door in Lahore. Rs. 300–400 fee, 45-minute dispatch, COD or online, metered invoice.',
     keywords: [
       'emergency petrol delivery near me', 'petrol price today lahore', 'fuel delivery charges calculator', 'car out of fuel roadside',
 'can i buy petrol online', 'can you buy petrol online', 'how to buy petrol online',
@@ -1873,6 +1875,10 @@ export default function OrderPage() {
         </section>
 
         {/* SEO On-Page Guide & FAQ Section: Doorstep Diesel & Petrol Delivery in Lahore */}
+        {/* Page-specific depth: six-step flow, fee table, payment and cut-off rules.
+            Rendered into the prerendered HTML so a crawler gets it without JS. */}
+        <PageDeepDive {...ORDER_DEEP_DIVE} />
+
         <section className="order-seo-info section-padding" style={{ backgroundColor: '#f8fafc', borderTop: '1px solid var(--border-color)', marginTop: '40px' }}>
           <div className="container" style={{ maxWidth: '1000px' }}>
             <div>
