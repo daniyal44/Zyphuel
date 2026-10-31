@@ -86,15 +86,14 @@ const styles = {
     borderRadius: '10px',
     margin: '4px 0 10px'
   },
-  table: { width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem', minWidth: '420px' },
+  table: { width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem', minWidth: '300px' },
   th: {
     textAlign: 'left',
     padding: '11px 14px',
     backgroundColor: '#f1f5f9',
     color: '#0f172a',
     fontWeight: 800,
-    borderBottom: '1px solid var(--border-color, #e2e8f0)',
-    whiteSpace: 'nowrap'
+    borderBottom: '1px solid var(--border-color, #e2e8f0)'
   },
   td: {
     padding: '11px 14px',

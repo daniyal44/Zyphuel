@@ -145,7 +145,7 @@ The detailed step-by-step playbook, including Bing Webmaster Tools and IndexNow,
 | Check | Result |
 | :--- | :--- |
 | `npm run build` (client + SSR) | exit 0, built in 17.85 s and 4.43 s |
-| `node prerender.js` | saved `/services/` 124,949 B, `/download/` 111,829 B, `/order/` 139,630 B |
+| `node prerender.js` | saved `/services/` 124,835 B, `/download/` 111,791 B, `/order/` 139,573 B |
 | New content present in prerendered HTML | 3/3 pages |
 | Exactly one `<h1>` per page | 3/3 |
 | JSON-LD parses | 3/3 blocks, 8–10 nodes each |
