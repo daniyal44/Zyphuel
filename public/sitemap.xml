@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://zyphuel.netlify.app/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -15,7 +15,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/about/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -63,7 +63,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/contact/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -75,13 +75,13 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/privacy/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/terms/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -99,7 +99,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/blog/future-of-fuel-delivery-lahore/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -111,7 +111,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -123,7 +123,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/blog/generator-refueling-services-lahore/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -135,7 +135,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/blog/generator-diesel-lpg-delivery-lahore/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -147,7 +147,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/blog/iot-telemetry-fuel-delivery/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -159,7 +159,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/blog/zyphuel-calibrated-telemetry-fleet/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -171,7 +171,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -183,7 +183,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/blog/can-you-buy-petrol-online-how-to-order-guide/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -195,7 +195,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/blog/emergency-petrol-delivery-near-me-roadside-guide/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -207,7 +207,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/blog/petrol-price-today-pakistan-fuel-delivery-cost-calculator/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -219,7 +219,7 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/blog/petrol-pump-near-me-lahore-doorstep-alternative/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -231,13 +231,37 @@
   </url>
   <url>
     <loc>https://zyphuel.netlify.app/blog/diesel-delivery-lahore-price-per-litre-fleet-budget/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://images.unsplash.com/photo-1615828636374-ee3e7b6fbb3e?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
       <image:title>Diesel Delivery in Lahore: Per-Litre Price, Delivery Charges and Fleet Budget Planning (2026)</image:title>
       <image:caption>A practical cost model for diesel delivery in Lahore: how the per-litre price is built from the OGRA ex-depot rate plus a Rs. 5.00/L margin, how the Rs. 300.00 to Rs. 400.00 delivery band works between 5 and 15 litres, and how to budget generator and fleet refueling without hidden fees.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zyphuel.netlify.app/blog/fuel-delivery-charges-lahore-explained/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
+      <image:title>Fuel Delivery Charges in Lahore: What the Rs. 300 Base Fee Really Covers</image:title>
+      <image:caption>A line-by-line look at what a doorstep fuel order costs in Lahore: the official OGRA rate, the Rs. 5.00 per litre retail margin, and the Rs. 300–Rs. 400 delivery band for 5 to 15 litres.</image:caption>
+      <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zyphuel.netlify.app/blog/generator-diesel-consumption-lahore-load-shedding-plan/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&amp;fit=crop&amp;w=720&amp;q=80</image:loc>
+      <image:title>How Much Diesel a Standby Generator Uses Per Hour — and How to Plan Refills in Lahore</image:title>
+      <image:caption>A practical consumption table for 10 to 200 kVA diesel generators, how to size a refill around the 5–15 litre doorstep limit, and when scheduled commercial supply makes more sense.</image:caption>
       <image:geo_location>Lahore, Punjab, Pakistan</image:geo_location>
     </image:image>
   </url>
