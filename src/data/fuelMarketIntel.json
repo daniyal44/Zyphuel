@@ -1,17 +1,26 @@
 {
-  "lastUpdated": "2026-10-31T08:08:42.657373",
-  "dateFormatted": "October 31, 2026",
-  "dateISO": "2026-10-31",
+  "lastUpdated": "2026-11-01T08:53:42.229887",
+  "dateFormatted": "November 01, 2026",
+  "dateISO": "2026-11-01",
   "headlinesCount": 10,
   "headlines": [
     {
       "title": "Govt raises diesel price by Rs2.29 per litre, keeps petrol unchanged - The News Pakistan",
       "summary": "Govt raises diesel price by Rs2.29 per litre, keeps petrol unchanged &nbsp;&nbsp; The News Pakistan",
       "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBoMVpZUFdtRnVHVEl2eGZzOUpTcVhQR1pQLTUwLTl2SHd3aDdqWUNxSW1WQ0d4cVl0VF9fdG4xZDJncHQ4cWl2eUN3V2NFTDFIRHl1djItZGExUlNKLV9EaGNxMXA4Qk5Va3FoWERjS0tuS2QxenNVVm5R?oc=5",
-      "published": "Fri, 30 Oct 2026 19:34:01 GMT",
+      "published": "Sun, 01 Nov 2026 04:35:44 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
       "hash": "2b262f593becf2c2f8d0b51a33a8d397ba626aa5583cabc15d7037b57ab88488"
+    },
+    {
+      "title": "OGRA increases LPG prices for November - Business Recorder",
+      "summary": "OGRA increases LPG prices for November &nbsp;&nbsp; Business Recorder",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE50Y3Jycjh3NXZ6NGRiT2xnbUNjNEw5Y291OHNaUkRuNnpSRnRyNjBIZE1fWi15dWtrTlNRMEZveTFEVTlMbVlqVzgxXy1rZUtM0gFWQVVfeXFMTVE5eG90MHRaYTFVWGU1Y3llYkYyWkMycFBudEFTR0diT3VxczlOWmZEZl80Q0lHek9ZOXFiYjN2X01QaDNldE0ydmtRQ3h1enkyRDdtRFE?oc=5",
+      "published": "Sat, 31 Oct 2026 21:31:09 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "c0d6a8823dfffef811e4bb10d93c586e95635a933d8c1e8e683b046d1154fb71"
     },
     {
       "title": "Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn",
@@ -23,40 +32,31 @@
       "hash": "893463217a14e797af417139009e2acb7ee768b2b64075f913d92a5e2aabaf31"
     },
     {
-      "title": "OGRA raises RLNG prices by up to 15.27% for October 2026 - Business Recorder",
-      "summary": "OGRA raises RLNG prices by up to 15.27% for October 2026 &nbsp;&nbsp; Business Recorder",
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPWGVXVDkwOFpxaWVzcjRWM1RIbzVBTVFHMU9NdEdoVnJvNWN5SUpuYnU4MDktX1FfWkZjTXVFM1drdlgtRENJRFY1ZVJST0YzcERUSGQ0T01JZ25ENm5LMl9YUWktR3hvS1Q1OU5HQnVfMXNHLVNoVE1icE1jVWhlNzQ5eFFmcWktaGRGRVFpSk83MDNfXzdwSG13?oc=5",
-      "published": "Fri, 30 Oct 2026 17:19:46 GMT",
+      "title": "Petroleum Division proposes shifting LPG pricing powers from OGRA to PSO, SSGC LPG Limited - Investify",
+      "summary": "Petroleum Division proposes shifting LPG pricing powers from OGRA to PSO, SSGC LPG Limited &nbsp;&nbsp; Investify",
+      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQUlk4MTVRdzhWRV8tbFJyZUgxclVvNko1WGt0VDJzMU5tbFNNUVBjbFUyMkY3bDd6dDYwWlE2QmNDNUVaNEh5QU5XNkZqTGZONEVOQTNVNERwcXBJWk04UjVJMTg0OFpFZWVNc2NsZXBFMk4yRXRDUEdfbndiUi1ya2lGa0VlVFBiVzB6QVRzZzVmWGl0YTNoUzFsa2gtV0hmMmJVeExfMjFUYWVOSEw0SHB6SDcya3ZiX0xialhSdk41VUVwSXpQZlBEOEc?oc=5",
+      "published": "Sat, 31 Oct 2026 08:15:00 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "68994e72db2536171e3fc9631df1aba124612e0c60c8a1170e79448fe810dff7"
+      "hash": "83beb85bbc045cbb9b66eda5804dc310ba6ebe3f3886f46e364ef85985c1a6d9"
     },
     {
-      "title": "Ogra notifies 15.3pc increase in RLNG price for October - Investify",
-      "summary": "Ogra notifies 15.3pc increase in RLNG price for October &nbsp;&nbsp; Investify",
-      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNbmY3OWxscUJhVkR5SEx5WnZZa2twamh2LWFKQ0RZQWJ0Xzlzb1hRMVA3ZDhIRW92SHd0WUlPb3RqU2J0dVpZUDRkT29uelpnUm4xZ2NQcEdOdjFoM0Q2YWtRdmJZT0kyZ1A3NmpvQmRDOUhqalhsRDVkNzNQbVRTdXlzR25vUHJYX1RfYlloQVczcnRUZXpTTUVrZUQ0UzQ?oc=5",
-      "published": "Fri, 30 Oct 2026 16:47:36 GMT",
+      "title": "Diesel price rises by Rs2.29 per litre, petrol rate unchanged - The Nation (Pakistan )",
+      "summary": "Diesel price rises by Rs2.29 per litre, petrol rate unchanged &nbsp;&nbsp; The Nation (Pakistan )",
+      "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQM2wwRko1WFdRNVppU09NTmdHbnJSWnRSUkx6N2hIUC05Yk1jNVhEbmVyRjZreHZldy0yT1djRjVBeU5fOVlzXy1RTngtVm1yUjJEeWxsbUVLTEEwZ1I2bFJ2NmxlMHNCZzFvTTh2d2VMYWxuSTB5dzI3Nmh5bU9ndHpZNG1ZWkpDbG5FN1RuNWl2QVZ4OS1namE5TQ?oc=5",
+      "published": "Sat, 31 Oct 2026 05:45:08 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "e24cbf848e2ca9b83400e16b34c88ae6c1d61f064efde67dbe939bf970dcf627"
+      "hash": "d25aafc8b5a5102a6abedb9273f33b44eedcd8774c72a5e439dc22ea91d04036"
     },
     {
-      "title": "Pakistan hikes diesel amid West Asia crisis; essential goods likely to cost more - شبكة تواصل الإخبارية",
-      "summary": "Pakistan hikes diesel amid West Asia crisis; essential goods likely to cost more &nbsp;&nbsp; شبكة تواصل الإخبارية",
-      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1RbWpLSVd5Vlk4UjVPYU9rSmxoOWdPTlF1STVSc2ZVS2hld3l3aFJXc2lxa25RTl9VVEVydjk0cVdRbjlfcWhBOGJ2UzMyXzJ5VDRF?oc=5",
-      "published": "Sat, 31 Oct 2026 07:05:01 GMT",
+      "title": "Pakistan hikes diesel amid West Asia crisis; essential goods likely to cost more - WION",
+      "summary": "Pakistan hikes diesel amid West Asia crisis; essential goods likely to cost more &nbsp;&nbsp; WION",
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOUTRaSjFXanRWSkMyUDUzc2stN1hEeW04YzQwZ0libWFVdnM4X0sxNFpzRThGd0wtSExtRTYzSWlmNzBWVTJ0bVI0SGR0cHlrYzVrclRNQ2RIZDFIUFcxU05aOUNxbENPTlpqdjRXSzlLYXpYbzdBeHY2MzZjZDR5U0dsNFpJS0lwM25hRzQ4LV9NVGUta1Qtb2UyV1ZVejl3YS10ZExjVjNvc0VreENOcGszeXBvNURieUl5enJFV1XSAcYBQVVfeXFMT1FXTVVhSk11dkh5VGZ2Wmt5UjhBR0k4MHk3VjVJQ00tMXhlTVM0NXhSTVk0dldDMzVTZThuQnBBa1l6Nk9ScWNnTHFIa0JLVlJTR2x2TlY1SUVkX0VSZEF4OGZlZW1NRnJ5Vk1NOE8xdm9lbGlRODNsS2V5M3JVNFF3SVdDejZIQ0RZc3FFT1lfTlFDR1lBUVJOd3pVNzNxcEgzMndIMVRvTEQ0MElsOVpVa09LTmU3SVlCbTk2UmV6b1F3Z3FB?oc=5",
+      "published": "Sat, 31 Oct 2026 07:06:03 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "89e96a8ac40951d4130fea11bc8c0fb94518084927ea6117619aae41502db202"
-    },
-    {
-      "title": "OGRA (Amendment) Bill, 2026: Bill proposes quarterly gas pricing moved in Senate - Business Recorder",
-      "summary": "OGRA (Amendment) Bill, 2026: Bill proposes quarterly gas pricing moved in Senate &nbsp;&nbsp; Business Recorder",
-      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPblNLUENXcjB1ZGVKRUlsV3dNdkhDaVVOQnRRVUNwZU9rbGlHclBIOE9QMlpQRmFhZmg0MDJYM0N5N1V5ZExqQTRNeXZrVTNOckRRRXM3Nlhkak1KcENoRWZDRmJ1YkNITWhEWVFhSzVtYzdTYzRTdWsxek1oQ3FqdUloNW9vWEd3Q2ZUUWpXZjNsTmFJaTJVWHFXb1ZibEJ3LWFhbEJlYS13SXp1SU9jMmNFYkFRMFnSAVZBVV95cUxNeEVkdGVCZHAyUXFjd3AxeER2dExqNWxxWXk5aW15NDlYaVltZWRHMDB4UW41S2VlTkJaUGw0YVlQelhPSUtCVlBDX180VWdYSXhBYzlYUQ?oc=5",
-      "published": "Sat, 31 Oct 2026 00:33:00 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "9ef4125d8f46bb23a3f2de6447075406de05dab4fee2f8e7e551c9978968ad55"
+      "hash": "918c68eb6072b0f0303e43582c7a2455948dbab311128c52989927e58aed9cd4"
     },
     {
       "title": "OGRA raises Oct RLNG prices by up to 15.27% - The Express Tribune",
@@ -68,31 +68,31 @@
       "hash": "f6d4f5819ce361dfaf6418fb537276f7b76a6d9d315b10062920d6552788f426"
     },
     {
-      "title": "Ogra raises October RLNG prices - Business Recorder",
-      "summary": "Ogra raises October RLNG prices &nbsp;&nbsp; Business Recorder",
-      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5MQlJranhSNE5QQ3NrbUFPb3RVeU1yeGRYUmpiS083WVNvdmdTWmZSUDVKQWEwb3hBak5sS3dFbTdWbWhqM1JaQTdMcFU5VE11Q0tqcEFMTE1QRUVONXFMYUVHTEpra1VqOWlsbWhTR0x5RVo1MXpxSm5Qb9IBVkFVX3lxTE1zeHBsemZpd1NraVozM2pwU1luVmlrWjFkVEFPXzdpanAxN0VGM1NxTlZRVi1iVVhpMUROR1VkQzI1eF9CZmlCLUxoRjlJZTgzTVAya1Bn?oc=5",
-      "published": "Sat, 31 Oct 2026 00:33:00 GMT",
+      "title": "Ogra notifies 15.3pc increase in RLNG price for October - Investify",
+      "summary": "Ogra notifies 15.3pc increase in RLNG price for October &nbsp;&nbsp; Investify",
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNbmY3OWxscUJhVkR5SEx5WnZZa2twamh2LWFKQ0RZQWJ0Xzlzb1hRMVA3ZDhIRW92SHd0WUlPb3RqU2J0dVpZUDRkT29uelpnUm4xZ2NQcEdOdjFoM0Q2YWtRdmJZT0kyZ1A3NmpvQmRDOUhqalhsRDVkNzNQbVRTdXlzR25vUHJYX1RfYlloQVczcnRUZXpTTUVrZUQ0UzQ?oc=5",
+      "published": "Fri, 30 Oct 2026 16:47:36 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "23609b77d7ea23f48ebb260bdf5916c0d13be94a30f7e110e9abbbd7fe5770ae"
+      "hash": "e24cbf848e2ca9b83400e16b34c88ae6c1d61f064efde67dbe939bf970dcf627"
+    },
+    {
+      "title": "Petroleum Division revises petrol pricing mechanism - Business Recorder",
+      "summary": "Petroleum Division revises petrol pricing mechanism &nbsp;&nbsp; Business Recorder",
+      "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1aUGJReFJpVDFVeGxpOEZLcllpVW05VGRVOC0wRjJPNWtDaWxWZ1BEaEVWYU8tV3NCeXlyalk2NzNCNVFPamVESlowbV8xQ1Vq0gFWQVVfeXFMT2FQZFlDckwwVldaTHZpUlR1aTJTNWliVVZzN1dfTzdVc01STW5kcEEzMWRNQ29Kc0ctdWdMYTJCOEJTaVVLSVB2cmR0Tnc2WEpHQW01X0E?oc=5",
+      "published": "Sat, 31 Oct 2026 21:31:09 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "8742cca8d0a6c6f445941fa254f0596420cbae79340c815c4a028c6bedcca23f"
     },
     {
       "title": "Ogra notifies 15.3pc increase in RLNG price for October - Dawn",
       "summary": "Ogra notifies 15.3pc increase in RLNG price for October &nbsp;&nbsp; Dawn",
-      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE5hRDBCTVVKcERnUDQ1OFNCNWxOeFRJd0Z5cWNqcFZkOXhmeFc1VzRNUGxjNWxweE1VcVBSSW1YMVRrWFRRaVBSYQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPalhzTmVVMnNUU2dCTFZsU1pmcUNHaUJfRkd0QS16cXZMTUFiU3FYZ1N5dFNxNFhXdzFMMEZpZUdOYVFlLVkwdzVPUm5fTm9MMEplV2psYkdqM1VxZVZyUGRmTmNtSm9sMUNiNVp1Q0lfeXFnMjhuQ2xjTkVqR1RQZ19fZDRueFJJXzNOZWx4a1FHUQ?oc=5",
       "published": "Fri, 30 Oct 2026 16:45:47 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
       "hash": "bab475e2d6db4f160e94fcd3a2fe76e54d54e48aa730679448ef6f6f0d7aa947"
-    },
-    {
-      "title": "Govt keeps petrol price unchanged, raises diesel by Rs2.29 per litre - Geo News",
-      "summary": "Govt keeps petrol price unchanged, raises diesel by Rs2.29 per litre &nbsp;&nbsp; Geo News",
-      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9pbXZtZUpsa1JoNmUyZ012SmFiTWdfOFY0Tm56QzE3dzVza1N0SUItZEtwODl0Sm8yU1ZRcDd0YUZMWnRpcWhzWUdhSlNtNkc4eE5TOGJMdFV0ZUpja1RGVjhycU45SzM1TEVnUk5uUmMwZDdt?oc=5",
-      "published": "Sat, 31 Oct 2026 00:30:57 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "921f77703408dc1fbad578ef63816e2908dbe4eae4244e3ca45f25a863301257"
     }
   ],
   "businessRules": {
@@ -106,8 +106,8 @@
   },
   "articles": {
     "future-of-fuel-delivery-lahore": {
-      "date": "October 31, 2026",
-      "headline": "Daily Petroleum Market Intelligence (October 31, 2026)",
+      "date": "November 01, 2026",
+      "headline": "Daily Petroleum Market Intelligence (November 01, 2026)",
       "summary": "OGRA daily rolling Platts benchmark monitor active. Rates adjust daily Monday through Friday, with weekend rates locked. Lock in your doorstep refuel at current rates before depot changes. Fixed Rs. 300.00 delivery fee for 5L–10L; Rs. 320–Rs. 400 for 11L–15L Max.",
       "topic": "daily_pricing_ogra",
       "points": [
@@ -117,19 +117,19 @@
         },
         {
           "label": "Market Intelligence",
-          "text": "Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "OGRA increases LPG prices for November - Business Recorder (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "OGRA raises RLNG prices by up to 15.27% for October 2026 - Business Recorder (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "download-zyphuel-apk-guide": {
-      "date": "October 31, 2026",
-      "headline": "Daily Petroleum Market Intelligence (October 31, 2026)",
+      "date": "November 01, 2026",
+      "headline": "Daily Petroleum Market Intelligence (November 01, 2026)",
       "summary": "Zyphuel Android APK (v2.6.4+) delivers live lock-screen OGRA rate alerts, GPS sector auto-pinning, and Bluetooth bowser telemetry across Lahore. Orders strictly 5L to 15L Max delivered within 20–45 mins.",
       "topic": "apk_mobile_telemetry",
       "points": [
@@ -139,19 +139,19 @@
         },
         {
           "label": "Market Intelligence",
-          "text": "Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "OGRA increases LPG prices for November - Business Recorder (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "OGRA raises RLNG prices by up to 15.27% for October 2026 - Business Recorder (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "generator-refueling-services-lahore": {
-      "date": "October 31, 2026",
-      "headline": "Daily Petroleum Market Intelligence (October 31, 2026)",
+      "date": "November 01, 2026",
+      "headline": "Daily Petroleum Market Intelligence (November 01, 2026)",
       "summary": "Emergency load-shedding generator backup: 100% Euro-V Hi-Cetane Diesel delivered directly to your rooftop or basement generator with 50-meter anti-static reels. Zero manual jerrycan risks in residential or commercial plazas.",
       "topic": "generator_diesel_backup",
       "points": [
@@ -161,19 +161,19 @@
         },
         {
           "label": "Market Intelligence",
-          "text": "Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "OGRA increases LPG prices for November - Business Recorder (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "OGRA raises RLNG prices by up to 15.27% for October 2026 - Business Recorder (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "generator-diesel-lpg-delivery-lahore": {
-      "date": "October 31, 2026",
-      "headline": "Daily Petroleum Market Intelligence (October 31, 2026)",
+      "date": "November 01, 2026",
+      "headline": "Daily Petroleum Market Intelligence (November 01, 2026)",
       "summary": "Certified hazardous materials handling: Positive-displacement calibrated dispensing and sealed utilities. Strict 5L min to 15L max per dispatch with fixed Rs. 300 fee up to 10L, avoiding hazardous loose decanting.",
       "topic": "safe_fuel_handling",
       "points": [
@@ -183,19 +183,19 @@
         },
         {
           "label": "Market Intelligence",
-          "text": "Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "OGRA increases LPG prices for November - Business Recorder (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "OGRA raises RLNG prices by up to 15.27% for October 2026 - Business Recorder (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "iot-telemetry-fuel-delivery": {
-      "date": "October 31, 2026",
-      "headline": "Daily Petroleum Market Intelligence (October 31, 2026)",
+      "date": "November 01, 2026",
+      "headline": "Daily Petroleum Market Intelligence (November 01, 2026)",
       "summary": "Weights & Measures certified positive-displacement flow meters with 1,000 pulses/litre optical encoders. 15°C Automatic Temperature Compensation (ATC) counteracts Lahore summer heat expansion with 0.01L verified precision.",
       "topic": "metering_telemetry",
       "points": [
@@ -205,19 +205,19 @@
         },
         {
           "label": "Market Intelligence",
-          "text": "Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "OGRA increases LPG prices for November - Business Recorder (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "OGRA raises RLNG prices by up to 15.27% for October 2026 - Business Recorder (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "zyphuel-calibrated-telemetry-fleet": {
-      "date": "October 31, 2026",
-      "headline": "Daily Petroleum Market Intelligence (October 31, 2026)",
+      "date": "November 01, 2026",
+      "headline": "Daily Petroleum Market Intelligence (November 01, 2026)",
       "summary": "Founder Muhammad Daniyal's agile micro-refueler fleet operates across DHA, Gulberg, Johar Town, Bahria Town, and Model Town. Delivered within within 45 minutes (single delivery window) with instant Raast, JazzCash, Easypaisa QR payments.",
       "topic": "founder_fleet_network",
       "points": [
@@ -227,19 +227,19 @@
         },
         {
           "label": "Market Intelligence",
-          "text": "Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "OGRA increases LPG prices for November - Business Recorder (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "OGRA raises RLNG prices by up to 15.27% for October 2026 - Business Recorder (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "global-vs-pakistan-on-demand-fuel-delivery-benchmarks": {
-      "date": "October 31, 2026",
-      "headline": "Daily Petroleum Market Intelligence (October 31, 2026)",
+      "date": "November 01, 2026",
+      "headline": "Daily Petroleum Market Intelligence (November 01, 2026)",
       "summary": "Comparing global leaders (CAFU, Booster, FuelBuddy) with Zyphuel in Lahore. Calibrated 0.01L flow meters, 50m long-reach hoses, dual optical verification (QR + Code 128), and strictly 5L–15L order limits tailored for Pakistan.",
       "topic": "global_benchmarks",
       "points": [
@@ -249,11 +249,11 @@
         },
         {
           "label": "Market Intelligence",
-          "text": "Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "OGRA increases LPG prices for November - Business Recorder (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "OGRA raises RLNG prices by up to 15.27% for October 2026 - Business Recorder (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
