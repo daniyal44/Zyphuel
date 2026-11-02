@@ -17,14 +17,14 @@
 
 <!-- ZYPHUEL_FUEL_UPDATE_START -->
 > [!NOTE]
-> **⚡ Live Daily Fuel Intelligence & Market Monitor (November 01, 2026)**
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (November 02, 2026)**
 > - **Operational SLA**: Within 45 Mins (single delivery window) across Lahore.
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Zyphuel Android APK (v2.6.4+) delivers live lock-screen OGRA rate alerts, GPS sector auto-pinning, and Bluetooth bowser telemetry across Lahore. Orders strictly 5L to 15L Max delivered within 20–45 mins.
 >
 - **Market Intelligence**: Govt raises diesel price by Rs2.29 per litre, keeps petrol unchanged - The News Pakistan (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: OGRA increases LPG prices for November - Business Recorder (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Petrol price unchanged, high-speed diesel raised by Rs2.29 - Dawn (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Petrol pricing revised to shield consumers - The Express Tribune (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Petroleum Division revises petrol pricing mechanism - Business Recorder (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
