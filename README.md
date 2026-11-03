@@ -5,7 +5,7 @@
 [![Release Tag](https://img.shields.io/badge/Release-v2.6.4.0.0.33-8b5cf6?style=for-the-badge&logo=github)](https://github.com/daniyal44/Zyphuel/releases)
 [![OGRA Licensed](https://img.shields.io/badge/OGRA-Compliant%20%E2%80%A2%20Euro--V-0284c7?style=for-the-badge&logo=shield)](https://zyphuel.netlify.app/services/)
 [![Dispatch Speed](https://img.shields.io/badge/Dispatch-Within%2045%20Mins-ea580c?style=for-the-badge&logo=speedtest&logoColor=white)](https://zyphuel.netlify.app/order/)
-[![License](https://img.shields.io/badge/License-MIT-3b82f6?style=for-the-badge)](LICENSE)
+[![License](https://img.shields.io/badge/License-Proprietary-dc2626?style=for-the-badge)](LICENSE)
 [![GitHub Commits](https://img.shields.io/github/commit-activity/m/daniyal44/Zyphuel?style=for-the-badge&color=0284c7&label=Monthly%20Changes)](https://github.com/daniyal44/Zyphuel/commits/main)
 
 > **Zyphuel** is Pakistan’s premier on-demand doorstep fuel delivery and petroleum energy logistics platform. Engineered for Lahore’s residential, commercial, and industrial landscape, Zyphuel eliminates traditional petrol pump queues, pump short-fueling, and power blackout generator downtime by dispatching certified, double-walled mobile micro-bowsers fitted with 0.01L calibrated positive-displacement flow meters directly to your GPS coordinates within 45 minutes.
@@ -372,5 +372,5 @@ node scripts/qa-static.cjs
 
 ---
 
-## 📄 License
-This project is licensed under the [MIT License](LICENSE).
+## 📄 License & Proprietary Rights
+This project is strictly private and proprietary software. All rights reserved by Muhammad Daniyal (Zyphuel Technologies). This software is NOT open source. Unauthorized copying, cloning, modification, reproduction, or distribution is strictly prohibited. See [LICENSE](LICENSE).

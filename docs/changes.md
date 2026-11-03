@@ -1562,3 +1562,11 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Repository Hygiene**: Excluded `.cloud-attachments/` and `.tmpseo/` profiling caches in `.gitignore`.
 - **Activity Graph**: Refreshed `docs/reports/charts/development-activity.svg` and `.png` via `node scripts/make-activity-graph.mjs`.
 
+## Phase 21 (2026-11-03): Proprietary License Transition, SwarmVault Frontmatter Repair & Deep Repository Audit
+
+- **Proprietary License Conversion**: Replaced open-source MIT declarations across the repository. Updated `LICENSE` to an exclusive proprietary software license retaining all copyright to Muhammad Daniyal / Zyphuel Technologies, updated `package.json` to `"license": "UNLICENSED"`, and adjusted `README.md` badges and sections to reflect closed-source proprietary status.
+- **SwarmVault Frontmatter Repair**: Resolved Go YAML unmarshaling crash (`yaml: unmarshal errors: line 5: cannot unmarshal !!str into workflowparse.SkillMetadataConfig`) across local and global `SKILL.md` files by refactoring single-quoted JSON strings into compliant nested YAML mappings.
+- **Repository Security & Quality Audit**: Conducted an end-to-end repository scan (zero leaked secrets, 15/15 passed unit/privacy tests, 24 SSG routes pre-rendered with exit code 0). Generated executive report.
+- **Activity Graph**: Refreshed `docs/reports/charts/development-activity.svg` and `.png` via `node scripts/make-activity-graph.mjs`.
+
+
