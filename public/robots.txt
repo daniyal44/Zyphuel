@@ -68,6 +68,12 @@ Allow: /
 User-agent: TelegramBot
 Allow: /
 
+User-agent: Pinterestbot
+Allow: /
+
+User-agent: Pinterest
+Allow: /
+
 # AI & LLM Search Engine Agents (Direct GEO Optimization)
 User-agent: GPTBot
 Allow: /

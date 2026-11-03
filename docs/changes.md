@@ -1554,3 +1554,11 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Kept**: AdSense on idle-after-load with a 12 s ceiling — the best measured timing of the three variants.
 - **Honest limit**: identical production code measured 1.44–7.14 s TBT across runs on this machine, so no sub-second improvement is claimed. Removing AdSense is the remaining lever and needs owner approval.
 - Report: `docs/reports/2026-10-31-download-tbt-profiling.md`.
+
+## Phase 20 (2026-11-03): Pinterest Domain Verification & Crawler Whitelisting
+
+- **Pinterest Domain Verification**: Moved `<meta name="p:domain_verify" content="fc80284bcf271f5d6deba0c07bafb11a"/>` to the very top of `<head>` in `index.html` (immediately below `<meta name="viewport">` alongside Google, Bing, and Yandex webmaster verifications), ensuring fast-scanning crawler parsers detect the ownership tag within the first 500 bytes of the HTML payload without being delayed or skipped by inline script parsing.
+- **Crawler Whitelist**: Explicitly added `Pinterestbot` and `Pinterest` with `Allow: /` in `public/robots.txt` under social media scraping & link previews.
+- **Repository Hygiene**: Excluded `.cloud-attachments/` and `.tmpseo/` profiling caches in `.gitignore`.
+- **Activity Graph**: Refreshed `docs/reports/charts/development-activity.svg` and `.png` via `node scripts/make-activity-graph.mjs`.
+
