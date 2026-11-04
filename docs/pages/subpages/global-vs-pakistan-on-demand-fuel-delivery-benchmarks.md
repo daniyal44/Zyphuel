@@ -18,14 +18,14 @@
 
 <!-- ZYPHUEL_FUEL_UPDATE_START -->
 > [!NOTE]
-> **⚡ Live Daily Fuel Intelligence & Market Monitor (November 03, 2026)**
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (November 04, 2026)**
 > - **Operational SLA**: Within 45 Mins (single delivery window) across Lahore.
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Comparing global leaders (CAFU, Booster, FuelBuddy) with Zyphuel in Lahore. Calibrated 0.01L flow meters, 50m long-reach hoses, dual optical verification (QR + Code 128), and strictly 5L–15L order limits tailored for Pakistan.
 >
-- **Market Intelligence**: Govt slashes high-speed diesel price by Rs7.76 per litre, petrol by Rs3.40 - Dawn (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Petrol price cut by Rs3.40 per litre, diesel by Rs7.76 - The Nation (Pakistan ) (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Govt reduces diesel price by Rs7.76, petrol by Rs3.40 per litre - Business Recorder (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Petrol price slashed by Rs5.45, diesel rate reduced by Rs3.68 per litre - The News Pakistan (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt cuts petrol price by Rs5.45 per litre, high-speed diesel by Rs3.68 - Dawn (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Petrol price cut by Rs5.45, diesel rises Rs3.68 per litre - Investify (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
