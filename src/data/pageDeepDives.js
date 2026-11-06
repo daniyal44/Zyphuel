@@ -140,7 +140,7 @@ export const DOWNLOAD_DEEP_DIVE = {
       table: {
         head: ['Field', 'Value'],
         rows: [
-          ['Version name', '2.6.4.0.0.33'],
+          ['Version name', '2.6.4.0.0.34'],
           ['Version code', '61'],
           ['File size', '35.3 MB (35,321,064 bytes)'],
           ['Minimum Android', '7.0 Nougat (minSdk 24)'],

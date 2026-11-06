@@ -32,7 +32,7 @@
 | `/` | Home — hero, price calculator, sector grid, 18-question AEO hub | 2,692 | 119.3 kB |
 | `/services/` | Fuel catalogue, commercial B2B, safety specifications | 2,170 | 97.9 kB |
 | `/order/` | 5-step doorstep order flow, live pricing, invoice generation | 1,217 | 118.2 kB |
-| `/download/` | Android APK v2.6.4.0.0.33 showcase, version history, install guide | 3,491 | 95.1 kB |
+| `/download/` | Android APK v2.6.4.0.0.34 showcase, version history, install guide | 3,491 | 95.1 kB |
 | `/about/` | Mission, founder profile, operating standards | 1,288 | 66.3 kB |
 | `/contact/` | Enquiry form, helpline, coverage map | 652 | 48.5 kB |
 | `/blog/` | Article index — 7 guides | 663 | 48.0 kB |

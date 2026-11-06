@@ -39,7 +39,7 @@ The website was publishing **stale app data**. Values were read from inside the 
 
 | Field | Website showed | APK actually contained |
 | :--- | :--- | :--- |
-| versionName | 2.6.4.0.0.31 | **2.6.4.0.0.33** |
+| versionName | 2.6.4.0.0.31 | **2.6.4.0.0.34** |
 | Build | 59 | **61** |
 | Size | 31.7 MB | **35.3 MB** (35,321,064 bytes) |
 | SHA-256 | `e2ceae40…` | **`f8236bf0…`** |
@@ -234,7 +234,7 @@ total issues:  0
 
 | Commit | Summary | Files | +/− |
 | :--- | :--- | ---: | :--- |
-| `6dfe8ed` | APK v2.6.4.0.0.33 sync + 85 kB gzip cut | 39 | — |
+| `6dfe8ed` | APK v2.6.4.0.0.34 sync + 85 kB gzip cut | 39 | — |
 | `f5a2b05` | Download page doc correction | 1 | — |
 | `d0a3b16` | Truthful OG card, one business entity, GEO pricing fix | 27 | +432 / −152 |
 | `d8e1c03` | Price/number/app keywords, fake Baidu tag removed | 4 | +122 / −5 |

@@ -30,7 +30,7 @@
 ## Pillar Guide Architecture & Content Structure
 
 ### 1. Key Takeaways (AEO & GEO Optimization)
-- Official Android APK v2.6.4.0.0.33 (Build 61) available via direct cryptographic download (`35.3 MB`).
+- Official Android APK v2.6.4.0.0.34 (Build 61) available via direct cryptographic download (`35.3 MB`).
 - Built with Jetpack Compose, Material 3, and Kotlin Coroutines for zero battery drain.
 - Hardware-backed biometric authentication (Class 3 Strong BiometricPrompt) replaces passwords.
 - Real-time GPS auto-pinning accurate within <3 meters across Lahore sectors (DHA, Gulberg, Johar Town, Bahria Town).
@@ -78,7 +78,7 @@
 ## Changelog
 | Date | Changes Made | Rationale / User Request |
 | :--- | :--- | :--- |
-| **2026-10-24** | Synchronized APK guide version references to `v2.6.4.0.0.33` (Build 61, `35.3 MB`, `35,321,064 bytes`) and extended the compatibility matrix down to Android 7.0 Nougat (API 24) and up to Android 16 (API 36). | Match latest production APK release `v2.6.4.0.0.33`, verified by parsing the shipped binary's `AndroidManifest.xml`. |
+| **2026-10-24** | Synchronized APK guide version references to `v2.6.4.0.0.34` (Build 61, `35.3 MB`, `35,321,064 bytes`) and extended the compatibility matrix down to Android 7.0 Nougat (API 24) and up to Android 16 (API 36). | Match latest production APK release `v2.6.4.0.0.34`, verified by parsing the shipped binary's `AndroidManifest.xml`. |
 | **2026-10-15** | Ensured all in-guide references to the Download portal enforce canonical trailing slash (`https://zyphuel.netlify.app/download/`) to eliminate 301 crawler redirect delays. | Standardize canonical linking and prevent GSC redirect indexing flags. |
 | **2026-10-13** | Synchronized APK guide version references to `v2.6.4.0.0.31` (Build 59, Target SDK 36, Android 15/16 Ready, `31.7 MB`). | Match latest production APK release `v2.6.4.0.0.31`. |
 | **2026-10-04** | Synchronized APK guide version references to `v2.6.4.0.0.22` (Build 50, Target SDK 36, Android 15/16 Ready). | Match latest production APK release `v2.6.4.0.0.22`. |

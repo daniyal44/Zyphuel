@@ -382,7 +382,7 @@ const clock = (min) => {
   return `${String(Math.floor(total / 60)).padStart(2, '0')}:${String(total % 60).padStart(2, '0')}`;
 };
 const commits = [
-  { min: 14, label: '6dfe8ed  Android v2.6.4.0.0.33 sync + 85 kB gzip cut', color: C.blue },
+  { min: 14, label: '6dfe8ed  Android v2.6.4.0.0.34 sync + 85 kB gzip cut', color: C.blue },
   { min: 19, label: 'f5a2b05  Download page doc correction', color: C.blue },
   { min: 94, label: 'd0a3b16  Truthful OG card + one business entity', color: C.sky },
   { min: 101, label: 'd8e1c03  Price / app keyword clusters', color: C.sky },

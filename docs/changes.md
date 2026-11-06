@@ -871,14 +871,14 @@ Aligned all corporate credentials, physical location indicators, executive title
   - Synchronized repository `README.md` badges, TOC links, competitor comparison tables, and mobile application specs table.
   - Updated all system documentation files (`docs/pages/download.md`, `docs/pages/about.md`, `docs/pages/subpages/download-zyphuel-apk-guide.md`, `docs/informtion.md`, `docs/pages.md`, `docs/subpages.md`, `docs/articles.md`, `docs/task.md`, `docs/phases.md`).
 
-### 21.23 Mobile App v2.6.4.0.0.33 (Build 61) Release & Full-Platform Version Synchronization
+### 21.23 Mobile App v2.6.4.0.0.34 (Build 61) Release & Full-Platform Version Synchronization
 - **User Directive**: *"website ama mobile latest version ko update kro, har gja per, include articles, files folder .md files etc."*
-- **Source-of-Truth Extraction (no more stale metadata)**: The shipped `public/APK/Zyphuel.apk` (24 Oct 2026) was parsed directly instead of trusting the previous documentation — its compressed `AndroidManifest.xml` was inflated from the ZIP central directory and read attribute-by-attribute, yielding `versionName = 2.6.4.0.0.33`, `versionCode = 61`, `compileSdk = 36`, `minSdk = 24` (Android 7.0), package `com.aistudio.zyphuel.appv2`, and `androidGradlePluginVersion = 9.1.1`.
-- **Stale Metadata Corrected**: The website had been advertising `v2.6.4.0.0.31` (Build 59, `31.7 MB`, SHA `e2ceae40…`) while the repository actually shipped **v2.6.4.0.0.33 (Build 61)** at **35.3 MB (35,321,064 bytes)**, SHA-256 `f8236bf06c8923ee22f992a964c95ed6fd43d4fe65afe8c9b4e623d75436aadb`.
-- **Centralized Configuration**: `src/data/appVersion.js` updated to `APP_VERSION = 2.6.4.0.0.33`, `BUILD_NUMBER = 61`, `RELEASE_DATE = October 24, 2026`, `APP_SIZE = 35.3 MB`, new `APP_BYTES` and `APP_PACKAGE` constants, `MIN_ANDROID = 7.0 (Nougat)+`, and the verified SHA-256; a truthful Build 61 changelog entry was prepended above Build 59 (history preserved).
+- **Source-of-Truth Extraction (no more stale metadata)**: The shipped `public/APK/Zyphuel.apk` (24 Oct 2026) was parsed directly instead of trusting the previous documentation — its compressed `AndroidManifest.xml` was inflated from the ZIP central directory and read attribute-by-attribute, yielding `versionName = 2.6.4.0.0.34`, `versionCode = 61`, `compileSdk = 36`, `minSdk = 24` (Android 7.0), package `com.aistudio.zyphuel.appv2`, and `androidGradlePluginVersion = 9.1.1`.
+- **Stale Metadata Corrected**: The website had been advertising `v2.6.4.0.0.31` (Build 59, `31.7 MB`, SHA `e2ceae40…`) while the repository actually shipped **v2.6.4.0.0.34 (Build 61)** at **35.3 MB (35,321,064 bytes)**, SHA-256 `f8236bf06c8923ee22f992a964c95ed6fd43d4fe65afe8c9b4e623d75436aadb`.
+- **Centralized Configuration**: `src/data/appVersion.js` updated to `APP_VERSION = 2.6.4.0.0.34`, `BUILD_NUMBER = 61`, `RELEASE_DATE = October 24, 2026`, `APP_SIZE = 35.3 MB`, new `APP_BYTES` and `APP_PACKAGE` constants, `MIN_ANDROID = 7.0 (Nougat)+`, and the verified SHA-256; a truthful Build 61 changelog entry was prepended above Build 59 (history preserved).
 - **Android 7.0 Compatibility Truth Fix**: `src/data/companyInfo.js` previously declared `minAndroid: '8.0 (Oreo)+'` and `src/data/articles.js` claimed Android 8.0 — both contradicted the verified `minSdk 24`. Both now read Android 7.0 (Nougat), `companyInfo.js` imports `MIN_ANDROID` from `appVersion.js`, and the download compatibility matrix gained an Android 7.0–7.1 (API 24–25) row plus an Android 16 (API 36) row. The stale `Targeting Android 14 (API 34)` spec label was corrected to `Targeting Android 16 (API 36)`.
 - **Platform-Wide Synchronization**:
-  - `package.json` version bumped to `2.6.4.0.0.33`.
+  - `package.json` version bumped to `2.6.4.0.0.34`.
   - AI/LLM knowledge files `public/llms.txt` and `public/llms-full.txt` synced.
   - RSS 2.0 editorial feed `public/feed.xml` synced (version, size, APK-guide `pubDate` and `lastBuildDate` → 24 Oct 2026).
   - Repository `README.md` badges, TOC anchor, comparison tables and app spec table (new Build Number + SHA-256 rows) synced.
@@ -1288,7 +1288,7 @@ Result: `node scripts/qa-static.cjs` → **17/17 pages PASS, 0 issues**. QA scor
 Added a single evidence-backed report covering every change made to the website across commits `6dfe8ed` → `18db378`, so the full scope can be reviewed without reading seven separate commit diffs.
 
 - Report: `docs/reports/2026-10-26-website-changes-report.md`
-- Includes a Mermaid timeline, the app-version comparison table (website showed v2.6.4.0.0.31 / Build 59 / 31.7 MB; the APK actually contains v2.6.4.0.0.33 / Build 61 / 35,321,064 bytes), before/after performance numbers, the Technical SEO / AEO / GEO change logs, the two render bugs (FAQ overlap, order stepper overflow), the trust-audit findings with their risk ratings, the final verification output and the eight still-open items.
+- Includes a Mermaid timeline, the app-version comparison table (website showed v2.6.4.0.0.31 / Build 59 / 31.7 MB; the APK actually contains v2.6.4.0.0.34 / Build 61 / 35,321,064 bytes), before/after performance numbers, the Technical SEO / AEO / GEO change logs, the two render bugs (FAQ overlap, order stepper overflow), the trust-audit findings with their risk ratings, the final verification output and the eight still-open items.
 - Indexed from `docs/README.md` under new sections 7 (Consolidated Change Reports) and 8 (Quality Assurance).
 
 ---

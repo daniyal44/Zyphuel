@@ -38,7 +38,7 @@ The chart above is the honest result of measuring the prerendered HTML of all ni
 | Page | New `<title>` | New description |
 | :--- | :--- | :--- |
 | `/services/` | Doorstep Petrol & Diesel Delivery in Lahore \| Zyphuel | Euro-V petrol, High-Octane 97 and diesel delivered to your car, bike or generator in Lahore: 5–15 L, Rs. 300–400 fee, 45 minutes, metered invoice. |
-| `/download/` | Download Zyphuel APK \| Doorstep Fuel App for Android | Official Zyphuel Android APK v2.6.4.0.0.33 (35.3 MB, Android 7.0 (Nougat)+): live tracking, 45-minute dispatch and fuel price alerts. |
+| `/download/` | Download Zyphuel APK \| Doorstep Fuel App for Android | Official Zyphuel Android APK v2.6.4.0.0.34 (35.3 MB, Android 7.0 (Nougat)+): live tracking, 45-minute dispatch and fuel price alerts. |
 | `/order/` | Order Petrol or Diesel Online in Lahore \| 45-Min Delivery | Order 5–15 L of Euro-V petrol, High-Octane 97 or diesel to your door in Lahore. Rs. 300–400 fee, 45-minute dispatch, COD or online, metered invoice. |
 
 The client-side `useSEO` titles were updated to the same strings, so the title does not change after hydration.
