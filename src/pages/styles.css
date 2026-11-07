@@ -760,7 +760,7 @@
 }
 
 .store-badge.disabled {
-  opacity: 0.55;
+  opacity: 0.75;
   cursor: not-allowed;
   background-color: #f1f5f9;
   color: #64748b;
@@ -772,6 +772,73 @@
   background-color: #f1f5f9;
   transform: none;
   color: #64748b;
+}
+
+/* iOS availability card (no iOS build published yet — honest "Coming Soon") */
+.ios-download-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 560px;
+  background-color: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid #0f172a;
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+
+.ios-download-card-icon {
+  font-size: 1.7rem;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.ios-download-card-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.ios-download-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ios-download-card-sub {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.ios-download-card-chip {
+  background-color: #fef3c7;
+  color: #92400e;
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.ios-download-card-link {
+  margin-left: auto;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #0369a1;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.ios-download-card-link:hover {
+  color: #075985;
+  text-decoration: underline;
 }
 
 /* QR Scanner Box */
@@ -1411,6 +1478,17 @@
     width: 100%;
     justify-content: center;
     box-sizing: border-box;
+  }
+
+  .ios-download-card {
+    max-width: 100%;
+    gap: 10px;
+  }
+
+  .ios-download-card-link {
+    margin-left: 0;
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .btn-download-main {

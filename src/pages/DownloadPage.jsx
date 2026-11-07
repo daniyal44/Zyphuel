@@ -333,14 +333,35 @@ export default function DownloadPage() {
                         <span className="large-label">Google Play</span>
                       </div>
                     </span>
-                    <span className="store-badge app-store disabled" title="Apple App Store - Coming Soon">
+                    <span
+                      className="store-badge app-store disabled"
+                      id="ios-coming-soon-badge"
+                      data-testid="ios-coming-soon-badge"
+                      title="Zyphuel iOS App - Coming Soon"
+                      aria-label="Zyphuel iOS app for iPhone - coming soon"
+                    >
                       <i className="fa-brands fa-apple"></i>
                       <div className="store-badge-text">
                         <span className="small-label">Coming Soon</span>
-                        <span className="large-label">App Store</span>
+                        <span className="large-label">iOS App</span>
                       </div>
                     </span>
                   </div>
+                </div>
+
+                {/* iOS Availability Card — no iOS build is published yet, so this is
+                    labeled honestly as Coming Soon (never a fake App Store link).
+                    iPhone users get the working web-order path instead. */}
+                <div className="ios-download-card" id="ios-download-card" data-testid="ios-download-card">
+                  <i className="fa-brands fa-apple ios-download-card-icon" aria-hidden="true"></i>
+                  <div className="ios-download-card-text">
+                    <span className="ios-download-card-title">iOS App for iPhone</span>
+                    <span className="ios-download-card-sub">In development &middot; App Store launch coming soon</span>
+                  </div>
+                  <span className="ios-download-card-chip">Coming Soon</span>
+                  <Link to="/order/" className="ios-download-card-link">
+                    Order on Web <i className="fa-solid fa-arrow-right"></i>
+                  </Link>
                 </div>
 
                 {/* Trust Badges */}
