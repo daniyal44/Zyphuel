@@ -813,32 +813,33 @@
   color: #64748b;
 }
 
-.ios-download-card-chip {
-  background-color: #fef3c7;
-  color: #92400e;
-  font-size: 0.66rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
-  padding: 3px 9px;
-  border-radius: 999px;
-}
-
-.ios-download-card-link {
+.ios-download-btn {
   margin-left: auto;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #0369a1;
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  background-color: #0f172a;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
   white-space: nowrap;
+  transition: background-color 0.25s ease;
 }
 
-.ios-download-card-link:hover {
-  color: #075985;
-  text-decoration: underline;
+.ios-download-btn:hover {
+  background-color: #1e293b;
+  color: #ffffff;
+}
+
+.ios-download-note {
+  max-width: 560px;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: #64748b;
+  margin: -8px 0 20px 0;
 }
 
 /* QR Scanner Box */
@@ -1485,10 +1486,14 @@
     gap: 10px;
   }
 
-  .ios-download-card-link {
+  .ios-download-btn {
     margin-left: 0;
     width: 100%;
-    justify-content: flex-start;
+    justify-content: center;
+  }
+
+  .ios-download-note {
+    max-width: 100%;
   }
 
   .btn-download-main {

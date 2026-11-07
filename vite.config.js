@@ -3,12 +3,12 @@ import react from '@vitejs/plugin-react'
 import fs from 'node:fs'
 import path from 'node:path'
 
-function apkServerPlugin() {
-  const serveApk = (apkPath, req, res, next) => {
-    if (fs.existsSync(apkPath)) {
-      const stat = fs.statSync(apkPath)
-      res.setHeader('Content-Type', 'application/vnd.android.package-archive')
-      res.setHeader('Content-Disposition', 'attachment; filename="Zyphuel.apk"')
+function appBinaryServerPlugin() {
+  const serveBinary = (filePath, fileName, contentType, req, res, next) => {
+    if (fs.existsSync(filePath)) {
+      const stat = fs.statSync(filePath)
+      res.setHeader('Content-Type', contentType)
+      res.setHeader('Content-Disposition', `attachment; filename="${fileName}"`)
       res.setHeader('Content-Length', stat.size)
       res.setHeader('Access-Control-Allow-Origin', '*')
       res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS')
@@ -29,7 +29,7 @@ function apkServerPlugin() {
 
       if (req.method === 'GET') {
         res.statusCode = 200
-        const stream = fs.createReadStream(apkPath)
+        const stream = fs.createReadStream(filePath)
         stream.pipe(res)
         return
       }
@@ -37,29 +37,40 @@ function apkServerPlugin() {
     next()
   }
 
+  // Serves /APK/Zyphuel.apk and /IOS/Zyphuel.ipa with the right MIME type and an
+  // attachment filename from the dev server and `vite preview` alike.
+  const handleBinaryRequests = (buildDir) => (req, res, next) => {
+    const url = req.url ? req.url.split('?')[0] : ''
+    const lower = url.toLowerCase()
+
+    if (lower.endsWith('.apk') || lower.startsWith('/apk/')) {
+      return serveBinary(
+        path.resolve(__dirname, buildDir, 'APK/Zyphuel.apk'),
+        'Zyphuel.apk',
+        'application/vnd.android.package-archive',
+        req, res, next
+      )
+    }
+
+    if (lower.endsWith('.ipa') || lower.startsWith('/ios/')) {
+      return serveBinary(
+        path.resolve(__dirname, buildDir, 'IOS/Zyphuel.ipa'),
+        'Zyphuel.ipa',
+        'application/octet-stream',
+        req, res, next
+      )
+    }
+
+    next()
+  }
+
   return {
-    name: 'vite-plugin-apk-serve',
+    name: 'vite-plugin-app-binary-serve',
     configureServer(server) {
-      server.middlewares.use((req, res, next) => {
-        const url = req.url ? req.url.split('?')[0] : ''
-        const isApkRequest = url.toLowerCase().endsWith('.apk') || url.startsWith('/APK/') || url.startsWith('/apk/')
-        if (isApkRequest) {
-          const apkPath = path.resolve(__dirname, 'public/APK/Zyphuel.apk')
-          return serveApk(apkPath, req, res, next)
-        }
-        next()
-      })
+      server.middlewares.use(handleBinaryRequests('public'))
     },
     configurePreviewServer(server) {
-      server.middlewares.use((req, res, next) => {
-        const url = req.url ? req.url.split('?')[0] : ''
-        const isApkRequest = url.toLowerCase().endsWith('.apk') || url.startsWith('/APK/') || url.startsWith('/apk/')
-        if (isApkRequest) {
-          const apkPath = path.resolve(__dirname, 'dist/APK/Zyphuel.apk')
-          return serveApk(apkPath, req, res, next)
-        }
-        next()
-      })
+      server.middlewares.use(handleBinaryRequests('dist'))
     }
   }
 }
@@ -182,7 +193,7 @@ function zyphuelOrderGuardPlugin() {
 }
 
 export default defineConfig(({ isSsrBuild }) => ({
-  plugins: [react(), apkServerPlugin(), ezgifServerPlugin(), zyphuelOrderGuardPlugin()],
+  plugins: [react(), appBinaryServerPlugin(), ezgifServerPlugin(), zyphuelOrderGuardPlugin()],
   server: {
     watch: {
       ignored: [
@@ -194,6 +205,8 @@ export default defineConfig(({ isSsrBuild }) => ({
         '**/dist-ssr/**',
         '**/APK/**',
         '**/*.apk',
+        '**/IOS/**',
+        '**/*.ipa',
         '**/plugins/**',
         '**/public/video/**',
         '**/*.mp4',

@@ -280,6 +280,52 @@
   to = "/APK/Zyphuel.apk"
   status = 200
 
+# Direct iOS IPA delivery routes (aliases, lowercase paths & root links served with 200)
+[[redirects]]
+  from = "/ios/Zyphuel.ipa"
+  to = "/IOS/Zyphuel.ipa"
+  status = 200
+
+[[redirects]]
+  from = "/ios/zyphuel.ipa"
+  to = "/IOS/Zyphuel.ipa"
+  status = 200
+
+[[redirects]]
+  from = "/IOS/zyphuel.ipa"
+  to = "/IOS/Zyphuel.ipa"
+  status = 200
+
+[[redirects]]
+  from = "/ipa/Zyphuel.ipa"
+  to = "/IOS/Zyphuel.ipa"
+  status = 200
+
+[[redirects]]
+  from = "/ipa/zyphuel.ipa"
+  to = "/IOS/Zyphuel.ipa"
+  status = 200
+
+[[redirects]]
+  from = "/Zyphuel.ipa"
+  to = "/IOS/Zyphuel.ipa"
+  status = 200
+
+[[redirects]]
+  from = "/zyphuel.ipa"
+  to = "/IOS/Zyphuel.ipa"
+  status = 200
+
+[[redirects]]
+  from = "/download/Zyphuel.ipa"
+  to = "/IOS/Zyphuel.ipa"
+  status = 200
+
+[[redirects]]
+  from = "/download/zyphuel.ipa"
+  to = "/IOS/Zyphuel.ipa"
+  status = 200
+
 # Genuine 404 status for missing paths (prevents Google Soft 404 penalty)
 [[redirects]]
   from = "/*"

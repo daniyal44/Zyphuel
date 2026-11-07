@@ -19,6 +19,18 @@ export const TARGET_SDK = '36 (Android 15/16 Ready)';
 export const APP_SHA256 = 'f8236bf06c8923ee22f992a964c95ed6fd43d4fe65afe8c9b4e623d75436aadb';
 export const APP_PACKAGE = 'com.aistudio.zyphuel.appv2';
 
+// iOS distribution — the .ipa ships directly from this website (no App Store listing yet).
+// Verified from public/IOS/Zyphuel.ipa: MARKETING_VERSION 2.6.4.0.0.38, CURRENT_PROJECT_VERSION 66,
+// IPHONEOS_DEPLOYMENT_TARGET 17.0, 84,236 bytes, SHA-256 ad923dc7…b21f.
+export const IOS_VERSION = '2.6.4.0.0.38';
+export const IOS_BUILD_NUMBER = '66';
+export const IOS_MIN_OS = 'iOS 17.0+';
+export const IOS_SIZE = '82.3 KB';
+export const IOS_BYTES = '84,236';
+export const IOS_SHA256 = 'ad923dc7bc08577f0ca656d1004e1e40fb75d7a8e077f19f765c49db5876b21f';
+export const IOS_FILENAME = 'Zyphuel.ipa';
+export const IOS_DOWNLOAD_URL = '/IOS/Zyphuel.ipa';
+
 export const CHANGELOG = [
   {
     version: '2.6.4.0.0.38',

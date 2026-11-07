@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useSEO } from '../hooks/useSEO'
 import { useScrollReveal } from '../hooks/useScrollReveal'
-import { APP_VERSION, BUILD_NUMBER, TARGET_SDK, RELEASE_DATE, APP_SIZE, MIN_ANDROID, CHANGELOG } from '../data/appVersion'
+import { APP_VERSION, BUILD_NUMBER, TARGET_SDK, RELEASE_DATE, APP_SIZE, MIN_ANDROID, CHANGELOG, IOS_VERSION, IOS_MIN_OS, IOS_SIZE, IOS_DOWNLOAD_URL, IOS_FILENAME } from '../data/appVersion'
 import AppHeroScrollAnimation from '../components/AppHeroScrollAnimation'
 import AppSection3ScrollAnimation from '../components/AppSection3ScrollAnimation'
 import PageDeepDive from '../components/PageDeepDive'
@@ -349,20 +349,32 @@ export default function DownloadPage() {
                   </div>
                 </div>
 
-                {/* iOS Availability Card — no iOS build is published yet, so this is
-                    labeled honestly as Coming Soon (never a fake App Store link).
-                    iPhone users get the working web-order path instead. */}
+                {/* iOS Availability Card — the iOS build ships as a direct .ipa from
+                    this site. There is no App Store listing yet, so the Apple store
+                    badge above stays a genuine non-clickable "Coming Soon" badge. */}
                 <div className="ios-download-card" id="ios-download-card" data-testid="ios-download-card">
                   <i className="fa-brands fa-apple ios-download-card-icon" aria-hidden="true"></i>
                   <div className="ios-download-card-text">
-                    <span className="ios-download-card-title">iOS App for iPhone</span>
-                    <span className="ios-download-card-sub">In development &middot; App Store launch coming soon</span>
+                    <span className="ios-download-card-title">{`Zyphuel for iPhone & iPad \u2022 v${IOS_VERSION}`}</span>
+                    <span className="ios-download-card-sub">{`Direct iOS build (${IOS_SIZE}) \u2022 ${IOS_MIN_OS} \u2022 App Store listing pending`}</span>
                   </div>
-                  <span className="ios-download-card-chip">Coming Soon</span>
-                  <Link to="/order/" className="ios-download-card-link">
-                    Order on Web <i className="fa-solid fa-arrow-right"></i>
-                  </Link>
+                  <a
+                    href={IOS_DOWNLOAD_URL}
+                    download={IOS_FILENAME}
+                    type="application/octet-stream"
+                    id="direct-ipa-download-btn"
+                    data-testid="direct-ipa-download-btn"
+                    className="ios-download-btn"
+                    title="Download the Zyphuel iOS .ipa build directly"
+                  >
+                    <i className="fa-brands fa-apple"></i>
+                    <span>Download iOS</span>
+                  </a>
                 </div>
+                <p className="ios-download-note">
+                  Apple does not install .ipa files straight from a browser — open the downloaded build in Xcode,
+                  AltStore or Sideloadly on a Mac/PC. App Store release is coming soon.
+                </p>
 
                 {/* Trust Badges */}
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '14px', alignItems: 'center', marginTop: '4px', marginBottom: '22px', fontSize: '0.82rem', color: '#475569' }}>
