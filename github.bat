@@ -8,8 +8,10 @@ echo ==============================================================
 echo.
 
 :: 1. Non-interactive Git environment (Never hang waiting for vim/editor)
-set "GIT_EDITOR=true"
+:: Disable auto-editor to prevent hanging
+set "GIT_EDITOR="
 set "GIT_MERGE_AUTOEDIT=no"
+set "GIT_SEQUENCE_EDITOR="
 
 :: 2. Verify Git availability
 where git >nul 2>nul
@@ -30,31 +32,34 @@ if !ERRORLEVEL! neq 0 (
 )
 
 :: 4. Remove stale lock files if any exist
-if exist ".git\index.lock" del /f /q ".git\index.lock" >nul 2>nul
-if exist ".git\HEAD.lock" del /f /q ".git\HEAD.lock" >nul 2>nul
-if exist ".git\refs\heads\main.lock" del /f /q ".git\refs\heads\main.lock" >nul 2>nul
-if exist ".git\refs\remotes\origin\main.lock" del /f /q ".git\refs\remotes\origin\main.lock" >nul 2>nul
-if exist ".git\config.lock" del /f /q ".git\config.lock" >nul 2>nul
+:: Use cd to ensure proper path handling for lock file deletion
+if exist "%CD%\.git\index.lock" del /f /q "%CD%\.git\index.lock" >nul 2>nul
+if exist "%CD%\.git\HEAD.lock" del /f /q "%CD%\.git\HEAD.lock" >nul 2>nul
+if exist "%CD%\.git\refs\heads\main.lock" del /f /q "%CD%\.git\refs\heads\main.lock" >nul 2>nul
+if exist "%CD%\.git\refs\remotes\origin\main.lock" del /f /q "%CD%\.git\refs\remotes\origin\main.lock" >nul 2>nul
+if exist "%CD%\.git\config.lock" del /f /q "%CD%\.git\config.lock" >nul 2>nul
 
 :: 5. Auto-recover from any stuck rebase or merge from earlier interruptions
-if exist ".git\rebase-merge" (
+:: Handle incomplete rebase
+if exist "%CD%\.git\rebase-merge" (
     echo [!] Incomplete rebase detected from previous session. Attempting recovery...
-    git rebase --continue >nul 2>&1
-    if exist ".git\rebase-merge" git rebase --abort >nul 2>&1
+    git rebase --continue 2>nul || git rebase --abort 2>nul
 )
-if exist ".git\rebase-apply" (
+:: Handle incomplete rebase-apply
+if exist "%CD%\.git\rebase-apply" (
     echo [!] Incomplete rebase-apply detected from previous session. Attempting recovery...
-    git rebase --continue >nul 2>&1
-    if exist ".git\rebase-apply" git rebase --abort >nul 2>&1
+    git rebase --continue 2>nul || git rebase --abort 2>nul
 )
-if exist ".git\MERGE_HEAD" (
+:: Handle incomplete merge
+if exist "%CD%\.git\MERGE_HEAD" (
     echo [!] Incomplete merge detected from previous session. Aborting safely...
-    git merge --abort >nul 2>&1
+    git merge --abort 2>nul
 )
 
 :: 6. Detect current active branch
 set "CURRENT_BRANCH="
 for /f "delims=" %%i in ('git branch --show-current 2^>nul') do set "CURRENT_BRANCH=%%i"
+if errorlevel 1 set "CURRENT_BRANCH="
 if "%CURRENT_BRANCH%"=="" (
     for /f "delims=" %%i in ('git rev-parse --abbrev-ref HEAD 2^>nul') do set "CURRENT_BRANCH=%%i"
 )
@@ -63,7 +68,10 @@ if "%CURRENT_BRANCH%"=="" set "CURRENT_BRANCH=main"
 
 :: If detached HEAD, switch back to the target branch
 git rev-parse --abbrev-ref HEAD 2>nul | findstr /i "^HEAD$" >nul
-if !ERRORLEVEL! equ 0 (
+if errorlevel 1 (
+    echo [i] HEAD was not detached. Switching to %CURRENT_BRANCH%...
+    git checkout %CURRENT_BRANCH% >nul 2>&1
+) else (
     echo [i] HEAD was detached. Switching back to %CURRENT_BRANCH%...
     git checkout %CURRENT_BRANCH% >nul 2>&1
 )
@@ -98,32 +106,38 @@ if !ERRORLEVEL! neq 0 (
 echo.
 
 :: 10. Push to GitHub
-echo [4/4] Pushing to GitHub (origin/%CURRENT_BRANCH%)...
-git push -u origin %CURRENT_BRANCH%
+echo [4/4] Pushing to GitHub (origin/%CURRENT_BRANCH%)..
+:: First push uses -u, subsequent pushes should not
+:: Check if branch is tracking remote
+set "HAS_TRACKING=0"
+git branch -vv 2>nul | findstr /i "%CURRENT_BRANCH%.*\[ahead" >nul
+if !ERRORLEVEL! equ 0 set "HAS_TRACKING=1"
+
+if %HAS_TRACKING% equ 0 (
+    echo [i] Setting upstream tracking for %CURRENT_BRANCH%...
+    git push -u origin %CURRENT_BRANCH% >nul 2>&1
+) else (
+    git push origin %CURRENT_BRANCH% >nul 2>&1
+)
 
 if !ERRORLEVEL! equ 0 goto :push_success
 
 echo.
 echo [!] Remote branch has newer commits (e.g. GitHub Actions bot).
 echo [!] Syncing safely with origin/%CURRENT_BRANCH%...
-git pull --rebase --autostash origin %CURRENT_BRANCH%
+:: Attempt rebase sync
+git pull --rebase --autostash origin %CURRENT_BRANCH% >nul 2>&1
 if !ERRORLEVEL! neq 0 (
-    echo [!] Rebase encountered an issue. Falling back to clean merge sync...
+    echo [!] Rebase encountered an issue. Falling back to clean merge...
     git rebase --abort >nul 2>&1
-    git pull --no-rebase --no-edit origin %CURRENT_BRANCH%
-    if !ERRORLEVEL! neq 0 (
-        echo.
-        echo ==============================================================
-        echo  [ERROR] Sync failed due to conflicting files.
-        echo  Please resolve conflicts manually or run 'git status'.
-        echo ==============================================================
-        goto :push_end
-    )
+    git pull --no-rebase --no-edit origin %CURRENT_BRANCH% >nul 2>&1
 )
-
-echo.
-echo [i] Retrying push to GitHub...
-git push -u origin %CURRENT_BRANCH%
+:: Retry push
+if %HAS_TRACKING% equ 0 (
+    git push -u origin %CURRENT_BRANCH% >nul 2>&1
+) else (
+    git push origin %CURRENT_BRANCH% >nul 2>&1
+)
 if !ERRORLEVEL! equ 0 goto :push_success_synced
 
 echo.
