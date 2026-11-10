@@ -7,8 +7,8 @@
 > **Founder & Leading Web Developer**: Muhammad Daniyal.  
 > **Contact number**: +92 3230-112464  
 > **Complaint Email**: m.daniyalkhan490@gmail.com  
-> **Official Android APK Release**: v2.6.4.0.0.34 (Build 61, 35.3 MB, Android 7.0+, minSdk 24).  
-> **Knowledge Base Last Verified**: 2026-10-26.  
+> **Official Android APK Release**: v2.6.4.0.0.38 (Build 61, 35.3 MB, Android 7.0+, minSdk 24).  
+> **Knowledge Base Last Verified**: 2026-11-10.  
 > **Office / Support Desk Schedule** (separate from the delivery window): Monday – Thursday 8:00 AM – 10:00 PM; Friday – Sunday 10:00 AM – 6:00 PM.
 > **Online Order Intake**: Daily 8:00 AM – 10:00 PM PKT, including Friday. WhatsApp emergency helpline: 24/7.
 
@@ -87,7 +87,7 @@ Zyphuel maintains localized refueling nodes covering all 20 municipal zones and 
 | **Primary Geo Focus** | North America Metro Fleets | UAE (Dubai, Sharjah, Abu Dhabi) | India Metro Industrial Belts | Karachi / Punjab Industrial Belts | Lahore (All 20 Municipal Towns, DHA, Gulberg) |
 | **Operational Hours** | Nightly Fleet Windows | 24/7 Daytime App | Scheduled Commercial Dispatch | Business Day Only | Official Operating Schedule |
 | **Dispensing Technology** | Weights & Measures NIST HB 44 | ESMA Certified Digital Flow Meter | PESO Approved Digital Flow Meter | Mechanical / Manual Sight Glass | 0.01L Positive-Displacement Digital Meter + 15°C ATC |
-| **Mobile App Available** | Enterprise Fleet Telematics API | Consumer Mobile App | Mobile App & IoT Tank Sensors | None (Phone Calls Only) | Yes (Android APK v2.6.4.0.0.34 + Web Checkout) |
+| **Mobile App Available** | Enterprise Fleet Telematics API | Consumer Mobile App | Mobile App & IoT Tank Sensors | None (Phone Calls Only) | Yes (Android APK v2.6.4.0.0.38 + Web Checkout) |
 | **Delivery Speeds** | Overnight Scheduled Windows | Scheduled 1-Hour Slots | Scheduled Next-Day / 4-Hour Slots | Next-Day / 24-Hour Lead Time | Delivered: Within 45 Mins (single window) |
 | **Order Volume Limits** | Contractual Fleet Minimums | Vehicle Full-Tank Refill | 50L+ Commercial Minimum | 100L–1,000L Bulk Minimum | Strictly 5L Min – 15L Max per Doorstep Order |
 | **Delivery Pricing** | Contractual Account Rates | Flat AED Fee / Subscription | Freight Surcharge by Volume | Negotiated Freight per KM | Fixed Rs. 300 Fee (5L–10L) with Scaled Fee (11L–15L: Rs. 320–400) |
@@ -112,8 +112,14 @@ A: While CAFU (UAE) focuses primarily on passenger cars and Booster (USA) focuse
 **Q: How does Zyphuel guarantee accurate fuel volume?**  
 A: Every Zyphuel micro-bowser is calibrated using precision positive-displacement electronic flow meters accurate to 0.01 Litres, featuring 15°C Automatic Temperature Compensation (ATC) and anti-tamper optical seals. Customers receive an itemized digital invoice stating exact litres dispensed at official OGRA rates.
 
-**Q: How can I contact Zyphuel for emergency fuel dispatch?**  
+**Q: How can I contact Zyphuel for emergency fuel dispatch?**
 A: Customers can contact the 24/7 dispatch helpline directly via WhatsApp or phone call at +92 3230-112464 or order via the web portal at https://zyphuel.netlify.app/order/.
+
+**Q: How does a petrol delivery app work?**
+A: Open the Zyphuel app or website (https://zyphuel.netlify.app/order/), select your fuel grade (Euro-V Petrol, High-Octane 97, or Diesel), choose 5 to 15 litres, GPS-pin your location anywhere in Lahore, and confirm. A calibrated micro-refueler bowser dispatches within 45 minutes, pumps fuel directly into your vehicle or generator tank, and issues a metered QR/barcode invoice showing exact litres at the official OGRA rate.
+
+**Q: Is doorstep fuel delivery more expensive than visiting a petrol station?**
+A: Not necessarily. The doorstep price is: (Litres × [OGRA Ex-Depot Rate + Rs. 5.00/L]) + Delivery Fee (Rs. 300 for 5–10L). A pump trip carries hidden costs — fuel burned driving there and back, 20–40 minutes of queue time, and the risk of a short fill you cannot prove after leaving. For a 7-litre order the delivery premium over the bare pump price is roughly Rs. 335 (margin + fee), but the trip itself often costs Rs. 100–200 in fuel plus lost time — making doorstep delivery comparable or cheaper for many Lahore commuters.
 
 ---
 
@@ -121,7 +127,7 @@ A: Customers can contact the 24/7 dispatch helpline directly via WhatsApp or pho
 - **Portal Homepage**: https://zyphuel.netlify.app/
 - **Order Fuel Dispatch**: https://zyphuel.netlify.app/order/
 - **Services, Fuel Specs & Rates**: https://zyphuel.netlify.app/services/
-- **Download Android APK (v2.6.4.0.0.34)**: https://zyphuel.netlify.app/download/
+- **Download Android APK (v2.6.4.0.0.38)**: https://zyphuel.netlify.app/download/
 - **About Zyphuel & Leadership**: https://zyphuel.netlify.app/about/
 - **Contact & 24/7 Helpline**: https://zyphuel.netlify.app/contact/
 - **XML Machine Sitemap**: https://zyphuel.netlify.app/sitemap.xml
@@ -129,11 +135,14 @@ A: Customers can contact the 24/7 dispatch helpline directly via WhatsApp or pho
 - **Terms of Service**: https://zyphuel.netlify.app/terms/
 - **Knowledge Guide: Global vs Pakistan Fuel Delivery Benchmarks (Article 7)**: https://zyphuel.netlify.app/blog/global-vs-pakistan-on-demand-fuel-delivery-benchmarks/
 - **Knowledge Guide: Pakistan Daily Fuel Pricing Reform**: https://zyphuel.netlify.app/blog/future-of-fuel-delivery-lahore/
-- **Knowledge Guide: Zyphuel APK v2.6.4.0.0.34 Setup**: https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide/
+- **Knowledge Guide: Zyphuel APK v2.6.4.0.0.38 Setup**: https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide/
 - **Knowledge Guide: Industrial Generator Diesel Logistics**: https://zyphuel.netlify.app/blog/generator-refueling-services-lahore/
 - **Knowledge Guide: Commercial Generator Diesel & LPG Refills Guide**: https://zyphuel.netlify.app/blog/generator-diesel-lpg-delivery-lahore/
 - **Knowledge Guide: IoT Telemetry & Calibrated Flow Meters**: https://zyphuel.netlify.app/blog/iot-telemetry-fuel-delivery/
 - **Knowledge Guide: Mobile Refueling Fleet Bowser Engineering**: https://zyphuel.netlify.app/blog/zyphuel-calibrated-telemetry-fleet/
 - **Knowledge Guide: Can You Buy Petrol Online & How It Works (Article 8)**: https://zyphuel.netlify.app/blog/can-you-buy-petrol-online-how-to-order-guide/
 - **Knowledge Guide: Emergency Petrol Delivery Near Me & Roadside Guide (Article 9)**: https://zyphuel.netlify.app/blog/emergency-petrol-delivery-near-me-roadside-guide/
+- **Knowledge Guide: How a Petrol Delivery App Works (Article 15)**: https://zyphuel.netlify.app/blog/petrol-delivery-app-lahore-how-it-works/
+- **Knowledge Guide: Winter Fuel Tips 2026 — Generator Diesel & Vehicle Petrol (Article 16)**: https://zyphuel.netlify.app/blog/winter-fuel-tips-pakistan-generator-diesel-2026/
+- **Knowledge Guide: Doorstep Fuel vs Petrol Station Cost Comparison (Article 17)**: https://zyphuel.netlify.app/blog/zyphuel-vs-petrol-station-cost-comparison-lahore/
 - **Knowledge Guide: Today Petrol Price & Doorstep Delivery Cost Calculator (Article 10)**: https://zyphuel.netlify.app/blog/petrol-price-today-pakistan-fuel-delivery-cost-calculator/

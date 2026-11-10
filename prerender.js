@@ -10,7 +10,7 @@ import { SERVICES_DEEP_DIVE, DOWNLOAD_DEEP_DIVE, ORDER_DEEP_DIVE } from './src/d
 // Shared helper: a WebPage node that dates each page honestly. Google uses
 // dateModified as a freshness signal, so it is set to the day the page copy
 // actually changed rather than rebuilt on every deploy.
-const DEEP_DIVE_REVIEWED = '2026-10-31T00:00:00+05:00'
+const DEEP_DIVE_REVIEWED = '2026-11-10T00:00:00+05:00'
 const deepDiveWebPage = (path, name, description) => ({
   "@type": "WebPage",
   "@id": `${DOMAIN}${path}#webpage`,
@@ -92,8 +92,7 @@ const ORGANIZATION_SCHEMA = {
     "https://www.linkedin.com/in/muhammad-daniyal490",
     "https://share.google/Nb4XGKYq5aU0nzLr3",
     "https://github.com/daniyal44",
-    "https://www.facebook.com/muhammad.daniyal.522942/",
-    "https://en.wikipedia.org/wiki/Lahore"
+    "https://www.facebook.com/muhammad.daniyal.522942/"
   ],
   "address": {
     "@type": "PostalAddress",
@@ -285,11 +284,6 @@ const WEBSITE_SCHEMA = {
   "description": "Zyphuel delivers on-demand petrol and diesel to homes, businesses, and fleets across Lahore, Pakistan, with calibrated digital flow meters.",
   "publisher": {
     "@id": `${DOMAIN}/#organization`
-  },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": `${DOMAIN}/services/?q={search_term_string}`,
-    "query-input": "required name=search_term_string"
   }
 }
 
@@ -921,7 +915,7 @@ const ROUTES = [
           "description": `Explore how the official Zyphuel Android APK (v${APP_VERSION}, ${APP_SIZE}) transforms urban energy delivery in Lahore with instant GPS auto-detection and zero-latency cloud telemetry.`,
           "image": `${DOMAIN}/images/1.jpeg`,
           "datePublished": "2026-09-02T00:00:00+05:00",
-          "dateModified": "2026-09-02T00:00:00+05:00",
+          "dateModified": "2026-11-10T00:00:00+05:00",
           "author": {
             "@type": "Person",
             "name": "Muhammad Daniyal"
@@ -935,7 +929,7 @@ const ROUTES = [
           "description": "How Zyphuel's built-in 2-hour push notification engine delivers official OGRA price updates and live market rate tracking directly to Android lock screens.",
           "image": `${DOMAIN}/images/3.jpeg`,
           "datePublished": "2026-09-02T00:00:00+05:00",
-          "dateModified": "2026-09-02T00:00:00+05:00",
+          "dateModified": "2026-11-10T00:00:00+05:00",
           "author": {
             "@type": "Organization",
             "name": "Zyphuel Telemetry Engineering"
@@ -949,7 +943,7 @@ const ROUTES = [
           "description": "Eliminate power outage downtime in factories, hospitals, and corporate plazas with scheduled generator diesel refills and safety-tested LPG cylinder deliveries.",
           "image": `${DOMAIN}/images/2.jpeg`,
           "datePublished": "2026-09-02T00:00:00+05:00",
-          "dateModified": "2026-09-02T00:00:00+05:00",
+          "dateModified": "2026-11-10T00:00:00+05:00",
           "author": {
             "@type": "Person",
             "name": "Adil Farooq"

@@ -1,5 +1,5 @@
 /*
-  X-Frame-Options: SAMEORIGIN
+  X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
@@ -32,6 +32,31 @@
   X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
   Cache-Control: public, max-age=0, s-maxage=600, stale-while-revalidate=86400
 
+/about/
+  Link: <https://zyphuel.netlify.app/about/>; rel="canonical"
+  X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+  Cache-Control: public, max-age=0, s-maxage=600, stale-while-revalidate=86400
+
+/contact/
+  Link: <https://zyphuel.netlify.app/contact/>; rel="canonical"
+  X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+  Cache-Control: public, max-age=0, s-maxage=600, stale-while-revalidate=86400
+
+/blog/
+  Link: <https://zyphuel.netlify.app/blog/>; rel="canonical"
+  X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+  Cache-Control: public, max-age=0, s-maxage=600, stale-while-revalidate=86400
+
+/privacy/
+  Link: <https://zyphuel.netlify.app/privacy/>; rel="canonical"
+  X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+  Cache-Control: public, max-age=0, s-maxage=600, stale-while-revalidate=86400
+
+/terms/
+  Link: <https://zyphuel.netlify.app/terms/>; rel="canonical"
+  X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+  Cache-Control: public, max-age=0, s-maxage=600, stale-while-revalidate=86400
+
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
@@ -57,7 +82,7 @@
   Cache-Control: public, max-age=31536000, immutable
 
 /images/*
-  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+  Cache-Control: public, max-age=86400, stale-while-revalidate=86400
 
 /APK/*
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400

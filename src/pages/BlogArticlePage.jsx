@@ -46,7 +46,7 @@ export default function BlogArticlePage() {
       "description": article.summary,
       "image": article.image,
       "datePublished": article.date,
-      "dateModified": "2026-09-06T00:00:00+05:00",
+      "dateModified": (() => { try { return new Date(article.date).toISOString().split('T')[0] + 'T00:00:00+05:00'; } catch { return '2026-11-10T00:00:00+05:00'; } })(),
       "author": {
         "@type": article.author.includes('CEO') ? "Person" : "Organization",
         "name": article.author

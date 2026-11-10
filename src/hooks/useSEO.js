@@ -302,8 +302,7 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
 
     // 4. Twitter Card Tags
     setMetaTag('twitter:card', null, 'summary_large_image')
-    setMetaTag('twitter:site', null, '@Zyphuel')
-    setMetaTag('twitter:creator', null, '@Zyphuel')
+    // twitter:site and twitter:creator omitted — no verified X/Twitter account
     setMetaTag('twitter:title', title)
     setMetaTag('twitter:description', description)
     setMetaTag('twitter:image', defaultImage)

@@ -5,7 +5,7 @@
     <link>https://zyphuel.netlify.app/blog/</link>
     <description>Authoritative guides, downstream petroleum pricing analysis, IoT telemetry breakdowns, global mobile fueling benchmarks, and doorstep fuel delivery insights in Lahore, Pakistan by Zyphuel.</description>
     <language>en-pk</language>
-    <lastBuildDate>Fri, 30 Oct 2026 12:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://zyphuel.netlify.app/feed.xml" rel="self" type="application/rss+xml"/>
     <image>
       <url>https://zyphuel.netlify.app/images/logo.png</url>
@@ -13,6 +13,36 @@
       <link>https://zyphuel.netlify.app/blog/</link>
     </image>
     <copyright>Copyright 2026 Zyphuel Technologies. All rights reserved.</copyright>
+
+    <item>
+      <title>Doorstep Fuel vs Petrol Station: Real Cost Comparison for Lahore Drivers (2026)</title>
+      <link>https://zyphuel.netlify.app/blog/zyphuel-vs-petrol-station-cost-comparison-lahore/</link>
+      <guid isPermaLink="true">https://zyphuel.netlify.app/blog/zyphuel-vs-petrol-station-cost-comparison-lahore/</guid>
+      <pubDate>Tue, 10 Nov 2026 12:00:00 GMT</pubDate>
+      <dc:creator>Zyphuel Energy Analysis Team</dc:creator>
+      <category>Pricing &amp; Transparency</category>
+      <description><![CDATA[An honest, line-by-line cost comparison between filling up at a Lahore petrol station and ordering doorstep delivery — including the hidden costs of queue time, short-fueling, idling fuel burn and round-trip distance.]]></description>
+    </item>
+
+    <item>
+      <title>Winter Fuel Tips 2026: Protecting Your Generator Diesel and Vehicle Petrol in Lahore's Cold Season</title>
+      <link>https://zyphuel.netlify.app/blog/winter-fuel-tips-pakistan-generator-diesel-2026/</link>
+      <guid isPermaLink="true">https://zyphuel.netlify.app/blog/winter-fuel-tips-pakistan-generator-diesel-2026/</guid>
+      <pubDate>Tue, 10 Nov 2026 12:00:00 GMT</pubDate>
+      <dc:creator>Zyphuel Energy Analysis Team</dc:creator>
+      <category>Seasonal Guides</category>
+      <description><![CDATA[Practical guidance on preventing diesel gelling, maintaining generator fuel quality, and keeping your vehicle running smoothly through Lahore's November-to-February cold season.]]></description>
+    </item>
+
+    <item>
+      <title>How Does a Petrol Delivery App Work? Step-by-Step Guide for Lahore Residents</title>
+      <link>https://zyphuel.netlify.app/blog/petrol-delivery-app-lahore-how-it-works/</link>
+      <guid isPermaLink="true">https://zyphuel.netlify.app/blog/petrol-delivery-app-lahore-how-it-works/</guid>
+      <pubDate>Tue, 10 Nov 2026 12:00:00 GMT</pubDate>
+      <dc:creator>Zyphuel Energy Analysis Team</dc:creator>
+      <category>How It Works</category>
+      <description><![CDATA[A complete walkthrough of ordering fuel through the Zyphuel app and website: from selecting your fuel grade and pinning your GPS location to receiving a metered doorstep delivery within 45 minutes in Lahore.]]></description>
+    </item>
 
     <item>
       <title>Fuel Delivery Charges in Lahore: What the Rs. 300 Base Fee Really Covers</title>
@@ -104,13 +134,13 @@
     </item>
 
     <item>
-      <title>How to Download and Install Zyphuel APK v2.6.4.0.0.34: Biometrics, Live GPS Auto-Pinning &amp; Daily Rate Sync</title>
+      <title>How to Download and Install Zyphuel APK v2.6.4.0.0.38: Biometrics, Live GPS Auto-Pinning &amp; Daily Rate Sync</title>
       <link>https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide/</link>
       <guid isPermaLink="true">https://zyphuel.netlify.app/blog/download-zyphuel-apk-guide/</guid>
       <pubDate>Sat, 24 Oct 2026 08:00:00 GMT</pubDate>
       <dc:creator>Zyphuel App Engineering</dc:creator>
       <category>Zyphuel App &amp; Guides</category>
-      <description><![CDATA[A complete, step-by-step setup guide for the official Zyphuel Android APK (v2.6.4.0.0.34, 35.3 MB), covering biometric security checkout, GPS sector auto-detection across Lahore, and real-time bowser telemetry.]]></description>
+      <description><![CDATA[A complete, step-by-step setup guide for the official Zyphuel Android APK (v2.6.4.0.0.38, 35.3 MB), covering biometric security checkout, GPS sector auto-detection across Lahore, and real-time bowser telemetry.]]></description>
     </item>
 
     <item>

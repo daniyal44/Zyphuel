@@ -36,9 +36,9 @@ export const CHANGELOG = [
     version: '2.6.4.0.0.38',
     build: '61',
     date: 'October 24, 2026',
-    title: 'Verified Production Build 62 (versionName 2.6.4.0.0.38) — Android 7.0+ Compatibility Retention & Signed Binary Release',
+    title: 'Verified Production Build 61 (versionName 2.6.4.0.0.38) — Android 7.0+ Compatibility Retention & Signed Binary Release',
     features: [
-      'Compiled production release v2.6.4.0.0.38 (versionCode 62) with Android Gradle Plugin 9.1.1, compileSdk 36 and minSdk 24 (full Android 7.0 Nougat support retained)',
+      'Compiled production release v2.6.4.0.0.38 (versionCode 61) with Android Gradle Plugin 9.1.1, compileSdk 36 and minSdk 24 (full Android 7.0 Nougat support retained)',
       'Signed universal APK refreshed at 35.3 MB (35,321,064 bytes) with published SHA-256 integrity hash f8236bf06c89...aadb for on-device verification',
       'Firebase Cloud Messaging push pipeline retained (ZyphuelFcmService, zyphuel_fcm_channel) for high-priority OGRA rate and dispatch alerts',
       'Calibrated BLE flow-meter telemetry bridge retained for live 0.01L digital dispenser metering on every doorstep delivery',

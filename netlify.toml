@@ -82,6 +82,41 @@
     X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     Cache-Control = "public, max-age=0, s-maxage=600, stale-while-revalidate=86400"
 
+[[headers]]
+  for = "/about/*"
+  [headers.values]
+    Link = "<https://zyphuel.netlify.app/about/>; rel=\"canonical\""
+    X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    Cache-Control = "public, max-age=0, s-maxage=600, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/contact/*"
+  [headers.values]
+    Link = "<https://zyphuel.netlify.app/contact/>; rel=\"canonical\""
+    X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    Cache-Control = "public, max-age=0, s-maxage=600, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/blog/"
+  [headers.values]
+    Link = "<https://zyphuel.netlify.app/blog/>; rel=\"canonical\""
+    X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    Cache-Control = "public, max-age=0, s-maxage=600, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/privacy/*"
+  [headers.values]
+    Link = "<https://zyphuel.netlify.app/privacy/>; rel=\"canonical\""
+    X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    Cache-Control = "public, max-age=0, s-maxage=600, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/terms/*"
+  [headers.values]
+    Link = "<https://zyphuel.netlify.app/terms/>; rel=\"canonical\""
+    X-Robots-Tag = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    Cache-Control = "public, max-age=0, s-maxage=600, stale-while-revalidate=86400"
+
 # Cache static assets immutably
 [[headers]]
   for = "/assets/*"

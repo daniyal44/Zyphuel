@@ -85,7 +85,7 @@ export default function HomePage() {
     },
     {
       q: 'What is doorstep diesel delivery?',
-      a: 'Doorstep diesel delivery means ordering diesel online and having it pumped directly into your vehicle, generator, or storage tank at your address — no pump queues, no jerrycans. Zyphuel dispatches a calibrated, metered bows with sealed Euro-V diesel anywhere in Lahore within 45 minutes.'
+      a: 'Doorstep diesel delivery means ordering diesel online and having it pumped directly into your vehicle, generator, or storage tank at your address — no pump queues, no jerrycans. Zyphuel dispatches a calibrated, metered bowser with sealed Euro-V diesel anywhere in Lahore within 45 minutes.'
     },
     {
       q: 'Can diesel be delivered at home?',

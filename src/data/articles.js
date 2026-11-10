@@ -1,5 +1,6 @@
 import { APP_VERSION, APP_SIZE, RELEASE_DATE } from './appVersion.js';
 import { NEW_ARTICLES_2026_10_30 } from './articles-2026-10-30.js';
+import { NEW_ARTICLES_2026_11_10 } from './articles-2026-11-10.js';
 
 export const articles = [
   {
@@ -1276,5 +1277,6 @@ export const articles = [
     ]
   }
   ,
-  ...NEW_ARTICLES_2026_10_30
+  ...NEW_ARTICLES_2026_10_30,
+  ...NEW_ARTICLES_2026_11_10
 ];

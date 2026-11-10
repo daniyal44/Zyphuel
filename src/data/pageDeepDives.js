@@ -13,6 +13,8 @@
  * online intake 8:00 AM – 10:00 PM PKT.
  */
 
+import { APP_VERSION, BUILD_NUMBER, APP_SIZE, APP_BYTES, MIN_ANDROID, TARGET_SDK, APP_PACKAGE, RELEASE_DATE } from './appVersion.js';
+
 const LAHORE_ZONES = [
   'DHA Phase 1 – 9',
   'Gulberg I – III and MM Alam Road',
@@ -43,7 +45,7 @@ const FEE_TABLE = {
   rows: FEE_ROWS
 }
 
-const LAST_UPDATED = '31 October 2026'
+const LAST_UPDATED = '10 November 2026'
 
 export const SERVICES_DEEP_DIVE = {
   id: 'services-depth',
@@ -140,13 +142,13 @@ export const DOWNLOAD_DEEP_DIVE = {
       table: {
         head: ['Field', 'Value'],
         rows: [
-          ['Version name', '2.6.4.0.0.34'],
-          ['Version code', '61'],
-          ['File size', '35.3 MB (35,321,064 bytes)'],
-          ['Minimum Android', '7.0 Nougat (minSdk 24)'],
-          ['Target SDK', '36 (Android 15/16 ready)'],
-          ['Package name', 'com.aistudio.zyphuel.appv2'],
-          ['Release date', '24 October 2026']
+          ['Version name', APP_VERSION],
+          ['Version code', BUILD_NUMBER],
+          ['File size', `${APP_SIZE} (${APP_BYTES} bytes)`],
+          ['Minimum Android', `${MIN_ANDROID} (minSdk 24)`],
+          ['Target SDK', TARGET_SDK],
+          ['Package name', APP_PACKAGE],
+          ['Release date', RELEASE_DATE]
         ]
       }
     },
