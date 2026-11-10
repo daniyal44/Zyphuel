@@ -17,14 +17,14 @@
 
 <!-- ZYPHUEL_FUEL_UPDATE_START -->
 > [!NOTE]
-> **⚡ Live Daily Fuel Intelligence & Market Monitor (November 09, 2026)**
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (November 10, 2026)**
 > - **Operational SLA**: Within 45 Mins (single delivery window) across Lahore.
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Certified hazardous materials handling: Positive-displacement calibrated dispensing and sealed utilities. Strict 5L min to 15L max per dispatch with fixed Rs. 300 fee up to 10L, avoiding hazardous loose decanting.
 >
-- **Market Intelligence**: Crude Oil Price Today: Brent $97.78, WTI $90.36 | In PKR - Investify (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Petrol price in Pakistan from 8 November: Rs346 per litre - Investify (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Federal Govt announces lower petrol and diesel prices - Bol News (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt collects Rs254.7 billion through petroleum, climate and NEV levies in two months - Investify (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Oil and gas companies highlight community welfare investments at PPEPCA conference - Investify (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: OGRA Sidelined as PSO, SSGCL Get Authority to Set LPG Prices - ProPakistani (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
