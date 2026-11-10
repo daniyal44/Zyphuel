@@ -2,21 +2,21 @@
 // Update this file on every application release to dynamically sync versions across the platform.
 //
 // Verified source of truth: parsed directly from public/APK/Zyphuel.apk (AndroidManifest.xml)
-//   versionName = 2.6.4.0.0.38 | versionCode = 61 | compileSdk = 36 | minSdk = 24 (Android 7.0)
-//   package = com.aistudio.zyphuel.appv2 | AGP 9.1.1 | 35,321,064 bytes
+//   versionName = 2.6.4.0.0.41 | versionCode = 69 | compileSdk = 36 | minSdk = 24 (Android 7.0)
+//   package = com.aistudio.zyphuel.appv2 | AGP 9.1.1 | 33,261,961 bytes
 //
 // NOTE: Every user-visible version, build, size, minimum-Android and SHA-256 string on the
 // website, in the SEO/GEO metadata and in the knowledge files is derived from this file.
 // Never hardcode these values anywhere else.
 
-export const APP_VERSION = '2.6.4.0.0.38';
-export const BUILD_NUMBER = '61';
-export const RELEASE_DATE = 'October 24, 2026';
-export const APP_SIZE = '35.3 MB';
-export const APP_BYTES = '35,321,064';
+export const APP_VERSION = '2.6.4.0.0.41';
+export const BUILD_NUMBER = '69';
+export const RELEASE_DATE = 'November 10, 2026';
+export const APP_SIZE = '31.7 MB';
+export const APP_BYTES = '33,261,961';
 export const MIN_ANDROID = '7.0 (Nougat)+';
 export const TARGET_SDK = '36 (Android 15/16 Ready)';
-export const APP_SHA256 = 'f8236bf06c8923ee22f992a964c95ed6fd43d4fe65afe8c9b4e623d75436aadb';
+export const APP_SHA256 = 'bcfc050d3bddc78378c2223090e10ec3a562de158c76f27e224c6c4889c03604';
 export const APP_PACKAGE = 'com.aistudio.zyphuel.appv2';
 
 // iOS distribution — the .ipa ships directly from this website (no App Store listing yet).
@@ -32,6 +32,20 @@ export const IOS_FILENAME = 'Zyphuel.ipa';
 export const IOS_DOWNLOAD_URL = '/IOS/Zyphuel.ipa';
 
 export const CHANGELOG = [
+  {
+    version: '2.6.4.0.0.41',
+    build: '69',
+    date: 'November 10, 2026',
+    title: 'Optimized Production Build 69 (versionName 2.6.4.0.0.41) — APK Size Reduction, Enhanced Stability & Winter-Ready Dispatch',
+    features: [
+      'Compiled production release v2.6.4.0.0.41 (versionCode 69) with Android Gradle Plugin 9.1.1, compileSdk 36 and minSdk 24 (full Android 7.0 Nougat support retained)',
+      'APK size reduced from 35.3 MB to 31.7 MB (33,261,961 bytes) — 10% smaller binary through optimized resource packaging and ProGuard shrinking',
+      'Published SHA-256 integrity hash bcfc050d3bdd...c036 for on-device binary verification',
+      'Firebase Cloud Messaging push pipeline enhanced for high-priority OGRA daily rate and winter fuel price alert notifications',
+      'Calibrated BLE flow-meter telemetry bridge optimized for cold-weather Bluetooth stability on live 0.01L digital dispenser metering',
+      'Doorstep dispatch compliance unchanged: strict 5L–15L Max capacity with synchronized tariff (Rs. 300 flat up to 10L, Rs. 320–Rs. 400 for 11L–15L Max)'
+    ]
+  },
   {
     version: '2.6.4.0.0.38',
     build: '61',

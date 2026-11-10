@@ -191,7 +191,7 @@ export const DOWNLOAD_DEEP_DIVE = {
     },
     {
       q: 'How do I verify the Zyphuel APK is genuine?',
-      a: 'Download it only from this domain, then compare the file size (35.3 MB) and the SHA-256 hash published on this page with the file on your phone. A mismatched hash means the file was altered in transit and should be deleted.'
+      a: 'Download it only from this domain, then compare the file size (31.7 MB) and the SHA-256 hash published on this page with the file on your phone. A mismatched hash means the file was altered in transit and should be deleted.'
     },
     {
       q: 'Does the app work outside Lahore?',
