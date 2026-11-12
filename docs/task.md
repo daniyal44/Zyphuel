@@ -137,3 +137,9 @@ This document serves as the centralized master tracking ledger for all completed
   - Mapped and addressed all 9 live GSC queries in Title, Headings, HowTo, and FAQ schemas.
   - Updated home FAQs (21 total items) and metadata across Home, Order, and Services.
   - Synced RSS feed, llms.txt, and documentation suite.
+
+- [x] **OpenAI Business Profile & Domain Verification Assets Deployment (2026-11-12)**:
+  - Added OpenAI verification meta tags to `<head>` in `index.html`.
+  - Added verification files across `public/openai-business-profile.txt`, `public/openai-business-profile`, and `public/.well-known/openai-business-profile`.
+  - Configured edge caching and plain-text headers in `public/_headers`.
+  - Verified static site generation (27 routes prerendered successfully) and synced documentation.

@@ -108,6 +108,14 @@
 /llms-full.txt
   Cache-Control: public, max-age=86400
 
+/openai-business-profile*
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+
+/.well-known/openai-business-profile*
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+
 /ads.txt
   Cache-Control: public, max-age=86400
 
