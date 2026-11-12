@@ -203,15 +203,15 @@ of 18.
 ## 2026-11-12 — OpenAI Business Profile & Domain Verification Assets
 
 - **Verification Meta Tags Added (`index.html`)**:
-  - `<meta name="openai-business-profile" content="openai-business-profile=sYMBlpKVIe5mJ7yJ-3oW2U8ioAhOeFZAYDEf2ZvtFR0" />`
-  - `<meta name="openai-domain-verification" content="openai-business-profile=sYMBlpKVIe5mJ7yJ-3oW2U8ioAhOeFZAYDEf2ZvtFR0" />`
-  - `<meta name="openai-verification" content="sYMBlpKVIe5mJ7yJ-3oW2U8ioAhOeFZAYDEf2ZvtFR0" />`
+  - `<meta name="openai-business-profile" content="openai-business-profile=gKIxR7KDsB7RfAvQgXu5YsXrIhtxrwi8ACncDqvljxQ" />`
+  - `<meta name="openai-domain-verification" content="openai-business-profile=gKIxR7KDsB7RfAvQgXu5YsXrIhtxrwi8ACncDqvljxQ" />`
+  - `<meta name="openai-verification" content="gKIxR7KDsB7RfAvQgXu5YsXrIhtxrwi8ACncDqvljxQ" />`
 - **Verification Static Assets Added (`public/`)**:
   - `public/openai-business-profile.txt`
   - `public/openai-business-profile`
   - `public/.well-known/openai-business-profile`
   - `public/.well-known/openai-business-profile.txt`
-  - Content: `openai-business-profile=sYMBlpKVIe5mJ7yJ-3oW2U8ioAhOeFZAYDEf2ZvtFR0`
+  - Content: `openai-business-profile=gKIxR7KDsB7RfAvQgXu5YsXrIhtxrwi8ACncDqvljxQ`
 - **Headers Configuration (`public/_headers`)**:
   - Configured `text/plain; charset=utf-8` and `Cache-Control: public, max-age=0, must-revalidate` for `/openai-business-profile*` and `/.well-known/openai-business-profile*`.
 - **Note on DNS vs File Verification**: Netlify does not permit DNS TXT record manipulation on `*.netlify.app` subdomains; these web assets serve as direct file and meta verification fallbacks across all endpoints.

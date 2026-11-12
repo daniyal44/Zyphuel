@@ -1569,16 +1569,9 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Repository Security & Quality Audit**: Conducted an end-to-end repository scan (zero leaked secrets, 15/15 passed unit/privacy tests, 24 SSG routes pre-rendered with exit code 0). Generated executive report.
 - **Activity Graph**: Refreshed `docs/reports/charts/development-activity.svg` and `.png` via `node scripts/make-activity-graph.mjs`.
 
-## Phase 22 (2026-11-12): OpenAI Business Profile & Domain Verification Assets
+## Phase 22 (2026-11-12): OpenAI Business Profile & Domain Verification Assets (Updated Token)
 
-- **OpenAI Verification Meta Tags**: Added verification tags to `index.html` head payload (`openai-business-profile`, `openai-domain-verification`, and `openai-verification`).
+- **OpenAI Verification Meta Tags**: Configured active verification tags in `index.html` head payload (`openai-business-profile`, `openai-domain-verification`, and `openai-verification`) with active token (`gKIxR7KDsB7RfAvQgXu5YsXrIhtxrwi8ACncDqvljxQ`), superseding previous expired token.
 - **OpenAI Verification Static Files**: Provisioned verification records across `public/openai-business-profile.txt`, `public/openai-business-profile`, `public/.well-known/openai-business-profile`, and `public/.well-known/openai-business-profile.txt`.
-- **Edge Header Rules**: Added `_headers` rules ensuring plain-text delivery and cache revalidation for verification endpoints.
+- **Edge Header Rules**: Added `_headers` rules ensuring plain-text delivery (`text/plain; charset=utf-8`) and cache revalidation for verification endpoints.
 - **Activity Graph**: Refreshed `docs/reports/charts/development-activity.svg` and `.png` via `node scripts/make-activity-graph.mjs`.
-
-- **Proprietary License Conversion**: Replaced open-source MIT declarations across the repository. Updated `LICENSE` to an exclusive proprietary software license retaining all copyright to Muhammad Daniyal / Zyphuel Technologies, updated `package.json` to `"license": "UNLICENSED"`, and adjusted `README.md` badges and sections to reflect closed-source proprietary status.
-- **SwarmVault Frontmatter Repair**: Resolved Go YAML unmarshaling crash (`yaml: unmarshal errors: line 5: cannot unmarshal !!str into workflowparse.SkillMetadataConfig`) across local and global `SKILL.md` files by refactoring single-quoted JSON strings into compliant nested YAML mappings.
-- **Repository Security & Quality Audit**: Conducted an end-to-end repository scan (zero leaked secrets, 15/15 passed unit/privacy tests, 24 SSG routes pre-rendered with exit code 0). Generated executive report.
-- **Activity Graph**: Refreshed `docs/reports/charts/development-activity.svg` and `.png` via `node scripts/make-activity-graph.mjs`.
-
-
