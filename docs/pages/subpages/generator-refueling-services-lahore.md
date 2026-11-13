@@ -17,14 +17,14 @@
 
 <!-- ZYPHUEL_FUEL_UPDATE_START -->
 > [!NOTE]
-> **⚡ Live Daily Fuel Intelligence & Market Monitor (November 12, 2026)**
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (November 13, 2026)**
 > - **Operational SLA**: Within 45 Mins (single delivery window) across Lahore.
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Emergency load-shedding generator backup: 100% Euro-V Hi-Cetane Diesel delivered directly to your rooftop or basement generator with 50-meter anti-static reels. Zero manual jerrycan risks in residential or commercial plazas.
 >
-- **Market Intelligence**: Govt slashes petrol price by Rs8 per litre, high-speed diesel by Rs7 in another reduction - Dawn (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: PSO, SSGC to set LPG prices instead of OGRA - Investify (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Petrol price in Pakistan from 11 November: Rs338 per litre - Investify (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: High-speed diesel price dips by Rs4 per litre, petrol by Rs3 - Dawn (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Petrol price in Pakistan from 13 November: Rs332 per litre - Investify (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Petrol price drops by Rs3, diesel by Rs4 per litre - Investify (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
