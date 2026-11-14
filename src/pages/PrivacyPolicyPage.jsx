@@ -9,9 +9,10 @@ const sections = [
   { id: 'info-use', label: '3. How We Use Info' },
   { id: 'data-security', label: '4. Data Security' },
   { id: 'sharing', label: '5. Sharing & Disclosure' },
-  { id: 'user-rights', label: '6. Your Rights' },
-  { id: 'cookies', label: '7. Cookies Policy' },
-  { id: 'contact-privacy', label: '8. Contact Us' },
+  { id: 'linkedin-leads', label: '6. LinkedIn Lead Generation & Business Enquiries' },
+  { id: 'user-rights', label: '7. Your Rights' },
+  { id: 'cookies', label: '8. Cookies Policy' },
+  { id: 'contact-privacy', label: '9. Contact Us' },
 ]
 
 export default function PrivacyPolicyPage() {
@@ -141,8 +142,18 @@ export default function PrivacyPolicyPage() {
                 </ul>
               </section>
 
+              <section id="linkedin-leads" className="legal-section">
+                <h2><i className="fa-solid fa-linkedin-in"></i> 6. LinkedIn Lead Generation & Business Enquiries</h2>
+                <p>When individuals submit a LinkedIn Lead Gen Form or voluntarily provide information through our LinkedIn advertising campaigns, Zyphuel may receive information such as their name, business email address, phone number, company name, job title, and enquiry details, depending on the fields completed.</p>
+                <p>We use this information exclusively to respond to business enquiries, prepare fuel delivery quotations, manage corporate and fleet accounts, coordinate customer follow-ups, and evaluate our advertising performance.</p>
+                <p>Where authorized, submitted lead information may be transferred from LinkedIn to Zyphuel's restricted internal lead management system for these purposes. Access is limited to authorized personnel who need the information to manage and respond to enquiries.</p>
+                <p>We do not sell, rent, or trade LinkedIn lead information. We retain lead information only for as long as necessary for the stated purposes or applicable legal requirements.</p>
+                <p>Individuals may request access to, correction of, or deletion of their personal information, or withdraw applicable marketing consent, by contacting m.daniyalkhan490@gmail.com.</p>
+                <p>Zyphuel will handle all such information in accordance with applicable privacy requirements, LinkedIn's terms, and the permissions granted by the individual.</p>
+              </section>
+
               <section id="user-rights" className="legal-section">
-                <h2><i className="fa-solid fa-user-gear"></i> 6. Your Rights</h2>
+                <h2><i className="fa-solid fa-user-gear"></i> 7. Your Rights</h2>
                 <p>As a valued Zyphuel customer, you hold specific rights regarding your personal records:</p>
                 <ul>
                   <li><strong>Access & Correction:</strong> You have the right to request a copy of the data we hold about you or request corrections to contact fields.</li>
@@ -152,12 +163,12 @@ export default function PrivacyPolicyPage() {
               </section>
 
               <section id="cookies" className="legal-section">
-                <h2><i className="fa-solid fa-cookie-bite"></i> 7. Cookies Policy</h2>
+                <h2><i className="fa-solid fa-cookie-bite"></i> 8. Cookies Policy</h2>
                 <p>Zyphuel uses browser cookies to store persistent session variables (such as caching your contact fields from your last visit to pre-fill the order forms). Cookies help us identify browser sessions to keep the visual grid responsive. You can configure your browser to decline cookies; however, doing so might require you to re-type form fields on subsequent visits.</p>
               </section>
 
               <section id="contact-privacy" className="legal-section">
-                <h2><i className="fa-solid fa-paper-plane"></i> 8. Contact Us</h2>
+                <h2><i className="fa-solid fa-paper-plane"></i> 9. Contact Us</h2>
                 <p>If you have questions, remarks, or security queries regarding this Privacy Policy or wish to update/delete your data, please contact our support team using the information below:</p>
                 <p>
                   <strong>Support Desk:</strong> Available via our <Link to="/contact/" style={{ color: 'var(--brand-primary, #0369a1)', fontWeight: 600 }}>Official Contact &amp; Support Page</Link><br />
