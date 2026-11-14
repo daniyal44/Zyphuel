@@ -1584,3 +1584,11 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **Article art**: new `socialImage()` helper requests 1200×630 crops from Unsplash; remote images declare no `og:image:width/height/type` rather than a wrong value.
 - **Verification**: full client + SSR build and `node prerender.js` (27 routes), then an audit of all 26 prerendered `index.html` files — 0 image-tag contradictions, branded card on every non-article route, article art at 1200×630.
 - **Activity Graph**: Refreshed `docs/reports/charts/development-activity.svg` and `.png` via `node scripts/make-activity-graph.mjs`.
+
+## Phase 24 (2026-11-15): Per-Article Branded Social Cards
+
+- **Problem**: even after the site card fix, an article link previewed its raw Unsplash file — 720×480 (1.5:1), no logo, no headline context — so platforms cropped the image and the share never identified Zyphuel.
+- **Generator**: new `scripts/make-social-cards.mjs` renders one 1200×630 card per article through headless Chrome (article photo as a masked right-side backdrop, category chip, auto-shrinking headline, date/read time, logo plate, `ZYPHUEL JOURNAL`, footer domain and helpline) and writes `public/images/social/<slug>.jpg` at quality 86 (~42–117 KB per card). Supports `--only=<slug>`; intermediate HTML/PNG stay in the git-ignored `.tmpseo/social-cards/`.
+- **Wiring**: `prerender.js` prefers `/images/social/<slug>.jpg` for each blog route (existence-checked per article), falling back to a 1200×630 Unsplash crop and then the site card. Dimensions and MIME type are read from the committed file, so the declared `1200×630` / `image/jpeg` is always true.
+- **Verification**: client + SSR build and `node prerender.js` (27 routes), then an audit of all 26 prerendered pages — 0 image-tag contradictions, 17/17 article cards present on disk and referenced by their own route, every `og:image` URL resolves inside `dist`.
+- **Activity Graph**: Refreshed `docs/reports/charts/development-activity.svg` and `.png` via `node scripts/make-activity-graph.mjs`.

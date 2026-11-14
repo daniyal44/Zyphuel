@@ -1419,7 +1419,11 @@ const ROUTES = [
       description: clipText(article.summary, 155),
       keywords: `${article.tags.join(', ')}, fuel delivery Lahore, diesel delivery Lahore, Zyphuel`,
       canonical: `${DOMAIN}/blog/${article.slug}/`,
-      ogImage: socialImage(article.image, `${DOMAIN}/images/og-social-card.jpg`),
+      // Each article ships its own branded card (scripts/make-social-cards.mjs).
+      // Falls back to the site card / cropped article art if a card is missing.
+      ogImage: fs.existsSync(toAbsolute(path.join('public', 'images', 'social', `${article.slug}.jpg`)))
+        ? `${DOMAIN}/images/social/${article.slug}.jpg`
+        : socialImage(article.image, `${DOMAIN}/images/og-social-card.jpg`),
       ogType: 'article',
       articleMeta: {
         published: `${toISO(article.date)}T08:00:00+05:00`,
