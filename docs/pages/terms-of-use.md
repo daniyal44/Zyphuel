@@ -66,3 +66,13 @@
 - **Entity consolidation**: `LocalBusiness` is now a single entity with `@id` `#localbusiness` (and `parentOrganization` → `#organization`) across static HTML, footer and client hydration. Added `openingHoursSpecification` (Mon–Thu 8–8, Fri 8–1, Sat–Sun 10–6), `contactPoint`, `currenciesAccepted: PKR` and `paymentAccepted`.
 - **Removed false signals**: LPG and Water Tanker offers dropped from `hasOfferCatalog` (both services are unavailable), the invalid `SearchAction` pointing at a non-existent `?q=` search was removed, and the stale LPG/water keyword list was cleaned.
 - **AEO**: the home page FAQ schema survives hydration again (18 questions mirrored from the visible Q&A hub) instead of being wiped when `useSEO` rebuilt the graph.
+
+---
+
+## 2026-11-15 — Social preview card (Terms of Use)
+
+- **New card**: `/images/og-social-card.jpg` — 1200×630 (1.91:1), 83 KB JPEG, rendered from a branded layout: Zyphuel flame logo on a white plate, `LAHORE · PAKISTAN`, headline “Doorstep Petrol & Diesel Delivery in Lahore in 45 Mins”, pills `Within 45 Mins` / `0.01L Calibrated Meters` / `Cash on Delivery`, footer `zyphuel.netlify.app` and `+92 3230-112464`.
+- **Why a new filename**: The previous card (`/images/og-cover.jpg`, 1920×1080, unbranded nozzle photo) was technically valid but had no logo or name, and Facebook/WhatsApp had cached it — shares kept showing a generic or blank preview. Shipping the card under a **new filename** invalidates that cached preview without changing the markup contract.
+- **Tags for /terms/**: `image_src`, `og:image`, `og:image:url`, `og:image:secure_url`, `og:image:type` (`image/jpeg`), `og:image:width` (`1200`), `og:image:height` (`630`), `og:image:alt`, `twitter:image`, `twitter:image:src` and `twitter:image:alt` all resolve to the new card. Verified in the built `dist/terms/index.html`.
+- **Content unchanged**: legal text, canonicals and schema are identical; only the preview card reference moved.
+- **Unchanged**: page copy, pricing (5–15 L, Rs. 300–400 ladder, +Rs. 5.00/L markup), the single 45-minute window, 10:00 PM order cutoff and the schema graph.

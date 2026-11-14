@@ -120,3 +120,13 @@
 - **Internal linking**: the home page now links here from body copy ("See every Zyphuel fuel delivery service in Lahore"), not just from navigation. This is the first in-content inbound link from an indexed page.
 - **Shared performance work**: HTML edge caching (`s-maxage=600`), deferred AdSense, and `content-visibility: auto` on below-the-fold sections. Baseline before the changes was performance 32 with an 8.4 s LCP and a 1.81 s TBT (Lighthouse mobile, live URL).
 - **Unchanged**: 45-minute single window, 5–15 L limits, Rs. 300–400 fee ladder, canvas frame sequences, FAQ schema.
+
+---
+
+## 2026-11-15 — Social preview card (Services)
+
+- **New card**: `/images/og-social-card.jpg` — 1200×630 (1.91:1), 83 KB JPEG, rendered from a branded layout: Zyphuel flame logo on a white plate, `LAHORE · PAKISTAN`, headline “Doorstep Petrol & Diesel Delivery in Lahore in 45 Mins”, pills `Within 45 Mins` / `0.01L Calibrated Meters` / `Cash on Delivery`, footer `zyphuel.netlify.app` and `+92 3230-112464`.
+- **Why a new filename**: The previous card (`/images/og-cover.jpg`, 1920×1080, unbranded nozzle photo) was technically valid but had no logo or name, and Facebook/WhatsApp had cached it — shares kept showing a generic or blank preview. Shipping the card under a **new filename** invalidates that cached preview without changing the markup contract.
+- **Tags for /services/**: `image_src`, `og:image`, `og:image:url`, `og:image:secure_url`, `og:image:type` (`image/jpeg`), `og:image:width` (`1200`), `og:image:height` (`630`), `og:image:alt`, `twitter:image`, `twitter:image:src` and `twitter:image:alt` all resolve to the new card. Verified in the built `dist/services/index.html`.
+- **Build path**: `prerender.js` injects the card per route, so every `/services/` share (including deep links into the service grid) uses the same branded preview.
+- **Unchanged**: page copy, pricing (5–15 L, Rs. 300–400 ladder, +Rs. 5.00/L markup), the single 45-minute window, 10:00 PM order cutoff and the schema graph.

@@ -131,3 +131,14 @@
 - `/blog/fuel-delivery-charges-lahore-explained/` — "Fuel Delivery Charges in Lahore: What the Rs. 300 Base Fee Really Covers". Targets `fuel delivery charges Lahore`, `fuel delivery charges`, `petrol delivery fee`. Includes the complete 5–15 L fee table and two worked examples.
 - `/blog/generator-diesel-consumption-lahore-load-shedding-plan/` — "How Much Diesel a Standby Generator Uses Per Hour — and How to Plan Refills in Lahore". Targets `generator diesel consumption per hour`, `how long will 15 litres last`, generator refill planning. States the 0.21 L/kWh figure as a planning approximation with the formula shown, not as manufacturer data.
 - Both live in `src/data/articles-2026-10-30.js` and are spread into `articles` at the end of `src/data/articles.js`, so blog list, prerender routes, sitemap and feed pick them up automatically. Sitemap is now 23 URLs, feed 14 items.
+
+---
+
+## 2026-11-15 — Social preview card (Blog (list + articles))
+
+- **New card**: `/images/og-social-card.jpg` — 1200×630 (1.91:1), 83 KB JPEG, rendered from a branded layout: Zyphuel flame logo on a white plate, `LAHORE · PAKISTAN`, headline “Doorstep Petrol & Diesel Delivery in Lahore in 45 Mins”, pills `Within 45 Mins` / `0.01L Calibrated Meters` / `Cash on Delivery`, footer `zyphuel.netlify.app` and `+92 3230-112464`.
+- **Why a new filename**: The previous card (`/images/og-cover.jpg`, 1920×1080, unbranded nozzle photo) was technically valid but had no logo or name, and Facebook/WhatsApp had cached it — shares kept showing a generic or blank preview. Shipping the card under a **new filename** invalidates that cached preview without changing the markup contract.
+- **Tags for /blog/**: `image_src`, `og:image`, `og:image:url`, `og:image:secure_url`, `og:image:type` (`image/jpeg`), `og:image:width` (`1200`), `og:image:height` (`630`), `og:image:alt`, `twitter:image`, `twitter:image:src` and `twitter:image:alt` all resolve to the new card. Verified in the built `dist/blog/index.html`.
+- **Article pages keep their own photo**, but `prerender.js` now runs article art through `socialImage()`, which asks Unsplash for a `w=1200&h=630&fit=crop` crop instead of the old 720×480 (1.5:1) file that platforms cropped badly.
+- **Contradiction removed**: article pages used to emit `og:image` (Unsplash), `og:image:url` (old site card) and `og:image:secure_url` (Unsplash) at once, plus `og:image:type: image/png` for a JPEG. All five image tags now agree per route, and remote images declare no width/height/type instead of a wrong value.
+- **Unchanged**: page copy, pricing (5–15 L, Rs. 300–400 ladder, +Rs. 5.00/L markup), the single 45-minute window, 10:00 PM order cutoff and the schema graph.

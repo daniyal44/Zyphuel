@@ -211,15 +211,15 @@ export function useSEO({ title, description, keywords, schema, image, url, type,
     } else if (!fullUrl.endsWith('/') && !fullUrl.includes('?')) {
       fullUrl = fullUrl + '/'
     }
-    // Branded social card (1920x1080). Declared dimensions always match the
-    // real asset — pages that pass a custom image report no dimensions at all
-    // instead of repeating the old, wrong 1200x630 claim.
+    // Branded social card (1200x630, 1.91:1). Declared dimensions always match
+    // the real asset — pages that pass a custom image report no dimensions at
+    // all instead of repeating a wrong claim.
     const hasCustomImage = Boolean(image)
-    const defaultImage = image || `${domain}/images/og-cover.jpg`
+    const defaultImage = image || `${domain}/images/og-social-card.jpg`
     const defaultType = type || 'website'
-    const defaultAlt = imageAlt || 'Calibrated Zyphuel refueling nozzle delivering Euro-V petrol — doorstep fuel delivery in Lahore'
-    const defaultWidth = imageWidth || (hasCustomImage ? null : '1920')
-    const defaultHeight = imageHeight || (hasCustomImage ? null : '1080')
+    const defaultAlt = imageAlt || 'Zyphuel — doorstep petrol and diesel delivery in Lahore within 45 minutes'
+    const defaultWidth = imageWidth || (hasCustomImage ? null : '1200')
+    const defaultHeight = imageHeight || (hasCustomImage ? null : '630')
 
     // Helper to set/update meta tag. A null/empty content removes the tag so a
     // stale value can never contradict the image actually being served.

@@ -215,3 +215,13 @@ of 18.
 - **Headers Configuration (`public/_headers`)**:
   - Configured `text/plain; charset=utf-8` and `Cache-Control: public, max-age=0, must-revalidate` for `/openai-business-profile*` and `/.well-known/openai-business-profile*`.
 - **Note on DNS vs File Verification**: Netlify does not permit DNS TXT record manipulation on `*.netlify.app` subdomains; these web assets serve as direct file and meta verification fallbacks across all endpoints.
+
+---
+
+## 2026-11-15 — Social preview card (Home)
+
+- **New card**: `/images/og-social-card.jpg` — 1200×630 (1.91:1), 83 KB JPEG, rendered from a branded layout: Zyphuel flame logo on a white plate, `LAHORE · PAKISTAN`, headline “Doorstep Petrol & Diesel Delivery in Lahore in 45 Mins”, pills `Within 45 Mins` / `0.01L Calibrated Meters` / `Cash on Delivery`, footer `zyphuel.netlify.app` and `+92 3230-112464`.
+- **Why a new filename**: The previous card (`/images/og-cover.jpg`, 1920×1080, unbranded nozzle photo) was technically valid but had no logo or name, and Facebook/WhatsApp had cached it — shares kept showing a generic or blank preview. Shipping the card under a **new filename** invalidates that cached preview without changing the markup contract.
+- **Tags for /**: `image_src`, `og:image`, `og:image:url`, `og:image:secure_url`, `og:image:type` (`image/jpeg`), `og:image:width` (`1200`), `og:image:height` (`630`), `og:image:alt`, `twitter:image`, `twitter:image:src` and `twitter:image:alt` all resolve to the new card. Verified in the built `dist/index.html`.
+- **Sources**: the static tags live in `index.html`; the runtime defaults in `src/hooks/useSEO.js` were switched from `og-cover.jpg` 1920×1080 to `og-social-card.jpg` 1200×630 with a matching `og:image:alt`. `src/components/SeoHead.jsx` no longer defaults to `logo.png` (432×616).
+- **Unchanged**: page copy, pricing (5–15 L, Rs. 300–400 ladder, +Rs. 5.00/L markup), the single 45-minute window, 10:00 PM order cutoff and the schema graph.

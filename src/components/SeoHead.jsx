@@ -7,7 +7,7 @@ export default function SeoHead({
   description = "Zyphuel delivers petrol and diesel to your door in Lahore — homes, generators, and commercial fleets. Calibrated metering, live GPS tracking, and dispatch.",
   keywords = "fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore, mobile refueling Pakistan, doorstep fuel delivery, generator diesel delivery, bulk diesel supplier Lahore, fleet refueling service, on-demand fuel delivery app, Zyphuel",
   canonicalPath = '/',
-  ogImage = `${DOMAIN}/images/logo.png`,
+  ogImage = `${DOMAIN}/images/og-social-card.jpg`,
   ogType = 'website',
   jsonLd = null,
 }) {

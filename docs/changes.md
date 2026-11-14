@@ -1575,3 +1575,12 @@ Acted directly on the owner's two local Search Console exports (`Coverage-2026-1
 - **OpenAI Verification Static Files**: Provisioned verification records across `public/openai-business-profile.txt`, `public/openai-business-profile`, `public/.well-known/openai-business-profile`, and `public/.well-known/openai-business-profile.txt`.
 - **Edge Header Rules**: Added `_headers` rules ensuring plain-text delivery (`text/plain; charset=utf-8`) and cache revalidation for verification endpoints.
 - **Activity Graph**: Refreshed `docs/reports/charts/development-activity.svg` and `.png` via `node scripts/make-activity-graph.mjs`.
+
+## Phase 23 (2026-11-15): Branded Social Preview Card & Cross-Platform Link Preview Fix
+
+- **Root cause**: the OG/Twitter markup was valid, but the only card (`/images/og-cover.jpg`, 1920×1080) was an unbranded nozzle photo that Facebook, WhatsApp and LinkedIn had already cached; article routes additionally emitted three contradicting image tags (`og:image` Unsplash, `og:image:url` old card, `og:image:secure_url` Unsplash) and declared `image/png` for a JPEG.
+- **New branded card**: `public/images/og-social-card.jpg` — 1200×630 (1.91:1), 83 KB, rendered headlessly from `.tmpseo/og-card.html` (logo on white plate, 45-minute headline, trust pills, site domain, helpline). A new filename is what busts the cached preview on WhatsApp/Facebook.
+- **Wiring**: `index.html` static tags, `prerender.js` per-route injection, `src/hooks/useSEO.js` defaults (`og-cover.jpg` 1920×1080 → `og-social-card.jpg` 1200×630) and `src/components/SeoHead.jsx` (default `logo.png` → the card). `og:image:url` and `twitter:image:src` are now rewritten per route instead of keeping the stale static value.
+- **Article art**: new `socialImage()` helper requests 1200×630 crops from Unsplash; remote images declare no `og:image:width/height/type` rather than a wrong value.
+- **Verification**: full client + SSR build and `node prerender.js` (27 routes), then an audit of all 26 prerendered `index.html` files — 0 image-tag contradictions, branded card on every non-article route, article art at 1200×630.
+- **Activity Graph**: Refreshed `docs/reports/charts/development-activity.svg` and `.png` via `node scripts/make-activity-graph.mjs`.

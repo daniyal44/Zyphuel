@@ -156,3 +156,13 @@
 - **AdSense timing** was tested in three configurations. Head-parse: 5.93 s TBT. 20 s ceiling: 5.9–7.1 s (worse — a late ad insert keeps the page from reaching network quiet). Idle-after-load with a 12 s ceiling: best measured, and what ships.
 - **Reverted**: lazy HomePage (did not remove the `articles-data` transfer), lower-section paint containment (CLS 0.052 → 0.115), entry-stylesheet canvas sizing (CLS 0.237).
 - **Unchanged**: APK link, disabled store badges, build facts, schema, both canvas sequences.
+
+---
+
+## 2026-11-15 — Social preview card (Download)
+
+- **New card**: `/images/og-social-card.jpg` — 1200×630 (1.91:1), 83 KB JPEG, rendered from a branded layout: Zyphuel flame logo on a white plate, `LAHORE · PAKISTAN`, headline “Doorstep Petrol & Diesel Delivery in Lahore in 45 Mins”, pills `Within 45 Mins` / `0.01L Calibrated Meters` / `Cash on Delivery`, footer `zyphuel.netlify.app` and `+92 3230-112464`.
+- **Why a new filename**: The previous card (`/images/og-cover.jpg`, 1920×1080, unbranded nozzle photo) was technically valid but had no logo or name, and Facebook/WhatsApp had cached it — shares kept showing a generic or blank preview. Shipping the card under a **new filename** invalidates that cached preview without changing the markup contract.
+- **Tags for /download/**: `image_src`, `og:image`, `og:image:url`, `og:image:secure_url`, `og:image:type` (`image/jpeg`), `og:image:width` (`1200`), `og:image:height` (`630`), `og:image:alt`, `twitter:image`, `twitter:image:src` and `twitter:image:alt` all resolve to the new card. Verified in the built `dist/download/index.html`.
+- **APK unchanged**: the card is preview art only. The direct APK button still points to `/APK/Zyphuel.apk`, and the disabled Play “Launch Soon” / App Store “Coming Soon” badges are untouched.
+- **Unchanged**: page copy, pricing (5–15 L, Rs. 300–400 ladder, +Rs. 5.00/L markup), the single 45-minute window, 10:00 PM order cutoff and the schema graph.

@@ -68,6 +68,16 @@ function localImageDims(imageUrl) {
   return null
 }
 
+// Social platforms crop every share card to 1.91:1. Unsplash article art is stored
+// at 720px wide (1.5:1), which WhatsApp and X crop badly and Facebook sometimes
+// rejects for a large card, so ask Unsplash for a 1200x630 crop instead.
+function socialImage(imageUrl, fallback) {
+  const url = imageUrl || fallback
+  if (!url) return fallback
+  if (!/images\.unsplash\.com/.test(url)) return url
+  return url.split('?')[0] + '?auto=format&fit=crop&w=1200&h=630&q=80'
+}
+
 // Common knowledge entities
 const ORGANIZATION_SCHEMA = {
   "@type": "Organization",
@@ -527,7 +537,7 @@ const ROUTES = [
     description: 'Order Euro-V petrol or diesel to your doorstep in Lahore within 45 mins. Cash on delivery, calibrated meters, OGRA rates.',
     keywords: "can i buy petrol online, can you buy petrol online, how to buy petrol online, can i order petrol online, how to book petrol online, how to order fuel online, how to order petrol, how to order petrol online near me, how can i get petrol online, online petrol delivery in lahore, petrol home delivery lahore, petrol delivery lahore price, petrol delivery lahore contact number, petrol delivery near me lahore, online petrol delivery near me, diesel home delivery near me, petrol delivery app pakistan, emergency petrol delivery lahore, buy petrol online pakistan, fuel delivery Lahore, diesel delivery Lahore, petrol delivery Lahore, petrol pump near me Lahore, fuel station near me, petrol price today Lahore, diesel price today Lahore, diesel supplier Lahore, fuel agency Lahore, mobile refueling Pakistan, doorstep fuel delivery, generator diesel delivery, generator refueling service, fleet refueling service, on-demand fuel delivery app, fuel delivery DHA Lahore, petrol delivery Gulberg, diesel delivery Johar Town, OGRA compliant fuel rates, what is Zyphuel, is Zyphuel safe, Zyphuel mobile app, Zyphuel APK download, emergency fuel delivery Lahore, petrol delivery near me, petrol price in Pakistan today, diesel price in Pakistan today, today petrol rate in Pakistan, which app delivers petrol, can petrol be delivered at home, doorstep diesel delivery, best delivery app in Pakistan, diesel delivery companies",
     canonical: `${DOMAIN}/`,
-    ogImage: `${DOMAIN}/images/og-cover.jpg`,
+    ogImage: `${DOMAIN}/images/og-social-card.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -725,7 +735,7 @@ const ROUTES = [
     description: 'How Zyphuel delivers on-demand petrol and diesel across Lahore, founded by Muhammad Daniyal with calibrated digital flow meters.',
     keywords: "about Zyphuel, fuel delivery company Lahore, mobile refueling Pakistan, diesel delivery Lahore, generator fuel Pakistan, calibrated fuel metering, Zyphuel team, Muhammad Daniyal Zyphuel, on-demand fuel delivery Pakistan, fuel delivery app Pakistan, what is Zyphuel, fuel delivery startup Pakistan, doorstep fuel delivery company, Zyphuel fuel company Lahore",
     canonical: `${DOMAIN}/about/`,
-    ogImage: `${DOMAIN}/images/og-cover.jpg`,
+    ogImage: `${DOMAIN}/images/og-social-card.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -805,7 +815,7 @@ const ROUTES = [
     description: 'Euro-V petrol, High-Octane 97 and diesel delivered to your car, bike or generator in Lahore: 5–15 L, Rs. 300–400 fee, 45 minutes, metered invoice.',
     keywords: "fuel delivery services Lahore, diesel delivery Lahore, petrol delivery Lahore, generator diesel refueling Lahore, commercial diesel supply Lahore, fleet refueling Pakistan, doorstep petrol delivery, high octane 97 delivery Lahore, Zyphuel services, fuel delivery DHA Lahore, petrol delivery Gulberg, diesel delivery Johar Town, generator diesel Model Town, emergency fuel Bahria Town Lahore, bulk diesel Sundar Industrial Estate, petrol pump near me Lahore, online fuel order Lahore, diesel delivery companies, load shedding generator fuel Lahore, standby generator diesel delivery, fuel supplier Lahore",
     canonical: `${DOMAIN}/services/`,
-    ogImage: `${DOMAIN}/images/og-cover.jpg`,
+    ogImage: `${DOMAIN}/images/og-social-card.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -877,7 +887,7 @@ const ROUTES = [
     description: `Official Zyphuel Android APK v${APP_VERSION} (${APP_SIZE}, Android ${MIN_ANDROID}): live tracking, 45-minute dispatch and fuel price alerts.`,
     keywords: `Download Zyphuel APK, Zyphuel App v${APP_VERSION}, petrol delivery app pakistan, fuel delivery app Lahore, online petrol delivery in lahore, doorstep diesel delivery lahore, generator fuel delivery lahore, emergency fuel app pakistan, buy fuel online pakistan, mobile fuel delivery app Pakistan, fuel rate alerts app Lahore, which app delivers petrol, best fuel delivery app Pakistan, petrol delivery app download, fuel delivery app with GPS tracking`,
     canonical: `${DOMAIN}/download/`,
-    ogImage: `${DOMAIN}/images/og-cover.jpg`,
+    ogImage: `${DOMAIN}/images/og-social-card.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -1027,7 +1037,7 @@ const ROUTES = [
     description: 'Order 5–15 L of Euro-V petrol, High-Octane 97 or diesel to your door in Lahore. Rs. 300–400 fee, 45-minute dispatch, COD or online, metered invoice.',
     keywords: "order fuel online Lahore, book petrol delivery Lahore, order diesel Lahore, petrol delivery lahore price, diesel delivery lahore price, online fuel ordering Lahore, doorstep petrol delivery booking, generator diesel order, petrol cash on delivery Lahore, Zyphuel fuel booking, order petrol online near me, buy petrol online Lahore, fuel home delivery near me, doorstep fuel delivery cost, can I buy petrol online in Pakistan, 24/7 fuel delivery Lahore",
     canonical: `${DOMAIN}/order/`,
-    ogImage: `${DOMAIN}/images/og-cover.jpg`,
+    ogImage: `${DOMAIN}/images/og-social-card.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -1178,7 +1188,7 @@ const ROUTES = [
     description: 'Reach Zyphuel for fuel orders, generator diesel and fleet accounts in Lahore. Call or WhatsApp +92 3230-112464, support in English and Urdu.',
     keywords: "Contact Zyphuel, fuel delivery helpline Lahore, diesel supplier contact Lahore, fleet fuel account Pakistan, generator diesel enquiry, Zyphuel support, emergency fuel delivery Lahore, 24/7 fuel delivery Pakistan, fuel delivery WhatsApp number, Zyphuel WhatsApp number, petrol delivery contact number Lahore, fuel delivery customer care",
     canonical: `${DOMAIN}/contact/`,
-    ogImage: `${DOMAIN}/images/og-cover.jpg`,
+    ogImage: `${DOMAIN}/images/og-social-card.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -1254,7 +1264,7 @@ const ROUTES = [
     description: "How Zyphuel collects, uses, and protects your personal data when you order fuel delivery in Lahore through our website and Android app.",
     keywords: "Zyphuel privacy policy, data protection, user security, Android app permissions, Lahore privacy standards",
     canonical: `${DOMAIN}/privacy/`,
-    ogImage: `${DOMAIN}/images/og-cover.jpg`,
+    ogImage: `${DOMAIN}/images/og-social-card.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -1284,7 +1294,7 @@ const ROUTES = [
     description: "The terms that govern your use of the Zyphuel website and Android app for fuel delivery in Lahore, including orders, payment, delivery, and dispute resolution.",
     keywords: "Terms of use, service contract, fuel order terms, cancellation rules, Zyphuel legal terms",
     canonical: `${DOMAIN}/terms/`,
-    ogImage: `${DOMAIN}/images/og-cover.jpg`,
+    ogImage: `${DOMAIN}/images/og-social-card.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -1314,7 +1324,7 @@ const ROUTES = [
     description: "Read the latest articles about fuel delivery, generator refueling, LPG gas delivery, and mobile energy logistics in Lahore, Pakistan.",
     keywords: "fuel delivery blog, diesel delivery articles, generator refueling guide, Lahore fuel news, Zyphuel blog, petrol price in Pakistan today, diesel price today Pakistan, OGRA fuel price update, fuel price news Pakistan, load shedding generator fuel, high octane petrol price Pakistan",
     canonical: `${DOMAIN}/blog/`,
-    ogImage: `${DOMAIN}/images/og-cover.jpg`,
+    ogImage: `${DOMAIN}/images/og-social-card.jpg`,
     ogType: 'website',
     schema: {
       "@graph": [
@@ -1339,7 +1349,7 @@ const ROUTES = [
     description: "The page you are looking for could not be found. Return to Zyphuel homepage or browse fuel delivery services in Lahore.",
     keywords: "404 not found, Zyphuel",
     canonical: `${DOMAIN}/404.html`,
-    ogImage: `${DOMAIN}/images/og-cover.jpg`,
+    ogImage: `${DOMAIN}/images/og-social-card.jpg`,
     ogType: 'website',
     noIndex: true,
     schema: {
@@ -1409,7 +1419,7 @@ const ROUTES = [
       description: clipText(article.summary, 155),
       keywords: `${article.tags.join(', ')}, fuel delivery Lahore, diesel delivery Lahore, Zyphuel`,
       canonical: `${DOMAIN}/blog/${article.slug}/`,
-      ogImage: article.image || `${DOMAIN}/images/og-cover.jpg`,
+      ogImage: socialImage(article.image, `${DOMAIN}/images/og-social-card.jpg`),
       ogType: 'article',
       articleMeta: {
         published: `${toISO(article.date)}T08:00:00+05:00`,
@@ -1509,19 +1519,27 @@ async function prerender() {
       `<meta property="og:image" content="${route.ogImage}" />`
     )
     html = html.replace(
+      /<meta\s+property=["']og:image:url["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
+      `<meta property="og:image:url" content="${route.ogImage}" />`
+    )
+    html = html.replace(
       /<meta\s+property=["']og:image:secure_url["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
       `<meta property="og:image:secure_url" content="${route.ogImage}" />`
     )
 
-    const ogImgExt = route.ogImage.match(/\.(jpeg|jpg)$/i) ? 'image/jpeg' : 'image/png'
-    html = html.replace(
-      /<meta\s+property=["']og:image:type["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
-      `<meta property="og:image:type" content="${ogImgExt}" />`
-    )
-
-    // Truthful og:image dimensions — read from the actual asset per route.
+    // Truthful og:image dimensions & type — read from the actual asset per route.
+    // Remote images report neither, rather than declaring a wrong number/format.
     const ogDims = localImageDims(route.ogImage)
     if (ogDims) {
+      const ogImgExt = route.ogImage.split('?')[0].match(/\.(png|webp|jpe?g)$/i)
+      const ogMime = !ogImgExt ? 'image/jpeg'
+        : ogImgExt[1].toLowerCase() === 'png' ? 'image/png'
+        : ogImgExt[1].toLowerCase() === 'webp' ? 'image/webp'
+        : 'image/jpeg'
+      html = html.replace(
+        /<meta\s+property=["']og:image:type["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
+        `<meta property="og:image:type" content="${ogMime}" />`
+      )
       html = html.replace(
         /<meta\s+property=["']og:image:width["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
         `<meta property="og:image:width" content="${ogDims.width}" />`
@@ -1531,7 +1549,7 @@ async function prerender() {
         `<meta property="og:image:height" content="${ogDims.height}" />`
       )
     } else {
-      // Unknown/remote image: drop the hints rather than ship a wrong number.
+      html = html.replace(/\s*<meta\s+property=["']og:image:type["'][^>]*>/i, '')
       html = html.replace(/\s*<meta\s+property=["']og:image:width["'][^>]*>/i, '')
       html = html.replace(/\s*<meta\s+property=["']og:image:height["'][^>]*>/i, '')
     }
@@ -1581,6 +1599,10 @@ async function prerender() {
     html = html.replace(
       /<meta\s+name=["']twitter:image["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
       `<meta name="twitter:image" content="${route.ogImage}" />`
+    )
+    html = html.replace(
+      /<meta\s+name=["']twitter:image:src["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
+      `<meta name="twitter:image:src" content="${route.ogImage}" />`
     )
     html = html.replace(
       /<meta\s+name=["']twitter:url["']\s+content=["'][\s\S]*?["']\s*\/?>/i,
