@@ -78,7 +78,8 @@ export default function AboutPage() {
             "@id": "https://zyphuel.netlify.app/#organization",
             "name": "Zyphuel",
             "url": "https://zyphuel.netlify.app",
-            "logo": "https://zyphuel.netlify.app/images/logo.png",
+            "logo": "https://zyphuel.netlify.app/images/og-social-card.jpg",
+            "image": "https://zyphuel.netlify.app/images/og-social-card.jpg",
             "sameAs": [
               "https://www.linkedin.com/company/zyphuel/",
               "https://share.google/Nb4XGKYq5aU0nzLr3",

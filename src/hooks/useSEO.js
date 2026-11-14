@@ -43,7 +43,8 @@ const GLOBAL_ORGANIZATION = {
   "@id": "https://zyphuel.netlify.app/#organization",
   "name": "Zyphuel",
   "url": "https://zyphuel.netlify.app",
-  "logo": "https://zyphuel.netlify.app/images/logo.png",
+  "logo": "https://zyphuel.netlify.app/images/og-social-card.jpg",
+  "image": "https://zyphuel.netlify.app/images/og-social-card.jpg",
   "telephone": "+923230112464",
   "email": "m.daniyalkhan490@gmail.com",
   "contactPoint": {
@@ -85,8 +86,8 @@ const GLOBAL_LOCAL_BUSINESS = {
     "@id": "https://zyphuel.netlify.app/#organization"
   },
   "url": "https://zyphuel.netlify.app",
-  "logo": "https://zyphuel.netlify.app/images/logo.png",
-  "image": "https://zyphuel.netlify.app/images/logo.png",
+  "logo": "https://zyphuel.netlify.app/images/og-social-card.jpg",
+  "image": "https://zyphuel.netlify.app/images/og-social-card.jpg",
   "telephone": "+923230112464",
   "email": "m.daniyalkhan490@gmail.com",
   "priceRange": "$$",
@@ -180,6 +181,7 @@ const GLOBAL_WEBSITE = {
   "url": "https://zyphuel.netlify.app",
   "name": "Zyphuel",
   "description": "On-demand petrol and diesel delivery for homes, generators and commercial fleets in Lahore, Pakistan.",
+  "image": "https://zyphuel.netlify.app/images/og-social-card.jpg",
   "publisher": {
     "@id": "https://zyphuel.netlify.app/#organization"
   },

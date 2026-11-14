@@ -160,7 +160,8 @@ export default function HomePage() {
       "name": "Zyphuel",
       "description": "Zyphuel delivers certified Euro-V petrol and diesel to your doorstep in Lahore, Pakistan — serving households, generator owners, and commercial fleets with calibrated digital metering and live GPS tracking.",
       "url": "https://zyphuel.netlify.app",
-      "logo": "https://zyphuel.netlify.app/images/logo.png",
+      "logo": "https://zyphuel.netlify.app/images/og-social-card.jpg",
+      "image": "https://zyphuel.netlify.app/images/og-social-card.jpg",
       "telephone": "+923230112464",
       "priceRange": "$$",
       "areaServed": [
