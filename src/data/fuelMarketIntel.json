@@ -1,18 +1,9 @@
 {
-  "lastUpdated": "2026-11-14T08:44:28.740784",
-  "dateFormatted": "November 14, 2026",
-  "dateISO": "2026-11-14",
+  "lastUpdated": "2026-11-15T08:56:49.014894",
+  "dateFormatted": "November 15, 2026",
+  "dateISO": "2026-11-15",
   "headlinesCount": 10,
   "headlines": [
-    {
-      "title": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify",
-      "summary": "Petrol price cut by Rs2 per litre, diesel rate unchanged &nbsp;&nbsp; Investify",
-      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPWEgzOVNhQ0dreWtpTzM3YWVvcnRmUkNSQVV4ZjQ0SEIwVEhHaWpzdnMwVXhQZklsR1dNSE82c3hMalZTRnZCMGlWZDhQaFRpX2xXU2NqQ0d3VHJjTmpEZ0RuV3J5aWlyWWhrUUpPNzJJRllUUUhWandkclhEV2lYLUFRMW9DMEFraXBDSFNWN0xvcGFuN00xZGhwdUp2clU?oc=5",
-      "published": "Sat, 14 Nov 2026 07:24:04 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "3b7b2171ef393f644ca6360a91ab3c67155f95a4b5a5a55f9180d7bae006f5cc"
-    },
     {
       "title": "Petrol price cut by by Rs2; high-speed diesel price remains unchanged - Dawn",
       "summary": "Petrol price cut by by Rs2; high-speed diesel price remains unchanged &nbsp;&nbsp; Dawn",
@@ -23,13 +14,31 @@
       "hash": "3ab65eba587f3008729c3c53fc4e4749a3ea1accc799138e6ec326c98059448d"
     },
     {
-      "title": "High-speed diesel price dips by Rs4 per litre, petrol by Rs3 - Dawn",
-      "summary": "High-speed diesel price dips by Rs4 per litre, petrol by Rs3 &nbsp;&nbsp; Dawn",
-      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9aSGd5NVNMR2NPeTFNYk1xdUlna1JtTTZCRnhlSEVNcGgyUXZ3Y0FCRlFuT3ZQVGdYc1hjVmFiQ0ZyZDhXTXcwRg?oc=5",
-      "published": "Thu, 12 Nov 2026 17:21:55 GMT",
+      "title": "Petrol price in Pakistan from 15 November: Rs330 per litre - Investify",
+      "summary": "Petrol price in Pakistan from 15 November: Rs330 per litre &nbsp;&nbsp; Investify",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNazhSNzJCcGhjeEVsVFNCNUZncmZzVjQwYk1uZk02NE12eGRKbC1sb1hELV95YVdDVzhZQVI2Y3hYZXhxaXlUWEZSaUxPUGVibkpOM1dza19EbjVfODRvbUpMVzZuZDV1UVAtaFowVWZ0cDBZYWNVTmFYOTJNdGFQckxBNUNmaG5XS1E5bk0tRlQ4a2ltNW1jNzR4NklmY3lxN2c?oc=5",
+      "published": "Sat, 14 Nov 2026 19:00:00 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "36b7b726db2ed8dbcd4d696cc53a85ab9bfaaae8430c9b7678f035b0fae3a6b2"
+      "hash": "2306633dd98059e5b3ed7fc10ec31d0604b85b5bd8622ff7ccf8abfb4756bfea"
+    },
+    {
+      "title": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify",
+      "summary": "Petrol price cut by Rs2 per litre, diesel rate unchanged &nbsp;&nbsp; Investify",
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPWEgzOVNhQ0dreWtpTzM3YWVvcnRmUkNSQVV4ZjQ0SEIwVEhHaWpzdnMwVXhQZklsR1dNSE82c3hMalZTRnZCMGlWZDhQaFRpX2xXU2NqQ0d3VHJjTmpEZ0RuV3J5aWlyWWhrUUpPNzJJRllUUUhWandkclhEV2lYLUFRMW9DMEFraXBDSFNWN0xvcGFuN00xZGhwdUp2clU?oc=5",
+      "published": "Sat, 14 Nov 2026 07:24:04 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "3b7b2171ef393f644ca6360a91ab3c67155f95a4b5a5a55f9180d7bae006f5cc"
+    },
+    {
+      "title": "Govt cuts petrol price by Rs2 per litre, keeps diesel rate unchanged - Geo News",
+      "summary": "Govt cuts petrol price by Rs2 per litre, keeps diesel rate unchanged &nbsp;&nbsp; Geo News",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9pbXZtZUpsa1JoNmUyZ012SmFiTWdfOFY0Tm56QzE3dzVza1N0SUItZEtwODl0Sm8yU1ZRcDd0YUZMWnRpcWhzWUdhSlNtNkc4eE5TOGJMdFV0ZUpja1RGVjhycU45SzM1TEVnUk5uUmMwZDdt?oc=5",
+      "published": "Fri, 13 Nov 2026 19:42:13 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "541ed81b4690453888e8496d743594ac43540e587165c2055c59859224bb0c67"
     },
     {
       "title": "Govt cuts petrol price, keeps diesel rate unchanged - Aaj English TV",
@@ -41,13 +50,13 @@
       "hash": "ad885d6d28b6338f248064d98cdb2597200b8c9717d671488455262a3e86834e"
     },
     {
-      "title": "Govt slashes petrol price by Rs3 per litre, diesel by Rs4 - Geo News",
-      "summary": "Govt slashes petrol price by Rs3 per litre, diesel by Rs4 &nbsp;&nbsp; Geo News",
-      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9pbXZtZUpsa1JoNmUyZ012SmFiTWdfOFY0Tm56QzE3dzVza1N0SUItZEtwODl0Sm8yU1ZRcDd0YUZMWnRpcWhzWUdhSlNtNkc4eE5TOGJMdFV0ZUpja1RGVjhycU45SzM1TEVnUk5uUmMwZDdt?oc=5",
-      "published": "Fri, 13 Nov 2026 04:50:13 GMT",
+      "title": "Petrol price reduced as OGRA issues new notification - ARYnews.tv",
+      "summary": "Petrol price reduced as OGRA issues new notification &nbsp;&nbsp; ARYnews.tv",
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBEaXRkVlVaSmdIY2x5SGxZZ1BWQXRWRWRRY1F4YmdPUm9lTXRnTXlseDZNUzVfMGl6aEFqTGNLWmZGMUZtazd6ZzRLRFVrTUlIczgyUlVkVWhFc1FuVVp0NXloVUU5OHV4eHRiOEQ4czFCZXNORmEwdnY5OA?oc=5",
+      "published": "Fri, 13 Nov 2026 17:40:19 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "66dcbf590e86b9f02a9b39009be0f65ba9428f67b4978fb3130b6d0c21a8481b"
+      "hash": "85ce07437d1597073673a671d6b407e6b27ed89ff90b10ddc25d0de4518ce680"
     },
     {
       "title": "Ogra cuts petrol price by Rs2, keeps diesel unchanged - Hum News English",
@@ -77,22 +86,13 @@
       "hash": "55c1a1c4e31400ea6d16078df230079416164154056fc8e50492ebef9f0be6e5"
     },
     {
-      "title": "OGRA announces reduction in petrol prices, keeps diesel rates unchanged - Pakistan Connect",
-      "summary": "OGRA announces reduction in petrol prices, keeps diesel rates unchanged &nbsp;&nbsp; Pakistan Connect",
-      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5XRmVRMDZYSFUyMmdZZkE0LUdyc3ExQXZVbk1Da2w5YVV1OU9GTnI5eVB3V0JhWFFrYlBVYm5ZcXBwRENPd0dYeFRaZDBEZm5wQ2lmbWhTVmdrRXJOek82MnRMZEg2RGtDTGUxQ0RCZE1sWDcwMjY1RHFhZm16Zw?oc=5",
-      "published": "Fri, 13 Nov 2026 17:40:10 GMT",
+      "title": "petrol price drop continues as diesel remains steady this - NewzTodays",
+      "summary": "petrol price drop continues as diesel remains steady this &nbsp;&nbsp; NewzTodays",
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE4tcFc5WWROdV9wNHdJU0swS0xPUEwzbDdzR0FkVTZhV0NsVi1pdXhQRW04cFNmNmVzQ2VabzQwakFKNWcyQVZqS1cyUWVxVnJwalBJTHFjR3FEdFJuZU5qM3FzekZYVGFHaVRPd1YySWdvZE1nZGtFc3dodw?oc=5",
+      "published": "Sat, 14 Nov 2026 07:49:10 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "5c5a47e18bf5c8f15d29d7543570632d6bb25d96e96c192f55205a5b2a6d0c81"
-    },
-    {
-      "title": "New petrol, diesel prices announced by OGRA - ARYnews.tv",
-      "summary": "New petrol, diesel prices announced by OGRA &nbsp;&nbsp; ARYnews.tv",
-      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1tUUZGYWRiamVVUW43VFVtUUZIOGtUeElUb0xjSW5FcF9JaHROZVk1U2Q4ck1fQ1lPajRscF8tMjRLeGY2ODBHcnZVc0ZMdW1fRnU4YmQwTTRSYlhLcFE?oc=5",
-      "published": "Thu, 12 Nov 2026 17:31:22 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "f48c976e6478f5e6b0e190ff7f516c533aae522eda9e6826a734b91315fa25b9"
+      "hash": "6bd4a8a2c22da7cde0679e8f07d0ba423dc84ea40452470bcfa3cf0439812704"
     }
   ],
   "businessRules": {
@@ -106,154 +106,154 @@
   },
   "articles": {
     "future-of-fuel-delivery-lahore": {
-      "date": "November 14, 2026",
-      "headline": "Daily Petroleum Market Intelligence (November 14, 2026)",
+      "date": "November 15, 2026",
+      "headline": "Daily Petroleum Market Intelligence (November 15, 2026)",
       "summary": "OGRA daily rolling Platts benchmark monitor active. Rates adjust daily Monday through Friday, with weekend rates locked. Lock in your doorstep refuel at current rates before depot changes. Fixed Rs. 300.00 delivery fee for 5L–10L; Rs. 320–Rs. 400 for 11L–15L Max.",
       "topic": "daily_pricing_ogra",
       "points": [
-        {
-          "label": "Market Intelligence",
-          "text": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))"
-        },
         {
           "label": "Market Intelligence",
           "text": "Petrol price cut by by Rs2; high-speed diesel price remains unchanged - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "High-speed diesel price dips by Rs4 per litre, petrol by Rs3 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price in Pakistan from 15 November: Rs330 per litre - Investify (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "download-zyphuel-apk-guide": {
-      "date": "November 14, 2026",
-      "headline": "Daily Petroleum Market Intelligence (November 14, 2026)",
+      "date": "November 15, 2026",
+      "headline": "Daily Petroleum Market Intelligence (November 15, 2026)",
       "summary": "Zyphuel Android APK (v2.6.4+) delivers live lock-screen OGRA rate alerts, GPS sector auto-pinning, and Bluetooth bowser telemetry across Lahore. Orders strictly 5L to 15L Max delivered within 20–45 mins.",
       "topic": "apk_mobile_telemetry",
       "points": [
-        {
-          "label": "Market Intelligence",
-          "text": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))"
-        },
         {
           "label": "Market Intelligence",
           "text": "Petrol price cut by by Rs2; high-speed diesel price remains unchanged - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "High-speed diesel price dips by Rs4 per litre, petrol by Rs3 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price in Pakistan from 15 November: Rs330 per litre - Investify (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "generator-refueling-services-lahore": {
-      "date": "November 14, 2026",
-      "headline": "Daily Petroleum Market Intelligence (November 14, 2026)",
+      "date": "November 15, 2026",
+      "headline": "Daily Petroleum Market Intelligence (November 15, 2026)",
       "summary": "Emergency load-shedding generator backup: 100% Euro-V Hi-Cetane Diesel delivered directly to your rooftop or basement generator with 50-meter anti-static reels. Zero manual jerrycan risks in residential or commercial plazas.",
       "topic": "generator_diesel_backup",
       "points": [
-        {
-          "label": "Market Intelligence",
-          "text": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))"
-        },
         {
           "label": "Market Intelligence",
           "text": "Petrol price cut by by Rs2; high-speed diesel price remains unchanged - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "High-speed diesel price dips by Rs4 per litre, petrol by Rs3 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price in Pakistan from 15 November: Rs330 per litre - Investify (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "generator-diesel-lpg-delivery-lahore": {
-      "date": "November 14, 2026",
-      "headline": "Daily Petroleum Market Intelligence (November 14, 2026)",
+      "date": "November 15, 2026",
+      "headline": "Daily Petroleum Market Intelligence (November 15, 2026)",
       "summary": "Certified hazardous materials handling: Positive-displacement calibrated dispensing and sealed utilities. Strict 5L min to 15L max per dispatch with fixed Rs. 300 fee up to 10L, avoiding hazardous loose decanting.",
       "topic": "safe_fuel_handling",
       "points": [
-        {
-          "label": "Market Intelligence",
-          "text": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))"
-        },
         {
           "label": "Market Intelligence",
           "text": "Petrol price cut by by Rs2; high-speed diesel price remains unchanged - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "High-speed diesel price dips by Rs4 per litre, petrol by Rs3 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price in Pakistan from 15 November: Rs330 per litre - Investify (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "iot-telemetry-fuel-delivery": {
-      "date": "November 14, 2026",
-      "headline": "Daily Petroleum Market Intelligence (November 14, 2026)",
+      "date": "November 15, 2026",
+      "headline": "Daily Petroleum Market Intelligence (November 15, 2026)",
       "summary": "Weights & Measures certified positive-displacement flow meters with 1,000 pulses/litre optical encoders. 15°C Automatic Temperature Compensation (ATC) counteracts Lahore summer heat expansion with 0.01L verified precision.",
       "topic": "metering_telemetry",
       "points": [
-        {
-          "label": "Market Intelligence",
-          "text": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))"
-        },
         {
           "label": "Market Intelligence",
           "text": "Petrol price cut by by Rs2; high-speed diesel price remains unchanged - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "High-speed diesel price dips by Rs4 per litre, petrol by Rs3 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price in Pakistan from 15 November: Rs330 per litre - Investify (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "zyphuel-calibrated-telemetry-fleet": {
-      "date": "November 14, 2026",
-      "headline": "Daily Petroleum Market Intelligence (November 14, 2026)",
+      "date": "November 15, 2026",
+      "headline": "Daily Petroleum Market Intelligence (November 15, 2026)",
       "summary": "Founder Muhammad Daniyal's agile micro-refueler fleet operates across DHA, Gulberg, Johar Town, Bahria Town, and Model Town. Delivered within within 45 minutes (single delivery window) with instant Raast, JazzCash, Easypaisa QR payments.",
       "topic": "founder_fleet_network",
       "points": [
-        {
-          "label": "Market Intelligence",
-          "text": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))"
-        },
         {
           "label": "Market Intelligence",
           "text": "Petrol price cut by by Rs2; high-speed diesel price remains unchanged - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "High-speed diesel price dips by Rs4 per litre, petrol by Rs3 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price in Pakistan from 15 November: Rs330 per litre - Investify (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
       "verifiedStatus": "Active Verified"
     },
     "global-vs-pakistan-on-demand-fuel-delivery-benchmarks": {
-      "date": "November 14, 2026",
-      "headline": "Daily Petroleum Market Intelligence (November 14, 2026)",
+      "date": "November 15, 2026",
+      "headline": "Daily Petroleum Market Intelligence (November 15, 2026)",
       "summary": "Comparing global leaders (CAFU, Booster, FuelBuddy) with Zyphuel in Lahore. Calibrated 0.01L flow meters, 50m long-reach hoses, dual optical verification (QR + Code 128), and strictly 5L–15L order limits tailored for Pakistan.",
       "topic": "global_benchmarks",
       "points": [
-        {
-          "label": "Market Intelligence",
-          "text": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))"
-        },
         {
           "label": "Market Intelligence",
           "text": "Petrol price cut by by Rs2; high-speed diesel price remains unchanged - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
-          "text": "High-speed diesel price dips by Rs4 per litre, petrol by Rs3 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price in Pakistan from 15 November: Rs330 per litre - Investify (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Petrol price cut by Rs2 per litre, diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
