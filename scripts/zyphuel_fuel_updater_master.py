@@ -395,6 +395,11 @@ class FuelPriceScraper:
             "parser": "_parse_pso",
         },
         {
+            "name": "Shell Pakistan",
+            "url": "https://www.shell.com.pk/motorists/shell-fuels/fuel-pricing.html",
+            "parser": "_parse_shell",
+        },
+        {
             "name": "ProPakistani",
             "url": "https://propakistani.pk/fuel-prices/",
             "parser": "_parse_propakistani",
@@ -403,6 +408,16 @@ class FuelPriceScraper:
             "name": "HamariWeb",
             "url": "https://hamariweb.com/finance/petrol-price-pakistan.aspx",
             "parser": "_parse_hamariweb",
+        },
+        {
+            "name": "PriceOye",
+            "url": "https://priceoye.pk/petrol-prices-in-pakistan",
+            "parser": "_parse_generic_page",
+        },
+        {
+            "name": "Pakwheels Fuel",
+            "url": "https://www.pakwheels.com/fuel-prices",
+            "parser": "_parse_generic_page",
         },
     ]
 
@@ -462,12 +477,43 @@ class FuelPriceScraper:
                 prices["highOctane"] = val
         return prices if prices.get("petrol") else None
 
+    def _parse_shell(self, html: str) -> Optional[Dict[str, float]]:
+        """Parse fuel prices from Shell Pakistan website."""
+        prices = {}
+        # Shell shows prices in a structured format with product names
+        # Try structured table first, then fall back to generic patterns
+        text = re.sub(r"<[^>]+>", " ", html)
+        text = re.sub(r"\s+", " ", text)
+
+        # Shell uses "Super" for petrol, "Diesel" for HSD, "Premium" for high octane
+        for fuel, patterns in [
+            ("petrol", [r"(?:super\s*(?:petrol)?|premier\s*motor\s*gasoline|pmg)",
+                        r"(?:motor\s*(?:spirit|gasoline))"]),
+            ("diesel", [r"(?:high\s*speed\s*diesel|hsd|diesel)"]),
+            ("highOctane", [r"(?:v[- ]?power|premium|hi[- ]?octane|hobc|tamgha)"]),
+        ]:
+            for pat in patterns:
+                m = re.search(
+                    pat + r"[^0-9]{0,100}?(?:Rs\.?\s*)?(\d{2,4}(?:\.\d{1,2})?)",
+                    text, re.IGNORECASE
+                )
+                if m:
+                    val = float(m.group(1))
+                    if 100 < val < 800:
+                        prices[fuel] = val
+                        break
+        return prices if prices.get("petrol") else None
+
     def _parse_propakistani(self, html: str) -> Optional[Dict[str, float]]:
         """Parse fuel prices from ProPakistani fuel prices page."""
         return self._generic_table_parser(html)
 
     def _parse_hamariweb(self, html: str) -> Optional[Dict[str, float]]:
         """Parse fuel prices from HamariWeb finance page."""
+        return self._generic_table_parser(html)
+
+    def _parse_generic_page(self, html: str) -> Optional[Dict[str, float]]:
+        """Parse fuel prices from any page with standard fuel price layout."""
         return self._generic_table_parser(html)
 
     def _generic_table_parser(self, html: str) -> Optional[Dict[str, float]]:
@@ -830,6 +876,10 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Preview updates without modifying files")
     parser.add_argument("--git-commit", action="store_true", help="Auto-commit and push changes to Git")
     parser.add_argument("--netlify-hook", type=str, help="Netlify Build Hook URL to trigger rebuild")
+    parser.add_argument(
+        "--set-prices", type=str, default=None,
+        help="Manually set fuel prices (emergency override). Format: petrol=330,diesel=331,highOctane=345"
+    )
     args = parser.parse_args()
 
     print(f"""
@@ -843,6 +893,31 @@ Time    : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 """)
 
     repo_root = Path.cwd()
+
+    # Emergency manual price override: --set-prices petrol=330,diesel=331,highOctane=345
+    if args.set_prices:
+        logger.info(f"Manual price override mode: {args.set_prices}")
+        manual_prices = {}
+        for pair in args.set_prices.split(","):
+            key, val = pair.strip().split("=")
+            manual_prices[key.strip()] = float(val.strip())
+        if manual_prices.get("petrol"):
+            price_scraper = FuelPriceScraper()
+            price_scraper.update_live_json(manual_prices, repo_root, dry_run=args.dry_run)
+            price_scraper.update_fallback_js(manual_prices, repo_root, dry_run=args.dry_run)
+            logger.info(f"Manual prices applied: {manual_prices}")
+            if args.git_commit and not args.dry_run:
+                DeploymentManager.git_commit_and_push(
+                    f"fix(fuel-prices): manual price update — petrol Rs. {manual_prices['petrol']:.2f}/L [{datetime.now().strftime('%Y-%m-%d')}]"
+                )
+            if args.netlify_hook or os.getenv("NETLIFY_BUILD_HOOK"):
+                DeploymentManager.trigger_netlify_build_hook(args.netlify_hook)
+            print(f"✅ Manual prices applied and committed: {manual_prices}")
+            return
+        else:
+            logger.error("Manual override requires at least petrol= price.")
+            return
+
     state_mgr = StateManager()
     harvester = SearchIntelligenceHarvester()
 
@@ -867,7 +942,9 @@ Time    : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
         price_scraper.update_live_json(scraped_prices, repo_root, dry_run=args.dry_run)
         price_scraper.update_fallback_js(scraped_prices, repo_root, dry_run=args.dry_run)
     else:
-        logger.warning("Could not scrape live fuel prices — existing values remain unchanged.")
+        logger.warning("Could not scrape live fuel prices from any source — existing values remain unchanged.")
+        logger.error("FUEL_PRICE_SCRAPE_FAILED: All price sources (PSO, ProPakistani, HamariWeb, Google News headlines) failed. Website will display stale prices until next successful update.")
+        sys.exit(1)
 
     # Step 2: Synchronize frontend JSON data
     sync = PlatformSynchronizer(root_dir=repo_root)

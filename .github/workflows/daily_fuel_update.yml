@@ -1,13 +1,15 @@
-name: Daily Zyphuel Fuel Intelligence & Article Auto-Updater
+name: Daily Zyphuel Fuel Intelligence & Price Auto-Updater
 
 on:
   schedule:
-    # Daily 02:00 UTC (07:00 AM PKT - subah OGRA petroleum update ke foran baad)
+    # Run twice daily: 02:00 UTC (7:00 AM PKT) and 14:00 UTC (7:00 PM PKT)
+    # OGRA prices typically change fortnightly, but running twice catches changes faster
     - cron: '0 2 * * *'
+    - cron: '0 14 * * *'
   workflow_dispatch: # GitHub Actions tab se manual run button
 
 jobs:
-  update-fuel-articles:
+  update-fuel-prices-and-articles:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -28,8 +30,31 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Run Zyphuel Fuel Master Updater
+      - name: Run Zyphuel Fuel Master Updater (prices + articles)
         env:
           NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
         run: |
-          python scripts/zyphuel_fuel_updater_master.py --git-commit
+          python scripts/zyphuel_fuel_updater_master.py --git-commit --netlify-hook "$NETLIFY_BUILD_HOOK"
+
+      - name: Trigger Netlify Rebuild (backup)
+        if: success()
+        env:
+          NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+        run: |
+          if [ -n "$NETLIFY_BUILD_HOOK" ]; then
+            echo "Triggering Netlify rebuild..."
+            curl -X POST -d '{}' "$NETLIFY_BUILD_HOOK" || echo "Netlify hook failed (non-fatal)"
+          else
+            echo "No NETLIFY_BUILD_HOOK secret set — skipping rebuild trigger."
+            echo "To enable auto-rebuild: add a Netlify Build Hook URL as a GitHub secret named NETLIFY_BUILD_HOOK"
+          fi
+
+      - name: Check Fuel Price Update Status
+        if: failure()
+        run: |
+          echo "⚠️ Fuel price update failed!"
+          echo "Check the logs for details."
+          echo "Common fixes:"
+          echo "  1. Check if PSO/Shell/ProPakistani websites changed their HTML structure"
+          echo "  2. Verify internet connectivity from GitHub Actions"
+          echo "  3. Run manually: python scripts/zyphuel_fuel_updater_master.py --force"
