@@ -376,8 +376,8 @@ export default function HomePage() {
                 >
                   <i className="fa-brands fa-android"></i> Download App
                 </Link>
-                <Link to="/about/" className="btn btn-ghost">
-                  Learn More About Zyphuel <i className="fa-solid fa-arrow-right"></i>
+                <Link to="/services/" className="btn btn-ghost">
+                  Services <i className="fa-solid fa-list"></i>
                 </Link>
               </div>
 
