@@ -11,6 +11,8 @@
  * express tier, order intake 8:00 AM – 10:00 PM PKT, 24/7 WhatsApp helpline.
  */
 
+import { RELEASE_DATE, IOS_VERSION, IOS_SIZE } from './appVersion.js';
+
 export const NEW_ARTICLES_2026_11_10 = [
   {
     id: 18,
