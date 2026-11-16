@@ -22,9 +22,9 @@
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: OGRA daily rolling Platts benchmark monitor active. Rates adjust daily Monday through Friday, with weekend rates locked. Lock in your doorstep refuel at current rates before depot changes. Fixed Rs. 300.00 delivery fee for 5L–10L; Rs. 320–Rs. 400 for 11L–15L Max.
 >
+- **Market Intelligence**: Govt reduces petrol, diesel prices by Rs2 per litre - Dawn (Google News (Petrol Price Pakistan))
 - **Market Intelligence**: Cnergyico urges OGRA to revise diesel production target, review petrol pricing mechanism - Investify (Google News (Petrol Price Pakistan))
 - **Market Intelligence**: Cnergyico Urges OGRA to Review Refinery Targets, Warns Revised Petrol Pricing Threatens Operations - Energy Update (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Cnergyico asks OGRA to set November HSD target at 130,000 metric tons - Investify (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
