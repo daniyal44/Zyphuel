@@ -13,6 +13,86 @@
 
 export const NEW_ARTICLES_2026_11_10 = [
   {
+    id: 18,
+    slug: 'zyphuel-ios-app-step-by-step-guide',
+    category: 'Zyphuel App & Guides',
+    categoryClass: 'zyphuel-app',
+    title: 'How to Use Zyphuel on iPhone & iPad: Step-by-Step iOS Guide',
+    summary: 'A practical step-by-step guide for iPhone and iPad users to order fuel doorstep delivery through the Zyphuel iOS web app, covering GPS location pinning, fuel grade selection, and metered delivery within 45 minutes in Lahore.',
+    date: RELEASE_DATE,
+    readTime: '7 min read',
+    author: 'Zyphuel App Engineering',
+    authorIcon: 'fa-solid fa-mobile-screen-button',
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=720&q=80',
+    tags: ['ZyphueliOS', 'iOSFuelDelivery', 'iPhoneFuelApp', 'iPadFuelOrder', 'iOS17Plus'],
+    keyTakeaways: [
+      'The Zyphuel iOS web app (v${IOS_VERSION}, ${IOS_SIZE}) works on iPhone and iPad with iOS 17.0+',
+      'Orders are placed through the iOS web portal at zyphuel.netlify.app/order/ between 8:00 AM and 10:00 PM PKT daily',
+      'GPS auto-pinning detects your Lahore address to sub-sector accuracy — DHA, Gulberg, Johar Town, Bahria Town and all covered zones',
+      'You choose a fuel grade (Euro-V Petrol, High-Octane 97 or Euro-V Diesel), pick 5 to 15 litres, and see the full price breakdown before confirming',
+      'A grounded micro-refueler bowser dispatches within 45 minutes with a calibrated 0.01 litre digital flow meter',
+      'After dispensing, the exact metered volume, OGRA rate, margin and delivery fee appear on a QR/barcoded PDF invoice sent to your phone'
+    ],
+    sections: [
+      {
+        heading: 'Step 1: Open the iOS Web Portal',
+        subheading: 'Two entry points, one ordering flow',
+        paragraphs: [
+          'Zyphuel accepts fuel orders through the iOS web portal at zyphuel.netlify.app/order/. This channel feeds into the same dispatch system as the Android app, so the experience after checkout is identical regardless of which platform you use.',
+          'The iOS web portal opens daily at 8:00 AM PKT and closes strictly at 10:00 PM PKT. Outside that window the checkout button is disabled by design, not by a bug. For genuine emergencies after hours, the WhatsApp helpline on +92 3230-112464 is answered around the clock.'
+        ]
+      },
+      {
+        heading: 'Step 2: Pin Your Location and Select Fuel',
+        subheading: 'GPS auto-detection across Lahore sectors',
+        paragraphs: [
+          'When you open the order form, the iOS web app requests location permission and auto-pins your address to the nearest covered sector in Lahore. Covered zones include Gulberg, DHA Phase 1 through 9, Johar Town, Model Town, Wapda Town, Cantonment, Bahria Town, Faisal Town, Garden Town, Valencia Town, Township, Green Town, Allama Iqbal Town, Samanabad, Shalimar, Mughalpura and the Canal Road corridor.',
+          'After confirming your address, you select a fuel grade: Super Euro-V Petrol (92 Octane), High-Octane 97 or Euro-V Diesel. Each grade shows the current OGRA ex-depot rate for the day. You then pick the volume — anywhere from 5 litres (the minimum) to 15 litres (the maximum per doorstep order) using a slider or direct entry.'
+        ]
+      },
+      {
+        heading: 'Step 3: Review the Price Breakdown and Confirm',
+        subheading: 'Three lines, no hidden charges',
+        paragraphs: [
+          'Before you tap confirm, the order page shows three separate lines: the fuel cost (litres multiplied by the OGRA rate), the retail margin (litres multiplied by Rs. 5.00), and the delivery fee. The delivery fee is Rs. 300.00 for 5 to 10 litres, and scales in Rs. 20.00 steps from Rs. 320.00 to Rs. 400.00 for 11 to 15 litres. There is no distance surcharge, no convenience fee and no express tier.',
+          'Payment is Cash on Delivery for orders of 5 to 10 litres. After reviewing the total, you confirm the order and the dispatch system assigns the nearest available micro-refueler bowser. You receive a confirmation with an estimated arrival time — the standard is within 45 minutes from confirmation.',
+          'If the OGRA rate changes between the time you open the form and the time you confirm, the order page reflects the updated rate. The price you see at confirmation is the price you pay.'
+        ]
+      },
+      {
+        heading: 'Step 4: Track the Bowser and Receive Your Fuel',
+        subheading: 'Live GPS dispatch and metered dispensing',
+        paragraphs: [
+          'Once dispatched, the iOS web app shows the bowser moving towards your pinned location on a live map. The rider operates a HAZMAT-certified micro-refueler equipped with a grounding wire, a fire suppression kit and a 50-metre hose that reaches most parking spots and generator rooms without repositioning the vehicle.',
+          'Fuel is dispensed directly into your vehicle tank or generator tank through a calibrated electronic positive-displacement flow meter that records volume to 0.01 litres. You watch the meter reading in real time on the operator tablet. When dispensing finishes, the system generates a QR/barcoded PDF invoice showing the exact litres dispensed, the per-litre rate, the margin and the delivery fee — sent instantly to your phone.'
+        ]
+      }
+    ],
+    faqs: [
+      {
+        question: 'How do I order petrol online on iPhone in Lahore?',
+        answer: 'Visit zyphuel.netlify.app/order/ on your iPhone or iPad between 8:00 AM and 10:00 PM PKT. Pin your location, select your fuel grade and volume (5 to 15 litres), review the price breakdown, and confirm. A bowser dispatches within 45 minutes.'
+      },
+      {
+        question: 'Is there a Zyphuel app for iOS?',
+        answer: 'The Zyphuel iOS web app works on iPhone and iPad with iOS 17.0+. All ordering functionality is available through the web portal at zyphuel.netlify.app/order/. The official iOS App Store version is launching soon.'
+      },
+      {
+        question: 'What iOS version is required to use the iOS web app?',
+        answer: 'iOS 17.0 or newer. The iOS web app is optimized for iPhone and iPad and runs in any modern mobile browser.'
+      },
+      {
+        question: 'Can I use biometric checkout (Face ID/Touch ID) on iOS?',
+        answer: 'Yes. The iOS web app supports Face ID and Touch ID for fast, secure checkout without having to type passwords every time.'
+      }
+    ],
+    content: [
+      'Ordering fuel through the Zyphuel iOS web app is a five-step process: open the web portal, pin your GPS location, select fuel grade and volume (5 to 15 litres), review the transparent price breakdown, and confirm. A micro-refueler bowser dispatches within 45 minutes.',
+      'Place an order at zyphuel.netlify.app/order/ between 8:00 AM and 10:00 PM PKT, or use the iOS web app on your iPhone or iPad. With automatic price alerts, 45-minute delivery, a fixed Rs. 300 fee for orders up to 10 Litres, and flexible payments (Cash on Delivery up to 10L, plus JazzCash, Easypaisa, NayaPay, and Raast QR), the iOS web app gives you certified fuel without station queues.',
+      `Version ${IOS_VERSION} includes live GPS auto-detection, real-time fuel rate tracking, and metered dispensing with 0.01L precision for iPhone and iPad users in Lahore.`
+    ]
+  },
+  {
     id: 15,
     slug: 'petrol-delivery-app-lahore-how-it-works',
     category: 'How It Works',
