@@ -53,6 +53,8 @@ DATA_OUTPUT_FILE = Path("src/data/fuelMarketIntel.json")
 DOCS_SUBPAGES_DIR = Path("docs/pages/subpages")
 DOCS_ARTICLES_INDEX = Path("docs/articles.md")
 SITEMAP_PATH = Path("public/sitemap.xml")
+FUEL_PRICES_LIVE_JSON = Path("public/fuelPricesLive.json")
+FUEL_PRICES_JS = Path("src/data/fuelPrices.js")
 
 # Search / RSS Feeds for Fuel & Petrol News in Pakistan / Lahore
 DEFAULT_SEARCH_FEEDS = [
@@ -379,6 +381,254 @@ class IntelligenceSynthesizer:
         }
 
 # ------------------------------------------------------------------------------
+# Fuel Price Scraper & Auto-Updater
+# ------------------------------------------------------------------------------
+class FuelPriceScraper:
+    """Scrapes current OGRA fuel prices from multiple Pakistani sources and
+    updates both public/fuelPricesLive.json (for the frontend) and
+    src/data/fuelPrices.js (hardcoded fallback)."""
+
+    PRICE_SOURCES = [
+        {
+            "name": "PSO Pakistan",
+            "url": "https://psopk.com/en/products-and-services/product-prices",
+            "parser": "_parse_pso",
+        },
+        {
+            "name": "ProPakistani",
+            "url": "https://propakistani.pk/fuel-prices/",
+            "parser": "_parse_propakistani",
+        },
+        {
+            "name": "HamariWeb",
+            "url": "https://hamariweb.com/finance/petrol-price-pakistan.aspx",
+            "parser": "_parse_hamariweb",
+        },
+    ]
+
+    def __init__(self, headers: Optional[Dict[str, str]] = None):
+        self.headers = headers or {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                          "(KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 (ZyphuelPriceBot/1.0)"
+        }
+
+    def _fetch_html(self, url: str) -> Optional[str]:
+        try:
+            req = urllib.request.Request(url, headers=self.headers)
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                return resp.read().decode("utf-8", errors="replace")
+        except Exception as e:
+            logger.warning(f"FuelPriceScraper: failed to fetch {url}: {e}")
+            return None
+
+    @staticmethod
+    def _extract_price(text: str) -> Optional[float]:
+        """Extract a numeric price from text like 'Rs. 330.00' or '330.00 PKR'."""
+        m = re.search(r"(?:Rs\.?\s*)?(\d{2,4}(?:\.\d{1,2})?)", text)
+        if m:
+            val = float(m.group(1))
+            if 50 < val < 1000:  # sanity: PKR fuel prices are 50–1000
+                return val
+        return None
+
+    def _parse_pso(self, html: str) -> Optional[Dict[str, float]]:
+        """Parse fuel prices from PSO website HTML."""
+        prices = {}
+        # PSO typically has a table with product names and prices
+        # Look for patterns like: Super / Rs. 330.00
+        petrol_match = re.search(
+            r"(?:super|petrol|mogas|ms)[^0-9]*?(?:Rs\.?\s*)?(\d{2,4}\.\d{2})",
+            html, re.IGNORECASE
+        )
+        diesel_match = re.search(
+            r"(?:diesel|hsd|high\s*speed)[^0-9]*?(?:Rs\.?\s*)?(\d{2,4}\.\d{2})",
+            html, re.IGNORECASE
+        )
+        hobc_match = re.search(
+            r"(?:hi[- ]?octane|hobc|97)[^0-9]*?(?:Rs\.?\s*)?(\d{2,4}\.\d{2})",
+            html, re.IGNORECASE
+        )
+        if petrol_match:
+            val = float(petrol_match.group(1))
+            if 50 < val < 1000:
+                prices["petrol"] = val
+        if diesel_match:
+            val = float(diesel_match.group(1))
+            if 50 < val < 1000:
+                prices["diesel"] = val
+        if hobc_match:
+            val = float(hobc_match.group(1))
+            if 50 < val < 1000:
+                prices["highOctane"] = val
+        return prices if prices.get("petrol") else None
+
+    def _parse_propakistani(self, html: str) -> Optional[Dict[str, float]]:
+        """Parse fuel prices from ProPakistani fuel prices page."""
+        return self._generic_table_parser(html)
+
+    def _parse_hamariweb(self, html: str) -> Optional[Dict[str, float]]:
+        """Parse fuel prices from HamariWeb finance page."""
+        return self._generic_table_parser(html)
+
+    def _generic_table_parser(self, html: str) -> Optional[Dict[str, float]]:
+        """Generic parser that looks for petrol/diesel price patterns in HTML."""
+        prices = {}
+        # Strip HTML tags for easier regex
+        text = re.sub(r"<[^>]+>", " ", html)
+        text = re.sub(r"\s+", " ", text)
+
+        # Look for patterns like "Petrol ... Rs 330.00" or "Petrol Price: Rs. 330"
+        for fuel, keys in [
+            ("petrol", [r"(?:petrol|super|mogas|motor\s*spirit)"]),
+            ("diesel", [r"(?:diesel|hsd|high\s*speed\s*diesel)"]),
+            ("highOctane", [r"(?:hi[- ]?octane|hobc|octane\s*97|premier)"]),
+        ]:
+            for key_pat in keys:
+                m = re.search(
+                    key_pat + r"[^0-9]{0,80}?(?:Rs\.?\s*)?(\d{2,4}(?:\.\d{1,2})?)",
+                    text, re.IGNORECASE
+                )
+                if m:
+                    val = float(m.group(1))
+                    if 50 < val < 1000:
+                        prices[fuel] = val
+                        break
+        return prices if prices.get("petrol") else None
+
+    def scrape_from_news_headlines(self, items: List) -> Optional[Dict[str, float]]:
+        """Extract prices from already-harvested news headlines as a last resort."""
+        prices = {}
+        for item in items:
+            text = f"{item.title} {item.summary}" if hasattr(item, "summary") else str(item)
+            # Look for "petrol price ... Rs X per litre" patterns
+            m = re.search(
+                r"petrol[^0-9]{0,40}?(?:Rs\.?\s*)?(\d{2,4}(?:\.\d{1,2})?)\s*(?:per\s*litre|/l|pkr)?",
+                text, re.IGNORECASE
+            )
+            if m:
+                val = float(m.group(1))
+                if 100 < val < 600:
+                    prices["petrol"] = val
+            m2 = re.search(
+                r"diesel[^0-9]{0,40}?(?:Rs\.?\s*)?(\d{2,4}(?:\.\d{1,2})?)\s*(?:per\s*litre|/l|pkr)?",
+                text, re.IGNORECASE
+            )
+            if m2:
+                val = float(m2.group(1))
+                if 100 < val < 600:
+                    prices["diesel"] = val
+            if prices.get("petrol"):
+                break
+        return prices if prices.get("petrol") else None
+
+    def scrape_prices(self, news_items: Optional[List] = None) -> Optional[Dict[str, float]]:
+        """Try each source in order; return first successful result."""
+        for src in self.PRICE_SOURCES:
+            logger.info(f"FuelPriceScraper: trying {src['name']}...")
+            html = self._fetch_html(src["url"])
+            if not html:
+                continue
+            parser = getattr(self, src["parser"], None)
+            if not parser:
+                continue
+            result = parser(html)
+            if result:
+                logger.info(f"FuelPriceScraper: got prices from {src['name']}: {result}")
+                return result
+            else:
+                logger.warning(f"FuelPriceScraper: could not parse prices from {src['name']}")
+
+        # Last resort: extract from news headlines
+        if news_items:
+            logger.info("FuelPriceScraper: trying headline extraction as last resort...")
+            result = self.scrape_from_news_headlines(news_items)
+            if result:
+                logger.info(f"FuelPriceScraper: extracted prices from headlines: {result}")
+                return result
+
+        logger.warning("FuelPriceScraper: all sources failed.")
+        return None
+
+    def update_live_json(self, prices: Dict[str, float], root_dir: Path, dry_run: bool = False) -> bool:
+        """Write scraped prices to public/fuelPricesLive.json."""
+        json_path = root_dir / FUEL_PRICES_LIVE_JSON
+        now = datetime.now(timezone.utc)
+        pkt = datetime.now()
+
+        payload = {
+            "lastUpdated": pkt.strftime("%Y-%m-%dT%H:%M:%S+05:00"),
+            "source": "OGRA Pakistan — auto-scraped",
+            "currency": "PKR",
+            "unit": "per litre",
+            "prices": {
+                "petrol": prices.get("petrol", 330.00),
+                "diesel": prices.get("diesel", 331.00),
+                "highOctane": prices.get("highOctane", 345.00),
+                "lpg": prices.get("lpg", 450.00),
+            },
+            "meta": {
+                "scrapedAt": now.isoformat(),
+                "nextReviewDate": "",
+                "notes": "Auto-updated by GitHub Actions daily workflow.",
+            },
+        }
+
+        if dry_run:
+            logger.info(f"[DRY-RUN] Would update {json_path} with prices: {prices}")
+            return True
+
+        try:
+            json_path.parent.mkdir(parents=True, exist_ok=True)
+            with open(json_path, "w", encoding="utf-8") as f:
+                json.dump(payload, f, indent=2, ensure_ascii=False)
+            logger.info(f"Successfully updated live fuel prices JSON: {json_path}")
+            return True
+        except Exception as e:
+            logger.error(f"Failed to write {json_path}: {e}")
+            return False
+
+    def update_fallback_js(self, prices: Dict[str, float], root_dir: Path, dry_run: bool = False) -> bool:
+        """Update the hardcoded FUEL_BASE_PRICES in src/data/fuelPrices.js."""
+        js_path = root_dir / FUEL_PRICES_JS
+        if not js_path.exists():
+            logger.warning(f"fuelPrices.js not found at {js_path}")
+            return False
+
+        try:
+            with open(js_path, "r", encoding="utf-8") as f:
+                content = f.read()
+
+            today_str = datetime.now().strftime("%d %B %Y")
+
+            # Replace individual price values
+            for key, js_key in [("petrol", "petrol"), ("diesel", "diesel"),
+                                 ("highOctane", "highOctane")]:
+                if key in prices:
+                    pattern = rf"({js_key}:\s*)[\d.]+,"
+                    replacement = rf"\g<1>{prices[key]:.2f},"
+                    content = re.sub(pattern, replacement, content)
+
+            # Update the "Last manual update" comment date
+            content = re.sub(
+                r"Last manual update: .+",
+                f"Last manual update: {today_str} (auto-scraped)",
+                content,
+            )
+
+            if dry_run:
+                logger.info(f"[DRY-RUN] Would update {js_path} with prices: {prices}")
+                return True
+
+            with open(js_path, "w", encoding="utf-8") as f:
+                f.write(content)
+            logger.info(f"Successfully updated fallback JS prices: {js_path}")
+            return True
+        except Exception as e:
+            logger.error(f"Failed to update {js_path}: {e}")
+            return False
+
+
+# ------------------------------------------------------------------------------
 # Frontend JSON Data & Markdown Subpage Synchronizer
 # ------------------------------------------------------------------------------
 class PlatformSynchronizer:
@@ -608,6 +858,17 @@ Time    : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 
     items_to_apply = new_items if new_items else harvested_items[:5]
 
+    # Step 1b: Scrape and update live fuel prices
+    logger.info("Scraping live OGRA fuel prices from Pakistani sources...")
+    price_scraper = FuelPriceScraper()
+    scraped_prices = price_scraper.scrape_prices(news_items=harvested_items)
+    if scraped_prices:
+        logger.info(f"Live prices scraped: {scraped_prices}")
+        price_scraper.update_live_json(scraped_prices, repo_root, dry_run=args.dry_run)
+        price_scraper.update_fallback_js(scraped_prices, repo_root, dry_run=args.dry_run)
+    else:
+        logger.warning("Could not scrape live fuel prices — existing values remain unchanged.")
+
     # Step 2: Synchronize frontend JSON data
     sync = PlatformSynchronizer(root_dir=repo_root)
     sync.sync_frontend_json(items_to_apply, dry_run=args.dry_run)
@@ -636,7 +897,9 @@ Time    : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 ✅ EXECUTION COMPLETE
 Signals Processed : {len(items_to_apply)}
 Subpages Updated  : {subpages_updated}
+Fuel Prices       : {'Updated (' + str(scraped_prices) + ')' if scraped_prices else 'No change (scrape failed)'}
 Frontend Data     : src/data/fuelMarketIntel.json
+Live Prices JSON  : public/fuelPricesLive.json
 Timestamp         : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 ============================================================
 """)

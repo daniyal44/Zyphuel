@@ -1,0 +1,16 @@
+{
+  "lastUpdated": "2026-11-16T07:00:00+05:00",
+  "source": "OGRA Pakistan — manual seed",
+  "currency": "PKR",
+  "unit": "per litre",
+  "prices": {
+    "petrol": 330.00,
+    "diesel": 331.00,
+    "highOctane": 345.00,
+    "lpg": 450.00
+  },
+  "meta": {
+    "nextReviewDate": "2026-11-30",
+    "notes": "Prices reflect OGRA fortnightly notification. Auto-updated by GitHub Actions daily workflow."
+  }
+}
