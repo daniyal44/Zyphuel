@@ -22,9 +22,9 @@
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Certified hazardous materials handling: Positive-displacement calibrated dispensing and sealed utilities. Strict 5L min to 15L max per dispatch with fixed Rs. 300 fee up to 10L, avoiding hazardous loose decanting.
 >
+- **Market Intelligence**: Petrol price reduced by Rs3 per litre, diesel remains unchanged - Dawn (Google News (Petrol Price Pakistan))
 - **Market Intelligence**: OGRA cuts petrol, diesel prices by Rs2 - Investify (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Govt reduces petrol, diesel prices by Rs2 per litre - Dawn (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Cnergyico Urges OGRA to Review Refinery Targets, Warns Revised Petrol Pricing Threatens Operations - Energy Update (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Cnergyico urges OGRA to revise diesel production target, review petrol pricing mechanism - Investify (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
