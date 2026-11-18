@@ -22,9 +22,9 @@
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Weights & Measures certified positive-displacement flow meters with 1,000 pulses/litre optical encoders. 15°C Automatic Temperature Compensation (ATC) counteracts Lahore summer heat expansion with 0.01L verified precision.
 >
+- **Market Intelligence**: Petrol price cut by Rs3 per litre, diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))
 - **Market Intelligence**: Petrol price reduced by Rs3 per litre, diesel remains unchanged - Dawn (Google News (Petrol Price Pakistan))
 - **Market Intelligence**: OGRA cuts petrol, diesel prices by Rs2 - Investify (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: 46% blame taxes for rising petrol prices - The Express Tribune (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
