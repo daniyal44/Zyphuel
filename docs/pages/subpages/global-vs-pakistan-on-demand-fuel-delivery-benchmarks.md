@@ -23,9 +23,9 @@
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Comparing global leaders (CAFU, Booster, FuelBuddy) with Zyphuel in Lahore. Calibrated 0.01L flow meters, 50m long-reach hoses, dual optical verification (QR + Code 128), and strictly 5L–15L order limits tailored for Pakistan.
 >
+- **Market Intelligence**: Petrol price reduced by Re1 per litre; diesel increased by Rs2 per litre - Dawn (Google News (Petrol Price Pakistan))
 - **Market Intelligence**: Petrol price up by Rs1, diesel rates unchanged - Investify (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Govt snaps petrol price reduction spree as rate raised by Re1 per litre; diesel remains unchanged - Dawn (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Petrol price in Pakistan from 20 November: Rs323 per litre - Investify (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Petrol price in Pakistan from 21 November: Rs323 per litre - Investify (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure

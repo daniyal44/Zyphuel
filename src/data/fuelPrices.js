@@ -6,8 +6,8 @@ export const PUMP_RATE_MARKUP = 5.00;
 // These are fallback values — live prices are fetched from public/fuelPricesLive.json
 // which is auto-updated by the GitHub Actions daily workflow.
 export const FUEL_BASE_PRICES = {
-  petrol: 325.00,
-  diesel: 331.00,
+  petrol: 322.00,
+  diesel: 355.00,
   highOctane: 345.00,
   lpg: 450.00,
   water: 100.00, // Rs. 100.00 per gallon refill
