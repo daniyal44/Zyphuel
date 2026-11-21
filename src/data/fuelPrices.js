@@ -2,7 +2,7 @@
 export const PUMP_RATE_MARKUP = 5.00;
 
 // Centralized base rates (Official OGRA notified retail rates in Lahore)
-// Last manual update: 20 November 2026 (auto-scraped)
+// Last manual update: 21 November 2026 (auto-scraped)
 // These are fallback values — live prices are fetched from public/fuelPricesLive.json
 // which is auto-updated by the GitHub Actions daily workflow.
 export const FUEL_BASE_PRICES = {
