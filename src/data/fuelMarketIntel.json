@@ -1,98 +1,26 @@
 {
-  "lastUpdated": "2026-11-16T14:52:42.232268",
+  "lastUpdated": "2026-11-16T18:24:22.323785",
   "dateFormatted": "November 16, 2026",
   "dateISO": "2026-11-16",
-  "headlinesCount": 10,
+  "headlinesCount": 2,
   "headlines": [
     {
-      "title": "Cnergyico urges OGRA to revise diesel production target, review petrol pricing mechanism - Investify",
-      "summary": "Cnergyico urges OGRA to revise diesel production target, review petrol pricing mechanism &nbsp;&nbsp; Investify",
-      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQNnVfUEVna3JkTGgxT2dmNC14RG1veWUwVXljb0Z3ZGlfLVFkU3ZEbTlIZExVbG9zSlA1SV9icGF2VUx4bkhiV004THdxRjNkT0VXdjRQQjljX1cyZ0gyS3ZoYVlORmU0YW5ZN1lYWEpQSUN4VC02ZDc4VlRZTU9DQm5lX09rVWt3YnExOW1nYWdBRUM5Z1hiQ3I1OGZDeUxtTnQwcUhSY0UxQk9QQzF1ajVSMG1XeVNab193Z2dqOVVDYlY1ZXdMbkx3?oc=5",
-      "published": "Mon, 16 Nov 2026 04:36:14 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "b43b049f99962e48e8fbd620790261503a2ff49d20ab1cd33586372212aa05bb"
+      "title": "\"Considering average cost\": EPRA announces fuel prices for November-December - Tuko News",
+      "summary": "\"Considering average cost\": EPRA announces fuel prices for November-December &nbsp;&nbsp; Tuko News",
+      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPZnRDa3YwV083U1BiNmpld2xOb2kzWFVVN1UxbnAzalB4TTltMm54dzBrNlBKRW9XYTQ5WWkwTUVXakc3bFlGU3dfT3FIVnBkSGpLY0x1UDBXUmY5NFJvVDVxTmNLVVVndGRXOG9QX01rTXhqeHY3d3B6NUthUENKa3dZek80WTJKMWxOcDlucTJoU1NrOU83Y3VfNThPUVNPQ2Nr?oc=5",
+      "published": "Sat, 14 Nov 2026 12:30:35 GMT",
+      "source": "Google News (Diesel Price Lahore)",
+      "category": "diesel_logistics",
+      "hash": "5f893771959901c0f4d25dcfc11bd3b83ed92401d38336f8f1b371ec0ed77d6a"
     },
     {
-      "title": "Cnergyico Urges OGRA to Review Refinery Targets, Warns Revised Petrol Pricing Threatens Operations - Energy Update",
-      "summary": "Cnergyico Urges OGRA to Review Refinery Targets, Warns Revised Petrol Pricing Threatens Operations &nbsp;&nbsp; Energy Update",
-      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPaWlZTV9iY1BRTDM4NzVOWF9YSGs3UXJyNVdxd05xM3ZsZ1k3VlRXVGNyUXVaUXNEUDlfSEgyLUFzN0pMOVZ3LTI4S3hCc0o1ODBJY05GRlJJZDRsMUJNQnp4R3FzY05VTUNMc0k5OTlYNXNHNVNwTWVCX2RBLXB3ZENlNXZabmVZY3YyMFZzWktBUTVDZjBMemdDQW1yWG14RnVSellHOUpnd0FVN0RUV3RUZWJQcDFYT3JiNEFVVG5mZktIN0RPc0xn?oc=5",
-      "published": "Mon, 16 Nov 2026 08:11:19 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "8a0571650998c908cf157f951f479b5cbe8c74b777fa2c3ee81b07f3a441d72a"
-    },
-    {
-      "title": "Cnergyico asks OGRA to set November HSD target at 130,000 metric tons - Investify",
-      "summary": "Cnergyico asks OGRA to set November HSD target at 130,000 metric tons &nbsp;&nbsp; Investify",
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOeDUwQWdaUGdMRTdiU29zZy1kd081cTBGdHFFcE44VU1qTFZuNXdMXzlxaFRfTVZuMWVLX21jdmIycllyYm9xaDB0Mng4TlpzeU9IbG9VODdZU1F3a05hcUR6cFFFNE13emRERlkwNmNjbEZsX2pqWEZ6VkkzX0ozaFlXYW1jSEtKOUQ5T19CODJHbWN6ZzRZNlg1a2xXenZCV2xtREpYWjlYN2dqeWJPLVhB?oc=5",
-      "published": "Mon, 16 Nov 2026 05:00:00 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "377a233dc38db23d2c6af3fd4d2354d9bc4c20a9176fafca23d520d361920bb6"
-    },
-    {
-      "title": "Petrol price in Pakistan from 14 November: Rs330 per litre - Investify",
-      "summary": "Petrol price in Pakistan from 14 November: Rs330 per litre &nbsp;&nbsp; Investify",
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNYlZuUGpSaDlRRFlGa0hNTVhmdWJSOUdReEZ6c2NqbXNhbzZ4amNKZFRvN1Z6M1hEODA0ZFpIVzFLc1FxQWxlM3BvUEowdl9aU2VXZEg4cjZsRnhjYWJkSTdocDNlbU40TDIyNXY4MUNKSnFRODd3bm9oNFZDb2Y2UFJBdl9Eei0xcFBDS09PRGl1RWUtT2lYRThqdGR5SkJnWVE?oc=5",
-      "published": "Sun, 15 Nov 2026 19:00:00 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "2d2f8826c91b10d5881fe03dd03b486ed34fcc12821746f622260a58927e6b51"
-    },
-    {
-      "title": "Oil slips toward $95 on global supply surplus concerns - Investify",
-      "summary": "Oil slips toward $95 on global supply surplus concerns &nbsp;&nbsp; Investify",
-      "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQSmJ0TldiWFgwT2ktR3BMWmsxVXN3MjFEUEJVZmVLeG5xd19URFZKcVdkQjk3bThtN1RtaV9QMUtMcHZzaVdQbzlXcWhmc0s4VDFJZDN6WFRBRTU1UFNrXzRQcUsyc09sMnNXTVVKWlUyc1FJZWhlM3NwNV84WUF3U1AyWGt1WktVRjF2X2t0b2lWdjduS0xIVDlMTkc?oc=5",
-      "published": "Mon, 16 Nov 2026 04:54:07 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "f6b7671181bdf3190247dfb9764759f8c7677ec45d0c0967f2c84bca3984288f"
-    },
-    {
-      "title": "World Bank rates $370 million Pakistan health programme satisfactory - Investify",
-      "summary": "World Bank rates $370 million Pakistan health programme satisfactory &nbsp;&nbsp; Investify",
-      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNMmhEZjhrTXVRbTN6WVU5MXpQejBVLWhCV3NXdDJPZmJJeUkwdUFTeXoxOTNNMm9UMlFENGJOdnhIRjJBa1dwSXo5UVIwMUxKWW85NHFkX1M1bk1ER1hfQkJiRk9CT044ZWRqbzZMUjVjM2o2ZkhwYy1GWWtubFJxeEZlQWZIY1FFRC1DYlRWSmM2eWFRMGRyeGNXM1BueVlwWUJxNmt4WHFnM2tpMXFv?oc=5",
-      "published": "Mon, 16 Nov 2026 08:28:04 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "e2a60a523ceacd79cabd2c799c4b73cc6733990f0455c5941d790c0cc20f87c2"
-    },
-    {
-      "title": "Cnergyico seeks OGRA review of fuel pricing, HSD target - Profit by Pakistan Today",
-      "summary": "Cnergyico seeks OGRA review of fuel pricing, HSD target &nbsp;&nbsp; Profit by Pakistan Today",
-      "link": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQNS1HdTZpX05YMmNqUTlTYmpQNXZGX0tCT0hlcVRvcFZKakxDbU5JQU85WDJLcXkyc210dVV1T0xTcC1yY1NOeGUzTkRiSlpHNUUzY2l0Q3dMRF9oLW1XV1VaZjhOblM5TWpNejBhSGFkc2ZnbU1QM2pRRHFJT3VMMUVJUzloQjJxQTZTcWY3Nk5Cb201ZHFvNUFNTTlqSWtwNW5KWVlRTjBCd2Y0UGhQVWRwT2VtMmJxM1V5UDFhYm0zcG50bWdkNWRtZUFQc2c?oc=5",
-      "published": "Mon, 16 Nov 2026 04:40:07 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "10f6aa8c00c2b710f575500d36d51d9d76bb741e8412228912689e28135c4d8e"
-    },
-    {
-      "title": "Petrol price in Pakistan – November 16, 2026 - Daily Ausaf",
-      "summary": "Petrol price in Pakistan – November 16, 2026 &nbsp;&nbsp; Daily Ausaf",
-      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNV0Ywd2RBS19zby1qb28xNEpKYWppX0lRdWZJSzJIUklfaTQ4NUtldG5scDM1ZUo2QVJPRXNIQTRnblN2bnhnQ0phbTdFNDZQLTVMUnJnMk9INXQwYUgxbUs3TXVOYWFQRVI2b0xtbHJ0YzQtQndBLVdYRlZGWjFrOFplNNIBiAFBVV95cUxQVVVDQW80elFyN01fVHUxTVpzUks3aXpFUm5RRzNyejAtbGhDOFBJSGpGN1BMck1BczhpM1RNMF9EdldOSnYyRzFLM3RHQ2x6SGJ0SkhYU252dDYyRjRYcWtKSElhUGhfQ0Vob0RTYXE5cFc5ak44NVJkQkNSLU5IeGIwdXdFbjVL?oc=5",
-      "published": "Mon, 16 Nov 2026 05:00:54 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "6d7ef6b8e244505c344b45f053020729c58968d6b9c37d82c82da3a17bcb2f1b"
-    },
-    {
-      "title": "Petrol Price in Pakistan Falls to Rs330 Per Liter, HSD Remains Unchanged - Hamariweb.com",
-      "summary": "Petrol Price in Pakistan Falls to Rs330 Per Liter, HSD Remains Unchanged &nbsp;&nbsp; Hamariweb.com",
-      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNYUViRllHZUlvTmc3Tzg5MVpUekpPOEtkUWppMlRBRU0tN3k3eDJZc2lEWm9ISE83WVVhcHpLV1ltcEtzYkY2MEVqZjlyZDRmQmhSMWdqZU5scTM4RHNQT3hvTlYxSENMNXN1QzQ3Mlo1b2tkVXlSaEJMclB1OWJDZmJmczN5cW1NZjNfRVA4UVlvbENINFYzMWc4QnZQc2hFazBWa0E1bEJSalhIcEE?oc=5",
-      "published": "Mon, 16 Nov 2026 04:18:57 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "310626d592c29711960f085949bf264b52ad3cae3a910ca3dab7b390895a03d1"
-    },
-    {
-      "title": "Govt cuts petrol price, keeps diesel rate unchanged - Aaj English TV",
-      "summary": "Govt cuts petrol price, keeps diesel rate unchanged &nbsp;&nbsp; Aaj English TV",
-      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQdTdFZF9QSHZYQXlHd1NOY19BTThtU19zeDVtRWVtR2JwQ0lxdDNmOHluVV9JOUNNdlZZWU5EN202bUF5aWM3ZWVhc20xc25JaVY2aEVvVWcxODRLOGNiRFZ3enpvY1F1ZnhScnAxNkxtUHUwTDFwc3FKRU1HR0RWeUdFWXl6Z0JqeUhidjJBa1RHZw?oc=5",
-      "published": "Sun, 15 Nov 2026 16:29:35 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "ad885d6d28b6338f248064d98cdb2597200b8c9717d671488455262a3e86834e"
+      "title": "Petrol price cut by Rs2, HSD’s maintained - Business Recorder",
+      "summary": "Petrol price cut by Rs2, HSD’s maintained &nbsp;&nbsp; Business Recorder",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNWWtINkZqU0hqS1R0d3VSRnl4VFBCR1pfY3FPQS1UQW1fVFhIT3RGR2pMcUY5Ni1ZX3d1NGJhOS0wU2dwYWJ6QVlTY0lMNmdIMUhxQmFnc1dwdXUxVDM4ZEVDbW0weFlOajdrS2VZZjFPeWphTEtYYXRydlNHdWdRNmlDbXQ2UdIBVkFVX3lxTE1sTkdJWTIxSUFLODFrc0lQRHdLNl9BRF9aeW1NX0p6eGY2Zi1Ed2Y3Sk1pZk9CZWhheU9LQThodHI5RWVZVUFzcm5Fc0dJTGJCdUhKcHJB?oc=5",
+      "published": "Sat, 14 Nov 2026 00:08:50 GMT",
+      "source": "Google News (Platts Crude & Petroleum)",
+      "category": "market_trends",
+      "hash": "732ab6fad085a02671789408d466d33148a455b65894cef072208d0744244307"
     }
   ],
   "businessRules": {
@@ -113,15 +41,11 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Cnergyico urges OGRA to revise diesel production target, review petrol pricing mechanism - Investify (Google News (Petrol Price Pakistan))"
+          "text": "'Considering average cost': EPRA announces fuel prices for November-December - Tuko News (Google News (Diesel Price Lahore))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Cnergyico Urges OGRA to Review Refinery Targets, Warns Revised Petrol Pricing Threatens Operations - Energy Update (Google News (Petrol Price Pakistan))"
-        },
-        {
-          "label": "Market Intelligence",
-          "text": "Cnergyico asks OGRA to set November HSD target at 130,000 metric tons - Investify (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price cut by Rs2, HSD’s maintained - Business Recorder (Google News (Platts Crude & Petroleum))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -135,15 +59,11 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Cnergyico urges OGRA to revise diesel production target, review petrol pricing mechanism - Investify (Google News (Petrol Price Pakistan))"
+          "text": "'Considering average cost': EPRA announces fuel prices for November-December - Tuko News (Google News (Diesel Price Lahore))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Cnergyico Urges OGRA to Review Refinery Targets, Warns Revised Petrol Pricing Threatens Operations - Energy Update (Google News (Petrol Price Pakistan))"
-        },
-        {
-          "label": "Market Intelligence",
-          "text": "Cnergyico asks OGRA to set November HSD target at 130,000 metric tons - Investify (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price cut by Rs2, HSD’s maintained - Business Recorder (Google News (Platts Crude & Petroleum))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -157,15 +77,11 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Cnergyico urges OGRA to revise diesel production target, review petrol pricing mechanism - Investify (Google News (Petrol Price Pakistan))"
+          "text": "'Considering average cost': EPRA announces fuel prices for November-December - Tuko News (Google News (Diesel Price Lahore))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Cnergyico Urges OGRA to Review Refinery Targets, Warns Revised Petrol Pricing Threatens Operations - Energy Update (Google News (Petrol Price Pakistan))"
-        },
-        {
-          "label": "Market Intelligence",
-          "text": "Cnergyico asks OGRA to set November HSD target at 130,000 metric tons - Investify (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price cut by Rs2, HSD’s maintained - Business Recorder (Google News (Platts Crude & Petroleum))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -179,15 +95,11 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Cnergyico urges OGRA to revise diesel production target, review petrol pricing mechanism - Investify (Google News (Petrol Price Pakistan))"
+          "text": "'Considering average cost': EPRA announces fuel prices for November-December - Tuko News (Google News (Diesel Price Lahore))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Cnergyico Urges OGRA to Review Refinery Targets, Warns Revised Petrol Pricing Threatens Operations - Energy Update (Google News (Petrol Price Pakistan))"
-        },
-        {
-          "label": "Market Intelligence",
-          "text": "Cnergyico asks OGRA to set November HSD target at 130,000 metric tons - Investify (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price cut by Rs2, HSD’s maintained - Business Recorder (Google News (Platts Crude & Petroleum))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -201,15 +113,11 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Cnergyico urges OGRA to revise diesel production target, review petrol pricing mechanism - Investify (Google News (Petrol Price Pakistan))"
+          "text": "'Considering average cost': EPRA announces fuel prices for November-December - Tuko News (Google News (Diesel Price Lahore))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Cnergyico Urges OGRA to Review Refinery Targets, Warns Revised Petrol Pricing Threatens Operations - Energy Update (Google News (Petrol Price Pakistan))"
-        },
-        {
-          "label": "Market Intelligence",
-          "text": "Cnergyico asks OGRA to set November HSD target at 130,000 metric tons - Investify (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price cut by Rs2, HSD’s maintained - Business Recorder (Google News (Platts Crude & Petroleum))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -223,15 +131,11 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Cnergyico urges OGRA to revise diesel production target, review petrol pricing mechanism - Investify (Google News (Petrol Price Pakistan))"
+          "text": "'Considering average cost': EPRA announces fuel prices for November-December - Tuko News (Google News (Diesel Price Lahore))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Cnergyico Urges OGRA to Review Refinery Targets, Warns Revised Petrol Pricing Threatens Operations - Energy Update (Google News (Petrol Price Pakistan))"
-        },
-        {
-          "label": "Market Intelligence",
-          "text": "Cnergyico asks OGRA to set November HSD target at 130,000 metric tons - Investify (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price cut by Rs2, HSD’s maintained - Business Recorder (Google News (Platts Crude & Petroleum))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -245,15 +149,11 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Cnergyico urges OGRA to revise diesel production target, review petrol pricing mechanism - Investify (Google News (Petrol Price Pakistan))"
+          "text": "'Considering average cost': EPRA announces fuel prices for November-December - Tuko News (Google News (Diesel Price Lahore))"
         },
         {
           "label": "Market Intelligence",
-          "text": "Cnergyico Urges OGRA to Review Refinery Targets, Warns Revised Petrol Pricing Threatens Operations - Energy Update (Google News (Petrol Price Pakistan))"
-        },
-        {
-          "label": "Market Intelligence",
-          "text": "Cnergyico asks OGRA to set November HSD target at 130,000 metric tons - Investify (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price cut by Rs2, HSD’s maintained - Business Recorder (Google News (Platts Crude & Petroleum))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",

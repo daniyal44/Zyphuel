@@ -23,9 +23,8 @@
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Comparing global leaders (CAFU, Booster, FuelBuddy) with Zyphuel in Lahore. Calibrated 0.01L flow meters, 50m long-reach hoses, dual optical verification (QR + Code 128), and strictly 5L–15L order limits tailored for Pakistan.
 >
-- **Market Intelligence**: Cnergyico urges OGRA to revise diesel production target, review petrol pricing mechanism - Investify (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Cnergyico Urges OGRA to Review Refinery Targets, Warns Revised Petrol Pricing Threatens Operations - Energy Update (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Cnergyico asks OGRA to set November HSD target at 130,000 metric tons - Investify (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: 'Considering average cost': EPRA announces fuel prices for November-December - Tuko News (Google News (Diesel Price Lahore))
+- **Market Intelligence**: Petrol price cut by Rs2, HSD’s maintained - Business Recorder (Google News (Platts Crude & Petroleum))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
