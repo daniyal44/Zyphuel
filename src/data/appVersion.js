@@ -9,7 +9,7 @@
 // website, in the SEO/GEO metadata and in the knowledge files is derived from this file.
 // Never hardcode these values anywhere else.
 
-export const APP_VERSION = '2.6.4.0.0.41';
+export const APP_VERSION = '2.6.4.0.0.102';
 export const BUILD_NUMBER = '69';
 export const RELEASE_DATE = 'November 10, 2026';
 export const APP_SIZE = '31.7 MB';
@@ -22,8 +22,8 @@ export const APP_PACKAGE = 'com.aistudio.zyphuel.appv2';
 // iOS distribution — the .ipa ships directly from this website (no App Store listing yet).
 // Verified from public/IOS/Zyphuel.ipa: MARKETING_VERSION 2.6.4.0.0.38, CURRENT_PROJECT_VERSION 66,
 // IPHONEOS_DEPLOYMENT_TARGET 17.0, 84,236 bytes, SHA-256 ad923dc7…b21f.
-export const IOS_VERSION = '2.6.4.0.0.38';
-export const IOS_BUILD_NUMBER = '66';
+export const IOS_VERSION = '2.6.4.0.0.102';
+export const IOS_BUILD_NUMBER = '102';
 export const IOS_MIN_OS = 'iOS 17.0+';
 export const IOS_SIZE = '82.3 KB';
 export const IOS_BYTES = '84,236';

@@ -30,7 +30,7 @@ All website pages dynamically import version numbers from `src/data/appVersion.j
 
 ### iOS Version (`IOS_VERSION`)
 - Import: `import { IOS_VERSION } from './data/appVersion.js'`
-- Display format: `v${IOS_VERSION}` (e.g., `v2.6.4.0.0.38`)
+- Display format: `v${IOS_VERSION}` (e.g., `v2.6.4.0.0.102`)
 - Pages displaying iOS version:
   - `DownloadPage.jsx` - iOS download card: "Zyphuel for iPhone & iPad • v${IOS_VERSION} • ${IOS_SIZE} • iOS 17.0+ • App Store listing pending"
 
