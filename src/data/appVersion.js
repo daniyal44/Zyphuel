@@ -38,7 +38,7 @@ export const CHANGELOG = [
     date: 'November 10, 2026',
     title: 'Optimized Production Build 69 (versionName 2.6.4.0.0.41) — APK Size Reduction, Enhanced Stability & Winter-Ready Dispatch',
     features: [
-      'Compiled production release v2.6.4.0.0.41 (versionCode 69) with Android Gradle Plugin 9.1.1, compileSdk 36 and minSdk 24 (full Android 7.0 Nougat support retained)',
+      'Compiled production release v2.6.4.0.0.102 (Build 102) with Android Gradle Plugin 9.1.1, compileSdk 36 and minSdk 24 (full Android 7.0 Nougat support retained)',
       'APK size reduced from 35.3 MB to 31.7 MB (33,261,961 bytes) — 10% smaller binary through optimized resource packaging and ProGuard shrinking',
       'Published SHA-256 integrity hash bcfc050d3bdd...c036 for on-device binary verification',
       'Firebase Cloud Messaging push pipeline enhanced for high-priority OGRA daily rate and winter fuel price alert notifications',

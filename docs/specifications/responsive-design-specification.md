@@ -109,7 +109,7 @@ Zyphuel website implements comprehensive multi-tier responsive design across 6 d
 
 ### AboutPage.jsx
 - QR code display: scalable, readable on all devices
-- Version display: `v2.6.4.0.0.41` always legible
+- Version display: `v2.6.4.0.0.102` always legible
 - Feature icons: touch-friendly on mobile, hover on desktop
 
 ### OrderPage.jsx

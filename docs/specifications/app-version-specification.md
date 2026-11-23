@@ -19,7 +19,7 @@ All website pages dynamically import version numbers from `src/data/appVersion.j
 
 ### Android Version (`APP_VERSION`)
 - Import: `import { APP_VERSION } from './data/appVersion.js'`
-- Display format: `v${APP_VERSION}` (e.g., `v2.6.4.0.0.41`)
+- Display format: `v${APP_VERSION}` (e.g., `v2.6.4.0.0.102`)
 - Pages displaying Android version:
   - `HomePage.jsx` - "Download App v${APP_VERSION} →"
   - `AboutPage.jsx` - "Mobile Application v${APP_VERSION}"
