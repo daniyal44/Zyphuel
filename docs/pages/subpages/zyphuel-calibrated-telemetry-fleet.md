@@ -17,13 +17,14 @@
 
 <!-- ZYPHUEL_FUEL_UPDATE_START -->
 > [!NOTE]
-> **⚡ Live Daily Fuel Intelligence & Market Monitor (November 16, 2026)**
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (November 24, 2026)**
 > - **Operational SLA**: Within 45 Mins (single delivery window) across Lahore.
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Founder Muhammad Daniyal's agile micro-refueler fleet operates across DHA, Gulberg, Johar Town, Bahria Town, and Model Town. Delivered within within 45 minutes (single delivery window) with instant Raast, JazzCash, Easypaisa QR payments.
 >
-- **Market Intelligence**: 'Considering average cost': EPRA announces fuel prices for November-December - Tuko News (Google News (Diesel Price Lahore))
-- **Market Intelligence**: Petrol price cut by Rs2, HSD’s maintained - Business Recorder (Google News (Platts Crude & Petroleum))
+- **Market Intelligence**: Petrol price reduced by Rs3 per litre; diesel remains unchanged - Dawn (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: OGRA announces reduction in petrol price, diesel rate unchanged - ARYnews.tv (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Federal govt reduces petrol price to Rs319 per litr - Bol News (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
