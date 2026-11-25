@@ -2,12 +2,12 @@
 export const PUMP_RATE_MARKUP = 5.00;
 
 // Centralized base rates (Official OGRA notified retail rates in Lahore)
-// Last manual update: 24 November 2026 (auto-scraped)
+// Last manual update: 25 November 2026 (auto-scraped)
 // These are fallback values — live prices are fetched from public/fuelPricesLive.json
 // which is auto-updated by the GitHub Actions daily workflow.
 export const FUEL_BASE_PRICES = {
-  petrol: 319.00,
-  diesel: 331.00,
+  petrol: 318.00,
+  diesel: 353.00,
   highOctane: 345.00,
   lpg: 450.00,
   water: 100.00, // Rs. 100.00 per gallon refill
