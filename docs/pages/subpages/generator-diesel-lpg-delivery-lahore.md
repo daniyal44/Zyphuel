@@ -22,9 +22,9 @@
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: Certified hazardous materials handling: Positive-displacement calibrated dispensing and sealed utilities. Strict 5L min to 15L max per dispatch with fixed Rs. 300 fee up to 10L, avoiding hazardous loose decanting.
 >
-- **Market Intelligence**: Diesel price dips below Rs350 after 4 months; petrol rate down by Rs4 - Dawn (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Petrol price in Pakistan from 27 November: Rs314 per litre - Investify (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt reduces petrol price by Re1 per litre, diesel by Rs2 per litre - Dawn (Google News (Petrol Price Pakistan))
 - **Market Intelligence**: Petrol price falls by Rs4, diesel gets Rs5 cut - Investify (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Govt reduces diesel price by Rs4 per litre, petrol by Re1 per litre - Dawn (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure

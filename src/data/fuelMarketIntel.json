@@ -1,17 +1,26 @@
 {
-  "lastUpdated": "2026-11-26T10:35:56.947401",
+  "lastUpdated": "2026-11-26T22:42:04.220552",
   "dateFormatted": "November 26, 2026",
   "dateISO": "2026-11-26",
   "headlinesCount": 10,
   "headlines": [
     {
-      "title": "Diesel price dips below Rs350 after 4 months; petrol rate down by Rs4 - Dawn",
-      "summary": "Diesel price dips below Rs350 after 4 months; petrol rate down by Rs4 &nbsp;&nbsp; Dawn",
-      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFA1VWxuWjV5ZVJNaHhBQTQ5QVMtTjlWZHB3V000R0VabzlteUdJMC1OMkd0UTRXdndZNUVlMUlJQUZ1NUpHcnlBag?oc=5",
-      "published": "Wed, 25 Nov 2026 17:25:41 GMT",
+      "title": "Petrol price in Pakistan from 27 November: Rs314 per litre - Investify",
+      "summary": "Petrol price in Pakistan from 27 November: Rs314 per litre &nbsp;&nbsp; Investify",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOaGo3UHlGSjhXRTBwZlZnWlFzbHRNN1NuQ1hWOHFMZXZfNkF5dVJBSkxTTms3RGU0TjNRWDdBTkFQOVFYS3k2ellrNUcwNmNLTzR3RGhERXpIQ0lLblJScDdBVTZuamtKSGpydV8waF9nYTJUYlN3SU56OVlybWlmdWtNalJGajBMMWNtdW5wQUdURjQ4VnhiOHJlRXByVkw2eUE?oc=5",
+      "published": "Thu, 26 Nov 2026 19:00:00 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "dc0c2b0f220b5c40998f29aa0f27f730fad76dbe2735d219c948c08e6eea7c2d"
+      "hash": "71706e331c7171af3dc9c92d6bce0b9576dbf50c1da3315b0c9e9c835b692a14"
+    },
+    {
+      "title": "Govt reduces petrol price by Re1 per litre, diesel by Rs2 per litre - Dawn",
+      "summary": "Govt reduces petrol price by Re1 per litre, diesel by Rs2 per litre &nbsp;&nbsp; Dawn",
+      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE00VlFzVUlCNUloeDJIWWluQ2ZqV3VwRGYxN0VlYTJ4TjlfalVHZ3lGb1VlTXdRVE5RZmMzSVZka3E0cVZNY2pWYg?oc=5",
+      "published": "Thu, 26 Nov 2026 17:22:30 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "d29a0a36d6ed5bb2231288bd76e6fc61f0e171c351cf25c7196007d3ed1959eb"
     },
     {
       "title": "Petrol price falls by Rs4, diesel gets Rs5 cut - Investify",
@@ -23,13 +32,31 @@
       "hash": "2686db80b6a7bc2b9c7a64293c1118c80e73087b95525e5ad1a1c4fc22c02e1e"
     },
     {
-      "title": "Govt reduces diesel price by Rs4 per litre, petrol by Re1 per litre - Dawn",
-      "summary": "Govt reduces diesel price by Rs4 per litre, petrol by Re1 per litre &nbsp;&nbsp; Dawn",
-      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBMRWMzcDg3Nl9NYzhyNEpGNlJWX1lvZjN4OXB0eDFQemxvV2NoRUZ3VTRlQ2R2bzBLZGZBejlZSkd4NXVUaS1VTA?oc=5",
-      "published": "Tue, 24 Nov 2026 17:48:16 GMT",
+      "title": "Petrol price in Pakistan from 25 November: Rs318 per litre - Investify",
+      "summary": "Petrol price in Pakistan from 25 November: Rs318 per litre &nbsp;&nbsp; Investify",
+      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQU01kc0NWV3pSM1ZydGJqWWVwX0daM2VGUmlER3RfN19zTFlvZnRzX2dOT05ONndIVFlrM0ZTTGk1ZjNNMW15Sk5ndC1Hc2ZzLURGSXVTNk1sR2w2UkJfZHF5RDMzSTJXZkN3OVkxLXFWbFFpTWEybDRKOHlOQjZ5ajlXNEJJRl9jNDUxR2lzN1B6cDZwUldlWUtzTGJQeVItaWc?oc=5",
+      "published": "Wed, 25 Nov 2026 19:00:00 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "a34c2e4c887932311de27501386721d47af86d225b9f29db0922942c0e4b61b0"
+      "hash": "d0b59e5b0a7b188a3b9bc75500df28fe00aa72e393e03e2c02bde928c553fe1e"
+    },
+    {
+      "title": "Petrol, diesel prices fall further by up to Rs5 per litre - Investify",
+      "summary": "Petrol, diesel prices fall further by up to Rs5 per litre &nbsp;&nbsp; Investify",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPYXUyNFV3M0EtbnA5aV9VY1p3WU10M28zZHNGNGRyUmhSZ3BFUG50YzRCcjFRSnFBZnZLN19yTmlTNzFoZkFwMmdNOW1zYmxncFVoNWJwekxkWW44MXJUNTFVOEtkaFg0Z01aNkhoTVpWUUNfU1B5QXJjdUdmYmIyOTM2ZVV4ZlI5ZVM2REJ0NWVBZGZBQUhXSDdWOERQSjdI?oc=5",
+      "published": "Wed, 25 Nov 2026 17:51:48 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "31136d7e841a03f85e5dc5ce31d6db1fc0ecd3c91b19e60a58b6759cdd199009"
+    },
+    {
+      "title": "Petrol price cut by Rs4, HSD’s by Rs5 - Investify",
+      "summary": "Petrol price cut by Rs4, HSD’s by Rs5 &nbsp;&nbsp; Investify",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQQUFNS0FwMkJRa0VzTlpEUnZTcHJrS2M2WUVlSzlLeG00d2pVSDEzZFM0NlFZN1lNWXdmYlpsVGZSaFotREVoY3owRVlLQzdqbnc3eVlvU2I5T0E2dVZONUVYZlFwYWJFTEozU3U4UE1ZV0t0M1pNU19VQlBjZ0ZlYzYyMnpHUQ?oc=5",
+      "published": "Thu, 26 Nov 2026 00:16:21 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "0704ec4d534c4d76917459b53a82b074b638bd592c419e9900bf7ab33d7c75c1"
     },
     {
       "title": "Petrol price cut to Rs318, diesel to Rs353 per litre - Investify",
@@ -50,49 +77,22 @@
       "hash": "4f826cf6f43688d4f00fa723712933891ca0584a81f28347389089ef88976b8b"
     },
     {
-      "title": "Petrol price drops by Rs4, diesel by Rs5 per litre - Geo News",
-      "summary": "Petrol price drops by Rs4, diesel by Rs5 per litre &nbsp;&nbsp; Geo News",
+      "title": "Pakistan Cuts Petrol Price by Re1 from November 27 - Pkrevenue.com",
+      "summary": "Pakistan Cuts Petrol Price by Re1 from November 27 &nbsp;&nbsp; Pkrevenue.com",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9nNmhRZ0VRbHNmdzcxTDBMVFRmWWxoYTF2NzhyTHZpbkx6ZjM1eUN6MENDcjlRREFNanBrdDVnbVdHZDF2ck5LNjFhM1FuVEt3MktJbG9Qbzh0QU9YVlZBVzFkOVNiM0xER2ozRnhn?oc=5",
+      "published": "Thu, 26 Nov 2026 21:41:24 GMT",
+      "source": "Google News (Petrol Price Pakistan)",
+      "category": "pricing",
+      "hash": "2d0d45f4e376f28c38d9abc5944fbd284443ba040fccc3f0b10bf9de231827d5"
+    },
+    {
+      "title": "Petrol price drops by Re1, diesel by Rs2 per litre - Geo News",
+      "summary": "Petrol price drops by Re1, diesel by Rs2 per litre &nbsp;&nbsp; Geo News",
       "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9pbXZtZUpsa1JoNmUyZ012SmFiTWdfOFY0Tm56QzE3dzVza1N0SUItZEtwODl0Sm8yU1ZRcDd0YUZMWnRpcWhzWUdhSlNtNkc4eE5TOGJMdFV0ZUpja1RGVjhycU45SzM1TEVnUk5uUmMwZDdt?oc=5",
-      "published": "Thu, 26 Nov 2026 05:51:14 GMT",
+      "published": "Wed, 25 Nov 2026 08:00:00 GMT",
       "source": "Google News (Petrol Price Pakistan)",
       "category": "pricing",
-      "hash": "762d78a8fb2686251aeca0a0617c7c269c73654adde021aee9c2557a9121c97e"
-    },
-    {
-      "title": "Petrol price falls by Rs4, diesel sees Rs5 per litre cut - The News Pakistan",
-      "summary": "Petrol price falls by Rs4, diesel sees Rs5 per litre cut &nbsp;&nbsp; The News Pakistan",
-      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBoMVpZUFdtRnVHVEl2eGZzOUpTcVhQR1pQLTUwLTl2SHd3aDdqWUNxSW1WQ0d4cVl0VF9fdG4xZDJncHQ4cWl2eUN3V2NFTDFIRHl1djItZGExUlNKLV9EaGNxMXA4Qk5Va3FoWERjS0tuS2QxenNVVm5R?oc=5",
-      "published": "Wed, 25 Nov 2026 20:57:42 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "81a9a773001046c6cde5f7fa56adac0ff45de34c08731270b7b3f47f22cca2af"
-    },
-    {
-      "title": "OGRA cuts petrol price by Rs4, diesel by Rs5 per litre - Profit by Pakistan Today",
-      "summary": "OGRA cuts petrol price by Rs4, diesel by Rs5 per litre &nbsp;&nbsp; Profit by Pakistan Today",
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSU5tTE16RjdtREQtWGNZLTJTdWNyYzBwZGJrWEVuUzVvMzV1SllzSnVpNTVOYVZOaHJUdUlKZ3hhcWg5cUhCWHVYOVN4a09EaVkySEh2dVlOOTRYdVdpU05haF84YTVyN3JpTmFzMHphTnZSblR5YnR3aEt4NU9JZ3IzTi1BaHFTN2RYRGthTW9pTWU5OUtPUm9sRFY1d2gtcHc?oc=5",
-      "published": "Wed, 25 Nov 2026 18:07:48 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "e9105098822910971f2963581fde55476ab8053ccf1073ed6d4bb2198db251b4"
-    },
-    {
-      "title": "OGRA cuts petrol price to Rs314, diesel to Rs348 per litre from November 26 - UrduPoint",
-      "summary": "OGRA cuts petrol price to Rs314, diesel to Rs348 per litre from November 26 &nbsp;&nbsp; UrduPoint",
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOT0dRVDd1RUIzQXRhNkVGOHpZVVN4ZDJLS19XenFQbldtV0NTWW5pd2RpTkxWZ29jMEM5ZUNGYkNiRm55NU5xMGM1UzRLckNia2djWE5vZUViRzItMlBEOHYtYk40bjVabXQ2bC1QV0h0cXZiQWYzV3VBdmpocDl6eWk3Qk5pQVlWcW5uaENJMU0xd1BzWGpzOG9n?oc=5",
-      "published": "Wed, 25 Nov 2026 18:00:03 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "920d4717247fe7378873e1af6c58f70d3874d3ead95f5394e3aa33e6bd585147"
-    },
-    {
-      "title": "OGRA reduces petrol price by Rs1, diesel by Rs4 per litre - The Nation (Pakistan )",
-      "summary": "OGRA reduces petrol price by Rs1, diesel by Rs4 per litre &nbsp;&nbsp; The Nation (Pakistan )",
-      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPd0s3YkRuWVZ2OExheXhYV1A3dy05SFRob3JnbnJXcTVUQVJIUk1DOUp0UFMtekFmekxoS0VhLXViUElpSHlkTUpmVXBzYU5pbE54OFhOXzBDcW8wRWFwZjVPdnhZX1R2QjZKT0tCT3BvaV91NEZ2UDJzR1VySVhJemhEdS1pclRrUUdvRExNeGRVQQ?oc=5",
-      "published": "Tue, 24 Nov 2026 18:47:23 GMT",
-      "source": "Google News (Petrol Price Pakistan)",
-      "category": "pricing",
-      "hash": "2ba538b4ab143f2c8bf60c9aaba6faf560b00d4dfd51b633f2b287b8d12e1451"
+      "hash": "80b052742b142fd4d3d11e6be4be897e7c81efbe780968de8915f50762f5be51"
     }
   ],
   "businessRules": {
@@ -113,15 +113,15 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Diesel price dips below Rs350 after 4 months; petrol rate down by Rs4 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price in Pakistan from 27 November: Rs314 per litre - Investify (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt reduces petrol price by Re1 per litre, diesel by Rs2 per litre - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
           "text": "Petrol price falls by Rs4, diesel gets Rs5 cut - Investify (Google News (Petrol Price Pakistan))"
-        },
-        {
-          "label": "Market Intelligence",
-          "text": "Govt reduces diesel price by Rs4 per litre, petrol by Re1 per litre - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -135,15 +135,15 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Diesel price dips below Rs350 after 4 months; petrol rate down by Rs4 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price in Pakistan from 27 November: Rs314 per litre - Investify (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt reduces petrol price by Re1 per litre, diesel by Rs2 per litre - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
           "text": "Petrol price falls by Rs4, diesel gets Rs5 cut - Investify (Google News (Petrol Price Pakistan))"
-        },
-        {
-          "label": "Market Intelligence",
-          "text": "Govt reduces diesel price by Rs4 per litre, petrol by Re1 per litre - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -157,15 +157,15 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Diesel price dips below Rs350 after 4 months; petrol rate down by Rs4 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price in Pakistan from 27 November: Rs314 per litre - Investify (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt reduces petrol price by Re1 per litre, diesel by Rs2 per litre - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
           "text": "Petrol price falls by Rs4, diesel gets Rs5 cut - Investify (Google News (Petrol Price Pakistan))"
-        },
-        {
-          "label": "Market Intelligence",
-          "text": "Govt reduces diesel price by Rs4 per litre, petrol by Re1 per litre - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -179,15 +179,15 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Diesel price dips below Rs350 after 4 months; petrol rate down by Rs4 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price in Pakistan from 27 November: Rs314 per litre - Investify (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt reduces petrol price by Re1 per litre, diesel by Rs2 per litre - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
           "text": "Petrol price falls by Rs4, diesel gets Rs5 cut - Investify (Google News (Petrol Price Pakistan))"
-        },
-        {
-          "label": "Market Intelligence",
-          "text": "Govt reduces diesel price by Rs4 per litre, petrol by Re1 per litre - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -201,15 +201,15 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Diesel price dips below Rs350 after 4 months; petrol rate down by Rs4 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price in Pakistan from 27 November: Rs314 per litre - Investify (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt reduces petrol price by Re1 per litre, diesel by Rs2 per litre - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
           "text": "Petrol price falls by Rs4, diesel gets Rs5 cut - Investify (Google News (Petrol Price Pakistan))"
-        },
-        {
-          "label": "Market Intelligence",
-          "text": "Govt reduces diesel price by Rs4 per litre, petrol by Re1 per litre - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -223,15 +223,15 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Diesel price dips below Rs350 after 4 months; petrol rate down by Rs4 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price in Pakistan from 27 November: Rs314 per litre - Investify (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt reduces petrol price by Re1 per litre, diesel by Rs2 per litre - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
           "text": "Petrol price falls by Rs4, diesel gets Rs5 cut - Investify (Google News (Petrol Price Pakistan))"
-        },
-        {
-          "label": "Market Intelligence",
-          "text": "Govt reduces diesel price by Rs4 per litre, petrol by Re1 per litre - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
@@ -245,15 +245,15 @@
       "points": [
         {
           "label": "Market Intelligence",
-          "text": "Diesel price dips below Rs350 after 4 months; petrol rate down by Rs4 - Dawn (Google News (Petrol Price Pakistan))"
+          "text": "Petrol price in Pakistan from 27 November: Rs314 per litre - Investify (Google News (Petrol Price Pakistan))"
+        },
+        {
+          "label": "Market Intelligence",
+          "text": "Govt reduces petrol price by Re1 per litre, diesel by Rs2 per litre - Dawn (Google News (Petrol Price Pakistan))"
         },
         {
           "label": "Market Intelligence",
           "text": "Petrol price falls by Rs4, diesel gets Rs5 cut - Investify (Google News (Petrol Price Pakistan))"
-        },
-        {
-          "label": "Market Intelligence",
-          "text": "Govt reduces diesel price by Rs4 per litre, petrol by Re1 per litre - Dawn (Google News (Petrol Price Pakistan))"
         }
       ],
       "operationalZone": "Lahore, Pakistan (20–45 Min SLA)",
