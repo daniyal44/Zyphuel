@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-27T10:39:12+05:00",
+  "lastUpdated": "2026-11-27T22:26:05+05:00",
   "source": "OGRA Pakistan — auto-scraped",
   "currency": "PKR",
   "unit": "per litre",
@@ -10,7 +10,7 @@
     "lpg": 450.0
   },
   "meta": {
-    "scrapedAt": "2026-11-27T10:39:12.343498+00:00",
+    "scrapedAt": "2026-11-27T22:26:05.373849+00:00",
     "nextReviewDate": "",
     "notes": "Auto-updated by GitHub Actions daily workflow."
   }
