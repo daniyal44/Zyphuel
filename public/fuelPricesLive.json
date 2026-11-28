@@ -1,16 +1,16 @@
 {
-  "lastUpdated": "2026-11-27T22:26:05+05:00",
+  "lastUpdated": "2026-11-28T09:56:14+05:00",
   "source": "OGRA Pakistan — auto-scraped",
   "currency": "PKR",
   "unit": "per litre",
   "prices": {
-    "petrol": 313.0,
-    "diesel": 346.0,
+    "petrol": 312.0,
+    "diesel": 331.0,
     "highOctane": 345.0,
     "lpg": 450.0
   },
   "meta": {
-    "scrapedAt": "2026-11-27T22:26:05.373849+00:00",
+    "scrapedAt": "2026-11-28T09:56:14.958568+00:00",
     "nextReviewDate": "",
     "notes": "Auto-updated by GitHub Actions daily workflow."
   }

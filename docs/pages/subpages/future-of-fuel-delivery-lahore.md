@@ -17,14 +17,14 @@
 
 <!-- ZYPHUEL_FUEL_UPDATE_START -->
 > [!NOTE]
-> **⚡ Live Daily Fuel Intelligence & Market Monitor (November 27, 2026)**
+> **⚡ Live Daily Fuel Intelligence & Market Monitor (November 28, 2026)**
 > - **Operational SLA**: Within 45 Mins (single delivery window) across Lahore.
 > - **Verified Parameters**: Strictly 5L min to 15L max per order. Delivery charges: fixed Rs. 300.00 up to 10L, strictly scaled Rs. 320.00–Rs. 400.00 (+Rs. 20/L) for 11L–15L Max.
 > - **Summary**: OGRA daily rolling Platts benchmark monitor active. Rates adjust daily Monday through Friday, with weekend rates locked. Lock in your doorstep refuel at current rates before depot changes. Fixed Rs. 300.00 delivery fee for 5L–10L; Rs. 320–Rs. 400 for 11L–15L Max.
 >
-- **Market Intelligence**: Petrol price in Pakistan from 28 November: Rs313 per litre - Investify (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Petrol price drops to Rs312, diesel remains unchanged - Investify (Google News (Petrol Price Pakistan))
 - **Market Intelligence**: Govt reduces petrol price by Re1 per litre, diesel by Rs2 per litre - Dawn (Google News (Petrol Price Pakistan))
-- **Market Intelligence**: Govt cuts petrol price by Re1, diesel's by Rs2 per litre - Business Recorder (Google News (Petrol Price Pakistan))
+- **Market Intelligence**: Govt cuts petrol price by Re1 per litre, keeps diesel rate unchanged - Investify (Google News (Petrol Price Pakistan))
 <!-- ZYPHUEL_FUEL_UPDATE_END -->
 
 ## Pillar Guide Architecture & Content Structure
